@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb6l6e5xtb17k"]
+
+[ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Sprites/123spritesheet.png" id="1_7qqtv"]
+
+[node name="Shadow" type="Sprite2D"]
+z_index = -99
+use_parent_material = true
+texture = ExtResource("1_7qqtv")
+region_enabled = true
+region_rect = Rect2(112, 64, 32, 16)

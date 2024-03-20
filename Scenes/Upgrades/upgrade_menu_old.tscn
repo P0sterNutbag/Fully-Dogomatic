@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://duyb0pi72kagb"]
+
+[ext_resource type="Script" path="res://Scripts/Upgrades/upgrade_menu_old.gd" id="1_0r7ok"]
+[ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Shaders/colorswap.tres" id="2_rhfa4"]
+[ext_resource type="Texture2D" uid="uid://bdqrclvbfymsr" path="res://Sprites/phone.png" id="3_6vkv6"]
+[ext_resource type="Texture2D" uid="uid://dcpmheruqmgdh" path="res://Sprites/dog arm.png" id="4_pwdi6"]
+[ext_resource type="FontFile" uid="uid://blveai4y2nwq5" path="res://Sprites/Fonts/Pikzel-Regular.ttf" id="5_ap6xd"]
+[ext_resource type="Texture2D" uid="uid://de312nfiun02b" path="res://Sprites/arrows.png" id="6_o4rml"]
+[ext_resource type="PackedScene" uid="uid://diu6fl025qdv0" path="res://Scenes/Upgrades/upgrade_option.tscn" id="7_87xwt"]
+
+[node name="UpgradeMenu" type="CanvasLayer" node_paths=PackedStringArray("options")]
+process_mode = 3
+script = ExtResource("1_0r7ok")
+options = [null, null, null]
+
+[node name="Node2D" type="Node2D" parent="."]
+material = ExtResource("2_rhfa4")
+
+[node name="Phone" type="Sprite2D" parent="Node2D"]
+visible = false
+use_parent_material = true
+position = Vector2(327, 182)
+texture = ExtResource("3_6vkv6")
+
+[node name="DogArm" type="Sprite2D" parent="Node2D"]
+z_index = 2
+use_parent_material = true
+position = Vector2(34, 330)
+texture = ExtResource("4_pwdi6")
+offset = Vector2(-100, 150)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Node2D/DogArm"]
+offset_left = -32.0
+offset_top = 95.0
+offset_right = 145.0
+offset_bottom = 135.0
+theme_override_fonts/normal_font = ExtResource("5_ap6xd")
+theme_override_font_sizes/normal_font_size = 10
+text = "Press    to choose"
+
+[node name="Arrows" type="Sprite2D" parent="Node2D/DogArm"]
+position = Vector2(5, 102)
+texture = ExtResource("6_o4rml")
+region_enabled = true
+region_rect = Rect2(0, 0, 8, 8)
+
+[node name="UpgradeOption" parent="Node2D" instance=ExtResource("7_87xwt")]
+offset_left = 172.0
+offset_top = 182.0
+offset_right = 172.0
+offset_bottom = 182.0
+
+[node name="UpgradeOption2" parent="Node2D" instance=ExtResource("7_87xwt")]
+offset_left = 363.0
+offset_top = 121.0
+offset_right = 363.0
+offset_bottom = 121.0
+
+[node name="UpgradeOption3" parent="Node2D" instance=ExtResource("7_87xwt")]
+offset_left = 467.0
+offset_top = 231.0
+offset_right = 467.0
+offset_bottom = 231.0

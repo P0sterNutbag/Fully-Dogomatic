@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://co3jdyb0whgdi"]
+
+[ext_resource type="Texture2D" uid="uid://dtraxmokv35ns" path="res://Sprites/tilemap.png" id="1_8786n"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_1ni8d"]
+tile_data = PackedInt32Array(0, 0, 2, 65536, 0, 1, 131072, 0, 1, 1, 0, 1342177281, 65537, 131072, 1, 131073, 65536, 2, 2, 0, 1342177281, 65538, 65536, 2, 131074, 65536, 2)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_0gydm"]
+tile_data = PackedInt32Array(0, 0, 536870913, 65536, 0, 536870913, 1, 65536, 805306370, 65537, 65536, 805306369, 2, 0, 805306369, 65538, 0, 805306369)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_ggbgi"]
+tile_data = PackedInt32Array(0, 0, 536870913, 65536, 0, 1, 1, 65536, 805306369, 65537, 65536, 2, 2, 0, 805306369, 65538, 0, 268435457)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_egmlk"]
+texture = ExtResource("1_8786n")
+texture_region_size = Vector2i(24, 24)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_rtwca"]
+tile_size = Vector2i(24, 24)
+sources/0 = SubResource("TileSetAtlasSource_egmlk")
+pattern_0 = SubResource("TileMapPattern_1ni8d")
+pattern_1 = SubResource("TileMapPattern_0gydm")
+pattern_2 = SubResource("TileMapPattern_ggbgi")
+
+[node name="CityTiles" type="TileMap"]
+tile_set = SubResource("TileSet_rtwca")
+format = 2

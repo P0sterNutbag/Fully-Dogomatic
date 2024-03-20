@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://16dys4jid5d5"]
+
+[ext_resource type="PackedScene" uid="uid://dpwo44pw6jd44" path="res://Scenes/Guns/gun_parent.tscn" id="1_wiiqa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cbx5q"]
+size = Vector2(16, 9.99992)
+
+[node name="Pistol" instance=ExtResource("1_wiiqa")]
+damage = 2.0
+metadata/Title = "M1911"
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-5.32442e-13, -1.19211e-07)
+shape = SubResource("RectangleShape2D_cbx5q")

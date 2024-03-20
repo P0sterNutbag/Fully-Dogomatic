@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0qu8ao5cr1ab"]
+
+[ext_resource type="FontFile" uid="uid://blveai4y2nwq5" path="res://Sprites/Fonts/Pikzel-Regular.ttf" id="1_6dqap"]
+[ext_resource type="Script" path="res://Scripts/wobble_text.gd" id="2_sh74i"]
+
+[node name="GunName" type="Node2D"]
+use_parent_material = true
+script = ExtResource("2_sh74i")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+z_index = 100
+use_parent_material = true
+offset_left = -65.0
+offset_top = -7.0
+offset_right = 65.0
+offset_bottom = 7.0
+theme_override_fonts/normal_font = ExtResource("1_6dqap")
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true

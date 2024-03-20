@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf6f00vh1b6gv"]
+
+[ext_resource type="Script" path="res://Scripts/Upgrades/reload_upgrade.gd" id="1_6rinc"]
+[ext_resource type="Texture2D" uid="uid://7ppsa5tfac3k" path="res://Sprites/upgrade icon icon.png" id="2_12ou6"]
+
+[node name="ReloadUpgrade" type="Node2D" groups=["upgrade"]]
+script = ExtResource("1_6rinc")
+metadata/Title = "Speed Reload"
+metadata/icon = ExtResource("2_12ou6")

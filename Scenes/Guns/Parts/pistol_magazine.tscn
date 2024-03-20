@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgu5vroflg0y6"]
+
+[ext_resource type="Script" path="res://Scripts/gun_part_magazine.gd" id="2_6t00t"]
+
+[node name="Magazine" type="Sprite2D"]
+use_parent_material = true
+offset = Vector2(3, 4)
+region_enabled = true
+region_rect = Rect2(80, 0, 16, 16)
+script = ExtResource("2_6t00t")
+rounds = 6
+reload_time = 2.0

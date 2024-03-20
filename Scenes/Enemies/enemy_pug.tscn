@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://kyho67jpnwf3"]
+
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_g6erl"]
+[ext_resource type="PackedScene" uid="uid://4s88ewwe3fxv" path="res://Scenes/death_explosion.tscn" id="2_vf57h"]
+[ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Sprites/123spritesheet.png" id="3_yube7"]
+[ext_resource type="PackedScene" uid="uid://bb6l6e5xtb17k" path="res://Scenes/shadow.tscn" id="4_ljagx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hr8qo"]
+radius = 0.01
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ry27"]
+atlas = ExtResource("3_yube7")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrj1t"]
+atlas = ExtResource("3_yube7")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oupew"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ry27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrj1t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_knd01"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0btmh"]
+radius = 9.0
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+y_sort_enabled = true
+use_parent_material = true
+collision_layer = 8
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_g6erl")
+speed = 15.0
+damage = 10.0
+death_explosion = ExtResource("2_vf57h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("CircleShape2D_hr8qo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+use_parent_material = true
+sprite_frames = SubResource("SpriteFrames_oupew")
+autoplay = "default"
+frame = 1
+frame_progress = 0.594315
+
+[node name="Hitbox" type="Area2D" parent="." groups=["enemy"]]
+y_sort_enabled = true
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_knd01")
+
+[node name="Hurtbox" type="Area2D" parent="." groups=["enemy"]]
+y_sort_enabled = true
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_0btmh")
+
+[node name="Shadow" parent="." instance=ExtResource("4_ljagx")]
+position = Vector2(-1.49012e-07, 9)
+scale = Vector2(0.875, 1)

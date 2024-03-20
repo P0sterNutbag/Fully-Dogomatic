@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlwwqmxp2afpa"]
+
+[ext_resource type="Script" path="res://Scripts/Upgrades/explosive_upgrade.gd" id="1_gscjy"]
+[ext_resource type="Texture2D" uid="uid://7ppsa5tfac3k" path="res://Sprites/upgrade icon icon.png" id="2_xlviv"]
+
+[node name="ExplosiveUpgrade" type="Node2D" groups=["upgrade"]]
+script = ExtResource("1_gscjy")
+metadata/Title = "Explosive Rounds"
+metadata/icon = ExtResource("2_xlviv")

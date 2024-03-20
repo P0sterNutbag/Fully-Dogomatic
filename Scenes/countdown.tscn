@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1yo75f23rful"]
+
+[ext_resource type="Script" path="res://Scripts/countdown.gd" id="1_v1kvn"]
+[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Sprites/Blue Sky 8x8.ttf" id="2_1esph"]
+
+[node name="Countdown" type="Node2D"]
+use_parent_material = true
+script = ExtResource("1_v1kvn")
+
+[node name="Minutes" type="RichTextLabel" parent="."]
+use_parent_material = true
+clip_contents = false
+offset_left = -16.0
+offset_top = -4.0
+offset_right = -1.0
+offset_bottom = 4.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_1esph")
+theme_override_font_sizes/normal_font_size = 7
+bbcode_enabled = true
+text = "[right]00"
+
+[node name="Period" type="RichTextLabel" parent="."]
+use_parent_material = true
+clip_contents = false
+offset_left = -3.0
+offset_top = -4.0
+offset_right = 3.0
+offset_bottom = 4.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/normal_font = ExtResource("2_1esph")
+theme_override_font_sizes/normal_font_size = 7
+bbcode_enabled = true
+text = "."
+
+[node name="Seconds" type="RichTextLabel" parent="."]
+use_parent_material = true
+clip_contents = false
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 16.0
+offset_bottom = 4.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/normal_font = ExtResource("2_1esph")
+theme_override_font_sizes/normal_font_size = 7
+bbcode_enabled = true
+text = "[left]00"
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

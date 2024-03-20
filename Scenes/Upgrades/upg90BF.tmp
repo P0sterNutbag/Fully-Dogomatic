@@ -1,0 +1,44 @@
+[gd_scene load_steps=11 format=3 uid="uid://diu6fl025qdv0"]
+
+[ext_resource type="Script" path="res://Scripts/Upgrades/upgrade_option.gd" id="1_kc4vw"]
+[ext_resource type="PackedScene" uid="uid://va6m027lsfhl" path="res://Scenes/Guns/AR15.tscn" id="6_skw4w"]
+[ext_resource type="PackedScene" uid="uid://16dys4jid5d5" path="res://Scenes/Guns/pistol.tscn" id="6_tfc0h"]
+[ext_resource type="PackedScene" uid="uid://qfad7ark3b0m" path="res://Scenes/Guns/grenade_launcher.tscn" id="7_extv4"]
+[ext_resource type="PackedScene" uid="uid://jj0kl38us43u" path="res://Scenes/Guns/shotgun.tscn" id="9_rtycv"]
+[ext_resource type="PackedScene" uid="uid://dex3rn367cm3p" path="res://Scenes/Guns/smg.tscn" id="10_5ee6a"]
+[ext_resource type="PackedScene" uid="uid://csm601ufctk8h" path="res://Scenes/Guns/sniper.tscn" id="11_1ucup"]
+[ext_resource type="FontFile" uid="uid://cv33v3c57fnen" path="res://Sprites/Fonts/Crispix.ttf" id="13_n8rcb"]
+[ext_resource type="Texture2D" uid="uid://bt4bqfufwd7lu" path="res://Sprites/upgrade box.png" id="14_04dbb"]
+[ext_resource type="Texture2D" uid="uid://btohsgsxdi3fu" path="res://Sprites/upgrade box selected.png" id="15_nnukm"]
+
+[node name="UpgradeOption" type="Node2D"]
+script = ExtResource("1_kc4vw")
+all_upgrades = Array[PackedScene]([ExtResource("6_skw4w"), ExtResource("7_extv4"), ExtResource("6_tfc0h"), ExtResource("9_rtycv"), ExtResource("10_5ee6a"), ExtResource("11_1ucup")])
+
+[node name="UpgradeName" type="RichTextLabel" parent="."]
+use_parent_material = true
+offset_left = 23.0
+offset_top = 3.0
+offset_right = 91.0
+offset_bottom = 23.0
+theme_override_colors/default_color = Color(0.223529, 0.223529, 0.223529, 1)
+theme_override_fonts/normal_font = ExtResource("13_n8rcb")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[left]OPTION 1"
+
+[node name="Box" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(48, 12)
+texture = ExtResource("14_04dbb")
+
+[node name="BoxSelected" type="Sprite2D" parent="."]
+visible = false
+use_parent_material = true
+position = Vector2(48, 12)
+texture = ExtResource("15_nnukm")
+
+[node name="UpgradeIcon" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(11, 12)
+region_enabled = true

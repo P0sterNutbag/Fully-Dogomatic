@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://clm1mv5v2nuaf"]
+
+[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Sprites/Fonts/Blue Sky 8x8.ttf" id="1_goa2k"]
+
+[resource]
+RichTextLabel/font_sizes/normal_font_size = 7
+RichTextLabel/fonts/normal_font = ExtResource("1_goa2k")

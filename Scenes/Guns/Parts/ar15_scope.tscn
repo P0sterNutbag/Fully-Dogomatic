@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkat53asblqve"]
+
+[ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Sprites/gun parts spritesheet.png" id="1_6tou4"]
+[ext_resource type="Script" path="res://Scripts/gun_part_scope.gd" id="2_4yr1s"]
+
+[node name="Scope" type="Sprite2D"]
+use_parent_material = true
+texture = ExtResource("1_6tou4")
+offset = Vector2(4, -2)
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 16)
+script = ExtResource("2_4yr1s")

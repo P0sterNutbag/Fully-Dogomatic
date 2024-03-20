@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx18mgom3chcm"]
+
+[ext_resource type="Script" path="res://Scripts/game_controller.gd" id="1_a7pen"]
+[ext_resource type="PackedScene" uid="uid://dmrfe86xnntkv" path="res://Scenes/pause_menu.tscn" id="2_n2v8e"]
+
+[node name="GameController" type="Node2D"]
+script = ExtResource("1_a7pen")
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_n2v8e")]
+visible = false

@@ -1,0 +1,38 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://kx3kmho3mt5o"
+path="res://.godot/imported/Blue Sky 8x8.ttf-6faca03e5e6cb9b7e8a2d42d43a14014.fontdata"
+
+[deps]
+
+source_file="res://Sprites/Fonts/Blue Sky 8x8.ttf"
+dest_files=["res://.godot/imported/Blue Sky 8x8.ttf-6faca03e5e6cb9b7e8a2d42d43a14014.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=0
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "New Configuration",
+"size": Vector2i(16, 0)
+}]
+language_support={}
+script_support={}
+opentype_features={}

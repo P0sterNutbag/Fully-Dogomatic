@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cllces5swrvj0"]
+
+[ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Sprites/gun parts spritesheet.png" id="1_khyeb"]
+[ext_resource type="Script" path="res://Scripts/gun_part_stock.gd" id="2_dmufg"]
+
+[node name="Stock" type="Sprite2D"]
+z_index = 2
+use_parent_material = true
+texture = ExtResource("1_khyeb")
+offset = Vector2(-2, 4)
+region_enabled = true
+region_rect = Rect2(0, 32, 16, 16)
+script = ExtResource("2_dmufg")

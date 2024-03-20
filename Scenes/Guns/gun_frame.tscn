@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bduar6b4yec01"]
+
+[ext_resource type="Script" path="res://Scripts/gun_frame.gd" id="1_pdlsp"]
+
+[node name="GunFrame" type="Node2D"]
+process_mode = 3
+use_parent_material = true
+script = ExtResource("1_pdlsp")

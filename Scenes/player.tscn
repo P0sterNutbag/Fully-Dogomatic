@@ -1,0 +1,191 @@
+[gd_scene load_steps=25 format=3 uid="uid://cfkssnl27y2qn"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_2qpty"]
+[ext_resource type="PackedScene" uid="uid://bb6l6e5xtb17k" path="res://Scenes/shadow.tscn" id="2_3aj65"]
+[ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Sprites/123spritesheet.png" id="3_r6o1k"]
+[ext_resource type="Material" uid="uid://d4j8mwfgqx33y" path="res://Shaders/drop_shadow.tres" id="3_vmj21"]
+[ext_resource type="Texture2D" uid="uid://cog1pfevxty7h" path="res://Sprites/arrow.png" id="4_r3toi"]
+[ext_resource type="PackedScene" uid="uid://chgfr2kl6t642" path="res://Scenes/crate_spawner.tscn" id="5_i7m7h"]
+[ext_resource type="AudioStream" uid="uid://dcyv4n1xwal27" path="res://SFX/chaching.mp3" id="7_3g3fn"]
+[ext_resource type="AudioStream" uid="uid://bfkfkmptikkw" path="res://SFX/reload.mp3" id="7_u3cnu"]
+[ext_resource type="AudioStream" uid="uid://d33cpr401ambu" path="res://SFX/gunshot1.mp3" id="8_xmabl"]
+[ext_resource type="AudioStream" uid="uid://m8vxicxyfjbi" path="res://SFX/explosion.mp3" id="10_8hs04"]
+[ext_resource type="AudioStream" uid="uid://bcqv2c0rxis70" path="res://SFX/bark.mp3" id="10_36d3p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7s6u8"]
+radius = 0.707107
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drq76"]
+atlas = ExtResource("3_r6o1k")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqgnx"]
+atlas = ExtResource("3_r6o1k")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yurhh"]
+atlas = ExtResource("3_r6o1k")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptlil"]
+atlas = ExtResource("3_r6o1k")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4r1yi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drq76")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqgnx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yurhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptlil")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iegk4"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cvb0r"]
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lab5f"]
+radius = 31.0161
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wq62j"]
+radius = 34.0147
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nv1jr"]
+bg_color = Color(0.152941, 0.160784, 0.27451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8gndv"]
+bg_color = Color(0.929412, 0.627451, 0.192157, 1)
+
+[sub_resource type="Theme" id="Theme_s2jls"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_nv1jr")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_8gndv")
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+y_sort_enabled = true
+use_parent_material = true
+script = ExtResource("1_2qpty")
+metadata/_edit_horizontal_guides_ = []
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 10
+shape = SubResource("CircleShape2D_7s6u8")
+
+[node name="Shadow" parent="." instance=ExtResource("2_3aj65")]
+position = Vector2(0, 10)
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+use_parent_material = true
+sprite_frames = SubResource("SpriteFrames_4r1yi")
+animation = &"idle"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = -800
+limit_top = -800
+limit_right = 800
+limit_bottom = 800
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_iegk4")
+
+[node name="GunPickup" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GunPickup"]
+visible = false
+shape = SubResource("CircleShape2D_cvb0r")
+
+[node name="GunHighliter" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GunHighliter"]
+visible = false
+shape = SubResource("CircleShape2D_lab5f")
+
+[node name="MoneyPickup" type="Area2D" parent="."]
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MoneyPickup"]
+visible = false
+shape = SubResource("CircleShape2D_wq62j")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+z_index = 100
+offset_left = -10.0
+offset_top = -15.0
+offset_right = 10.0
+offset_bottom = -13.0
+theme = SubResource("Theme_s2jls")
+value = 100.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Arrow" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(75, 0)
+texture = ExtResource("4_r3toi")
+
+[node name="ArrowBase" type="Node2D" parent="."]
+
+[node name="CrateSpawner" parent="." instance=ExtResource("5_i7m7h")]
+position = Vector2(0, -187)
+
+[node name="Chaching" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_3g3fn")
+volume_db = -10.0
+
+[node name="Reload" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_u3cnu")
+volume_db = -5.0
+
+[node name="Gunshot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_xmabl")
+volume_db = -5.0
+
+[node name="Explosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_8hs04")
+volume_db = -5.0
+pitch_scale = 1.5
+
+[node name="Bark" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_36d3p")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = 1
+material = ExtResource("3_vmj21")
+offset_left = -17.0
+offset_top = -14.0
+offset_right = 30.0
+offset_bottom = 26.0
+
+[connection signal="area_entered" from="GunPickup" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="GunHighliter" to="." method="_on_gun_highliter_area_entered"]
+[connection signal="area_exited" from="GunHighliter" to="." method="_on_gun_highliter_area_exited"]
+[connection signal="area_entered" from="MoneyPickup" to="." method="_on_money_pickup_area_entered"]

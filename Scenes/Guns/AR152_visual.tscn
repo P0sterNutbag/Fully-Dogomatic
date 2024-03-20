@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://mv5oxsygumfg"]
+
+[ext_resource type="PackedScene" uid="uid://dp3cnqudhlj6w" path="res://Scenes/Guns/Parts/ar15_barrel.tscn" id="1_g6t1t"]
+[ext_resource type="PackedScene" uid="uid://di07r7pqhes56" path="res://Scenes/Guns/Parts/ar15_stock.tscn" id="2_2q3o3"]
+[ext_resource type="PackedScene" uid="uid://c56aefo2ay0s5" path="res://Scenes/Guns/Parts/ar15_grip.tscn" id="3_aop1d"]
+[ext_resource type="PackedScene" uid="uid://dkat53asblqve" path="res://Scenes/Guns/Parts/ar15_scope.tscn" id="4_5k7nh"]
+[ext_resource type="PackedScene" uid="uid://b82jbg7u1wjd1" path="res://Scenes/Guns/Parts/ar15_magazine.tscn" id="5_qo1f4"]
+[ext_resource type="PackedScene" uid="uid://drv38mvd1rqpi" path="res://Scenes/Guns/Parts/ar15_bullet.tscn" id="6_pw8rv"]
+
+[node name="Sprite2D" type="Sprite2D"]
+use_parent_material = true
+
+[node name="Ar15Barrel" parent="." instance=ExtResource("1_g6t1t")]
+position = Vector2(9, -2)
+script = null
+
+[node name="Ar15Stock" parent="Ar15Barrel/StockSocket" index="0" instance=ExtResource("2_2q3o3")]
+script = null
+
+[node name="Ar15Grip" parent="Ar15Barrel/GripSocket" index="0" instance=ExtResource("3_aop1d")]
+script = null
+
+[node name="Ar15Scope" parent="Ar15Barrel/SightSocket" index="0" instance=ExtResource("4_5k7nh")]
+script = null
+
+[node name="Ar15Magazine" parent="Ar15Barrel/MagazineSocket" index="0" instance=ExtResource("5_qo1f4")]
+script = null
+
+[node name="AR15Bullet" parent="Ar15Barrel" instance=ExtResource("6_pw8rv")]
+script = null
+
+[editable path="Ar15Barrel"]

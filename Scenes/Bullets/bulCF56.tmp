@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwjoterwqx0rx"]
+
+[ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_shlth"]
+[ext_resource type="Texture2D" uid="uid://feiddhd4x04w" path="res://Sprites/bullet.png" id="2_1q34g"]
+[ext_resource type="PackedScene" uid="uid://u6ly8mxmxgo4" path="res://Scenes/Bullets/bullet_explosion.tscn" id="2_6bvwy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lshl4"]
+size = Vector2(24, 1)
+
+[node name="Area2D" type="Area2D" groups=["bullet"]]
+collision_layer = 2
+collision_mask = 40
+script = ExtResource("1_shlth")
+damage = null
+penetrations = null
+explosion = ExtResource("2_6bvwy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lshl4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1q34g")
+offset = Vector2(0, -0.5)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="SetValues" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="SetValues" to="." method="_on_set_values_timeout"]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://becgqooq4xlsl"]
+
+[ext_resource type="Script" path="res://Scripts/gun_part_bullet.gd" id="1_isaga"]
+[ext_resource type="PackedScene" uid="uid://bmfhcxqevrjcn" path="res://Scenes/Bullets/9mm_bullet.tscn" id="2_lobs5"]
+
+[node name="Bullet" type="Node2D"]
+script = ExtResource("1_isaga")
+bullet = ExtResource("2_lobs5")

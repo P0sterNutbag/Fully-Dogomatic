@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://cstx31fcfuipo"]
+
+[ext_resource type="Texture2D" uid="uid://da7mnl6m0crph" path="res://Sprites/woodchip.png" id="1_u20jt"]
+[ext_resource type="Script" path="res://Scenes/Particles/destroy_after_time.gd" id="2_elvk2"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6rfnc"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 8.0
+angle_min = -180.0
+angle_max = 180.0
+spread = 30.0
+initial_velocity_min = 50.0
+initial_velocity_max = 250.0
+gravity = Vector3(0, 0, 0)
+damping_min = 200.0
+damping_max = 300.0
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+z_index = -100
+emitting = false
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_6rfnc")
+texture = ExtResource("1_u20jt")
+lifetime = 10.0
+one_shot = true
+explosiveness = 1.0
+script = ExtResource("2_elvk2")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

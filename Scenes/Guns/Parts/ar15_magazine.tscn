@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b82jbg7u1wjd1"]
+
+[ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Sprites/gun parts spritesheet.png" id="1_jyqts"]
+[ext_resource type="Script" path="res://Scripts/gun_part_magazine.gd" id="2_dre2l"]
+
+[node name="Magazine" type="Sprite2D"]
+use_parent_material = true
+texture = ExtResource("1_jyqts")
+offset = Vector2(3, 4)
+region_enabled = true
+region_rect = Rect2(80, 0, 16, 16)
+script = ExtResource("2_dre2l")
+rounds = 20
+reload_time = 2.0

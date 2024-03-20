@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://16dys4jid5d5"]
+
+[ext_resource type="Texture2D" uid="uid://bun7rhhy7fcte" path="res://Sprites/ar15.png" id="1_feq68"]
+[ext_resource type="Script" path="res://gun.gd" id="1_w5uua"]
+[ext_resource type="Resource" uid="uid://biovxh856hg3s" path="res://ar15.tres" id="2_cl4h4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qptll"]
+size = Vector2(38, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxwsp"]
+atlas = ExtResource("1_feq68")
+region = Rect2(0, 0, 37, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_825fn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxwsp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D" groups=["gun"]]
+script = ExtResource("1_w5uua")
+gun_data = ExtResource("2_cl4h4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qptll")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_825fn")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

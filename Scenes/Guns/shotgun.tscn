@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://jj0kl38us43u"]
+
+[ext_resource type="PackedScene" uid="uid://dpwo44pw6jd44" path="res://Scenes/Guns/gun_parent.tscn" id="1_mps5b"]
+[ext_resource type="Texture2D" uid="uid://diquaf2uu7u58" path="res://Sprites/icon_shotgun.png" id="2_5xof7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kr7ka"]
+size = Vector2(26, 8)
+
+[node name="Shotgun" instance=ExtResource("1_mps5b")]
+cooldown = 1.5
+spread = 40.0
+shot_count = 5
+rounds = 8
+metadata/Title = "VK-12"
+metadata/icon = ExtResource("2_5xof7")
+metadata/Type = "Shotgun"
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(4.9472e-11, 1.10765e-05)
+shape = SubResource("RectangleShape2D_kr7ka")
+
+[node name="Sprite2D" parent="." index="1"]
+region_rect = Rect2(0, 64, 32, 16)
+
+[node name="MuzzleFlash" parent="Firepoint" index="0"]
+position = Vector2(5, -1.81198e-05)

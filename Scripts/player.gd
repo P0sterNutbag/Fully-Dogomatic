@@ -1,0 +1,162 @@
+extends CharacterBody2D
+
+enum states {walk, dead}
+var state = states.walk
+const SPEED = 40.0
+signal player_died
+signal level_up(lvl: int)
+signal money_pickup
+signal gun_pickup
+
+var hp = 100
+var in_enemy = false
+var enemies = []
+var point_at_crate = false
+var crate_position: Vector2
+var money: float = 0
+var money_cap: float = 4
+var money_increase_rate = 1.4
+var guns: Array[Node2D]
+var gun_slots: int = 10
+var level: int = 1
+var new_gun_material = preload("res://Shaders/outline.tres")
+
+@onready var sprite = $PlayerSprite
+
+
+func _ready():
+	Globals.player = self
+	Globals.shoot_sfx = $Gunshot
+	Globals.reload_sfx = $Reload
+	Globals.explosion_sfx = $Explosion
+	$HealthBar.visible = false
+
+
+func _physics_process(_delta):
+	match state:
+		states.walk:
+			# keyboard movement
+			var direction_x = Input.get_axis("left", "right")
+			var direction_y = Input.get_axis("up", "down")
+			if direction_x:
+				velocity.x = direction_x * SPEED
+			else:
+				velocity.x = move_toward(velocity.x, 0, SPEED)
+			if direction_y:
+				velocity.y = direction_y * SPEED
+			else:
+				velocity.y = move_toward(velocity.y, 0, SPEED)
+			
+			# mouse movement
+			#if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+				#var move_vector = (get_global_mouse_position() - global_position).normalized()
+				#velocity = move_vector * SPEED
+			
+			move_and_slide()
+			
+			# stay in bounds
+			position.x = clamp(position.x, -790, 790)
+			position.y = clamp(position.y, -790, 790)
+		
+
+
+func _process(delta):
+	match state:
+		states.walk:
+			# animation
+			if velocity.x != 0 or velocity.y != 0:
+				sprite.play("walk")
+				if velocity.x > 0:
+					sprite.flip_h = false
+				elif velocity.x < 0:
+					sprite.flip_h = true
+			else:
+				sprite.play("idle")
+				
+			# damage
+			for area in $Hurtbox.get_overlapping_areas():
+				if area.is_in_group("enemy"):
+					var enemy = area.get_owner()
+					if !enemy.game_over:
+						take_damage(enemy.damage * delta)
+			
+			# point at crate
+			#if point_at_crate:
+				#$Arrow.visible = true
+				#var dir_to_crate = (crate_position - position).normalized()
+				#$Arrow.rotation = dir_to_crate.angle()
+				#$Arrow.global_position = lerp(global_position, crate_position, 0.5)
+			#else:
+				#$Arrow.visible = false
+			
+			# bark
+			if Input.is_action_just_pressed("bark"):
+				$Bark.pitch_scale = randf_range(0.95,1.05)
+				$Bark.play()
+				Globals.world_controller.spawn_upgrade_menu()
+		
+		states.dead:
+			sprite.play("dead")
+			sprite.flip_h = false
+
+
+func take_damage(dmg):
+	hp -= dmg
+	$HealthBar.visible = true
+	$HealthBar.value = hp
+	Globals.world_controller.reset_score()
+	if hp <= 0:
+		state = states.dead
+		player_died.emit()
+		$HealthBar.visible = false
+
+
+func get_money(amount: int):
+	money_pickup.emit()
+	money += amount
+	Globals.world_controller.set_money(money / money_cap)
+	if !$Chaching.is_playing():
+			$Chaching.play()
+	elif $Chaching.get_playback_position() > 0.25:
+		$Chaching.play()
+	if money >= money_cap:
+		level += 1
+		level_up.emit(level)
+		money = 0
+		money_cap *= money_increase_rate
+		Globals.world_controller.spawn_upgrade_menu()
+		#Globals.crate_spawner.spawn_crate()
+		$Bark.play()
+		
+
+#func _on_area_2d_area_entered(area):
+	#if area.is_in_group("gun") and area.holder != self:
+		#gun_pickup.emit()
+		#guns.append(area)
+		#area.holder = self
+		#var dir_to_gun = (area.position - position).normalized()
+		#area.direction_vector = dir_to_gun
+		#area.rotation = dir_to_gun.angle()
+		#area.hold_offset = dir_to_gun * area.distance_to_player
+		#area.get_node("Timer").start()
+		##if area.global_position.x < global_position.x:
+			##area.sprite.flip_v = true
+			##area.firepoint_index = 1
+			##area.get_node("MuzzleOffset").position = area.firepoints[area.firepoint_index].position
+		#Globals.world_controller.add_to_gun_list(area.get_meta("Title"))
+
+
+
+func _on_money_pickup_area_entered(area):
+	if area.is_in_group("money"):
+		area.follow_player = true
+
+
+func _on_gun_highliter_area_entered(area):
+	if not guns.has(area):
+		area.show_name()
+		#area.get_node("Sprite2D").material = new_gun_material
+
+
+func _on_gun_highliter_area_exited(area):
+	area.reset_material()

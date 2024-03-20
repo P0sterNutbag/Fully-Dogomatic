@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://cfkssnl27y2qn"]
+
+[ext_resource type="Texture2D" uid="uid://cupmaxcn3i11n" path="res://Sprites/dog spritesheet.png" id="1_6itxq"]
+[ext_resource type="Script" path="res://player.gd" id="1_wd3nu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0i68"]
+size = Vector2(17, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrwnq"]
+atlas = ExtResource("1_6itxq")
+region = Rect2(0, 0, 23, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5o3kg"]
+atlas = ExtResource("1_6itxq")
+region = Rect2(46, 0, 23, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kl3oa"]
+atlas = ExtResource("1_6itxq")
+region = Rect2(23, 0, 23, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4r1yi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrwnq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5o3kg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kl3oa")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_77qwh"]
+size = Vector2(18.5, 11)
+
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_wd3nu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 2.5)
+shape = SubResource("RectangleShape2D_d0i68")
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-12, -9)
+sprite_frames = SubResource("SpriteFrames_4r1yi")
+animation = &"walk"
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0.5, 2.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.75, 0)
+shape = SubResource("RectangleShape2D_77qwh")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

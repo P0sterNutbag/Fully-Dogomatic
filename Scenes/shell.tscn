@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ciqp6u3sortcc"]
+
+[ext_resource type="Texture2D" uid="uid://b2dnjknyk7t54" path="res://Sprites/shell.png" id="1_i7dag"]
+[ext_resource type="Script" path="res://Scripts/shell.gd" id="2_41s2d"]
+
+[node name="Shell" type="Sprite2D" groups=["destroy"]]
+z_index = -98
+use_parent_material = true
+texture = ExtResource("1_i7dag")
+script = ExtResource("2_41s2d")
+sprites = Array[Texture]([ExtResource("1_i7dag")])
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

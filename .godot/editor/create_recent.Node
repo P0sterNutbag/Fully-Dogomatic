@@ -1,0 +1,15 @@
+ProgressBar
+TextureRect
+RichTextLabel
+ColorRect
+Control
+Sprite2D
+Node
+CanvasLayer
+Node2D
+CollisionShape2D
+Area2D
+Timer
+TileMap
+AnimatedSprite2D
+CanvasModulate

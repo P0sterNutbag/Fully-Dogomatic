@@ -1,0 +1,166 @@
+[gd_scene load_steps=13 format=3 uid="uid://ddr81bx8gf1xo"]
+
+[ext_resource type="Shader" path="res://Shaders/colorswap.gdshader" id="1_6kmch"]
+[ext_resource type="Script" path="res://Scenes/gunstats.gd" id="1_a28gk"]
+[ext_resource type="Texture2D" uid="uid://jtcnyoi86sub" path="res://Sprites/gray texture.png" id="1_qh0lr"]
+[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Sprites/palette blue orange.png" id="2_p45ef"]
+[ext_resource type="Texture2D" uid="uid://c6tfpjjve52aj" path="res://Sprites/black texture.png" id="2_s54q5"]
+[ext_resource type="Theme" uid="uid://clm1mv5v2nuaf" path="res://Sprites/Themes/header.tres" id="3_tj8yt"]
+[ext_resource type="Theme" uid="uid://dvjlep81w6r74" path="res://Sprites/Themes/body.tres" id="4_8flp4"]
+[ext_resource type="Texture2D" uid="uid://2u72jmj4wnsn" path="res://Sprites/red texture.png" id="5_orq30"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yb8w6"]
+shader = ExtResource("1_6kmch")
+shader_parameter/skip_first_row = true
+shader_parameter/use_palette_alpha = false
+shader_parameter/fps = 6.0
+shader_parameter/palette = ExtResource("2_p45ef")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8i5g8"]
+texture = ExtResource("2_s54q5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vdog0"]
+texture = ExtResource("5_orq30")
+
+[sub_resource type="Theme" id="Theme_tbscq"]
+ProgressBar/styles/background = SubResource("StyleBoxTexture_8i5g8")
+ProgressBar/styles/fill = SubResource("StyleBoxTexture_vdog0")
+
+[node name="Gunstats" type="Control"]
+process_mode = 3
+z_index = 1000
+material = SubResource("ShaderMaterial_yb8w6")
+use_parent_material = true
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_a28gk")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+use_parent_material = true
+layout_mode = 0
+offset_right = 89.0
+offset_bottom = 81.0
+mouse_filter = 2
+texture = ExtResource("2_s54q5")
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+use_parent_material = true
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 88.0
+offset_bottom = 80.0
+mouse_filter = 2
+texture = ExtResource("1_qh0lr")
+
+[node name="GunName" type="RichTextLabel" parent="."]
+use_parent_material = true
+layout_mode = 0
+offset_left = 3.0
+offset_top = 5.0
+offset_right = 86.0
+offset_bottom = 25.0
+mouse_filter = 2
+theme = ExtResource("3_tj8yt")
+text = "Gun Name"
+
+[node name="Damage" type="RichTextLabel" parent="."]
+use_parent_material = true
+offset_left = 3.0
+offset_top = 14.0
+offset_right = 86.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme = ExtResource("4_8flp4")
+text = "Damage"
+
+[node name="ProgressBar" type="ProgressBar" parent="Damage"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 39.0
+offset_top = 6.0
+offset_right = 83.0
+offset_bottom = 11.0
+mouse_filter = 2
+theme = SubResource("Theme_tbscq")
+show_percentage = false
+
+[node name="FireRate" type="RichTextLabel" parent="."]
+use_parent_material = true
+offset_left = 3.0
+offset_top = 24.0
+offset_right = 86.0
+offset_bottom = 42.0
+mouse_filter = 2
+theme = ExtResource("4_8flp4")
+text = "Fire Rate"
+
+[node name="ProgressBar" type="ProgressBar" parent="FireRate"]
+use_parent_material = true
+offset_left = 39.0
+offset_top = 6.0
+offset_right = 83.0
+offset_bottom = 11.0
+mouse_filter = 2
+theme = SubResource("Theme_tbscq")
+show_percentage = false
+
+[node name="Accuracy" type="RichTextLabel" parent="."]
+use_parent_material = true
+offset_left = 3.0
+offset_top = 34.0
+offset_right = 86.0
+offset_bottom = 52.0
+mouse_filter = 2
+theme = ExtResource("4_8flp4")
+text = "Accuracy"
+
+[node name="ProgressBar" type="ProgressBar" parent="Accuracy"]
+use_parent_material = true
+offset_left = 39.0
+offset_top = 6.0
+offset_right = 83.0
+offset_bottom = 11.0
+mouse_filter = 2
+theme = SubResource("Theme_tbscq")
+show_percentage = false
+
+[node name="MagSize" type="RichTextLabel" parent="."]
+use_parent_material = true
+offset_left = 3.0
+offset_top = 44.0
+offset_right = 86.0
+offset_bottom = 62.0
+mouse_filter = 2
+theme = ExtResource("4_8flp4")
+text = "Mag Size"
+
+[node name="ProgressBar" type="ProgressBar" parent="MagSize"]
+use_parent_material = true
+offset_left = 39.0
+offset_top = 6.0
+offset_right = 83.0
+offset_bottom = 11.0
+mouse_filter = 2
+theme = SubResource("Theme_tbscq")
+show_percentage = false
+
+[node name="BulletsPerShot" type="RichTextLabel" parent="."]
+use_parent_material = true
+offset_left = 3.0
+offset_top = 54.0
+offset_right = 86.0
+offset_bottom = 72.0
+mouse_filter = 2
+theme = ExtResource("4_8flp4")
+text = "Bullets Per Shot: 1"
+
+[node name="BulletsPerShot2" type="RichTextLabel" parent="."]
+use_parent_material = true
+offset_left = 3.0
+offset_top = 64.0
+offset_right = 86.0
+offset_bottom = 82.0
+mouse_filter = 2
+theme = ExtResource("4_8flp4")
+text = "Reaload Speed: 1 sec"

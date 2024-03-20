@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dea2ha3lbwrea"]
+
+[ext_resource type="Texture2D" uid="uid://ciycwwadhk41u" path="res://Sprites/dollar.png" id="1_b0pwj"]
+[ext_resource type="Script" path="res://Scenes/dollar.gd" id="1_swk0g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epagw"]
+size = Vector2(10, 6)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_swk0g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_epagw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_b0pwj")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=6 format=3 uid="uid://couat6mj44bws"]
+
+[ext_resource type="PackedScene" uid="uid://b8qfbi2a3hocl" path="res://Scenes/Guns/gun_parent2.tscn" id="1_7hnmt"]
+[ext_resource type="PackedScene" uid="uid://bduar6b4yec01" path="res://Scenes/Guns/gun_frame.tscn" id="4_t36wp"]
+[ext_resource type="PackedScene" uid="uid://syacy6q18lg4" path="res://Scenes/Guns/Parts/pistol_barrel.tscn" id="5_dbk8m"]
+[ext_resource type="PackedScene" uid="uid://bgu5vroflg0y6" path="res://Scenes/Guns/Parts/pistol_magazine.tscn" id="5_m1tgi"]
+[ext_resource type="PackedScene" uid="uid://dvy5lsmww0dit" path="res://Scenes/Guns/Parts/pistol_grip.tscn" id="6_p6xrs"]
+
+[node name="Gun" instance=ExtResource("1_7hnmt")]
+metadata/Title = "M17"
+
+[node name="GunFrame" parent="." index="3" instance=ExtResource("4_t36wp")]
+barrel = ExtResource("5_dbk8m")
+grip = ExtResource("6_p6xrs")
+magazine = ExtResource("5_m1tgi")

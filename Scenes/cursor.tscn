@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://41vdp4ci6nm4"]
+
+[ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Shaders/colorswap.tres" id="1_d2jlf"]
+[ext_resource type="Texture2D" uid="uid://bhkv1act7ocad" path="res://Sprites/cursor.png" id="2_3gagw"]
+[ext_resource type="Script" path="res://Scenes/cursor.gd" id="3_3fml0"]
+
+[node name="Cursor" type="Sprite2D"]
+material = ExtResource("1_d2jlf")
+texture = ExtResource("2_3gagw")
+script = ExtResource("3_3fml0")

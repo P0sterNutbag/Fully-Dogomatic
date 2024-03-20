@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://dglhdmxtjgseg"]
+
+[ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Sprites/gun parts spritesheet.png" id="1_j4u2h"]
+[ext_resource type="Script" path="res://Scripts/gun_part_barrel.gd" id="2_33kgq"]
+[ext_resource type="Texture2D" uid="uid://l0xncvn3i5id" path="res://Sprites/muzzleflash.png" id="3_8fxst"]
+
+[node name="Barrel" type="Sprite2D"]
+use_parent_material = true
+texture = ExtResource("1_j4u2h")
+region_enabled = true
+region_rect = Rect2(32, 96, 48, 16)
+script = ExtResource("2_33kgq")
+knockback = -10.0
+
+[node name="StockSocket" type="Node2D" parent="."]
+use_parent_material = true
+position = Vector2(-19, -2)
+
+[node name="GripSocket" type="Node2D" parent="."]
+use_parent_material = true
+position = Vector2(-19, 2)
+
+[node name="SightSocket" type="Node2D" parent="."]
+use_parent_material = true
+position = Vector2(-13, -1)
+
+[node name="MagazineSocket" type="Node2D" parent="."]
+use_parent_material = true
+position = Vector2(-9, 2)
+
+[node name="Firepoint" type="Node2D" parent="."]
+position = Vector2(21, 0)
+
+[node name="MuzzleFlash" type="Sprite2D" parent="Firepoint"]
+visible = false
+position = Vector2(-1, 0)
+texture = ExtResource("3_8fxst")
+offset = Vector2(8, 0)

@@ -1,0 +1,24 @@
+[gd_scene load_steps=8 format=3 uid="uid://dhruksuxabxo2"]
+
+[ext_resource type="PackedScene" uid="uid://b8qfbi2a3hocl" path="res://Scenes/Guns/gun_parent2.tscn" id="1_avtop"]
+[ext_resource type="Texture2D" uid="uid://bwvobme5vv6us" path="res://Sprites/icon AR15.png" id="3_6b3yf"]
+[ext_resource type="PackedScene" uid="uid://bduar6b4yec01" path="res://Scenes/Guns/gun_frame.tscn" id="4_44yyf"]
+[ext_resource type="PackedScene" uid="uid://i3j7051c336v" path="res://Scenes/Guns/Parts/shotgun_barrel.tscn" id="5_g3p36"]
+[ext_resource type="PackedScene" uid="uid://beo28jxt6whff" path="res://Scenes/Guns/Parts/shotgun_magazine.tscn" id="6_a3a7s"]
+[ext_resource type="PackedScene" uid="uid://dv4cwnp6hgajm" path="res://Scenes/Guns/Parts/shotgun_grip.tscn" id="6_h3i6m"]
+[ext_resource type="PackedScene" uid="uid://drv38mvd1rqpi" path="res://Scenes/Guns/Parts/ar15_bullet.tscn" id="10_6vqo8"]
+
+[node name="Gun" instance=ExtResource("1_avtop")]
+position = Vector2(-1, 0)
+cooldown = 0.0
+shot_count = 0
+rounds = 0
+metadata/Title = "M4 Carbine"
+metadata/icon = ExtResource("3_6b3yf")
+metadata/Type = "Assault Rifle"
+
+[node name="GunFrame" parent="." index="3" instance=ExtResource("4_44yyf")]
+barrel = ExtResource("5_g3p36")
+grip = ExtResource("6_h3i6m")
+magazine = ExtResource("6_a3a7s")
+bullet = ExtResource("10_6vqo8")

@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://kyho67jpnwf3"]
+
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_24egw"]
+[ext_resource type="PackedScene" uid="uid://4s88ewwe3fxv" path="res://Scenes/death_explosion.tscn" id="2_towst"]
+[ext_resource type="Texture2D" uid="uid://cupmaxcn3i11n" path="res://Sprites/dog spritesheet.png" id="3_lwkgf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lpqk0"]
+size = Vector2(21, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mw4dl"]
+atlas = ExtResource("3_lwkgf")
+region = Rect2(0, 0, 23, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_loyj0"]
+atlas = ExtResource("3_lwkgf")
+region = Rect2(23, 0, 23, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ceh2"]
+atlas = ExtResource("3_lwkgf")
+region = Rect2(46, 0, 23, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oupew"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mw4dl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_loyj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ceh2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vk7ug"]
+size = Vector2(21, 18)
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+y_sort_enabled = true
+collision_layer = 4
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_24egw")
+death_explosion = ExtResource("2_towst")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_lpqk0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_oupew")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="." groups=["enemy"]]
+y_sort_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_vk7ug")

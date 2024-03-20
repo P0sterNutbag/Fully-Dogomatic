@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dvjlep81w6r74"]
+
+[ext_resource type="FontFile" uid="uid://cv33v3c57fnen" path="res://Sprites/Fonts/Crispix.ttf" id="1_lgiba"]
+
+[resource]
+RichTextLabel/font_sizes/normal_font_size = 16
+RichTextLabel/fonts/normal_font = ExtResource("1_lgiba")

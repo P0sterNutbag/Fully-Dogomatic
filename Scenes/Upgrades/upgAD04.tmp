@@ -1,0 +1,125 @@
+[gd_scene load_steps=29 format=3 uid="uid://diu6fl025qdv0"]
+
+[ext_resource type="Script" path="res://Scripts/Upgrades/upgrade_option.gd" id="1_kc4vw"]
+[ext_resource type="PackedScene" uid="uid://va6m027lsfhl" path="res://Scenes/Guns/AR15.tscn" id="6_skw4w"]
+[ext_resource type="PackedScene" uid="uid://qfad7ark3b0m" path="res://Scenes/Guns/grenade_launcher.tscn" id="7_extv4"]
+[ext_resource type="Texture2D" uid="uid://2u72jmj4wnsn" path="res://Sprites/red texture.png" id="8_haicr"]
+[ext_resource type="PackedScene" uid="uid://b1u1rbh8cmyvt" path="res://Scenes/Upgrades/damage_upgrade.tscn" id="8_kjhh2"]
+[ext_resource type="Texture2D" uid="uid://c6tfpjjve52aj" path="res://Sprites/black texture.png" id="9_pjpbr"]
+[ext_resource type="PackedScene" uid="uid://cs6hooyfohhr4" path="res://Scenes/Upgrades/double_barreled_upgrade.tscn" id="9_r5u8t"]
+[ext_resource type="PackedScene" uid="uid://jj0kl38us43u" path="res://Scenes/Guns/shotgun.tscn" id="9_rtycv"]
+[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Sprites/Blue Sky 8x8.ttf" id="10_0l3rj"]
+[ext_resource type="PackedScene" uid="uid://dex3rn367cm3p" path="res://Scenes/Guns/smg.tscn" id="10_5ee6a"]
+[ext_resource type="PackedScene" uid="uid://dlwwqmxp2afpa" path="res://Scenes/Upgrades/explosive_upgrade.tscn" id="10_fvl4k"]
+[ext_resource type="PackedScene" uid="uid://csm601ufctk8h" path="res://Scenes/Guns/sniper.tscn" id="11_1ucup"]
+[ext_resource type="PackedScene" uid="uid://3khbol34srr6" path="res://Scenes/Guns/gun_AR15.tscn" id="11_3qimv"]
+[ext_resource type="PackedScene" uid="uid://cf6f00vh1b6gv" path="res://Scenes/Upgrades/reload_upgrade.tscn" id="11_tav14"]
+[ext_resource type="PackedScene" uid="uid://vogimtfjrm7r" path="res://Scenes/Upgrades/ricochet_upgrade.tscn" id="12_0qm6r"]
+[ext_resource type="Texture2D" uid="uid://bt4bqfufwd7lu" path="res://Sprites/upgrade box.png" id="14_04dbb"]
+[ext_resource type="Texture2D" uid="uid://btohsgsxdi3fu" path="res://Sprites/upgrade box selected.png" id="15_nnukm"]
+
+[sub_resource type="GDScript" id="GDScript_isr6q"]
+script/source = "extends Resource
+class_name spawn_chance
+
+@export var object_to_spawn: PackedScene
+@export var spawn_chance: float
+"
+
+[sub_resource type="Resource" id="Resource_l6yt7"]
+script = SubResource("GDScript_isr6q")
+object_to_spawn = ExtResource("8_kjhh2")
+spawn_chance = 100.0
+
+[sub_resource type="Resource" id="Resource_rgw6j"]
+script = SubResource("GDScript_isr6q")
+object_to_spawn = ExtResource("10_5ee6a")
+spawn_chance = 1000.0
+
+[sub_resource type="Resource" id="Resource_ck2w1"]
+script = SubResource("GDScript_isr6q")
+object_to_spawn = ExtResource("9_rtycv")
+spawn_chance = 500.0
+
+[sub_resource type="Resource" id="Resource_5i6je"]
+script = SubResource("GDScript_isr6q")
+object_to_spawn = ExtResource("6_skw4w")
+spawn_chance = 200.0
+
+[sub_resource type="Resource" id="Resource_h1sxy"]
+script = SubResource("GDScript_isr6q")
+object_to_spawn = ExtResource("11_1ucup")
+spawn_chance = 200.0
+
+[sub_resource type="Resource" id="Resource_upebo"]
+script = SubResource("GDScript_isr6q")
+object_to_spawn = ExtResource("7_extv4")
+spawn_chance = 100.0
+
+[sub_resource type="Resource" id="Resource_48i3x"]
+script = SubResource("GDScript_isr6q")
+object_to_spawn = ExtResource("9_r5u8t")
+spawn_chance = 100.0
+
+[sub_resource type="Resource" id="Resource_q1pvv"]
+script = SubResource("GDScript_isr6q")
+object_to_spawn = ExtResource("10_fvl4k")
+spawn_chance = 100.0
+
+[sub_resource type="Resource" id="Resource_xbpvu"]
+script = SubResource("GDScript_isr6q")
+object_to_spawn = ExtResource("12_0qm6r")
+spawn_chance = 100.0
+
+[sub_resource type="Resource" id="Resource_lobwi"]
+script = SubResource("GDScript_isr6q")
+object_to_spawn = ExtResource("11_3qimv")
+spawn_chance = 1e+06
+
+[node name="UpgradeOption" type="Node2D"]
+use_parent_material = true
+script = ExtResource("1_kc4vw")
+options = [SubResource("Resource_l6yt7"), SubResource("Resource_rgw6j"), SubResource("Resource_ck2w1"), SubResource("Resource_5i6je"), SubResource("Resource_h1sxy"), SubResource("Resource_upebo"), SubResource("Resource_l6yt7"), SubResource("Resource_48i3x"), SubResource("Resource_q1pvv"), SubResource("Resource_xbpvu"), SubResource("Resource_xbpvu"), SubResource("Resource_lobwi")]
+upgrades = [ExtResource("8_kjhh2"), ExtResource("9_r5u8t"), ExtResource("10_fvl4k"), ExtResource("11_tav14"), ExtResource("12_0qm6r")]
+circle_texture = ExtResource("8_haicr")
+outline_texture = ExtResource("9_pjpbr")
+
+[node name="UpgradeName" type="RichTextLabel" parent="."]
+use_parent_material = true
+offset_left = -115.0
+offset_top = -54.0
+offset_right = 114.0
+offset_bottom = 28.0
+theme_override_colors/default_color = Color(0.223529, 0.223529, 0.223529, 1)
+theme_override_fonts/normal_font = ExtResource("10_0l3rj")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "[center]OPTION 1"
+
+[node name="UpgradeDescription" type="RichTextLabel" parent="."]
+use_parent_material = true
+offset_left = -59.0
+offset_top = -27.0
+offset_right = 58.0
+offset_bottom = 52.0
+theme_override_colors/default_color = Color(0.223529, 0.223529, 0.223529, 1)
+theme_override_fonts/normal_font = ExtResource("10_0l3rj")
+theme_override_font_sizes/normal_font_size = 7
+bbcode_enabled = true
+
+[node name="Box" type="Sprite2D" parent="."]
+visible = false
+use_parent_material = true
+texture = ExtResource("14_04dbb")
+
+[node name="BoxSelected" type="Sprite2D" parent="."]
+visible = false
+use_parent_material = true
+position = Vector2(48, 12)
+texture = ExtResource("15_nnukm")
+
+[node name="UpgradeIcon" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(0, 10)
+scale = Vector2(2, 2)
+region_enabled = true

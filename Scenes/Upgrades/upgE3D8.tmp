@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cay3vp7iy633g"]
+
+[ext_resource type="Script" path="res://Scenes/Upgrades/upgrade_menu.gd" id="1_kv2tn"]
+[ext_resource type="PackedScene" uid="uid://diu6fl025qdv0" path="res://Scenes/Upgrades/upgrade_option.tscn" id="3_hyjv8"]
+
+[node name="UpgradeMenu" type="Node2D" node_paths=PackedStringArray("options")]
+script = ExtResource("1_kv2tn")
+options = [NodePath("UpgradeOption"), NodePath("UpgradeOption2"), NodePath("UpgradeOption3")]
+
+[node name="UpgradeOption" parent="." instance=ExtResource("3_hyjv8")]
+position = Vector2(-134, -84)
+
+[node name="UpgradeOption2" parent="." instance=ExtResource("3_hyjv8")]
+position = Vector2(-2, -111)
+
+[node name="UpgradeOption3" parent="." instance=ExtResource("3_hyjv8")]
+position = Vector2(121, -83)

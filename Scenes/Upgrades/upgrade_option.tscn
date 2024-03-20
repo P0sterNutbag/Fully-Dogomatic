@@ -1,0 +1,131 @@
+[gd_scene load_steps=27 format=3 uid="uid://diu6fl025qdv0"]
+
+[ext_resource type="Script" path="res://Scripts/Upgrades/upgrade_option.gd" id="1_kc4vw"]
+[ext_resource type="PackedScene" uid="uid://dhruksuxabxo2" path="res://Scenes/Guns/gun_shotgun.tscn" id="3_ep5ni"]
+[ext_resource type="PackedScene" uid="uid://3khbol34srr6" path="res://Scenes/Guns/gun_ar15.tscn" id="4_s6610"]
+[ext_resource type="PackedScene" uid="uid://bw3w1cm787x4m" path="res://Scenes/Guns/gun_smg.tscn" id="5_p67ng"]
+[ext_resource type="PackedScene" uid="uid://irn8wcu6ofrw" path="res://Scenes/Guns/gun_grenade_launcher.tscn" id="6_p3ntb"]
+[ext_resource type="PackedScene" uid="uid://du8dgih13wcrj" path="res://Scenes/Guns/gun_sniper.tscn" id="7_8l2nf"]
+[ext_resource type="Texture2D" uid="uid://2u72jmj4wnsn" path="res://Sprites/red texture.png" id="8_haicr"]
+[ext_resource type="PackedScene" uid="uid://b1u1rbh8cmyvt" path="res://Scenes/Upgrades/damage_upgrade.tscn" id="8_kjhh2"]
+[ext_resource type="Texture2D" uid="uid://c6tfpjjve52aj" path="res://Sprites/black texture.png" id="9_pjpbr"]
+[ext_resource type="PackedScene" uid="uid://cs6hooyfohhr4" path="res://Scenes/Upgrades/double_barreled_upgrade.tscn" id="9_r5u8t"]
+[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Sprites/Blue Sky 8x8.ttf" id="10_0l3rj"]
+[ext_resource type="PackedScene" uid="uid://dlwwqmxp2afpa" path="res://Scenes/Upgrades/explosive_upgrade.tscn" id="10_fvl4k"]
+[ext_resource type="PackedScene" uid="uid://cf6f00vh1b6gv" path="res://Scenes/Upgrades/reload_upgrade.tscn" id="11_tav14"]
+[ext_resource type="PackedScene" uid="uid://couat6mj44bws" path="res://Scenes/Guns/gun_pistol.tscn" id="11_w2lu8"]
+[ext_resource type="PackedScene" uid="uid://vogimtfjrm7r" path="res://Scenes/Upgrades/ricochet_upgrade.tscn" id="12_0qm6r"]
+[ext_resource type="Texture2D" uid="uid://bt4bqfufwd7lu" path="res://Sprites/upgrade box.png" id="14_04dbb"]
+[ext_resource type="Texture2D" uid="uid://btohsgsxdi3fu" path="res://Sprites/upgrade box selected.png" id="15_nnukm"]
+[ext_resource type="Script" path="res://Scenes/Upgrades/Circle.gd" id="18_pedul"]
+[ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/JuicyMovement.tscn" id="19_orlbb"]
+
+[sub_resource type="GDScript" id="GDScript_isr6q"]
+script/source = "extends Resource
+class_name spawn_chance
+
+@export var object_to_spawn: PackedScene
+@export var spawn_chance: float
+"
+
+[sub_resource type="Resource" id="Resource_rgw6j"]
+script = SubResource("GDScript_isr6q")
+object_to_spawn = ExtResource("11_w2lu8")
+spawn_chance = 1000.0
+
+[sub_resource type="Resource" id="Resource_ck2w1"]
+script = SubResource("GDScript_isr6q")
+object_to_spawn = ExtResource("3_ep5ni")
+spawn_chance = 500.0
+
+[sub_resource type="Resource" id="Resource_5i6je"]
+script = SubResource("GDScript_isr6q")
+object_to_spawn = ExtResource("4_s6610")
+spawn_chance = 200.0
+
+[sub_resource type="Resource" id="Resource_h1sxy"]
+script = SubResource("GDScript_isr6q")
+object_to_spawn = ExtResource("5_p67ng")
+spawn_chance = 200.0
+
+[sub_resource type="Resource" id="Resource_upebo"]
+script = SubResource("GDScript_isr6q")
+object_to_spawn = ExtResource("6_p3ntb")
+spawn_chance = 100.0
+
+[sub_resource type="Resource" id="Resource_cd17m"]
+script = SubResource("GDScript_isr6q")
+object_to_spawn = ExtResource("7_8l2nf")
+spawn_chance = 100.0
+
+[node name="UpgradeOption" type="Control"]
+use_parent_material = true
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_kc4vw")
+options = [SubResource("Resource_rgw6j"), SubResource("Resource_ck2w1"), SubResource("Resource_5i6je"), SubResource("Resource_h1sxy"), SubResource("Resource_upebo"), SubResource("Resource_cd17m")]
+upgrades = [ExtResource("8_kjhh2"), ExtResource("9_r5u8t"), ExtResource("10_fvl4k"), ExtResource("11_tav14"), ExtResource("12_0qm6r")]
+
+[node name="Circle" type="Control" parent="."]
+use_parent_material = true
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("18_pedul")
+circle_texture = ExtResource("8_haicr")
+outline_texture = ExtResource("9_pjpbr")
+metadata/_edit_use_anchors_ = true
+
+[node name="UpgradeName" type="RichTextLabel" parent="."]
+use_parent_material = true
+layout_mode = 0
+offset_left = -115.0
+offset_top = -54.0
+offset_right = 114.0
+offset_bottom = -1.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.223529, 0.223529, 0.223529, 1)
+theme_override_fonts/normal_font = ExtResource("10_0l3rj")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "[center]OPTION 1"
+
+[node name="UpgradeDescription" type="RichTextLabel" parent="."]
+use_parent_material = true
+layout_mode = 0
+offset_left = -59.0
+offset_top = -27.0
+offset_right = 58.0
+offset_bottom = 18.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.223529, 0.223529, 0.223529, 1)
+theme_override_fonts/normal_font = ExtResource("10_0l3rj")
+theme_override_font_sizes/normal_font_size = 7
+bbcode_enabled = true
+
+[node name="Box" type="Sprite2D" parent="."]
+visible = false
+use_parent_material = true
+texture = ExtResource("14_04dbb")
+
+[node name="BoxSelected" type="Sprite2D" parent="."]
+visible = false
+use_parent_material = true
+position = Vector2(48, 12)
+texture = ExtResource("15_nnukm")
+
+[node name="UpgradeIcon" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(0, 10)
+scale = Vector2(2, 2)
+region_enabled = true
+
+[node name="JuicyMovement" parent="." node_paths=PackedStringArray("target") instance=ExtResource("19_orlbb")]
+target = NodePath("..")
+pulse_frequency = 4.0
+pulse_amplitude = 0.15
+rot_frequency = 2.0
+rot_amplitude = 0.15
+
+[connection signal="gui_input" from="Circle" to="." method="_on_circle_gui_input"]
+[connection signal="mouse_entered" from="Circle" to="." method="_on_circle_mouse_entered"]
+[connection signal="mouse_exited" from="Circle" to="." method="_on_circle_mouse_exited"]
