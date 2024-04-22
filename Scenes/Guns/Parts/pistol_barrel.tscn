@@ -6,11 +6,13 @@
 
 [node name="Barrel" type="Sprite2D"]
 use_parent_material = true
+position = Vector2(1, 0)
 texture = ExtResource("1_8rkxe")
 region_enabled = true
 region_rect = Rect2(16, 16, 16, 16)
 script = ExtResource("2_m5frw")
 cooldown = 0.5
+knockback = 5.0
 
 [node name="StockSocket" type="Node2D" parent="."]
 use_parent_material = true

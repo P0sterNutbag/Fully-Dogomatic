@@ -7,4 +7,4 @@ z_index = -99
 use_parent_material = true
 texture = ExtResource("1_7qqtv")
 region_enabled = true
-region_rect = Rect2(112, 64, 32, 16)
+region_rect = Rect2(0, 64, 32, 16)

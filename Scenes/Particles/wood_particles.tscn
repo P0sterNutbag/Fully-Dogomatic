@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cstx31fcfuipo"]
 
 [ext_resource type="Texture2D" uid="uid://da7mnl6m0crph" path="res://Sprites/woodchip.png" id="1_u20jt"]
-[ext_resource type="Script" path="res://Scenes/Particles/destroy_after_time.gd" id="2_elvk2"]
+[ext_resource type="Script" path="res://Scripts/destroy_after_time.gd" id="2_elvk2"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6rfnc"]
 particle_flag_disable_z = true

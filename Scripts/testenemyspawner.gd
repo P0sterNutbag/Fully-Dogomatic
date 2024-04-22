@@ -1,9 +1,9 @@
 extends Node2D
 
-var enemy = preload("res://Scenes/enemy.tscn")
+var enemy #= preload("res://Scenes/enemy.tscn")
 
 
-func _process(delta):
+func _process(_delta):
 	if get_tree().get_nodes_in_group("enemy").size() < 400:
 		for n in 1:
 			var instance = enemy.instantiate()

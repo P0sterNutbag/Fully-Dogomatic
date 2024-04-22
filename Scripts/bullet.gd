@@ -1,6 +1,8 @@
 extends Area2D
 
 @export var damage: float = 1
+@export var spread_modifier: float = 0
+@export var shot_count: float = 1
 @export var penetrations: int = 1
 @export var explosion: PackedScene
 

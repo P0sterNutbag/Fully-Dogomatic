@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var gun: PackedScene = preload("res://Scenes/Guns/pistol.tscn")
+@export var gun: PackedScene# = preload("res://Scenes/Guns/pistol.tscn")
 @export var explosion: PackedScene = preload("res://Scenes/death_explosion.tscn")
 var target_y: float
 var falling = true

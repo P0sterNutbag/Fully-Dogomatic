@@ -17,7 +17,9 @@
 shader = ExtResource("5_5ganx")
 shader_parameter/skip_first_row = true
 shader_parameter/use_palette_alpha = false
+shader_parameter/is_texture = true
 shader_parameter/fps = 6.0
+shader_parameter/color_threshold = 0.1
 shader_parameter/palette = ExtResource("6_ywwnu")
 
 [node name="Node2D" type="Node2D"]

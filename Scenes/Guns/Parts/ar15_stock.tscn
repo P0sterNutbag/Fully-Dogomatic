@@ -11,3 +11,4 @@ offset = Vector2(-5, 4)
 region_enabled = true
 region_rect = Rect2(0, 0, 16, 16)
 script = ExtResource("2_482c5")
+distance_to_player = 200.0

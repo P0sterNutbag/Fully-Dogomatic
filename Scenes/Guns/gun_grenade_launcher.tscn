@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://irn8wcu6ofrw"]
+[gd_scene load_steps=8 format=3 uid="uid://irn8wcu6ofrw"]
 
 [ext_resource type="PackedScene" uid="uid://b8qfbi2a3hocl" path="res://Scenes/Guns/gun_parent2.tscn" id="1_pw65c"]
 [ext_resource type="Texture2D" uid="uid://bwvobme5vv6us" path="res://Sprites/icon AR15.png" id="2_yvtin"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://duoua7p43dj4j" path="res://Scenes/Guns/Parts/launcher_stock.tscn" id="5_2xfip"]
 [ext_resource type="PackedScene" uid="uid://dl8lsgxm2n2ea" path="res://Scenes/Guns/Parts/launcher_grip.tscn" id="6_k4fs7"]
 [ext_resource type="PackedScene" uid="uid://brxcjl24b5feg" path="res://Scenes/Guns/Parts/launcher_magazine.tscn" id="7_uds5y"]
-[ext_resource type="PackedScene" uid="uid://cvq8oko6ui28s" path="res://Scenes/Guns/Parts/launcher_bullet.tscn" id="8_lersd"]
 
 [node name="Gun" instance=ExtResource("1_pw65c")]
 cooldown = 0.0
@@ -22,4 +21,3 @@ barrel = ExtResource("4_l5btb")
 stock = ExtResource("5_2xfip")
 grip = ExtResource("6_k4fs7")
 magazine = ExtResource("7_uds5y")
-bullet = ExtResource("8_lersd")

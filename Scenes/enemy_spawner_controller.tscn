@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ccs5kw7b4231m"]
+[gd_scene load_steps=23 format=3 uid="uid://ccs5kw7b4231m"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_spawner_controller.gd" id="1_grdac"]
 [ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/enemy_pug.tscn" id="2_d64i3"]
@@ -6,10 +6,32 @@
 [ext_resource type="PackedScene" uid="uid://c5fkf8nprgwpj" path="res://Scenes/Enemies/enemy_shepherd.tscn" id="3_dnptw"]
 [ext_resource type="Script" path="res://Scripts/wave_data.gd" id="3_vtdw1"]
 [ext_resource type="PackedScene" uid="uid://v5p3nsib3tik" path="res://Scenes/Enemies/enemy_poodle.tscn" id="5_k3w38"]
+[ext_resource type="PackedScene" uid="uid://ccht54tx0r6nf" path="res://Scenes/Enemies/enemy_bulldog.tscn" id="5_qjc7e"]
+[ext_resource type="PackedScene" uid="uid://b0e4q14ll7yid" path="res://Scenes/Enemies/enemy_buff.tscn" id="6_0m1lp"]
 [ext_resource type="PackedScene" uid="uid://b6gcswkjsathh" path="res://Scenes/Enemies/enemy_pug_big.tscn" id="6_jsgri"]
 
-[sub_resource type="Resource" id="Resource_na7nt"]
+[sub_resource type="Resource" id="Resource_b2i8k"]
+script = ExtResource("3_vtdw1")
+enemy = ExtResource("3_dnptw")
+chance = 20.0
+
+[sub_resource type="Resource" id="Resource_fr8jd"]
 resource_local_to_scene = true
+script = ExtResource("3_vtdw1")
+enemy = ExtResource("5_k3w38")
+chance = 40.0
+
+[sub_resource type="Resource" id="Resource_qshwo"]
+script = ExtResource("3_vtdw1")
+enemy = ExtResource("5_qjc7e")
+chance = 60.0
+
+[sub_resource type="Resource" id="Resource_2r71k"]
+script = ExtResource("3_vtdw1")
+enemy = ExtResource("6_0m1lp")
+chance = 80.0
+
+[sub_resource type="Resource" id="Resource_wckcy"]
 script = ExtResource("3_vtdw1")
 enemy = ExtResource("2_d64i3")
 chance = 100.0
@@ -64,8 +86,8 @@ chance = 0.0
 
 [node name="EnemySpawnerController" type="Node2D"]
 script = ExtResource("1_grdac")
-spawn_rounds = [[SubResource("Resource_na7nt")], [SubResource("Resource_3bk10"), SubResource("Resource_b763w")], [SubResource("Resource_qt7dm"), SubResource("Resource_e2vly"), SubResource("Resource_ny8aa")], [SubResource("Resource_0227r"), SubResource("Resource_lci23"), SubResource("Resource_eqwcr")]]
-spawn_time = Array[float]([1.0, 2.5, 2.0, 1.5, 1.0, 1.0, 1.0, 1.0, 0.5, 0.5, 0.5])
+spawn_rounds = [[SubResource("Resource_b2i8k"), SubResource("Resource_fr8jd"), SubResource("Resource_qshwo"), SubResource("Resource_2r71k"), SubResource("Resource_wckcy")], [SubResource("Resource_3bk10"), SubResource("Resource_b763w")], [SubResource("Resource_qt7dm"), SubResource("Resource_e2vly"), SubResource("Resource_ny8aa")], [SubResource("Resource_0227r"), SubResource("Resource_lci23"), SubResource("Resource_eqwcr")]]
+spawn_time = Array[float]([0.1, 2.5, 2.0, 1.5, 1.0, 1.0, 1.0, 1.0, 0.5, 0.5, 0.5])
 
 [node name="InitialSpawn" type="Timer" parent="."]
 wait_time = 0.5

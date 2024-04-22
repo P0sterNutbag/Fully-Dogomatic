@@ -45,9 +45,9 @@ func _process(delta):
 		scale = lerp(scale, Vector2.ONE, 5 * delta)
 
 
-func apply_to_gun(gun: Node2D):
+func apply_to_gun(_gun: Node2D):
 	var instance = option.object_to_spawn.instantiate()
-	gun.add_child(instance)
+	_gun.add_child(instance)
 
 
 func spawn_upgrade():

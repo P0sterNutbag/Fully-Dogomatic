@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dpn55yalpsj1t" path="res://Scenes/Guns/Parts/smg_barrel.tscn" id="5_55jl6"]
 [ext_resource type="PackedScene" uid="uid://cllces5swrvj0" path="res://Scenes/Guns/Parts/smg_stock.tscn" id="6_jfbg8"]
 [ext_resource type="PackedScene" uid="uid://dehshcx7p17ck" path="res://Scenes/Guns/Parts/smg_grip.tscn" id="7_b4qwh"]
-[ext_resource type="PackedScene" uid="uid://becgqooq4xlsl" path="res://Scenes/Guns/Parts/9mm_bullet.tscn" id="8_780nf"]
+[ext_resource type="PackedScene" uid="uid://becgqooq4xlsl" path="res://Scenes/Guns/9mm_bullet.tscn" id="8_780nf"]
 [ext_resource type="PackedScene" uid="uid://fdygrbuu66ej" path="res://Scenes/Guns/Parts/smg_magazine.tscn" id="8_xpg5s"]
 
 [node name="Gun" instance=ExtResource("1_v0rae")]

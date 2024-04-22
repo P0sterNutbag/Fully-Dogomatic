@@ -19,6 +19,7 @@ var money_increase_rate = 1.4
 var guns: Array[Node2D]
 var gun_slots: int = 10
 var level: int = 1
+var time: float = 0
 var new_gun_material = preload("res://Shaders/outline.tres")
 
 @onready var sprite = $PlayerSprite
@@ -48,9 +49,9 @@ func _physics_process(_delta):
 				velocity.y = move_toward(velocity.y, 0, SPEED)
 			
 			# mouse movement
-			#if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-				#var move_vector = (get_global_mouse_position() - global_position).normalized()
-				#velocity = move_vector * SPEED
+			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+				var move_vector = (get_global_mouse_position() - global_position).normalized()
+				velocity = move_vector * SPEED
 			
 			move_and_slide()
 			
@@ -61,6 +62,7 @@ func _physics_process(_delta):
 
 
 func _process(delta):
+	time += delta
 	match state:
 		states.walk:
 			# animation
@@ -70,9 +72,15 @@ func _process(delta):
 					sprite.flip_h = false
 				elif velocity.x < 0:
 					sprite.flip_h = true
+				# rotate
+				# var rot_frequency = 7
+				# var rot_amplitude = 50
+				# var rot = cos(time * rot_frequency) * rot_amplitude
+				# rotation_degrees += rot * delta
 			else:
 				sprite.play("idle")
-				
+				# rotation_degrees = 0 # = lerp_angle(rotation_degrees, 0, 5 * delta)
+
 			# damage
 			for area in $Hurtbox.get_overlapping_areas():
 				if area.is_in_group("enemy"):

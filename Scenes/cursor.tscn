@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Shaders/colorswap.tres" id="1_d2jlf"]
 [ext_resource type="Texture2D" uid="uid://bhkv1act7ocad" path="res://Sprites/cursor.png" id="2_3gagw"]
-[ext_resource type="Script" path="res://Scenes/cursor.gd" id="3_3fml0"]
+[ext_resource type="Script" path="res://Scripts/cursor.gd" id="3_3fml0"]
 
 [node name="Cursor" type="Sprite2D"]
 material = ExtResource("1_d2jlf")

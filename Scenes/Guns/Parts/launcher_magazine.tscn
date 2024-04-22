@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://brxcjl24b5feg"]
+[gd_scene load_steps=4 format=3 uid="uid://brxcjl24b5feg"]
 
 [ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Sprites/gun parts spritesheet.png" id="1_j5ijm"]
 [ext_resource type="Script" path="res://Scripts/gun_part_magazine.gd" id="2_fy0ca"]
+[ext_resource type="PackedScene" uid="uid://dfyv2v8qbh3ht" path="res://Scenes/Bullets/grenade.tscn" id="3_7clq7"]
 
 [node name="Magazine" type="Sprite2D"]
 use_parent_material = true
@@ -12,3 +13,4 @@ region_rect = Rect2(64, 64, 16, 16)
 script = ExtResource("2_fy0ca")
 rounds = 6
 reload_time = 2.0
+bullet = ExtResource("3_7clq7")

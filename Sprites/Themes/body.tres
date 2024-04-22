@@ -1,7 +1,10 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://dvjlep81w6r74"]
 
-[ext_resource type="FontFile" uid="uid://cv33v3c57fnen" path="res://Sprites/Fonts/Crispix.ttf" id="1_lgiba"]
+[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Sprites/Blue Sky 8x8.ttf" id="1_mjrmk"]
 
 [resource]
-RichTextLabel/font_sizes/normal_font_size = 16
-RichTextLabel/fonts/normal_font = ExtResource("1_lgiba")
+default_font = ExtResource("1_mjrmk")
+default_font_size = 7
+RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
+RichTextLabel/colors/font_outline_color = Color(0.223529, 0.223529, 0.223529, 1)
+RichTextLabel/constants/outline_size = 4

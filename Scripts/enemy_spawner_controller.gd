@@ -26,8 +26,8 @@ func spawn_enemy():
 		$SpawnEnemies.wait_time = spawn_time[spawn_round]
 		var spawn_position = spawners[randi_range(0, spawners.size()-1)].global_position
 		var instance
+		var r = randf_range(0,100)
 		for i in spawn_rounds[spawn_round].size():
-			var r = randf_range(0,100)
 			var wavedata = spawn_rounds[spawn_round][i]
 			if r < wavedata.chance:
 				var enemy = wavedata.enemy

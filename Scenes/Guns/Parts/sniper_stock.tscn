@@ -11,3 +11,4 @@ offset = Vector2(-6, 4)
 region_enabled = true
 region_rect = Rect2(0, 96, 16, 16)
 script = ExtResource("2_gpb2j")
+distance_to_player = 15.0

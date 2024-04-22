@@ -13,24 +13,25 @@ func _ready():
 
 
 func _draw():
-	for i in gun_slots:
-		var x = position.x + 20 * i
-		var y = position.y
-		#if i >= gun_slots/2: 
-			#x = position.x + 20 * (i -gun_slots/2)
-			#y = position.y + 20
-		var pos = Vector2(x, y)
-		if i == selected_index:
-			draw_texture(slot_texture_selected, pos)
-		else:
-			draw_texture(slot_texture, pos)
-		if i < Globals.player.guns.size():
-			draw_texture(Globals.player.guns[i].get_meta("icon"), pos)
-			for ii in Globals.player.guns[i].upgrades:
-				draw_texture(upgrade_texture, pos + Vector2(-1 + (ii * 4), -1))
+	pass
+	# for i in gun_slots:
+	# 	var x = position.x + 20 * i
+	# 	var y = position.y
+	# 	#if i >= gun_slots/2: 
+	# 		#x = position.x + 20 * (i -gun_slots/2)
+	# 		#y = position.y + 20
+	# 	var pos = Vector2(x, y)
+	# 	if i == selected_index:
+	# 		draw_texture(slot_texture_selected, pos)
+	# 	else:
+	# 		draw_texture(slot_texture, pos)
+	# 	if i < Globals.player.guns.size():
+	# 		draw_texture(Globals.player.guns[i].get_meta("icon"), pos)
+	# 		for ii in Globals.player.guns[i].upgrades:
+	# 			draw_texture(upgrade_texture, pos + Vector2(-1 + (ii * 4), -1))
 
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 

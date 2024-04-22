@@ -11,3 +11,4 @@ offset = Vector2(-2, 4)
 region_enabled = true
 region_rect = Rect2(0, 32, 16, 16)
 script = ExtResource("2_dmufg")
+distance_to_player = 20.0

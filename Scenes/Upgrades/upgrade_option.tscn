@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://vogimtfjrm7r" path="res://Scenes/Upgrades/ricochet_upgrade.tscn" id="12_0qm6r"]
 [ext_resource type="Texture2D" uid="uid://bt4bqfufwd7lu" path="res://Sprites/upgrade box.png" id="14_04dbb"]
 [ext_resource type="Texture2D" uid="uid://btohsgsxdi3fu" path="res://Sprites/upgrade box selected.png" id="15_nnukm"]
-[ext_resource type="Script" path="res://Scenes/Upgrades/Circle.gd" id="18_pedul"]
+[ext_resource type="Script" path="res://Scripts/Circle.gd" id="18_pedul"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/JuicyMovement.tscn" id="19_orlbb"]
 
 [sub_resource type="GDScript" id="GDScript_isr6q"]

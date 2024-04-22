@@ -42,8 +42,9 @@ func get_random_index(array: Array) -> int:
 	return -1
 
 
-func activate_gunstats():
+func activate_gunstats(gun : Node2D):
 	gunstats.visible = true
+	gunstats.set_stats(gun)
 
 
 func deactivate_gunstats():
