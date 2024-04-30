@@ -9,7 +9,7 @@ extends Area2D
 var move_vector: Vector2
 var speed: float
 var ricochet: bool = false
-var explosive: bool = false
+var explode_chance: float = 0
 var homing: bool = false
 var target_enemy
 var hit_enemies: Array
@@ -37,7 +37,7 @@ func _on_area_entered(area):
 		if ricochet:
 			move_vector.y *= -1
 			rotation = move_vector.angle()
-		if explosive:
+		if randf_range(0, 1) < explode_chance:
 			call_deferred("create_explosion", area.global_position)
 		if penetrations <= 0:
 			queue_free()

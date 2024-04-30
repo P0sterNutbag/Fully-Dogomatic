@@ -1,20 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://chgfr2kl6t642"]
+[gd_scene load_steps=2 format=3 uid="uid://chgfr2kl6t642"]
 
 [ext_resource type="Script" path="res://Scripts/crate_spawner.gd" id="1_ao83y"]
-[ext_resource type="PackedScene" uid="uid://va6m027lsfhl" path="res://Scenes/Guns/Old Guns/AR15.tscn" id="2_ty6l8"]
-[ext_resource type="PackedScene" uid="uid://qfad7ark3b0m" path="res://Scenes/Guns/Old Guns/grenade_launcher.tscn" id="3_4riur"]
-[ext_resource type="PackedScene" uid="uid://16dys4jid5d5" path="res://Scenes/Guns/Old Guns/pistol.tscn" id="4_urgux"]
-[ext_resource type="PackedScene" uid="uid://jj0kl38us43u" path="res://Scenes/Guns/Old Guns/shotgun.tscn" id="5_cb7dp"]
-[ext_resource type="PackedScene" uid="uid://dex3rn367cm3p" path="res://Scenes/Guns/Old Guns/smg.tscn" id="6_6gmie"]
-[ext_resource type="PackedScene" uid="uid://csm601ufctk8h" path="res://Scenes/Guns/Old Guns/sniper.tscn" id="7_ou5tc"]
 
 [node name="CrateSpawner" type="Node2D"]
 use_parent_material = true
 script = ExtResource("1_ao83y")
-guns = Array[PackedScene]([ExtResource("2_ty6l8"), ExtResource("3_4riur"), ExtResource("4_urgux"), ExtResource("5_cb7dp"), ExtResource("6_6gmie"), ExtResource("7_ou5tc")])
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
-one_shot = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

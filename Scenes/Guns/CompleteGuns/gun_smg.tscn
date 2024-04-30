@@ -1,0 +1,30 @@
+[gd_scene load_steps=10 format=3 uid="uid://bw3w1cm787x4m"]
+
+[ext_resource type="PackedScene" uid="uid://b8qfbi2a3hocl" path="res://Scenes/Guns/gun_parent.tscn" id="1_giusw"]
+[ext_resource type="Texture2D" uid="uid://bwvobme5vv6us" path="res://Sprites/icon AR15.png" id="2_34m4u"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_ewixt"]
+[ext_resource type="PackedScene" uid="uid://bduar6b4yec01" path="res://Scenes/Guns/gun_frame.tscn" id="4_jg44g"]
+[ext_resource type="PackedScene" uid="uid://dpn55yalpsj1t" path="res://Scenes/Gun Parts/smg_barrel.tscn" id="5_bqrle"]
+[ext_resource type="PackedScene" uid="uid://cllces5swrvj0" path="res://Scenes/Gun Parts/smg_stock.tscn" id="6_l7y6y"]
+[ext_resource type="PackedScene" uid="uid://dehshcx7p17ck" path="res://Scenes/Gun Parts/smg_grip.tscn" id="7_4u47x"]
+[ext_resource type="PackedScene" uid="uid://fdygrbuu66ej" path="res://Scenes/Gun Parts/smg_magazine.tscn" id="8_8agc1"]
+
+[sub_resource type="Resource" id="Resource_gss1p"]
+script = ExtResource("3_ewixt")
+rarity = 1
+
+[node name="Gun" instance=ExtResource("1_giusw")]
+cooldown = 0.0
+shot_count = 0
+rounds = 0
+metadata/Title = "MP5"
+metadata/icon = ExtResource("2_34m4u")
+metadata/Type = "Sub Machine Gun"
+metadata/Rarity = SubResource("Resource_gss1p")
+
+[node name="GunFrame" parent="." index="3" instance=ExtResource("4_jg44g")]
+position = Vector2(4, -1.78655e-05)
+barrel = ExtResource("5_bqrle")
+stock = ExtResource("6_l7y6y")
+grip = ExtResource("7_4u47x")
+magazine = ExtResource("8_8agc1")

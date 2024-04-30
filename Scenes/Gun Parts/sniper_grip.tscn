@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmjpqja3s52l0"]
+
+[ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Sprites/gun parts spritesheet.png" id="1_uqvw0"]
+[ext_resource type="Script" path="res://Scripts/gun_part_grip.gd" id="2_uphwv"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="2_vd5h5"]
+[ext_resource type="PackedScene" uid="uid://du8dgih13wcrj" path="res://Scenes/Guns/CompleteGuns/gun_sniper.tscn" id="3_o04x5"]
+
+[sub_resource type="Resource" id="Resource_kij4o"]
+script = ExtResource("2_vd5h5")
+rarity = 2
+
+[node name="Grip" type="Sprite2D"]
+z_index = 1
+use_parent_material = true
+texture = ExtResource("1_uqvw0")
+offset = Vector2(6, 3)
+region_enabled = true
+region_rect = Rect2(16, 96, 16, 16)
+script = ExtResource("2_uphwv")
+gun = ExtResource("3_o04x5")
+metadata/Title = "Grip"
+metadata/Type = "Mk 13 Sniper Rifle"
+metadata/Rarity = SubResource("Resource_kij4o")

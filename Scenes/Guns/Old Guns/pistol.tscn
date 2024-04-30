@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://16dys4jid5d5"]
 
-[ext_resource type="PackedScene" uid="uid://dpwo44pw6jd44" path="res://Scenes/Guns/gun_parent.tscn" id="1_wiiqa"]
+[ext_resource type="PackedScene" uid="uid://dpwo44pw6jd44" path="res://Scenes/Guns/Old Guns/gun_parent_old.tscn" id="1_wiiqa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cbx5q"]
 size = Vector2(16, 9.99992)

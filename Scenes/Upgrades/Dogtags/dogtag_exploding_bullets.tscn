@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://cn50oxjbu2kvn"]
+
+[ext_resource type="Shader" path="res://Shaders/colorswap.gdshader" id="1_jw45l"]
+[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Sprites/palette blue orange.png" id="2_1p1ib"]
+[ext_resource type="Script" path="res://Scripts/Upgrades/dogtag.gd" id="3_gh0yw"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="4_5iasq"]
+[ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Sprites/123spritesheet.png" id="5_7eibt"]
+[ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/JuicyMovement.tscn" id="6_gvav4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k0t5h"]
+shader = ExtResource("1_jw45l")
+shader_parameter/skip_first_row = true
+shader_parameter/use_palette_alpha = false
+shader_parameter/is_texture = true
+shader_parameter/fps = 6.0
+shader_parameter/color_threshold = 0.1
+shader_parameter/palette = ExtResource("2_1p1ib")
+
+[sub_resource type="Resource" id="Resource_25sqj"]
+script = ExtResource("4_5iasq")
+rarity = 0
+
+[node name="Dogtag" type="Control" groups=["dogtag"]]
+material = SubResource("ShaderMaterial_k0t5h")
+layout_mode = 3
+anchors_preset = 0
+offset_top = 5.0
+offset_bottom = 5.0
+script = ExtResource("3_gh0yw")
+gun_upgrade = true
+variable_name = "explode_chance"
+value = 0.1
+metadata/Title = "Dogtag"
+metadata/Type = "Bullets Explode on Impact"
+metadata/Rarity = SubResource("Resource_25sqj")
+
+[node name="Tag" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(0, 11)
+texture = ExtResource("5_7eibt")
+region_enabled = true
+region_rect = Rect2(32, 64, 16, 32)
+
+[node name="Icon" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(0, 8)
+texture = ExtResource("5_7eibt")
+region_enabled = true
+region_rect = Rect2(48, 64, 16, 16)
+
+[node name="JuicyMovement" parent="." node_paths=PackedStringArray("target") instance=ExtResource("6_gvav4")]
+target = NodePath("..")
+bob_frequency = 3.0
+bob_amplitude = 8.0
+rot_frequency = 3.0
+rot_amplitude = 0.5

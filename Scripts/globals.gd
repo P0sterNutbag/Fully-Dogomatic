@@ -8,6 +8,18 @@ var explosion_sfx
 var world_controller
 var ui_guns
 var gunstats
+var audio_manager
+var ui
+var upgrade_manager: Node
+var holding_gun_part: bool = false
+var settings_open: bool = false
+var explode_chance: float = 0
+var globals
+enum rarity_levels {common, uncommon, rare, super_rare, ultra_rare, giga_rare }
+
+
+func _ready():
+	globals = self
 
 
 func create_instance(scene: PackedScene, position: Vector2):
@@ -29,7 +41,7 @@ func generate_circle_points(center: Vector2, radius: float, segments: int) -> Ar
 	return points
 
 
-func get_random_index(array: Array) -> int:
+func get_weighted_index(array: Array) -> int:
 	var sum = 0
 	for i in array.size():
 		sum += array[i].spawn_chance
@@ -49,3 +61,20 @@ func activate_gunstats(gun : Node2D):
 
 func deactivate_gunstats():
 	gunstats.visible = false
+
+
+func get_all_scenes_from_folder(path: String) -> Array[PackedScene]:
+	var dir = DirAccess.open(path)
+	var list: Array[PackedScene] = []
+	if dir:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if dir.current_is_dir():
+				pass
+			else:
+				list.append(load(dir.get_current_dir() + "/" + file_name))
+			file_name = dir.get_next()
+	else:
+		print("An error occurred when trying to access the path.")
+	return list

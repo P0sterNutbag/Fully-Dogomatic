@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://cei3fh8hxome7"]
+
+[ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Sprites/gun parts spritesheet.png" id="1_bmh4j"]
+[ext_resource type="Script" path="res://Scripts/gun_part_scope.gd" id="2_dn1m0"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_3eikg"]
+[ext_resource type="PackedScene" uid="uid://du8dgih13wcrj" path="res://Scenes/Guns/CompleteGuns/gun_sniper.tscn" id="4_2opym"]
+
+[sub_resource type="Resource" id="Resource_v4x01"]
+script = ExtResource("3_3eikg")
+rarity = 2
+
+[node name="Scope" type="Sprite2D"]
+use_parent_material = true
+texture = ExtResource("1_bmh4j")
+offset = Vector2(4, -2)
+region_enabled = true
+region_rect = Rect2(80, 96, 16, 16)
+script = ExtResource("2_dn1m0")
+gun = ExtResource("4_2opym")
+metadata/Title = "Scope"
+metadata/Type = "Mk 13 Sniper Rifle"
+metadata/Rarity = SubResource("Resource_v4x01")

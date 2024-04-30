@@ -1,4 +1,4 @@
 Resource
-WaveData
 GDScript
+WaveData
 SpriteFrames

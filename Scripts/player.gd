@@ -2,11 +2,11 @@ extends CharacterBody2D
 
 enum states {walk, dead}
 var state = states.walk
-const SPEED = 40.0
+var speed = 50.0
 signal player_died
 signal level_up(lvl: int)
 signal money_pickup
-signal gun_pickup
+signal gun_pickup(gun: Node2D)
 
 var hp = 100
 var in_enemy = false
@@ -14,9 +14,10 @@ var enemies = []
 var point_at_crate = false
 var crate_position: Vector2
 var money: float = 0
-var money_cap: float = 4
+var money_cap: float = 100#4
 var money_increase_rate = 1.4
 var guns: Array[Node2D]
+var dogtags: Array[Control]
 var gun_slots: int = 10
 var level: int = 1
 var time: float = 0
@@ -40,18 +41,18 @@ func _physics_process(_delta):
 			var direction_x = Input.get_axis("left", "right")
 			var direction_y = Input.get_axis("up", "down")
 			if direction_x:
-				velocity.x = direction_x * SPEED
+				velocity.x = direction_x * speed
 			else:
-				velocity.x = move_toward(velocity.x, 0, SPEED)
+				velocity.x = move_toward(velocity.x, 0, speed)
 			if direction_y:
-				velocity.y = direction_y * SPEED
+				velocity.y = direction_y * speed
 			else:
-				velocity.y = move_toward(velocity.y, 0, SPEED)
+				velocity.y = move_toward(velocity.y, 0, speed)
 			
 			# mouse movement
 			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 				var move_vector = (get_global_mouse_position() - global_position).normalized()
-				velocity = move_vector * SPEED
+				velocity = move_vector * speed
 			
 			move_and_slide()
 			
@@ -160,11 +161,21 @@ func _on_money_pickup_area_entered(area):
 		area.follow_player = true
 
 
-func _on_gun_highliter_area_entered(area):
-	if not guns.has(area):
-		area.show_name()
+func _on_gun_highliter_area_entered(_area):
+	pass
+	# if not guns.has(area):
+	# 	area.show_name()
 		#area.get_node("Sprite2D").material = new_gun_material
 
 
-func _on_gun_highliter_area_exited(area):
-	area.reset_material()
+func _on_gun_highliter_area_exited(_area):
+	pass
+	# area.reset_material()
+
+
+func _on_choose_weapon_timeout():
+	Globals.world_controller.spawn_upgrade_menu()
+
+
+func _on_drop_crate_timeout():
+	$CrateSpawner.spawn_crate()

@@ -7,7 +7,7 @@ var move_vector: Vector2
 var speed: float
 var damage: float = 1
 var penetrations: int
-var explosive: bool = true
+var explode_chance: float = 1
 var ricochet: bool = false
 var homing: bool = false
 

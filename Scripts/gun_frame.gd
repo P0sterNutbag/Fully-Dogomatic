@@ -10,7 +10,6 @@ extends Node2D
 		grip = grip
 		magazine = magazine
 		sight = sight
-		#bullet = bullet
 @export var stock: PackedScene:
 	set(value): 
 		stock_object = set_new_part(stock_object, value, "StockSocket", 1)
@@ -27,10 +26,6 @@ extends Node2D
 	set(value): 
 		sight_object = set_new_part(sight_object, value, "SightSocket", 0)
 		sight = value
-#@export var bullet: PackedScene:
-	#set(value): 
-		#bullet_object = set_new_part(bullet_object, value, "", 0)
-		#bullet = value
 
 var barrel_object: Node2D
 var stock_object: Node2D
@@ -57,10 +52,29 @@ func set_new_part(part_object: Node2D, new_part: PackedScene, socket_name: Strin
 			part_object.queue_free()
 		return null
 
+
+func set_stats():
+	if barrel_object != null: 
+		barrel_object.set_gun_stats()
+		print_debug("barrel stats set")
+	if stock_object != null: 
+		stock_object.set_gun_stats()
+		print_debug("stock stats set")
+	if magazine_object != null: 
+		magazine_object.set_gun_stats()
+		print_debug("mag stats set")
+	if sight_object != null: 
+		sight_object.set_gun_stats()
+		print_debug("sight stats set")
+
+
 func copy_parts(copy_from: Node2D):
 	barrel = copy_from.barrel
 	grip = copy_from.grip
 	magazine = copy_from.magazine
 	sight = copy_from.sight
 	stock = copy_from.stock
-	#bullet = copy_from.bullet
+
+
+func _on_timer_timeout():
+	set_stats()

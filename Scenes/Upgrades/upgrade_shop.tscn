@@ -1,0 +1,158 @@
+[gd_scene load_steps=14 format=3 uid="uid://cgqdiahb143ma"]
+
+[ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Shaders/colorswap.tres" id="1_brgny"]
+[ext_resource type="Script" path="res://Scripts/upgrade_menu.gd" id="2_upmw8"]
+[ext_resource type="PackedScene" uid="uid://diu6fl025qdv0" path="res://Scenes/Upgrades/upgrade_option.tscn" id="3_fnavs"]
+[ext_resource type="Shader" path="res://Shaders/colorswap.gdshader" id="4_cxvto"]
+[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Sprites/palette blue orange.png" id="5_em88p"]
+[ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Sprites/Themes/ui text mid.tres" id="6_ufwc1"]
+[ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/JuicyMovement.tscn" id="7_48fel"]
+[ext_resource type="Texture2D" uid="uid://2u72jmj4wnsn" path="res://Sprites/red texture.png" id="8_mikmw"]
+[ext_resource type="Theme" uid="uid://dpv7tir788p5t" path="res://Sprites/Themes/ui text small.tres" id="8_r1tt1"]
+[ext_resource type="Script" path="res://Scripts/FinishUpgrades.gd" id="9_tqvql"]
+[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Sprites/Blue Sky 8x8.ttf" id="10_noc24"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xyvyb"]
+shader = ExtResource("4_cxvto")
+shader_parameter/skip_first_row = true
+shader_parameter/use_palette_alpha = false
+shader_parameter/is_texture = false
+shader_parameter/fps = 6.0
+shader_parameter/color_threshold = 0.1
+shader_parameter/palette = ExtResource("5_em88p")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6s1wj"]
+shader = ExtResource("4_cxvto")
+shader_parameter/skip_first_row = true
+shader_parameter/use_palette_alpha = false
+shader_parameter/is_texture = false
+shader_parameter/fps = 6.0
+shader_parameter/color_threshold = 0.1
+shader_parameter/palette = ExtResource("5_em88p")
+
+[node name="UpgradeMenuGui" type="CanvasLayer"]
+
+[node name="UpgradeMenu" type="Control" parent="." node_paths=PackedStringArray("options")]
+process_mode = 3
+material = ExtResource("1_brgny")
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("2_upmw8")
+options = [NodePath("UpgradeOption"), NodePath("UpgradeOption2"), NodePath("UpgradeOption3")]
+
+[node name="UpgradeOption" parent="UpgradeMenu" instance=ExtResource("3_fnavs")]
+offset_left = 320.0
+offset_top = 500.0
+offset_right = 320.0
+offset_bottom = 500.0
+is_shop_option = true
+
+[node name="UpgradeOption2" parent="UpgradeMenu" instance=ExtResource("3_fnavs")]
+offset_left = 160.0
+offset_top = 500.0
+offset_right = 160.0
+offset_bottom = 500.0
+is_shop_option = true
+
+[node name="UpgradeOption3" parent="UpgradeMenu" instance=ExtResource("3_fnavs")]
+offset_left = 480.0
+offset_top = 500.0
+offset_right = 480.0
+offset_bottom = 500.0
+is_shop_option = true
+
+[node name="PositionGuns" type="RichTextLabel" parent="UpgradeMenu"]
+material = SubResource("ShaderMaterial_xyvyb")
+clip_contents = false
+layout_mode = 1
+offset_left = 1.0
+offset_top = -78.0
+offset_right = 641.0
+offset_bottom = -10.0
+pivot_offset = Vector2(169, 34)
+mouse_filter = 2
+theme = ExtResource("6_ufwc1")
+bbcode_enabled = true
+text = "[center]Position Your Guns"
+
+[node name="JuicyMovement" parent="UpgradeMenu/PositionGuns" node_paths=PackedStringArray("target") instance=ExtResource("7_48fel")]
+target = NodePath("..")
+rot_frequency = 2.0
+rot_amplitude = 0.05
+
+[node name="ChooseGuns" type="RichTextLabel" parent="UpgradeMenu"]
+material = SubResource("ShaderMaterial_6s1wj")
+clip_contents = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.544
+anchor_top = -16.0909
+anchor_right = -1.544
+anchor_bottom = -16.0909
+offset_top = -78.0
+offset_right = 641.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(169, 34)
+mouse_filter = 2
+theme = ExtResource("6_ufwc1")
+bbcode_enabled = true
+text = "[center]Supply Drop"
+
+[node name="JuicyMovement" parent="UpgradeMenu/ChooseGuns" node_paths=PackedStringArray("target") instance=ExtResource("7_48fel")]
+target = NodePath("..")
+rot_frequency = 2.0
+rot_amplitude = 0.05
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UpgradeMenu/ChooseGuns"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 224.0
+offset_top = 21.0
+offset_right = 406.0
+offset_bottom = 61.0
+theme = ExtResource("8_r1tt1")
+bbcode_enabled = true
+text = "[center] Choosen item will enter your rotation"
+
+[node name="ReadyButton" type="TextureRect" parent="UpgradeMenu"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 460.0
+offset_top = 370.0
+offset_right = 579.0
+offset_bottom = 414.0
+pivot_offset = Vector2(59, 22)
+texture = ExtResource("8_mikmw")
+script = ExtResource("9_tqvql")
+
+[node name="UpgradeName" type="RichTextLabel" parent="UpgradeMenu/ReadyButton"]
+material = SubResource("ShaderMaterial_xyvyb")
+clip_contents = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0504202
+anchor_right = -0.0504202
+offset_top = 15.0
+offset_right = 125.0
+offset_bottom = 37.0
+mouse_filter = 2
+theme = ExtResource("6_ufwc1")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("10_noc24")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "[center]READY?"
+metadata/_edit_use_anchors_ = true
+
+[node name="JuicyMovement" parent="UpgradeMenu/ReadyButton" node_paths=PackedStringArray("target") instance=ExtResource("7_48fel")]
+position = Vector2(61, 23)
+target = NodePath("..")
+bob_frequency = 4.0
+bob_amplitude = 5.0
+
+[connection signal="gui_input" from="UpgradeMenu/ReadyButton" to="UpgradeMenu/ReadyButton" method="_on_gui_input"]
+[connection signal="mouse_entered" from="UpgradeMenu/ReadyButton" to="UpgradeMenu/ReadyButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UpgradeMenu/ReadyButton" to="UpgradeMenu/ReadyButton" method="_on_mouse_exited"]
+[connection signal="pushed" from="UpgradeMenu/ReadyButton" to="UpgradeMenu" method="_on_texture_rect_pushed"]

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="settings_meun" load_steps=2 format=3 uid="uid://tky8fudc5jjc"]
+
+[sub_resource type="GDScript" id="GDScript_fpfks"]
+script/source = "extends Resource
+class_name settings_meun
+
+@export var name: String
+@export var method: Callable
+"
+
+[resource]
+resource_local_to_scene = true
+script = SubResource("GDScript_fpfks")
+name = ""
+method = Callable()

@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://bypk836otjf2e"]
+
+[ext_resource type="Script" path="res://Scenes/UI/settings_menu.gd" id="1_73uks"]
+[ext_resource type="Shader" path="res://Shaders/colorswap.gdshader" id="1_fohwv"]
+[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Sprites/palette blue orange.png" id="2_j0jht"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t5lii"]
+shader = ExtResource("1_fohwv")
+shader_parameter/skip_first_row = true
+shader_parameter/use_palette_alpha = false
+shader_parameter/is_texture = false
+shader_parameter/fps = 6.0
+shader_parameter/color_threshold = 0.1
+shader_parameter/palette = ExtResource("2_j0jht")
+
+[sub_resource type="GDScript" id="GDScript_fpfks"]
+script/source = "extends Resource
+class_name settings_meun
+
+@export var name: String
+@export var method: String
+@export var is_toggle: bool
+@export var toggle_value: bool
+"
+
+[sub_resource type="Resource" id="Resource_vggk4"]
+script = SubResource("GDScript_fpfks")
+name = "Continue"
+method = "continue_game"
+is_toggle = false
+toggle_value = false
+
+[sub_resource type="Resource" id="Resource_jbcut"]
+script = SubResource("GDScript_fpfks")
+name = "Mute"
+method = "mute"
+is_toggle = true
+toggle_value = false
+
+[sub_resource type="Resource" id="Resource_1yqlf"]
+script = SubResource("GDScript_fpfks")
+name = "Quit"
+method = "quit_game"
+is_toggle = false
+toggle_value = false
+
+[sub_resource type="Resource" id="Resource_7tmpe"]
+script = SubResource("GDScript_fpfks")
+name = "Fullscreen"
+method = "toggle_fullscreen"
+is_toggle = true
+toggle_value = false
+
+[node name="SettingsMenu" type="Control"]
+process_mode = 3
+z_index = 1000
+material = SubResource("ShaderMaterial_t5lii")
+use_parent_material = true
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_73uks")
+options = Array[Resource]([SubResource("Resource_vggk4"), SubResource("Resource_jbcut"), SubResource("Resource_1yqlf"), SubResource("Resource_7tmpe")])
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_right = 645.0
+offset_bottom = 365.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.392157)

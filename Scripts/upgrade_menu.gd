@@ -26,13 +26,11 @@ func _process(delta):
 		$PositionGuns.position = lerp($PositionGuns.position, Vector2($PositionGuns.position.x, -100), 5 * delta)
 		$ReadyButton.position = lerp($ReadyButton.position, Vector2($ReadyButton.position.x, 400), 5 * delta)
 	elif has_selected:
-		$PositionGuns.position = lerp($PositionGuns.position, Vector2($PositionGuns.position.x, 50), 5 * delta)
+		$PositionGuns.position = lerp($PositionGuns.position, Vector2($PositionGuns.position.x, 100), 5 * delta)
 		$ReadyButton.position = lerp($ReadyButton.position, Vector2($ReadyButton.position.x, 275), 5 * delta)
 	else:
-		$ChooseGuns.position = lerp($ChooseGuns.position, Vector2($ChooseGuns.position.x, 50), 5 * delta)
+		$ChooseGuns.position = lerp($ChooseGuns.position, Vector2($ChooseGuns.position.x, 100), 5 * delta)
 	
-
-
 
 func destroy():
 	get_tree().paused = false
