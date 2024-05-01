@@ -14,7 +14,7 @@ var enemies = []
 var point_at_crate = false
 var crate_position: Vector2
 var money: float = 0
-var money_cap: float = 100#4
+var money_cap: float = 4
 var money_increase_rate = 1.4
 var guns: Array[Node2D]
 var dogtags: Array[Control]

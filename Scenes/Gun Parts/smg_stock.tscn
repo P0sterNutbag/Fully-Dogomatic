@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Sprites/gun parts spritesheet.png" id="1_g8kh5"]
 [ext_resource type="Script" path="res://Scripts/gun_part_stock.gd" id="2_4c4bg"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_sx05u"]
-[ext_resource type="PackedScene" uid="uid://bw3w1cm787x4m" path="res://Scenes/Guns/CompleteGuns/gun_smg.tscn" id="4_gd066"]
 
 [sub_resource type="Resource" id="Resource_4sss5"]
 script = ExtResource("3_sx05u")
@@ -18,7 +17,6 @@ region_enabled = true
 region_rect = Rect2(0, 32, 16, 16)
 script = ExtResource("2_4c4bg")
 distance_to_player = 8.0
-gun = ExtResource("4_gd066")
 metadata/Title = "Stock"
 metadata/Type = "MP5 SMG"
 metadata/Rarity = SubResource("Resource_4sss5")

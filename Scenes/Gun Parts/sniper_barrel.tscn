@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://Scripts/gun_part_barrel.gd" id="2_btuw2"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_g5r0q"]
 [ext_resource type="Texture2D" uid="uid://l0xncvn3i5id" path="res://Sprites/muzzleflash.png" id="3_rfjy7"]
-[ext_resource type="PackedScene" uid="uid://du8dgih13wcrj" path="res://Scenes/Guns/CompleteGuns/gun_sniper.tscn" id="4_k4b4i"]
 
 [sub_resource type="Resource" id="Resource_bfd7l"]
 script = ExtResource("3_g5r0q")
@@ -18,7 +17,6 @@ region_rect = Rect2(32, 96, 48, 16)
 script = ExtResource("2_btuw2")
 spread = 6.0
 knockback = 5.0
-gun = ExtResource("4_k4b4i")
 metadata/Title = "Barrel"
 metadata/Type = "Mk 13 Sniper Rifle"
 metadata/Rarity = SubResource("Resource_bfd7l")

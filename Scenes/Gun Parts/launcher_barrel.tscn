@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://beqyj0t1omsaq"]
+[gd_scene load_steps=6 format=3 uid="uid://beqyj0t1omsaq"]
 
 [ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Sprites/gun parts spritesheet.png" id="1_iplpg"]
 [ext_resource type="Script" path="res://Scripts/gun_part_barrel.gd" id="2_ots41"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_ejinc"]
 [ext_resource type="Texture2D" uid="uid://l0xncvn3i5id" path="res://Sprites/muzzleflash.png" id="3_w3dsp"]
-[ext_resource type="PackedScene" uid="uid://irn8wcu6ofrw" path="res://Scenes/Guns/CompleteGuns/gun_grenade_launcher.tscn" id="4_apuo7"]
 
 [sub_resource type="Resource" id="Resource_13lms"]
 script = ExtResource("3_ejinc")
@@ -19,7 +18,6 @@ script = ExtResource("2_ots41")
 cooldown = 3.0
 knockback = 5.0
 distance_to_player = 25.0
-gun = ExtResource("4_apuo7")
 metadata/Title = "Barrel"
 metadata/Type = "MGL Grenade Launcher"
 metadata/Rarity = SubResource("Resource_13lms")

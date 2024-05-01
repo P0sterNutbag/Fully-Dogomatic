@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://syacy6q18lg4"]
+[gd_scene load_steps=6 format=3 uid="uid://syacy6q18lg4"]
 
 [ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Sprites/gun parts spritesheet.png" id="1_bfr5d"]
 [ext_resource type="Script" path="res://Scripts/gun_part_barrel.gd" id="2_65tui"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_3ujd4"]
 [ext_resource type="Texture2D" uid="uid://l0xncvn3i5id" path="res://Sprites/muzzleflash.png" id="3_c6k7a"]
-[ext_resource type="PackedScene" uid="uid://couat6mj44bws" path="res://Scenes/Guns/CompleteGuns/gun_pistol.tscn" id="4_r284r"]
 
 [sub_resource type="Resource" id="Resource_bo083"]
 script = ExtResource("3_3ujd4")
@@ -19,7 +18,6 @@ script = ExtResource("2_65tui")
 cooldown = 0.5
 spread = 7.5
 knockback = 5.0
-gun = ExtResource("4_r284r")
 metadata/Title = "Barrel"
 metadata/Type = "Pistol"
 metadata/Rarity = SubResource("Resource_bo083")

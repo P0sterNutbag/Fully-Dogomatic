@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://Scripts/gun_part_magazine.gd" id="2_ernf5"]
 [ext_resource type="PackedScene" uid="uid://bmfhcxqevrjcn" path="res://Scenes/Bullets/9mm_bullet.tscn" id="3_ayi7l"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="4_ln1td"]
-[ext_resource type="PackedScene" uid="uid://bw3w1cm787x4m" path="res://Scenes/Guns/CompleteGuns/gun_smg.tscn" id="5_7nh6g"]
 
 [sub_resource type="Resource" id="Resource_35e7x"]
 script = ExtResource("4_ln1td")
@@ -20,7 +19,6 @@ script = ExtResource("2_ernf5")
 rounds = 20
 reload_time = 2.0
 bullet = ExtResource("3_ayi7l")
-gun = ExtResource("5_7nh6g")
 metadata/Title = "Magazine"
 metadata/Type = "MP5 SMG"
 metadata/Rarity = SubResource("Resource_35e7x")

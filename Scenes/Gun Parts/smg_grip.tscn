@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Sprites/gun parts spritesheet.png" id="1_5uic1"]
 [ext_resource type="Script" path="res://Scripts/gun_part_grip.gd" id="2_mccre"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="2_w683x"]
-[ext_resource type="PackedScene" uid="uid://bw3w1cm787x4m" path="res://Scenes/Guns/CompleteGuns/gun_smg.tscn" id="3_mhuxj"]
 
 [sub_resource type="Resource" id="Resource_brs0o"]
 script = ExtResource("2_w683x")
@@ -17,7 +16,6 @@ offset = Vector2(2, 3)
 region_enabled = true
 region_rect = Rect2(16, 32, 16, 16)
 script = ExtResource("2_mccre")
-gun = ExtResource("3_mhuxj")
 metadata/Title = "Grip"
 metadata/Type = "MP5 SMG"
 metadata/Rarity = SubResource("Resource_brs0o")

@@ -1,4 +1,6 @@
 res://Scenes/Guns/CompleteGuns
+res://Scenes/Gun Parts
+res://Scenes/Guns
 res://Scripts
 res://Sprites
 res://Scenes/Upgrades
@@ -7,7 +9,6 @@ res://Scenes/UI
 res://Shaders
 res://Sprites/Themes
 C:/Users/tkeys/AppData/Local/Programs/Microsoft VS Code
-res://Scenes/Guns
 res://Scenes/Bullets
 res://Scenes
 res://

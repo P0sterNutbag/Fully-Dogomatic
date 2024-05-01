@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpn55yalpsj1t"]
+[gd_scene load_steps=6 format=3 uid="uid://dpn55yalpsj1t"]
 
 [ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Sprites/gun parts spritesheet.png" id="1_dhxgp"]
 [ext_resource type="Script" path="res://Scripts/gun_part_barrel.gd" id="2_khi4u"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_8hlpa"]
 [ext_resource type="Texture2D" uid="uid://l0xncvn3i5id" path="res://Sprites/muzzleflash.png" id="3_016p6"]
-[ext_resource type="PackedScene" uid="uid://bw3w1cm787x4m" path="res://Scenes/Guns/CompleteGuns/gun_smg.tscn" id="4_kjre8"]
 
 [sub_resource type="Resource" id="Resource_j86ew"]
 script = ExtResource("3_8hlpa")
@@ -20,7 +19,6 @@ cooldown = 0.05
 spread = 20.0
 knockback = 1.5
 distance_to_player = 25.0
-gun = ExtResource("4_kjre8")
 metadata/Title = "Barrel"
 metadata/Type = "MP5 SMG"
 metadata/Rarity = SubResource("Resource_j86ew")

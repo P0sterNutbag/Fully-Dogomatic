@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgu5vroflg0y6"]
+[gd_scene load_steps=5 format=3 uid="uid://bgu5vroflg0y6"]
 
 [ext_resource type="Script" path="res://Scripts/gun_part_magazine.gd" id="1_1qemv"]
 [ext_resource type="PackedScene" uid="uid://bmfhcxqevrjcn" path="res://Scenes/Bullets/9mm_bullet.tscn" id="2_85q8x"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_jhko7"]
-[ext_resource type="PackedScene" uid="uid://couat6mj44bws" path="res://Scenes/Guns/CompleteGuns/gun_pistol.tscn" id="4_5n1l4"]
 
 [sub_resource type="Resource" id="Resource_hhm0r"]
 script = ExtResource("3_jhko7")
@@ -18,7 +17,6 @@ script = ExtResource("1_1qemv")
 rounds = 6
 reload_time = 2.0
 bullet = ExtResource("2_85q8x")
-gun = ExtResource("4_5n1l4")
 metadata/Title = "Magazine"
 metadata/Type = "Pistol"
 metadata/Rarity = SubResource("Resource_hhm0r")

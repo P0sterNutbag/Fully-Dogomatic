@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dv4cwnp6hgajm"]
+[gd_scene load_steps=5 format=3 uid="uid://dv4cwnp6hgajm"]
 
 [ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Sprites/gun parts spritesheet.png" id="1_ndtig"]
 [ext_resource type="Script" path="res://Scripts/gun_part_grip.gd" id="2_ckqfi"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="2_ev2ho"]
-[ext_resource type="PackedScene" uid="uid://dhruksuxabxo2" path="res://Scenes/Guns/CompleteGuns/gun_shotgun.tscn" id="3_7j8ao"]
 
 [sub_resource type="Resource" id="Resource_4v8wh"]
 script = ExtResource("2_ev2ho")
@@ -17,7 +16,6 @@ offset = Vector2(3, 2)
 region_enabled = true
 region_rect = Rect2(0, 48, 16, 16)
 script = ExtResource("2_ckqfi")
-gun = ExtResource("3_7j8ao")
 metadata/Title = "Grip"
 metadata/Type = "Sawed Off Shotgun"
 metadata/Rarity = SubResource("Resource_4v8wh")

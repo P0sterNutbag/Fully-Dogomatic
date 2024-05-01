@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://beo28jxt6whff"]
+[gd_scene load_steps=5 format=3 uid="uid://beo28jxt6whff"]
 
 [ext_resource type="Script" path="res://Scripts/gun_part_magazine.gd" id="1_gd2hv"]
 [ext_resource type="PackedScene" uid="uid://bc1lpfb433y57" path="res://Scenes/Bullets/12gauge_shell.tscn" id="2_vdcve"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_36b7k"]
-[ext_resource type="PackedScene" uid="uid://dhruksuxabxo2" path="res://Scenes/Guns/CompleteGuns/gun_shotgun.tscn" id="4_17lcr"]
 
 [sub_resource type="Resource" id="Resource_hxig5"]
 script = ExtResource("3_36b7k")
@@ -17,7 +16,6 @@ region_rect = Rect2(80, 0, 16, 16)
 script = ExtResource("1_gd2hv")
 rounds = 4
 bullet = ExtResource("2_vdcve")
-gun = ExtResource("4_17lcr")
 metadata/Title = "Magazine"
 metadata/Type = "Sawed Off Shotgun"
 metadata/Rarity = SubResource("Resource_hxig5")
