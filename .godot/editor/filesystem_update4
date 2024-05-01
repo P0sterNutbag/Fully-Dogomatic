@@ -1,54 +1,15 @@
-res://Shaders/replace_color.gdshader
-res://Shaders/drop_shadow.gdshader
-res://Shaders/colorswap.gdshader
-res://Shaders/grayscale.gdshader
-res://Shaders/flash.gdshader
-res://Shaders/outline.gdshader
-res://Scripts/gun_part_barrel.gd
-res://Scripts/gun_part_bullet.gd
-res://Scripts/gun_part_grip.gd
-res://Scripts/gun_part_magazine.gd
-res://Scripts/gun_part_scope.gd
-res://Scripts/gun_part_stock.gd
-res://Scripts/upgrade_menu.gd
-res://Scenes/Upgrades/Dogtags/dogtag_exploding_bullets.tscn
-res://Shaders/outline.tres
-res://Shaders/colorswap.tres
-res://Sprites/Themes/ui text mid.tres
-res://Shaders/flash.tres
-res://Scenes/Upgrades/damage_upgrade.tscn
-res://Scenes/Guns/gun_frame.tscn
-res://Scenes/Guns/gun_parent.tscn
-res://Scenes/Upgrades/explosive_upgrade.tscn
-res://Scenes/Bullets/9mm_bullet.tscn
-res://Scenes/Guns/gun_name.tscn
-res://Scenes/Upgrades/Dogtags/dogtag_player_speed.tscn
-res://Scenes/Upgrades/ricochet_upgrade.tscn
 res://Scenes/Player/player.tscn
-res://Scenes/crate_spawner.tscn
-res://Scenes/crate.tscn
-res://Scenes/Gun Parts/ar15_grip.tscn
-res://Scenes/Bullets/bullet_explosion.tscn
-res://Scenes/Bullets/grenade.tscn
-res://Scripts/rarity.gd
-res://Scenes/Gun Parts/ar15_barrel.tscn
-res://Scenes/Gun Parts/ar15_magazine.tscn
-res://Scenes/Gun Parts/ar15_scope.tscn
-res://Scenes/Gun Parts/ar15_stock.tscn
-res://Scenes/Guns/CompleteGuns/gun_ar15.tscn
-res://Scenes/Gun Parts/launcher_barrel.tscn
-res://Scenes/Gun Parts/launcher_grip.tscn
-res://Scenes/Gun Parts/launcher_magazine.tscn
-res://Scenes/Gun Parts/launcher_stock.tscn
-res://Scenes/Gun Parts/pistol_barrel.tscn
-res://Scenes/Gun Parts/pistol_grip.tscn
-res://Scenes/Gun Parts/pistol_magazine.tscn
-res://Scenes/Gun Parts/shotgun_grip.tscn
-res://Scenes/Gun Parts/shotgun_barrel.tscn
-res://Scenes/Gun Parts/shotgun_magazine.tscn
-res://Scenes/Gun Parts/smg_barrel.tscn
-res://Scenes/enemy_spawner_controller.tscn
+res://Sprites/Themes/ui text mid.tres
+res://Scripts/Upgrades/upgrade.gd
+res://Shaders/outline.gdshader
+res://Shaders/outline.tres
+res://Shaders/colorswap.gdshader
+res://Shaders/colorswap.tres
+res://Scripts/gun_part_barrel.gd
+res://Shaders/flash.gdshader
+res://Shaders/flash.tres
 res://Scripts/wave_data.gd
-res://Scripts/crate_spawner.gd
-res://Scenes/enemy_spanwer.tscn
-res://Scripts/player.gd
+res://Scripts/world_controller.gd
+res://Shaders/grayscale.gdshader
+res://Shaders/drop_shadow.gdshader
+res://Shaders/replace_color.gdshader
