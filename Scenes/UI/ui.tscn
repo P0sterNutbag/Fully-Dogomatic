@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d1c2pbbb47u4h"]
+[gd_scene load_steps=20 format=3 uid="uid://d1c2pbbb47u4h"]
 
 [ext_resource type="Script" path="res://Scenes/UI/ui.gd" id="1_nakcx"]
 [ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Sprites/Blue Sky 8x8.ttf" id="1_y4k2c"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://jtcnyoi86sub" path="res://Sprites/gray texture.png" id="5_755pl"]
 [ext_resource type="Texture2D" uid="uid://2u72jmj4wnsn" path="res://Sprites/red texture.png" id="6_332ki"]
 [ext_resource type="Script" path="res://Scenes/UI/dogtags_ui.gd" id="11_4d47h"]
+[ext_resource type="PackedScene" uid="uid://dwx100okd3d23" path="res://Scenes/UI/minimap.tscn" id="13_ehvuj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2xchs"]
 shader = ExtResource("3_8xjm0")
@@ -43,6 +44,15 @@ shader_parameter/use_palette_alpha = false
 shader_parameter/is_texture = true
 shader_parameter/fps = 6.0
 shader_parameter/color_threshold = 0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o0qgv"]
+shader = ExtResource("3_8xjm0")
+shader_parameter/skip_first_row = true
+shader_parameter/use_palette_alpha = false
+shader_parameter/is_texture = true
+shader_parameter/fps = 6.0
+shader_parameter/color_threshold = 0.1
+shader_parameter/palette = ExtResource("3_4hdc5")
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_nakcx")
@@ -256,3 +266,10 @@ offset_top = 326.0
 offset_right = 26.0
 offset_bottom = 326.0
 script = ExtResource("11_4d47h")
+
+[node name="Minimap" parent="." instance=ExtResource("13_ehvuj")]
+material = SubResource("ShaderMaterial_o0qgv")
+offset_left = 567.0
+offset_top = 288.0
+offset_right = 567.0
+offset_bottom = 288.0

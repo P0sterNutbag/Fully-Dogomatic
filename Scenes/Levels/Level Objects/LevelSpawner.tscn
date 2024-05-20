@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfbi0qqmatkp8"]
+
+[ext_resource type="Script" path="res://Scripts/LevelSpawner.gd" id="1_yyqyc"]
+
+[node name="LevelSpawner" type="Node"]
+script = ExtResource("1_yyqyc")
+crate_amount = Array[int]([5, 0, 0])
+enemy_spawner_amount = Array[int]([5, 0, 0])

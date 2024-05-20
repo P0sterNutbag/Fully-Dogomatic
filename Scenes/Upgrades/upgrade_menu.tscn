@@ -44,6 +44,7 @@ offset_left = 320.0
 offset_top = 500.0
 offset_right = 320.0
 offset_bottom = 500.0
+is_gun = true
 
 [node name="UpgradeOption2" parent="UpgradeMenu" instance=ExtResource("3_hyjv8")]
 offset_left = 160.0

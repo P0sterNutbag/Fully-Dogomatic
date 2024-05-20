@@ -1,4 +1,4 @@
-extends Node2D
+extends GunPart
 
 @export_subgroup("Properties")
 @export var spread: float = -1

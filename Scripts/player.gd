@@ -128,14 +128,14 @@ func get_money(amount: int):
 			$Chaching.play()
 	elif $Chaching.get_playback_position() > 0.25:
 		$Chaching.play()
-	if money >= money_cap:
-		level += 1
-		level_up.emit(level)
-		money = 0
-		money_cap *= money_increase_rate
-		Globals.world_controller.spawn_upgrade_menu()
-		#Globals.crate_spawner.spawn_crate()
-		$Bark.play()
+	#if money >= money_cap:
+		#level += 1
+		#level_up.emit(level)
+		#money = 0
+		#money_cap *= money_increase_rate
+		#Globals.world_controller.spawn_upgrade_menu()
+		##Globals.crate_spawner.spawn_crate()
+		#$Bark.play()
 		
 
 #func _on_area_2d_area_entered(area):

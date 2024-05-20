@@ -2,7 +2,7 @@ extends Area2D
 
 var shop = preload("res://Scenes/Upgrades/upgrade_shop.tscn")
 var target_y: float
-var falling = true
+var falling = false
 var fall_speed = 75
 var break_particle = preload("res://Scenes/Particles/wood_particles.tscn")
 

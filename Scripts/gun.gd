@@ -35,6 +35,7 @@ var game_over = false
 var upgrades = 0
 var follow_mouse = false
 var explode_chance: float = 0
+var locked: bool = false
 
 @onready var sprite = $GunFrame
 var firepoint
@@ -192,7 +193,7 @@ func setup_gun():
 
 func _on_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if get_tree().paused and !Globals.holding_gun_part and !Globals.settings_open:
+		if get_tree().paused and !Globals.holding_gun_part and !Globals.settings_open and !locked:
 			if follow_mouse:
 				follow_mouse = false
 			else:

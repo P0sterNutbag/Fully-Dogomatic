@@ -49,4 +49,6 @@ func _on_texture_rect_pushed():
 	get_tree().paused = false
 	has_selected = false
 	has_finished = true
+	for gun in Globals.player.guns:
+		gun.locked = true
 	destroy()

@@ -7,6 +7,6 @@
 
 [node name="UpgradeManager" type="Node"]
 script = ExtResource("1_aerk1")
-upgrade_folders = Array[String](["res://Scenes/Guns/CompleteGuns/", "res://Scenes/Gun Parts/", "res://Scenes/Upgrades/Dogtags/"])
+upgrade_folders = Array[String](["res://Scenes/Guns/CompleteGuns/", "res://Scenes/Upgrades/Dogtags/"])
 unlocked_upgrades = Array[PackedScene]([ExtResource("2_5wbeu"), ExtResource("3_yruhw"), ExtResource("4_xgx3e")])
 rarity_chances = Array[int]([1000, 500, 100, 50, 10, 1])

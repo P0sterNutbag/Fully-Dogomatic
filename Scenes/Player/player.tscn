@@ -73,15 +73,15 @@ radius = 8.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_wq62j"]
 radius = 34.0147
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nv1jr"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mcsc2"]
 bg_color = Color(0.152941, 0.160784, 0.27451, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8gndv"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_agtf6"]
 bg_color = Color(0.929412, 0.627451, 0.192157, 1)
 
 [sub_resource type="Theme" id="Theme_s2jls"]
-ProgressBar/styles/background = SubResource("StyleBoxFlat_nv1jr")
-ProgressBar/styles/fill = SubResource("StyleBoxFlat_8gndv")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_mcsc2")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_agtf6")
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
@@ -141,6 +141,7 @@ texture = ExtResource("4_r3toi")
 [node name="ArrowBase" type="Node2D" parent="."]
 
 [node name="CrateSpawner" parent="." instance=ExtResource("5_i7m7h")]
+process_mode = 4
 position = Vector2(0, -187)
 
 [node name="DropCrate" type="Timer" parent="."]

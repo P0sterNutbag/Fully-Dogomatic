@@ -2,6 +2,7 @@ extends Control
 
 @export var options = []
 @export var is_shop_option: bool = false
+@export var is_gun: bool = false
 var option
 var upgrade
 var destination = Vector2.ZERO
@@ -13,10 +14,7 @@ var part_scene = preload("res://Scenes/Upgrades/part_upgrade.tscn")
 
 func _ready():
 	# get the upgrade list from the manager
-	if !is_shop_option:
-		options = Globals.upgrade_manager.upgrades
-	else:
-		options = Globals.upgrade_manager.shop_upgrades
+	options = Globals.upgrade_manager.upgrades
 	# get an option and make sure it isn't already used
 	var rand_index = Globals.get_weighted_index(options)
 	var upgrade_menu = get_parent()
@@ -30,7 +28,7 @@ func _ready():
 		upgrade = part_scene.instantiate()
 		upgrade.part = option.object_to_spawn
 		upgrade.set_sprite()
-	add_child(upgrade)
+	call_deferred("add_child", upgrade)
 	upgrade.scale *= 2
 	$UpgradeName.text = "[center]" + upgrade.get_meta("Title")
 	$UpgradeDescription.text = "[center]" + upgrade.get_meta("Type")

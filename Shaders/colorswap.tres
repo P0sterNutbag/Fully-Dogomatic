@@ -7,7 +7,7 @@
 shader = ExtResource("1_c6y6x")
 shader_parameter/skip_first_row = true
 shader_parameter/use_palette_alpha = false
-shader_parameter/is_texture = true
+shader_parameter/is_texture = false
 shader_parameter/fps = 6.0
 shader_parameter/color_threshold = 0.1
 shader_parameter/palette = ExtResource("2_i0ot1")

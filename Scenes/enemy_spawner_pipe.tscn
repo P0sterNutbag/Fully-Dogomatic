@@ -1,0 +1,71 @@
+[gd_scene load_steps=12 format=3 uid="uid://byrlfy20m4t48"]
+
+[ext_resource type="Script" path="res://Scripts/enemy_spawner_pipe.gd" id="1_7gf3s"]
+[ext_resource type="Script" path="res://Scripts/enemy_health.gd" id="2_k1x6s"]
+[ext_resource type="PackedScene" uid="uid://qlr0da6xsoiw" path="res://Scenes/Enemies/enemy_explosion.tscn" id="3_n1xv2"]
+[ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Sprites/123spritesheet.png" id="4_1y0m6"]
+[ext_resource type="Shader" path="res://Shaders/flash.gdshader" id="4_twcac"]
+[ext_resource type="PackedScene" uid="uid://84xxip1wf4vx" path="res://Scenes/UI/minimap_icon.tscn" id="5_5bonl"]
+[ext_resource type="Texture2D" uid="uid://be1sac50cadp3" path="res://Sprites/enemy spawner icon.png" id="6_d5jrr"]
+[ext_resource type="Theme" uid="uid://dawp23mso2e5a" path="res://Sprites/Themes/healthbar.tres" id="8_68hlg"]
+[ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Shaders/colorswap.tres" id="8_cyewc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8feu"]
+size = Vector2(42, 40)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fb2ib"]
+shader = ExtResource("4_twcac")
+shader_parameter/active = false
+shader_parameter/flash_color = Vector4(231, 255, 238, 255)
+
+[node name="EnemySpawnerPipe" type="Node2D"]
+use_parent_material = true
+script = ExtResource("1_7gf3s")
+
+[node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("sprite", "healthbar") groups=["enemy"]]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("2_k1x6s")
+health = 100
+rotate_on_hit = false
+death_explosion = ExtResource("3_n1xv2")
+sprite = NodePath("../Sprite2D")
+healthbar = NodePath("../Sprite2D/HealthBar")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_a8feu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_fb2ib")
+use_parent_material = true
+position = Vector2(0, -9)
+texture = ExtResource("4_1y0m6")
+region_enabled = true
+region_rect = Rect2(224, 48, 48, 48)
+
+[node name="HealthBar" type="ProgressBar" parent="Sprite2D"]
+visible = false
+z_index = 100
+material = ExtResource("8_cyewc")
+clip_contents = true
+offset_left = -23.0
+offset_top = -32.5
+offset_right = 23.0
+offset_bottom = -28.5
+theme = ExtResource("8_68hlg")
+max_value = 1.0
+value = 0.5
+show_percentage = false
+
+[node name="SpawnPoint" type="Node2D" parent="."]
+position = Vector2(0, -14)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="MinimapIcon" parent="." instance=ExtResource("5_5bonl")]
+sprite = ExtResource("6_d5jrr")
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

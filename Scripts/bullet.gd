@@ -27,12 +27,13 @@ func _physics_process(delta):
 		var target_vector = (target_enemy.position - position).normalized() * speed
 		move_vector = lerp(move_vector, target_vector, 7.5 * delta)
 		rotation = move_vector.angle()
+	if global_position.distance_to(Globals.player.global_position) > 340:
+		queue_free()
 
 
 func _on_area_entered(area):
 	if area.is_in_group("enemy"):
-		var enemy = area.get_parent()
-		enemy.take_damage(damage)
+		area.take_damage(damage)
 		penetrations -= 1
 		if ricochet:
 			move_vector.y *= -1
@@ -60,8 +61,3 @@ func get_nearest_enemy():
 			closest_enemy = enemy
 			closest_dist = distance
 	return closest_enemy
-
-
-func _on_timer_timeout():
-	queue_free()
-

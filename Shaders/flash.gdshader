@@ -1,6 +1,7 @@
 shader_type canvas_item;
 
 uniform bool active = false;
+uniform vec4 flash_color = vec4(231,255,238,255);
 
 void fragment() {
 	vec4 previous_color = texture(TEXTURE, UV);

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjdjmh4bjy62n"]
+
+[ext_resource type="Script" path="res://Scripts/map_icon_follower.gd" id="1_qkjo4"]
+
+[node name="MapIcon" type="Sprite2D"]
+script = ExtResource("1_qkjo4")

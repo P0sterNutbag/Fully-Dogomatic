@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://d308f51ka0jho"]
 
-[ext_resource type="Script" path="res://Scripts/enemy_spanwer.gd" id="1_3t7jy"]
+[ext_resource type="Script" path="res://Scripts/enemy_spanwer.gd" id="1_ujocd"]
 
 [node name="EnemySpawner" type="Node2D"]
-script = ExtResource("1_3t7jy")
+script = ExtResource("1_ujocd")
 
 [node name="SpawnEnemies" type="Timer" parent="."]
 wait_time = 5.0
