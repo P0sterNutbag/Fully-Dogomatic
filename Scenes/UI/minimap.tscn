@@ -47,23 +47,27 @@ script = ExtResource("1_ex3g0")
 use_parent_material = true
 clip_contents = true
 anchors_preset = 0
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 60.0
-offset_bottom = 60.0
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="ColorRect" type="ColorRect" parent="Mask"]
 material = SubResource("ShaderMaterial_u56yf")
-layout_mode = 0
-offset_right = 160.0
-offset_bottom = 160.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.223529, 0.223529, 0.223529, 0.588235)
 
 [node name="Anchor" type="Control" parent="Mask"]
 use_parent_material = true
 anchors_preset = 0
-offset_right = 120.0
-offset_bottom = 120.0
+offset_left = 0.025
+offset_right = 80.025
+offset_bottom = 80.0
 
 [node name="Map" type="Control" parent="Mask/Anchor"]
 use_parent_material = true
@@ -77,19 +81,19 @@ grow_vertical = 2
 [node name="Panel" type="Panel" parent="Mask/Anchor/Map"]
 material = ExtResource("2_lpelv")
 layout_mode = 1
-offset_left = -65.0
-offset_top = -65.0
-offset_right = 65.0
-offset_bottom = 65.0
+offset_left = -45.0
+offset_top = -45.0
+offset_right = 45.0
+offset_bottom = 45.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ckb5k")
 
 [node name="Panel" type="Panel" parent="."]
 material = ExtResource("2_lpelv")
 layout_mode = 0
-offset_left = -61.0
-offset_top = -61.0
-offset_right = 61.0
-offset_bottom = 61.0
+offset_left = -41.0
+offset_top = -41.0
+offset_right = 41.0
+offset_bottom = 41.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ij2h5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

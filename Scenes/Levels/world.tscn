@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://ddr81bx8gf1xo" path="res://Scenes/gunstats.tscn" id="12_7pts0"]
 [ext_resource type="PackedScene" uid="uid://dio4jhhmyfnfk" path="res://Scenes/Control/AudioManager.tscn" id="14_1r8hx"]
 [ext_resource type="PackedScene" uid="uid://dj17btvmql3b7" path="res://Scenes/Upgrades/upgrade_manager.tscn" id="14_8k2ac"]
-[ext_resource type="PackedScene" uid="uid://dfbi0qqmatkp8" path="res://Scenes/Levels/Level Objects/LevelSpawner.tscn" id="15_v1te5"]
+[ext_resource type="PackedScene" uid="uid://dfbi0qqmatkp8" path="res://Scenes/Levels/Level Objects/level_manager.tscn" id="15_v1te5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ljvca"]
 shader = ExtResource("5_5ganx")
@@ -37,15 +37,14 @@ layer_0/tile_data = PackedInt32Array(-3801147, 65536, 0, -3735611, 65536, 0, -36
 [node name="GameController" parent="." instance=ExtResource("2_66p7h")]
 
 [node name="BarrierLeft" type="Node2D" parent="."]
-position = Vector2(-800, -800)
+position = Vector2(-500, -500)
 
 [node name="BarrierRight" type="Node2D" parent="."]
-position = Vector2(800, 800)
+position = Vector2(500, 500)
 
 [node name="Player" parent="." instance=ExtResource("1_gi1ig")]
 
 [node name="EnemySpawnerController2" parent="Player" instance=ExtResource("4_nsskj")]
-process_mode = 4
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_jpjwk")
@@ -56,7 +55,7 @@ volume_db = 4.0
 
 [node name="CanvasLayer" parent="." instance=ExtResource("10_cogr5")]
 
-[node name="Guns" parent="CanvasLayer" index="6"]
+[node name="Guns" parent="CanvasLayer" index="7"]
 process_mode = 3
 slot_texture_selected = ExtResource("11_idwgk")
 
@@ -75,7 +74,8 @@ gui_layer = NodePath("..")
 
 [node name="UpgradeManager" parent="." instance=ExtResource("14_8k2ac")]
 
-[node name="LevelSpawner" parent="." instance=ExtResource("15_v1te5")]
+[node name="LevelManager" parent="." instance=ExtResource("15_v1te5")]
+enemy_spawner_amount = Array[int]([2, 0, 0])
 
 [connection signal="stop_spawning_enemies" from="." to="Player/EnemySpawnerController2" method="_on_node_2d_stop_spawning_enemies"]
 [connection signal="gun_pickup" from="Player" to="CanvasLayer/Guns" method="_on_player_gun_pickup"]

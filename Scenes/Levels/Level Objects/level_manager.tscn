@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfbi0qqmatkp8"]
+
+[ext_resource type="Script" path="res://Scripts/level_manager.gd" id="1_yyqyc"]
+
+[node name="LevelManager" type="Node"]
+script = ExtResource("1_yyqyc")
+crate_amount = Array[int]([2, 0, 0])
+enemy_spawner_amount = Array[int]([3, 0, 0])
+
+[node name="Spawn" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
+[connection signal="timeout" from="Spawn" to="." method="_on_spawn_timeout"]

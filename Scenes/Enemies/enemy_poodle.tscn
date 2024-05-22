@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://v5p3nsib3tik"]
+[gd_scene load_steps=11 format=3 uid="uid://v5p3nsib3tik"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_btaol"]
 [ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Sprites/123spritesheet.png" id="3_pm0l7"]
+[ext_resource type="Script" path="res://Scripts/enemy_health.gd" id="3_ysaor"]
 [ext_resource type="PackedScene" uid="uid://bb6l6e5xtb17k" path="res://Scenes/shadow.tscn" id="4_bfgt7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hr8qo"]
@@ -64,10 +65,13 @@ collision_layer = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CircleShape2D_knd01")
 
-[node name="Hurtbox" type="Area2D" parent="." groups=["enemy"]]
+[node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("sprite") groups=["enemy"]]
 y_sort_enabled = true
 collision_layer = 8
 collision_mask = 2
+script = ExtResource("3_ysaor")
+health = 6
+sprite = NodePath("../AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CircleShape2D_0btmh")

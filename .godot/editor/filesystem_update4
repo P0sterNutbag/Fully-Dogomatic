@@ -54,3 +54,19 @@ res://Scenes/Upgrades/Dogtags/dogtag_player_speed.tscn
 res://Sprites/Themes/healthbar.tres
 res://Scripts/enemy.gd
 res://Scenes/Bullets/9mm_bullet.tscn
+res://Scenes/Levels/Level Objects/level_spawner.tscn
+res://Scripts/level_spawner.gd
+res://Scripts/enemy_spawner_controller.gd
+res://Scenes/Enemies/enemy_buff.tscn
+res://Scenes/Enemies/enemy_shepherd.tscn
+res://Scenes/Enemies/enemy_bulldog.tscn
+res://Scenes/Enemies/enemy_chihuahua.tscn
+res://Scenes/Levels/Level Objects/level_manager.tscn
+res://Scripts/level_manager.gd
+res://Scenes/Levels/Level Objects/portal.tscn
+res://Scripts/portal.gd
+res://Scenes/Levels/Level Objects/shop.tscn
+res://Scripts/crate.gd
+res://Scenes/Levels/Level Objects/enemy_spawner_pipe.tscn
+res://Scripts/player.gd
+res://Scenes/UI/ui.gd

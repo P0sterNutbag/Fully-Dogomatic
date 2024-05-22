@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://ne0aj0e2htle"]
+[gd_scene load_steps=9 format=3 uid="uid://ne0aj0e2htle"]
 
 [ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/enemy_pug.tscn" id="1_8yncp"]
 [ext_resource type="Script" path="res://Scripts/enemy_fast.gd" id="2_aber5"]
-[ext_resource type="PackedScene" uid="uid://qlr0da6xsoiw" path="res://Scenes/Enemies/enemy_explosion.tscn" id="3_yi25f"]
 [ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Sprites/123spritesheet.png" id="4_8nc26"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gs184"]
@@ -36,8 +35,6 @@ radius = 9.0
 [node name="EnemyChihuahua" instance=ExtResource("1_8yncp")]
 script = ExtResource("2_aber5")
 speed = 30.0
-health = 2
-death_explosion = ExtResource("3_yi25f")
 money_min = 6
 money_max = 8
 
@@ -48,6 +45,9 @@ frame_progress = 0.0
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource("CircleShape2D_s8phh")
+
+[node name="Hurtbox" parent="." index="3"]
+health = 1
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 shape = SubResource("CircleShape2D_ihb55")

@@ -52,6 +52,7 @@ func _physics_process(delta):
 				$Hitbox.process_mode = Node.PROCESS_MODE_INHERIT
 				state = states.attack
 				y_sort_enabled = true
+				z_index = 0
 			move_and_slide()
 		states.attack:
 			if target != null:

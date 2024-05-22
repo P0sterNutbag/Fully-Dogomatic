@@ -25,7 +25,7 @@ func _ready():
 func create_instance(scene: PackedScene, position: Vector2, parent: Node2D = get_tree().current_scene):
 	if (scene != null):
 		var instance = scene.instantiate()
-		parent.add_child(instance)
+		parent.add_child.call_deferred(instance)
 		instance.global_position = position
 
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://b0e4q14ll7yid"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_lbawt"]
-[ext_resource type="PackedScene" uid="uid://4s88ewwe3fxv" path="res://Scenes/death_explosion.tscn" id="2_wrb7h"]
+[ext_resource type="Script" path="res://Scripts/enemy_health.gd" id="3_8qh78"]
 [ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Sprites/123spritesheet.png" id="3_t8day"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hr8qo"]
@@ -46,9 +46,7 @@ collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_lbawt")
 speed = 12.5
-health = 20
 damage = 0.3
-death_explosion = ExtResource("2_wrb7h")
 money_min = 18
 money_max = 22
 
@@ -70,10 +68,13 @@ collision_layer = 16
 position = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_pbj24")
 
-[node name="Hurtbox" type="Area2D" parent="." groups=["enemy"]]
+[node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("sprite") groups=["enemy"]]
 y_sort_enabled = true
 collision_layer = 8
 collision_mask = 2
+script = ExtResource("3_8qh78")
+health = 20
+sprite = NodePath("../AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(2, 1.5)

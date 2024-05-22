@@ -148,11 +148,6 @@ position = Vector2(0, -187)
 wait_time = 30.0
 autostart = true
 
-[node name="ChooseWeapon" type="Timer" parent="."]
-wait_time = 0.5
-one_shot = true
-autostart = true
-
 [node name="Chaching" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_3g3fn")
 volume_db = -10.0
@@ -174,5 +169,3 @@ pitch_scale = 1.5
 stream = ExtResource("10_36d3p")
 
 [connection signal="area_entered" from="MoneyPickup" to="." method="_on_money_pickup_area_entered"]
-[connection signal="timeout" from="DropCrate" to="." method="_on_drop_crate_timeout"]
-[connection signal="timeout" from="ChooseWeapon" to="." method="_on_choose_weapon_timeout"]

@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://c0wfnsgdnyqg6"]
+
+[ext_resource type="Script" path="res://Scripts/crate.gd" id="1_61rwb"]
+[ext_resource type="Texture2D" uid="uid://depo0iekr4uok" path="res://Sprites/vending machine-Sheet.png" id="2_44f2k"]
+[ext_resource type="PackedScene" uid="uid://84xxip1wf4vx" path="res://Scenes/UI/minimap_icon.tscn" id="4_2luiv"]
+[ext_resource type="Texture2D" uid="uid://bv6glb1xau5xq" path="res://Sprites/shop icon.png" id="4_3alt0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ca6fn"]
+atlas = ExtResource("2_44f2k")
+region = Rect2(0, 0, 44, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dogp8"]
+atlas = ExtResource("2_44f2k")
+region = Rect2(44, 0, 44, 66)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_reqpl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ca6fn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dogp8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jonbb"]
+size = Vector2(38, 58)
+
+[node name="Area2D" type="Area2D" groups=["destroy"]]
+y_sort_enabled = true
+use_parent_material = true
+script = ExtResource("1_61rwb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+use_parent_material = true
+position = Vector2(0, -33)
+sprite_frames = SubResource("SpriteFrames_reqpl")
+autoplay = "default"
+frame = 1
+frame_progress = 0.29428
+
+[node name="MinimapIcon" parent="." instance=ExtResource("4_2luiv")]
+sprite = ExtResource("4_3alt0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -33)
+shape = SubResource("RectangleShape2D_jonbb")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

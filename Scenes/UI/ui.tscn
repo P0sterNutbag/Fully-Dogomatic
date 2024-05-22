@@ -57,6 +57,20 @@ shader_parameter/palette = ExtResource("3_4hdc5")
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_nakcx")
 
+[node name="Money" type="Node2D" parent="."]
+material = SubResource("ShaderMaterial_2xchs")
+position = Vector2(0, 17)
+
+[node name="MoneyText" type="RichTextLabel" parent="Money"]
+use_parent_material = true
+clip_contents = false
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 78.0
+offset_bottom = 47.0
+theme = ExtResource("4_qgb4r")
+text = "$0"
+
 [node name="GameOverTextHolder" type="Node2D" parent="."]
 visible = false
 material = SubResource("ShaderMaterial_2xchs")
@@ -118,6 +132,7 @@ text = "50"
 text_direction = 2
 
 [node name="XpBarHolder" type="Node2D" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_2xchs")
 use_parent_material = true
 
@@ -197,7 +212,7 @@ text = "[center]HIGH SCORE: "
 
 [node name="Countdown" parent="." instance=ExtResource("2_rquus")]
 material = SubResource("ShaderMaterial_2xchs")
-position = Vector2(99, 26)
+position = Vector2(99, 13)
 
 [node name="Level2" type="RichTextLabel" parent="Countdown"]
 use_parent_material = true

@@ -22,6 +22,7 @@ var gun_slots: int = 10
 var level: int = 1
 var time: float = 0
 var new_gun_material = preload("res://Shaders/outline.tres")
+var target_zoom = 1
 
 @onready var sprite = $PlayerSprite
 
@@ -107,6 +108,8 @@ func _process(delta):
 		states.dead:
 			sprite.play("dead")
 			sprite.flip_h = false
+	# zoom camera
+	$Camera2D.zoom  = $Camera2D.zoom.lerp(Vector2(target_zoom, target_zoom), 5 * delta)
 
 
 func take_damage(dmg):
@@ -123,6 +126,7 @@ func take_damage(dmg):
 func get_money(amount: int):
 	money_pickup.emit()
 	money += amount
+	Globals.ui.set_money(money)
 	Globals.world_controller.set_money(money / money_cap)
 	if !$Chaching.is_playing():
 			$Chaching.play()
@@ -173,9 +177,11 @@ func _on_gun_highliter_area_exited(_area):
 	# area.reset_material()
 
 
-func _on_choose_weapon_timeout():
-	Globals.world_controller.spawn_upgrade_menu()
-
-
 func _on_drop_crate_timeout():
 	$CrateSpawner.spawn_crate()
+
+
+func zoom_out_camera():
+	target_zoom = 0.75
+	await get_tree().create_timer(3).timeout
+	target_zoom = 1
