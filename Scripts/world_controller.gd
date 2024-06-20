@@ -15,6 +15,8 @@ signal stop_spawning_enemies
 
 func _ready():
 	Globals.world_controller = self
+	Globals.barrier_left = $BarrierLeft.position
+	Globals.barrier_right = $BarrierRight.position
 
 
 func _process(delta):

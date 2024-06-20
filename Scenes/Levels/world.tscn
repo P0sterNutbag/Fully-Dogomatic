@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d2onseuhefihe"]
+[gd_scene load_steps=18 format=3 uid="uid://d2onseuhefihe"]
 
 [ext_resource type="Script" path="res://Scripts/world_controller.gd" id="1_ap3r4"]
 [ext_resource type="PackedScene" uid="uid://cfkssnl27y2qn" path="res://Scenes/Player/player.tscn" id="1_gi1ig"]
@@ -8,6 +8,7 @@
 [ext_resource type="Shader" path="res://Shaders/colorswap.gdshader" id="5_5ganx"]
 [ext_resource type="AudioStream" uid="uid://buybjaddur1vf" path="res://SFX/Taps.mp3" id="5_djwm7"]
 [ext_resource type="AudioStream" uid="uid://cdv51tkopnod7" path="res://SFX/Midnight-Cruise.mp3" id="5_jpjwk"]
+[ext_resource type="Script" path="res://Scripts/camera.gd" id="6_dkkkg"]
 [ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Sprites/palette blue orange.png" id="6_ywwnu"]
 [ext_resource type="PackedScene" uid="uid://d1c2pbbb47u4h" path="res://Scenes/UI/ui.tscn" id="10_cogr5"]
 [ext_resource type="Texture2D" uid="uid://dnvc8ii0hr5xh" path="res://Sprites/gun holder selected.png" id="11_idwgk"]
@@ -46,6 +47,14 @@ position = Vector2(500, 500)
 
 [node name="EnemySpawnerController2" parent="Player" instance=ExtResource("4_nsskj")]
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+limit_left = -500
+limit_top = -500
+limit_right = 500
+limit_bottom = 500
+position_smoothing_enabled = true
+script = ExtResource("6_dkkkg")
+
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_jpjwk")
 
@@ -55,9 +64,24 @@ volume_db = 4.0
 
 [node name="CanvasLayer" parent="." instance=ExtResource("10_cogr5")]
 
+[node name="MoneyText" parent="CanvasLayer/Money" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="Kills" parent="CanvasLayer/ScoreHolder" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="Score" parent="CanvasLayer/ScoreHolder" index="1"]
+metadata/_edit_use_anchors_ = true
+
+[node name="Level2" parent="CanvasLayer/Countdown" index="4"]
+metadata/_edit_use_anchors_ = true
+
 [node name="Guns" parent="CanvasLayer" index="7"]
 process_mode = 3
 slot_texture_selected = ExtResource("11_idwgk")
+
+[node name="Dogtags" parent="CanvasLayer" index="13"]
+metadata/_edit_use_anchors_ = true
 
 [node name="Gunstats" parent="CanvasLayer" node_paths=PackedStringArray("gui_layer") instance=ExtResource("12_7pts0")]
 visible = false

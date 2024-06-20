@@ -36,6 +36,8 @@ var upgrades = 0
 var follow_mouse = false
 var explode_chance: float = 0
 var locked: bool = false
+var is_mouse_entered: bool = false
+var aim_dir: Vector2
 
 @onready var sprite = $GunFrame
 var firepoint
@@ -45,7 +47,6 @@ var shell = preload("res://Scenes/shell.tscn")
 var gun_name = preload("res://Scenes/Guns/gun_name.tscn")
 var gun_name_instance: Node2D
 
-#var bullet = preload("res://bullet.tscn")
 
 func _ready():
 	x_force = randf_range(-100,100)
@@ -53,16 +54,18 @@ func _ready():
 
 func _physics_process(delta):
 	if follow_mouse:
-		global_position = get_global_mouse_position()
-		if holder:
-			var dir_to_player = (position - holder.position).normalized()
-			hold_offset = dir_to_player * distance_to_player
-			rotate_away_from_position(holder.position)
+		aim_dir = (get_global_mouse_position() - get_parent().global_position).normalized()
+		position = lerp(position, aim_dir * distance_to_player * 1.5, delta * 10)
+		rotation = aim_dir.angle()
+		if global_position.x < holder.global_position.x:
+			scale.y = -1
+		else:
+			scale.y = 1
+		#rotate_away_from_position(holder.position)
 	else:
 		if holder != null:
 			if not game_over:
-				var target_position = holder.position + hold_offset
-				position = lerp(position, target_position, 0.25)
+				position = lerp(position, aim_dir * distance_to_player, delta * 10)
 			else:
 				position += Vector2(x_force * delta, grav_force * delta)
 				grav_force += 10
@@ -72,9 +75,6 @@ func _physics_process(delta):
 				rotate(5 * rot_dir)
 				if position.x > 900:
 					queue_free()
-		#elif Globals.player != null:
-			#rotate_away_from_position(Globals.player.position)
-	
 	if sprite.scale != Vector2(1,1):
 		sprite.scale = sprite.scale.lerp(Vector2(1, 1), 6 * delta)
 
@@ -86,6 +86,15 @@ func _process(delta):
 			flash_timer -= delta
 		elif muzzle_flash.visible:
 			muzzle_flash.visible = false
+	if Input.is_action_just_pressed("select"):
+		if get_tree().paused and !Globals.holding_gun_part and !Globals.settings_open and !locked:
+			if not follow_mouse:
+				if is_mouse_entered:
+					follow_mouse = true
+					if not holder:
+						attach_to_target(Globals.player)
+			else:
+				follow_mouse = false
 
 
 func rotate_away_from_position(vector: Vector2):
@@ -102,12 +111,11 @@ func reload():
 	$ReloadTimer.start()
 
 
-func _on_timer_timeout():
+func _on_timer_timeout(): # shoot bullets
 	if get_tree().paused: return
 	if shots_left > 0 && holder.state != holder.states.dead:
 		var b = bullet.instantiate()
 		shot_count = b.shot_count
-		b.queue_free()
 		for i in shot_count:
 			var instance = bullet.instantiate()
 			get_tree().current_scene.add_child(instance)
@@ -124,7 +132,7 @@ func _on_timer_timeout():
 			instance.explode_chance = Globals.explode_chance
 			instance.homing = homing
 			muzzle_flash.visible = true
-		position += (direction_vector * -150)
+		position += (knockback * (holder.global_position - global_position).normalized())
 		flash_timer = 1
 		shots_left -= 1
 		if shots_left <= 0:
@@ -133,15 +141,13 @@ func _on_timer_timeout():
 		get_tree().current_scene.add_child(inst)
 		inst.global_position = global_position
 		inst.max_y = global_position.y+5
-		#if cooldown < 0.1:
-			#if shots_left % 2 == 1:
-				#Globals.shoot_sfx.play()
-		#else:
 		sprite.scale = Vector2(1.3, 1.3)
+		#Globals.camera.screenshake(shot_count * b.damage * 0.75)
 		if !Globals.shoot_sfx.is_playing():
 			Globals.shoot_sfx.play()
 		elif Globals.shoot_sfx.get_playback_position() > 0.05:
 			Globals.shoot_sfx.play()
+		b.queue_free()
 
 
 func _on_reload_timer_timeout():
@@ -164,7 +170,6 @@ func show_name():
 func reset_material():
 	if gun_name_instance != null:
 		gun_name_instance.queue_free()
-	#sprite.material = null
 
 
 func _on_setup_timeout():
@@ -175,31 +180,6 @@ func setup_gun():
 	shots_left = rounds
 	firepoint = $GunFrame/Barrel/Firepoint
 	muzzle_flash = $GunFrame/Barrel/Firepoint/MuzzleFlash
-	# Get the children sprites
-	#var sprites = get_children()
-	## Initialize variables to keep track of maximum width and height
-	#var max_width = 0
-	#var max_height = 0
-	## Iterate through the children sprites to find maximum width and height
-	#for s in sprites:
-		#if s is Sprite2D:
-			## Update max_width if the sprite's width is greater
-			#max_width += s.get_texture().get_width()
-			## Update max_height if the sprite's height is greater
-			#max_height += s.get_texture().get_height()
-	## Update the collision shape's size based on the maximum width and height
-	#$CollisionShape2D.shape.size = Vector2(max_width, max_height)
-
-
-func _on_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if get_tree().paused and !Globals.holding_gun_part and !Globals.settings_open and !locked:
-			if follow_mouse:
-				follow_mouse = false
-			else:
-				follow_mouse = true
-				if not holder:
-					attach_to_target(Globals.player)
 
 
 func attach_to_target(target: Node2D):
@@ -208,4 +188,13 @@ func attach_to_target(target: Node2D):
 	holder = target
 	$Timer.start()
 	Globals.world_controller.add_to_gun_list(get_meta("Title"))
+	get_parent().remove_child(self)
+	Globals.player.get_node("Guns").add_child(self)
 
+
+func _on_mouse_entered():
+	is_mouse_entered = true
+
+
+func _on_mouse_exited():
+	is_mouse_entered = false

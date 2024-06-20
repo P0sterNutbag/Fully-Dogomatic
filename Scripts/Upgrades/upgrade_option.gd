@@ -56,7 +56,7 @@ func _process(delta):
 					upgrade.follow_mouse = true
 					remove_child(upgrade)
 					get_tree().current_scene.add_child(upgrade)
-					upgrade.attach_to_target(Globals.player)
+					upgrade.call_deferred("attach_to_target", Globals.player)
 					upgrade.scale = Vector2.ONE
 					upgrade = null
 					get_parent().move_options()

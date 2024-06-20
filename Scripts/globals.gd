@@ -15,6 +15,9 @@ var holding_gun_part: bool = false
 var settings_open: bool = false
 var explode_chance: float = 0
 var globals
+var barrier_left: Vector2
+var barrier_right: Vector2
+var camera: Camera2D
 enum rarity_levels {common, uncommon, rare, super_rare, ultra_rare, giga_rare }
 
 

@@ -22,6 +22,7 @@ var spawn_velocity: Vector2
 var spawn_floor_y: float
 var gravity: float = 900
 @onready var sprite = $AnimatedSprite2D
+var bullet_dir: float
 
 
 func _ready():
@@ -71,14 +72,20 @@ func _physics_process(delta):
 				sprite.rotation_degrees = lerp(sprite.rotation_degrees, float(0), 5 * delta)
 
 
+func on_damage():
+	pass
+	#for i in randi_range(1,2):
+		#var inst = dogpart.instantiate()
+		#get_tree().current_scene.add_child(inst)
+		#inst.position = global_position
+		#inst.set_speed($Hurtbox.bullet_dir)
+
+
 func on_death():
 	if randf_range(0, 1) <= drop_chance:
 		for i in randi_range(money_min, money_max):
 			call_deferred("spawn", dollar)
 	call_deferred("spawn", blood)
-	for i in randi_range(3,5):
-		call_deferred("spawn", dogpart)
-
 
 func _process(_delta):
 	if velocity.x < 0:

@@ -5,3 +5,4 @@
 [resource]
 shader = ExtResource("1_phx50")
 shader_parameter/active = true
+shader_parameter/flash_color = Vector4(231, 255, 238, 255)

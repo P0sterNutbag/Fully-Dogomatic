@@ -8,15 +8,19 @@ extends Area2D
 var flash_material = preload("res://Shaders/flash.tres")
 var dead: bool = false
 var max_health
+var bullet_dir
 
 
 func _ready():
 	max_health = health
 
 
-func take_damage(dmg: float):
+func take_damage(dmg: float, bullet_direction: float):
 	health -= dmg
+	bullet_dir = bullet_direction
 	var parent = get_parent()
+	if parent.has_method("on_damage"):
+		parent.on_damage()
 	sprite_flash()
 	if rotate_on_hit:
 		if global_position.x < Globals.player.global_position.x: 

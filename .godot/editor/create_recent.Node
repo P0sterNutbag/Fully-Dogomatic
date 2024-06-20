@@ -1,10 +1,10 @@
-Timer
-RichTextLabel
-Node2D
 AnimatedSprite2D
-CollisionShape2D
 Area2D
+Timer
 Sprite2D
+Node2D
+RichTextLabel
+CollisionShape2D
 Panel
 Control
 ColorRect

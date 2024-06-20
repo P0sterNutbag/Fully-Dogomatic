@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://6rl1mv3gjpwy"]
+
+[ext_resource type="Theme" uid="uid://lra3teo37km0" path="res://Sprites/Themes/ui text mini.tres" id="1_0oh5f"]
+[ext_resource type="Script" path="res://Scripts/shell.gd" id="1_5ys3l"]
+[ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Shaders/colorswap.tres" id="2_hrkdv"]
+
+[node name="DamageNumber" type="Node2D"]
+z_index = 1000
+use_parent_material = true
+script = ExtResource("1_5ys3l")
+speed = 100.0
+gravity = 150.0
+starting_scale = 3.0
+scale_lerp = 25.0
+
+[node name="Text" type="RichTextLabel" parent="."]
+material = ExtResource("2_hrkdv")
+offset_left = -27.0
+offset_top = -8.0
+offset_right = 27.0
+offset_bottom = 10.0
+theme = ExtResource("1_0oh5f")
+bbcode_enabled = true
+text = "[center]"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

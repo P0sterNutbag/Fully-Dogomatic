@@ -1,4 +1,5 @@
 extends Area2D
+class_name Bullet
 
 @export var damage: float = 1
 @export var spread_modifier: float = 0
@@ -13,12 +14,16 @@ var explode_chance: float = 0
 var homing: bool = false
 var target_enemy
 var hit_enemies: Array
-
+var damage_number = preload("res://Scenes/Particles/damage_number.tscn")
+var impact = preload("res://Scenes/Particles/impact.tscn")
+var spark = preload("res://Scenes/Particles/bullet_spark.tscn")
 
 func _ready():
 	await get_tree().create_timer(0.01).timeout
 	if homing:
 		target_enemy = get_nearest_enemy()
+	if randi_range(0,1) == 1:
+		scale.y *= -1
 
 
 func _physics_process(delta):
@@ -33,13 +38,27 @@ func _physics_process(delta):
 
 func _on_area_entered(area):
 	if area.is_in_group("enemy"):
-		area.take_damage(damage)
-		penetrations -= 1
+		OS.delay_msec(10 / shot_count)
+		area.take_damage(damage, rotation)
+		var inst = impact.instantiate()
+		get_tree().current_scene.add_child(inst)
+		inst.global_position = area.global_position
+		inst.rotation = rotation
+		var instance = damage_number.instantiate()
+		get_tree().current_scene.add_child.call_deferred(instance)
+		instance.global_position = area.global_position + Vector2.UP * 8
+		instance.get_node("Text").text += str(damage)
+		for i in randi_range(3, 4):
+			var spark_inst = spark.instantiate()
+			get_tree().current_scene.add_child.call_deferred(spark_inst)
+			spark_inst.global_position = area.global_position
+			spark_inst.set_speed(-rotation_degrees)
 		if ricochet:
 			move_vector.y *= -1
 			rotation = move_vector.angle()
 		if randf_range(0, 1) < explode_chance:
 			call_deferred("create_explosion", area.global_position)
+		penetrations -= 1
 		if penetrations <= 0:
 			queue_free()
 		elif homing:

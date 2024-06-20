@@ -109,7 +109,7 @@ func _process(delta):
 			sprite.play("dead")
 			sprite.flip_h = false
 	# zoom camera
-	$Camera2D.zoom  = $Camera2D.zoom.lerp(Vector2(target_zoom, target_zoom), 5 * delta)
+	#$Camera2D.zoom  = $Camera2D.zoom.lerp(Vector2(target_zoom, target_zoom), 5 * delta)
 
 
 func take_damage(dmg):
@@ -185,3 +185,11 @@ func zoom_out_camera():
 	target_zoom = 0.75
 	await get_tree().create_timer(3).timeout
 	target_zoom = 1
+
+
+func _on_deffered_variables_timeout():
+	pass
+	#$Camera2D.limit_left = Globals.barrier_left.x
+	#$Camera2D.limit_top = Globals.barrier_left.y
+	#$Camera2D.limit_right = Globals.barrier_right.x
+	#$Camera2D.limit_bottom = Globals.barrier_right.y

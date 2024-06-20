@@ -103,12 +103,6 @@ sprite_frames = SubResource("SpriteFrames_4r1yi")
 animation = &"idle"
 frame_progress = 0.789463
 
-[node name="Camera2D" type="Camera2D" parent="."]
-limit_left = -800
-limit_top = -800
-limit_right = 800
-limit_bottom = 800
-
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_mask = 16
 
@@ -121,6 +115,9 @@ collision_mask = 64
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MoneyPickup"]
 visible = false
 shape = SubResource("CircleShape2D_wq62j")
+
+[node name="Guns" type="Node2D" parent="."]
+use_parent_material = true
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 z_index = 100
@@ -168,4 +165,10 @@ pitch_scale = 1.5
 [node name="Bark" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_36d3p")
 
+[node name="DefferedVariables" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
 [connection signal="area_entered" from="MoneyPickup" to="." method="_on_money_pickup_area_entered"]
+[connection signal="timeout" from="DefferedVariables" to="." method="_on_deffered_variables_timeout"]

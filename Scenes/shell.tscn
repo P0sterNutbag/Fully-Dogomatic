@@ -9,6 +9,7 @@ use_parent_material = true
 texture = ExtResource("1_i7dag")
 script = ExtResource("2_41s2d")
 sprites = Array[Texture]([ExtResource("1_i7dag")])
+rotate_speed = 1.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
