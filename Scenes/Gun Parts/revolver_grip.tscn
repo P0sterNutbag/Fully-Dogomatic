@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0g6wtqukercj"]
+
+[ext_resource type="PackedScene" uid="uid://dvy5lsmww0dit" path="res://Scenes/Gun Parts/pistol_grip.tscn" id="1_cr5ny"]
+
+[node name="Grip" instance=ExtResource("1_cr5ny")]
+offset = Vector2(1, 2)
+region_rect = Rect2(32, 16, 16, 16)

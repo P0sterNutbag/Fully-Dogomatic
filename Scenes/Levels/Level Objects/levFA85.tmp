@@ -1,0 +1,33 @@
+[gd_scene load_steps=9 format=3 uid="uid://dfbi0qqmatkp8"]
+
+[ext_resource type="Script" path="res://Scripts/level_manager.gd" id="1_yyqyc"]
+[ext_resource type="PackedScene" uid="uid://bpis8skquuip5" path="res://Scenes/Levels/Level Objects/crate.tscn" id="2_o30j4"]
+[ext_resource type="Script" path="res://Scripts/spawn_chance.gd" id="3_rjgml"]
+[ext_resource type="PackedScene" uid="uid://byrlfy20m4t48" path="res://Scenes/Levels/Level Objects/enemy_spawner_pipe.tscn" id="4_hkvnw"]
+[ext_resource type="PackedScene" uid="uid://c0wfnsgdnyqg6" path="res://Scenes/Levels/Level Objects/shop.tscn" id="5_hg2rl"]
+
+[sub_resource type="Resource" id="Resource_hkj3y"]
+script = ExtResource("3_rjgml")
+object_to_spawn = ExtResource("2_o30j4")
+spawn_chance = 100.0
+
+[sub_resource type="Resource" id="Resource_bejvw"]
+script = ExtResource("3_rjgml")
+object_to_spawn = ExtResource("4_hkvnw")
+spawn_chance = 0.0
+
+[sub_resource type="Resource" id="Resource_ju0fi"]
+script = ExtResource("3_rjgml")
+object_to_spawn = ExtResource("5_hg2rl")
+spawn_chance = 0.0
+
+[node name="LevelManager" type="Node"]
+script = ExtResource("1_yyqyc")
+objects_to_spawn = [SubResource("Resource_hkj3y"), SubResource("Resource_bejvw"), SubResource("Resource_ju0fi")]
+crate_amount = Array[int]([2, 0, 0])
+enemy_spawner_amount = Array[int]([3, 0, 0])
+
+[node name="Spawn" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Spawn" to="." method="_on_spawn_timeout"]

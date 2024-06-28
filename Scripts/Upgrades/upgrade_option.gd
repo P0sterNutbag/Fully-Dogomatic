@@ -1,26 +1,23 @@
 extends Control
 
-@export var options = []
-@export var is_shop_option: bool = false
-@export var is_gun: bool = false
 var option
 var upgrade
 var destination = Vector2.ZERO
 var bobbing = false
 var mouse_over = false
 var selected: bool = false
+var price: float = 0
+var show_price: bool = false
 var part_scene = preload("res://Scenes/Upgrades/part_upgrade.tscn")
 
 
-func _ready():
-	# get the upgrade list from the manager
-	options = Globals.upgrade_manager.upgrades
+func select_gun():
 	# get an option and make sure it isn't already used
-	var rand_index = Globals.get_weighted_index(options)
 	var upgrade_menu = get_parent()
-	while upgrade_menu.current_upgrades.has(options[rand_index].object_to_spawn):
-		rand_index = Globals.get_weighted_index(options)
-	option = options[rand_index]
+	var rand_index = Globals.get_weighted_index(upgrade_menu.upgrade_array)
+	#while upgrade_menu.current_upgrades.has(upgrade_menu.upgrade_array[rand_index].object_to_spawn):
+		#rand_index = Globals.get_weighted_index(upgrade_menu.upgrade_array)
+	option = upgrade_menu.upgrade_array[rand_index]
 	upgrade_menu.current_upgrades.append(option.object_to_spawn)
 	upgrade = option.object_to_spawn.instantiate()
 	if !upgrade.name.contains("Gun") and !upgrade.name.contains("Dogtag"):
@@ -32,6 +29,11 @@ func _ready():
 	upgrade.scale *= 2
 	$UpgradeName.text = "[center]" + upgrade.get_meta("Title")
 	$UpgradeDescription.text = "[center]" + upgrade.get_meta("Type")
+	# write price
+	if show_price:
+		price = round(Globals.get_gun_price(upgrade)*pow(10,2))/pow(10,2)
+	if price > 0:
+		$Price.text = "[center]$" + str(price)
 
 
 func _process(delta):
@@ -42,10 +44,10 @@ func _process(delta):
 	if position.distance_to(get_global_mouse_position()) < $Circle.circle_radius and !selected:
 		scale = lerp(scale, Vector2.ONE * 1.25, 5 * delta)
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-			if upgrade:
+			if upgrade and Globals.player.money >= price:
 				selected = true
-				if is_shop_option:
-					Globals.upgrade_manager.add_to_upgrade_list(option.object_to_spawn)
+				if price > 0:
+					Globals.player.spend_money(price)
 				if upgrade.name.contains("Dogtag"):
 					upgrade.apply_upgrade()
 					get_parent().move_options()

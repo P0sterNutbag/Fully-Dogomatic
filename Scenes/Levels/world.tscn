@@ -44,6 +44,7 @@ position = Vector2(-500, -500)
 position = Vector2(500, 500)
 
 [node name="Player" parent="." instance=ExtResource("1_gi1ig")]
+position = Vector2(1, 0)
 
 [node name="EnemySpawnerController2" parent="Player" instance=ExtResource("4_nsskj")]
 
@@ -52,7 +53,6 @@ limit_left = -500
 limit_top = -500
 limit_right = 500
 limit_bottom = 500
-position_smoothing_enabled = true
 script = ExtResource("6_dkkkg")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
@@ -80,7 +80,7 @@ metadata/_edit_use_anchors_ = true
 process_mode = 3
 slot_texture_selected = ExtResource("11_idwgk")
 
-[node name="Dogtags" parent="CanvasLayer" index="13"]
+[node name="Dogtags" parent="CanvasLayer" index="10"]
 metadata/_edit_use_anchors_ = true
 
 [node name="Gunstats" parent="CanvasLayer" node_paths=PackedStringArray("gui_layer") instance=ExtResource("12_7pts0")]
@@ -99,7 +99,6 @@ gui_layer = NodePath("..")
 [node name="UpgradeManager" parent="." instance=ExtResource("14_8k2ac")]
 
 [node name="LevelManager" parent="." instance=ExtResource("15_v1te5")]
-enemy_spawner_amount = Array[int]([2, 0, 0])
 
 [connection signal="stop_spawning_enemies" from="." to="Player/EnemySpawnerController2" method="_on_node_2d_stop_spawning_enemies"]
 [connection signal="gun_pickup" from="Player" to="CanvasLayer/Guns" method="_on_player_gun_pickup"]

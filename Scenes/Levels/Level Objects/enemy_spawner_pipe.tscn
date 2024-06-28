@@ -18,7 +18,7 @@ shader = ExtResource("4_06esj")
 shader_parameter/active = false
 shader_parameter/flash_color = Vector4(231, 255, 238, 255)
 
-[node name="EnemySpawnerPipe" type="Node2D" groups=["spawner"]]
+[node name="Enemy Spawner" type="Node2D" groups=["spawner"]]
 use_parent_material = true
 script = ExtResource("1_nw32u")
 

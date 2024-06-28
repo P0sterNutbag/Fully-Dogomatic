@@ -5,7 +5,7 @@ var damage := 5
 
 func _on_area_entered(area):
 	if area.is_in_group("enemy"):
-		area.take_damage(damage, (area.global_position - global_position).normalized())
+		area.take_damage(damage, rotation)
 
 
 func _on_animated_sprite_2d_animation_finished():

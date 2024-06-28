@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7ba5khplxjqx"]
+
+[ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Sprites/gun parts spritesheet.png" id="1_5uqiy"]
+[ext_resource type="Script" path="res://Scripts/gun_part_stock.gd" id="2_n405d"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_pcytd"]
+
+[sub_resource type="Resource" id="Resource_g86rg"]
+script = ExtResource("3_pcytd")
+rarity = 2
+
+[node name="Stock" type="Sprite2D"]
+z_index = 2
+use_parent_material = true
+texture = ExtResource("1_5uqiy")
+offset = Vector2(-6, 4)
+region_enabled = true
+region_rect = Rect2(-2, 129, 16, 16)
+script = ExtResource("2_n405d")
+spread = -5.0
+distance_to_player = 15.0
+metadata/Title = "Stock"
+metadata/Type = "Mk 13 Sniper Rifle"
+metadata/Rarity = SubResource("Resource_g86rg")

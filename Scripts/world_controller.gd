@@ -41,6 +41,12 @@ func _process(delta):
 			for node in nodes.size():
 				nodes[node].queue_free()
 			reset_scene()
+	if Input.is_key_pressed(KEY_B):
+		spawn_upgrade_menu("guns")
+	if Input.is_key_pressed(KEY_N):
+		spawn_upgrade_menu("gunparts")
+	if Input.is_key_pressed(KEY_M):
+		spawn_upgrade_menu("dogtags")
 
 
 func reset_scene():
@@ -132,8 +138,9 @@ func _on_particles_timer_timeout():
 		particle_round = 1
 
 
-func spawn_upgrade_menu():
+func spawn_upgrade_menu(type: String):
 	var instance = upgrade_menu.instantiate()
+	instance.get_node("UpgradeMenu").upgrade_array = Globals.upgrade_manager.get(type)
 	get_tree().get_root().add_child(instance)
 	#instance.global_position = Globals.player.global_position
 

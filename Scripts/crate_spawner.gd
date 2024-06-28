@@ -1,6 +1,6 @@
 extends Node2D
 
-var crate = preload("res://Scenes/crate.tscn")
+var crate = preload("res://Scenes/Levels/Level Objects/crate_guns.tscn")
 var target_y: float
 
 

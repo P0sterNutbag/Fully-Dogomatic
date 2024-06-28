@@ -1,29 +1,37 @@
 extends GunPart
 
 @export var upgrade_folders: Array[String]
-@export var unlocked_upgrades: Array[PackedScene]
 @export var rarity_chances: Array[int]
+var guns_folder = "res://Scenes/Guns/CompleteGuns/"
+var gunpart_folder = "res://Scenes/Gun Parts/"
+var dogtags_folder = "res://Scenes/Upgrades/Dogtags/"
+var guns: Array
+var gunparts: Array
+var dogtags: Array
 var upgrades: Array[SpawnChance] = []
-var shop_upgrades: Array[SpawnChance] = []
 var master_list: Array[PackedScene] = []
 
 
 func _ready():
 	Globals.upgrade_manager = self
-	# create list of all upgrades
-	for folder in upgrade_folders:
-		master_list += Globals.get_all_scenes_from_folder(folder)
-	create_upgrades_list(master_list)
+	var gun_scenes: Array = Globals.get_all_scenes_from_folder(guns_folder)
+	for gun in gun_scenes:
+		add_to_list(guns, gun)
+	var gunpart_scenes: Array = Globals.get_all_scenes_from_folder(gunpart_folder)
+	for gunpart in gunpart_scenes:
+		add_to_list(gunparts, gunpart)
+	var dogtags_scenes: Array = Globals.get_all_scenes_from_folder(dogtags_folder)
+	for dogtag in dogtags_scenes:
+		add_to_list(dogtags, dogtag)
+	#for folder in upgrade_folders:
+		#master_list += Globals.get_all_scenes_from_folder(folder)
+	#create_upgrades_list(master_list)
 
 
 func create_upgrades_list(source_list: Array[PackedScene]):
 	for i in source_list.size():
 		var inst = source_list[i].instantiate()
-		#if unlocked_upgrades.has(source_list[i]):
 		add_to_list(upgrades, source_list[i])
-		#else:
-		#	if inst.is_in_group("gun") or inst.is_in_group("dogtag"):
-		#		add_to_list(shop_upgrades, source_list[i])
 		var gun_frame = inst.get_node_or_null("GunFrame")
 		if gun_frame != null:
 			if gun_frame.barrel != null: add_to_list(upgrades, gun_frame.barrel)
@@ -33,20 +41,13 @@ func create_upgrades_list(source_list: Array[PackedScene]):
 		inst.queue_free()
 
 
-func add_to_list(list: Array[SpawnChance], value: PackedScene):
-	list.append(SpawnChance.new())
-	var new_index = list.size()-1
-	list[new_index].object_to_spawn = value
+func add_to_list(list: Array, value: PackedScene):
+	var sc = SpawnChance.new()
+	sc.object_to_spawn = value
 	var inst = value.instantiate()
-	list[new_index].spawn_chance = get_spawn_chance(inst.get_meta("Rarity").rarity, inst.name)
+	sc.spawn_chance = get_spawn_chance(inst.get_meta("Rarity").rarity, inst.name)
+	list.append(sc)
 	inst.queue_free()
-
-
-func add_to_upgrade_list(new_upgrade: PackedScene):
-	unlocked_upgrades.append(new_upgrade)
-	upgrades = []
-	shop_upgrades = []
-	create_upgrades_list(master_list)
 
 
 func get_spawn_chance(rarity: Globals.rarity_levels, title: String) -> int:

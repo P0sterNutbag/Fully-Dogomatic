@@ -5,6 +5,7 @@ extends GunPart
 @export var spread: float = 0
 @export var knockback: float = 0
 @export var distance_to_player: float = 30
+@export var bullet: PackedScene
 var gun_parent
 
 
@@ -18,3 +19,4 @@ func set_gun_stats():
 		gun_parent.firepoint = $Firepoint
 		gun_parent.muzzle_flash = $Firepoint/MuzzleFlash
 		gun_parent.distance_to_player = distance_to_player
+		gun_parent.bullet = bullet

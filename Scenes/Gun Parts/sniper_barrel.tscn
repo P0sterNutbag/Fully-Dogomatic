@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Sprites/gun parts spritesheet.png" id="1_p4re2"]
 [ext_resource type="Script" path="res://Scripts/gun_part_barrel.gd" id="2_btuw2"]
+[ext_resource type="PackedScene" uid="uid://diiqi8djvsue4" path="res://Scenes/Bullets/7.62mm_bullet.tscn" id="3_g4a7a"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_g5r0q"]
 [ext_resource type="Texture2D" uid="uid://l0xncvn3i5id" path="res://Sprites/muzzleflash.png" id="3_rfjy7"]
 
@@ -17,6 +18,7 @@ region_rect = Rect2(32, 96, 48, 16)
 script = ExtResource("2_btuw2")
 spread = 6.0
 knockback = 5.0
+bullet = ExtResource("3_g4a7a")
 metadata/Title = "Barrel"
 metadata/Type = "Mk 13 Sniper Rifle"
 metadata/Rarity = SubResource("Resource_bfd7l")
@@ -38,10 +40,12 @@ use_parent_material = true
 position = Vector2(-9, 2)
 
 [node name="Firepoint" type="Node2D" parent="."]
+use_parent_material = true
 position = Vector2(21, 0)
 
 [node name="MuzzleFlash" type="Sprite2D" parent="Firepoint"]
 visible = false
+use_parent_material = true
 position = Vector2(-1, 0)
 texture = ExtResource("3_rfjy7")
 offset = Vector2(8, 0)

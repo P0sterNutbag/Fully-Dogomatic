@@ -30,10 +30,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jonbb"]
 size = Vector2(38, 58)
 
-[node name="Area2D" type="Area2D" groups=["destroy"]]
+[node name="Gun Shop" type="Area2D" groups=["destroy"]]
 y_sort_enabled = true
 use_parent_material = true
 script = ExtResource("1_61rwb")
+option_array_name = "guns"
+options_amount = 3
+pay_for_guns = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 use_parent_material = true

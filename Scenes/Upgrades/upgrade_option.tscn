@@ -1,29 +1,14 @@
-[gd_scene load_steps=50 format=3 uid="uid://diu6fl025qdv0"]
+[gd_scene load_steps=14 format=3 uid="uid://diu6fl025qdv0"]
 
 [ext_resource type="Script" path="res://Scripts/Upgrades/upgrade_option.gd" id="1_kc4vw"]
 [ext_resource type="Shader" path="res://Shaders/colorswap.gdshader" id="1_on7uf"]
 [ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Sprites/palette blue orange.png" id="2_7dssl"]
-[ext_resource type="PackedScene" uid="uid://dhruksuxabxo2" path="res://Scenes/Guns/CompleteGuns/gun_shotgun.tscn" id="3_ep5ni"]
-[ext_resource type="PackedScene" uid="uid://3khbol34srr6" path="res://Scenes/Guns/CompleteGuns/gun_ar15.tscn" id="4_s6610"]
-[ext_resource type="PackedScene" uid="uid://bw3w1cm787x4m" path="res://Scenes/Guns/CompleteGuns/gun_smg.tscn" id="5_p67ng"]
-[ext_resource type="PackedScene" uid="uid://irn8wcu6ofrw" path="res://Scenes/Guns/CompleteGuns/gun_grenade_launcher.tscn" id="6_p3ntb"]
-[ext_resource type="PackedScene" uid="uid://du8dgih13wcrj" path="res://Scenes/Guns/CompleteGuns/gun_sniper.tscn" id="7_8l2nf"]
 [ext_resource type="Texture2D" uid="uid://2u72jmj4wnsn" path="res://Sprites/red texture.png" id="8_haicr"]
 [ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Sprites/Blue Sky 8x8.ttf" id="10_0l3rj"]
-[ext_resource type="PackedScene" uid="uid://f3xrdtoi7j3m" path="res://Scenes/Upgrades/part_upgrade.tscn" id="10_s1vdb"]
-[ext_resource type="PackedScene" uid="uid://couat6mj44bws" path="res://Scenes/Guns/CompleteGuns/gun_pistol.tscn" id="11_w2lu8"]
-[ext_resource type="PackedScene" uid="uid://syacy6q18lg4" path="res://Scenes/Gun Parts/pistol_barrel.tscn" id="12_37tqo"]
-[ext_resource type="PackedScene" uid="uid://i3j7051c336v" path="res://Scenes/Gun Parts/shotgun_barrel.tscn" id="13_eyqe6"]
 [ext_resource type="Texture2D" uid="uid://bt4bqfufwd7lu" path="res://Sprites/upgrade box.png" id="14_04dbb"]
-[ext_resource type="PackedScene" uid="uid://dpn55yalpsj1t" path="res://Scenes/Gun Parts/smg_barrel.tscn" id="14_c5uj2"]
-[ext_resource type="PackedScene" uid="uid://dp3cnqudhlj6w" path="res://Scenes/Gun Parts/ar15_barrel.tscn" id="14_geyg0"]
-[ext_resource type="PackedScene" uid="uid://7xs55h85i4nh" path="res://Scenes/Gun Parts/sniper_stock.tscn" id="15_lxb1u"]
 [ext_resource type="Texture2D" uid="uid://btohsgsxdi3fu" path="res://Sprites/upgrade box selected.png" id="15_nnukm"]
-[ext_resource type="PackedScene" uid="uid://cei3fh8hxome7" path="res://Scenes/Gun Parts/sniper_scope.tscn" id="16_dunir"]
 [ext_resource type="Texture2D" uid="uid://jtcnyoi86sub" path="res://Sprites/gray texture.png" id="17_2gxn1"]
-[ext_resource type="PackedScene" uid="uid://brxcjl24b5feg" path="res://Scenes/Gun Parts/launcher_magazine.tscn" id="17_auge2"]
 [ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Sprites/Themes/ui text mid.tres" id="18_gfk3a"]
-[ext_resource type="PackedScene" uid="uid://cn50oxjbu2kvn" path="res://Scenes/Upgrades/Dogtags/dogtag_exploding_bullets.tscn" id="18_jp76a"]
 [ext_resource type="Script" path="res://Scripts/Circle.gd" id="18_pedul"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/JuicyMovement.tscn" id="19_orlbb"]
 
@@ -35,153 +20,6 @@ shader_parameter/is_texture = false
 shader_parameter/fps = 6.0
 shader_parameter/color_threshold = 0.1
 shader_parameter/palette = ExtResource("2_7dssl")
-
-[sub_resource type="GDScript" id="GDScript_isr6q"]
-script/source = "extends Resource
-class_name spawn_chance
-
-@export var object_to_spawn: PackedScene
-@export var spawn_chance: float
-"
-
-[sub_resource type="Resource" id="Resource_rgw6j"]
-script = SubResource("GDScript_isr6q")
-object_to_spawn = ExtResource("11_w2lu8")
-spawn_chance = 100.0
-
-[sub_resource type="Resource" id="Resource_ck2w1"]
-script = SubResource("GDScript_isr6q")
-object_to_spawn = ExtResource("3_ep5ni")
-spawn_chance = 1000.0
-
-[sub_resource type="Resource" id="Resource_5i6je"]
-script = SubResource("GDScript_isr6q")
-object_to_spawn = ExtResource("4_s6610")
-spawn_chance = 1000.0
-
-[sub_resource type="Resource" id="Resource_h1sxy"]
-script = SubResource("GDScript_isr6q")
-object_to_spawn = ExtResource("5_p67ng")
-spawn_chance = 1000.0
-
-[sub_resource type="Resource" id="Resource_upebo"]
-script = SubResource("GDScript_isr6q")
-object_to_spawn = ExtResource("6_p3ntb")
-spawn_chance = 100.0
-
-[sub_resource type="Resource" id="Resource_cd17m"]
-script = SubResource("GDScript_isr6q")
-object_to_spawn = ExtResource("7_8l2nf")
-spawn_chance = 100.0
-
-[sub_resource type="PackedScene" id="PackedScene_5uccf"]
-_bundled = {
-"base_scene": 0,
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"names": PackedStringArray("PartUpgradeAR15Barrel", "part", "metadata/Title", "metadata/Type", "Sprite2D"),
-"node_count": 1,
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 3, 1, 1, 2, 2, 3, 3, 0),
-"variants": [ExtResource("10_s1vdb"), ExtResource("14_geyg0"), "Barrel", "M9 Rifle"],
-"version": 3
-}
-
-[sub_resource type="GDScript" id="GDScript_brwuy"]
-script/source = "extends Resource
-class_name spawn_chance
-
-@export var object_to_spawn: PackedScene
-@export var spawn_chance: float
-"
-
-[sub_resource type="Resource" id="Resource_efs0o"]
-script = SubResource("GDScript_brwuy")
-object_to_spawn = SubResource("PackedScene_5uccf")
-spawn_chance = 0.0
-
-[sub_resource type="PackedScene" id="PackedScene_i2drs"]
-_bundled = {
-"base_scene": 0,
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"names": PackedStringArray("PartUpgradePistolBarrel", "part", "metadata/Title", "metadata/Type", "Sprite2D"),
-"node_count": 1,
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 3, 1, 1, 2, 2, 3, 3, 0),
-"variants": [ExtResource("10_s1vdb"), ExtResource("12_37tqo"), "Barrel", "M19 Pistol"],
-"version": 3
-}
-
-[sub_resource type="Resource" id="Resource_ryyu4"]
-script = SubResource("GDScript_brwuy")
-object_to_spawn = SubResource("PackedScene_i2drs")
-spawn_chance = 0.0
-
-[sub_resource type="PackedScene" id="PackedScene_tdood"]
-_bundled = {
-"base_scene": 0,
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"names": PackedStringArray("PartUpgradeShotgunBarrel", "part", "metadata/Title", "metadata/Type", "Sprite2D"),
-"node_count": 1,
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 3, 1, 1, 2, 2, 3, 3, 0),
-"variants": [ExtResource("10_s1vdb"), ExtResource("13_eyqe6"), "Barrel", "Sawed Off Shotgun"],
-"version": 3
-}
-
-[sub_resource type="Resource" id="Resource_pyxqr"]
-script = SubResource("GDScript_brwuy")
-object_to_spawn = SubResource("PackedScene_tdood")
-spawn_chance = 0.0
-
-[sub_resource type="PackedScene" id="PackedScene_ucwyq"]
-_bundled = {
-"base_scene": 0,
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"names": PackedStringArray("PartUpgradeSMGBarrel", "part", "metadata/Title", "metadata/Type", "Sprite2D"),
-"node_count": 1,
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 3, 1, 1, 2, 2, 3, 3, 0),
-"variants": [ExtResource("10_s1vdb"), ExtResource("14_c5uj2"), "Barrel", "MP5 SMG"],
-"version": 3
-}
-
-[sub_resource type="Resource" id="Resource_qje3m"]
-script = SubResource("GDScript_brwuy")
-object_to_spawn = SubResource("PackedScene_ucwyq")
-spawn_chance = 0.0
-
-[sub_resource type="Resource" id="Resource_887la"]
-script = SubResource("GDScript_brwuy")
-object_to_spawn = ExtResource("14_geyg0")
-spawn_chance = 100.0
-
-[sub_resource type="Resource" id="Resource_nbtgn"]
-script = SubResource("GDScript_brwuy")
-object_to_spawn = ExtResource("15_lxb1u")
-spawn_chance = 100.0
-
-[sub_resource type="Resource" id="Resource_ajsd8"]
-script = SubResource("GDScript_brwuy")
-object_to_spawn = ExtResource("16_dunir")
-spawn_chance = 100.0
-
-[sub_resource type="Resource" id="Resource_gvdh2"]
-script = SubResource("GDScript_brwuy")
-object_to_spawn = ExtResource("17_auge2")
-spawn_chance = 100.0
-
-[sub_resource type="Resource" id="Resource_gg304"]
-script = SubResource("GDScript_brwuy")
-object_to_spawn = ExtResource("18_jp76a")
-spawn_chance = 10000.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u54kg"]
 shader = ExtResource("1_on7uf")
@@ -197,7 +35,6 @@ material = SubResource("ShaderMaterial_8vmtn")
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_kc4vw")
-options = [SubResource("Resource_rgw6j"), SubResource("Resource_ck2w1"), SubResource("Resource_5i6je"), SubResource("Resource_h1sxy"), SubResource("Resource_upebo"), SubResource("Resource_cd17m"), SubResource("Resource_efs0o"), SubResource("Resource_ryyu4"), SubResource("Resource_pyxqr"), SubResource("Resource_qje3m"), SubResource("Resource_887la"), SubResource("Resource_nbtgn"), SubResource("Resource_ajsd8"), SubResource("Resource_gvdh2"), SubResource("Resource_gg304")]
 
 [node name="Circle" type="Control" parent="."]
 material = SubResource("ShaderMaterial_u54kg")
@@ -251,12 +88,23 @@ position = Vector2(0, 10)
 scale = Vector2(2, 2)
 region_enabled = true
 
-[node name="JuicyMovement" parent="." node_paths=PackedStringArray("target") instance=ExtResource("19_orlbb")]
-target = NodePath("..")
+[node name="JuicyMovement" parent="." node_paths=PackedStringArray("target_control") instance=ExtResource("19_orlbb")]
+target_control = NodePath("..")
 pulse_frequency = 4.0
 pulse_amplitude = 0.15
 rot_frequency = 2.0
-rot_amplitude = 0.15
+rot_amplitude = 15.0
+
+[node name="Price" type="RichTextLabel" parent="."]
+use_parent_material = true
+clip_contents = false
+layout_mode = 0
+offset_left = -60.0
+offset_top = 28.0
+offset_right = 57.0
+offset_bottom = 74.0
+theme = ExtResource("18_gfk3a")
+bbcode_enabled = true
 
 [connection signal="gui_input" from="Circle" to="." method="_on_circle_gui_input"]
 [connection signal="mouse_entered" from="Circle" to="." method="_on_circle_mouse_entered"]

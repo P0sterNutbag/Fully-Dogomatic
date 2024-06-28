@@ -1,11 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://d1c2pbbb47u4h"]
+[gd_scene load_steps=21 format=3 uid="uid://d1c2pbbb47u4h"]
 
 [ext_resource type="Script" path="res://Scenes/UI/ui.gd" id="1_nakcx"]
 [ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Sprites/Blue Sky 8x8.ttf" id="1_y4k2c"]
 [ext_resource type="PackedScene" uid="uid://d1yo75f23rful" path="res://Scenes/countdown.tscn" id="2_rquus"]
 [ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Sprites/palette blue orange.png" id="3_4hdc5"]
 [ext_resource type="Shader" path="res://Shaders/colorswap.gdshader" id="3_8xjm0"]
-[ext_resource type="PackedScene" uid="uid://ikpd1j56u7ro" path="res://Scenes/fire_particle.tscn" id="3_f6jht"]
 [ext_resource type="Script" path="res://Scripts/ui_guns.gd" id="3_queuv"]
 [ext_resource type="Texture2D" uid="uid://bu7pglsgebw5r" path="res://Sprites/gun holder.png" id="4_4i3hf"]
 [ext_resource type="Theme" uid="uid://dpv7tir788p5t" path="res://Sprites/Themes/ui text small.tres" id="4_qgb4r"]
@@ -13,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://2u72jmj4wnsn" path="res://Sprites/red texture.png" id="6_332ki"]
 [ext_resource type="Script" path="res://Scenes/UI/dogtags_ui.gd" id="11_4d47h"]
 [ext_resource type="PackedScene" uid="uid://dwx100okd3d23" path="res://Scenes/UI/minimap.tscn" id="13_ehvuj"]
+[ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Sprites/Themes/ui text mid.tres" id="14_6p2cw"]
+[ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/JuicyMovement.tscn" id="14_gog46"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2xchs"]
 shader = ExtResource("3_8xjm0")
@@ -249,30 +250,6 @@ text = "YOU WIN!"
 
 [node name="ParticlesTimer" type="Timer" parent="."]
 
-[node name="ParticlesGroup1" type="Node2D" parent="."]
-
-[node name="GPUParticles2D2" parent="ParticlesGroup1" instance=ExtResource("3_f6jht")]
-position = Vector2(612, 372)
-
-[node name="GPUParticles2D" parent="ParticlesGroup1" instance=ExtResource("3_f6jht")]
-position = Vector2(25, 370)
-
-[node name="ParticlesGroup2" type="Node2D" parent="."]
-
-[node name="GPUParticles2D2" parent="ParticlesGroup2" instance=ExtResource("3_f6jht")]
-position = Vector2(556, 372)
-
-[node name="GPUParticles2D" parent="ParticlesGroup2" instance=ExtResource("3_f6jht")]
-position = Vector2(75, 370)
-
-[node name="ParticlesGroup3" type="Node2D" parent="."]
-
-[node name="GPUParticles2D2" parent="ParticlesGroup3" instance=ExtResource("3_f6jht")]
-position = Vector2(504, 371)
-
-[node name="GPUParticles2D" parent="ParticlesGroup3" instance=ExtResource("3_f6jht")]
-position = Vector2(128, 370)
-
 [node name="Dogtags" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -288,3 +265,39 @@ offset_left = 567.0
 offset_top = 288.0
 offset_right = 567.0
 offset_bottom = 288.0
+
+[node name="Drop" type="Node2D" parent="."]
+position = Vector2(320, 60)
+
+[node name="DropAlert" type="RichTextLabel" parent="Drop"]
+material = SubResource("ShaderMaterial_2xchs")
+clip_contents = false
+offset_left = -32.0
+offset_top = 2.0
+offset_right = 35.0
+offset_bottom = 35.0
+pivot_offset = Vector2(33, 11)
+theme = ExtResource("4_qgb4r")
+bbcode_enabled = true
+text = "[center]DROP INCOMING: "
+
+[node name="JuicyMovement" parent="Drop/DropAlert" node_paths=PackedStringArray("target_control") instance=ExtResource("14_gog46")]
+position = Vector2(0, 24)
+target_control = NodePath("..")
+pulse_frequency = 5.0
+pulse_amplitude = 0.35
+rot_frequency = 2.5
+rot_amplitude = 15.0
+
+[node name="DropTimer" type="RichTextLabel" parent="Drop"]
+material = SubResource("ShaderMaterial_2xchs")
+clip_contents = false
+offset_left = -24.0
+offset_top = 24.0
+offset_right = 37.0
+offset_bottom = 61.0
+pivot_offset = Vector2(41, 11)
+theme = ExtResource("14_6p2cw")
+bbcode_enabled = true
+text = "[left]9.00
+"

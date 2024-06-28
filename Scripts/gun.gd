@@ -38,6 +38,9 @@ var explode_chance: float = 0
 var locked: bool = false
 var is_mouse_entered: bool = false
 var aim_dir: Vector2
+var muzzleflash_textures = [preload("res://Sprites/muzzleflash.png"), 
+preload("res://Sprites/muzzleflash2.png"),
+preload("res://Sprites/muzzleflash3.png")]
 
 @onready var sprite = $GunFrame
 var firepoint
@@ -54,9 +57,10 @@ func _ready():
 
 func _physics_process(delta):
 	if follow_mouse:
+		#var dir_offset = Vector2.RIGHT.rotated(get_parent().rotation)
 		aim_dir = (get_global_mouse_position() - get_parent().global_position).normalized()
-		position = lerp(position, aim_dir * distance_to_player * 1.5, delta * 10)
-		rotation = aim_dir.angle()
+		global_position = lerp(global_position, Globals.player.global_position + aim_dir * distance_to_player * 1.5, delta * 10)
+		global_rotation = aim_dir.angle()
 		if global_position.x < holder.global_position.x:
 			scale.y = -1
 		else:
@@ -88,13 +92,14 @@ func _process(delta):
 			muzzle_flash.visible = false
 	if Input.is_action_just_pressed("select"):
 		if get_tree().paused and !Globals.holding_gun_part and !Globals.settings_open and !locked:
-			if not follow_mouse:
-				if is_mouse_entered:
-					follow_mouse = true
-					if not holder:
-						attach_to_target(Globals.player)
-			else:
-				follow_mouse = false
+			#if not follow_mouse:
+				#pass
+				#if is_mouse_entered:
+					#follow_mouse = true
+					#if not holder:
+						#attach_to_target(Globals.player)
+			#else:
+			follow_mouse = false
 
 
 func rotate_away_from_position(vector: Vector2):
@@ -109,6 +114,7 @@ func rotate_away_from_position(vector: Vector2):
 func reload():
 	Globals.reload_sfx.play()
 	$ReloadTimer.start()
+	spin_gun()
 
 
 func _on_timer_timeout(): # shoot bullets
@@ -116,16 +122,19 @@ func _on_timer_timeout(): # shoot bullets
 	if shots_left > 0 && holder.state != holder.states.dead:
 		var b = bullet.instantiate()
 		shot_count = b.shot_count
+		var accuracy_mod = -5
+		if abs(Globals.player.velocity) > Vector2.ZERO:
+			accuracy_mod = 3 #max(abs(Globals.player.velocity.x), abs(Globals.player.velocity.y)) / 10
 		for i in shot_count:
 			var instance = bullet.instantiate()
 			get_tree().current_scene.add_child(instance)
 			instance.global_position = firepoint.global_position
-			var accuracy = spread+instance.spread_modifier
-			var bullet_angle = rotation + randf_range(-accuracy/100, accuracy/100)
+			var accuracy = clamp(spread + instance.spread_modifier + accuracy_mod, 0, 100)
+			var bullet_angle = global_rotation + randf_range(-accuracy/100, accuracy/100)
 			var bullet_vector = Vector2(cos(bullet_angle), sin(bullet_angle)) * bullet_speed
 			instance.move_vector = bullet_vector
 			instance.speed = bullet_speed
-			instance.rotation = bullet_angle
+			instance.global_rotation = bullet_angle
 			instance.damage += damage_modifier
 			instance.penetrations += penetrations_modifier
 			instance.ricochet = ricochet
@@ -148,6 +157,7 @@ func _on_timer_timeout(): # shoot bullets
 		elif Globals.shoot_sfx.get_playback_position() > 0.05:
 			Globals.shoot_sfx.play()
 		b.queue_free()
+		muzzle_flash.texture = muzzleflash_textures[randi_range(0, muzzleflash_textures.size()-1)]
 
 
 func _on_reload_timer_timeout():
@@ -190,6 +200,13 @@ func attach_to_target(target: Node2D):
 	Globals.world_controller.add_to_gun_list(get_meta("Title"))
 	get_parent().remove_child(self)
 	Globals.player.get_node("Guns").add_child(self)
+
+
+func spin_gun():
+	var reload_tween = get_tree().create_tween().set_trans(Tween.TRANS_ELASTIC)
+	reload_tween.set_ease(Tween.EASE_IN_OUT)
+	reload_tween.tween_property(self, "rotation_degrees", rotation_degrees, $ReloadTimer.wait_time-0.75)
+	reload_tween.tween_property(self, "rotation_degrees", rotation_degrees+360, 0.75)
 
 
 func _on_mouse_entered():

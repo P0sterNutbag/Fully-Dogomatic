@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://denvo6te6kugu"]
+
+[ext_resource type="PackedScene" uid="uid://bpis8skquuip5" path="res://Scenes/Levels/Level Objects/crate_guns.tscn" id="1_57ygq"]
+
+[node name="Area2D" instance=ExtResource("1_57ygq")]
+option_array_name = "gunparts"
+options_amount = 3

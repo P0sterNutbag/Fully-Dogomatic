@@ -8,6 +8,7 @@ signal level_up(lvl: int)
 signal money_pickup
 signal gun_pickup(gun: Node2D)
 
+var max_hp = 100
 var hp = 100
 var in_enemy = false
 var enemies = []
@@ -23,7 +24,7 @@ var level: int = 1
 var time: float = 0
 var new_gun_material = preload("res://Shaders/outline.tres")
 var target_zoom = 1
-
+var gun_rotation: float = 0
 @onready var sprite = $PlayerSprite
 
 
@@ -74,14 +75,8 @@ func _process(delta):
 					sprite.flip_h = false
 				elif velocity.x < 0:
 					sprite.flip_h = true
-				# rotate
-				# var rot_frequency = 7
-				# var rot_amplitude = 50
-				# var rot = cos(time * rot_frequency) * rot_amplitude
-				# rotation_degrees += rot * delta
 			else:
 				sprite.play("idle")
-				# rotation_degrees = 0 # = lerp_angle(rotation_degrees, 0, 5 * delta)
 
 			# damage
 			for area in $Hurtbox.get_overlapping_areas():
@@ -90,20 +85,13 @@ func _process(delta):
 					if !enemy.game_over:
 						take_damage(enemy.damage * delta)
 			
-			# point at crate
-			#if point_at_crate:
-				#$Arrow.visible = true
-				#var dir_to_crate = (crate_position - position).normalized()
-				#$Arrow.rotation = dir_to_crate.angle()
-				#$Arrow.global_position = lerp(global_position, crate_position, 0.5)
-			#else:
-				#$Arrow.visible = false
+			# rotate guns
+			$Guns.rotation_degrees += gun_rotation * delta
 			
 			# bark
 			if Input.is_action_just_pressed("bark"):
 				$Bark.pitch_scale = randf_range(0.95,1.05)
 				$Bark.play()
-				Globals.world_controller.spawn_upgrade_menu()
 		
 		states.dead:
 			sprite.play("dead")
@@ -120,6 +108,13 @@ func take_damage(dmg):
 	if hp <= 0:
 		state = states.dead
 		player_died.emit()
+		$HealthBar.visible = false
+
+
+func increase_health(hp2):
+	hp = clamp(hp + hp2, 0, max_hp)
+	$HealthBar.value = hp
+	if hp >= max_hp:
 		$HealthBar.visible = false
 
 
@@ -140,7 +135,12 @@ func get_money(amount: int):
 		#Globals.world_controller.spawn_upgrade_menu()
 		##Globals.crate_spawner.spawn_crate()
 		#$Bark.play()
-		
+
+
+func spend_money(amount: int):
+	money -= amount
+	money_pickup.emit()
+	Globals.ui.set_money(money)
 
 #func _on_area_2d_area_entered(area):
 	#if area.is_in_group("gun") and area.holder != self:

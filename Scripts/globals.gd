@@ -6,10 +6,12 @@ var shoot_sfx
 var reload_sfx
 var explosion_sfx
 var world_controller
+var level_manager
 var ui_guns
 var gunstats
 var audio_manager
 var ui
+var enemy_spawn_controller
 var upgrade_manager: Node
 var holding_gun_part: bool = false
 var settings_open: bool = false
@@ -25,11 +27,13 @@ func _ready():
 	globals = self
 
 
-func create_instance(scene: PackedScene, position: Vector2, parent: Node2D = get_tree().current_scene):
+func create_instance(scene: PackedScene, position: Vector2, parent: Node2D = get_tree().current_scene) -> Node2D:
 	if (scene != null):
 		var instance = scene.instantiate()
 		parent.add_child.call_deferred(instance)
 		instance.global_position = position
+		return instance
+	return null
 
 
 func generate_circle_points(center: Vector2, radius: float, segments: int) -> Array:
@@ -81,3 +85,21 @@ func get_all_scenes_from_folder(path: String) -> Array[PackedScene]:
 	else:
 		print("An error occurred when trying to access the path.")
 	return list
+
+
+func get_gun_price(gun) -> float:
+	var price: float
+	match gun.get_meta("Rarity").rarity:
+		rarity_levels.common:
+			price = 5 + randf_range(-1, 1)
+		rarity_levels.uncommon:
+			price = 10 + randf_range(-1, 1)
+		rarity_levels.rare:
+			price = 20 + randf_range(-2, 2)
+		rarity_levels.super_rare:
+			price = 30 + randf_range(-2, 2)
+		rarity_levels.ultra_rare:
+			price = 40 + randf_range(-3, 3)
+		rarity_levels.giga_rare:
+			price = 50 + randf_range(-3, 3)
+	return price

@@ -12,6 +12,7 @@ var enemy3_probability = 0
 
 
 func _ready():
+	Globals.enemy_spawn_controller = self
 	for i in get_child_count():
 		if get_child(i) is Node2D:
 			spawners.append(get_child(i))
@@ -24,15 +25,7 @@ func _on_spawn_enemies_timeout():
 func spawn_enemy():
 	if get_tree().get_nodes_in_group("enemy").size() < 850:
 		$SpawnEnemies.wait_time = spawn_time[spawn_round]
-		#var spawn_position = spawners[randi_range(0, spawners.size()-1)].global_position
-		var instance
-		var r = randf_range(0,100)
-		for i in spawn_rounds[spawn_round].size():
-			var wavedata = spawn_rounds[spawn_round][i]
-			if r < wavedata.chance:
-				var enemy = wavedata.enemy
-				instance = enemy.instantiate()
-				break
+		var enemy = get_enemy_to_spawn()
 		var spawn_position
 		var barrier_left = Globals.world_controller.get_node("BarrierLeft").global_position
 		var barrier_right = Globals.world_controller.get_node("BarrierRight").global_position
@@ -41,9 +34,11 @@ func spawn_enemy():
 			1: spawn_position = Vector2(randf_range(barrier_left.x,barrier_right.x), barrier_right.y)
 			2: spawn_position = Vector2(barrier_left.x, randf_range(barrier_left.y,barrier_right.y))
 			3: spawn_position = Vector2(barrier_right.x, randf_range(barrier_left.y,barrier_right.y))	
-		get_tree().current_scene.add_child(instance)
-		instance.global_position = spawn_position + Vector2(randf_range(-50,50), randf_range(-50,50))
-		instance.state = instance.states.attack
+		Globals.create_instance(enemy, spawn_position + Vector2(randf_range(-50,50), randf_range(-50,50)))
+
+
+func get_enemy_to_spawn() -> PackedScene:
+	return spawn_rounds[spawn_round][Globals.get_weighted_index(spawn_rounds[spawn_round])].object_to_spawn
 
 
 func _on_spawn_round_timeout():

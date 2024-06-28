@@ -1,19 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://4s88ewwe3fxv"]
+[gd_scene load_steps=19 format=3 uid="uid://4s88ewwe3fxv"]
 
 [ext_resource type="Texture2D" uid="uid://54kbcdl8r4r4" path="res://Sprites/exp1.png" id="1_kp65r"]
 [ext_resource type="Script" path="res://Scripts/play_animation_then_die.gd" id="2_6fsv8"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2trii"]
-atlas = ExtResource("1_kp65r")
-region = Rect2(0, 0, 35, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bpnur"]
-atlas = ExtResource("1_kp65r")
-region = Rect2(35, 0, 35, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w3pl6"]
-atlas = ExtResource("1_kp65r")
-region = Rect2(70, 0, 35, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tcxu0"]
 atlas = ExtResource("1_kp65r")
@@ -79,15 +67,6 @@ region = Rect2(175, 100, 35, 50)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2trii")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bpnur")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w3pl6")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_tcxu0")
 }, {
 "duration": 1.0,
@@ -140,7 +119,7 @@ animations = [{
 [node name="DeathExplosion" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_cy0vq")
 autoplay = "default"
-frame = 17
+frame = 14
 frame_progress = 1.0
 script = ExtResource("2_6fsv8")
 

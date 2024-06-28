@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://dge2ubf4wiuq7"]
+
+[ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Sprites/gun parts spritesheet.png" id="1_o3d46"]
+[ext_resource type="Script" path="res://Scripts/gun_part_barrel.gd" id="2_046mh"]
+[ext_resource type="PackedScene" uid="uid://d14blxavxtjk2" path="res://Scenes/Bullets/22cal_bullet.tscn" id="3_1x2jd"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_o5ccq"]
+[ext_resource type="Texture2D" uid="uid://l0xncvn3i5id" path="res://Sprites/muzzleflash.png" id="4_cwe4a"]
+
+[sub_resource type="Resource" id="Resource_bfd7l"]
+script = ExtResource("3_o5ccq")
+rarity = 2
+
+[node name="Barrel" type="Sprite2D"]
+use_parent_material = true
+texture = ExtResource("1_o3d46")
+region_enabled = true
+region_rect = Rect2(16, 128, 48, 16)
+script = ExtResource("2_046mh")
+spread = 6.0
+knockback = 5.0
+bullet = ExtResource("3_1x2jd")
+metadata/Title = "Barrel"
+metadata/Type = "Mk 13 Sniper Rifle"
+metadata/Rarity = SubResource("Resource_bfd7l")
+
+[node name="StockSocket" type="Node2D" parent="."]
+use_parent_material = true
+position = Vector2(-17, -2)
+
+[node name="GripSocket" type="Node2D" parent="."]
+use_parent_material = true
+position = Vector2(-17, 2)
+
+[node name="SightSocket" type="Node2D" parent="."]
+use_parent_material = true
+position = Vector2(-13, -1)
+
+[node name="MagazineSocket" type="Node2D" parent="."]
+use_parent_material = true
+position = Vector2(-9, 2)
+
+[node name="Firepoint" type="Node2D" parent="."]
+use_parent_material = true
+position = Vector2(18, 0)
+
+[node name="MuzzleFlash" type="Sprite2D" parent="Firepoint"]
+visible = false
+use_parent_material = true
+position = Vector2(-1, 0)
+texture = ExtResource("4_cwe4a")
+offset = Vector2(8, 0)

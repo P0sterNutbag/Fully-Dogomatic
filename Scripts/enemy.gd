@@ -23,6 +23,7 @@ var spawn_floor_y: float
 var gravity: float = 900
 @onready var sprite = $AnimatedSprite2D
 var bullet_dir: float
+var pipe_spawn: bool = false
 
 
 func _ready():
@@ -49,7 +50,7 @@ func _physics_process(delta):
 		states.spawn:
 			velocity = spawn_velocity
 			spawn_velocity.y += gravity * delta
-			if spawn_velocity.y > 0 and global_position.y > spawn_floor_y:
+			if !pipe_spawn or (spawn_velocity.y > 0 and global_position.y > spawn_floor_y):
 				$Hitbox.process_mode = Node.PROCESS_MODE_INHERIT
 				state = states.attack
 				y_sort_enabled = true

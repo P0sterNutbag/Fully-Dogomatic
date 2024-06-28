@@ -17,6 +17,7 @@ func spawn_enemies(enemy, spawn_amount: int, spawn_position: Vector2):
 		get_tree().current_scene.add_child(instance)
 		instance.global_position = spawn_position
 		instance.spawn_floor_y = global_position.y + randf_range(32,-32)
+		instance.pipe_spawn = true
 
 
 func _exit_tree():

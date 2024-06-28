@@ -10,6 +10,7 @@ size = Vector2(10, 6)
 z_index = -97
 use_parent_material = true
 collision_layer = 64
+collision_mask = 512
 script = ExtResource("1_3cmb1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

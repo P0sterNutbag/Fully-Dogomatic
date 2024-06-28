@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://duyb0pi72kagb"]
+[gd_scene load_steps=8 format=3 uid="uid://c24dn08nqwq6f"]
 
 [ext_resource type="Script" path="res://Scripts/Upgrades/upgrade_menu_old.gd" id="1_0r7ok"]
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Shaders/colorswap.tres" id="2_rhfa4"]
