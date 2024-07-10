@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bpis8skquuip5"]
+[gd_scene load_steps=9 format=3 uid="uid://bpis8skquuip5"]
 
 [ext_resource type="Script" path="res://Scripts/crate.gd" id="1_gh17r"]
 [ext_resource type="Texture2D" uid="uid://bh1jul4jbpiym" path="res://Sprites/crate.png" id="2_aktxt"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dexy76dl8dsxd" path="res://Sprites/shadow.png" id="4_3twyn"]
 [ext_resource type="PackedScene" uid="uid://84xxip1wf4vx" path="res://Scenes/UI/minimap_icon.tscn" id="5_etbcj"]
 [ext_resource type="Texture2D" uid="uid://d0xgh2orsogie" path="res://Sprites/crate icon.png" id="6_b8ay6"]
+[ext_resource type="PackedScene" uid="uid://pkl1jd6tt0bd" path="res://Scenes/UI/arrow.tscn" id="7_cot2c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jonbb"]
 size = Vector2(22, 22)
@@ -32,11 +33,14 @@ texture = ExtResource("3_0i3a0")
 offset = Vector2(0.5, -1.5)
 
 [node name="Shadow" type="Sprite2D" parent="."]
+visible = false
 z_index = -1
 position = Vector2(0, 9.5)
 texture = ExtResource("4_3twyn")
 
 [node name="MinimapIcon" parent="." instance=ExtResource("5_etbcj")]
 sprite = ExtResource("6_b8ay6")
+
+[node name="Arrow" parent="." instance=ExtResource("7_cot2c")]
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

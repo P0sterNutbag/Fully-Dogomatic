@@ -4,12 +4,12 @@
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Shaders/colorswap.tres" id="2_pfoac"]
 [ext_resource type="PackedScene" uid="uid://diu6fl025qdv0" path="res://Scenes/Upgrades/upgrade_option.tscn" id="3_hyjv8"]
 [ext_resource type="Shader" path="res://Shaders/colorswap.gdshader" id="4_mjp48"]
-[ext_resource type="Texture2D" uid="uid://2u72jmj4wnsn" path="res://Sprites/red texture.png" id="5_bpqxk"]
 [ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Sprites/palette blue orange.png" id="5_svmbq"]
-[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Sprites/Blue Sky 8x8.ttf" id="5_tryc8"]
-[ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Sprites/Themes/ui text mid.tres" id="6_2i6h4"]
+[ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Sprites/Themes/ui text mid.tres" id="6_43abr"]
 [ext_resource type="Script" path="res://Scripts/FinishUpgrades.gd" id="7_3j5g3"]
+[ext_resource type="Texture2D" uid="uid://bgx8q6i8fgsha" path="res://Sprites/stopsign.png" id="9_75b2w"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/JuicyMovement.tscn" id="9_hgh8f"]
+[ext_resource type="Texture2D" uid="uid://dbbdi66uf2bh0" path="res://Sprites/checkmark.png" id="10_am1en"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xyvyb"]
 shader = ExtResource("4_mjp48")
@@ -61,14 +61,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 1.0
-offset_top = -75.0
+offset_top = -93.0
 offset_right = 642.0
-offset_bottom = 2.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(320, 34)
 mouse_filter = 2
-theme = ExtResource("6_2i6h4")
+theme = ExtResource("6_43abr")
 bbcode_enabled = true
 text = "[center]POSITION YOUR GUN!"
 
@@ -88,14 +88,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -70.0
+offset_top = -88.0
 offset_right = 641.0
-offset_bottom = -2.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(320, 34)
 mouse_filter = 2
-theme = ExtResource("6_2i6h4")
+theme = ExtResource("6_43abr")
 bbcode_enabled = true
 text = "[center]CHOOSE A GUN!"
 
@@ -109,29 +109,29 @@ rot_amplitude = -5.0
 [node name="CancelButton" type="TextureRect" parent="UpgradeMenu"]
 use_parent_material = true
 layout_mode = 0
-offset_left = 15.0
-offset_top = 370.0
-offset_right = 134.0
-offset_bottom = 414.0
-pivot_offset = Vector2(59, 22)
-texture = ExtResource("5_bpqxk")
+offset_left = 95.0
+offset_top = 373.0
+offset_right = 156.0
+offset_bottom = 437.0
+pivot_offset = Vector2(32, 32)
 script = ExtResource("7_3j5g3")
 
 [node name="Cancel" type="RichTextLabel" parent="UpgradeMenu/CancelButton"]
+visible = false
 material = SubResource("ShaderMaterial_xyvyb")
 clip_contents = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.0504202
-anchor_right = -0.0504202
+anchor_left = -0.0104712
+anchor_top = -0.227273
+anchor_right = 0.424084
+anchor_bottom = 0.295455
 offset_top = 15.0
 offset_right = 125.0
 offset_bottom = 37.0
 mouse_filter = 2
-theme = ExtResource("6_2i6h4")
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_fonts/normal_font = ExtResource("5_tryc8")
-theme_override_font_sizes/normal_font_size = 14
+theme = ExtResource("6_43abr")
+theme_override_colors/default_color = Color(1, 0, 0, 1)
 bbcode_enabled = true
 text = "[center]CANCEL?"
 metadata/_edit_use_anchors_ = true
@@ -142,32 +142,37 @@ target_control = NodePath("..")
 bob_frequency = 4.0
 bob_amplitude = 5.0
 
+[node name="Sprite2D" type="Sprite2D" parent="UpgradeMenu/CancelButton"]
+use_parent_material = true
+position = Vector2(30, 32)
+texture = ExtResource("9_75b2w")
+
 [node name="ReadyButton" type="TextureRect" parent="UpgradeMenu"]
 use_parent_material = true
 layout_mode = 0
-offset_left = 505.0
-offset_top = 370.0
-offset_right = 624.0
-offset_bottom = 414.0
-pivot_offset = Vector2(59, 22)
-texture = ExtResource("5_bpqxk")
+offset_left = 485.0
+offset_top = 379.0
+offset_right = 545.0
+offset_bottom = 439.0
+pivot_offset = Vector2(30, 30)
 script = ExtResource("7_3j5g3")
 
 [node name="UpgradeName" type="RichTextLabel" parent="UpgradeMenu/ReadyButton"]
+visible = false
 material = SubResource("ShaderMaterial_xyvyb")
 clip_contents = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.0504202
-anchor_right = -0.0504202
+anchor_left = -0.0547061
+anchor_top = -0.204545
+anchor_right = 0.390672
+anchor_bottom = 0.136364
 offset_top = 15.0
 offset_right = 125.0
 offset_bottom = 37.0
 mouse_filter = 2
-theme = ExtResource("6_2i6h4")
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_fonts/normal_font = ExtResource("5_tryc8")
-theme_override_font_sizes/normal_font_size = 14
+theme = ExtResource("6_43abr")
+theme_override_colors/default_color = Color(1, 0, 0, 1)
 bbcode_enabled = true
 text = "[center]READY?"
 metadata/_edit_use_anchors_ = true
@@ -177,6 +182,11 @@ position = Vector2(61, 23)
 target_control = NodePath("..")
 bob_frequency = 4.0
 bob_amplitude = 5.0
+
+[node name="Sprite2D" type="Sprite2D" parent="UpgradeMenu/ReadyButton"]
+use_parent_material = true
+position = Vector2(32, 30)
+texture = ExtResource("10_am1en")
 
 [connection signal="gui_input" from="UpgradeMenu/CancelButton" to="UpgradeMenu/CancelButton" method="_on_gui_input"]
 [connection signal="mouse_entered" from="UpgradeMenu/CancelButton" to="UpgradeMenu/CancelButton" method="_on_mouse_entered"]

@@ -22,19 +22,22 @@ func _on_spawn_enemies_timeout():
 	spawn_enemy()
 
 
-func spawn_enemy():
+func spawn_enemy(enemy_to_spawn: PackedScene = null, spawn_position: Vector2 = Vector2.ONE):
 	if get_tree().get_nodes_in_group("enemy").size() < 850:
 		$SpawnEnemies.wait_time = spawn_time[spawn_round]
-		var enemy = get_enemy_to_spawn()
-		var spawn_position
-		var barrier_left = Globals.world_controller.get_node("BarrierLeft").global_position
-		var barrier_right = Globals.world_controller.get_node("BarrierRight").global_position
-		match randi_range(0,3):
-			0: spawn_position = Vector2(randf_range(barrier_left.x,barrier_right.x), barrier_left.y)
-			1: spawn_position = Vector2(randf_range(barrier_left.x,barrier_right.x), barrier_right.y)
-			2: spawn_position = Vector2(barrier_left.x, randf_range(barrier_left.y,barrier_right.y))
-			3: spawn_position = Vector2(barrier_right.x, randf_range(barrier_left.y,barrier_right.y))	
-		Globals.create_instance(enemy, spawn_position + Vector2(randf_range(-50,50), randf_range(-50,50)))
+		var enemy = enemy_to_spawn
+		if enemy == null:
+			enemy = get_enemy_to_spawn()
+		var position = spawn_position
+		if position == Vector2.ONE:
+			var barrier_left = Globals.world_controller.get_node("BarrierLeft").global_position
+			var barrier_right = Globals.world_controller.get_node("BarrierRight").global_position
+			match randi_range(0,3):
+				0: position = Vector2(randf_range(barrier_left.x,barrier_right.x), barrier_left.y)
+				1: position = Vector2(randf_range(barrier_left.x,barrier_right.x), barrier_right.y)
+				2: position = Vector2(barrier_left.x, randf_range(barrier_left.y,barrier_right.y))
+				3: position = Vector2(barrier_right.x, randf_range(barrier_left.y,barrier_right.y))	
+		Globals.create_instance(enemy, position + Vector2(randf_range(-50,50), randf_range(-50,50)))
 
 
 func get_enemy_to_spawn() -> PackedScene:
@@ -51,4 +54,3 @@ func _on_initial_spawn_timeout():
 
 func _on_node_2d_stop_spawning_enemies():
 	queue_free()
-

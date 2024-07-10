@@ -27,7 +27,9 @@ func _ready():
 	for i in options.size():
 		if options[i] == null:
 			options.remove_at(i)
-	#options[0].select()
+	
+	# close minimap
+	#Globals.ui.get_node("Minimap").close_map()
 
 
 func _process(delta):
@@ -45,6 +47,7 @@ func _process(delta):
 
 func destroy():
 	get_tree().paused = false
+	#Globals.ui.get_node("Minimap").open_map()
 	await get_tree().create_timer(1.0).timeout
 	queue_free()
 

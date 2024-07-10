@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://byrlfy20m4t48"]
+[gd_scene load_steps=13 format=3 uid="uid://byrlfy20m4t48"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_spawner_pipe.gd" id="1_nw32u"]
 [ext_resource type="Script" path="res://Scripts/enemy_health.gd" id="2_gyc7b"]
@@ -9,6 +9,7 @@
 [ext_resource type="Theme" uid="uid://dawp23mso2e5a" path="res://Sprites/Themes/healthbar.tres" id="7_5pxfp"]
 [ext_resource type="PackedScene" uid="uid://84xxip1wf4vx" path="res://Scenes/UI/minimap_icon.tscn" id="8_gc8w3"]
 [ext_resource type="Texture2D" uid="uid://be1sac50cadp3" path="res://Sprites/enemy spawner icon.png" id="9_j63pw"]
+[ext_resource type="PackedScene" uid="uid://pkl1jd6tt0bd" path="res://Scenes/UI/arrow.tscn" id="10_sug7c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8feu"]
 size = Vector2(42, 40)
@@ -16,7 +17,6 @@ size = Vector2(42, 40)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fb2ib"]
 shader = ExtResource("4_06esj")
 shader_parameter/active = false
-shader_parameter/flash_color = Vector4(231, 255, 238, 255)
 
 [node name="Enemy Spawner" type="Node2D" groups=["spawner"]]
 use_parent_material = true
@@ -67,5 +67,7 @@ autostart = true
 
 [node name="MinimapIcon" parent="." instance=ExtResource("8_gc8w3")]
 sprite = ExtResource("9_j63pw")
+
+[node name="Arrow" parent="." instance=ExtResource("10_sug7c")]
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

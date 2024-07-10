@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbedvvuhli84x"]
+
+[ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Sprites/gun parts spritesheet.png" id="1_amtnx"]
+[ext_resource type="Script" path="res://Scripts/gun_part_stock.gd" id="2_tyvhr"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_khvda"]
+
+[sub_resource type="Resource" id="Resource_dfp4p"]
+script = ExtResource("3_khvda")
+rarity = 2
+
+[node name="Stock" type="Sprite2D"]
+z_index = 2
+use_parent_material = true
+texture = ExtResource("1_amtnx")
+offset = Vector2(-5, 2)
+region_enabled = true
+region_rect = Rect2(0, 144, 16, 16)
+script = ExtResource("2_tyvhr")
+spread = -5.0
+metadata/Title = "Stock"
+metadata/Type = "MGL Grenade Launcher"
+metadata/Rarity = SubResource("Resource_dfp4p")

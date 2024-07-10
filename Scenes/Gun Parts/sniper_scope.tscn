@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cei3fh8hxome7"]
+[gd_scene load_steps=5 format=3 uid="uid://cei3fh8hxome7"]
 
 [ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Sprites/gun parts spritesheet.png" id="1_bmh4j"]
 [ext_resource type="Script" path="res://Scripts/gun_part_scope.gd" id="2_dn1m0"]

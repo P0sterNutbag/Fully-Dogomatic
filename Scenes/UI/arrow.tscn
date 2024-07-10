@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://pkl1jd6tt0bd"]
+
+[ext_resource type="Texture2D" uid="uid://cog1pfevxty7h" path="res://Sprites/arrow.png" id="1_8nmxe"]
+[ext_resource type="Script" path="res://Scripts/arrow.gd" id="2_g1c3q"]
+
+[node name="Arrow" type="Sprite2D"]
+z_index = 1000
+use_parent_material = true
+texture = ExtResource("1_8nmxe")
+script = ExtResource("2_g1c3q")
+
+[node name="Icon" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(-3, 0)

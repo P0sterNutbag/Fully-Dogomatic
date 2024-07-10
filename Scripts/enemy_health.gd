@@ -27,17 +27,19 @@ func take_damage(dmg: float, bullet_direction: float):
 			sprite.rotate(-2)
 		else:
 			sprite.rotate(2)
-	if health <= 0 and not dead:
-		dead = true
-		Globals.call_deferred("create_instance", death_explosion, global_position)
-		if parent is Enemy:
-			parent.on_death()
-		Globals.explosion_sfx.play()
-		Globals.world_controller.increase_score()
-		parent.call_deferred("queue_free")
 	if healthbar != null:
 		healthbar.visible = true
 		healthbar.value = health / max_health
+	if health <= 0 and not dead:
+		dead = true
+		if death_explosion != null:
+			Globals.call_deferred("create_instance", death_explosion, global_position)
+		if parent is Enemy:
+			parent.on_death()
+		Globals.explosion_sfx.play()
+		#Globals.world_controller.increase_score()
+		if !get_parent().name.contains("Boss"):
+			parent.call_deferred("queue_free")
 
 
 func sprite_flash() -> void:

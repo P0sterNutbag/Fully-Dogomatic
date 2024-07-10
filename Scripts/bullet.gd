@@ -45,12 +45,12 @@ func _on_area_entered(area):
 		inst.global_position = area.global_position
 		inst.rotation = rotation
 		var instance = damage_number.instantiate()
-		get_tree().current_scene.add_child.call_deferred(instance)
+		get_tree().current_scene.add_child(instance)
 		instance.global_position = area.global_position + Vector2.UP * 8
 		instance.get_node("Text").text += str(damage)
 		for i in randi_range(3, 4):
 			var spark_inst = spark.instantiate()
-			get_tree().current_scene.add_child.call_deferred(spark_inst)
+			get_tree().current_scene.add_child(spark_inst)
 			spark_inst.global_position = area.global_position
 			spark_inst.set_speed(-rotation_degrees)
 		if ricochet:

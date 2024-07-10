@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://du8dgih13wcrj"]
+[gd_scene load_steps=12 format=3 uid="uid://du8dgih13wcrj"]
 
 [ext_resource type="PackedScene" uid="uid://b8qfbi2a3hocl" path="res://Scenes/Guns/gun_parent.tscn" id="1_tjcna"]
 [ext_resource type="Texture2D" uid="uid://bwvobme5vv6us" path="res://Sprites/icon AR15.png" id="2_3bt2w"]
@@ -14,6 +14,9 @@
 script = ExtResource("3_ygaeh")
 rarity = 2
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ow7dc"]
+size = Vector2(52, 11)
+
 [node name="Gun" instance=ExtResource("1_tjcna")]
 cooldown = 0.0
 shot_count = 0
@@ -22,6 +25,10 @@ metadata/Title = "Mk 13"
 metadata/icon = ExtResource("2_3bt2w")
 metadata/Type = "Sniper Rifle"
 metadata/Rarity = SubResource("Resource_b4881")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(2.00001, 1.50009)
+shape = SubResource("RectangleShape2D_ow7dc")
 
 [node name="GunFrame" parent="." index="3" instance=ExtResource("4_wlv3m")]
 position = Vector2(7, -3.12647e-05)

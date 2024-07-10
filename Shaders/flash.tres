@@ -1,8 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bxgmy5m25b5ju"]
 
-[ext_resource type="Shader" path="res://Shaders/flash.gdshader" id="1_phx50"]
+[ext_resource type="Shader" path="res://Shaders/flash.gdshader" id="1_y36pw"]
 
 [resource]
-shader = ExtResource("1_phx50")
+shader = ExtResource("1_y36pw")
 shader_parameter/active = true
-shader_parameter/flash_color = Vector4(231, 255, 238, 255)

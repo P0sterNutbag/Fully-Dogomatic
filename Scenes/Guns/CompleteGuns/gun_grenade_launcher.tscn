@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://irn8wcu6ofrw"]
+[gd_scene load_steps=11 format=3 uid="uid://irn8wcu6ofrw"]
 
 [ext_resource type="PackedScene" uid="uid://b8qfbi2a3hocl" path="res://Scenes/Guns/gun_parent.tscn" id="1_mxxbg"]
 [ext_resource type="Texture2D" uid="uid://bwvobme5vv6us" path="res://Sprites/icon AR15.png" id="2_xe3mn"]
@@ -13,6 +13,9 @@
 script = ExtResource("3_rhtqg")
 rarity = 2
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_spq02"]
+size = Vector2(27, 11)
+
 [node name="Gun" instance=ExtResource("1_mxxbg")]
 cooldown = 0.0
 shot_count = 0
@@ -21,6 +24,10 @@ metadata/Title = "MGL"
 metadata/icon = ExtResource("2_xe3mn")
 metadata/Type = "Grenade Launcher"
 metadata/Rarity = SubResource("Resource_x5s1e")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-0.499971, 1.50007)
+shape = SubResource("RectangleShape2D_spq02")
 
 [node name="GunFrame" parent="." index="3" instance=ExtResource("4_erlym")]
 position = Vector2(3, -1.33991e-05)

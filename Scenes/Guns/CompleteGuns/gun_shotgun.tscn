@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhruksuxabxo2"]
+[gd_scene load_steps=10 format=3 uid="uid://dhruksuxabxo2"]
 
 [ext_resource type="PackedScene" uid="uid://b8qfbi2a3hocl" path="res://Scenes/Guns/gun_parent.tscn" id="1_l7hcx"]
 [ext_resource type="Texture2D" uid="uid://bwvobme5vv6us" path="res://Sprites/icon AR15.png" id="2_72ae0"]
@@ -12,6 +12,9 @@
 script = ExtResource("3_7qcn8")
 rarity = 1
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwh3l"]
+size = Vector2(27, 10.0001)
+
 [node name="Gun" instance=ExtResource("1_l7hcx")]
 position = Vector2(-1, 0)
 cooldown = 0.0
@@ -21,6 +24,10 @@ metadata/Title = "Sawed Off"
 metadata/icon = ExtResource("2_72ae0")
 metadata/Type = "Shotgun"
 metadata/Rarity = SubResource("Resource_n2jwg")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-0.499991, 2)
+shape = SubResource("RectangleShape2D_iwh3l")
 
 [node name="GunFrame" parent="." index="3" instance=ExtResource("4_qpr5l")]
 position = Vector2(1, -4.46638e-06)

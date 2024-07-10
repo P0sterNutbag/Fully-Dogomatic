@@ -32,13 +32,13 @@ border_width_bottom = 1
 border_color = Color(1, 1, 1, 1)
 
 [node name="Minimap" type="Control"]
+process_mode = 3
 use_parent_material = true
 layout_mode = 3
-anchor_right = 0.25
-anchor_bottom = 0.444
-offset_left = 1.0
-offset_right = -136.0
-offset_bottom = -131.84
+anchor_right = 0.051
+anchor_bottom = 0.093
+offset_right = -9.64
+offset_bottom = -5.48
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ex3g0")
@@ -47,10 +47,10 @@ script = ExtResource("1_ex3g0")
 use_parent_material = true
 clip_contents = true
 anchors_preset = 0
-offset_left = -40.0
-offset_top = -40.0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
 
 [node name="ColorRect" type="ColorRect" parent="Mask"]
 material = SubResource("ShaderMaterial_u56yf")
@@ -72,10 +72,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 40.0
-offset_top = 40.0
-offset_right = 120.0
-offset_bottom = 120.0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 96.0
+offset_bottom = 96.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -90,10 +90,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ckb5k")
 [node name="Panel" type="Panel" parent="."]
 material = ExtResource("2_lpelv")
 layout_mode = 0
-offset_left = -41.0
-offset_top = -41.0
-offset_right = 41.0
-offset_bottom = 41.0
+offset_left = -33.0
+offset_top = -33.0
+offset_right = 33.0
+offset_bottom = 33.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ij2h5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

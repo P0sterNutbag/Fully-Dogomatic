@@ -18,7 +18,14 @@ func pause_game():
 		pause_menu_instance = pause_menu.instantiate()
 		pause_menu_instance.global_position = Vector2(0, 0)
 		get_tree().current_scene.get_node("CanvasLayer").add_child(pause_menu_instance)
+		if get_tree().current_scene.get_node("CanvasLayer").scale == Vector2.ONE * 2:
+			pause_menu_instance.scale = Vector2.ONE * 0.5
 	else:
 		get_tree().paused = false
 		if pause_menu_instance != null:
 			pause_menu_instance.queue_free()
+
+
+func _on_options_gui_input(event):
+	if event is InputEventMouseButton:
+		pause_game()

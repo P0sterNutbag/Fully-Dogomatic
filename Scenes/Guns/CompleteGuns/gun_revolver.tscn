@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ct3m0psa4bj32"]
+[gd_scene load_steps=9 format=3 uid="uid://ct3m0psa4bj32"]
 
 [ext_resource type="PackedScene" uid="uid://b8qfbi2a3hocl" path="res://Scenes/Guns/gun_parent.tscn" id="1_8e852"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="2_cr8s4"]
@@ -11,10 +11,17 @@
 script = ExtResource("2_cr8s4")
 rarity = 0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xirrl"]
+size = Vector2(15, 9.00007)
+
 [node name="Gun" instance=ExtResource("1_8e852")]
 metadata/Title = "Peacemaker"
 metadata/Type = "Revolver"
 metadata/Rarity = SubResource("Resource_vth6q")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-0.499997, 0.500002)
+shape = SubResource("RectangleShape2D_xirrl")
 
 [node name="GunFrame" parent="." index="3" instance=ExtResource("3_np2gw")]
 barrel = ExtResource("4_v3ykq")

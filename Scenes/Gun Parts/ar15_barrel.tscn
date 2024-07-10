@@ -42,7 +42,7 @@ position = Vector2(-10, 2)
 
 [node name="Firepoint" type="Node2D" parent="."]
 use_parent_material = true
-position = Vector2(14, 0)
+position = Vector2(11, 0)
 
 [node name="MuzzleFlash" type="Sprite2D" parent="Firepoint"]
 visible = false

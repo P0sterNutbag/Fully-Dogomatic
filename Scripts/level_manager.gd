@@ -10,6 +10,9 @@ var starting_crate_amount = 1
 var barrier_margin = 50
 var barrier_left: Vector2
 var barrier_right: Vector2
+var boss = preload("res://Scenes/Enemies/boss_pug.tscn")
+var boss_round = 1
+var spawn_round = 0
 
 func _ready():
 	Globals.level_manager = self
@@ -35,12 +38,22 @@ func spawn_portal():
 
 
 func _on_spawn_timeout():
-	for i in randi_range(1, 2):
-		var obj = player_objects_to_spawn[Globals.get_weighted_index(player_objects_to_spawn)].object_to_spawn
-		var inst = Globals.create_instance(obj, Vector2(randf_range(barrier_left.x, barrier_right.x), randf_range(barrier_left.y, barrier_right.y)))
-		Globals.ui.add_level_obj(inst.name.to_upper())
-	for i in randi_range(1, 2):
-		var obj = enemy_objects_to_spawn[Globals.get_weighted_index(enemy_objects_to_spawn)].object_to_spawn
-		var inst = Globals.create_instance(obj, Vector2(randf_range(barrier_left.x, barrier_right.x), randf_range(barrier_left.y, barrier_right.y)))
-		Globals.ui.add_level_obj(inst.name.to_upper())
+	spawn_round += 1
+	if spawn_round < boss_round:
+		for i in randi_range(1, 2):
+			var obj = player_objects_to_spawn[Globals.get_weighted_index(player_objects_to_spawn)].object_to_spawn
+			var inst = Globals.create_instance(obj, get_border_position())
+			Globals.ui.add_level_obj(inst.name.to_upper(), true)
+		for i in randi_range(1, 2):
+			var obj = enemy_objects_to_spawn[Globals.get_weighted_index(enemy_objects_to_spawn)].object_to_spawn
+			var inst = Globals.create_instance(obj, get_border_position())
+			Globals.ui.add_level_obj(inst.name.to_upper(), false)
+	else:
+		var inst = Globals.create_instance(boss, get_border_position())
+		Globals.ui.add_level_obj("Boss!!!", false)
+		$Spawn.queue_free()
 	Globals.ui.create_level_obj_signs()
+
+
+func get_border_position() -> Vector2:
+	return Vector2(randf_range(barrier_left.x, barrier_right.x), randf_range(barrier_left.y, barrier_right.y))

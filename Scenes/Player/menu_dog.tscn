@@ -1,0 +1,98 @@
+[gd_scene load_steps=9 format=3 uid="uid://b7r52wai1l1yc"]
+
+[ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Sprites/123spritesheet.png" id="1_b52ny"]
+[ext_resource type="Script" path="res://Scripts/menu_dog.gd" id="2_fuvt8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_278d0"]
+atlas = ExtResource("1_b52ny")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s476c"]
+atlas = ExtResource("1_b52ny")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yhbv"]
+atlas = ExtResource("1_b52ny")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iiuoi"]
+atlas = ExtResource("1_b52ny")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ho51n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_278d0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s476c")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yhbv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iiuoi")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yhbv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iiuoi")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8c5kt"]
+size = Vector2(25, 20)
+
+[node name="MenuDog" type="AnimatedSprite2D"]
+use_parent_material = true
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ho51n")
+animation = &"idle"
+offset = Vector2(0, -10)
+script = ExtResource("2_fuvt8")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = -1
+use_parent_material = true
+texture = ExtResource("1_b52ny")
+region_enabled = true
+region_rect = Rect2(0, 64, 32, 16)
+
+[node name="MoveTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_8c5kt")
+
+[node name="Heart" type="Sprite2D" parent="."]
+visible = false
+use_parent_material = true
+position = Vector2(12.5, -25)
+texture = ExtResource("1_b52ny")
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 16)
+
+[node name="HeartTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="timeout" from="HeartTimer" to="." method="_on_heart_timer_timeout"]

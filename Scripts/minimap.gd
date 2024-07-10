@@ -17,12 +17,6 @@ func _ready():
 	player = Globals.player
 
 
-#func _process(delta):
-	#var x_ratio = (player.position.x-(level_width/2)) / level_width
-	#var y_ratio = (player.position.y-(level_height/2)) / level_height
-	#map.position = Vector2(-map.size.x * x_ratio, -map.size.y * y_ratio)
-
-
 func add_to_map(texture: Texture2D, pos: Vector2, follow_obj: Node2D = null) -> Sprite2D:
 	var sprite = icon.instantiate()
 	map.add_child(sprite)
@@ -40,3 +34,17 @@ func add_to_map(texture: Texture2D, pos: Vector2, follow_obj: Node2D = null) -> 
 		sprite.map_height = map.size.y
 		sprite.follow_obj = follow_obj
 	return sprite
+
+
+func close_map():
+	var tween = get_tree().create_tween().set_trans(Tween.TRANS_EXPO)
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween.tween_property(self, "scale", Vector2.ZERO, 0.3)
+
+
+func open_map():
+	var tween = get_tree().create_tween().set_trans(Tween.TRANS_EXPO)
+	tween.set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "scale", Vector2.ONE, 0.3)
+

@@ -87,15 +87,15 @@ shader_parameter/fps = 6.0
 shader_parameter/color_threshold = 0.1
 shader_parameter/palette = ExtResource("5_vvlb7")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mcsc2"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0heg1"]
 bg_color = Color(0.223529, 0.223529, 0.223529, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_agtf6"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c4i5i"]
 bg_color = Color(1, 0, 0, 1)
 
 [sub_resource type="Theme" id="Theme_s2jls"]
-ProgressBar/styles/background = SubResource("StyleBoxFlat_mcsc2")
-ProgressBar/styles/fill = SubResource("StyleBoxFlat_agtf6")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_0heg1")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_c4i5i")
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true

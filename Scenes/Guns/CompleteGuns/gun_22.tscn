@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://3wnh1ek55nhd"]
+[gd_scene load_steps=10 format=3 uid="uid://3wnh1ek55nhd"]
 
 [ext_resource type="PackedScene" uid="uid://b8qfbi2a3hocl" path="res://Scenes/Guns/gun_parent.tscn" id="1_r0pbt"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="2_dc43c"]
@@ -12,13 +12,20 @@
 script = ExtResource("2_dc43c")
 rarity = 0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f07bb"]
+size = Vector2(44, 8.99998)
+
 [node name="Gun" instance=ExtResource("1_r0pbt")]
 metadata/Title = "22 Long Rifle"
 metadata/Type = "Rimfire Rifle"
 metadata/Rarity = SubResource("Resource_vth6q")
 
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(1.7428e-05, 1.49991)
+shape = SubResource("RectangleShape2D_f07bb")
+
 [node name="GunFrame" parent="." index="3" instance=ExtResource("3_jl8ov")]
-position = Vector2(5, -2.23319e-05)
+position = Vector2(6, -2.67983e-05)
 barrel = ExtResource("4_v1v1i")
 stock = ExtResource("5_uh736")
 grip = ExtResource("6_nwewr")

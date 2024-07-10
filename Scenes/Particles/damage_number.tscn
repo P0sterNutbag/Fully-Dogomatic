@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/shell.gd" id="1_5ys3l"]
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Shaders/colorswap.tres" id="2_hrkdv"]
 
-[node name="DamageNumber" type="Node2D"]
+[node name="DamageNumber" type="Node2D" groups=["effects"]]
 z_index = 1000
 use_parent_material = true
 script = ExtResource("1_5ys3l")

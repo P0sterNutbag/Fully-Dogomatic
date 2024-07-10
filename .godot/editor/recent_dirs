@@ -1,18 +1,19 @@
-res://Scenes/UI
-res://Sprites/Themes
 res://Scripts
+res://Scenes
 res://Sprites
+res://Sprites/Themes
+res://Sprites/MainMenu
+res://Shaders
+res://
 res://Scenes/Levels/Level Objects
+res://Scenes/UI
 res://Scenes/Gun Parts
 res://Scenes/Enemies
-res://Scenes
 res://Scenes/Particles
-res://Shaders
 res://Scenes/Guns/CompleteGuns
 res://Scenes/Guns
 res://Scenes/Upgrades
 res://Resources
 C:/Users/tkeys/AppData/Local/Programs/Microsoft VS Code
 res://Scenes/Bullets
-res://
 res://SFX

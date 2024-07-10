@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Enemy
 
-enum states {spawn, attack}
+enum states {spawn, attack, rush}
 var state = states.spawn
 
 @export var speed = 10.0
@@ -69,8 +69,8 @@ func _physics_process(delta):
 					if position.x > 900:
 						queue_free()
 				move_and_slide()
-			if sprite.rotation_degrees != 0:
-				sprite.rotation_degrees = lerp(sprite.rotation_degrees, float(0), 5 * delta)
+	if sprite.rotation_degrees != 0:
+		sprite.rotation_degrees = lerp(sprite.rotation_degrees, float(0), 5 * delta)
 
 
 func on_damage():

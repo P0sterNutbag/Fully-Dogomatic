@@ -1,105 +1,25 @@
-res://Scenes/Levels/world.tscn
-res://Scripts/Upgrades/upgrade.gd
-res://Shaders/outline.gdshader
-res://Shaders/outline.tres
+res://Scenes/UI/ui.tscn
+res://Scripts/gun_part_barrel.gd
 res://Shaders/colorswap.gdshader
 res://Shaders/colorswap.tres
-res://Scripts/gun_part_barrel.gd
+res://Scripts/main_menu.gd
+res://Scripts/world_controller.gd
 res://Sprites/Themes/ui text mid.tres
+res://Sprites/Themes/healthbar.tres
+res://Shaders/outline.gdshader
+res://Shaders/outline.tres
 res://Shaders/flash.gdshader
 res://Shaders/flash.tres
-res://Sprites/Themes/healthbar.tres
-res://Scripts/wave_data.gd
-res://Scripts/world_controller.gd
-res://Sprites/Themes/body.tres
 res://Shaders/grayscale.gdshader
 res://Shaders/drop_shadow.gdshader
 res://Shaders/replace_color.gdshader
-res://Scenes/Player/player.tscn
-res://Scenes/Guns/CompleteGuns/gun_ar15.tscn
-res://Scenes/Upgrades/upgrade_option.tscn
-res://Scenes/Particles/damage_number.tscn
-res://Scenes/Particles/wood_particles.tscn
-res://Scenes/shell.tscn
-res://Scenes/dogpart.tscn
-res://Scenes/Enemies/enemy_pug.tscn
-res://Scenes/Particles/impact.tscn
-res://Scenes/Gun Parts/pistol_barrel.tscn
-res://Scenes/Particles/bullet_spark.tscn
-res://Scenes/Particles/explosion.tscn
-res://Scenes/Gun Parts/ar15_barrel.tscn
-res://Scenes/Guns/gun_frame.tscn
-res://Scenes/Gun Parts/launcher_barrel.tscn
-res://Scenes/Gun Parts/shotgun_barrel.tscn
-res://Scenes/Gun Parts/smg_barrel.tscn
-res://Scenes/Gun Parts/sniper_barrel.tscn
-res://Scenes/UI/minimap.tscn
-res://Scenes/UI/minimap_icon.tscn
-res://Scenes/UI/map_icon.tscn
-res://Scenes/UI/slot machine/slot_row.tscn
-res://Scenes/UI/ui.tscn
-res://Scripts/gun.gd
-res://Scenes/death_explosion.tscn
-res://Scenes/Enemies/enemy_explosion.tscn
-res://Scripts/level_manager.gd
-res://Scenes/Levels/Level Objects/level_manager.tscn
-res://Scripts/crate_spawner.gd
-res://Scenes/Levels/Level Objects/enemy_group.tscn
-res://Scenes/Levels/Level Objects/enemy_group.gd
-res://Scenes/enemy_spawner_controller.tscn
-res://Scripts/enemy_spawner_controller.gd
-res://Scenes/enemy_spawner.tscn
-res://Scripts/globals.gd
-res://Scenes/Upgrades/upgrade_manager.tscn
-res://Scripts/Upgrades/upgrade_manager.gd
-res://Scenes/Upgrades/upgrade_shop.tscn
-res://Scripts/Upgrades/upgrade_option.gd
-res://Scenes/Levels/Level Objects/crate.tscn
-res://Scenes/Upgrades/upgrade_crate.tscn
-res://Scripts/upgrade_menu.gd
-res://Scripts/crate.gd
-res://Scenes/Levels/Level Objects/crate_parts.tscn
-res://Scenes/Levels/Level Objects/crate_dogtags.tscn
-res://Scenes/Levels/Level Objects/crate_guns.tscn
+res://Scenes/Levels/main_menu.tscn
+res://Scenes/tennisball.tscn
+res://Scenes/Player/menu_dog.tscn
 res://Scenes/Upgrades/upgrade_menu.tscn
-res://Scenes/UI/ui.gd
+res://Scenes/menu_button.tscn
+res://Scenes/Player/player.tscn
+res://Scenes/UI/minimap.tscn
 res://Sprites/Themes/ui text small.tres
-res://Scenes/countdown.tscn
-res://Scenes/Gun Parts/revolver_grip.tscn
-res://Scenes/Gun Parts/revolver_barrel.tscn
-res://Scenes/Guns/CompleteGuns/gun_revolver.tscn
-res://Scenes/Gun Parts/pistol_magazine.tscn
-res://Scenes/Gun Parts/revolver_magazine.tscn
-res://Scenes/Gun Parts/pistol_grip.tscn
-res://Scenes/Guns/CompleteGuns/gun_shotgun.tscn
-res://Scenes/Guns/CompleteGuns/gun_pistol.tscn
-res://Scenes/Guns/gun_parent.tscn
-res://Scenes/Guns/CompleteGuns/gun_sniper.tscn
-res://Scenes/Gun Parts/magnum_barrel.tscn
-res://Scenes/Gun Parts/magnum_grip.tscn
-res://Scenes/Gun Parts/magnum_magazine.tscn
-res://Scenes/Guns/CompleteGuns/gun_magnum.tscn
-res://Scenes/Bullets/44Mag.tscn
-res://Scenes/Gun Parts/22_grip.tscn
-res://Scenes/Gun Parts/22_barrel.tscn
-res://Scenes/Bullets/9mm_bullet.tscn
-res://Scenes/Bullets/22cal_bullet.tscn
-res://Scenes/Gun Parts/sniper_stock.tscn
-res://Scenes/Levels/Level Objects/health_pickup.gd
-res://Scenes/Levels/Level Objects/health.tscn
-res://Scripts/player.gd
-res://Scenes/dollar.tscn
-res://Scenes/Levels/Level Objects/health_pickup.tscn
-res://Scenes/JuicyMovement.tscn
-res://Scripts/JuicyMovement.gd
-res://Scenes/Bullets/12gauge_shell.tscn
-res://Scenes/Guns/CompleteGuns/gun_smg.tscn
-res://Scenes/Guns/CompleteGuns/gun_22.tscn
-res://Scenes/Gun Parts/22_magazine.tscn
-res://Scenes/Gun Parts/22_stock.tscn
-res://Scripts/gun_part_magazine.gd
-res://Scenes/Upgrades/Dogtags/dogtag_rotate_guns.tscn
-res://Scenes/Upgrades/upgrade_menu_old.tscn
-res://Scenes/Levels/Level Objects/shop.tscn
-res://Scenes/UI/level_object_sign.tscn
-res://Scenes/Levels/Level Objects/enemy_spawner_pipe.tscn
+res://Sprites/Themes/ui text large.tres
+res://Scripts/minimap_icon.gd

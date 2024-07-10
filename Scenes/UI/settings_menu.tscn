@@ -37,18 +37,18 @@ method = "mute"
 is_toggle = true
 toggle_value = false
 
-[sub_resource type="Resource" id="Resource_1yqlf"]
-script = SubResource("GDScript_fpfks")
-name = "Quit"
-method = "quit_game"
-is_toggle = false
-toggle_value = false
-
 [sub_resource type="Resource" id="Resource_7tmpe"]
 script = SubResource("GDScript_fpfks")
 name = "Fullscreen"
 method = "toggle_fullscreen"
 is_toggle = true
+toggle_value = false
+
+[sub_resource type="Resource" id="Resource_1yqlf"]
+script = SubResource("GDScript_fpfks")
+name = "Quit"
+method = "quit_game"
+is_toggle = false
 toggle_value = false
 
 [node name="SettingsMenu" type="Control"]
@@ -59,7 +59,7 @@ use_parent_material = true
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_73uks")
-options = Array[Resource]([SubResource("Resource_vggk4"), SubResource("Resource_jbcut"), SubResource("Resource_1yqlf"), SubResource("Resource_7tmpe")])
+options = Array[Resource]([SubResource("Resource_vggk4"), SubResource("Resource_jbcut"), SubResource("Resource_7tmpe"), SubResource("Resource_1yqlf")])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -1

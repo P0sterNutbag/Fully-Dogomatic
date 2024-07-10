@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bw3w1cm787x4m"]
+[gd_scene load_steps=11 format=3 uid="uid://bw3w1cm787x4m"]
 
 [ext_resource type="PackedScene" uid="uid://b8qfbi2a3hocl" path="res://Scenes/Guns/gun_parent.tscn" id="1_giusw"]
 [ext_resource type="Texture2D" uid="uid://bwvobme5vv6us" path="res://Sprites/icon AR15.png" id="2_34m4u"]
@@ -13,6 +13,9 @@
 script = ExtResource("3_ewixt")
 rarity = 1
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ishg"]
+size = Vector2(24, 11.9999)
+
 [node name="Gun" instance=ExtResource("1_giusw")]
 cooldown = 0.0
 shot_count = 0
@@ -21,6 +24,10 @@ metadata/Title = "MP5"
 metadata/icon = ExtResource("2_34m4u")
 metadata/Type = "Sub Machine Gun"
 metadata/Rarity = SubResource("Resource_gss1p")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(3.39668e-05, 2.00001)
+shape = SubResource("RectangleShape2D_8ishg")
 
 [node name="GunFrame" parent="." index="3" instance=ExtResource("4_jg44g")]
 position = Vector2(4, -1.78655e-05)

@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://b6gcswkjsathh"]
+[gd_scene load_steps=9 format=3 uid="uid://cr6504eyesnc1"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_2fwek"]
-[ext_resource type="PackedScene" uid="uid://4s88ewwe3fxv" path="res://Scenes/death_explosion.tscn" id="2_h1fqk"]
 [ext_resource type="Texture2D" uid="uid://dw0qr8vsmwbky" path="res://Sprites/dog soldier spritesheet.png" id="3_o7rlb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hr8qo"]
@@ -42,9 +41,8 @@ collision_layer = 8
 collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_2fwek")
-speed = 15.0
-damage = 10.0
-death_explosion = ExtResource("2_h1fqk")
+speed = 500.0
+damage = 20.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)

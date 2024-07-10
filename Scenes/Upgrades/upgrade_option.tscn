@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://diu6fl025qdv0"]
+[gd_scene load_steps=13 format=3 uid="uid://diu6fl025qdv0"]
 
 [ext_resource type="Script" path="res://Scripts/Upgrades/upgrade_option.gd" id="1_kc4vw"]
 [ext_resource type="Shader" path="res://Shaders/colorswap.gdshader" id="1_on7uf"]
@@ -7,7 +7,6 @@
 [ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Sprites/Blue Sky 8x8.ttf" id="10_0l3rj"]
 [ext_resource type="Texture2D" uid="uid://bt4bqfufwd7lu" path="res://Sprites/upgrade box.png" id="14_04dbb"]
 [ext_resource type="Texture2D" uid="uid://btohsgsxdi3fu" path="res://Sprites/upgrade box selected.png" id="15_nnukm"]
-[ext_resource type="Texture2D" uid="uid://jtcnyoi86sub" path="res://Sprites/gray texture.png" id="17_2gxn1"]
 [ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Sprites/Themes/ui text mid.tres" id="18_gfk3a"]
 [ext_resource type="Script" path="res://Scripts/Circle.gd" id="18_pedul"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/JuicyMovement.tscn" id="19_orlbb"]
@@ -42,7 +41,6 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("18_pedul")
 circle_texture = ExtResource("8_haicr")
-outline_texture = ExtResource("17_2gxn1")
 metadata/_edit_use_anchors_ = true
 
 [node name="UpgradeName" type="RichTextLabel" parent="."]

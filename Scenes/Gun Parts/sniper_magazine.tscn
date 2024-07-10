@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bj01ne483xyve"]
+[gd_scene load_steps=5 format=3 uid="uid://bj01ne483xyve"]
 
 [ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Sprites/gun parts spritesheet.png" id="1_mai8e"]
 [ext_resource type="Script" path="res://Scripts/gun_part_magazine.gd" id="2_7hl01"]
-[ext_resource type="PackedScene" uid="uid://diiqi8djvsue4" path="res://Scenes/Bullets/7.62mm_bullet.tscn" id="3_owgoo"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="4_f74i3"]
 
 [sub_resource type="Resource" id="Resource_8crcy"]
@@ -18,7 +17,6 @@ region_rect = Rect2(96, 96, 16, 16)
 script = ExtResource("2_7hl01")
 rounds = 6
 reload_time = 2.0
-bullet = ExtResource("3_owgoo")
 metadata/Title = "Magazine"
 metadata/Type = "Mk 13 Sniper Rifle"
 metadata/Rarity = SubResource("Resource_8crcy")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://3khbol34srr6"]
+[gd_scene load_steps=12 format=3 uid="uid://3khbol34srr6"]
 
 [ext_resource type="PackedScene" uid="uid://b8qfbi2a3hocl" path="res://Scenes/Guns/gun_parent.tscn" id="1_esv54"]
 [ext_resource type="Texture2D" uid="uid://bwvobme5vv6us" path="res://Sprites/icon AR15.png" id="2_wtj03"]
@@ -14,6 +14,9 @@
 script = ExtResource("3_gv7d1")
 rarity = 2
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1tt63"]
+size = Vector2(38, 10.9998)
+
 [node name="Gun" instance=ExtResource("1_esv54")]
 cooldown = 0.0
 shot_count = 0
@@ -22,6 +25,10 @@ metadata/Title = "M4 Carbine"
 metadata/icon = ExtResource("2_wtj03")
 metadata/Type = "Assault Rifle"
 metadata/Rarity = SubResource("Resource_q37la")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(2.76804e-05, 1.5)
+shape = SubResource("RectangleShape2D_1tt63")
 
 [node name="GunFrame" parent="." index="3" instance=ExtResource("4_41my5")]
 position = Vector2(6, -2.67983e-05)

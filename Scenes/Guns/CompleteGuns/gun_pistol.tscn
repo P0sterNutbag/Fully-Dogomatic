@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://couat6mj44bws"]
+[gd_scene load_steps=9 format=3 uid="uid://couat6mj44bws"]
 
 [ext_resource type="PackedScene" uid="uid://b8qfbi2a3hocl" path="res://Scenes/Guns/gun_parent.tscn" id="1_nl00p"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="2_7eo8r"]
@@ -11,9 +11,16 @@
 script = ExtResource("2_7eo8r")
 rarity = 0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lkrng"]
+size = Vector2(16, 9.00007)
+
 [node name="Gun" instance=ExtResource("1_nl00p")]
 metadata/Title = "M19"
 metadata/Rarity = SubResource("Resource_vth6q")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-0.999988, 2.5)
+shape = SubResource("RectangleShape2D_lkrng")
 
 [node name="GunFrame" parent="." index="3" instance=ExtResource("3_42iie")]
 barrel = ExtResource("4_w5a7l")
