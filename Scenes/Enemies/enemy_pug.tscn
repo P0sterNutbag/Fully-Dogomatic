@@ -72,14 +72,15 @@ y_sort_enabled = true
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("4_yiwwm")
+health = 6
 sprite = NodePath("../AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CircleShape2D_0btmh")
 
 [node name="Shadow" parent="." instance=ExtResource("4_ljagx")]
-position = Vector2(-1.49012e-07, 9)
-scale = Vector2(0.875, 1)
+visible = false
+position = Vector2(-1.49012e-07, 7)
 
 [node name="MinimapIcon" parent="." instance=ExtResource("5_6wanc")]
 sprite = ExtResource("6_ml4mx")

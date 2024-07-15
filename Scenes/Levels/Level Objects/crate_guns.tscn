@@ -16,7 +16,7 @@ y_sort_enabled = true
 use_parent_material = true
 script = ExtResource("1_gh17r")
 option_array_name = "guns"
-options_amount = 1
+options_amount = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jonbb")

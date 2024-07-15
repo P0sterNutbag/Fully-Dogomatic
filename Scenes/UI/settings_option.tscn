@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b44ugq8dmum08"]
+[gd_scene load_steps=3 format=3 uid="uid://b44ugq8dmum08"]
 
 [ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Sprites/Themes/ui text mid.tres" id="1_4hhru"]
+[ext_resource type="Script" path="res://Scripts/menu_button.gd" id="2_4s2pr"]
 
 [node name="SettingsOption" type="RichTextLabel"]
 process_mode = 3
@@ -14,14 +15,17 @@ offset_right = -340.0
 offset_bottom = -335.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(20, 7)
 theme = ExtResource("1_4hhru")
-text = "hello"
+text = "HELLO"
+script = ExtResource("2_4s2pr")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
 offset_top = -9.0
 offset_right = 205.0
 offset_bottom = 26.0
+pivot_offset = Vector2(0, 415)
 color = Color(1, 1, 1, 0)
 
 [node name="Toggle" type="RichTextLabel" parent="."]

@@ -2,11 +2,19 @@ extends AnimatedSprite2D
 
 var velocity: Vector2
 var target_position: Vector2
-var walk_speed = 25
-var run_speed = 45
+var walk_speed = 45
+var run_speed = 100
 var move_anim = "walk"
 var fetch_ball: Node2D
 var in_mouse: bool
+var left_barrier: Vector2
+var right_barrier: Vector2
+
+func _ready():
+	var size = get_sprite_frames().get_frame_texture("idle",0).get_size()
+	left_barrier = Vector2(80.0 + (size.x / 2.0), 0 + (size.y / 2.0))
+	right_barrier = Vector2(560 - (size.x / 2), 360 - (size.y / 2.0))
+
 
 func _process(delta):
 	# move towards the menu item
@@ -23,8 +31,8 @@ func _process(delta):
 		target_position = fetch_ball.position
 	# actually move
 	position += velocity * delta
-	position.x = clamp(position.x, 0, 320)
-	position.y = clamp(position.y, 0, 180)
+	position.x = clamp(position.x, left_barrier.x, right_barrier.x)
+	position.y = clamp(position.y, left_barrier.y, right_barrier.y)
 	# pet
 	if in_mouse and !get_parent().get_node("Tennisball").follow_mouse:
 		if Input.get_last_mouse_velocity() > Vector2.ONE:
@@ -32,10 +40,10 @@ func _process(delta):
 			$HeartTimer.start()
 	# animate
 	if velocity.x < 0:
-		scale = Vector2(-1, 1)
+		scale = Vector2(-1, 1)*2
 		play(move_anim)
 	elif velocity.x > 0:
-		scale = Vector2.ONE
+		scale = Vector2.ONE*2
 		play(move_anim)
 	else:
 		play("idle")

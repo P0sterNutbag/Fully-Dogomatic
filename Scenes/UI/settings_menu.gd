@@ -4,22 +4,24 @@ extends Control
 var option_objects: Array[Control]
 var option_index = 0
 var gap = 30
-var yoffset = 30
-var xoffset = 30
+var yoffset = 24
+var xoffset = 104
 var selected_offset = 10
 var settings_option = preload("res://Scenes/UI/settings_option.tscn")
 
 
 func _ready():
 	get_tree().paused = true
+	options[1].toggle_value = Globals.muted
+	options[2].toggle_value = DisplayServer.window_get_mode() == DisplayServer.WindowMode.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
 	for option in options:
 		var inst = settings_option.instantiate()
-		inst.text = option.name
+		inst.text = option.name.to_upper()
 		if option.is_toggle:
 			if option.toggle_value:
-				inst.get_node("Toggle").text = "On"
+				inst.get_node("Toggle").text = "ON"
 			else:
-				inst.get_node("Toggle").text = "Off"
+				inst.get_node("Toggle").text = "OFF"
 		else:
 			inst.get_node("Toggle").text = ""
 		option_objects.append(inst)
@@ -47,27 +49,27 @@ func change_index(change_int: int):
 	option_index = new_index
 	for i in option_objects.size():
 		var option = option_objects[i]
-		option.global_position.x = xoffset
+		option.target_scale = Vector2.ONE
 		if option.get_index()-1 == option_index:
-			option.global_position.x += selected_offset
+			option.target_scale = Vector2.ONE * 1.25
 
 
 func _on_option_mouse_entered(selected_option: Control):
 	print_debug("mouse entered")
 	for i in option_objects.size():
 		var option = option_objects[i]
-		option.global_position.x = xoffset
+		option.target_scale = Vector2.ONE
 		if option == selected_option:
-			option.global_position.x += selected_offset
+			option.target_scale = Vector2.ONE * 1.25
 			option_index = option.get_index()-1
 
 
 func call_option_method():
 	if options[option_index].is_toggle:
-		if option_objects[option_index].get_node("Toggle").text == "Off":
-			option_objects[option_index].get_node("Toggle").text = "On"
+		if option_objects[option_index].get_node("Toggle").text == "OFF":
+			option_objects[option_index].get_node("Toggle").text = "ON"
 		else:
-			option_objects[option_index].get_node("Toggle").text = "Off"
+			option_objects[option_index].get_node("Toggle").text = "OFF"
 	var callable = Callable(self, options[option_index].method)
 	callable.call()
 
@@ -79,6 +81,11 @@ func continue_game():
 
 func mute():
 	Globals.audio_manager.mute()
+
+
+func to_menu():
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://Scenes/Levels/main_menu.tscn")
 
 
 func quit_game():

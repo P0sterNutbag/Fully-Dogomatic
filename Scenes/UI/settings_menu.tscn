@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bypk836otjf2e"]
+[gd_scene load_steps=11 format=3 uid="uid://bypk836otjf2e"]
 
 [ext_resource type="Script" path="res://Scenes/UI/settings_menu.gd" id="1_73uks"]
 [ext_resource type="Shader" path="res://Shaders/colorswap.gdshader" id="1_fohwv"]
@@ -46,7 +46,14 @@ toggle_value = false
 
 [sub_resource type="Resource" id="Resource_1yqlf"]
 script = SubResource("GDScript_fpfks")
-name = "Quit"
+name = "Quit to Menu"
+method = "to_menu"
+is_toggle = false
+toggle_value = false
+
+[sub_resource type="Resource" id="Resource_hho7y"]
+script = SubResource("GDScript_fpfks")
+name = "Quit Game"
 method = "quit_game"
 is_toggle = false
 toggle_value = false
@@ -59,12 +66,13 @@ use_parent_material = true
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_73uks")
-options = Array[Resource]([SubResource("Resource_vggk4"), SubResource("Resource_jbcut"), SubResource("Resource_7tmpe"), SubResource("Resource_1yqlf")])
+options = Array[Resource]([SubResource("Resource_vggk4"), SubResource("Resource_jbcut"), SubResource("Resource_7tmpe"), SubResource("Resource_1yqlf"), SubResource("Resource_hho7y")])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -1
+use_parent_material = true
 layout_mode = 0
-offset_right = 645.0
-offset_bottom = 365.0
+offset_right = 640.0
+offset_bottom = 360.0
 mouse_filter = 2
-color = Color(0, 0, 0, 0.392157)
+color = Color(0, 0, 0, 1)

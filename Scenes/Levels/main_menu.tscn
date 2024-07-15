@@ -1,7 +1,5 @@
 [gd_scene load_steps=16 format=3 uid="uid://ciimscdu65cq8"]
 
-[ext_resource type="Texture2D" uid="uid://djlx7rrpmw5f1" path="res://Sprites/MainMenu/gun line.png" id="1_qvsw7"]
-[ext_resource type="Texture2D" uid="uid://dgpasne5xlr2q" path="res://Sprites/MainMenu/dog small 77x64.png" id="2_phant"]
 [ext_resource type="PackedScene" uid="uid://cbuklghcxpiko" path="res://Scenes/tiles.tscn" id="3_e75qk"]
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="3_f5g26"]
 [ext_resource type="Texture2D" uid="uid://b20fme0nos8kp" path="res://Sprites/MainMenu/title small 185x28.png" id="3_knie8"]
@@ -13,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dx18mgom3chcm" path="res://Scenes/game_controller.tscn" id="10_ljqkk"]
 [ext_resource type="PackedScene" uid="uid://b7r52wai1l1yc" path="res://Scenes/Player/menu_dog.tscn" id="11_rfde3"]
 [ext_resource type="PackedScene" uid="uid://benlyb5ipwgn8" path="res://Scenes/tennisball.tscn" id="12_djnm7"]
+[ext_resource type="PackedScene" uid="uid://dio4jhhmyfnfk" path="res://Scenes/Control/AudioManager.tscn" id="14_tp1l3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tyfs5"]
 shader = ExtResource("4_ga02p")
@@ -32,13 +31,21 @@ shader_parameter/fps = 6.0
 shader_parameter/color_threshold = 0.1
 shader_parameter/palette = ExtResource("5_f3ayy")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6usk4"]
+shader = ExtResource("4_ga02p")
+shader_parameter/skip_first_row = true
+shader_parameter/use_palette_alpha = false
+shader_parameter/is_texture = false
+shader_parameter/fps = 6.0
+shader_parameter/color_threshold = 0.1
+shader_parameter/palette = ExtResource("5_f3ayy")
+
 [node name="MainMenu" type="Node2D"]
 material = SubResource("ShaderMaterial_tyfs5")
 script = ExtResource("3_f5g26")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(160, 90)
-zoom = Vector2(2, 2)
+position = Vector2(320, 180)
 
 [node name="Tiles" parent="." instance=ExtResource("3_e75qk")]
 z_index = -999
@@ -50,74 +57,57 @@ offset_right = 640.0
 offset_bottom = 360.0
 color = Color(0.329412, 0.356863, 0.792157, 1)
 
-[node name="ScaleOffset" type="Node2D" parent="."]
-visible = false
-scale = Vector2(3, 3)
-
-[node name="GunLine" type="Sprite2D" parent="ScaleOffset"]
-position = Vector2(107.333, 12)
-texture = ExtResource("1_qvsw7")
-
-[node name="DogSmall77x64" type="Sprite2D" parent="ScaleOffset"]
-position = Vector2(68.6667, 88)
-texture = ExtResource("2_phant")
-
 [node name="GameController" parent="." instance=ExtResource("10_ljqkk")]
 visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-scale = Vector2(2, 2)
-transform = Transform2D(2, 0, 0, 2, 0, 0)
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_rxx7w")
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.5, 0.5)
+offset_left = 389.0
+offset_top = 205.0
+offset_right = 538.0
+offset_bottom = 327.0
 
-[node name="PlayGame" parent="CanvasLayer/Control" instance=ExtResource("8_q2v0g")]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+use_parent_material = true
 layout_mode = 0
-offset_left = 430.0
-offset_top = 220.0
-offset_right = 564.0
-offset_bottom = 236.0
+offset_right = 159.0
+offset_bottom = 125.0
+
+[node name="PlayGame" parent="CanvasLayer/Control/VBoxContainer" instance=ExtResource("8_q2v0g")]
+layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("6_68fxw")
+function_name = "play"
 
-[node name="Options" parent="CanvasLayer/Control" instance=ExtResource("8_q2v0g")]
-layout_mode = 0
-offset_left = 430.0
-offset_top = 250.0
-offset_right = 532.0
-offset_bottom = 270.0
-pivot_offset = Vector2(23.8, 4)
+[node name="Options" parent="CanvasLayer/Control/VBoxContainer" instance=ExtResource("8_q2v0g")]
+layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("6_68fxw")
 text = "OPTIONS"
+function_name = "open_options"
 
-[node name="Wishlist" parent="CanvasLayer/Control" instance=ExtResource("8_q2v0g")]
-layout_mode = 0
-offset_left = 430.0
-offset_top = 280.0
-offset_right = 545.0
-offset_bottom = 297.0
-pivot_offset = Vector2(28.88, 4)
+[node name="Wishlist" parent="CanvasLayer/Control/VBoxContainer" instance=ExtResource("8_q2v0g")]
+layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("6_68fxw")
 text = "WISHLIST"
+function_name = "open_steam_page"
 
-[node name="Quit" parent="CanvasLayer/Control" instance=ExtResource("8_q2v0g")]
-layout_mode = 0
-offset_left = 430.0
-offset_top = 310.0
-offset_right = 490.0
-offset_bottom = 327.0
-pivot_offset = Vector2(14.45, 4)
+[node name="Quit" parent="CanvasLayer/Control/VBoxContainer" instance=ExtResource("8_q2v0g")]
+layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("6_68fxw")
 text = "QUIT"
+function_name = "quit"
 
 [node name="TitleSmall185x28" type="Sprite2D" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_tyfs5")
-position = Vector2(160, 39)
+position = Vector2(318, 59)
+scale = Vector2(2, 2)
 texture = ExtResource("3_knie8")
 
 [node name="JuicyMovement" parent="CanvasLayer/TitleSmall185x28" node_paths=PackedStringArray("target_node2D") instance=ExtResource("5_5i42a")]
@@ -125,16 +115,32 @@ target_node2D = NodePath("..")
 rot_frequency = 2.5
 rot_amplitude = 10.0
 
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_6usk4")
+offset_right = 80.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/ColorRect"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 560.0
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 1)
+
+[node name="AudioManager" parent="." instance=ExtResource("14_tp1l3")]
+
 [node name="MenuDog" parent="." instance=ExtResource("11_rfde3")]
 y_sort_enabled = true
-position = Vector2(72, 115)
-scale = Vector2(1, 1)
+position = Vector2(169, 258)
 
 [node name="Tennisball" parent="." instance=ExtResource("12_djnm7")]
 y_sort_enabled = true
-position = Vector2(109, 109)
+position = Vector2(284, 205)
+scale = Vector2(2, 2)
 
-[connection signal="gui_input" from="CanvasLayer/Control/PlayGame" to="." method="_on_play_game_gui_input"]
-[connection signal="gui_input" from="CanvasLayer/Control/Options" to="GameController" method="_on_options_gui_input"]
-[connection signal="gui_input" from="CanvasLayer/Control/Wishlist" to="." method="_on_wishlist_gui_input"]
-[connection signal="gui_input" from="CanvasLayer/Control/Quit" to="." method="_on_quit_gui_input"]
+[connection signal="gui_input" from="CanvasLayer/Control/VBoxContainer/PlayGame" to="." method="_on_play_game_gui_input"]
+[connection signal="gui_input" from="CanvasLayer/Control/VBoxContainer/Options" to="GameController" method="_on_options_gui_input"]
+[connection signal="gui_input" from="CanvasLayer/Control/VBoxContainer/Wishlist" to="." method="_on_wishlist_gui_input"]
+[connection signal="gui_input" from="CanvasLayer/Control/VBoxContainer/Quit" to="." method="_on_quit_gui_input"]

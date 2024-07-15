@@ -20,6 +20,7 @@ var globals
 var barrier_left: Vector2
 var barrier_right: Vector2
 var camera: Camera2D
+var muted: bool = false
 enum rarity_levels {common, uncommon, rare, super_rare, ultra_rare, giga_rare }
 
 
@@ -31,8 +32,8 @@ func create_instance(scene: PackedScene, position: Vector2 = Vector2.ZERO, paren
 	if (scene != null):
 		var instance = scene.instantiate()
 		parent.add_child.call_deferred(instance)
-		if instance is Node2D:
-			instance.global_position = position
+		#if instance is Node2D:
+		instance.global_position = position
 		return instance
 	return null
 

@@ -65,9 +65,6 @@ volume_db = 4.0
 
 [node name="CanvasLayer" parent="." instance=ExtResource("10_cogr5")]
 
-[node name="MoneyText" parent="CanvasLayer/Money" index="0"]
-metadata/_edit_use_anchors_ = true
-
 [node name="Kills" parent="CanvasLayer/ScoreHolder" index="0"]
 metadata/_edit_use_anchors_ = true
 
@@ -77,11 +74,11 @@ metadata/_edit_use_anchors_ = true
 [node name="Level2" parent="CanvasLayer/Countdown" index="4"]
 metadata/_edit_use_anchors_ = true
 
-[node name="Guns" parent="CanvasLayer" index="7"]
+[node name="Guns" parent="CanvasLayer" index="6"]
 process_mode = 3
 slot_texture_selected = ExtResource("11_idwgk")
 
-[node name="Dogtags" parent="CanvasLayer" index="10"]
+[node name="Dogtags" parent="CanvasLayer" index="9"]
 metadata/_edit_use_anchors_ = true
 
 [node name="DropAlert" parent="CanvasLayer/Drop" index="0"]

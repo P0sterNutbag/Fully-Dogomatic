@@ -26,7 +26,7 @@ func _process(delta):
 
 
 func set_money(money: int):
-	$Money/MoneyText.text = "$" + str(money)
+	$LeftCorner/MoneyText.text = "$" + str(money)
 
 
 func add_level_obj(obj_text: String, good: bool):

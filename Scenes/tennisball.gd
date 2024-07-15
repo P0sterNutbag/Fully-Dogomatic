@@ -5,8 +5,13 @@ var in_mouse: bool
 var follow_mouse: bool
 var last_position: Vector2
 var velocity: Vector2
+var left_barrier: Vector2
+var right_barrier: Vector2
 
 func _ready():
+	var size = texture.get_size()
+	left_barrier = Vector2(80.0 + (size.x / 2.0), 0 + (size.y / 2.0))
+	right_barrier = Vector2(560 - (size.x / 2), 360 - (size.y / 2.0))
 	last_position = position
 
 
@@ -26,12 +31,12 @@ func _process(delta):
 	else:
 		position += velocity * delta
 		velocity = lerp(velocity, Vector2.ZERO, 2.5 * delta)
-		if position.x < 0 or position.x > 320:
-			position.x = clamp(position.x, 0, 360)
+		if position.x < left_barrier.x or position.x > right_barrier.x:
 			velocity.x *= -1
-		if position.y < 0 or position.y > 180:
-			position.y = clamp(position.y, 0, 180)
+		if position.y < left_barrier.y or position.y > right_barrier.y:
 			velocity.y *= -1
+	position.x = clamp(position.x, left_barrier.x, right_barrier.x)
+	position.y = clamp(position.y, left_barrier.y, right_barrier.y)
 	# animate
 	if !follow_mouse:
 		rotation_degrees += abs(velocity.x + velocity.y) * 0.1

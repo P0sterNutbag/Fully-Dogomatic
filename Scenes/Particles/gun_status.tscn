@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cp3hhsf1rx81y"]
+
+[ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Shaders/colorswap.tres" id="1_u1w4l"]
+[ext_resource type="Script" path="res://Scenes/Particles/gun_status.gd" id="2_65ks6"]
+[ext_resource type="Theme" uid="uid://lra3teo37km0" path="res://Sprites/Themes/ui text mini.tres" id="2_h0pwq"]
+
+[node name="GunStatus" type="Control"]
+material = ExtResource("1_u1w4l")
+layout_mode = 3
+anchors_preset = 0
+offset_right = 17.0
+offset_bottom = 9.0
+script = ExtResource("2_65ks6")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+z_index = 900
+use_parent_material = true
+layout_mode = 0
+offset_left = -20.0
+offset_top = -8.0
+offset_right = 20.0
+offset_bottom = 8.0
+theme = ExtResource("2_h0pwq")
+bbcode_enabled = true
+text = "[center] empty"

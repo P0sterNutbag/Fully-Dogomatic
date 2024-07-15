@@ -48,7 +48,9 @@ var muzzle_flash
 var firepoint_index = 0
 var shell = preload("res://Scenes/shell.tscn")
 var gun_name = preload("res://Scenes/Guns/gun_name.tscn")
+var status_effect = preload("res://Scenes/Particles/gun_status.tscn")
 var gun_name_instance: Node2D
+var bullet_damage
 
 
 func _ready():
@@ -112,9 +114,9 @@ func rotate_away_from_position(vector: Vector2):
 
 
 func reload():
-	Globals.reload_sfx.play()
 	$ReloadTimer.start()
 	spin_gun()
+	var status_effect = Globals.create_instance(status_effect, global_position + Vector2(0, -8))
 
 
 func _on_timer_timeout(): # shoot bullets
@@ -135,7 +137,7 @@ func _on_timer_timeout(): # shoot bullets
 			instance.move_vector = bullet_vector
 			instance.speed = bullet_speed
 			instance.global_rotation = bullet_angle
-			instance.damage += damage_modifier
+			instance.damage  = bullet_damage#+= damage_modifier
 			instance.penetrations += penetrations_modifier
 			instance.ricochet = ricochet
 			instance.explode_chance = Globals.explode_chance
@@ -152,16 +154,17 @@ func _on_timer_timeout(): # shoot bullets
 		inst.max_y = global_position.y+5
 		sprite.scale = Vector2(1.3, 1.3)
 		#Globals.camera.screenshake(shot_count * b.damage * 0.75)
-		if !Globals.shoot_sfx.is_playing():
-			Globals.shoot_sfx.play()
-		elif Globals.shoot_sfx.get_playback_position() > 0.05:
-			Globals.shoot_sfx.play()
+		if !Globals.audio_manager.gunshot.is_playing():
+			Globals.audio_manager.gunshot.play()
+		elif Globals.audio_manager.gunshot.get_playback_position() > 0.05:
+			Globals.audio_manager.gunshot.play()
 		b.queue_free()
 		muzzle_flash.texture = muzzleflash_textures[randi_range(0, muzzleflash_textures.size()-1)]
 
 
 func _on_reload_timer_timeout():
 	shots_left = rounds
+	Globals.audio_manager.reload.play()
 
 
 func set_game_over():

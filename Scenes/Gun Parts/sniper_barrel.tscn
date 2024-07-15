@@ -16,6 +16,7 @@ texture = ExtResource("1_p4re2")
 region_enabled = true
 region_rect = Rect2(32, 96, 48, 16)
 script = ExtResource("2_btuw2")
+bullet_damage = 6.0
 spread = 6.0
 knockback = 5.0
 bullet = ExtResource("3_g4a7a")

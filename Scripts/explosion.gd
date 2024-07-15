@@ -1,6 +1,6 @@
 extends Area2D
 
-var damage := 5
+@export var damage := 10
 
 
 func _on_area_entered(area):

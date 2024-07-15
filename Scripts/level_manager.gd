@@ -11,7 +11,7 @@ var barrier_margin = 50
 var barrier_left: Vector2
 var barrier_right: Vector2
 var boss = preload("res://Scenes/Enemies/boss_pug.tscn")
-var boss_round = 1
+var boss_round = 10
 var spawn_round = 0
 
 func _ready():

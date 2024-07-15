@@ -11,5 +11,5 @@ func add_dogtag(tag: Control):
 		tag.global_position = pos
 		dogtags.append(tag)
 		for i in range(dogtags.size()):
-			dogtags[i].target_position = Vector2(global_position.x + i * gap, global_position.y)
+			dogtags[i].target_position = Vector2(global_position.x - i * gap, global_position.y)
 			print_debug(global_position)

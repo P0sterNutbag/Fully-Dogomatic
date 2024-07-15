@@ -1,6 +1,7 @@
 extends GunPart
 
 @export_subgroup("Properties")
+@export var bullet_damage: float = 3
 @export var cooldown: float = 1
 @export var spread: float = 0
 @export var knockback: float = 0
@@ -20,3 +21,4 @@ func set_gun_stats():
 		gun_parent.muzzle_flash = $Firepoint/MuzzleFlash
 		gun_parent.distance_to_player = distance_to_player
 		gun_parent.bullet = bullet
+		gun_parent.bullet_damage = bullet_damage

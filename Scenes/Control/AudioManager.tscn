@@ -1,6 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://dio4jhhmyfnfk"]
+[gd_scene load_steps=7 format=3 uid="uid://dio4jhhmyfnfk"]
 
 [ext_resource type="Script" path="res://Scenes/Control/audio_manager.gd" id="1_akuuh"]
+[ext_resource type="AudioStream" uid="uid://dcyv4n1xwal27" path="res://SFX/chaching.mp3" id="2_csd4b"]
+[ext_resource type="AudioStream" uid="uid://bfkfkmptikkw" path="res://SFX/reload.mp3" id="3_mf0k4"]
+[ext_resource type="AudioStream" uid="uid://d33cpr401ambu" path="res://SFX/gunshot1.mp3" id="4_e6wak"]
+[ext_resource type="AudioStream" uid="uid://m8vxicxyfjbi" path="res://SFX/explosion.mp3" id="5_ugbwc"]
+[ext_resource type="AudioStream" uid="uid://bcqv2c0rxis70" path="res://SFX/bark.mp3" id="6_450bx"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_akuuh")
+
+[node name="Chaching" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_csd4b")
+volume_db = -10.0
+
+[node name="Reload" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mf0k4")
+volume_db = -5.0
+
+[node name="Gunshot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_e6wak")
+volume_db = -5.0
+
+[node name="Explosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ugbwc")
+volume_db = -5.0
+pitch_scale = 1.5
+
+[node name="Bark" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_450bx")

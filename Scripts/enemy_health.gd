@@ -36,7 +36,7 @@ func take_damage(dmg: float, bullet_direction: float):
 			Globals.call_deferred("create_instance", death_explosion, global_position)
 		if parent is Enemy:
 			parent.on_death()
-		Globals.explosion_sfx.play()
+		Globals.audio_manager.explosion.play()
 		#Globals.world_controller.increase_score()
 		if !get_parent().name.contains("Boss"):
 			parent.call_deferred("queue_free")

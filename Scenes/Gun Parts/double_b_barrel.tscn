@@ -16,6 +16,7 @@ texture = ExtResource("1_old1o")
 region_enabled = true
 region_rect = Rect2(16, 144, 32, 16)
 script = ExtResource("2_qplgt")
+bullet_damage = 1.5
 cooldown = 1.5
 spread = 10.0
 knockback = 5.0

@@ -30,10 +30,6 @@ var gun_rotation: float = 0
 
 func _ready():
 	Globals.player = self
-	Globals.shoot_sfx = $Gunshot
-	Globals.reload_sfx = $Reload
-	Globals.explosion_sfx = $Explosion
-	$HealthBar.visible = false
 
 
 func _physics_process(_delta):
@@ -90,32 +86,28 @@ func _process(delta):
 			
 			# bark
 			if Input.is_action_just_pressed("bark"):
-				$Bark.pitch_scale = randf_range(0.95,1.05)
-				$Bark.play()
+				Globals.audio_manager.bark.pitch_scale = randf_range(0.95,1.05)
+				Globals.audio_manager.bark.play()
 		
 		states.dead:
 			sprite.play("dead")
 			sprite.flip_h = false
-	# zoom camera
-	#$Camera2D.zoom  = $Camera2D.zoom.lerp(Vector2(target_zoom, target_zoom), 5 * delta)
 
 
 func take_damage(dmg):
 	hp -= dmg
-	$HealthBar.visible = true
-	$HealthBar.value = hp
+	Globals.ui.get_node("LeftCorner/HPBar/HealthBar").value = hp
 	Globals.world_controller.reset_score()
 	if hp <= 0:
 		state = states.dead
 		player_died.emit()
-		$HealthBar.visible = false
+	if $FlashTimer.time_left <= 0:
+		$FlashTimer.start()
 
 
 func increase_health(hp2):
 	hp = clamp(hp + hp2, 0, max_hp)
-	$HealthBar.value = hp
-	if hp >= max_hp:
-		$HealthBar.visible = false
+	Globals.ui.get_node("LeftCorner/HPBar/HealthBar").value = hp
 
 
 func get_money(amount: int):
@@ -123,18 +115,10 @@ func get_money(amount: int):
 	money += amount
 	Globals.ui.set_money(money)
 	Globals.world_controller.set_money(money / money_cap)
-	if !$Chaching.is_playing():
-			$Chaching.play()
-	elif $Chaching.get_playback_position() > 0.25:
-		$Chaching.play()
-	#if money >= money_cap:
-		#level += 1
-		#level_up.emit(level)
-		#money = 0
-		#money_cap *= money_increase_rate
-		#Globals.world_controller.spawn_upgrade_menu()
-		##Globals.crate_spawner.spawn_crate()
-		#$Bark.play()
+	if !Globals.audio_manager.chaching.is_playing():
+			Globals.audio_manager.chaching.play()
+	elif Globals.audio_manager.chaching.get_playback_position() > 0.25:
+		Globals.audio_manager.chaching.play()
 
 
 func spend_money(amount: int):
@@ -142,39 +126,10 @@ func spend_money(amount: int):
 	money_pickup.emit()
 	Globals.ui.set_money(money)
 
-#func _on_area_2d_area_entered(area):
-	#if area.is_in_group("gun") and area.holder != self:
-		#gun_pickup.emit()
-		#guns.append(area)
-		#area.holder = self
-		#var dir_to_gun = (area.position - position).normalized()
-		#area.direction_vector = dir_to_gun
-		#area.rotation = dir_to_gun.angle()
-		#area.hold_offset = dir_to_gun * area.distance_to_player
-		#area.get_node("Timer").start()
-		##if area.global_position.x < global_position.x:
-			##area.sprite.flip_v = true
-			##area.firepoint_index = 1
-			##area.get_node("MuzzleOffset").position = area.firepoints[area.firepoint_index].position
-		#Globals.world_controller.add_to_gun_list(area.get_meta("Title"))
-
-
 
 func _on_money_pickup_area_entered(area):
 	if area.is_in_group("money"):
 		area.follow_player = true
-
-
-func _on_gun_highliter_area_entered(_area):
-	pass
-	# if not guns.has(area):
-	# 	area.show_name()
-		#area.get_node("Sprite2D").material = new_gun_material
-
-
-func _on_gun_highliter_area_exited(_area):
-	pass
-	# area.reset_material()
 
 
 func _on_drop_crate_timeout():
@@ -187,9 +142,11 @@ func zoom_out_camera():
 	target_zoom = 1
 
 
-func _on_deffered_variables_timeout():
-	pass
-	#$Camera2D.limit_left = Globals.barrier_left.x
-	#$Camera2D.limit_top = Globals.barrier_left.y
-	#$Camera2D.limit_right = Globals.barrier_right.x
-	#$Camera2D.limit_bottom = Globals.barrier_right.y
+
+func _on_flash_timer_timeout():
+	$PlayerSprite.use_parent_material = !$PlayerSprite.use_parent_material
+
+
+func _on_hurtbox_area_exited(area):
+	$FlashTimer.stop()
+	$PlayerSprite.use_parent_material = true

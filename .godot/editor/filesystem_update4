@@ -1,11 +1,10 @@
-res://Scenes/UI/ui.tscn
+res://Scenes/Player/player.tscn
 res://Scripts/gun_part_barrel.gd
 res://Shaders/colorswap.gdshader
 res://Shaders/colorswap.tres
 res://Scripts/main_menu.gd
 res://Scripts/world_controller.gd
 res://Sprites/Themes/ui text mid.tres
-res://Sprites/Themes/healthbar.tres
 res://Shaders/outline.gdshader
 res://Shaders/outline.tres
 res://Shaders/flash.gdshader
@@ -13,13 +12,35 @@ res://Shaders/flash.tres
 res://Shaders/grayscale.gdshader
 res://Shaders/drop_shadow.gdshader
 res://Shaders/replace_color.gdshader
+res://Sprites/Themes/healthbar.tres
+res://Scripts/player.gd
+res://Scenes/shadow.tscn
+res://Scenes/Enemies/enemy_pug.tscn
+res://Scenes/UI/ui.tscn
+res://Scenes/Gun Parts/pistol_barrel.tscn
+res://Scenes/Control/AudioManager.tscn
+res://Scenes/Control/audio_manager.gd
 res://Scenes/Levels/main_menu.tscn
+res://Sprites/Themes/body.tres
+res://Scripts/globals.gd
+res://Scenes/Levels/world.tscn
+res://Scripts/gun.gd
+res://Scenes/UI/settings_menu.tscn
+res://Scenes/UI/settings_menu.gd
+res://Scripts/menu_dog.gd
+res://Scenes/tennisball.gd
 res://Scenes/tennisball.tscn
-res://Scenes/Player/menu_dog.tscn
-res://Scenes/Upgrades/upgrade_menu.tscn
+res://Scenes/UI/settings_option.tscn
+res://Scripts/menu_button.gd
 res://Scenes/menu_button.tscn
-res://Scenes/Player/player.tscn
-res://Scenes/UI/minimap.tscn
-res://Sprites/Themes/ui text small.tres
+res://Scenes/Levels/Level Objects/crate_guns.tscn
+res://Scenes/Levels/Level Objects/crate_dogtags.tscn
+res://Scenes/Levels/Level Objects/crate_parts.tscn
+res://Scripts/enemy_health.gd
+res://Scenes/Levels/Level Objects/level_manager.tscn
 res://Sprites/Themes/ui text large.tres
-res://Scripts/minimap_icon.gd
+res://Sprites/Themes/ui text small.tres
+res://Scenes/Gun Parts/shotgun_barrel.tscn
+res://Scenes/enemy_spawner_controller.tscn
+res://Scenes/Gun Parts/double_b_barrel.tscn
+res://Scenes/enemy_spawner.tscn

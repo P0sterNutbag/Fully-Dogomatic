@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://brxcjl24b5feg"]
+[gd_scene load_steps=5 format=3 uid="uid://brxcjl24b5feg"]
 
 [ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Sprites/gun parts spritesheet.png" id="1_tp2as"]
 [ext_resource type="Script" path="res://Scripts/gun_part_magazine.gd" id="2_bp5p7"]
-[ext_resource type="PackedScene" uid="uid://dfyv2v8qbh3ht" path="res://Scenes/Bullets/grenade.tscn" id="3_vsmds"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="4_ud55q"]
 
 [sub_resource type="Resource" id="Resource_efvk7"]
@@ -18,7 +17,6 @@ region_rect = Rect2(64, 64, 16, 16)
 script = ExtResource("2_bp5p7")
 rounds = 6
 reload_time = 2.0
-bullet = ExtResource("3_vsmds")
 metadata/Title = "Magazine"
 metadata/Type = "MGL Grenade Launcher"
 metadata/Rarity = SubResource("Resource_efvk7")
