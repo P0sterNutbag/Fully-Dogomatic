@@ -55,8 +55,8 @@ func _physics_process(_delta):
 			move_and_slide()
 			
 			# stay in bounds
-			position.x = clamp(position.x, -790, 790)
-			position.y = clamp(position.y, -790, 790)
+			position.x = clamp(position.x, -405, 405)
+			position.y = clamp(position.y, -485, 485)
 		
 
 

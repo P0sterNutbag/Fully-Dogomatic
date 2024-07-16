@@ -12,8 +12,8 @@ func _ready():
 func _process(delta):
 	var parent_pos = get_parent().global_position
 	var player_pos = Globals.camera.get_screen_center_position()
-	if parent_pos.x < player_pos.x - 320 or parent_pos.x > player_pos.x + 320 or parent_pos.y < player_pos.y - 180 or parent_pos.y > player_pos.y + 180:
-		global_position.x = clamp(parent_pos.x, player_pos.x - (590 / 2), player_pos.x + (590 / 2))
+	if parent_pos.x < player_pos.x - 240 or parent_pos.x > player_pos.x + 240 or parent_pos.y < player_pos.y - 180 or parent_pos.y > player_pos.y + 180:
+		global_position.x = clamp(parent_pos.x, player_pos.x - (420 / 2), player_pos.x + (420 / 2))
 		global_position.y = clamp(parent_pos.y, player_pos.y - (310 / 2), player_pos.y + (310 / 2))
 		look_at(parent_pos)
 		if !visible:

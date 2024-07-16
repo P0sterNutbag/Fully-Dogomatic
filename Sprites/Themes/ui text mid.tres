@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://bmv1iku1at618"]
 
-[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Sprites/Fonts/Blue Sky 8x8.ttf" id="1_efmqi"]
+[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Sprites/Blue Sky 8x8.ttf" id="1_efmqi"]
 
 [resource]
 default_font = ExtResource("1_efmqi")

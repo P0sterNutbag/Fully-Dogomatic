@@ -1,15 +1,15 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://lra3teo37km0"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bduyde5euld1r"]
 
-[ext_resource type="FontFile" uid="uid://cv33v3c57fnen" path="res://Sprites/Fonts/Crispix.ttf" id="1_loty3"]
+[ext_resource type="FontFile" uid="uid://cv33v3c57fnen" path="res://Sprites/Fonts/Crispix.ttf" id="1_s5484"]
 
 [resource]
-default_font = ExtResource("1_loty3")
+default_font = ExtResource("1_s5484")
 default_font_size = 16
 RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
 RichTextLabel/colors/font_outline_color = Color(0.223529, 0.223529, 0.223529, 1)
 RichTextLabel/colors/font_shadow_color = Color(0.223529, 0.223529, 0.223529, 1)
 RichTextLabel/constants/outline_size = 0
 RichTextLabel/constants/shadow_offset_x = 0
-RichTextLabel/constants/shadow_offset_y = 1
-RichTextLabel/constants/shadow_outline_size = 1
+RichTextLabel/constants/shadow_offset_y = 0
+RichTextLabel/constants/shadow_outline_size = 0
 RichTextLabel/font_sizes/normal_font_size = 16

@@ -18,7 +18,7 @@ func _physics_process(_delta):
 
 
 func _on_timer_timeout():
-	Globals.explosion_sfx.play()
+	Globals.audio_manager.explosion_sfx.play()
 	var instance = explosion.instantiate()
 	get_tree().get_root().add_child(instance)
 	instance.global_position = global_position

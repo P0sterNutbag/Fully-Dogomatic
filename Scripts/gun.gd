@@ -214,7 +214,11 @@ func spin_gun():
 
 func _on_mouse_entered():
 	is_mouse_entered = true
+	if get_tree().paused:
+		Globals.activate_gunstats(self)
 
 
 func _on_mouse_exited():
 	is_mouse_entered = false
+	if get_tree().paused:
+		Globals.deactivate_gunstats()
