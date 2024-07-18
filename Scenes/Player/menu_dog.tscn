@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://b7r52wai1l1yc"]
 
-[ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Sprites/123spritesheet.png" id="1_b52ny"]
+[ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Art/Sprites/123spritesheet.png" id="1_b52ny"]
 [ext_resource type="Script" path="res://Scripts/menu_dog.gd" id="2_fuvt8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_278d0"]

@@ -1,9 +1,7 @@
-res://Sprites/Themes
+res://Art/Sprites/MainMenu
+res://Art/Sprites
 res://Scripts
 res://Scenes
-res://Sprites
-res://Sprites/MainMenu
-res://Shaders
 res://
 res://Scenes/Levels/Level Objects
 res://Scenes/UI

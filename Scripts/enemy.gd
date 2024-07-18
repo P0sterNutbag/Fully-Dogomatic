@@ -35,9 +35,7 @@ func _ready():
 
 
 func spawn(scene):
-	var inst = scene.instantiate()
-	get_tree().current_scene.add_child(inst)
-	inst.position = global_position
+	var inst = Globals.create_instance(scene, global_position)
 	if scene == dollar:
 		inst.global_position += Vector2(randf_range(-10,10),randf_range(-10,10))
 	if scene == dogpart:
@@ -87,6 +85,7 @@ func on_death():
 		for i in randi_range(money_min, money_max):
 			call_deferred("spawn", dollar)
 	call_deferred("spawn", blood)
+
 
 func _process(_delta):
 	if velocity.x < 0:

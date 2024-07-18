@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://vogimtfjrm7r"]
 
 [ext_resource type="Script" path="res://Scripts/Upgrades/ricochet_upgrade.gd" id="1_rb0tw"]
-[ext_resource type="Texture2D" uid="uid://7ppsa5tfac3k" path="res://Sprites/upgrade icon icon.png" id="2_nl1w2"]
+[ext_resource type="Texture2D" uid="uid://7ppsa5tfac3k" path="res://Art/Sprites/upgrade icon icon.png" id="2_nl1w2"]
 
 [node name="RicochetUpgrade" type="Node2D" groups=["upgrade"]]
 script = ExtResource("1_rb0tw")

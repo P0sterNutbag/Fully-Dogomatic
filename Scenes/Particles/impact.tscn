@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b77qfnq3r884f"]
 
 [ext_resource type="Script" path="res://Scenes/Particles/impact.gd" id="1_tsnne"]
-[ext_resource type="Texture2D" uid="uid://cbxo4ni4qc1fo" path="res://Sprites/impact.png" id="2_3fa42"]
+[ext_resource type="Texture2D" uid="uid://cbxo4ni4qc1fo" path="res://Art/Sprites/impact.png" id="2_3fa42"]
 
 [node name="Node2D" type="Node2D"]
 use_parent_material = true

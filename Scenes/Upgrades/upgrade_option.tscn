@@ -1,13 +1,13 @@
 [gd_scene load_steps=13 format=3 uid="uid://diu6fl025qdv0"]
 
 [ext_resource type="Script" path="res://Scripts/Upgrades/upgrade_option.gd" id="1_kc4vw"]
-[ext_resource type="Shader" path="res://Shaders/colorswap.gdshader" id="1_on7uf"]
-[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Sprites/palette blue orange.png" id="2_7dssl"]
-[ext_resource type="Texture2D" uid="uid://2u72jmj4wnsn" path="res://Sprites/red texture.png" id="8_haicr"]
-[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Sprites/Blue Sky 8x8.ttf" id="10_0l3rj"]
-[ext_resource type="Texture2D" uid="uid://bt4bqfufwd7lu" path="res://Sprites/upgrade box.png" id="14_04dbb"]
-[ext_resource type="Texture2D" uid="uid://btohsgsxdi3fu" path="res://Sprites/upgrade box selected.png" id="15_nnukm"]
-[ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Sprites/Themes/ui text mid.tres" id="18_gfk3a"]
+[ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="1_on7uf"]
+[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="2_d2ntg"]
+[ext_resource type="Texture2D" uid="uid://2u72jmj4wnsn" path="res://Art/Sprites/red texture.png" id="5_ebtx4"]
+[ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="6_n5hc7"]
+[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="7_8utm7"]
+[ext_resource type="Texture2D" uid="uid://bt4bqfufwd7lu" path="res://Art/Sprites/upgrade box.png" id="8_tiiyn"]
+[ext_resource type="Texture2D" uid="uid://btohsgsxdi3fu" path="res://Art/Sprites/upgrade box selected.png" id="9_y1ro2"]
 [ext_resource type="Script" path="res://Scripts/Circle.gd" id="18_pedul"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/JuicyMovement.tscn" id="19_orlbb"]
 
@@ -18,7 +18,7 @@ shader_parameter/use_palette_alpha = false
 shader_parameter/is_texture = false
 shader_parameter/fps = 6.0
 shader_parameter/color_threshold = 0.1
-shader_parameter/palette = ExtResource("2_7dssl")
+shader_parameter/palette = ExtResource("2_d2ntg")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u54kg"]
 shader = ExtResource("1_on7uf")
@@ -27,7 +27,7 @@ shader_parameter/use_palette_alpha = false
 shader_parameter/is_texture = true
 shader_parameter/fps = 6.0
 shader_parameter/color_threshold = 0.1
-shader_parameter/palette = ExtResource("2_7dssl")
+shader_parameter/palette = ExtResource("2_d2ntg")
 
 [node name="UpgradeOption" type="Control"]
 material = SubResource("ShaderMaterial_8vmtn")
@@ -40,7 +40,7 @@ material = SubResource("ShaderMaterial_u54kg")
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("18_pedul")
-circle_texture = ExtResource("8_haicr")
+circle_texture = ExtResource("5_ebtx4")
 metadata/_edit_use_anchors_ = true
 
 [node name="UpgradeName" type="RichTextLabel" parent="."]
@@ -52,7 +52,7 @@ offset_top = -54.0
 offset_right = 114.0
 offset_bottom = -1.0
 mouse_filter = 2
-theme = ExtResource("18_gfk3a")
+theme = ExtResource("6_n5hc7")
 bbcode_enabled = true
 text = "[center]OPTION 1"
 
@@ -65,20 +65,20 @@ offset_right = 58.0
 offset_bottom = 18.0
 mouse_filter = 2
 theme_override_colors/default_color = Color(0.223529, 0.223529, 0.223529, 1)
-theme_override_fonts/normal_font = ExtResource("10_0l3rj")
+theme_override_fonts/normal_font = ExtResource("7_8utm7")
 theme_override_font_sizes/normal_font_size = 7
 bbcode_enabled = true
 
 [node name="Box" type="Sprite2D" parent="."]
 visible = false
 use_parent_material = true
-texture = ExtResource("14_04dbb")
+texture = ExtResource("8_tiiyn")
 
 [node name="BoxSelected" type="Sprite2D" parent="."]
 visible = false
 use_parent_material = true
 position = Vector2(48, 12)
-texture = ExtResource("15_nnukm")
+texture = ExtResource("9_y1ro2")
 
 [node name="UpgradeIcon" type="Sprite2D" parent="."]
 use_parent_material = true
@@ -101,7 +101,7 @@ offset_left = -60.0
 offset_top = 28.0
 offset_right = 57.0
 offset_bottom = 74.0
-theme = ExtResource("18_gfk3a")
+theme = ExtResource("6_n5hc7")
 bbcode_enabled = true
 
 [connection signal="gui_input" from="Circle" to="." method="_on_circle_gui_input"]

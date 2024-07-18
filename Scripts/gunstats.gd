@@ -7,12 +7,13 @@ var damage_max = 10
 var firerate_min = 2
 var firerate_max = 0.01
 var accuracy_max = 0
-var accuracy_min = 30
+var accuracy_min = 35
 var magazine_min = 1
 var magazine_max = 30
 @onready var damage_bar = $PanelContainer/MarginContainer/VBoxContainer/Damage/ProgressBar
 @onready var firerate_bar = $PanelContainer/MarginContainer/VBoxContainer/FireRate/ProgressBar
 @onready var accuracy_bar = $PanelContainer/MarginContainer/VBoxContainer/Accuracy/ProgressBar
+@onready var magsize_amnt = $PanelContainer/MarginContainer/VBoxContainer/MagSize/MagAmnt
 @onready var magsize_bar = $PanelContainer/MarginContainer/VBoxContainer/MagSize/ProgressBar
 @onready var bullets_per_shot = $PanelContainer/MarginContainer/VBoxContainer/BulletsPerShot/BPS
 @onready var reaload_speed = $PanelContainer/MarginContainer/VBoxContainer/ReloadSpeed/RS
@@ -34,7 +35,8 @@ func set_stats(gun: Node2D):
 	damage_bar.value = get_value(bullet.damage * bullet.shot_count, damage_max, 0)
 	firerate_bar.value = get_value(gun.cooldown, firerate_max, firerate_min)
 	accuracy_bar.value = get_value(gun.spread + bullet.spread_modifier, accuracy_max, accuracy_min)
-	magsize_bar.value = get_value(gun.rounds, magazine_min, magazine_max)
+	#magsize_bar.value = get_value(gun.rounds, magazine_max, magazine_min)
+	magsize_amnt.text = str(gun.rounds)
 	bullets_per_shot.text = str(gun.shot_count)
 	reaload_speed.text = str(gun.get_node("ReloadTimer").wait_time) + " sec"
 	bullet.queue_free()

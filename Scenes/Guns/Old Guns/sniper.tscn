@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://csm601ufctk8h"]
 
 [ext_resource type="PackedScene" uid="uid://dpwo44pw6jd44" path="res://Scenes/Guns/Old Guns/gun_parent_old.tscn" id="1_8gehp"]
-[ext_resource type="Texture2D" uid="uid://df5bih1q8nh5p" path="res://Sprites/icon sniper.png" id="2_lkw55"]
+[ext_resource type="Texture2D" uid="uid://df5bih1q8nh5p" path="res://Art/Sprites/icon sniper.png" id="2_lkw55"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qgqo3"]
 size = Vector2(50, 8.99996)

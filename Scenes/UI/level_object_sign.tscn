@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://di3o75n26dcqd"]
 
-[ext_resource type="Shader" path="res://Shaders/colorswap.gdshader" id="1_maf7n"]
-[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Sprites/palette blue orange.png" id="2_ljmev"]
-[ext_resource type="Theme" uid="uid://dpv7tir788p5t" path="res://Sprites/Themes/ui text small.tres" id="3_rse8v"]
+[ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="1_maf7n"]
+[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="2_ljmev"]
+[ext_resource type="Theme" uid="uid://dpv7tir788p5t" path="res://Art/Themes/ui text small.tres" id="3_rse8v"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/JuicyMovement.tscn" id="4_rvt4x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2xchs"]

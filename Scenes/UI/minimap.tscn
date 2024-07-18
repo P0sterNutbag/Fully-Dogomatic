@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://dwx100okd3d23"]
 
 [ext_resource type="Script" path="res://Scripts/minimap.gd" id="1_ex3g0"]
-[ext_resource type="Shader" path="res://Shaders/colorswap.gdshader" id="2_ip5eh"]
-[ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Shaders/colorswap.tres" id="2_lpelv"]
-[ext_resource type="Texture2D" uid="uid://bonnvdx0aojp3" path="res://Sprites/dog icon.png" id="2_p8h66"]
-[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Sprites/palette blue orange.png" id="3_iwao3"]
+[ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="2_ip5eh"]
+[ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="2_lpelv"]
+[ext_resource type="Texture2D" uid="uid://bonnvdx0aojp3" path="res://Art/Sprites/dog icon.png" id="2_p8h66"]
+[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="3_iwao3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u56yf"]
 shader = ExtResource("2_ip5eh")

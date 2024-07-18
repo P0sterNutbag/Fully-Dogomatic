@@ -1,6 +1,7 @@
 extends Node
 
 @export var steps: Array[CutsceneStep]
+@export var kill_enemies: bool
 var explosion = preload("res://Scenes/death_explosion.tscn")
 var big_explosion = preload("res://Scenes/Bullets/bullet_explosion.tscn")
 var step: int = 0
@@ -28,6 +29,10 @@ func next_step():
 
 func _exit_tree():
 	get_tree().paused = false
+	if kill_enemies:
+		for enemy in get_tree().get_nodes_in_group("enemy"):
+			if enemy.name == "Hurtbox":
+				enemy.take_damage(10000, 0)
 
 
 func delete_effects():
@@ -54,7 +59,7 @@ func boss_explosions():
 		var inst = Globals.create_instance(explosion, pos + Vector2(randf_range(-40,40), randf_range(-40,0)))
 		inst.process_mode = PROCESS_MODE_ALWAYS
 		inst.z_index = 900
-		Globals.explosion_sfx.play()
+		Globals.audio_manager.explosion.play()
 		await get_tree().create_timer(0.15).timeout
 	next_step()
 
@@ -65,7 +70,7 @@ func big_boss_explosion():
 	inst.process_mode = PROCESS_MODE_ALWAYS
 	inst.scale = Vector2.ONE * 3
 	inst.z_index = 900
-	Globals.explosion_sfx.play()
+	Globals.audio_manager.explosion.play()
 	next_step()
 
 
@@ -89,3 +94,6 @@ func reset_camera():
 	else: 
 		next_step()
 
+
+func scene_transition():
+	Globals.world_controller.start_scene_transition("res://Scenes/Levels/end.tscn")

@@ -1,14 +1,18 @@
 extends Node2D
 
 var options: Array
-var option_index: int
+var option_index: int = -1
+@export var options_parent: Node
+@onready var circle_transition = $CanvasLayer/CircleTransition
 
 
 func _ready():
-	options = $CanvasLayer/Control/VBoxContainer.get_children()
+	options = options_parent.get_children()
 	for option in options:
 		option.on_press.connect(Callable(self, option.function_name))
-	change_index(0)
+	#change_index(0)
+	circle_transition.visible = true
+	circle_transition.transition_out()
 
 
 func _process(_delta):
@@ -43,7 +47,17 @@ func set_new_index(new_index: int):
 
 
 func play():
-	get_tree().change_scene_to_file("res://Scenes/Levels/world.tscn")
+	start_scene_transition("res://Scenes/Levels/world.tscn")
+
+
+func start_scene_transition(next_scene: String):
+	circle_transition.transition_in()
+	circle_transition.transition_in_done.connect(Callable(self, "change_scene").bind(next_scene))
+
+
+func change_scene(next_scene: String):
+	await get_tree().create_timer(1).timeout
+	get_tree().change_scene_to_file(next_scene)
 
 
 func open_steam_page():

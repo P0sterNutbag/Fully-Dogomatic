@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b50cm06iefifh"]
 
-[ext_resource type="Theme" uid="uid://dpv7tir788p5t" path="res://Sprites/Themes/ui text small.tres" id="1_gtve6"]
+[ext_resource type="Theme" uid="uid://dpv7tir788p5t" path="res://Art/Themes/ui text small.tres" id="1_gtve6"]
 [ext_resource type="Script" path="res://Scripts/menu_button.gd" id="2_x8oog"]
 
 [node name="PlayGame" type="RichTextLabel"]

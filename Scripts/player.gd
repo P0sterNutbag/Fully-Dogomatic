@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 enum states {walk, dead}
 var state = states.walk
-var speed = 50.0
+var speed = 75.0
 signal player_died
 signal level_up(lvl: int)
 signal money_pickup
@@ -18,11 +18,11 @@ var money: float = 0
 var money_cap: float = 4
 var money_increase_rate = 1.4
 var guns: Array[Node2D]
+var gun_cap := 10
 var dogtags: Array[Control]
 var gun_slots: int = 10
 var level: int = 1
 var time: float = 0
-var new_gun_material = preload("res://Shaders/outline.tres")
 var target_zoom = 1
 var gun_rotation: float = 0
 @onready var sprite = $PlayerSprite
@@ -55,7 +55,7 @@ func _physics_process(_delta):
 			move_and_slide()
 			
 			# stay in bounds
-			position.x = clamp(position.x, -405, 405)
+			position.x = clamp(position.x, -485, 485)
 			position.y = clamp(position.y, -485, 485)
 		
 

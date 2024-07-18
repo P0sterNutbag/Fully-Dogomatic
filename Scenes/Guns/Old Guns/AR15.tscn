@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://va6m027lsfhl"]
 
 [ext_resource type="PackedScene" uid="uid://dpwo44pw6jd44" path="res://Scenes/Guns/Old Guns/gun_parent_old.tscn" id="1_idy85"]
-[ext_resource type="Texture2D" uid="uid://bwvobme5vv6us" path="res://Sprites/icon AR15.png" id="2_mkd3p"]
+[ext_resource type="Texture2D" uid="uid://bwvobme5vv6us" path="res://Art/Sprites/icon AR15.png" id="2_mkd3p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n4v7g"]
 size = Vector2(37, 9.99992)

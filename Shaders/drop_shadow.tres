@@ -1,8 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://d4j8mwfgqx33y"]
-
-[ext_resource type="Shader" path="res://Shaders/drop_shadow.gdshader" id="1_sjcv5"]
-
-[resource]
-shader = ExtResource("1_sjcv5")
-shader_parameter/offset = null
-shader_parameter/shadow_alpha = null

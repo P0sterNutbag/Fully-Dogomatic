@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://bb5hy4i5n52is"]
 
-[ext_resource type="Texture2D" uid="uid://dvinnfpwutjr3" path="res://Sprites/upgrade icon.png" id="1_4xxgp"]
+[ext_resource type="Texture2D" uid="uid://dvinnfpwutjr3" path="res://Art/Sprites/upgrade icon.png" id="1_4xxgp"]
 [ext_resource type="Script" path="res://Scripts/Upgrades/upgrade.gd" id="1_k0v43"]
-[ext_resource type="FontFile" uid="uid://blveai4y2nwq5" path="res://Sprites/Fonts/Pikzel-Regular.ttf" id="3_giw1o"]
-[ext_resource type="Texture2D" uid="uid://7ppsa5tfac3k" path="res://Sprites/upgrade icon icon.png" id="3_xnul3"]
+[ext_resource type="FontFile" uid="uid://blveai4y2nwq5" path="res://Art/Fonts/Pikzel-Regular.ttf" id="3_giw1o"]
+[ext_resource type="Texture2D" uid="uid://7ppsa5tfac3k" path="res://Art/Sprites/upgrade icon icon.png" id="3_xnul3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i330d"]
 size = Vector2(14, 14)

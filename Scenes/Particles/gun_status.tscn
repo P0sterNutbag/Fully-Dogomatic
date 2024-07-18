@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cp3hhsf1rx81y"]
 
-[ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Shaders/colorswap.tres" id="1_u1w4l"]
+[ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="1_u1w4l"]
 [ext_resource type="Script" path="res://Scenes/Particles/gun_status.gd" id="2_65ks6"]
-[ext_resource type="Theme" uid="uid://lra3teo37km0" path="res://Sprites/Themes/ui text mini.tres" id="2_h0pwq"]
+[ext_resource type="Theme" uid="uid://lra3teo37km0" path="res://Art/Themes/ui text mini.tres" id="2_h0pwq"]
 
 [node name="GunStatus" type="Control"]
 material = ExtResource("1_u1w4l")

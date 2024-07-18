@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://bypk836otjf2e"]
 
+[ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="1_5xotm"]
 [ext_resource type="Script" path="res://Scenes/UI/settings_menu.gd" id="1_73uks"]
-[ext_resource type="Shader" path="res://Shaders/colorswap.gdshader" id="1_fohwv"]
-[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Sprites/palette blue orange.png" id="2_j0jht"]
+[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="2_j0jht"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t5lii"]
-shader = ExtResource("1_fohwv")
+shader = ExtResource("1_5xotm")
 shader_parameter/skip_first_row = true
 shader_parameter/use_palette_alpha = false
 shader_parameter/is_texture = false
@@ -60,7 +60,8 @@ toggle_value = false
 
 [node name="SettingsMenu" type="Control"]
 process_mode = 3
-z_index = 1000
+z_index = 500
+z_as_relative = false
 material = SubResource("ShaderMaterial_t5lii")
 use_parent_material = true
 layout_mode = 3
@@ -72,7 +73,8 @@ options = Array[Resource]([SubResource("Resource_vggk4"), SubResource("Resource_
 z_index = -1
 use_parent_material = true
 layout_mode = 0
-offset_right = 640.0
+offset_left = 80.0
+offset_right = 560.0
 offset_bottom = 360.0
 mouse_filter = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.101961, 0.101961, 0.101961, 1)

@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://c0wfnsgdnyqg6"]
 
 [ext_resource type="Script" path="res://Scripts/crate.gd" id="1_61rwb"]
-[ext_resource type="Texture2D" uid="uid://depo0iekr4uok" path="res://Sprites/vending machine-Sheet.png" id="2_44f2k"]
+[ext_resource type="Texture2D" uid="uid://depo0iekr4uok" path="res://Art/Sprites/vending machine-Sheet.png" id="2_44f2k"]
 [ext_resource type="PackedScene" uid="uid://84xxip1wf4vx" path="res://Scenes/UI/minimap_icon.tscn" id="4_2luiv"]
-[ext_resource type="Texture2D" uid="uid://bv6glb1xau5xq" path="res://Sprites/shop icon.png" id="4_3alt0"]
+[ext_resource type="Texture2D" uid="uid://bv6glb1xau5xq" path="res://Art/Sprites/shop icon.png" id="4_3alt0"]
 [ext_resource type="PackedScene" uid="uid://pkl1jd6tt0bd" path="res://Scenes/UI/arrow.tscn" id="5_t7igd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ca6fn"]

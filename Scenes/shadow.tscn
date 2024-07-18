@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bb6l6e5xtb17k"]
 
-[ext_resource type="Shader" path="res://Shaders/colorswap.gdshader" id="1_au0mn"]
-[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Sprites/palette blue orange.png" id="2_2whyc"]
+[ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="1_au0mn"]
+[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="2_2whyc"]
 [ext_resource type="Script" path="res://Scenes/shadow.gd" id="2_c4xcg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i2oa8"]

@@ -5,7 +5,7 @@ extends Area2D
 @export var death_explosion: PackedScene = preload("res://Scenes/death_explosion.tscn")
 @export var sprite: Node2D
 @export var healthbar: ProgressBar
-var flash_material = preload("res://Shaders/flash.tres")
+var flash_material = preload("res://Art/Shaders/flash.tres")
 var dead: bool = false
 var max_health
 var bullet_dir

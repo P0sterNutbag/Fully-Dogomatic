@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://bpis8skquuip5"]
 
 [ext_resource type="Script" path="res://Scripts/crate.gd" id="1_gh17r"]
-[ext_resource type="Texture2D" uid="uid://bh1jul4jbpiym" path="res://Sprites/crate.png" id="2_aktxt"]
-[ext_resource type="Texture2D" uid="uid://e0g7q6wjr1w1" path="res://Sprites/crate falling.png" id="3_0i3a0"]
-[ext_resource type="Texture2D" uid="uid://dexy76dl8dsxd" path="res://Sprites/shadow.png" id="4_3twyn"]
+[ext_resource type="Texture2D" uid="uid://bh1jul4jbpiym" path="res://Art/Sprites/crate.png" id="2_aktxt"]
+[ext_resource type="Texture2D" uid="uid://e0g7q6wjr1w1" path="res://Art/Sprites/crate falling.png" id="3_0i3a0"]
+[ext_resource type="Texture2D" uid="uid://dexy76dl8dsxd" path="res://Art/Sprites/shadow.png" id="4_3twyn"]
 [ext_resource type="PackedScene" uid="uid://84xxip1wf4vx" path="res://Scenes/UI/minimap_icon.tscn" id="5_etbcj"]
-[ext_resource type="Texture2D" uid="uid://d0xgh2orsogie" path="res://Sprites/crate icon.png" id="6_b8ay6"]
+[ext_resource type="Texture2D" uid="uid://d0xgh2orsogie" path="res://Art/Sprites/crate icon.png" id="6_b8ay6"]
 [ext_resource type="PackedScene" uid="uid://pkl1jd6tt0bd" path="res://Scenes/UI/arrow.tscn" id="7_cot2c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jonbb"]

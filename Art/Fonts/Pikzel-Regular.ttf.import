@@ -1,0 +1,38 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://blveai4y2nwq5"
+path="res://.godot/imported/Pikzel-Regular.ttf-18512f6987e3c575ddfab468f1c9fa73.fontdata"
+
+[deps]
+
+source_file="res://Art/Fonts/Pikzel-Regular.ttf"
+dest_files=["res://.godot/imported/Pikzel-Regular.ttf-18512f6987e3c575ddfab468f1c9fa73.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=0
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "New Configuration",
+"size": Vector2i(16, 0)
+}]
+language_support={}
+script_support={}
+opentype_features={}

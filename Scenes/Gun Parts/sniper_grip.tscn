@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cmjpqja3s52l0"]
 
-[ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Sprites/gun parts spritesheet.png" id="1_uqvw0"]
+[ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Art/Sprites/gun parts spritesheet.png" id="1_uqvw0"]
 [ext_resource type="Script" path="res://Scripts/gun_part_grip.gd" id="2_uphwv"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="2_vd5h5"]
 

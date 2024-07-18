@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://c1qci3tk1vnk8"]
 
-[ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Sprites/gun parts spritesheet.png" id="1_b2xm5"]
+[ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Art/Sprites/gun parts spritesheet.png" id="1_b2xm5"]
 [ext_resource type="Script" path="res://Scripts/gun_part_barrel.gd" id="2_j5hxj"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_ihu5d"]
 [ext_resource type="PackedScene" uid="uid://dkan8mtdjvg8s" path="res://Scenes/Bullets/44Mag.tscn" id="3_py412"]
-[ext_resource type="Texture2D" uid="uid://l0xncvn3i5id" path="res://Sprites/muzzleflash.png" id="4_ltton"]
+[ext_resource type="Texture2D" uid="uid://l0xncvn3i5id" path="res://Art/Sprites/muzzleflash.png" id="4_ltton"]
 
 [sub_resource type="Resource" id="Resource_bo083"]
 script = ExtResource("3_ihu5d")
@@ -16,6 +16,7 @@ texture = ExtResource("1_b2xm5")
 region_enabled = true
 region_rect = Rect2(64, 48, 32, 16)
 script = ExtResource("2_j5hxj")
+bullet_damage = 6.0
 spread = 7.5
 knockback = 7.0
 bullet = ExtResource("3_py412")

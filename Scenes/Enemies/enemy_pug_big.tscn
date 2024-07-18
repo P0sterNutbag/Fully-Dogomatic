@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cr6504eyesnc1"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_2fwek"]
-[ext_resource type="Texture2D" uid="uid://dw0qr8vsmwbky" path="res://Sprites/dog soldier spritesheet.png" id="3_o7rlb"]
+[ext_resource type="Texture2D" uid="uid://dw0qr8vsmwbky" path="res://Art/Sprites/dog soldier spritesheet.png" id="3_o7rlb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hr8qo"]
 radius = 0.01

@@ -2,20 +2,20 @@
 
 [ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/enemy_pug.tscn" id="1_5e3fs"]
 [ext_resource type="Script" path="res://Scripts/boss_pug.gd" id="2_dy8ol"]
-[ext_resource type="Texture2D" uid="uid://5tfn2k4jut0o" path="res://Sprites/boss icon.png" id="2_mg73a"]
-[ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Sprites/123spritesheet.png" id="3_cn3he"]
+[ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Art/Sprites/123spritesheet.png" id="3_bntrl"]
+[ext_resource type="Texture2D" uid="uid://5tfn2k4jut0o" path="res://Art/Sprites/boss icon.png" id="4_o2qjt"]
 [ext_resource type="PackedScene" uid="uid://pkl1jd6tt0bd" path="res://Scenes/UI/arrow.tscn" id="5_4murm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kgi2k"]
-atlas = ExtResource("3_cn3he")
+atlas = ExtResource("3_bntrl")
 region = Rect2(0, 96, 80, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_86y2u"]
-atlas = ExtResource("3_cn3he")
+atlas = ExtResource("3_bntrl")
 region = Rect2(80, 96, 80, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rty4a"]
-atlas = ExtResource("3_cn3he")
+atlas = ExtResource("3_bntrl")
 region = Rect2(160, 96, 80, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1n5n1"]
@@ -86,19 +86,19 @@ func _exit_tree():
 "
 
 [node name="Boss" instance=ExtResource("1_5e3fs")]
+collision_mask = 9
 script = ExtResource("2_dy8ol")
-speed = 20.0
 damage = 25.0
 
-[node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(0, -22.5)
-
-[node name="AnimatedSprite2D" parent="." index="1"]
+[node name="AnimatedSprite2D" parent="." index="0"]
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_1n5n1")
 frame = 2
 frame_progress = 0.00870445
 offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -22.5)
 
 [node name="Hitbox" parent="." index="2"]
 visible = false
@@ -119,9 +119,8 @@ shape = SubResource("CircleShape2D_hhmv6")
 [node name="Hurtbox" parent="." index="3"]
 visible = false
 position = Vector2(0, -20)
-health = 600
+health = 1
 rotate_on_hit = false
-death_explosion = null
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2(-1.5, 1.5)
@@ -145,7 +144,7 @@ scale = Vector2(3.03125, 1.4375)
 
 [node name="MinimapIcon" parent="." index="5"]
 script = SubResource("GDScript_yvhgh")
-sprite = ExtResource("2_mg73a")
+sprite = ExtResource("4_o2qjt")
 
 [node name="Arrow" parent="." index="6" instance=ExtResource("5_4murm")]
 visible = false

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cs6hooyfohhr4"]
 
 [ext_resource type="Script" path="res://Scripts/Upgrades/double_barreled_upgrade.gd" id="1_kyusw"]
-[ext_resource type="Texture2D" uid="uid://7ppsa5tfac3k" path="res://Sprites/upgrade icon icon.png" id="2_lgh8j"]
+[ext_resource type="Texture2D" uid="uid://7ppsa5tfac3k" path="res://Art/Sprites/upgrade icon icon.png" id="2_lgh8j"]
 
 [node name="DoubleBarreledUpgrade" type="Node2D" groups=["upgrade"]]
 script = ExtResource("1_kyusw")

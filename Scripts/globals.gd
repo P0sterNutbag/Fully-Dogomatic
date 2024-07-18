@@ -17,6 +17,7 @@ var holding_gun_part: bool = false
 var settings_open: bool = false
 var explode_chance: float = 0
 var globals
+var gun_amount
 var barrier_left: Vector2
 var barrier_right: Vector2
 var camera: Camera2D
@@ -26,14 +27,16 @@ enum rarity_levels {common, uncommon, rare, super_rare, ultra_rare, giga_rare }
 
 func _ready():
 	globals = self
+	gun_amount = 0
 
 
-func create_instance(scene: PackedScene, position: Vector2 = Vector2.ZERO, parent: Node2D = get_tree().current_scene):
+func create_instance(scene: PackedScene, position: Vector2 = Vector2.ZERO, parent: Node = get_tree().current_scene):
 	if (scene != null):
 		var instance = scene.instantiate()
-		parent.add_child.call_deferred(instance)
-		#if instance is Node2D:
-		instance.global_position = position
+		if parent != null:
+			parent.add_child.call_deferred(instance)
+		if instance is Node2D or instance is Control:
+			instance.global_position = position
 		return instance
 	return null
 
@@ -105,3 +108,11 @@ func get_gun_price(gun) -> float:
 		rarity_levels.giga_rare:
 			price = 50 + randf_range(-3, 3)
 	return price
+
+
+func time_to_minutes_secs_mili(time : float):
+	var mins = int(time) / 60
+	time -= mins * 60
+	var secs = int(time)
+	var mili = int((time - int(time)) * 100)
+	return str("%0*d" % [2, mins]) + ":" + str("%0*d" % [2, secs]) + ":" + str("%0*d" % [2, mili]) 

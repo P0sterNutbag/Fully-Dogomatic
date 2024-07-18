@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dpwo44pw6jd44"]
 
 [ext_resource type="Script" path="res://Scripts/gun.gd" id="1_b1qlo"]
-[ext_resource type="Texture2D" uid="uid://bm8fboif1sean" path="res://Sprites/icon pistol.png" id="2_skxsq"]
-[ext_resource type="Texture2D" uid="uid://l0xncvn3i5id" path="res://Sprites/muzzleflash.png" id="3_uoh4s"]
+[ext_resource type="Texture2D" uid="uid://bm8fboif1sean" path="res://Art/Sprites/icon pistol.png" id="2_skxsq"]
+[ext_resource type="Texture2D" uid="uid://l0xncvn3i5id" path="res://Art/Sprites/muzzleflash.png" id="3_uoh4s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dyahl"]
 size = Vector2(16, 9.99992)

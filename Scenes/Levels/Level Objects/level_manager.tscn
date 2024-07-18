@@ -1,11 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://dfbi0qqmatkp8"]
+[gd_scene load_steps=13 format=3 uid="uid://dfbi0qqmatkp8"]
 
 [ext_resource type="Script" path="res://Scripts/level_manager.gd" id="1_yyqyc"]
 [ext_resource type="PackedScene" uid="uid://bpis8skquuip5" path="res://Scenes/Levels/Level Objects/crate_guns.tscn" id="2_tmwx5"]
 [ext_resource type="Script" path="res://Scripts/spawn_chance.gd" id="3_rjgml"]
 [ext_resource type="PackedScene" uid="uid://byrlfy20m4t48" path="res://Scenes/Levels/Level Objects/enemy_spawner_pipe.tscn" id="4_hkvnw"]
-[ext_resource type="PackedScene" uid="uid://cgnjjpiqlrm4h" path="res://Scenes/Levels/Level Objects/crate_dogtags.tscn" id="4_u4uav"]
-[ext_resource type="PackedScene" uid="uid://denvo6te6kugu" path="res://Scenes/Levels/Level Objects/crate_parts.tscn" id="5_3afwl"]
 [ext_resource type="PackedScene" uid="uid://c0wfnsgdnyqg6" path="res://Scenes/Levels/Level Objects/shop.tscn" id="5_hg2rl"]
 [ext_resource type="PackedScene" uid="uid://uyytn6e1bjq2" path="res://Scenes/Levels/Level Objects/health_pickup.tscn" id="6_k806g"]
 [ext_resource type="PackedScene" uid="uid://cgoaorkqow0r0" path="res://Scenes/Levels/Level Objects/enemy_group.tscn" id="6_wginf"]
@@ -14,16 +12,6 @@
 script = ExtResource("3_rjgml")
 object_to_spawn = ExtResource("2_tmwx5")
 spawn_chance = 100.0
-
-[sub_resource type="Resource" id="Resource_g1y3u"]
-script = ExtResource("3_rjgml")
-object_to_spawn = ExtResource("5_3afwl")
-spawn_chance = 30.0
-
-[sub_resource type="Resource" id="Resource_iyqdb"]
-script = ExtResource("3_rjgml")
-object_to_spawn = ExtResource("4_u4uav")
-spawn_chance = 20.0
 
 [sub_resource type="Resource" id="Resource_x5bh0"]
 script = ExtResource("3_rjgml")
@@ -47,11 +35,11 @@ spawn_chance = 25.0
 
 [node name="LevelManager" type="Node"]
 script = ExtResource("1_yyqyc")
-player_objects_to_spawn = [SubResource("Resource_yw2cs"), SubResource("Resource_g1y3u"), SubResource("Resource_iyqdb"), SubResource("Resource_x5bh0"), SubResource("Resource_1rp1t")]
+player_objects_to_spawn = [SubResource("Resource_yw2cs"), SubResource("Resource_x5bh0"), SubResource("Resource_1rp1t")]
 enemy_objects_to_spawn = [SubResource("Resource_maev6"), SubResource("Resource_1odi6")]
 
 [node name="Spawn" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 45.0
 autostart = true
 
 [connection signal="timeout" from="Spawn" to="." method="_on_spawn_timeout"]

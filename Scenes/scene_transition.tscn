@@ -1,0 +1,116 @@
+[gd_scene load_steps=8 format=3 uid="uid://cp1qxxdw5a1k7"]
+
+[ext_resource type="Script" path="res://Scenes/scene_transition.gd" id="1_4gfay"]
+[ext_resource type="Shader" path="res://Art/Shaders/scene_transition.gdshader" id="1_hhfca"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r2pia"]
+shader = ExtResource("1_hhfca")
+shader_parameter/circle_size = 1.05
+shader_parameter/screen_width = 640.0
+shader_parameter/screen_height = 640.0
+
+[sub_resource type="Animation" id="Animation_ky2tg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.05]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_y4ikb"]
+resource_name = "transition_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.05]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_hvg25"]
+resource_name = "transition_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/circle_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.05, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f6okw"]
+_data = {
+"RESET": SubResource("Animation_ky2tg"),
+"transition_in": SubResource("Animation_hvg25"),
+"transition_out": SubResource("Animation_y4ikb")
+}
+
+[node name="CircleTransition" type="ColorRect"]
+process_mode = 3
+z_index = 950
+material = SubResource("ShaderMaterial_r2pia")
+offset_top = -142.0
+offset_right = 100.0
+offset_bottom = -42.0
+scale = Vector2(6.3798, 6.3798)
+color = Color(0.0980392, 0.105882, 0.223529, 1)
+script = ExtResource("1_4gfay")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f6okw")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bpyc72ajp6yfb"]
+
+[ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="1_c6y6x"]
+[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="2_i0ot1"]
+
+[resource]
+shader = ExtResource("1_c6y6x")
+shader_parameter/skip_first_row = true
+shader_parameter/use_palette_alpha = false
+shader_parameter/is_texture = false
+shader_parameter/fps = 6.0
+shader_parameter/color_threshold = 0.1
+shader_parameter/palette = ExtResource("2_i0ot1")

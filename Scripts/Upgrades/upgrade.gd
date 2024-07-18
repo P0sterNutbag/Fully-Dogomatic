@@ -2,7 +2,6 @@ extends Area2D
 
 var upgrade: PackedScene
 var move_towards_gun: bool = false
-var new_gun_material = preload("res://Shaders/outline.tres")
 var nearest_guns: Array[Area2D]
 var gun_to_upgrade: Node2D
 var time : float = 0

@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://dp3cnqudhlj6w"]
 
-[ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Sprites/gun parts spritesheet.png" id="1_x0tqv"]
+[ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Art/Sprites/gun parts spritesheet.png" id="1_x0tqv"]
 [ext_resource type="Script" path="res://Scripts/gun_part_barrel.gd" id="2_3dp0u"]
-[ext_resource type="Texture2D" uid="uid://l0xncvn3i5id" path="res://Sprites/muzzleflash.png" id="3_1dr72"]
+[ext_resource type="Texture2D" uid="uid://l0xncvn3i5id" path="res://Art/Sprites/muzzleflash.png" id="3_1dr72"]
 [ext_resource type="PackedScene" uid="uid://b13t1jj4vg1sr" path="res://Scenes/Bullets/5.56mm_bullet.tscn" id="3_bdv23"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_kdsm8"]
 

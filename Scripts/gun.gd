@@ -38,9 +38,10 @@ var explode_chance: float = 0
 var locked: bool = false
 var is_mouse_entered: bool = false
 var aim_dir: Vector2
-var muzzleflash_textures = [preload("res://Sprites/muzzleflash.png"), 
-preload("res://Sprites/muzzleflash2.png"),
-preload("res://Sprites/muzzleflash3.png")]
+var can_delete: bool = false
+var muzzleflash_textures = [preload("res://Art/Sprites/muzzleflash.png"), 
+preload("res://Art/Sprites/muzzleflash2.png"),
+preload("res://Art/Sprites/muzzleflash3.png")]
 
 @onready var sprite = $GunFrame
 var firepoint
@@ -51,6 +52,7 @@ var gun_name = preload("res://Scenes/Guns/gun_name.tscn")
 var status_effect = preload("res://Scenes/Particles/gun_status.tscn")
 var gun_name_instance: Node2D
 var bullet_damage
+signal gun_deleted
 
 
 func _ready():
@@ -93,6 +95,10 @@ func _process(delta):
 		elif muzzle_flash.visible:
 			muzzle_flash.visible = false
 	if Input.is_action_just_pressed("select"):
+		if can_delete and is_mouse_entered:
+			gun_deleted.emit()
+			Globals.player.guns.erase(self)
+			queue_free()
 		if get_tree().paused and !Globals.holding_gun_part and !Globals.settings_open and !locked:
 			#if not follow_mouse:
 				#pass
@@ -203,6 +209,7 @@ func attach_to_target(target: Node2D):
 	Globals.world_controller.add_to_gun_list(get_meta("Title"))
 	get_parent().remove_child(self)
 	Globals.player.get_node("Guns").add_child(self)
+	Globals.ui.set_gun_amount()
 
 
 func spin_gun():
@@ -214,11 +221,12 @@ func spin_gun():
 
 func _on_mouse_entered():
 	is_mouse_entered = true
-	if get_tree().paused:
-		Globals.activate_gunstats(self)
+	#if get_tree().paused:
+		#Globals.activate_gunstats(self)
 
 
 func _on_mouse_exited():
 	is_mouse_entered = false
-	if get_tree().paused:
-		Globals.deactivate_gunstats()
+	#if get_tree().paused:
+		#Globals.deactivate_gunstats()
+

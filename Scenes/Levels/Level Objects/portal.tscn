@@ -1,9 +1,9 @@
 [gd_scene load_steps=36 format=3 uid="uid://de2ipen8ms1gh"]
 
 [ext_resource type="Script" path="res://Scripts/portal.gd" id="1_lcq2c"]
-[ext_resource type="Texture2D" uid="uid://jol84pv6lugk" path="res://Sprites/elevator-Sheet.png" id="2_27x1q"]
+[ext_resource type="Texture2D" uid="uid://jol84pv6lugk" path="res://Art/Sprites/elevator-Sheet.png" id="2_27x1q"]
 [ext_resource type="PackedScene" uid="uid://84xxip1wf4vx" path="res://Scenes/UI/minimap_icon.tscn" id="2_ph1ag"]
-[ext_resource type="Texture2D" uid="uid://dwl867rstasa5" path="res://Sprites/portal icon.png" id="3_foaex"]
+[ext_resource type="Texture2D" uid="uid://dwl867rstasa5" path="res://Art/Sprites/portal icon.png" id="3_foaex"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vtdpi"]
 size = Vector2(10, 3.86)

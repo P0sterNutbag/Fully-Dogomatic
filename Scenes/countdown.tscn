@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://d1yo75f23rful"]
 
 [ext_resource type="Script" path="res://Scripts/countdown.gd" id="1_v1kvn"]
-[ext_resource type="Shader" path="res://Shaders/colorswap.gdshader" id="1_yg8qs"]
-[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Sprites/Blue Sky 8x8.ttf" id="2_1esph"]
-[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Sprites/palette blue orange.png" id="2_1n64f"]
-[ext_resource type="Theme" uid="uid://dpv7tir788p5t" path="res://Sprites/Themes/ui text small.tres" id="4_42ppf"]
+[ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="1_yg8qs"]
+[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="2_1esph"]
+[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="2_1n64f"]
+[ext_resource type="Theme" uid="uid://dpv7tir788p5t" path="res://Art/Themes/ui text small.tres" id="4_42ppf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bqtag"]
 shader = ExtResource("1_yg8qs")

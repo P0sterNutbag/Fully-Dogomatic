@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b0qu8ao5cr1ab"]
 
-[ext_resource type="FontFile" uid="uid://blveai4y2nwq5" path="res://Sprites/Fonts/Pikzel-Regular.ttf" id="1_6dqap"]
+[ext_resource type="FontFile" uid="uid://blveai4y2nwq5" path="res://Art/Fonts/Pikzel-Regular.ttf" id="1_6dqap"]
 [ext_resource type="Script" path="res://Scripts/wobble_text.gd" id="2_sh74i"]
 
 [node name="GunName" type="Node2D"]

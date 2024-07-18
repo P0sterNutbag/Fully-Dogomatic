@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dxrkfmmb81a4m"]
 
 [ext_resource type="PackedScene" uid="uid://bduar6b4yec01" path="res://Scenes/Guns/gun_frame.tscn" id="1_86tw2"]
-[ext_resource type="Texture2D" uid="uid://dcpmheruqmgdh" path="res://Sprites/dog arm.png" id="2_lla7a"]
+[ext_resource type="Texture2D" uid="uid://dcpmheruqmgdh" path="res://Art/Sprites/dog arm.png" id="2_lla7a"]
 
 [node name="GunFusion" type="CanvasLayer"]
 

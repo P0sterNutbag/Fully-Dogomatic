@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://4s88ewwe3fxv"]
 
-[ext_resource type="Texture2D" uid="uid://54kbcdl8r4r4" path="res://Sprites/exp1.png" id="1_kp65r"]
+[ext_resource type="Texture2D" uid="uid://54kbcdl8r4r4" path="res://Art/Sprites/exp1.png" id="1_kp65r"]
 [ext_resource type="Script" path="res://Scripts/play_animation_then_die.gd" id="2_6fsv8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tcxu0"]

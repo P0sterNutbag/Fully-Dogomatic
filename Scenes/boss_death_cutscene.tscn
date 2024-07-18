@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b3t126f584fc"]
+[gd_scene load_steps=9 format=3 uid="uid://b3t126f584fc"]
 
 [ext_resource type="Script" path="res://Scenes/cutscene.gd" id="1_6onur"]
 [ext_resource type="Script" path="res://Scripts/cutscene_step.gd" id="2_cec6w"]
@@ -28,7 +28,13 @@ script = ExtResource("2_cec6w")
 function = "reset_camera"
 wait_time = 0.0
 
+[sub_resource type="Resource" id="Resource_q3l8g"]
+script = ExtResource("2_cec6w")
+function = "scene_transition"
+wait_time = 0.0
+
 [node name="Cutscene" type="Node"]
 process_mode = 3
 script = ExtResource("1_6onur")
-steps = Array[ExtResource("2_cec6w")]([SubResource("Resource_l4yjy"), SubResource("Resource_l2lwq"), SubResource("Resource_emj6d"), SubResource("Resource_2q3jg"), SubResource("Resource_7yi8f")])
+steps = Array[ExtResource("2_cec6w")]([SubResource("Resource_l4yjy"), SubResource("Resource_l2lwq"), SubResource("Resource_emj6d"), SubResource("Resource_2q3jg"), SubResource("Resource_7yi8f"), SubResource("Resource_q3l8g")])
+kill_enemies = true

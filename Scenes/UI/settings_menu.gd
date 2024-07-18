@@ -84,8 +84,12 @@ func mute():
 
 
 func to_menu():
+	if get_tree().current_scene.name == "World":
+		Globals.world_controller.start_scene_transition("res://Scenes/Levels/main_menu.tscn")
+	if get_tree().current_scene.name == "MainMenu":
+		get_tree().current_scene.start_scene_transition("res://Scenes/Levels/main_menu.tscn")
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Scenes/Levels/main_menu.tscn")
+	#get_tree().change_scene_to_file("res://Scenes/Levels/main_menu.tscn")
 
 
 func quit_game():

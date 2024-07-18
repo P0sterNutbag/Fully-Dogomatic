@@ -1,7 +1,4 @@
-res://Scenes/shadow.tscn
-res://Sprites/Themes/ui text mid.tres
-res://Shaders/flash.gdshader
-res://Shaders/flash.tres
+res://Scenes/Levels/world.tscn
 res://Shaders/colorswap.gdshader
 res://Shaders/colorswap.tres
 res://Scripts/gun_part_barrel.gd
@@ -9,39 +6,43 @@ res://Scripts/main_menu.gd
 res://Shaders/outline.gdshader
 res://Shaders/outline.tres
 res://Scripts/world_controller.gd
-res://Sprites/Themes/healthbar.tres
-res://Sprites/Themes/body.tres
+res://Art/Themes/ui text mid.tres
+res://Shaders/flash.gdshader
+res://Shaders/flash.tres
+res://Art/Themes/ui text mid mono.tres
+res://Art/Themes/healthbar.tres
+res://Art/Themes/ui text small mono.tres
 res://Shaders/grayscale.gdshader
 res://Shaders/drop_shadow.gdshader
 res://Shaders/replace_color.gdshader
-res://Scenes/Player/player.tscn
-res://Scenes/Enemies/enemy_pug.tscn
 res://Scenes/UI/ui.tscn
-res://Scenes/Gun Parts/pistol_barrel.tscn
-res://Scenes/Control/AudioManager.tscn
-res://Scenes/Levels/main_menu.tscn
-res://Scenes/Levels/world.tscn
-res://Scenes/UI/settings_menu.tscn
-res://Scenes/tennisball.tscn
-res://Scenes/UI/settings_option.tscn
-res://Scenes/menu_button.tscn
-res://Scenes/Levels/Level Objects/crate_guns.tscn
-res://Scenes/Levels/Level Objects/crate_dogtags.tscn
-res://Scenes/Levels/Level Objects/crate_parts.tscn
+res://Scenes/Upgrades/upgrade_menu.tscn
+res://Scenes/Guns/CompleteGuns/gun_22.tscn
+res://Scenes/Guns/CompleteGuns/gun_pistol.tscn
+res://Scenes/Enemies/enemy_pug.tscn
+res://Scenes/Enemies/boss_pug.tscn
+res://Scenes/boss_death_cutscene.tscn
 res://Scenes/Levels/Level Objects/level_manager.tscn
-res://Scenes/Gun Parts/double_b_barrel.tscn
-res://Scenes/Gun Parts/shotgun_barrel.tscn
 res://Scenes/enemy_spawner.tscn
 res://Scenes/enemy_spawner_controller.tscn
+res://Scenes/Levels/main_menu.tscn
+res://Scenes/Gun Parts/magnum_barrel.tscn
+res://Scenes/Levels/end.tscn
+res://Scenes/scene_transition.tscn
+res://Scenes/scene_transition.gd
+res://Scenes/scene_transition.gdshader
+res://Art/Shaders/outline.gdshader
+res://Art/Shaders/flash.gdshader
+res://Art/Shaders/grayscale.gdshader
+res://Art/Shaders/colorswap.gdshader
+res://Art/Shaders/drop_shadow.gdshader
+res://Art/Shaders/replace_color.gdshader
+res://Art/Shaders/scene_transition.gdshader
 res://Scripts/player.gd
-res://Scripts/arrow.gd
-res://Scenes/UI/arrow.tscn
-res://Scripts/gun.gd
-res://Scenes/gunstats.tscn
-res://Sprites/Themes/ui text mini.tres
-res://Scripts/gunstats.gd
-res://Scenes/Gun Parts/smg_barrel.tscn
-res://Scenes/Gun Parts/sniper_barrel.tscn
-res://Sprites/Themes/ui text small.tres
-res://Sprites/Themes/header.tres
-res://Scripts/grenade.gd
+res://Scripts/enemy_health.gd
+res://Scripts/Upgrades/upgrade.gd
+res://Scenes/cutscene.gd
+res://Scripts/globals.gd
+res://Scripts/enemy.gd
+res://Scenes/UI/settings_menu.tscn
+res://Scenes/UI/settings_menu.gd

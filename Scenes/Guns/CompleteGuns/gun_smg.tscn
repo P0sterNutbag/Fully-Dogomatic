@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bw3w1cm787x4m"]
 
 [ext_resource type="PackedScene" uid="uid://b8qfbi2a3hocl" path="res://Scenes/Guns/gun_parent.tscn" id="1_giusw"]
-[ext_resource type="Texture2D" uid="uid://bwvobme5vv6us" path="res://Sprites/icon AR15.png" id="2_34m4u"]
+[ext_resource type="Texture2D" uid="uid://bwvobme5vv6us" path="res://Art/Sprites/icon AR15.png" id="2_34m4u"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_ewixt"]
 [ext_resource type="PackedScene" uid="uid://bduar6b4yec01" path="res://Scenes/Guns/gun_frame.tscn" id="4_jg44g"]
 [ext_resource type="PackedScene" uid="uid://dpn55yalpsj1t" path="res://Scenes/Gun Parts/smg_barrel.tscn" id="5_bqrle"]

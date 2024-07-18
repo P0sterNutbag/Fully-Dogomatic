@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dpwo44pw6jd44" path="res://Scenes/Guns/Old Guns/gun_parent_old.tscn" id="1_ibwal"]
 [ext_resource type="PackedScene" uid="uid://dfyv2v8qbh3ht" path="res://Scenes/Bullets/grenade.tscn" id="2_jhldd"]
-[ext_resource type="Texture2D" uid="uid://dg3sbdnu3668p" path="res://Sprites/icon grenade launcher.png" id="3_ms16t"]
+[ext_resource type="Texture2D" uid="uid://dg3sbdnu3668p" path="res://Art/Sprites/icon grenade launcher.png" id="3_ms16t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t6fva"]
 size = Vector2(25, 8)

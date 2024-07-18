@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://jj0kl38us43u"]
 
 [ext_resource type="PackedScene" uid="uid://dpwo44pw6jd44" path="res://Scenes/Guns/Old Guns/gun_parent_old.tscn" id="1_4844u"]
-[ext_resource type="Texture2D" uid="uid://diquaf2uu7u58" path="res://Sprites/icon_shotgun.png" id="2_hfnhk"]
+[ext_resource type="Texture2D" uid="uid://diquaf2uu7u58" path="res://Art/Sprites/icon_shotgun.png" id="2_hfnhk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kr7ka"]
 size = Vector2(26, 8)

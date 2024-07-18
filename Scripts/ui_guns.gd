@@ -2,7 +2,7 @@ extends Node2D
 
 @export var slot_texture: Texture
 @export var slot_texture_selected: Texture
-var upgrade_texture = preload("res://Sprites/upgrade mark.png")
+var upgrade_texture = preload("res://Art/Sprites/upgrade mark.png")
 var gun_slots: int
 var selected_index = -1
 

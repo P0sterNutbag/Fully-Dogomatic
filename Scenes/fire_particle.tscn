@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ikpd1j56u7ro"]
 
-[ext_resource type="Texture2D" uid="uid://dnbdd68p3cova" path="res://Sprites/fire.png" id="1_7k6p2"]
+[ext_resource type="Texture2D" uid="uid://dnbdd68p3cova" path="res://Art/Sprites/fire.png" id="1_7k6p2"]
 [ext_resource type="Script" path="res://Scripts/fire_particle.gd" id="2_puxqt"]
 
 [sub_resource type="Curve" id="Curve_kocik"]

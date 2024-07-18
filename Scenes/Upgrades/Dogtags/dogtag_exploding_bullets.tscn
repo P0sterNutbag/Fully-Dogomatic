@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://cn50oxjbu2kvn"]
 
-[ext_resource type="Shader" path="res://Shaders/colorswap.gdshader" id="1_jw45l"]
-[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Sprites/palette blue orange.png" id="2_1p1ib"]
+[ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="1_jw45l"]
+[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="2_1p1ib"]
 [ext_resource type="Script" path="res://Scripts/Upgrades/dogtag.gd" id="3_gh0yw"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="4_5iasq"]
-[ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Sprites/123spritesheet.png" id="5_7eibt"]
+[ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Art/Sprites/123spritesheet.png" id="5_7eibt"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/JuicyMovement.tscn" id="6_gvav4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k0t5h"]

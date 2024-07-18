@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://c24dn08nqwq6f"]
 
 [ext_resource type="Script" path="res://Scripts/Upgrades/upgrade_menu_old.gd" id="1_0r7ok"]
-[ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Shaders/colorswap.tres" id="2_rhfa4"]
-[ext_resource type="Texture2D" uid="uid://bdqrclvbfymsr" path="res://Sprites/phone.png" id="3_6vkv6"]
-[ext_resource type="Texture2D" uid="uid://dcpmheruqmgdh" path="res://Sprites/dog arm.png" id="4_pwdi6"]
-[ext_resource type="FontFile" uid="uid://blveai4y2nwq5" path="res://Sprites/Fonts/Pikzel-Regular.ttf" id="5_ap6xd"]
-[ext_resource type="Texture2D" uid="uid://de312nfiun02b" path="res://Sprites/arrows.png" id="6_o4rml"]
+[ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="2_rhfa4"]
+[ext_resource type="Texture2D" uid="uid://bdqrclvbfymsr" path="res://Art/Sprites/phone.png" id="3_6vkv6"]
+[ext_resource type="Texture2D" uid="uid://dcpmheruqmgdh" path="res://Art/Sprites/dog arm.png" id="4_pwdi6"]
+[ext_resource type="FontFile" uid="uid://blveai4y2nwq5" path="res://Art/Fonts/Pikzel-Regular.ttf" id="5_ap6xd"]
+[ext_resource type="Texture2D" uid="uid://de312nfiun02b" path="res://Art/Sprites/arrows.png" id="6_o4rml"]
 [ext_resource type="PackedScene" uid="uid://diu6fl025qdv0" path="res://Scenes/Upgrades/upgrade_option.tscn" id="7_87xwt"]
 
 [node name="UpgradeMenu" type="CanvasLayer" node_paths=PackedStringArray("options")]

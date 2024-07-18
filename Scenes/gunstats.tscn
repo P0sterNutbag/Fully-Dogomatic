@@ -1,12 +1,12 @@
 [gd_scene load_steps=13 format=3 uid="uid://ddr81bx8gf1xo"]
 
-[ext_resource type="Shader" path="res://Shaders/colorswap.gdshader" id="1_6kmch"]
-[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Sprites/palette blue orange.png" id="2_p45ef"]
-[ext_resource type="Texture2D" uid="uid://c6tfpjjve52aj" path="res://Sprites/black texture.png" id="2_s54q5"]
+[ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="1_6kmch"]
+[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="2_p45ef"]
+[ext_resource type="Texture2D" uid="uid://c6tfpjjve52aj" path="res://Art/Sprites/black texture.png" id="2_s54q5"]
 [ext_resource type="Script" path="res://Scripts/gunstats.gd" id="3_uiu6x"]
-[ext_resource type="Texture2D" uid="uid://2u72jmj4wnsn" path="res://Sprites/red texture.png" id="5_orq30"]
-[ext_resource type="Theme" uid="uid://dpv7tir788p5t" path="res://Sprites/Themes/ui text small.tres" id="6_rw5lj"]
-[ext_resource type="Theme" uid="uid://bduyde5euld1r" path="res://Sprites/Themes/ui text mini no outline.tres" id="7_0dq1m"]
+[ext_resource type="Texture2D" uid="uid://2u72jmj4wnsn" path="res://Art/Sprites/red texture.png" id="5_orq30"]
+[ext_resource type="Theme" uid="uid://dpv7tir788p5t" path="res://Art/Themes/ui text small.tres" id="6_rw5lj"]
+[ext_resource type="Theme" uid="uid://bduyde5euld1r" path="res://Art/Themes/ui text mini no outline.tres" id="7_0dq1m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yb8w6"]
 shader = ExtResource("1_6kmch")
@@ -143,10 +143,11 @@ layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 theme = ExtResource("7_0dq1m")
-text = "Mag Size"
+text = "Mag Size:"
 fit_content = true
 
 [node name="ProgressBar" type="ProgressBar" parent="PanelContainer/MarginContainer/VBoxContainer/MagSize"]
+visible = false
 use_parent_material = true
 layout_mode = 0
 offset_left = 39.0
@@ -156,6 +157,17 @@ offset_bottom = 11.0
 mouse_filter = 2
 theme = SubResource("Theme_tbscq")
 show_percentage = false
+
+[node name="MagAmnt" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/MagSize"]
+use_parent_material = true
+clip_contents = false
+offset_left = 40.0
+offset_right = 58.0
+offset_bottom = 14.0
+size_flags_horizontal = 10
+theme = ExtResource("7_0dq1m")
+bbcode_enabled = true
+text = "0"
 
 [node name="BulletsPerShot" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
 use_parent_material = true
@@ -173,8 +185,8 @@ fit_content = true
 [node name="BPS" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/BulletsPerShot"]
 use_parent_material = true
 layout_mode = 2
-offset_left = 71.0
-offset_right = 75.0
+offset_left = 73.0
+offset_right = 77.0
 offset_bottom = 14.0
 size_flags_horizontal = 10
 theme = ExtResource("7_0dq1m")
@@ -194,8 +206,9 @@ fit_content = true
 [node name="RS" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ReloadSpeed"]
 use_parent_material = true
 clip_contents = false
-offset_left = 58.0
-offset_right = 92.0
+layout_mode = 0
+offset_left = 59.0
+offset_right = 93.0
 offset_bottom = 15.0
 size_flags_vertical = 3
 mouse_filter = 2

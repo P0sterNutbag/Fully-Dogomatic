@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_lbawt"]
 [ext_resource type="Script" path="res://Scripts/enemy_health.gd" id="3_8qh78"]
-[ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Sprites/123spritesheet.png" id="3_t8day"]
+[ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Art/Sprites/123spritesheet.png" id="3_t8day"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hr8qo"]
 radius = 0.01

@@ -1,39 +1,39 @@
 [gd_scene load_steps=13 format=3 uid="uid://cgqdiahb143ma"]
 
+[ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="1_llati"]
 [ext_resource type="Script" path="res://Scripts/upgrade_menu.gd" id="2_glf8i"]
-[ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Shaders/colorswap.tres" id="2_pfoac"]
 [ext_resource type="PackedScene" uid="uid://diu6fl025qdv0" path="res://Scenes/Upgrades/upgrade_option.tscn" id="3_hyjv8"]
-[ext_resource type="Shader" path="res://Shaders/colorswap.gdshader" id="4_mjp48"]
-[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Sprites/palette blue orange.png" id="5_svmbq"]
-[ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Sprites/Themes/ui text mid.tres" id="6_43abr"]
+[ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="4_6og2k"]
+[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="5_ao6a1"]
+[ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="6_0q51j"]
 [ext_resource type="Script" path="res://Scripts/FinishUpgrades.gd" id="7_3j5g3"]
-[ext_resource type="Texture2D" uid="uid://bgx8q6i8fgsha" path="res://Sprites/stopsign.png" id="9_75b2w"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/JuicyMovement.tscn" id="9_hgh8f"]
-[ext_resource type="Texture2D" uid="uid://dbbdi66uf2bh0" path="res://Sprites/checkmark.png" id="10_am1en"]
+[ext_resource type="Texture2D" uid="uid://bgx8q6i8fgsha" path="res://Art/Sprites/stopsign.png" id="9_lmgfa"]
+[ext_resource type="Texture2D" uid="uid://dbbdi66uf2bh0" path="res://Art/Sprites/checkmark.png" id="10_fytbm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xyvyb"]
-shader = ExtResource("4_mjp48")
+shader = ExtResource("4_6og2k")
 shader_parameter/skip_first_row = true
 shader_parameter/use_palette_alpha = false
 shader_parameter/is_texture = false
 shader_parameter/fps = 6.0
 shader_parameter/color_threshold = 0.1
-shader_parameter/palette = ExtResource("5_svmbq")
+shader_parameter/palette = ExtResource("5_ao6a1")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6s1wj"]
-shader = ExtResource("4_mjp48")
+shader = ExtResource("4_6og2k")
 shader_parameter/skip_first_row = true
 shader_parameter/use_palette_alpha = false
 shader_parameter/is_texture = false
 shader_parameter/fps = 6.0
 shader_parameter/color_threshold = 0.1
-shader_parameter/palette = ExtResource("5_svmbq")
+shader_parameter/palette = ExtResource("5_ao6a1")
 
 [node name="UpgradeMenuGui" type="CanvasLayer"]
 
 [node name="UpgradeMenu" type="Control" parent="." node_paths=PackedStringArray("options")]
 process_mode = 3
-material = ExtResource("2_pfoac")
+material = ExtResource("1_llati")
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("2_glf8i")
@@ -68,7 +68,7 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(320, 34)
 mouse_filter = 2
-theme = ExtResource("6_43abr")
+theme = ExtResource("6_0q51j")
 bbcode_enabled = true
 text = "[center]POSITION YOUR GUN!"
 
@@ -88,18 +88,46 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -88.0
+offset_top = -93.0
 offset_right = 641.0
-offset_bottom = -20.0
+offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(320, 34)
 mouse_filter = 2
-theme = ExtResource("6_43abr")
+theme = ExtResource("6_0q51j")
 bbcode_enabled = true
 text = "[center]CHOOSE A GUN!"
 
 [node name="JuicyMovement" parent="UpgradeMenu/ChooseGuns" node_paths=PackedStringArray("target_control") instance=ExtResource("9_hgh8f")]
+target_control = NodePath("..")
+bob_frequency = 4.0
+bob_amplitude = 10.0
+rot_frequency = 2.0
+rot_amplitude = -5.0
+
+[node name="RemoveGun" type="RichTextLabel" parent="UpgradeMenu"]
+material = SubResource("ShaderMaterial_6s1wj")
+clip_contents = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 72.945
+offset_top = -109.0
+offset_right = 567.915
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(320, 34)
+mouse_filter = 2
+theme = ExtResource("6_0q51j")
+bbcode_enabled = true
+text = "[center]GUN CAP REACHED. DELETE A GUN TO CONTINUE!"
+
+[node name="JuicyMovement" parent="UpgradeMenu/RemoveGun" node_paths=PackedStringArray("target_control") instance=ExtResource("9_hgh8f")]
 target_control = NodePath("..")
 bob_frequency = 4.0
 bob_amplitude = 10.0
@@ -130,7 +158,7 @@ offset_top = 15.0
 offset_right = 125.0
 offset_bottom = 37.0
 mouse_filter = 2
-theme = ExtResource("6_43abr")
+theme = ExtResource("6_0q51j")
 theme_override_colors/default_color = Color(1, 0, 0, 1)
 bbcode_enabled = true
 text = "[center]CANCEL?"
@@ -145,7 +173,7 @@ bob_amplitude = 5.0
 [node name="Sprite2D" type="Sprite2D" parent="UpgradeMenu/CancelButton"]
 use_parent_material = true
 position = Vector2(30, 32)
-texture = ExtResource("9_75b2w")
+texture = ExtResource("9_lmgfa")
 
 [node name="ReadyButton" type="TextureRect" parent="UpgradeMenu"]
 use_parent_material = true
@@ -171,7 +199,7 @@ offset_top = 15.0
 offset_right = 125.0
 offset_bottom = 37.0
 mouse_filter = 2
-theme = ExtResource("6_43abr")
+theme = ExtResource("6_0q51j")
 theme_override_colors/default_color = Color(1, 0, 0, 1)
 bbcode_enabled = true
 text = "[center]READY?"
@@ -186,7 +214,7 @@ bob_amplitude = 5.0
 [node name="Sprite2D" type="Sprite2D" parent="UpgradeMenu/ReadyButton"]
 use_parent_material = true
 position = Vector2(32, 30)
-texture = ExtResource("10_am1en")
+texture = ExtResource("10_fytbm")
 
 [connection signal="gui_input" from="UpgradeMenu/CancelButton" to="UpgradeMenu/CancelButton" method="_on_gui_input"]
 [connection signal="mouse_entered" from="UpgradeMenu/CancelButton" to="UpgradeMenu/CancelButton" method="_on_mouse_entered"]
