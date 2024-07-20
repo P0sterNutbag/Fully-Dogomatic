@@ -213,7 +213,7 @@ func attach_to_target(target: Node2D):
 
 
 func spin_gun():
-	var reload_tween = get_tree().create_tween().set_trans(Tween.TRANS_ELASTIC)
+	var reload_tween = create_tween().set_trans(Tween.TRANS_ELASTIC)
 	reload_tween.set_ease(Tween.EASE_IN_OUT)
 	reload_tween.tween_property(self, "rotation_degrees", rotation_degrees, $ReloadTimer.wait_time-0.75)
 	reload_tween.tween_property(self, "rotation_degrees", rotation_degrees+360, 0.75)

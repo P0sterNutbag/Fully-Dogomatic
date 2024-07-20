@@ -86,7 +86,6 @@ func _exit_tree():
 "
 
 [node name="Boss" instance=ExtResource("1_5e3fs")]
-collision_mask = 9
 script = ExtResource("2_dy8ol")
 damage = 25.0
 

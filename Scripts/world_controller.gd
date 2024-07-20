@@ -6,10 +6,10 @@ var frequency = 4
 var amplitude = 20
 var score = 0
 var high_score = 0
-var game_end = false
+var game_over: bool = false
 var particle_round = 1
 var upgrade_menu = preload("res://Scenes/Upgrades/upgrade_menu.tscn")
-@onready var circle_transition = $CanvasLayer/CircleTransition
+#@onready var circle_transition = $CanvasLayer/CircleTransition
 
 signal stop_spawning_enemies
 
@@ -18,8 +18,9 @@ func _ready():
 	Globals.world_controller = self
 	Globals.barrier_left = $BarrierLeft.position
 	Globals.barrier_right = $BarrierRight.position
-	circle_transition.visible = true
-	circle_transition.transition_out()
+	#circle_transition.visible = true
+	#circle_transition.transition_out()
+	$Player.player_died.connect(on_player_died)
 
 
 func _process(delta):
@@ -29,6 +30,8 @@ func _process(delta):
 		spawn_upgrade_menu("gunparts")
 	if Input.is_key_pressed(KEY_M):
 		spawn_upgrade_menu("dogtags")
+	if game_over and Input.is_key_pressed(KEY_R):
+		pass#start_scene_transition("res://Scenes/Levels/world.tscn")
 
 
 func reset_scene():
@@ -64,12 +67,5 @@ func spawn_upgrade_menu(type: String):
 	get_tree().get_root().add_child(instance)
 
 
-func start_scene_transition(scene_path: String):
-	circle_transition.transition_in()
-	circle_transition.transition_in_done.connect(Callable(self, "change_scene").bind(scene_path))
-
-
-func change_scene(scene_path: String):
-	await get_tree().create_timer(1).timeout
-	get_tree().change_scene_to_file(scene_path)
-
+func on_player_died():
+	game_over = true

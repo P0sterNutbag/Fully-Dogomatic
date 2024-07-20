@@ -8,7 +8,7 @@ var list_y_origin
 func _ready():
 	list.position.y += 16 * randi_range(0, 3)
 	list_y_origin = list.position.y
-	var slow_down = get_tree().create_tween()
+	var slow_down = create_tween()
 	slow_down.tween_property(self, "speed", 0, 1)
 
 

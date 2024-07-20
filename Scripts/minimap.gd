@@ -37,14 +37,14 @@ func add_to_map(texture: Texture2D, pos: Vector2, follow_obj: Node2D = null) -> 
 
 
 func close_map():
-	var tween = get_tree().create_tween().set_trans(Tween.TRANS_EXPO)
+	var tween = create_tween().set_trans(Tween.TRANS_EXPO)
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.tween_property(self, "scale", Vector2.ZERO, 0.3)
 
 
 func open_map():
-	var tween = get_tree().create_tween().set_trans(Tween.TRANS_EXPO)
+	var tween = create_tween().set_trans(Tween.TRANS_EXPO)
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "scale", Vector2.ONE, 0.3)
 

@@ -11,6 +11,7 @@ var game_time: float
 func _ready():
 	Globals.ui = self
 	$Drop.position.y -= 200
+	Globals.player.player_died.connect(on_player_died)
 
 
 func _process(delta):
@@ -68,3 +69,12 @@ func set_boss_hp(boss_name: String, progress: float):
 		$BossHp.visible = false
 
 
+func on_player_died():
+	$DeathStuff.visible = true
+
+
+func _on_color_rect_gui_input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		SceneManager.start_scene_transition("res://Scenes/Levels/world.tscn")
+		var tween = create_tween()
+		tween.tween_property($DeathStuff/Restart, "scale", Vector2.ZERO, 0.25)

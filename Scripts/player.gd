@@ -8,8 +8,8 @@ signal level_up(lvl: int)
 signal money_pickup
 signal gun_pickup(gun: Node2D)
 
-var max_hp = 100
 var hp = 100
+var max_hp = hp
 var in_enemy = false
 var enemies = []
 var point_at_crate = false
@@ -101,7 +101,7 @@ func take_damage(dmg):
 	if hp <= 0:
 		state = states.dead
 		player_died.emit()
-	if $FlashTimer.time_left <= 0:
+	elif $FlashTimer.time_left <= 0:
 		$FlashTimer.start()
 
 

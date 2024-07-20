@@ -1,48 +1,30 @@
 res://Scenes/Levels/world.tscn
-res://Shaders/colorswap.gdshader
-res://Shaders/colorswap.tres
+res://Scripts/Upgrades/upgrade.gd
 res://Scripts/gun_part_barrel.gd
+res://Art/Shaders/colorswap.gdshader
 res://Scripts/main_menu.gd
-res://Shaders/outline.gdshader
-res://Shaders/outline.tres
 res://Scripts/world_controller.gd
 res://Art/Themes/ui text mid.tres
-res://Shaders/flash.gdshader
-res://Shaders/flash.tres
+res://Art/Shaders/flash.gdshader
 res://Art/Themes/ui text mid mono.tres
 res://Art/Themes/healthbar.tres
 res://Art/Themes/ui text small mono.tres
-res://Shaders/grayscale.gdshader
-res://Shaders/drop_shadow.gdshader
-res://Shaders/replace_color.gdshader
-res://Scenes/UI/ui.tscn
-res://Scenes/Upgrades/upgrade_menu.tscn
-res://Scenes/Guns/CompleteGuns/gun_22.tscn
-res://Scenes/Guns/CompleteGuns/gun_pistol.tscn
-res://Scenes/Enemies/enemy_pug.tscn
-res://Scenes/Enemies/boss_pug.tscn
-res://Scenes/boss_death_cutscene.tscn
-res://Scenes/Levels/Level Objects/level_manager.tscn
-res://Scenes/enemy_spawner.tscn
-res://Scenes/enemy_spawner_controller.tscn
-res://Scenes/Levels/main_menu.tscn
-res://Scenes/Gun Parts/magnum_barrel.tscn
-res://Scenes/Levels/end.tscn
-res://Scenes/scene_transition.tscn
-res://Scenes/scene_transition.gd
-res://Scenes/scene_transition.gdshader
+res://Art/Shaders/scene_transition.gdshader
 res://Art/Shaders/outline.gdshader
-res://Art/Shaders/flash.gdshader
 res://Art/Shaders/grayscale.gdshader
-res://Art/Shaders/colorswap.gdshader
 res://Art/Shaders/drop_shadow.gdshader
 res://Art/Shaders/replace_color.gdshader
-res://Art/Shaders/scene_transition.gdshader
-res://Scripts/player.gd
-res://Scripts/enemy_health.gd
-res://Scripts/Upgrades/upgrade.gd
-res://Scenes/cutscene.gd
-res://Scripts/globals.gd
-res://Scripts/enemy.gd
+res://Scenes/UI/ui.tscn
 res://Scenes/UI/settings_menu.tscn
+res://Scenes/scene_transition.tscn
+res://Scenes/Enemies/enemy_pug.tscn
+res://Scenes/Enemies/boss_pug.tscn
+res://Scenes/Levels/Level Objects/level_manager.tscn
+res://Scripts/ui.gd
+res://Scenes/Particles/gun_status.gd
+res://Scenes/SceneManager.tscn
+res://Scenes/scene_manager.gd
+res://Scenes/Levels/main_menu.tscn
+res://Scenes/cutscene.gd
 res://Scenes/UI/settings_menu.gd
+res://Art/Shaders/colorswap.tres

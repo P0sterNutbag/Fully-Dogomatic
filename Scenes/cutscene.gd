@@ -47,7 +47,7 @@ func move_camera_on_boss():
 	get_parent().add_child(Globals.camera)
 	Globals.camera.global_position = cam_pos
 	var pos = get_parent().get_node("Boss").global_position
-	var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE)
+	var tween = create_tween().set_trans(Tween.TRANS_SINE)
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.tween_property(Globals.camera, "global_position", pos, 1)
 	tween.tween_callback(next_step)
@@ -87,7 +87,7 @@ func reset_camera():
 		Globals.player.add_child(Globals.camera)
 		Globals.camera.global_position = cam_pos
 		var pos = Globals.player.global_position
-		var tween = get_tree().create_tween().set_trans(Tween.TRANS_SINE)
+		var tween = create_tween().set_trans(Tween.TRANS_SINE)
 		tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 		tween.tween_property(Globals.camera, "position", Vector2.ZERO, 1)
 		tween.tween_callback(next_step)
@@ -96,4 +96,4 @@ func reset_camera():
 
 
 func scene_transition():
-	Globals.world_controller.start_scene_transition("res://Scenes/Levels/end.tscn")
+	SceneManager.start_scene_transition("res://Scenes/Levels/end.tscn")

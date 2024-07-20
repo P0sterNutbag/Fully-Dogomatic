@@ -19,11 +19,11 @@ func _process(delta):
 		if !visible:
 			scale = Vector2.ZERO
 			visible = true
-			var tween = get_tree().create_tween().set_trans(Tween.TRANS_BOUNCE)
+			var tween = create_tween().set_trans(Tween.TRANS_BOUNCE)
 			tween.set_ease(Tween.EASE_OUT)
 			tween.tween_property(self, "scale", original_scale, 0.4)
 	else:
-		var tween = get_tree().create_tween().set_trans(Tween.TRANS_BOUNCE)
+		var tween = create_tween().set_trans(Tween.TRANS_BOUNCE)
 		tween.set_ease(Tween.EASE_OUT)
 		tween.tween_property(self, "scale", Vector2.ZERO, 0.3)
 		tween.tween_property(self, "visible", false, 0)

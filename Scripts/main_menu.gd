@@ -47,17 +47,7 @@ func set_new_index(new_index: int):
 
 
 func play():
-	start_scene_transition("res://Scenes/Levels/world.tscn")
-
-
-func start_scene_transition(next_scene: String):
-	circle_transition.transition_in()
-	circle_transition.transition_in_done.connect(Callable(self, "change_scene").bind(next_scene))
-
-
-func change_scene(next_scene: String):
-	await get_tree().create_timer(1).timeout
-	get_tree().change_scene_to_file(next_scene)
+	SceneManager.start_scene_transition("res://Scenes/Levels/world.tscn")
 
 
 func open_steam_page():
