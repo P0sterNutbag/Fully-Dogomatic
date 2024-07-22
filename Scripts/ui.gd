@@ -4,6 +4,7 @@ var level_obj_sign = preload("res://Scenes/UI/level_object_sign.tscn")
 var level_signs: Array[String]
 var level_signs_affinity: Array[bool]
 var game_time: float
+var death_ui = preload("res://Scenes/UI/death_ui.tscn")
 @onready var drop_pos_origin = $Drop.position
 @onready var drop_timer = $Drop/DropTimer
 
@@ -70,11 +71,7 @@ func set_boss_hp(boss_name: String, progress: float):
 
 
 func on_player_died():
-	$DeathStuff.visible = true
+	var dui = death_ui.instantiate()
+	add_child(dui)
 
 
-func _on_color_rect_gui_input(event):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		SceneManager.start_scene_transition("res://Scenes/Levels/world.tscn")
-		var tween = create_tween()
-		tween.tween_property($DeathStuff/Restart, "scale", Vector2.ZERO, 0.25)

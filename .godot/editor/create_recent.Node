@@ -1,3 +1,4 @@
+ColorRect
 AnimationPlayer
 AnimationTree
 RichTextLabel
@@ -6,7 +7,6 @@ TextureRect
 Sprite2D
 Node2D
 CanvasLayer
-ColorRect
 Control
 Node
 CollisionShape2D

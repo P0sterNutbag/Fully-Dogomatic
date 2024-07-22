@@ -18,9 +18,9 @@ func start_scene_transition(scene: String) -> void:
 
 
 func change_scene() -> void:
-	#await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_packed(ResourceLoader.load_threaded_get(next_scene))
 	scene_transition.transition_out()
+	animation_player.play("popout")
 
 
 func start_load() -> void:
@@ -34,7 +34,6 @@ func _process(_delta):
 	match load_status:
 		ResourceLoader.THREAD_LOAD_LOADED:
 			change_scene()
-			animation_player.play("popout")
 			set_process(false)
 		ResourceLoader.THREAD_LOAD_FAILED:
 			print("THREAD_LOAD_FAILED")

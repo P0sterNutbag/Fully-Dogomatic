@@ -1,0 +1,104 @@
+[gd_scene load_steps=8 format=3 uid="uid://6f6jta7xigdb"]
+
+[ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="1_ryfvq"]
+[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="2_g54ct"]
+[ext_resource type="Script" path="res://Scenes/UI/death_ui.gd" id="3_5oja3"]
+[ext_resource type="Theme" uid="uid://d20y8va2yhr08" path="res://Art/Themes/ui text large.tres" id="3_oh63f"]
+[ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/JuicyMovement.tscn" id="4_4xe4a"]
+[ext_resource type="Theme" uid="uid://dpv7tir788p5t" path="res://Art/Themes/ui text small.tres" id="5_haudb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2xchs"]
+shader = ExtResource("1_ryfvq")
+shader_parameter/skip_first_row = true
+shader_parameter/use_palette_alpha = false
+shader_parameter/is_texture = false
+shader_parameter/fps = 6.0
+shader_parameter/color_threshold = 0.1
+shader_parameter/palette = ExtResource("2_g54ct")
+
+[node name="DeathUI" type="Control"]
+material = SubResource("ShaderMaterial_2xchs")
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+script = ExtResource("3_5oja3")
+
+[node name="YouDied" type="RichTextLabel" parent="."]
+use_parent_material = true
+clip_contents = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -93.5
+offset_top = 55.0
+offset_right = 93.5
+offset_bottom = 128.0
+grow_horizontal = 2
+pivot_offset = Vector2(93, 32.215)
+mouse_filter = 2
+theme = ExtResource("3_oh63f")
+bbcode_enabled = true
+text = "[center]YOU DIED"
+
+[node name="JuicyMovement" parent="YouDied" instance=ExtResource("4_4xe4a")]
+rot_frequency = 5.0
+rot_amplitude = 15.0
+
+[node name="Restart" type="RichTextLabel" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_top = 142.0
+offset_right = 65.0
+offset_bottom = 153.0
+grow_horizontal = 2
+pivot_offset = Vector2(64, 5)
+mouse_filter = 2
+theme = ExtResource("5_haudb")
+bbcode_enabled = true
+text = "[center]RESTART"
+
+[node name="ColorRect" type="ColorRect" parent="Restart"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = -3.0
+offset_right = 94.0
+offset_bottom = 12.0
+color = Color(1, 1, 1, 0)
+
+[node name="Quit" type="RichTextLabel" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -63.5
+offset_top = 158.0
+offset_right = 65.5
+offset_bottom = 169.0
+grow_horizontal = 2
+pivot_offset = Vector2(64, 5)
+mouse_filter = 2
+theme = ExtResource("5_haudb")
+bbcode_enabled = true
+text = "[center]QUIT"
+
+[node name="QuitRect" type="ColorRect" parent="Quit"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = -3.0
+offset_right = 84.0
+offset_bottom = 12.0
+color = Color(1, 1, 1, 0)
+
+[connection signal="gui_input" from="Restart/ColorRect" to="." method="_on_color_rect_gui_input"]
+[connection signal="gui_input" from="Quit/QuitRect" to="." method="_on_quit_rect_gui_input"]
