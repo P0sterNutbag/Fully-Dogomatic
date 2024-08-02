@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/gun_part_barrel.gd" id="2_fbf58"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_7saay"]
 [ext_resource type="Texture2D" uid="uid://l0xncvn3i5id" path="res://Art/Sprites/muzzleflash.png" id="3_fsb1u"]
-[ext_resource type="PackedScene" uid="uid://bc1lpfb433y57" path="res://Scenes/Bullets/12gauge_shell.tscn" id="3_mhe0w"]
+[ext_resource type="PackedScene" uid="uid://cwh38xq4aiaht" path="res://Scenes/Bullets/shotgun_shell4.tscn" id="3_ycc7s"]
 
 [sub_resource type="Resource" id="Resource_esapx"]
 script = ExtResource("3_7saay")
@@ -14,28 +14,29 @@ rarity = 1
 use_parent_material = true
 texture = ExtResource("1_o1o21")
 region_enabled = true
-region_rect = Rect2(16, 48, 32, 16)
+region_rect = Rect2(80, 144, 32, 16)
 script = ExtResource("2_fbf58")
-bullet_damage = 1.5
+bullet_damage = 1.0
 spread = 20.0
 knockback = 5.0
 distance_to_player = 35.0
-bullet = ExtResource("3_mhe0w")
+bullet = ExtResource("3_ycc7s")
+gunshot_sfx = "gunshot_shotgun"
 metadata/Title = "Barrel"
 metadata/Type = "Sawed Off Shotgun"
 metadata/Rarity = SubResource("Resource_esapx")
 
 [node name="StockSocket" type="Node2D" parent="."]
 use_parent_material = true
-position = Vector2(-12, -2)
+position = Vector2(-10, -2)
 
 [node name="GripSocket" type="Node2D" parent="."]
 use_parent_material = true
-position = Vector2(-14, 2)
+position = Vector2(-11, 2)
 
 [node name="SightSocket" type="Node2D" parent="."]
 use_parent_material = true
-position = Vector2(-8, -3)
+position = Vector2(-7, -2)
 
 [node name="MagazineSocket" type="Node2D" parent="."]
 use_parent_material = true
@@ -43,7 +44,7 @@ position = Vector2(-7, 2)
 
 [node name="Firepoint" type="Node2D" parent="."]
 use_parent_material = true
-position = Vector2(12, -1)
+position = Vector2(9, -1)
 
 [node name="MuzzleFlash" type="Sprite2D" parent="Firepoint"]
 visible = false

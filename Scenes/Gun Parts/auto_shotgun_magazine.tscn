@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bufgbjdj86ah1"]
+
+[ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Art/Sprites/gun parts spritesheet.png" id="1_qxxov"]
+[ext_resource type="Script" path="res://Scripts/gun_part_magazine.gd" id="2_jl44s"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_ksmhm"]
+
+[sub_resource type="Resource" id="Resource_t778x"]
+script = ExtResource("3_ksmhm")
+rarity = 2
+
+[node name="Magazine" type="Sprite2D"]
+use_parent_material = true
+texture = ExtResource("1_qxxov")
+offset = Vector2(2, 2)
+region_enabled = true
+region_rect = Rect2(64, 192, 16, 16)
+script = ExtResource("2_jl44s")
+reload_time = 2.0
+metadata/Title = "Magazine"
+metadata/Type = "M4 Rifle"
+metadata/Rarity = SubResource("Resource_t778x")

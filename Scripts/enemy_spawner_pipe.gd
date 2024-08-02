@@ -1,14 +1,17 @@
 extends Node2D
 
-var max_spawn_amount = 3
-var min_spawn_amount = 1
-var spawn_time_multiplier = 3
+var base_health = 10
+@onready var health_component = $Area2D
+@onready var spawn_timer = $SpawnTimer
+
+
+func _ready():
+	spawn_timer.wait_time = Globals.enemy_spawn_controller.get_node("SpawnEnemies").wait_time * 5
+	health_component.health = base_health + (Globals.enemy_spawn_controller.spawn_round * 3)
 
 
 func _on_spawn_timer_timeout():
-	var spawn_amount = randi_range(min_spawn_amount, max_spawn_amount)
-	spawn_enemies(load("res://Scenes/Enemies/enemy_pug.tscn"), spawn_amount, $SpawnPoint.global_position)
-	$SpawnTimer.wait_time = spawn_amount * spawn_time_multiplier
+	spawn_enemies(Globals.enemy_spawn_controller.get_enemy_to_spawn(), 1, $SpawnPoint.global_position)
 
 
 func spawn_enemies(enemy, spawn_amount: int, spawn_position: Vector2):
@@ -22,5 +25,3 @@ func spawn_enemies(enemy, spawn_amount: int, spawn_position: Vector2):
 
 func _exit_tree():
 	var pipes_left = get_tree().get_nodes_in_group("spawner").size()
-	#if pipes_left <= 1:
-		#get_tree().current_scene.get_node("LevelManager").spawn_portal()

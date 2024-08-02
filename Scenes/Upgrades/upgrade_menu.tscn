@@ -30,9 +30,9 @@ shader_parameter/color_threshold = 0.1
 shader_parameter/palette = ExtResource("5_ao6a1")
 
 [node name="UpgradeMenuGui" type="CanvasLayer"]
+process_mode = 3
 
 [node name="UpgradeMenu" type="Control" parent="." node_paths=PackedStringArray("options")]
-process_mode = 3
 material = ExtResource("1_llati")
 layout_mode = 3
 anchors_preset = 0

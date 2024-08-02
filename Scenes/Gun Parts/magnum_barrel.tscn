@@ -20,6 +20,7 @@ bullet_damage = 6.0
 spread = 7.5
 knockback = 7.0
 bullet = ExtResource("3_py412")
+gunshot_sfx = "gunshot_revolver"
 metadata/Title = "Barrel"
 metadata/Type = "Pistol"
 metadata/Rarity = SubResource("Resource_bo083")

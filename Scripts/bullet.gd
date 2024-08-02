@@ -14,6 +14,7 @@ var explode_chance: float = 0
 var homing: bool = false
 var target_enemy
 var hit_enemies: Array
+var can_damage: bool = true
 var damage_number = preload("res://Scenes/Particles/damage_number.tscn")
 var impact = preload("res://Scenes/Particles/impact.tscn")
 var spark = preload("res://Scenes/Particles/bullet_spark.tscn")
@@ -32,13 +33,17 @@ func _physics_process(delta):
 		var target_vector = (target_enemy.position - position).normalized() * speed
 		move_vector = lerp(move_vector, target_vector, 7.5 * delta)
 		rotation = move_vector.angle()
-	if global_position.distance_to(Globals.player.global_position) > 340:
+	var top_left_bound = Vector2(Globals.camera.get_screen_center_position().x - 240, Globals.camera.get_screen_center_position().y - 180)
+	var bottom_right_bound = Vector2(Globals.camera.get_screen_center_position().x + 240, Globals.camera.get_screen_center_position().y + 180)
+	if global_position.x < top_left_bound.x or global_position.x > bottom_right_bound.x or global_position.y < top_left_bound.y or global_position.y > bottom_right_bound.y:
 		queue_free()
+	#if global_position.distance_to(Globals.player.global_position) > 260:
+		#queue_free()
 
 
 func _on_area_entered(area):
-	if area.is_in_group("enemy"):
-		OS.delay_msec(10 / shot_count)
+	if area.is_in_group("enemy") and can_damage:
+		#OS.delay_msec(10 / shot_count)
 		area.take_damage(damage, rotation)
 		var inst = impact.instantiate()
 		get_tree().current_scene.add_child(inst)
@@ -60,6 +65,7 @@ func _on_area_entered(area):
 			call_deferred("create_explosion", area.global_position)
 		penetrations -= 1
 		if penetrations <= 0:
+			can_damage = false
 			queue_free()
 		elif homing:
 			hit_enemies.append(target_enemy)

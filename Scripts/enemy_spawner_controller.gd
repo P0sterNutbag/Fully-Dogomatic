@@ -24,14 +24,14 @@ func _on_spawn_enemies_timeout():
 
 func spawn_enemy(enemy_to_spawn: PackedScene = null, spawn_position: Vector2 = Vector2.ONE):
 	if get_tree().get_nodes_in_group("enemy").size() < 850:
-		$SpawnEnemies.wait_time = spawn_time[spawn_round]
+		$SpawnEnemies.wait_time = float(spawn_time[spawn_round])
 		var enemy = enemy_to_spawn
 		if enemy == null:
 			enemy = get_enemy_to_spawn()
 		var position = spawn_position
 		if position == Vector2.ONE:
-			var barrier_left = Globals.world_controller.get_node("BarrierLeft").global_position
-			var barrier_right = Globals.world_controller.get_node("BarrierRight").global_position
+			var barrier_left = Globals.world_controller.get_node("BarrierLeft").global_position - Vector2(25, 25)
+			var barrier_right = Globals.world_controller.get_node("BarrierRight").global_position + Vector2(25, 25)
 			match randi_range(0,3):
 				0: position = Vector2(randf_range(barrier_left.x,barrier_right.x), barrier_left.y)
 				1: position = Vector2(randf_range(barrier_left.x,barrier_right.x), barrier_right.y)
@@ -45,7 +45,7 @@ func get_enemy_to_spawn() -> PackedScene:
 
 
 func _on_spawn_round_timeout():
-	spawn_round += 1
+	spawn_round = clamp(spawn_round + 1, 0, spawn_rounds.size()-1)
 
 
 func _on_initial_spawn_timeout():

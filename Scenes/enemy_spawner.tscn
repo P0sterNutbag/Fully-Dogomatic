@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://d308f51ka0jho"]
+[gd_scene load_steps=2 format=3 uid="uid://cxf4rdlmhb7j8"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_spanwer.gd" id="1_ujocd"]
 

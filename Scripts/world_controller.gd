@@ -18,6 +18,7 @@ func _ready():
 	Globals.world_controller = self
 	Globals.barrier_left = $BarrierLeft.position
 	Globals.barrier_right = $BarrierRight.position
+	Globals.audio_manager.stage_music.play()
 	#circle_transition.visible = true
 	#circle_transition.transition_out()
 	$Player.player_died.connect(on_player_died)
@@ -40,6 +41,7 @@ func reset_scene():
 
 func _on_player_player_died():
 	pass
+
 
 func increase_score():
 	score += 1
@@ -64,7 +66,7 @@ func reset_score():
 func spawn_upgrade_menu(type: String):
 	var instance = upgrade_menu.instantiate()
 	instance.get_node("UpgradeMenu").upgrade_array = Globals.upgrade_manager.get(type)
-	get_tree().get_root().add_child(instance)
+	add_child(instance)
 
 
 func on_player_died():

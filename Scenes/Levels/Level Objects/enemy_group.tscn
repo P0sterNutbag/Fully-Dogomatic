@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cgoaorkqow0r0"]
 
-[ext_resource type="Script" path="res://Scenes/Levels/Level Objects/enemy_group.gd" id="1_psu50"]
+[ext_resource type="Script" path="res://Scripts/enemy_group.gd" id="1_psu50"]
 
 [node name="Enemy Reinforcements" type="Node2D"]
 script = ExtResource("1_psu50")

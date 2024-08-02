@@ -18,7 +18,7 @@ var money: float = 0
 var money_cap: float = 4
 var money_increase_rate = 1.4
 var guns: Array[Node2D]
-var gun_cap := 10
+var gun_cap := 20
 var dogtags: Array[Control]
 var gun_slots: int = 10
 var level: int = 1

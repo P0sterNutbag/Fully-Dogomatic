@@ -59,7 +59,7 @@ is_toggle = false
 toggle_value = false
 
 [node name="SettingsMenu" type="Control"]
-process_mode = 3
+process_mode = 2
 z_index = 500
 z_as_relative = false
 material = SubResource("ShaderMaterial_t5lii")
@@ -76,5 +76,8 @@ layout_mode = 0
 offset_left = 80.0
 offset_right = 560.0
 offset_bottom = 360.0
-mouse_filter = 2
 color = Color(0.101961, 0.101961, 0.101961, 1)
+
+[connection signal="gui_input" from="ColorRect" to="." method="_on_color_rect_gui_input"]
+[connection signal="mouse_entered" from="ColorRect" to="." method="_on_color_rect_mouse_entered"]
+[connection signal="mouse_exited" from="ColorRect" to="." method="_on_color_rect_mouse_exited"]

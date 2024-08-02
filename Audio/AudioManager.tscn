@@ -1,0 +1,62 @@
+[gd_scene load_steps=13 format=3 uid="uid://dio4jhhmyfnfk"]
+
+[ext_resource type="Script" path="res://Audio/audio_manager.gd" id="1_bc1sq"]
+[ext_resource type="AudioStream" uid="uid://dcyv4n1xwal27" path="res://Audio/SFX/chaching.mp3" id="2_njsjt"]
+[ext_resource type="AudioStream" uid="uid://bfkfkmptikkw" path="res://Audio/SFX/reload.mp3" id="3_cprti"]
+[ext_resource type="AudioStream" uid="uid://c5i52e0b2nr77" path="res://Audio/SFX/handgun_A_shTL_single_01.wav" id="4_julhn"]
+[ext_resource type="AudioStream" uid="uid://y8rivnhdnic5" path="res://Audio/SFX/shotgun_A_shTL_single_03.wav" id="5_gcodo"]
+[ext_resource type="AudioStream" uid="uid://b8vwhqu1qtnex" path="res://Audio/SFX/rifle_A_shTL_single_01.wav" id="6_yv6vl"]
+[ext_resource type="AudioStream" uid="uid://cdbipnhosknlo" path="res://Audio/SFX/submngun_A_shTL_single_03.wav" id="7_jqyjb"]
+[ext_resource type="AudioStream" uid="uid://64dgywnvyud3" path="res://Audio/SFX/revolver_B_shTL_single_06.wav" id="8_y1w1i"]
+[ext_resource type="AudioStream" uid="uid://vocaf6aowdyk" path="res://Audio/SFX/assault_A_shTL_single_04.wav" id="9_nqm8h"]
+[ext_resource type="AudioStream" uid="uid://m8vxicxyfjbi" path="res://Audio/SFX/explosion.mp3" id="10_xn4yj"]
+[ext_resource type="AudioStream" uid="uid://bcqv2c0rxis70" path="res://Audio/SFX/bark.mp3" id="11_ha5qg"]
+[ext_resource type="AudioStream" uid="uid://5luxvbitg2br" path="res://Audio/Music/Be Faste.wav" id="12_l7o4s"]
+
+[node name="AudioManager" type="Node"]
+process_mode = 3
+script = ExtResource("1_bc1sq")
+
+[node name="Chaching" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_njsjt")
+volume_db = -10.0
+
+[node name="Reload" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_cprti")
+volume_db = -15.0
+
+[node name="GunshotPistol" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_julhn")
+volume_db = -5.0
+
+[node name="GunshotShotgun" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_gcodo")
+volume_db = -5.0
+
+[node name="GunshotRifle" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_yv6vl")
+volume_db = -5.0
+
+[node name="GunshotSMG" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_jqyjb")
+volume_db = -5.0
+
+[node name="GunshotRevolver" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_y1w1i")
+volume_db = -5.0
+
+[node name="GunshotAssault" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_nqm8h")
+volume_db = -5.0
+
+[node name="Explosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_xn4yj")
+volume_db = -5.0
+pitch_scale = 1.5
+
+[node name="Bark" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_ha5qg")
+
+[node name="StageMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_l7o4s")
+volume_db = -80.0

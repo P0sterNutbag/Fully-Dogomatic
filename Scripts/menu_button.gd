@@ -4,6 +4,7 @@ extends RichTextLabel
 var target_scale = Vector2.ONE
 signal on_press
 
+
 func _process(delta):
 	scale = lerp(scale, target_scale, 10 * delta)
 

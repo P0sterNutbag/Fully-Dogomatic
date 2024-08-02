@@ -20,6 +20,7 @@ bullet_damage = 6.0
 spread = 6.0
 knockback = 5.0
 bullet = ExtResource("3_g4a7a")
+gunshot_sfx = "gunshot_rifle"
 metadata/Title = "Barrel"
 metadata/Type = "Mk 13 Sniper Rifle"
 metadata/Rarity = SubResource("Resource_bfd7l")

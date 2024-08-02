@@ -22,6 +22,7 @@ spread = 10.0
 knockback = 5.0
 distance_to_player = 35.0
 bullet = ExtResource("3_ru6vc")
+gunshot_sfx = "gunshot_shotgun"
 metadata/Title = "Barrel"
 metadata/Type = "Sawed Off Shotgun"
 metadata/Rarity = SubResource("Resource_esapx")

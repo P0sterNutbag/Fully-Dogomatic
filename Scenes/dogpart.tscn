@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://itf2r4ffy55o"]
 
 [ext_resource type="PackedScene" uid="uid://ciqp6u3sortcc" path="res://Scenes/shell.tscn" id="1_vi44m"]
-[ext_resource type="Script" path="res://Scenes/particle_slide.gd" id="3_y3dmw"]
+[ext_resource type="Script" path="res://Scripts/particle_slide.gd" id="3_y3dmw"]
 [ext_resource type="Texture2D" uid="uid://bwtya2idow4dh" path="res://Art/Sprites/bloodsplatter.png" id="4_gmm4h"]
 
 [node name="Shell" instance=ExtResource("1_vi44m")]

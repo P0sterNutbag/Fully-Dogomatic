@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://kskmj4salsda"]
+
+[ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/enemy_pug.tscn" id="1_mdygh"]
+[ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Art/Sprites/123spritesheet.png" id="2_r7as7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aahss"]
+atlas = ExtResource("2_r7as7")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xv1o6"]
+atlas = ExtResource("2_r7as7")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_44ghx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aahss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xv1o6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Enemy" instance=ExtResource("1_mdygh")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_44ghx")
+frame = 0
+frame_progress = 0.0
+
+[node name="Hurtbox" parent="." index="3"]
+health = 12
+
+[node name="Shadow" parent="." index="4"]
+scale = Vector2(1, 0.25)
+radius = 18

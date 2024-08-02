@@ -14,7 +14,7 @@ var homing: bool = false
 
 func _physics_process(_delta):
 	position += move_vector
-	move_vector *= 0.9
+	move_vector *= 0.8
 
 
 func _on_timer_timeout():

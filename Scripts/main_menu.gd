@@ -3,16 +3,13 @@ extends Node2D
 var options: Array
 var option_index: int = -1
 @export var options_parent: Node
-@onready var circle_transition = $CanvasLayer/CircleTransition
+#@onready var circle_transition = $CanvasLayer/CircleTransition
 
 
 func _ready():
 	options = options_parent.get_children()
 	for option in options:
 		option.on_press.connect(Callable(self, option.function_name))
-	#change_index(0)
-	circle_transition.visible = true
-	circle_transition.transition_out()
 
 
 func _process(_delta):

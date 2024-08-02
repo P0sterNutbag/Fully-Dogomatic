@@ -4,15 +4,16 @@ extends Node
 @export var enemy_objects_to_spawn: Array
 var crate = preload("res://Scenes/Levels/Level Objects/crate_guns.tscn")
 var portal = preload("res://Scenes/Levels/Level Objects/portal.tscn")
-var crate_amount_variance: int = 1
+var boss = preload("res://Scenes/Enemies/boss_pug.tscn")
+var crate_amount_variance: int = 0
 var enemy_spawner_variance: int = 0
 var starting_crate_amount = 1
 var barrier_margin = 50
 var barrier_left: Vector2
 var barrier_right: Vector2
-var boss = preload("res://Scenes/Enemies/boss_pug.tscn")
-var boss_round = 10
+var boss_round = 20
 var spawn_round = 0
+
 
 func _ready():
 	Globals.level_manager = self
@@ -40,11 +41,11 @@ func spawn_portal():
 func _on_spawn_timeout():
 	spawn_round += 1
 	if spawn_round < boss_round:
-		for i in randi_range(1, 2):
+		for i in randi_range(1, 1 + crate_amount_variance):
 			var obj = player_objects_to_spawn[Globals.get_weighted_index(player_objects_to_spawn)].object_to_spawn
 			var inst = Globals.create_instance(obj, get_border_position())
 			Globals.ui.add_level_obj(inst.name.to_upper(), true)
-		for i in randi_range(1, 2):
+		for i in randi_range(1, 1 + enemy_spawner_variance):
 			var obj = enemy_objects_to_spawn[Globals.get_weighted_index(enemy_objects_to_spawn)].object_to_spawn
 			var inst = Globals.create_instance(obj, get_border_position())
 			Globals.ui.add_level_obj(inst.name.to_upper(), false)

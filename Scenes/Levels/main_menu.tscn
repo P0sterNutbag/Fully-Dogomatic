@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ciimscdu65cq8"]
+[gd_scene load_steps=16 format=3 uid="uid://ciimscdu65cq8"]
 
 [ext_resource type="PackedScene" uid="uid://cbuklghcxpiko" path="res://Scenes/tiles.tscn" id="3_e75qk"]
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="3_f5g26"]
@@ -8,11 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="5_f3ayy"]
 [ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="6_68fxw"]
 [ext_resource type="PackedScene" uid="uid://b50cm06iefifh" path="res://Scenes/menu_button.tscn" id="8_q2v0g"]
-[ext_resource type="PackedScene" uid="uid://dx18mgom3chcm" path="res://Scenes/game_controller.tscn" id="10_ljqkk"]
-[ext_resource type="PackedScene" uid="uid://cp1qxxdw5a1k7" path="res://Scenes/scene_transition.tscn" id="10_r7qk8"]
+[ext_resource type="PackedScene" uid="uid://dx18mgom3chcm" path="res://Scenes/pause_controller.tscn" id="10_ljqkk"]
+[ext_resource type="PackedScene" uid="uid://dio4jhhmyfnfk" path="res://Audio/AudioManager.tscn" id="11_3edp1"]
 [ext_resource type="PackedScene" uid="uid://b7r52wai1l1yc" path="res://Scenes/Player/menu_dog.tscn" id="11_rfde3"]
 [ext_resource type="PackedScene" uid="uid://benlyb5ipwgn8" path="res://Scenes/tennisball.tscn" id="12_djnm7"]
-[ext_resource type="PackedScene" uid="uid://dio4jhhmyfnfk" path="res://Scenes/Control/AudioManager.tscn" id="14_tp1l3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tyfs5"]
 shader = ExtResource("4_ga02p")
@@ -131,9 +130,7 @@ offset_right = 640.0
 offset_bottom = 360.0
 color = Color(0, 0, 0, 1)
 
-[node name="CircleTransition" parent="CanvasLayer" instance=ExtResource("10_r7qk8")]
-
-[node name="AudioManager" parent="." instance=ExtResource("14_tp1l3")]
+[node name="AudioManager" parent="." instance=ExtResource("11_3edp1")]
 
 [node name="MenuDog" parent="." instance=ExtResource("11_rfde3")]
 y_sort_enabled = true

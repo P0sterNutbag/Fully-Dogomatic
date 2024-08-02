@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="1_au0mn"]
 [ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="2_2whyc"]
-[ext_resource type="Script" path="res://Scenes/shadow.gd" id="2_c4xcg"]
+[ext_resource type="Script" path="res://Scripts/shadow.gd" id="3_udw1n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i2oa8"]
 shader = ExtResource("1_au0mn")
@@ -17,4 +17,4 @@ shader_parameter/palette = ExtResource("2_2whyc")
 z_index = -99
 material = SubResource("ShaderMaterial_i2oa8")
 scale = Vector2(1, 0.3)
-script = ExtResource("2_c4xcg")
+script = ExtResource("3_udw1n")

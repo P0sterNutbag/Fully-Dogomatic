@@ -13,6 +13,7 @@ signal upgrade_assigned
 
 
 func _ready():
+	Globals.upgrade_menu = self
 	get_tree().paused = true
 	var ui_guns = Globals.world_controller.get_node("CanvasLayer/Guns")
 	gun_selected.connect(ui_guns._on_gun_selected)
@@ -29,13 +30,16 @@ func _ready():
 func _process(delta):
 	match step:
 		0:
+			get_tree().paused = true
 			$CancelButton.position = lerp($CancelButton.position, Vector2($CancelButton.position.x, 275), 5 * delta)
 			$RemoveGun.position = lerp($RemoveGun.position, Vector2($RemoveGun.position.x, 100), 5 * delta)
 		1:
+			get_tree().paused = true
 			$RemoveGun.position = lerp($RemoveGun.position, Vector2($RemoveGun.position.x, -100), 5 * delta)
 			$CancelButton.position = lerp($CancelButton.position, Vector2($CancelButton.position.x, 275), 5 * delta)
 			$ChooseGuns.position = lerp($ChooseGuns.position, Vector2($ChooseGuns.position.x, 100), 5 * delta)
 		2:
+			get_tree().paused = true
 			$PositionGuns.position = lerp($PositionGuns.position, Vector2($PositionGuns.position.x, 100), 5 * delta)
 			$ReadyButton.position = lerp($ReadyButton.position, Vector2($ReadyButton.position.x, 275), 5 * delta)
 		3:
@@ -55,10 +59,13 @@ func _process(delta):
 
 
 func destroy():
-	get_tree().paused = false
 	#Globals.ui.get_node("Minimap").open_map()
 	await get_tree().create_timer(1.0).timeout
 	queue_free()
+
+
+func _exit_tree():
+	get_tree().paused = false
 
 
 func move_options():

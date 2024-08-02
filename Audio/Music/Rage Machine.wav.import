@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bbjqgdd0jcd7b"
+path="res://.godot/imported/Rage Machine.wav-2468ad3c9489e15ff621e15426bd8d51.sample"
+
+[deps]
+
+source_file="res://Audio/Music/Rage Machine.wav"
+dest_files=["res://.godot/imported/Rage Machine.wav-2468ad3c9489e15ff621e15426bd8d51.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

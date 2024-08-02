@@ -30,8 +30,7 @@ func _process(delta):
 	# game time
 	game_time += delta
 	$RightCorner/TimeAmnt.text = "[right]" + Globals.time_to_minutes_secs_mili(game_time)
-	#$RightCorner/TimeAmnt.text = "[right]" + str(int(game_time / 60)) + "." + str("%.2f" % fmod(game_time / 60, 60))#str("%.2f" % game_time)
-	
+	#$RightCorner/TimeAmnt.text = "[right]" + str(int(game_time / 60)) + "." + str("%.2f" % fmod(game_time / 60, 60))#str("%.2f" % game_time)	
 
 
 func set_money(money: int):

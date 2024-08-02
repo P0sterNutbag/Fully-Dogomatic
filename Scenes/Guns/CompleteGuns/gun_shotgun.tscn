@@ -10,10 +10,10 @@
 
 [sub_resource type="Resource" id="Resource_n2jwg"]
 script = ExtResource("3_7qcn8")
-rarity = 1
+rarity = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iwh3l"]
-size = Vector2(27, 10.0001)
+size = Vector2(24, 8)
 
 [node name="Gun" instance=ExtResource("1_l7hcx")]
 position = Vector2(-1, 0)
@@ -26,11 +26,11 @@ metadata/Type = "Shotgun"
 metadata/Rarity = SubResource("Resource_n2jwg")
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(-0.499991, 2)
+position = Vector2(4.47035e-06, 1)
 shape = SubResource("RectangleShape2D_iwh3l")
 
 [node name="GunFrame" parent="." index="3" instance=ExtResource("4_qpr5l")]
-position = Vector2(1, -4.46638e-06)
+position = Vector2(3, -1.00001)
 barrel = ExtResource("5_11be7")
 grip = ExtResource("6_s3a67")
 magazine = ExtResource("7_i5lb1")

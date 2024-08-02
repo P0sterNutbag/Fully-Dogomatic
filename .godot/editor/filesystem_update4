@@ -1,27 +1,87 @@
-res://Scenes/UI/ui.tscn
+res://Scenes/Levels/world.tscn
 res://Art/Shaders/scene_transition.gdshader
 res://Art/Shaders/colorswap.gdshader
 res://Scripts/Upgrades/upgrade.gd
 res://Scripts/gun_part_barrel.gd
-res://Scripts/main_menu.gd
 res://Scripts/world_controller.gd
-res://Art/Themes/ui text mid.tres
 res://Art/Shaders/flash.gdshader
-res://Art/Themes/ui text mid mono.tres
 res://Art/Themes/healthbar.tres
+res://Art/Themes/ui text mid mono.tres
 res://Art/Themes/ui text small mono.tres
 res://Art/Shaders/outline.gdshader
 res://Art/Shaders/grayscale.gdshader
 res://Art/Shaders/drop_shadow.gdshader
 res://Art/Shaders/replace_color.gdshader
-res://Scripts/ui.gd
-res://Scenes/Levels/world.tscn
-res://Scenes/UI/settings_menu.tscn
-res://Scenes/scene_transition.tscn
-res://Scenes/Enemies/enemy_pug.tscn
-res://Scenes/Enemies/boss_pug.tscn
-res://Scenes/Levels/Level Objects/level_manager.tscn
-res://Scenes/SceneManager.tscn
 res://Scenes/Levels/main_menu.tscn
-res://Scenes/UI/death_ui.tscn
-res://Scenes/UI/death_ui.gd
+res://Scenes/UI/settings_menu.tscn
+res://Scenes/Enemies/enemy_pug.tscn
+res://Scenes/Enemies/enemy_pug_9.tscn
+res://Scenes/Enemies/enemy_pug_12.tscn
+res://Scenes/Enemies/enemy_pug_6.tscn
+res://Audio/AudioManager.tscn
+res://Scenes/Levels/intro.tscn
+res://Scenes/scene_transition.tscn
+res://Scenes/shadow.tscn
+res://Scenes/Guns/gun_frame.tscn
+res://Scenes/Enemies/boss_pug.tscn
+res://Scenes/enemy_spawner_controller.tscn
+res://Scenes/Levels/Level Objects/level_manager.tscn
+res://Scenes/Bullets/grenade.tscn
+res://Scenes/Guns/Old Guns/grenade_launcher.tscn
+res://Scenes/Guns/CompleteGuns/gun_grenade_launcher.tscn
+res://Scenes/Gun Parts/launcher_barrel.tscn
+res://Scenes/Levels/end.tscn
+res://Scenes/boss_death_cutscene.tscn
+res://Scenes/SceneManager.tscn
+res://Scripts/main_menu.gd
+res://Scripts/intro.gd
+res://Scripts/scene_manager.gd
+res://Scripts/cutscene.gd
+res://Scenes/Levels/Level Objects/enemy_spawner_pipe.tscn
+res://Scripts/enemy_spawner_pipe.gd
+res://Scenes/Gun Parts/mac11_barrel.tscn
+res://Scenes/Gun Parts/mac11_grip.tscn
+res://Scenes/Guns/CompleteGuns/gun_mac11.tscn
+res://Scenes/Gun Parts/pistol_barrel.tscn
+res://Scenes/Gun Parts/ar15_grip.tscn
+res://Scenes/Gun Parts/ar15_barrel.tscn
+res://Scenes/Gun Parts/ar15_stock.tscn
+res://Scenes/Gun Parts/ar15_scope.tscn
+res://Scenes/Gun Parts/pistol_grip.tscn
+res://Scenes/Gun Parts/pistol_magazine.tscn
+res://Scenes/Gun Parts/revolver_barrel.tscn
+res://Scenes/Gun Parts/magnum_magazine.tscn
+res://Scenes/Gun Parts/magnum_grip.tscn
+res://Scenes/Gun Parts/magnum_barrel.tscn
+res://Scenes/Gun Parts/mac11_magazine.tscn
+res://Scenes/Gun Parts/ak47_grip.tscn
+res://Scenes/Gun Parts/ak47_stock.tscn
+res://Scenes/Gun Parts/ar15_magazine.tscn
+res://Scenes/Gun Parts/ak47_magazine.tscn
+res://Scenes/Gun Parts/smg_barrel.tscn
+res://Scenes/Gun Parts/ak47_barrel.tscn
+res://Scenes/Guns/CompleteGuns/gun_ak47.tscn
+res://Scenes/Guns/CompleteGuns/gun_ar15.tscn
+res://Scenes/Gun Parts/tommy_magazine.tscn
+res://Scenes/Gun Parts/tommy_stock.tscn
+res://Scenes/Gun Parts/tommy_grip.tscn
+res://Scenes/Gun Parts/tommy_barrel.tscn
+res://Scenes/Guns/CompleteGuns/gun_tommy.tscn
+res://Scenes/Guns/CompleteGuns/gun_sniper.tscn
+res://Scenes/Gun Parts/auto_shotgun_grip.tscn
+res://Scenes/Gun Parts/auto_shotgun_magazine.tscn
+res://Scenes/Gun Parts/auto_shotgun_stock.tscn
+res://Scenes/Guns/CompleteGuns/gun_auto_shotgun.tscn
+res://Scenes/Gun Parts/auto_shotgun_barrel.tscn
+res://Scenes/Gun Parts/shotgun_barrel.tscn
+res://Scenes/Gun Parts/shotgun_grip.tscn
+res://Scenes/Guns/CompleteGuns/gun_shotgun.tscn
+res://Scenes/Gun Parts/shotgun_magazine.tscn
+res://Scenes/Bullets/shotgun_shell4.tscn
+res://Scenes/Bullets/12gauge_shell.tscn
+res://Scenes/Guns/CompleteGuns/gun_22.tscn
+res://Scenes/Guns/CompleteGuns/gun_double_b.tscn
+res://Scenes/Guns/CompleteGuns/gun_magnum.tscn
+res://Scenes/Guns/CompleteGuns/gun_pistol.tscn
+res://Scenes/Guns/CompleteGuns/gun_revolver.tscn
+res://Scenes/Guns/CompleteGuns/gun_smg.tscn

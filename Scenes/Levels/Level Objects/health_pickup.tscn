@@ -1,7 +1,7 @@
 [gd_scene load_steps=30 format=3 uid="uid://uyytn6e1bjq2"]
 
 [ext_resource type="Texture2D" uid="uid://deeyf2lyrkv54" path="res://Art/Sprites/can.png" id="1_l80vp"]
-[ext_resource type="Script" path="res://Scenes/Levels/Level Objects/health_pickup.gd" id="1_tg2rv"]
+[ext_resource type="Script" path="res://Scripts/health_pickup.gd" id="1_tg2rv"]
 [ext_resource type="PackedScene" uid="uid://84xxip1wf4vx" path="res://Scenes/UI/minimap_icon.tscn" id="3_fsu83"]
 [ext_resource type="Texture2D" uid="uid://fg0dee7wyidb" path="res://Art/Sprites/health icon.png" id="4_ikjo0"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/JuicyMovement.tscn" id="5_1ukq6"]

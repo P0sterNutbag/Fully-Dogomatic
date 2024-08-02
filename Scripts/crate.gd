@@ -40,7 +40,6 @@ func _on_area_entered(area):
 				description.text = "[center]CHOOSE A GUN PART!"
 			"dogtags": 
 				description.text = "[center]CHOOSE A DOG TAG!"
-				
 		get_tree().current_scene.add_child(inst)
 		var particle = break_particle.instantiate()
 		get_tree().current_scene.add_child(particle)

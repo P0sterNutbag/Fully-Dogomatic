@@ -7,6 +7,7 @@ extends GunPart
 @export var knockback: float = 0
 @export var distance_to_player: float = 30
 @export var bullet: PackedScene
+@export var gunshot_sfx: String = "gunshot_pistol"
 var gun_parent
 
 
@@ -22,3 +23,4 @@ func set_gun_stats():
 		gun_parent.distance_to_player = distance_to_player
 		gun_parent.bullet = bullet
 		gun_parent.bullet_damage = bullet_damage
+		gun_parent.gunshot_sfx = Globals.audio_manager.get(gunshot_sfx)

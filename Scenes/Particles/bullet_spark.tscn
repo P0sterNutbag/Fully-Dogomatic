@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://q1dukbh86hww"]
 
 [ext_resource type="Texture2D" uid="uid://b3u4juhiq6wo" path="res://Art/Sprites/white texture.png" id="1_8arur"]
-[ext_resource type="Script" path="res://Scenes/particle_slide.gd" id="2_8piun"]
+[ext_resource type="Script" path="res://Scripts/particle_slide.gd" id="2_8piun"]
 
 [node name="BulletSpark" type="Sprite2D"]
 texture = ExtResource("1_8arur")

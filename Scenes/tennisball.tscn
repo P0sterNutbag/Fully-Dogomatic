@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://benlyb5ipwgn8"]
 
 [ext_resource type="Texture2D" uid="uid://bbiporp12jhxu" path="res://Art/Sprites/tennisball.png" id="1_nm0mm"]
-[ext_resource type="Script" path="res://Scenes/tennisball.gd" id="2_leqpr"]
+[ext_resource type="Script" path="res://Scripts/tennisball.gd" id="2_leqpr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mgdpr"]
 radius = 6.0

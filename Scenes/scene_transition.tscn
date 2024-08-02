@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cp1qxxdw5a1k7"]
 
-[ext_resource type="Script" path="res://Scenes/scene_transition.gd" id="1_4gfay"]
+[ext_resource type="Script" path="res://Scripts/scene_transition.gd" id="1_4gfay"]
 [ext_resource type="Shader" path="res://Art/Shaders/scene_transition.gdshader" id="1_hhfca"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r2pia"]

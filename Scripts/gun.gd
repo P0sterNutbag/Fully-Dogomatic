@@ -52,6 +52,8 @@ var gun_name = preload("res://Scenes/Guns/gun_name.tscn")
 var status_effect = preload("res://Scenes/Particles/gun_status.tscn")
 var gun_name_instance: Node2D
 var bullet_damage
+var can_press: bool
+var gunshot_sfx: AudioStreamPlayer2D
 signal gun_deleted
 
 
@@ -94,20 +96,14 @@ func _process(delta):
 			flash_timer -= delta
 		elif muzzle_flash.visible:
 			muzzle_flash.visible = false
-	if Input.is_action_just_pressed("select"):
+	if Input.is_action_just_pressed("select") and can_press:
 		if can_delete and is_mouse_entered:
 			gun_deleted.emit()
 			Globals.player.guns.erase(self)
 			queue_free()
-		if get_tree().paused and !Globals.holding_gun_part and !Globals.settings_open and !locked:
-			#if not follow_mouse:
-				#pass
-				#if is_mouse_entered:
-					#follow_mouse = true
-					#if not holder:
-						#attach_to_target(Globals.player)
-			#else:
+		if follow_mouse:
 			follow_mouse = false
+	can_press = true
 
 
 func rotate_away_from_position(vector: Vector2):
@@ -160,17 +156,18 @@ func _on_timer_timeout(): # shoot bullets
 		inst.max_y = global_position.y+5
 		sprite.scale = Vector2(1.3, 1.3)
 		#Globals.camera.screenshake(shot_count * b.damage * 0.75)
-		if !Globals.audio_manager.gunshot.is_playing():
-			Globals.audio_manager.gunshot.play()
-		elif Globals.audio_manager.gunshot.get_playback_position() > 0.05:
-			Globals.audio_manager.gunshot.play()
+		if !gunshot_sfx.is_playing():
+			gunshot_sfx.pitch_scale = randf_range(0.9, 1.1)
+			gunshot_sfx.play()
+		elif gunshot_sfx.get_playback_position() > 0.05:
+			gunshot_sfx.pitch_scale = randf_range(0.9, 1.1)
+			gunshot_sfx.play()
 		b.queue_free()
 		muzzle_flash.texture = muzzleflash_textures[randi_range(0, muzzleflash_textures.size()-1)]
 
 
 func _on_reload_timer_timeout():
 	shots_left = rounds
-	Globals.audio_manager.reload.play()
 
 
 func set_game_over():
@@ -202,6 +199,8 @@ func setup_gun():
 
 
 func attach_to_target(target: Node2D):
+	follow_mouse = true
+	can_press = false
 	target.gun_pickup.emit()
 	target.guns.append(self)
 	holder = target
@@ -213,9 +212,11 @@ func attach_to_target(target: Node2D):
 
 
 func spin_gun():
+	await get_tree().create_timer($ReloadTimer.wait_time-0.75).timeout
+	Globals.audio_manager.reload.play()
 	var reload_tween = create_tween().set_trans(Tween.TRANS_ELASTIC)
 	reload_tween.set_ease(Tween.EASE_IN_OUT)
-	reload_tween.tween_property(self, "rotation_degrees", rotation_degrees, $ReloadTimer.wait_time-0.75)
+	reload_tween.set_pause_mode(Tween.TWEEN_PAUSE_STOP)
 	reload_tween.tween_property(self, "rotation_degrees", rotation_degrees+360, 0.75)
 
 

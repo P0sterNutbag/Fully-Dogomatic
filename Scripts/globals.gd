@@ -13,8 +13,8 @@ var audio_manager
 var ui
 var enemy_spawn_controller
 var upgrade_manager: Node
+var upgrade_menu: Node
 var holding_gun_part: bool = false
-var settings_open: bool = false
 var explode_chance: float = 0
 var globals
 var gun_amount
@@ -22,6 +22,7 @@ var barrier_left: Vector2
 var barrier_right: Vector2
 var camera: Camera2D
 var muted: bool = false
+var pause_controller: Node2D
 enum rarity_levels {common, uncommon, rare, super_rare, ultra_rare, giga_rare }
 
 
