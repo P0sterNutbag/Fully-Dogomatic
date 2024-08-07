@@ -5,6 +5,9 @@ extends GunPart
 var guns_folder = "res://Scenes/Guns/"
 var gunpart_folder = "res://Scenes/Gun Parts/"
 var dogtags_folder = "res://Scenes/Upgrades/Dogtags/"
+@export var gun_scenes: Array[PackedScene]
+@export var gunpart_scenes: Array[PackedScene]
+@export var dogtag_scenes: Array[PackedScene]
 var guns: Array
 var gunparts: Array
 var dogtags: Array
@@ -14,14 +17,14 @@ var master_list: Array[PackedScene] = []
 
 func _ready():
 	Globals.upgrade_manager = self
-	var gun_scenes: Array = Globals.get_all_scenes_from_folder(guns_folder)
+	#var gun_scenes: Array = Globals.get_all_scenes_from_folder(guns_folder)
 	for gun in gun_scenes:
 		add_to_list(guns, gun)
-	var gunpart_scenes: Array = Globals.get_all_scenes_from_folder(gunpart_folder)
+	#var gunpart_scenes: Array = Globals.get_all_scenes_from_folder(gunpart_folder)
 	for gunpart in gunpart_scenes:
 		add_to_list(gunparts, gunpart)
-	var dogtags_scenes: Array = Globals.get_all_scenes_from_folder(dogtags_folder)
-	for dogtag in dogtags_scenes:
+	#var dogtags_scenes: Array = Globals.get_all_scenes_from_folder(dogtags_folder)
+	for dogtag in dogtag_scenes:
 		add_to_list(dogtags, dogtag)
 	#for folder in upgrade_folders:
 		#master_list += Globals.get_all_scenes_from_folder(folder)

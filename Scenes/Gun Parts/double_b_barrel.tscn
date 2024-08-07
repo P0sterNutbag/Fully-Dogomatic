@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dxq1wjxkj8867"]
+[gd_scene load_steps=6 format=3 uid="uid://dxq1wjxkj8867"]
 
 [ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Art/Sprites/gun parts spritesheet.png" id="1_old1o"]
 [ext_resource type="Script" path="res://Scripts/gun_part_barrel.gd" id="2_qplgt"]
 [ext_resource type="PackedScene" uid="uid://bc1lpfb433y57" path="res://Scenes/Bullets/12gauge_shell.tscn" id="3_ru6vc"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="4_qumlw"]
-[ext_resource type="Texture2D" uid="uid://l0xncvn3i5id" path="res://Art/Sprites/muzzleflash.png" id="5_uqa8c"]
 
 [sub_resource type="Resource" id="Resource_esapx"]
 script = ExtResource("4_qumlw")
@@ -51,5 +50,4 @@ position = Vector2(15, -1)
 visible = false
 use_parent_material = true
 position = Vector2(-1, 0)
-texture = ExtResource("5_uqa8c")
 offset = Vector2(8, 0)

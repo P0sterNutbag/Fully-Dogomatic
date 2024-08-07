@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://dio4jhhmyfnfk"]
+[gd_scene load_steps=14 format=3 uid="uid://dio4jhhmyfnfk"]
 
 [ext_resource type="Script" path="res://Audio/audio_manager.gd" id="1_bc1sq"]
 [ext_resource type="AudioStream" uid="uid://dcyv4n1xwal27" path="res://Audio/SFX/chaching.mp3" id="2_njsjt"]
+[ext_resource type="Script" path="res://Scripts/pausable_audio.gd" id="3_44aal"]
 [ext_resource type="AudioStream" uid="uid://bfkfkmptikkw" path="res://Audio/SFX/reload.mp3" id="3_cprti"]
 [ext_resource type="AudioStream" uid="uid://c5i52e0b2nr77" path="res://Audio/SFX/handgun_A_shTL_single_01.wav" id="4_julhn"]
 [ext_resource type="AudioStream" uid="uid://y8rivnhdnic5" path="res://Audio/SFX/shotgun_A_shTL_single_03.wav" id="5_gcodo"]
@@ -20,43 +21,54 @@ script = ExtResource("1_bc1sq")
 [node name="Chaching" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_njsjt")
 volume_db = -10.0
+script = ExtResource("3_44aal")
 
 [node name="Reload" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_cprti")
 volume_db = -15.0
+script = ExtResource("3_44aal")
 
 [node name="GunshotPistol" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_julhn")
-volume_db = -5.0
+volume_db = -10.0
+script = ExtResource("3_44aal")
 
 [node name="GunshotShotgun" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_gcodo")
-volume_db = -5.0
+volume_db = -10.0
+script = ExtResource("3_44aal")
 
 [node name="GunshotRifle" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_yv6vl")
-volume_db = -5.0
+volume_db = -10.0
+script = ExtResource("3_44aal")
 
 [node name="GunshotSMG" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_jqyjb")
-volume_db = -5.0
+volume_db = -10.0
+script = ExtResource("3_44aal")
 
 [node name="GunshotRevolver" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_y1w1i")
-volume_db = -5.0
+volume_db = -10.0
+script = ExtResource("3_44aal")
 
 [node name="GunshotAssault" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_nqm8h")
-volume_db = -5.0
+volume_db = -10.0
+script = ExtResource("3_44aal")
 
 [node name="Explosion" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_xn4yj")
-volume_db = -5.0
+volume_db = -10.0
 pitch_scale = 1.5
+script = ExtResource("3_44aal")
 
 [node name="Bark" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_ha5qg")
+script = ExtResource("3_44aal")
 
 [node name="StageMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_l7o4s")
-volume_db = -80.0
+volume_db = -10.0
+script = ExtResource("3_44aal")

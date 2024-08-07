@@ -56,16 +56,12 @@ func set_new_part(part_object: Node2D, new_part: PackedScene, socket_name: Strin
 func set_stats():
 	if barrel_object != null: 
 		barrel_object.set_gun_stats()
-		print_debug("barrel stats set")
 	if stock_object != null: 
 		stock_object.set_gun_stats()
-		print_debug("stock stats set")
 	if magazine_object != null: 
 		magazine_object.set_gun_stats()
-		print_debug("mag stats set")
 	if sight_object != null: 
 		sight_object.set_gun_stats()
-		print_debug("sight stats set")
 
 
 func copy_parts(copy_from: Node2D):

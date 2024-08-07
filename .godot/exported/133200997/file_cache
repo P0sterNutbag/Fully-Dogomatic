@@ -13,7 +13,7 @@ res://Art/Themes/ui text mini no outline.tres::c9fb7783a92cc1f60fc4ed873092a674:
 res://Art/Themes/ui text mini.tres::eba1f09f7006064a0c921fa6acdb53ca::1721247375::res://.godot/exported/133200997/export-e1bc3a8da218e1d96643c530162266f8-ui text mini.res
 res://Art/Themes/ui text small mono.tres::2026671c6d8bacba14de1612af1b926c::1722885879::res://.godot/exported/133200997/export-b2a9d9cd225ca227b28ab554d4d8dc27-ui text small mono.res
 res://Art/Themes/ui text small.tres::57401db0911e8bd70a9ab434af4a32c3::1721247375::res://.godot/exported/133200997/export-1f6fb7eead40ae7340e79e6247bd11bd-ui text small.res
-res://Audio/AudioManager.tscn::739975c194ad3c795569b2e7c80dbeea::1722991555::res://.godot/exported/133200997/export-c6f5ab8d54f9635be476262653e20415-AudioManager.scn
+res://Audio/AudioManager.tscn::7ce37851dbbc20e02cbddc5c3c20fbbb::1722993169::res://.godot/exported/133200997/export-c6f5ab8d54f9635be476262653e20415-AudioManager.scn
 res://Resources/settings_option.tres::f402bbc5928cedc35efcef2088b5e00e::1714430902::res://.godot/exported/133200997/export-2752d6bde44167b76dbe27cedb5cc532-settings_option.res
 res://Scenes/Bullets/5.56mm_bullet.tscn::43257bdf063ffdc2b758eec18ce498eb::1721247369::res://.godot/exported/133200997/export-f67cec6cd8a34f972b84e228736cf689-5.56mm_bullet.scn
 res://Scenes/Bullets/7.62mm_bullet.tscn::84d84fd45e9392ec9cbc88437cb9d31f::1722023462::res://.godot/exported/133200997/export-6313d51bc2a63b39035a5e2874a34bc3-7.62mm_bullet.scn
@@ -39,56 +39,56 @@ res://Scenes/Enemies/enemy_pug_9.tscn::52effad85821614a1c7dcd13b1284f16::1722894
 res://Scenes/Enemies/enemy_pug_12.tscn::a373050446108176012c400ec4b490a4::1722894095::res://.godot/exported/133200997/export-76d0f53ce54e5019b422f555dc65a1de-enemy_pug_12.scn
 res://Scenes/Enemies/enemy_pug_big.tscn::1b7ad0394261552ba7c5fdd4944ba8ff::1722036967::res://.godot/exported/133200997/export-aa817a3b7f494b2de454541816bb14d0-enemy_pug_big.scn
 res://Scenes/Enemies/enemy_shepherd.tscn::bfb0e7ed2e1e2d2fa4f6972e554a2e48::1721247369::res://.godot/exported/133200997/export-13edc65e9d6a6010b957e6031d62202b-enemy_shepherd.scn
-res://Scenes/Gun Parts/22_barrel.tscn::4026e79b89887404af3aa42050dec2dc::1722991538::res://.godot/exported/133200997/export-3e09651f76b4e1c37a94560859f75b3b-22_barrel.scn
+res://Scenes/Gun Parts/22_barrel.tscn::4026e79b89887404af3aa42050dec2dc::1722993169::res://.godot/exported/133200997/export-3e09651f76b4e1c37a94560859f75b3b-22_barrel.scn
 res://Scenes/Gun Parts/22_grip.tscn::65b84d0104110d480db2dfc047e6d602::1721247369::res://.godot/exported/133200997/export-f705d7ba8f91ee8b537ee3886943b28b-22_grip.scn
 res://Scenes/Gun Parts/22_magazine.tscn::0b59654843d85c830a752a97bc598856::1720848073::res://.godot/exported/133200997/export-bc8ae717e1bf2700d200b768875b860d-22_magazine.scn
 res://Scenes/Gun Parts/22_stock.tscn::07f963d7f2d0a23f6d6eb3f015ecd7a0::1721247369::res://.godot/exported/133200997/export-25f22f28f668df9f111e8eb047f66eff-22_stock.scn
-res://Scenes/Gun Parts/ak47_barrel.tscn::aa3af035586575a81333789ec37cbb4f::1722991538::res://.godot/exported/133200997/export-3abddcf5161f9a664e947b4401f859bb-ak47_barrel.scn
+res://Scenes/Gun Parts/ak47_barrel.tscn::aa3af035586575a81333789ec37cbb4f::1722993169::res://.godot/exported/133200997/export-3abddcf5161f9a664e947b4401f859bb-ak47_barrel.scn
 res://Scenes/Gun Parts/ak47_grip.tscn::42da92e5979254be2f18badef9b72d15::1722894098::res://.godot/exported/133200997/export-2fbf0781e4a4b37ec281a8dbe05462cb-ak47_grip.scn
 res://Scenes/Gun Parts/ak47_magazine.tscn::1c9693eef728d2ec94ffbb532805cb99::1722894098::res://.godot/exported/133200997/export-fe5fe998fba24a18f6495fc727bc678c-ak47_magazine.scn
 res://Scenes/Gun Parts/ak47_stock.tscn::daf1e948c14414f567e7fed3360c2b02::1722894098::res://.godot/exported/133200997/export-7b85cd9d6bf4a4dd285e02d0bbbda546-ak47_stock.scn
-res://Scenes/Gun Parts/ar15_barrel.tscn::6497e577012b1a5cd211c911fd4a66ff::1722991538::res://.godot/exported/133200997/export-d0f47f663ecd52fd676ff0a31e2aa78b-ar15_barrel.scn
+res://Scenes/Gun Parts/ar15_barrel.tscn::6497e577012b1a5cd211c911fd4a66ff::1722993169::res://.godot/exported/133200997/export-d0f47f663ecd52fd676ff0a31e2aa78b-ar15_barrel.scn
 res://Scenes/Gun Parts/ar15_grip.tscn::2a1f2f72e95a74b2f232901aff177ceb::1722894097::res://.godot/exported/133200997/export-98385881c85ae77d140143d14eb2b579-ar15_grip.scn
 res://Scenes/Gun Parts/ar15_magazine.tscn::028896d20aaa91165c226e111bad69dd::1722894098::res://.godot/exported/133200997/export-98ef26269b1bf2f82fa145295d650f82-ar15_magazine.scn
 res://Scenes/Gun Parts/ar15_scope.tscn::e4f1228970da695aaf218acd37481369::1722894097::res://.godot/exported/133200997/export-15e194efc207194fc6e61753ac571342-ar15_scope.scn
 res://Scenes/Gun Parts/ar15_stock.tscn::2af9ef59fab3428a8436a457f0c04820::1722894097::res://.godot/exported/133200997/export-16157ef96be21feffb1934b32e125dd6-ar15_stock.scn
-res://Scenes/Gun Parts/auto_shotgun_barrel.tscn::f450d67b21664869385cc114f932ae55::1722991538::res://.godot/exported/133200997/export-7e27ac1886b769aae692b45603ab31e0-auto_shotgun_barrel.scn
+res://Scenes/Gun Parts/auto_shotgun_barrel.tscn::f450d67b21664869385cc114f932ae55::1722993169::res://.godot/exported/133200997/export-7e27ac1886b769aae692b45603ab31e0-auto_shotgun_barrel.scn
 res://Scenes/Gun Parts/auto_shotgun_grip.tscn::11542a2489ffd3913a8186f99726246e::1722894099::res://.godot/exported/133200997/export-bb791cf3f53ada96d48157ed71d5ea3d-auto_shotgun_grip.scn
 res://Scenes/Gun Parts/auto_shotgun_magazine.tscn::eb8464486841ba7467418fade6dde55f::1722894099::res://.godot/exported/133200997/export-128855ac0cb2ec40d56dacd4be6a7fbb-auto_shotgun_magazine.scn
 res://Scenes/Gun Parts/auto_shotgun_stock.tscn::305a75c4177acf3717be37034a704314::1722894099::res://.godot/exported/133200997/export-20a34a5e698d219d08ad09079db0f590-auto_shotgun_stock.scn
-res://Scenes/Gun Parts/double_b_barrel.tscn::e6e2cfe57b6be9dfa646ff6c659bd865::1722991538::res://.godot/exported/133200997/export-0063320bfa01a9acfe7e7063f9a7a4ec-double_b_barrel.scn
+res://Scenes/Gun Parts/double_b_barrel.tscn::e6e2cfe57b6be9dfa646ff6c659bd865::1722993169::res://.godot/exported/133200997/export-0063320bfa01a9acfe7e7063f9a7a4ec-double_b_barrel.scn
 res://Scenes/Gun Parts/double_b_grip.tscn::697605aa110cc107cf3c8dac08241043::1721247369::res://.godot/exported/133200997/export-3a49146aa85ed2c0ce22ab20b79a7b42-double_b_grip.scn
 res://Scenes/Gun Parts/double_b_magazine.tscn::18f4441e9eff28b0cdf50482c764bc59::1720848074::res://.godot/exported/133200997/export-24aa81b97428622acb813e8486a81d0e-double_b_magazine.scn
 res://Scenes/Gun Parts/double_b_stock.tscn::604362ac45d46ddfcd7494efae125f51::1721247369::res://.godot/exported/133200997/export-c0d6d9dc460694945eb5f454090f05ce-double_b_stock.scn
-res://Scenes/Gun Parts/launcher_barrel.tscn::918a516d00bd323b969a199c3aecd5dc::1722991538::res://.godot/exported/133200997/export-714347ad4fb13148f5b838df96791565-launcher_barrel.scn
+res://Scenes/Gun Parts/launcher_barrel.tscn::918a516d00bd323b969a199c3aecd5dc::1722993169::res://.godot/exported/133200997/export-714347ad4fb13148f5b838df96791565-launcher_barrel.scn
 res://Scenes/Gun Parts/launcher_grip.tscn::eec9d5848cbe1a3178a8949ed0d4694e::1721247369::res://.godot/exported/133200997/export-906486fd08c42244258b9cf4ba038f68-launcher_grip.scn
 res://Scenes/Gun Parts/launcher_magazine.tscn::b2087516935c73e401509477e2c75609::1721247369::res://.godot/exported/133200997/export-53d07965f99bb7dfc9bbaed10c61f693-launcher_magazine.scn
 res://Scenes/Gun Parts/launcher_stock.tscn::7145f8997f4a11f29421ffe0b22b824f::1721247369::res://.godot/exported/133200997/export-887d47fab2d4b60f0ce6c564ccdd70c6-launcher_stock.scn
-res://Scenes/Gun Parts/mac11_barrel.tscn::92473e973f9aba5a2400108082bd1071::1722991538::res://.godot/exported/133200997/export-680a95f0273b9a27c21930198bf9995c-mac11_barrel.scn
+res://Scenes/Gun Parts/mac11_barrel.tscn::92473e973f9aba5a2400108082bd1071::1722993169::res://.godot/exported/133200997/export-680a95f0273b9a27c21930198bf9995c-mac11_barrel.scn
 res://Scenes/Gun Parts/mac11_grip.tscn::c5ae45e60903e299b5ed33932b9df217::1722894097::res://.godot/exported/133200997/export-1a2634a28b3e532aefed28690b7e5d9b-mac11_grip.scn
 res://Scenes/Gun Parts/mac11_magazine.tscn::cca2c868964b216f187e125c384ba362::1722894098::res://.godot/exported/133200997/export-ca8d4ebc636d3b3627e408e0d5ff148f-mac11_magazine.scn
-res://Scenes/Gun Parts/magnum_barrel.tscn::1431482e3a50cd841d86c2379e93a85f::1722991538::res://.godot/exported/133200997/export-a972f826ce9a2137f00fcc0b38227a77-magnum_barrel.scn
+res://Scenes/Gun Parts/magnum_barrel.tscn::1431482e3a50cd841d86c2379e93a85f::1722993169::res://.godot/exported/133200997/export-a972f826ce9a2137f00fcc0b38227a77-magnum_barrel.scn
 res://Scenes/Gun Parts/magnum_grip.tscn::f23f8417b31a705800fa3fa5a68fe577::1722894097::res://.godot/exported/133200997/export-8ad3bc6629024b0529b963900a1a7059-magnum_grip.scn
 res://Scenes/Gun Parts/magnum_magazine.tscn::94c12b32a524712d367c0025bab32a06::1722894097::res://.godot/exported/133200997/export-d73b0c1bbebc2d3f88dd46bca6118e1e-magnum_magazine.scn
-res://Scenes/Gun Parts/pistol_barrel.tscn::8388bb3b766b7ae746b68d3dc0a4d8b4::1722991538::res://.godot/exported/133200997/export-1c3419826cb9a6f8ffda9633aebd75ce-pistol_barrel.scn
+res://Scenes/Gun Parts/pistol_barrel.tscn::8388bb3b766b7ae746b68d3dc0a4d8b4::1722993169::res://.godot/exported/133200997/export-1c3419826cb9a6f8ffda9633aebd75ce-pistol_barrel.scn
 res://Scenes/Gun Parts/pistol_grip.tscn::e4277bf7d3aff8a447e253df0ae4736f::1722894097::res://.godot/exported/133200997/export-983082c3d2ff2a505ad761282b3c7200-pistol_grip.scn
 res://Scenes/Gun Parts/pistol_magazine.tscn::2c2d5654424a95a24ce1ea1645c7e382::1722894097::res://.godot/exported/133200997/export-c1681f946e57b6f46ac13a9c5957cb04-pistol_magazine.scn
-res://Scenes/Gun Parts/revolver_barrel.tscn::e8d37ab7b498f561e35af670f199de7c::1722991538::res://.godot/exported/133200997/export-ea10fd25256d1129b74c923c1dfdaca5-revolver_barrel.scn
+res://Scenes/Gun Parts/revolver_barrel.tscn::ff7c8e90f628a1c5402f46b68831c3e4::1722993219::res://.godot/exported/133200997/export-ea10fd25256d1129b74c923c1dfdaca5-revolver_barrel.scn
 res://Scenes/Gun Parts/revolver_grip.tscn::088f814e43842a6d99535456cb3f5b5c::1719603793::res://.godot/exported/133200997/export-f4e02103c35cf892b969f44a49bcce86-revolver_grip.scn
 res://Scenes/Gun Parts/revolver_magazine.tscn::7a21787d159017565eb0b71193035008::1721247369::res://.godot/exported/133200997/export-ab92b5399d4739e12550e9d7ad5c421d-revolver_magazine.scn
-res://Scenes/Gun Parts/shotgun_barrel.tscn::7565ddda45c4023456f8bf3baa7b015a::1722991538::res://.godot/exported/133200997/export-95011071dd31e0cd616bea8497261b33-shotgun_barrel.scn
+res://Scenes/Gun Parts/shotgun_barrel.tscn::7565ddda45c4023456f8bf3baa7b015a::1722993169::res://.godot/exported/133200997/export-95011071dd31e0cd616bea8497261b33-shotgun_barrel.scn
 res://Scenes/Gun Parts/shotgun_grip.tscn::9312fddd795a77c24be54dc60ebbd404::1722894099::res://.godot/exported/133200997/export-fe1828c598ee69797255ddaffa62626d-shotgun_grip.scn
 res://Scenes/Gun Parts/shotgun_magazine.tscn::7409fa07bc79bada29d4da775a2ff91e::1722894099::res://.godot/exported/133200997/export-d65e45f28ca7edfe46a3353680237b8f-shotgun_magazine.scn
-res://Scenes/Gun Parts/smg_barrel.tscn::f34bed0c6b8031b2c7020e08f6c0b02e::1722991538::res://.godot/exported/133200997/export-33b97fc352cc7afe610b6882f7b387f1-smg_barrel.scn
+res://Scenes/Gun Parts/smg_barrel.tscn::f34bed0c6b8031b2c7020e08f6c0b02e::1722993169::res://.godot/exported/133200997/export-33b97fc352cc7afe610b6882f7b387f1-smg_barrel.scn
 res://Scenes/Gun Parts/smg_grip.tscn::81aa0da4ea29492e72c44dbee7edbb64::1721247369::res://.godot/exported/133200997/export-fd09894d6aebeb8305f8569bce2e10db-smg_grip.scn
 res://Scenes/Gun Parts/smg_magazine.tscn::d265ab36a0b02f888c0e564f56d22158::1721247369::res://.godot/exported/133200997/export-14ed442c1278e98bfd26bf7b2587f5aa-smg_magazine.scn
 res://Scenes/Gun Parts/smg_stock.tscn::8fb1b740d61c2829751220f0b6c0297d::1721247369::res://.godot/exported/133200997/export-81e10fc364e4b1002bf28a2ef52ba705-smg_stock.scn
-res://Scenes/Gun Parts/sniper_barrel.tscn::b734d804e7f5a1efaa90039f5ffa8b1b::1722991538::res://.godot/exported/133200997/export-6c8220a9134485e59a02d5b68658c7ca-sniper_barrel.scn
+res://Scenes/Gun Parts/sniper_barrel.tscn::b734d804e7f5a1efaa90039f5ffa8b1b::1722993169::res://.godot/exported/133200997/export-6c8220a9134485e59a02d5b68658c7ca-sniper_barrel.scn
 res://Scenes/Gun Parts/sniper_grip.tscn::6dc1b6abf288dfe1f9dbb2a515ada8a1::1721247369::res://.godot/exported/133200997/export-c6b2d200aff2e3986850ef95e38063f1-sniper_grip.scn
 res://Scenes/Gun Parts/sniper_magazine.tscn::b0dc9c6a91c1a0dd037f49709da5bc11::1721247369::res://.godot/exported/133200997/export-dcd82fe82c39aab681005190bf120b06-sniper_magazine.scn
 res://Scenes/Gun Parts/sniper_scope.tscn::e53093bb94cba20d49c84a9f8a4cfcac::1721247369::res://.godot/exported/133200997/export-a1b44d68564a6668b3543301f787a29e-sniper_scope.scn
 res://Scenes/Gun Parts/sniper_stock.tscn::f2724e693539285277c945f4d7e61996::1721247369::res://.godot/exported/133200997/export-71e621c77b96da9aefd5cdc1fa01e160-sniper_stock.scn
-res://Scenes/Gun Parts/tommy_barrel.tscn::d58a45be55a02b60fce168618dda2b96::1722991538::res://.godot/exported/133200997/export-43070261b9f4b913a1c01cd914c37b17-tommy_barrel.scn
+res://Scenes/Gun Parts/tommy_barrel.tscn::d58a45be55a02b60fce168618dda2b96::1722993169::res://.godot/exported/133200997/export-43070261b9f4b913a1c01cd914c37b17-tommy_barrel.scn
 res://Scenes/Gun Parts/tommy_grip.tscn::74cae67efe0c75b855da01b4735ef47d::1722894098::res://.godot/exported/133200997/export-f061aafbff8562b2b83b3d749590ea00-tommy_grip.scn
 res://Scenes/Gun Parts/tommy_magazine.tscn::c9d3edc49c4822167afd473dea34757e::1722894099::res://.godot/exported/133200997/export-44e673d6e5ba253c84588ff2cc47abba-tommy_magazine.scn
 res://Scenes/Gun Parts/tommy_stock.tscn::ab5cb4ab99ed830ff01fcd4e347f24a6::1722894099::res://.godot/exported/133200997/export-9127e538dad0cc3c7e539c0219685781-tommy_stock.scn
@@ -126,7 +126,7 @@ res://Scenes/Levels/Level Objects/level_manager.tscn::07c02f60317e2ead1c8f9c3260
 res://Scenes/Levels/Level Objects/portal.tscn::bc00eca3d5def0a6d3d42a96d9e8e174::1721247369::res://.godot/exported/133200997/export-2993ff5280a197166a72fb86946dd46c-portal.scn
 res://Scenes/Levels/Level Objects/shop.tscn::1151d407e090a7d92126dff2e0ee0b67::1721247369::res://.godot/exported/133200997/export-d9daa5d0f6c5c21075347e91b870ca62-shop.scn
 res://Scenes/Levels/end.tscn::6c27cd3057abfd870e571170d257f4bb::1722989228::res://.godot/exported/133200997/export-913027b34c02119b09ea4e0f3fad2754-end.scn
-res://Scenes/Levels/intro.tscn::076cacf57ba6ed54eb8e3af456317b79::1722991538::res://.godot/exported/133200997/export-1bce9bd874a8c1461c8204b4096e1219-intro.scn
+res://Scenes/Levels/intro.tscn::076cacf57ba6ed54eb8e3af456317b79::1722993169::res://.godot/exported/133200997/export-1bce9bd874a8c1461c8204b4096e1219-intro.scn
 res://Scenes/Levels/main_menu.tscn::c6fbb0b6b120f283176ec707c1caa8b3::1722989228::res://.godot/exported/133200997/export-bec25f243620e23792f0238bca0c0663-main_menu.scn
 res://Scenes/Levels/world.tscn::e06e2c0836b93ac136d358377ccb8370::1722894096::res://.godot/exported/133200997/export-4312d450fd145b4ccc51186642f7c984-world.scn
 res://Scenes/Particles/bullet_spark.tscn::3148fb53b73345fdd0df5a3e2b0eaf95::1722463176::res://.godot/exported/133200997/export-3b17e7765aba503e1f844b21ba8586db-bullet_spark.scn
@@ -159,7 +159,7 @@ res://Scenes/Upgrades/part_upgrade.tscn::f05cd8801d9edf0f7c73caca3cfbdeca::17213
 res://Scenes/Upgrades/reload_upgrade.tscn::f7e935134cad203ede8bc7f3fa8427c3::1721247369::res://.godot/exported/133200997/export-9957a3715fd3ec12c856326c7c61a13a-reload_upgrade.scn
 res://Scenes/Upgrades/ricochet_upgrade.tscn::7cfc7d5e0ca7f7fbbd785e08de0844f3::1721247369::res://.godot/exported/133200997/export-5cee0e7cc0e131e79d1b2aeb9207378c-ricochet_upgrade.scn
 res://Scenes/Upgrades/upgrade.tscn::16744197207d2a3e77ea6e4bdd85873e::1721247375::res://.godot/exported/133200997/export-73fc273c105a99dfe2e232b161ec1029-upgrade.scn
-res://Scenes/Upgrades/upgrade_manager.tscn::ed6296657847eb734be481e61b6ac04c::1722991538::res://.godot/exported/133200997/export-462cb461712c9e40df51d32e11911916-upgrade_manager.scn
+res://Scenes/Upgrades/upgrade_manager.tscn::ed6296657847eb734be481e61b6ac04c::1722993169::res://.godot/exported/133200997/export-462cb461712c9e40df51d32e11911916-upgrade_manager.scn
 res://Scenes/Upgrades/upgrade_menu.tscn::94858bb43eeeab2cb8dfa8abe4f63ddc::1722989228::res://.godot/exported/133200997/export-80b7bde9b21dfe2fb861abe9266b54c2-upgrade_menu.scn
 res://Scenes/Upgrades/upgrade_menu_old.tscn::1948ed395ed20b46a98fb007739b669d::1721686042::res://.godot/exported/133200997/export-83ccd01fecd3dce06fedcc1b614a5e9b-upgrade_menu_old.scn
 res://Scenes/Upgrades/upgrade_option.tscn::ef096873b3ca1f2d7201303654507fab::1722989228::res://.godot/exported/133200997/export-4a329012d839380a202f4d62b8826c9c-upgrade_option.scn

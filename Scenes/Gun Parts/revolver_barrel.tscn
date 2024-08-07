@@ -1,22 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://57o0uhv1lc5t"]
+[gd_scene load_steps=6 format=3 uid="uid://57o0uhv1lc5t"]
 
+[ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Art/Sprites/gun parts spritesheet.png" id="1_fc38m"]
 [ext_resource type="PackedScene" uid="uid://bmfhcxqevrjcn" path="res://Scenes/Bullets/9mm_bullet.tscn" id="2_u2n6k"]
 [ext_resource type="Script" path="res://Scripts/gun_part_barrel.gd" id="2_x7j1b"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_yei7c"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bwwhf"]
-load_path = "res://.godot/imported/gun parts spritesheet.png-7fa670b22c9e8d073cb5bc5eaf832b7e.ctex"
 
 [sub_resource type="Resource" id="Resource_3qom4"]
 script = ExtResource("3_yei7c")
 rarity = 0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x7bki"]
-load_path = "res://.godot/imported/muzzleflash.png-aaf9549c22f1fef8009d2503940d9387.ctex"
-
 [node name="Barrel" type="Sprite2D"]
 use_parent_material = true
-texture = SubResource("CompressedTexture2D_bwwhf")
+texture = ExtResource("1_fc38m")
 region_enabled = true
 region_rect = Rect2(48, 16, 16, 16)
 script = ExtResource("2_x7j1b")
@@ -51,5 +46,4 @@ position = Vector2(7, -1)
 visible = false
 use_parent_material = true
 position = Vector2(-1, 0)
-texture = SubResource("CompressedTexture2D_x7bki")
 offset = Vector2(8, 0)

@@ -25,3 +25,15 @@ func mute():
 	AudioServer.set_bus_mute(index, !is_muted)
 	is_muted = !is_muted
 	Globals.muted = is_muted
+
+
+func pause_sounds():
+	for child in get_children():
+		child.pause_time = child.get_playback_position()
+		child.stop()
+
+
+func resume_sounds():
+	for child in get_children():
+		if child.pause_time > 0:
+			child.play(child.pause_time)

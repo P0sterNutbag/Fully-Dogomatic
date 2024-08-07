@@ -62,7 +62,6 @@ func change_index(change_int: int):
 
 
 func _on_option_mouse_entered(selected_option: Control):
-	print_debug("mouse entered")
 	for i in option_objects.size():
 		var option = option_objects[i]
 		option.target_scale = Vector2.ONE

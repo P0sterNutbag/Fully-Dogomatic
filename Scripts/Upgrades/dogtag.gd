@@ -24,8 +24,6 @@ func _process(delta):
 
 
 func apply_upgrade():
-	print_debug("variable is " + variable_name)
-	print_debug("value is " + str(value))
 	var new_value = scene.get(variable_name) + value
 	scene.set(variable_name, new_value)
 

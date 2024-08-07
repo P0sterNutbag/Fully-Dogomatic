@@ -9,10 +9,12 @@ func _ready():
 	if Globals.player:
 		for gun in Globals.player.guns:
 			gun.process_mode = Node.PROCESS_MODE_DISABLED
+	Globals.audio_manager.pause_sounds()
 
 
 func _on_continue_pressed():
 	get_tree().paused = false
+	Globals.audio_manager.resume_sounds()
 	if last_focus_owner:
 		last_focus_owner.grab_focus()
 	if Globals.player:
