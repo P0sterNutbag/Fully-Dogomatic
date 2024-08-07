@@ -8,9 +8,12 @@ var yoffset = 24
 var xoffset = 104
 var selected_offset = 10
 var settings_option = preload("res://Scenes/UI/settings_option.tscn")
+var can_change := true
+var last_focus_owner: Node
 
 
 func _ready():
+	last_focus_owner = get_viewport().gui_get_focus_owner()
 	get_tree().paused = true
 	options[1].toggle_value = Globals.muted
 	options[2].toggle_value = DisplayServer.window_get_mode() == DisplayServer.WindowMode.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
@@ -35,15 +38,16 @@ func _ready():
 		Globals.upgrade_menu.process_mode = Node.PROCESS_MODE_DISABLED
 		Globals.upgrade_menu.visible = false
 
-
+ 
 func _process(_delta):
-	if Input.is_action_just_pressed("up") or Input.is_action_just_pressed("down"):
-		change_index(int(Input.get_axis("up", "down")))
+	change_index(int(Input.get_axis("up", "down")))
 	if Input.is_action_just_pressed("select") and option_index >= 0:
 		call_option_method()
 
 
 func change_index(change_int: int):
+	if change_int == 0:
+		return
 	var new_index = option_index + change_int
 	if new_index < 0:
 		new_index = options.size() - 1
@@ -86,6 +90,7 @@ func call_option_method():
 
 func continue_game():
 	get_tree().paused = false
+	last_focus_owner.grab_focus()
 	queue_free()
 
 

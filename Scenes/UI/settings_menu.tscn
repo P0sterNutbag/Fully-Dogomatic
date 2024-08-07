@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bypk836otjf2e"]
+[gd_scene load_steps=10 format=3 uid="uid://bypk836otjf2e"]
 
 [ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="1_5xotm"]
-[ext_resource type="Script" path="res://Scenes/UI/settings_menu.gd" id="1_73uks"]
 [ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="2_j0jht"]
+[ext_resource type="Script" path="res://Scripts/ui_settings_menu.gd" id="3_m3w1w"]
+[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="4_mr0ip"]
+[ext_resource type="Script" path="res://Scripts/ui_menu_button.gd" id="6_yr8xu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t5lii"]
 shader = ExtResource("1_5xotm")
@@ -13,50 +15,24 @@ shader_parameter/fps = 6.0
 shader_parameter/color_threshold = 0.1
 shader_parameter/palette = ExtResource("2_j0jht")
 
-[sub_resource type="GDScript" id="GDScript_fpfks"]
-script/source = "extends Resource
-class_name settings_meun
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uu6di"]
+shader = ExtResource("1_5xotm")
+shader_parameter/skip_first_row = true
+shader_parameter/use_palette_alpha = false
+shader_parameter/is_texture = false
+shader_parameter/fps = 6.0
+shader_parameter/color_threshold = 0.1
+shader_parameter/palette = ExtResource("2_j0jht")
 
-@export var name: String
-@export var method: String
-@export var is_toggle: bool
-@export var toggle_value: bool
-"
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ap13o"]
 
-[sub_resource type="Resource" id="Resource_vggk4"]
-script = SubResource("GDScript_fpfks")
-name = "Continue"
-method = "continue_game"
-is_toggle = false
-toggle_value = false
-
-[sub_resource type="Resource" id="Resource_jbcut"]
-script = SubResource("GDScript_fpfks")
-name = "Mute"
-method = "mute"
-is_toggle = true
-toggle_value = false
-
-[sub_resource type="Resource" id="Resource_7tmpe"]
-script = SubResource("GDScript_fpfks")
-name = "Fullscreen"
-method = "toggle_fullscreen"
-is_toggle = true
-toggle_value = false
-
-[sub_resource type="Resource" id="Resource_1yqlf"]
-script = SubResource("GDScript_fpfks")
-name = "Quit to Menu"
-method = "to_menu"
-is_toggle = false
-toggle_value = false
-
-[sub_resource type="Resource" id="Resource_hho7y"]
-script = SubResource("GDScript_fpfks")
-name = "Quit Game"
-method = "quit_game"
-is_toggle = false
-toggle_value = false
+[sub_resource type="Theme" id="Theme_rr4cc"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(1, 0, 0, 1)
+Button/colors/font_hover_color = Color(1, 0, 0, 1)
+Button/font_sizes/font_size = 14
+Button/fonts/font = ExtResource("4_mr0ip")
+Button/styles/focus = SubResource("StyleBoxEmpty_ap13o")
 
 [node name="SettingsMenu" type="Control"]
 process_mode = 2
@@ -66,8 +42,7 @@ material = SubResource("ShaderMaterial_t5lii")
 use_parent_material = true
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_73uks")
-options = Array[Resource]([SubResource("Resource_vggk4"), SubResource("Resource_jbcut"), SubResource("Resource_7tmpe"), SubResource("Resource_1yqlf"), SubResource("Resource_hho7y")])
+script = ExtResource("3_m3w1w")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -1
@@ -78,6 +53,79 @@ offset_right = 560.0
 offset_bottom = 360.0
 color = Color(0.101961, 0.101961, 0.101961, 1)
 
+[node name="Menu" type="Control" parent="."]
+material = SubResource("ShaderMaterial_uu6di")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 96.0
+offset_top = 16.0
+offset_right = 96.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+use_parent_material = true
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 80.0
+
+[node name="Continue" type="Button" parent="Menu/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme = SubResource("Theme_rr4cc")
+text = "CONTINUE"
+flat = true
+alignment = 0
+script = ExtResource("6_yr8xu")
+
+[node name="Mute" type="Button" parent="Menu/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme = SubResource("Theme_rr4cc")
+toggle_mode = true
+text = "MUTE"
+flat = true
+alignment = 0
+script = ExtResource("6_yr8xu")
+
+[node name="Fullscreen" type="Button" parent="Menu/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme = SubResource("Theme_rr4cc")
+toggle_mode = true
+text = "FULLSCREEN"
+flat = true
+alignment = 0
+script = ExtResource("6_yr8xu")
+
+[node name="ReturnToMenu" type="Button" parent="Menu/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme = SubResource("Theme_rr4cc")
+text = "RETURN TO MENU"
+flat = true
+alignment = 0
+script = ExtResource("6_yr8xu")
+
+[node name="Quit" type="Button" parent="Menu/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme = SubResource("Theme_rr4cc")
+text = "QUIT"
+flat = true
+alignment = 0
+script = ExtResource("6_yr8xu")
+
 [connection signal="gui_input" from="ColorRect" to="." method="_on_color_rect_gui_input"]
 [connection signal="mouse_entered" from="ColorRect" to="." method="_on_color_rect_mouse_entered"]
 [connection signal="mouse_exited" from="ColorRect" to="." method="_on_color_rect_mouse_exited"]
+[connection signal="pressed" from="Menu/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Mute" to="." method="_on_mute_pressed"]
+[connection signal="toggled" from="Menu/VBoxContainer/Mute" to="." method="_on_mute_toggled"]
+[connection signal="pressed" from="Menu/VBoxContainer/Fullscreen" to="." method="_on_fullscreen_pressed"]
+[connection signal="toggled" from="Menu/VBoxContainer/Fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="pressed" from="Menu/VBoxContainer/ReturnToMenu" to="." method="_on_return_to_menu_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

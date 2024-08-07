@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://6f6jta7xigdb"]
+[gd_scene load_steps=15 format=3 uid="uid://6f6jta7xigdb"]
 
 [ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="1_ryfvq"]
 [ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="2_g54ct"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/JuicyMovement.tscn" id="4_4xe4a"]
 [ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="6_2padk"]
 [ext_resource type="Script" path="res://Scripts/menu_option.gd" id="7_guppy"]
+[ext_resource type="Script" path="res://Scripts/ui_menu.gd" id="8_6y64c"]
+[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="9_t58hg"]
+[ext_resource type="Script" path="res://Scripts/ui_menu_button.gd" id="10_xkdwv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2xchs"]
 shader = ExtResource("1_ryfvq")
@@ -16,6 +19,25 @@ shader_parameter/is_texture = false
 shader_parameter/fps = 6.0
 shader_parameter/color_threshold = 0.1
 shader_parameter/palette = ExtResource("2_g54ct")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uu6di"]
+shader = ExtResource("1_ryfvq")
+shader_parameter/skip_first_row = true
+shader_parameter/use_palette_alpha = false
+shader_parameter/is_texture = false
+shader_parameter/fps = 6.0
+shader_parameter/color_threshold = 0.1
+shader_parameter/palette = ExtResource("2_g54ct")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ap13o"]
+
+[sub_resource type="Theme" id="Theme_rr4cc"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(1, 0, 0, 1)
+Button/colors/font_hover_color = Color(1, 0, 0, 1)
+Button/font_sizes/font_size = 14
+Button/fonts/font = ExtResource("9_t58hg")
+Button/styles/focus = SubResource("StyleBoxEmpty_ap13o")
 
 [node name="DeathUI" type="Control"]
 material = SubResource("ShaderMaterial_2xchs")
@@ -56,6 +78,7 @@ rot_frequency = 3.0
 rot_amplitude = 5.0
 
 [node name="Restart" type="RichTextLabel" parent="."]
+visible = false
 use_parent_material = true
 layout_mode = 1
 anchors_preset = 5
@@ -73,6 +96,7 @@ text = "[center]RESTART"
 script = ExtResource("7_guppy")
 
 [node name="Quit" type="RichTextLabel" parent="."]
+visible = false
 use_parent_material = true
 layout_mode = 1
 anchors_preset = 5
@@ -89,6 +113,44 @@ bbcode_enabled = true
 text = "[center]QUIT"
 script = ExtResource("7_guppy")
 
+[node name="Menu" type="Control" parent="."]
+material = SubResource("ShaderMaterial_uu6di")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -61.0
+offset_top = 40.0
+offset_right = -61.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("8_6y64c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+use_parent_material = true
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 80.0
+
+[node name="Restart" type="Button" parent="Menu/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme = SubResource("Theme_rr4cc")
+text = "RESTART"
+flat = true
+script = ExtResource("10_xkdwv")
+
+[node name="Quit" type="Button" parent="Menu/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme = SubResource("Theme_rr4cc")
+text = "QUIT"
+flat = true
+script = ExtResource("10_xkdwv")
+
 [connection signal="gui_input" from="Restart" to="Restart" method="_on_gui_input"]
 [connection signal="mouse_entered" from="Restart" to="Restart" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Restart" to="Restart" method="_on_mouse_exited"]
@@ -97,3 +159,5 @@ script = ExtResource("7_guppy")
 [connection signal="mouse_entered" from="Quit" to="Quit" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Quit" to="Quit" method="_on_mouse_exited"]
 [connection signal="on_press" from="Quit" to="." method="_on_quit_on_press"]
+[connection signal="pressed" from="Menu/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

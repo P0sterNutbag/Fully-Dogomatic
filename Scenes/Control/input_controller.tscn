@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnmxfs4w2gkk1"]
+
+[ext_resource type="Script" path="res://Scripts/input_controller.gd" id="1_imkev"]
+
+[node name="InputController" type="Node"]
+process_mode = 3
+script = ExtResource("1_imkev")

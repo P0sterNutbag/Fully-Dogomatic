@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://cnvsn7j5ixyu8"]
+
+[ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="1_8707w"]
+[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="1_qerqh"]
+[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="2_qh8d1"]
+[ext_resource type="Script" path="res://Scripts/ui_menu.gd" id="3_r2keu"]
+[ext_resource type="Script" path="res://Scripts/ui_menu_button.gd" id="5_rolye"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uu6di"]
+shader = ExtResource("1_8707w")
+shader_parameter/skip_first_row = true
+shader_parameter/use_palette_alpha = false
+shader_parameter/is_texture = false
+shader_parameter/fps = 6.0
+shader_parameter/color_threshold = 0.1
+shader_parameter/palette = ExtResource("2_qh8d1")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ap13o"]
+
+[sub_resource type="Theme" id="Theme_rr4cc"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(1, 0, 0, 1)
+Button/colors/font_hover_color = Color(1, 0, 0, 1)
+Button/font_sizes/font_size = 14
+Button/fonts/font = ExtResource("1_qerqh")
+Button/styles/focus = SubResource("StyleBoxEmpty_ap13o")
+
+[node name="Menu" type="Control"]
+material = SubResource("ShaderMaterial_uu6di")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("3_r2keu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+use_parent_material = true
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 80.0
+
+[node name="Continue" type="Button" parent="VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme = SubResource("Theme_rr4cc")
+text = "CONTINUE"
+flat = true
+alignment = 0
+script = ExtResource("5_rolye")
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme = SubResource("Theme_rr4cc")
+text = "QUIT"
+flat = true
+alignment = 0
+script = ExtResource("5_rolye")
+
+[node name="Restart" type="Button" parent="VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme = SubResource("Theme_rr4cc")
+text = "RESTART"
+flat = true
+alignment = 0
+script = ExtResource("5_rolye")

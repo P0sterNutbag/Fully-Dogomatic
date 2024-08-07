@@ -6,8 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://2u72jmj4wnsn" path="res://Art/Sprites/red texture.png" id="5_ebtx4"]
 [ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="6_n5hc7"]
 [ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="7_8utm7"]
-[ext_resource type="Texture2D" uid="uid://bt4bqfufwd7lu" path="res://Art/Sprites/upgrade box.png" id="8_tiiyn"]
-[ext_resource type="Texture2D" uid="uid://btohsgsxdi3fu" path="res://Art/Sprites/upgrade box selected.png" id="9_y1ro2"]
 [ext_resource type="Script" path="res://Scripts/Circle.gd" id="18_pedul"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/JuicyMovement.tscn" id="19_orlbb"]
 
@@ -20,6 +18,16 @@ shader_parameter/fps = 6.0
 shader_parameter/color_threshold = 0.1
 shader_parameter/palette = ExtResource("2_d2ntg")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ap13o"]
+
+[sub_resource type="Theme" id="Theme_up347"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(1, 0, 0, 1)
+Button/colors/font_hover_color = Color(1, 0, 0, 1)
+Button/font_sizes/font_size = 14
+Button/fonts/font = ExtResource("7_8utm7")
+Button/styles/focus = SubResource("StyleBoxEmpty_ap13o")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u54kg"]
 shader = ExtResource("1_on7uf")
 shader_parameter/skip_first_row = true
@@ -29,28 +37,34 @@ shader_parameter/fps = 6.0
 shader_parameter/color_threshold = 0.1
 shader_parameter/palette = ExtResource("2_d2ntg")
 
-[node name="UpgradeOption" type="Control"]
+[node name="UpgradeOption" type="Button"]
 material = SubResource("ShaderMaterial_8vmtn")
-layout_mode = 3
-anchors_preset = 0
+offset_right = 128.0
+offset_bottom = 128.0
+pivot_offset = Vector2(64, 64)
+theme = SubResource("Theme_up347")
+flat = true
 script = ExtResource("1_kc4vw")
 
 [node name="Circle" type="Control" parent="."]
 material = SubResource("ShaderMaterial_u54kg")
 layout_mode = 3
 anchors_preset = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 32.0
+offset_bottom = 32.0
 script = ExtResource("18_pedul")
 circle_texture = ExtResource("5_ebtx4")
-metadata/_edit_use_anchors_ = true
 
 [node name="UpgradeName" type="RichTextLabel" parent="."]
 use_parent_material = true
 clip_contents = false
 layout_mode = 0
-offset_left = -115.0
-offset_top = -54.0
-offset_right = 114.0
-offset_bottom = -1.0
+offset_left = -51.0
+offset_top = 10.0
+offset_right = 178.0
+offset_bottom = 63.0
 mouse_filter = 2
 theme = ExtResource("6_n5hc7")
 bbcode_enabled = true
@@ -59,32 +73,33 @@ text = "[center]OPTION 1"
 [node name="UpgradeDescription" type="RichTextLabel" parent="."]
 use_parent_material = true
 layout_mode = 0
-offset_left = -59.0
-offset_top = -27.0
-offset_right = 58.0
-offset_bottom = 18.0
+offset_left = 5.0
+offset_top = 37.0
+offset_right = 122.0
+offset_bottom = 82.0
 mouse_filter = 2
 theme_override_colors/default_color = Color(0.223529, 0.223529, 0.223529, 1)
 theme_override_fonts/normal_font = ExtResource("7_8utm7")
 theme_override_font_sizes/normal_font_size = 7
 bbcode_enabled = true
 
-[node name="Box" type="Sprite2D" parent="."]
-visible = false
+[node name="Price" type="RichTextLabel" parent="."]
 use_parent_material = true
-texture = ExtResource("8_tiiyn")
+clip_contents = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = 92.0
+offset_right = 121.0
+offset_bottom = 138.0
+theme = ExtResource("6_n5hc7")
+bbcode_enabled = true
 
-[node name="BoxSelected" type="Sprite2D" parent="."]
-visible = false
-use_parent_material = true
-position = Vector2(48, 12)
-texture = ExtResource("9_y1ro2")
-
-[node name="UpgradeIcon" type="Sprite2D" parent="."]
-use_parent_material = true
-position = Vector2(0, 10)
-scale = Vector2(2, 2)
-region_enabled = true
+[node name="GunHolder" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 64.0
+offset_bottom = 64.0
 
 [node name="JuicyMovement" parent="." node_paths=PackedStringArray("target_control") instance=ExtResource("19_orlbb")]
 target_control = NodePath("..")
@@ -93,25 +108,6 @@ pulse_amplitude = 0.15
 rot_frequency = 2.0
 rot_amplitude = 15.0
 
-[node name="Price" type="RichTextLabel" parent="."]
-use_parent_material = true
-clip_contents = false
-layout_mode = 0
-offset_left = -60.0
-offset_top = 28.0
-offset_right = 57.0
-offset_bottom = 74.0
-theme = ExtResource("6_n5hc7")
-bbcode_enabled = true
-
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
-color = Color(1, 1, 1, 0)
-
-[connection signal="gui_input" from="ColorRect" to="." method="_on_color_rect_gui_input"]
-[connection signal="mouse_entered" from="ColorRect" to="." method="_on_color_rect_mouse_entered"]
-[connection signal="mouse_exited" from="ColorRect" to="." method="_on_color_rect_mouse_exited"]
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

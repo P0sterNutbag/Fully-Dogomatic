@@ -4,5 +4,4 @@
 
 [node name="UpgradeManager" type="Node"]
 script = ExtResource("1_aerk1")
-upgrade_folders = Array[String](["res://Scenes/Guns/CompleteGuns/", "res://Scenes/Upgrades/Dogtags/"])
 rarity_chances = Array[int]([1000, 500, 100, 50, 10, 1])

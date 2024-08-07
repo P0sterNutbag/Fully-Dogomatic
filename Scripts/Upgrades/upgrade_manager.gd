@@ -1,8 +1,8 @@
 extends GunPart
 
-@export var upgrade_folders: Array[String]
+
 @export var rarity_chances: Array[int]
-var guns_folder = "res://Scenes/Guns/CompleteGuns/"
+var guns_folder = "res://Scenes/Guns/"
 var gunpart_folder = "res://Scenes/Gun Parts/"
 var dogtags_folder = "res://Scenes/Upgrades/Dogtags/"
 var guns: Array
@@ -28,17 +28,17 @@ func _ready():
 	#create_upgrades_list(master_list)
 
 
-func create_upgrades_list(source_list: Array[PackedScene]):
-	for i in source_list.size():
-		var inst = source_list[i].instantiate()
-		add_to_list(upgrades, source_list[i])
-		var gun_frame = inst.get_node_or_null("GunFrame")
-		if gun_frame != null:
-			if gun_frame.barrel != null: add_to_list(upgrades, gun_frame.barrel)
-			if gun_frame.sight != null: add_to_list(upgrades, gun_frame.sight)
-			if gun_frame.stock != null: add_to_list(upgrades, gun_frame.stock)
-			if gun_frame.magazine != null: add_to_list(upgrades, gun_frame.magazine)
-		inst.queue_free()
+#func create_upgrades_list(source_list: Array[PackedScene]):
+	#for i in source_list.size():
+		#var inst = source_list[i].instantiate()
+		#add_to_list(upgrades, source_list[i])
+		#var gun_frame = inst.get_node_or_null("GunFrame")
+		#if gun_frame != null:
+			#if gun_frame.barrel != null: add_to_list(upgrades, gun_frame.barrel)
+			#if gun_frame.sight != null: add_to_list(upgrades, gun_frame.sight)
+			#if gun_frame.stock != null: add_to_list(upgrades, gun_frame.stock)
+			#if gun_frame.magazine != null: add_to_list(upgrades, gun_frame.magazine)
+		#inst.queue_free()
 
 
 func add_to_list(list: Array, value: PackedScene):

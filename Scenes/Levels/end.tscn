@@ -1,12 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://b2rf4epi3qqm5"]
+[gd_scene load_steps=23 format=3 uid="uid://b2rf4epi3qqm5"]
 
 [ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="1_8pgp7"]
 [ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="2_1k8ot"]
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="3_kjlfc"]
 [ext_resource type="PackedScene" uid="uid://cbuklghcxpiko" path="res://Scenes/tiles.tscn" id="4_hxuxb"]
 [ext_resource type="PackedScene" uid="uid://dx18mgom3chcm" path="res://Scenes/pause_controller.tscn" id="5_vry2c"]
-[ext_resource type="PackedScene" uid="uid://b50cm06iefifh" path="res://Scenes/menu_button.tscn" id="6_mufur"]
-[ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="7_85g0f"]
+[ext_resource type="Script" path="res://Scripts/ui_menu.gd" id="6_kb17p"]
+[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="7_0liep"]
+[ext_resource type="Script" path="res://Scripts/ui_menu_button.gd" id="8_3c5tg"]
 [ext_resource type="Texture2D" uid="uid://h7clkc3uwco0" path="res://Art/Sprites/MainMenu/thanksforplaying.png" id="8_ljifh"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/JuicyMovement.tscn" id="9_u3xyj"]
 [ext_resource type="PackedScene" uid="uid://dio4jhhmyfnfk" path="res://Audio/AudioManager.tscn" id="10_ckdvq"]
@@ -23,7 +24,7 @@ shader_parameter/fps = 6.0
 shader_parameter/color_threshold = 0.1
 shader_parameter/palette = ExtResource("2_1k8ot")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rxx7w"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uu6di"]
 shader = ExtResource("1_8pgp7")
 shader_parameter/skip_first_row = true
 shader_parameter/use_palette_alpha = false
@@ -31,6 +32,16 @@ shader_parameter/is_texture = false
 shader_parameter/fps = 6.0
 shader_parameter/color_threshold = 0.1
 shader_parameter/palette = ExtResource("2_1k8ot")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ap13o"]
+
+[sub_resource type="Theme" id="Theme_rr4cc"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(1, 0, 0, 1)
+Button/colors/font_hover_color = Color(1, 0, 0, 1)
+Button/font_sizes/font_size = 14
+Button/fonts/font = ExtResource("7_0liep")
+Button/styles/focus = SubResource("StyleBoxEmpty_ap13o")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6usk4"]
 shader = ExtResource("1_8pgp7")
@@ -63,10 +74,9 @@ animations = [{
 "speed": 3.0
 }]
 
-[node name="End" type="Node2D" node_paths=PackedStringArray("options_parent")]
+[node name="End" type="Node2D"]
 material = SubResource("ShaderMaterial_tyfs5")
 script = ExtResource("3_kjlfc")
-options_parent = NodePath("CanvasLayer/Control")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(320, 180)
@@ -80,51 +90,58 @@ visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="CanvasLayer"]
-material = SubResource("ShaderMaterial_rxx7w")
+[node name="Menu" type="Control" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_uu6di")
 layout_mode = 3
-anchors_preset = 0
-offset_left = 248.0
-offset_top = 183.0
-offset_right = 397.0
-offset_bottom = 305.0
-
-[node name="Wishlist" parent="CanvasLayer/Control" instance=ExtResource("6_mufur")]
-layout_mode = 0
-offset_right = 159.0
-offset_bottom = 46.0
-pivot_offset = Vector2(79, 15.335)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 427.0
+offset_top = 289.0
+offset_right = 427.0
+offset_bottom = 289.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("7_85g0f")
-bbcode_enabled = true
-text = "[center]WISHLIST ON STEAM!"
-function_name = "open_steam_page"
+script = ExtResource("6_kb17p")
 
-[node name="PlayGame" parent="CanvasLayer/Control" instance=ExtResource("6_mufur")]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Menu"]
+use_parent_material = true
 layout_mode = 0
-offset_left = 169.0
-offset_top = 107.0
-offset_right = 293.0
-offset_bottom = 136.0
-pivot_offset = Vector2(100, 4)
-size_flags_vertical = 3
-theme = ExtResource("7_85g0f")
-bbcode_enabled = true
-text = "[right]REPLAY"
-function_name = "play"
+offset_right = 120.0
+offset_bottom = 80.0
 
-[node name="Quit" parent="CanvasLayer/Control" instance=ExtResource("6_mufur")]
+[node name="Restart" type="Button" parent="CanvasLayer/Menu/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme = SubResource("Theme_rr4cc")
+text = "RESTART"
+flat = true
+alignment = 2
+script = ExtResource("8_3c5tg")
+
+[node name="Quit" type="Button" parent="CanvasLayer/Menu/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme = SubResource("Theme_rr4cc")
+text = "QUIT"
+flat = true
+alignment = 2
+script = ExtResource("8_3c5tg")
+
+[node name="Wishlist" type="Button" parent="CanvasLayer/Menu"]
+use_parent_material = true
 layout_mode = 0
-offset_left = 182.0
-offset_top = 139.0
-offset_right = 292.0
-offset_bottom = 235.0
-pivot_offset = Vector2(85, 4)
-size_flags_vertical = 3
-theme = ExtResource("7_85g0f")
-bbcode_enabled = true
-text = "[right]QUIT"
-function_name = "quit"
+offset_left = -234.0
+offset_top = -107.0
+offset_right = 20.0
+offset_bottom = -83.0
+theme = SubResource("Theme_rr4cc")
+text = "WISHLIST ON STEAM"
+flat = true
+alignment = 2
+script = ExtResource("8_3c5tg")
 
 [node name="TitleSmall185x28" type="Sprite2D" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_tyfs5")
@@ -164,7 +181,7 @@ scale = Vector2(2, 2)
 
 [node name="Arrow2" type="AnimatedSprite2D" parent="."]
 use_parent_material = true
-position = Vector2(421, 199)
+position = Vector2(461, 193)
 sprite_frames = SubResource("SpriteFrames_c0ih8")
 autoplay = "default"
 frame_progress = 0.705401
@@ -172,11 +189,11 @@ flip_h = true
 
 [node name="Arrow" type="AnimatedSprite2D" parent="."]
 use_parent_material = true
-position = Vector2(230, 198)
+position = Vector2(174, 193)
 sprite_frames = SubResource("SpriteFrames_c0ih8")
 autoplay = "default"
 frame_progress = 0.141828
 
-[connection signal="gui_input" from="CanvasLayer/Control/Wishlist" to="." method="_on_wishlist_gui_input"]
-[connection signal="gui_input" from="CanvasLayer/Control/PlayGame" to="." method="_on_play_game_gui_input"]
-[connection signal="gui_input" from="CanvasLayer/Control/Quit" to="." method="_on_quit_gui_input"]
+[connection signal="pressed" from="CanvasLayer/Menu/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="button_down" from="CanvasLayer/Menu/VBoxContainer/Quit" to="." method="_on_quit_button_down"]
+[connection signal="pressed" from="CanvasLayer/Menu/Wishlist" to="." method="_on_wishlist_pressed"]

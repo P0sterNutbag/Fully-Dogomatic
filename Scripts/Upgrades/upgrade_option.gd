@@ -1,4 +1,4 @@
-extends Control
+extends UiMenuButton
 
 var option
 var upgrade
@@ -27,6 +27,7 @@ func select_gun():
 		upgrade.set_sprite()
 	call_deferred("add_child", upgrade)
 	upgrade.scale *= 2
+	upgrade.position = $GunHolder.position
 	$UpgradeName.text = "[center]" + upgrade.get_meta("Title")
 	$UpgradeDescription.text = "[center]" + upgrade.get_meta("Type")
 	# write price
@@ -62,8 +63,8 @@ func _process(delta):
 					#upgrade.scale = Vector2.ONE
 					#upgrade = null
 					#get_parent().move_options()
-	else:
-		scale = lerp(scale, Vector2.ONE, 5 * delta)
+	#else:
+	#	scale = lerp(scale, Vector2.ONE, 5 * delta)
 
 
 func apply_to_upgrade(_upgrade: Node2D):
@@ -71,44 +72,74 @@ func apply_to_upgrade(_upgrade: Node2D):
 	_upgrade.add_child(instance)
 
 
-func select():
-	scale *= 1.35
-	bobbing = true
-	z_index += 1
+#func select():
+	#scale *= 1.35
+	#bobbing = true
+	#z_index += 1
+#
+#
+#func unselect():
+	#scale = Vector2(1, 1)
+	#bobbing = false
+	#z_index -= 1
 
 
-func unselect():
-	scale = Vector2(1, 1)
-	bobbing = false
-	z_index -= 1
-
-
-func _on_color_rect_gui_input(event):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		if upgrade and Globals.player.money >= price:
-			selected = true
-			if price > 0:
-				Globals.player.spend_money(price)
-			if upgrade.name.contains("Dogtag"):
-				upgrade.apply_upgrade()
-				get_parent().move_options()
-				get_parent()._on_texture_rect_pushed()
+#func _on_color_rect_gui_input(event):
+	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		#if upgrade and Globals.player.money >= price:
+			#selected = true
+			#if price > 0:
+				#Globals.player.spend_money(price)
+			#if upgrade.name.contains("Dogtag"):
+				#upgrade.apply_upgrade()
+				#get_parent().move_options()
+				#get_parent()._on_texture_rect_pushed()
+				##remove_child(upgrade)
+				#Globals.ui.get_node("Dogtags").add_dogtag(upgrade)
+			#else: 
 				#remove_child(upgrade)
-				Globals.ui.get_node("Dogtags").add_dogtag(upgrade)
-			else: 
-				remove_child(upgrade)
-				get_tree().current_scene.add_child(upgrade)
-				upgrade.call_deferred("attach_to_target", Globals.player)
-				upgrade.scale = Vector2.ONE
-				upgrade = null
-				get_parent().move_options()
+				#get_tree().current_scene.add_child(upgrade)
+				#upgrade.call_deferred("attach_to_target", Globals.player)
+				#upgrade.scale = Vector2.ONE
+				#upgrade = null
+				#get_parent().move_options()
 
 
-func _on_color_rect_mouse_entered():
-	var tween = create_tween().set_trans(Tween.TRANS_SINE)
-	tween.tween_property(self, "scale", Vector2.ONE * 1.25, 0.2)
+#func _on_color_rect_mouse_entered():
+	#var tween = create_tween().set_trans(Tween.TRANS_SINE)
+	#tween.tween_property(self, "scale", Vector2.ONE * 1.25, 0.2)
+#
+#
+#func _on_color_rect_mouse_exited():
+	#var tween = create_tween().set_trans(Tween.TRANS_SINE)
+	#tween.tween_property(self, "scale", Vector2.ONE, 0.2)
 
 
-func _on_color_rect_mouse_exited():
-	var tween = create_tween().set_trans(Tween.TRANS_SINE)
-	tween.tween_property(self, "scale", Vector2.ONE, 0.2)
+func _on_pressed():
+	if upgrade and Globals.player.money >= price:
+		selected = true
+		if price > 0:
+			Globals.player.spend_money(price)
+		if upgrade.name.contains("Dogtag"):
+			upgrade.apply_upgrade()
+			get_parent().move_options()
+			get_parent()._on_texture_rect_pushed()
+			#remove_child(upgrade)
+			Globals.ui.get_node("Dogtags").add_dogtag(upgrade)
+		else: 
+			remove_child(upgrade)
+			get_tree().current_scene.add_child(upgrade)
+			upgrade.call_deferred("attach_to_target", Globals.player)
+			upgrade.scale = Vector2.ONE
+			upgrade = null
+			get_parent().move_options()
+
+
+#func _on_focus_entered():
+	#var tween = create_tween().set_trans(Tween.TRANS_SINE)
+	#tween.tween_property(self, "scale", Vector2.ONE * 1.25, 0.2)
+#
+#
+#func _on_focus_exited():
+	#var tween = create_tween().set_trans(Tween.TRANS_SINE)
+	#tween.tween_property(self, "scale", Vector2.ONE, 0.2)

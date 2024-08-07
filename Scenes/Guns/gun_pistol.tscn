@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://couat6mj44bws"]
 
-[ext_resource type="PackedScene" uid="uid://b8qfbi2a3hocl" path="res://Scenes/Guns/gun_parent.tscn" id="1_nl00p"]
+[ext_resource type="PackedScene" uid="uid://b8qfbi2a3hocl" path="res://Scenes/Guns/Control/gun_parent.tscn" id="1_nl00p"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="2_7eo8r"]
-[ext_resource type="PackedScene" uid="uid://bduar6b4yec01" path="res://Scenes/Guns/gun_frame.tscn" id="3_42iie"]
+[ext_resource type="PackedScene" uid="uid://bduar6b4yec01" path="res://Scenes/Guns/Control/gun_frame.tscn" id="3_42iie"]
 [ext_resource type="PackedScene" uid="uid://syacy6q18lg4" path="res://Scenes/Gun Parts/pistol_barrel.tscn" id="4_w5a7l"]
 [ext_resource type="PackedScene" uid="uid://dvy5lsmww0dit" path="res://Scenes/Gun Parts/pistol_grip.tscn" id="5_wrpaq"]
 [ext_resource type="PackedScene" uid="uid://bgu5vroflg0y6" path="res://Scenes/Gun Parts/pistol_magazine.tscn" id="6_0xbuq"]

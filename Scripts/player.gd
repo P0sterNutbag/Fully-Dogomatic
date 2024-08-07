@@ -39,13 +39,14 @@ func _physics_process(_delta):
 			var direction_x = Input.get_axis("left", "right")
 			var direction_y = Input.get_axis("up", "down")
 			if direction_x:
-				velocity.x = direction_x * speed
+				velocity.x = direction_x
 			else:
 				velocity.x = move_toward(velocity.x, 0, speed)
 			if direction_y:
-				velocity.y = direction_y * speed
+				velocity.y = direction_y
 			else:
 				velocity.y = move_toward(velocity.y, 0, speed)
+			velocity = velocity.normalized() * speed
 			
 			# mouse movement
 			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):

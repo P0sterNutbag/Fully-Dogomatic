@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://d75wnu7dhndw"]
 
-[ext_resource type="PackedScene" uid="uid://b8qfbi2a3hocl" path="res://Scenes/Guns/gun_parent.tscn" id="1_cyb50"]
+[ext_resource type="PackedScene" uid="uid://b8qfbi2a3hocl" path="res://Scenes/Guns/Control/gun_parent.tscn" id="1_cyb50"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="2_gfdmo"]
-[ext_resource type="PackedScene" uid="uid://bduar6b4yec01" path="res://Scenes/Guns/gun_frame.tscn" id="3_yqedj"]
+[ext_resource type="PackedScene" uid="uid://bduar6b4yec01" path="res://Scenes/Guns/Control/gun_frame.tscn" id="3_yqedj"]
 [ext_resource type="PackedScene" uid="uid://c1qci3tk1vnk8" path="res://Scenes/Gun Parts/magnum_barrel.tscn" id="4_h0xsd"]
 [ext_resource type="PackedScene" uid="uid://clunrq0fmg8vo" path="res://Scenes/Gun Parts/magnum_grip.tscn" id="5_n2ejc"]
 [ext_resource type="PackedScene" uid="uid://doy30kutpjyy4" path="res://Scenes/Gun Parts/magnum_magazine.tscn" id="6_mt480"]

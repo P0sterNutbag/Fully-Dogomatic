@@ -37,7 +37,7 @@ var follow_mouse = false
 var explode_chance: float = 0
 var locked: bool = false
 var is_mouse_entered: bool = false
-var aim_dir: Vector2
+var aim_dir := Vector2.RIGHT
 var can_delete: bool = false
 var muzzleflash_textures = [preload("res://Art/Sprites/muzzleflash.png"), 
 preload("res://Art/Sprites/muzzleflash2.png"),
@@ -48,7 +48,7 @@ var firepoint
 var muzzle_flash
 var firepoint_index = 0
 var shell = preload("res://Scenes/shell.tscn")
-var gun_name = preload("res://Scenes/Guns/gun_name.tscn")
+#var gun_name = preload("res://Scenes/Guns/gun_name.tscn")
 var status_effect = preload("res://Scenes/Particles/gun_status.tscn")
 var gun_name_instance: Node2D
 var bullet_damage
@@ -63,8 +63,14 @@ func _ready():
 
 func _physics_process(delta):
 	if follow_mouse:
-		#var dir_offset = Vector2.RIGHT.rotated(get_parent().rotation)
-		aim_dir = (get_global_mouse_position() - get_parent().global_position).normalized()
+		if abs(Input.get_last_mouse_velocity()) > Vector2.ZERO:
+			aim_dir = (get_global_mouse_position() - get_parent().global_position).normalized()
+		if abs(Input.get_joy_axis(0, JOY_AXIS_LEFT_X)) > InputController.axis_threshold or abs(Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)) > InputController.axis_threshold:
+			aim_dir = Vector2(Input.get_joy_axis(0, JOY_AXIS_LEFT_X), Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)).normalized()
+		elif abs(Input.get_axis("left", "right")) > 0:
+			aim_dir = aim_dir.rotated(Input.get_axis("left", "right") * 3 * delta)
+		elif abs(Input.get_axis("up", "down")) > 0:
+			aim_dir = aim_dir.rotated(Input.get_axis("up", "down") * 3 * delta)
 		global_position = lerp(global_position, Globals.player.global_position + aim_dir * distance_to_player * 1.5, delta * 10)
 		global_rotation = aim_dir.angle()
 		if global_position.x < holder.global_position.x:
@@ -103,6 +109,7 @@ func _process(delta):
 			queue_free()
 		if follow_mouse:
 			follow_mouse = false
+			Globals.upgrade_menu.finish()
 	can_press = true
 
 
@@ -176,7 +183,7 @@ func set_game_over():
 
 
 func show_name():
-	gun_name_instance = gun_name.instantiate()
+	#gun_name_instance = gun_name.instantiate()
 	get_tree().current_scene.add_child(gun_name_instance)
 	var yoffset: int = 30 * sign(Globals.player.global_position.y - global_position.y)
 	gun_name_instance.global_position = global_position + Vector2(0, -yoffset)
@@ -210,7 +217,7 @@ func attach_to_target(target: Node2D):
 	Globals.player.get_node("Guns").add_child(self)
 	Globals.ui.set_gun_amount()
 
-
+ 
 func spin_gun():
 	await get_tree().create_timer($ReloadTimer.wait_time-0.75).timeout
 	Globals.audio_manager.reload.play()

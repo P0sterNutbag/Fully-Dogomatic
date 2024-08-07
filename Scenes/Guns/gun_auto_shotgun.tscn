@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://cnxgjwrawwh2o"]
 
-[ext_resource type="PackedScene" uid="uid://b8qfbi2a3hocl" path="res://Scenes/Guns/gun_parent.tscn" id="1_cpqp2"]
+[ext_resource type="PackedScene" uid="uid://b8qfbi2a3hocl" path="res://Scenes/Guns/Control/gun_parent.tscn" id="1_cpqp2"]
 [ext_resource type="Texture2D" uid="uid://bwvobme5vv6us" path="res://Art/Sprites/icon AR15.png" id="2_4tn34"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_2fmgw"]
-[ext_resource type="PackedScene" uid="uid://bduar6b4yec01" path="res://Scenes/Guns/gun_frame.tscn" id="4_vuxrp"]
+[ext_resource type="PackedScene" uid="uid://bduar6b4yec01" path="res://Scenes/Guns/Control/gun_frame.tscn" id="4_vuxrp"]
 [ext_resource type="PackedScene" uid="uid://cpow281uu17t7" path="res://Scenes/Gun Parts/auto_shotgun_barrel.tscn" id="5_nn2dg"]
 [ext_resource type="PackedScene" uid="uid://cqi0jbfoogmdi" path="res://Scenes/Gun Parts/auto_shotgun_stock.tscn" id="6_6lfd1"]
 [ext_resource type="PackedScene" uid="uid://defq2y30c6tj1" path="res://Scenes/Gun Parts/auto_shotgun_grip.tscn" id="7_joh22"]

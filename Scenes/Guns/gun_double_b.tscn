@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://cg6qcljd6ydof"]
 
-[ext_resource type="PackedScene" uid="uid://b8qfbi2a3hocl" path="res://Scenes/Guns/gun_parent.tscn" id="1_vplb1"]
+[ext_resource type="PackedScene" uid="uid://b8qfbi2a3hocl" path="res://Scenes/Guns/Control/gun_parent.tscn" id="1_vplb1"]
 [ext_resource type="Texture2D" uid="uid://bwvobme5vv6us" path="res://Art/Sprites/icon AR15.png" id="2_ic5uq"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_7cyp1"]
-[ext_resource type="PackedScene" uid="uid://bduar6b4yec01" path="res://Scenes/Guns/gun_frame.tscn" id="4_sopsg"]
+[ext_resource type="PackedScene" uid="uid://bduar6b4yec01" path="res://Scenes/Guns/Control/gun_frame.tscn" id="4_sopsg"]
 [ext_resource type="PackedScene" uid="uid://dxq1wjxkj8867" path="res://Scenes/Gun Parts/double_b_barrel.tscn" id="5_1ctu8"]
 [ext_resource type="PackedScene" uid="uid://dbedvvuhli84x" path="res://Scenes/Gun Parts/double_b_stock.tscn" id="6_jf1y2"]
 [ext_resource type="PackedScene" uid="uid://bvknpwnr2sd87" path="res://Scenes/Gun Parts/double_b_grip.tscn" id="7_4fcrb"]
