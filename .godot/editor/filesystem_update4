@@ -1,39 +1,26 @@
-res://Scenes/Upgrades/upgrade_option.tscn
-res://Art/Shaders/scene_transition.gdshader
-res://Art/Shaders/colorswap.gdshader
-res://Scripts/Upgrades/upgrade.gd
-res://Scripts/gun_part_barrel.gd
-res://Scripts/world_controller.gd
-res://Art/Themes/ui text mid.tres
-res://Art/Shaders/outline.gdshader
-res://Art/Shaders/flash.gdshader
-res://Art/Shaders/grayscale.gdshader
-res://Art/Shaders/drop_shadow.gdshader
-res://Art/Shaders/replace_color.gdshader
-res://Scenes/UI/settings_menu.tscn
-res://Scenes/Control/input_controller.tscn
-res://Scenes/Levels/intro.tscn
-res://Scenes/Control/ui_menu.tscn
-res://Scenes/Levels/main_menu.tscn
-res://Scenes/UI/death_ui.tscn
-res://Scenes/Levels/end.tscn
-res://Scenes/Upgrades/upgrade_menu.tscn
-res://Scripts/Upgrades/upgrade_option.gd
-res://Scripts/upgrade_menu.gd
-res://Scripts/gun.gd
-res://Scripts/ui_menu_button_grow_on_focus.gd
-res://Scripts/Circle.gd
-res://Scenes/UI/settings_menu.gd
-res://Scripts/ui_menu.gd
-res://Scripts/ui_settings_menu.gd
-res://Scripts/player.gd
-res://Scenes/Gun Parts/mac11_barrel.tscn
-res://Scenes/Guns/CompleteGuns/gun_mac11.tscn
-res://Scripts/input_controller.gd
 res://Scenes/Upgrades/upgrade_manager.tscn
+res://Art/Themes/healthbar.tres
 res://Scripts/Upgrades/upgrade_manager.gd
-res://Scripts/globals.gd
-res://Scenes/Guns/CompleteGuns/gun_22.tscn
-res://Scenes/Guns/gun_mac11.tscn
-res://Scenes/Guns/gun_22.tscn
-res://Scenes/Guns/gun_ak47.tscn
+res://Scenes/Levels/intro.tscn
+res://Scenes/Gun Parts/22_barrel.tscn
+res://Scenes/Gun Parts/auto_shotgun_barrel.tscn
+res://Scenes/Gun Parts/ak47_barrel.tscn
+res://Scenes/Gun Parts/ar15_barrel.tscn
+res://Scenes/Gun Parts/tommy_barrel.tscn
+res://Scenes/Gun Parts/sniper_barrel.tscn
+res://Scenes/Gun Parts/smg_barrel.tscn
+res://Scenes/Gun Parts/shotgun_barrel.tscn
+res://Scenes/Gun Parts/revolver_barrel.tscn
+res://Scenes/Gun Parts/pistol_barrel.tscn
+res://Scenes/Gun Parts/magnum_barrel.tscn
+res://Scenes/Gun Parts/mac11_barrel.tscn
+res://Scenes/Gun Parts/launcher_barrel.tscn
+res://Scenes/Gun Parts/double_b_barrel.tscn
+res://Scripts/gun_frame.gd
+res://Scripts/gun_part_scope.gd
+res://Scripts/settings_menu_old.gd
+res://Scripts/Upgrades/dogtag.gd
+res://Audio/AudioManager.tscn
+res://Audio/audio_manager.gd
+res://Scripts/pausable_audio.gd
+res://Scripts/ui_settings_menu.gd

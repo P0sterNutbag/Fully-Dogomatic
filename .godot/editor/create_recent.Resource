@@ -1,4 +1,0 @@
-Resource
-GDScript
-WaveData
-SpriteFrames
