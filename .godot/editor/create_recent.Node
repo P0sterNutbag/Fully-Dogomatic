@@ -1,7 +1,10 @@
+Button
+Control
+VBoxContainer
+RichTextLabel
 AudioStreamPlayer
 Timer
 CanvasLayer
-RichTextLabel
 ColorRect
 AnimationPlayer
 AnimationTree
@@ -9,6 +12,3 @@ AnimatedSprite2D
 TextureRect
 Sprite2D
 Node2D
-Control
-Node
-CollisionShape2D
