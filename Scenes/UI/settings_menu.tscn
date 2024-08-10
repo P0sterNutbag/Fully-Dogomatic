@@ -29,7 +29,9 @@ shader_parameter/palette = ExtResource("2_j0jht")
 [sub_resource type="Theme" id="Theme_rr4cc"]
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_focus_color = Color(1, 0, 0, 1)
-Button/colors/font_hover_color = Color(1, 0, 0, 1)
+Button/colors/font_hover_color = Color(0.94902, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(1, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 0, 0, 1)
 Button/font_sizes/font_size = 14
 Button/fonts/font = ExtResource("4_mr0ip")
 Button/styles/focus = SubResource("StyleBoxEmpty_ap13o")
@@ -75,6 +77,8 @@ offset_bottom = 80.0
 [node name="Continue" type="Button" parent="Menu/VBoxContainer"]
 use_parent_material = true
 layout_mode = 2
+focus_next = NodePath("../Mute")
+focus_previous = NodePath("../Quit")
 theme = SubResource("Theme_rr4cc")
 text = "CONTINUE"
 flat = true
@@ -84,6 +88,8 @@ script = ExtResource("6_yr8xu")
 [node name="Mute" type="Button" parent="Menu/VBoxContainer"]
 use_parent_material = true
 layout_mode = 2
+focus_next = NodePath("../Fullscreen")
+focus_previous = NodePath("../Continue")
 theme = SubResource("Theme_rr4cc")
 toggle_mode = true
 text = "MUTE"
@@ -94,9 +100,11 @@ script = ExtResource("6_yr8xu")
 [node name="Fullscreen" type="Button" parent="Menu/VBoxContainer"]
 use_parent_material = true
 layout_mode = 2
+focus_next = NodePath("../ReturnToMenu")
+focus_previous = NodePath("../Mute")
 theme = SubResource("Theme_rr4cc")
 toggle_mode = true
-text = "FULLSCREEN"
+text = "WINDOWED"
 flat = true
 alignment = 0
 script = ExtResource("6_yr8xu")
@@ -104,6 +112,8 @@ script = ExtResource("6_yr8xu")
 [node name="ReturnToMenu" type="Button" parent="Menu/VBoxContainer"]
 use_parent_material = true
 layout_mode = 2
+focus_next = NodePath("../Quit")
+focus_previous = NodePath("../Fullscreen")
 theme = SubResource("Theme_rr4cc")
 text = "RETURN TO MENU"
 flat = true
@@ -113,6 +123,8 @@ script = ExtResource("6_yr8xu")
 [node name="Quit" type="Button" parent="Menu/VBoxContainer"]
 use_parent_material = true
 layout_mode = 2
+focus_next = NodePath("../Continue")
+focus_previous = NodePath("../ReturnToMenu")
 theme = SubResource("Theme_rr4cc")
 text = "QUIT"
 flat = true

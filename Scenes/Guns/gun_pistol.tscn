@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://couat6mj44bws"]
+[gd_scene load_steps=11 format=3 uid="uid://couat6mj44bws"]
 
 [ext_resource type="PackedScene" uid="uid://b8qfbi2a3hocl" path="res://Scenes/Guns/Control/gun_parent.tscn" id="1_nl00p"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="2_7eo8r"]
 [ext_resource type="PackedScene" uid="uid://bduar6b4yec01" path="res://Scenes/Guns/Control/gun_frame.tscn" id="3_42iie"]
 [ext_resource type="PackedScene" uid="uid://syacy6q18lg4" path="res://Scenes/Gun Parts/pistol_barrel.tscn" id="4_w5a7l"]
+[ext_resource type="PackedScene" uid="uid://cxyra3ivsyxcy" path="res://Scenes/Gun Parts/no_stock.tscn" id="5_3l2o1"]
 [ext_resource type="PackedScene" uid="uid://dvy5lsmww0dit" path="res://Scenes/Gun Parts/pistol_grip.tscn" id="5_wrpaq"]
 [ext_resource type="PackedScene" uid="uid://bgu5vroflg0y6" path="res://Scenes/Gun Parts/pistol_magazine.tscn" id="6_0xbuq"]
+[ext_resource type="PackedScene" uid="uid://bnsm5lupvp618" path="res://Scenes/Gun Parts/no_scope.tscn" id="8_1du60"]
 
 [sub_resource type="Resource" id="Resource_vth6q"]
 script = ExtResource("2_7eo8r")
@@ -24,5 +26,7 @@ shape = SubResource("RectangleShape2D_lkrng")
 
 [node name="GunFrame" parent="." index="3" instance=ExtResource("3_42iie")]
 barrel = ExtResource("4_w5a7l")
+stock = ExtResource("5_3l2o1")
 grip = ExtResource("5_wrpaq")
 magazine = ExtResource("6_0xbuq")
+sight = ExtResource("8_1du60")

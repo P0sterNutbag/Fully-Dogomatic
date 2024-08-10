@@ -6,8 +6,8 @@ var last_focus_owner: Control
 func _ready():
 	last_focus_owner = get_viewport().gui_get_focus_owner()
 	$Menu/VBoxContainer/Continue.grab_focus()
-	if Globals.player:
-		for gun in Globals.player.guns:
+	if Globals.player != null:
+		for gun in Globals.player.guns:	
 			gun.process_mode = Node.PROCESS_MODE_DISABLED
 	Globals.audio_manager.pause_sounds()
 
@@ -39,6 +39,7 @@ func _on_fullscreen_pressed():
 
 
 func _on_return_to_menu_pressed():
+	Globals.player = null
 	SceneManager.start_scene_transition("res://Scenes/Levels/main_menu.tscn")
 	get_tree().paused = false
 
@@ -63,15 +64,15 @@ func _on_color_rect_mouse_exited():
 
 
 
-func _on_mute_toggled(toggled_on):
-	if toggled_on:
-		$Menu/VBoxContainer/Mute.text = "UNMUTE"
-	else:
-		$Menu/VBoxContainer/Mute.text = "MUTE"
-
-
-func _on_fullscreen_toggled(toggled_on):
-	if toggled_on:
-		$Menu/VBoxContainer/Fullscreen.text = "WINDOWED"
-	else:
-		$Menu/VBoxContainer/Fullscreen.text = "FULLSCREEN"
+#func _on_mute_toggled(toggled_on):
+	#if toggled_on:
+		#$Menu/VBoxContainer/Mute.text = "UNMUTE"
+	#else:
+		#$Menu/VBoxContainer/Mute.text = "MUTE"
+#
+#
+#func _on_fullscreen_toggled(toggled_on):
+	#if toggled_on:
+		#$Menu/VBoxContainer/Fullscreen.text = "WINDOWED"
+	#else:
+		#$Menu/VBoxContainer/Fullscreen.text = "FULLSCREEN"

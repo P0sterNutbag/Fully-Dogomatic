@@ -23,6 +23,7 @@ config/windows_native_icon="res://Art/Sprites/windows_icon.ico"
 Globals="*res://Scripts/globals.gd"
 SceneManager="*res://Scenes/SceneManager.tscn"
 InputController="*res://Scenes/Control/input_controller.tscn"
+AudioManager="*res://Audio/AudioManager.tscn"
 
 [debug]
 

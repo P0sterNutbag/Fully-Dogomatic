@@ -12,5 +12,5 @@ func set_gun_stats():
 	if gun_parent is Gun:
 		gun_parent.rounds = rounds
 		gun_parent.reload_time = reload_time
-		gun_parent.get_node("ReloadTimer").wait_time = reload_time
+		#gun_parent.get_node("ReloadTimer").wait_time = reload_time
 		gun_parent.shots_left = gun_parent.rounds

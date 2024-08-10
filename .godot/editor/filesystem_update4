@@ -1,26 +1,48 @@
-res://Scenes/Upgrades/upgrade_manager.tscn
+res://Scenes/Gun Parts/ar15_magazine.tscn
 res://Art/Themes/healthbar.tres
-res://Scripts/Upgrades/upgrade_manager.gd
-res://Scenes/Levels/intro.tscn
-res://Scenes/Gun Parts/22_barrel.tscn
-res://Scenes/Gun Parts/auto_shotgun_barrel.tscn
-res://Scenes/Gun Parts/ak47_barrel.tscn
-res://Scenes/Gun Parts/ar15_barrel.tscn
-res://Scenes/Gun Parts/tommy_barrel.tscn
-res://Scenes/Gun Parts/sniper_barrel.tscn
-res://Scenes/Gun Parts/smg_barrel.tscn
-res://Scenes/Gun Parts/shotgun_barrel.tscn
-res://Scenes/Gun Parts/revolver_barrel.tscn
-res://Scenes/Gun Parts/pistol_barrel.tscn
-res://Scenes/Gun Parts/magnum_barrel.tscn
-res://Scenes/Gun Parts/mac11_barrel.tscn
-res://Scenes/Gun Parts/launcher_barrel.tscn
-res://Scenes/Gun Parts/double_b_barrel.tscn
-res://Scripts/gun_frame.gd
-res://Scripts/gun_part_scope.gd
-res://Scripts/settings_menu_old.gd
-res://Scripts/Upgrades/dogtag.gd
-res://Audio/AudioManager.tscn
-res://Audio/audio_manager.gd
-res://Scripts/pausable_audio.gd
+res://Scenes/Guns/gun_ak47.tscn
+res://Scenes/Guns/gun_ar15.tscn
+res://Scenes/Guns/gun_tommy.tscn
+res://Scenes/Gun Parts/magazine_medium.tscn
+res://Scenes/Gun Parts/magazine_large.tscn
+res://Scenes/Levels/world.tscn
+res://Scenes/Levels/Level Objects/crate_parts.tscn
+res://Scenes/Upgrades/upgrade_manager.tscn
+res://Scenes/Gun Parts/magazine_small.tscn
+res://Scenes/UI/ui.tscn
+res://Scripts/ui.gd
+res://Scenes/Bullets/grenade.tscn
+res://Scripts/grenade.gd
+res://Scenes/Levels/Level Objects/level_manager.tscn
+res://Scenes/enemy_spawner_controller.tscn
+res://Scenes/Guns/gun_auto_shotgun.tscn
+res://Scenes/Guns/gun_grenade_launcher.tscn
+res://Scenes/Levels/Level Objects/enemy_spawner_pipe.tscn
+res://Scripts/enemy_spawner_pipe.gd
+res://Scenes/Upgrades/gun_upgrade_ricochet.tscn
+res://Scenes/Upgrades/ricochet_upgrade.tscn
 res://Scripts/ui_settings_menu.gd
+res://Scenes/Upgrades/gun_upgrade.tscn
+res://Scripts/gun_upgrade.gd
+res://Scripts/enemy_spawner_controller.gd
+res://Scenes/Gun Parts/ar15_scope.tscn
+res://Scenes/Gun Parts/ar15_barrel.tscn
+res://Scenes/Gun Parts/sniper_scope.tscn
+res://Scenes/Gun Parts/sniper_barrel.tscn
+res://Scenes/Upgrades/gun_upgrade_damage.tscn
+res://Scenes/Upgrades/gun_upgrade_penetrate.tscn
+res://Scripts/world_controller.gd
+res://Scenes/Gun Parts/magnum_magazine.tscn
+res://Scripts/player.gd
+res://Scripts/level_manager.gd
+res://Scenes/UI/minimap.tscn
+res://Scenes/Upgrades/Dogtags/dogtag_exploding_bullets.tscn
+res://Scenes/Upgrades/gun_upgrade_explosive.tscn
+res://Scenes/Upgrades/part_upgrade.tscn
+res://Scripts/part_upgrade.gd
+res://Scenes/Gun Parts/revolver_barrel.tscn
+res://Scenes/Gun Parts/22_barrel.tscn
+res://Scenes/Gun Parts/ak47_barrel.tscn
+res://Scenes/Gun Parts/auto_shotgun_barrel.tscn
+res://Scenes/Upgrades/upgrade_option.tscn
+res://Scripts/Upgrades/upgrade_option.gd

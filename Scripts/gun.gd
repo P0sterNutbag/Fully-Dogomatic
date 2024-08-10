@@ -15,7 +15,8 @@ class_name Gun
 @export var knockback: int = 15  
 @export var rounds: int = 20  
 @export var bullet_speed: int = 15 
-@export var reload_time: float = 1 
+@export var reload_time: float = 1: 
+	set(value): $ReloadTimer.wait_time = reload_time
 @export var penetrations_modifier: int = 0
 @export var distance_to_player = 30
 @export var ricochet: bool = false
@@ -149,7 +150,12 @@ func _on_timer_timeout(): # shoot bullets
 			instance.damage  = bullet_damage#+= damage_modifier
 			instance.penetrations += penetrations_modifier
 			instance.ricochet = ricochet
-			instance.explode_chance = Globals.explode_chance
+			if ricochet:
+				instance.penetrations += 1
+			if Globals.explode_chance > 0:
+				instance.explode_chance = Globals.explode_chance
+			else:
+				instance.explode_chance = explode_chance
 			instance.homing = homing
 			muzzle_flash.visible = true
 		position += (knockback * (holder.global_position - global_position).normalized())

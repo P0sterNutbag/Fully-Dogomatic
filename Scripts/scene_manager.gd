@@ -30,6 +30,7 @@ func start_load() -> void:
 	set_process(true)
 	if !next_scene.contains("main_menu"):
 		animation_player.play("popin")
+	AudioManager.stop_all_audio()
 
 
 func _process(_delta):

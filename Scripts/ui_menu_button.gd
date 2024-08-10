@@ -1,6 +1,6 @@
 extends Button
 
-
-func _process(delta):
-	if is_hovered():
-		grab_focus()
+func _ready():
+	mouse_entered.connect(grab_focus)
+	mouse_exited.connect(release_focus)
+	

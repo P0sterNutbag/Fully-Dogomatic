@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxgdkckdf444o"]
+
+[ext_resource type="PackedScene" uid="uid://dxh25edu12ok8" path="res://Scenes/Upgrades/gun_upgrade.tscn" id="1_46css"]
+[ext_resource type="Texture2D" uid="uid://b0rfe3ff6ilq5" path="res://Art/Sprites/upgrade spritesheet.png" id="2_ljce8"]
+
+[node name="GunUpgradeDamage" instance=ExtResource("1_46css")]
+upgrade_value = ["bullet_damage", 2.0]
+multiply = true
+metadata/Title = "Armor Piercing"
+
+[node name="UpgradeSprite" parent="." index="0"]
+texture = ExtResource("2_ljce8")
+region_enabled = true
+region_rect = Rect2(48, 0, 16, 16)

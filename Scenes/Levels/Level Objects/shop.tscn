@@ -35,8 +35,8 @@ size = Vector2(38, 58)
 y_sort_enabled = true
 use_parent_material = true
 script = ExtResource("1_61rwb")
-option_array_name = "guns"
-options_amount = 3
+option_array_name = "shop_guns"
+options_amount = 2
 pay_for_guns = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

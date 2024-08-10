@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://xxns0mw4h46v"]
+
+[ext_resource type="PackedScene" uid="uid://dxh25edu12ok8" path="res://Scenes/Upgrades/gun_upgrade.tscn" id="1_44nxl"]
+[ext_resource type="Texture2D" uid="uid://b0rfe3ff6ilq5" path="res://Art/Sprites/upgrade spritesheet.png" id="2_vwl2p"]
+
+[node name="GunUpgradeRicochet" instance=ExtResource("1_44nxl")]
+upgrade_value = ["ricochet", true]
+metadata/Title = "Ricochet"
+
+[node name="UpgradeSprite" parent="." index="0"]
+texture = ExtResource("2_vwl2p")
+region_enabled = true
+region_rect = Rect2(32, 0, 16, 16)

@@ -11,7 +11,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jonbb"]
 size = Vector2(22, 22)
 
-[node name="Upgrade Crate" type="Area2D" groups=["destroy"]]
+[node name="Gun Crate" type="Area2D" groups=["destroy"]]
 y_sort_enabled = true
 use_parent_material = true
 script = ExtResource("1_gh17r")

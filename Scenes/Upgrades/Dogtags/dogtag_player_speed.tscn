@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1jblxdf7tmkf"]
+[gd_scene load_steps=4 format=3 uid="uid://c1jblxdf7tmkf"]
 
 [ext_resource type="PackedScene" uid="uid://cn50oxjbu2kvn" path="res://Scenes/Upgrades/Dogtags/dogtag_exploding_bullets.tscn" id="1_hwsvm"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="2_epw1i"]
@@ -7,15 +7,13 @@
 script = ExtResource("2_epw1i")
 rarity = 2
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5ta3a"]
-load_path = "res://.godot/imported/123spritesheet.png-92fa8252bac0805d85a046c52caa8e67.ctex"
-
 [node name="Dogtag" instance=ExtResource("1_hwsvm")]
 player_upgrade = true
 variable_name = "speed"
 value = 10.0
+metadata/Title = "Speed Boost"
+metadata/Type = "Dogtag"
 metadata/Rarity = SubResource("Resource_134ul")
 
 [node name="Icon" parent="." index="1"]
-texture = SubResource("CompressedTexture2D_5ta3a")
 region_rect = Rect2(64, 64, 16, 16)

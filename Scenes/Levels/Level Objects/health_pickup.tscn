@@ -154,7 +154,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="HealthPickup" type="Area2D"]
+[node name="Health Pickup" type="Area2D"]
 y_sort_enabled = true
 use_parent_material = true
 collision_layer = 256

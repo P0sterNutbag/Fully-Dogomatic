@@ -12,6 +12,7 @@ var is_muted: bool = false
 @onready var explosion = $Explosion
 @onready var stage_music = $StageMusic
 @onready var bark = $Bark
+@onready var menu_music = $MenuMusic
 
 
 func _ready():
@@ -37,3 +38,9 @@ func resume_sounds():
 	for child in get_children():
 		if child.pause_time > 0:
 			child.play(child.pause_time)
+
+
+func stop_all_audio():
+	for child in get_children():
+		child.stop()
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://d1c2pbbb47u4h"]
+[gd_scene load_steps=32 format=3 uid="uid://d1c2pbbb47u4h"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_lk1ej"]
 [ext_resource type="PackedScene" uid="uid://d1yo75f23rful" path="res://Scenes/countdown.tscn" id="2_rquus"]
@@ -16,9 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/JuicyMovement.tscn" id="14_gog46"]
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="15_inkxv"]
 [ext_resource type="Theme" uid="uid://dawp23mso2e5a" path="res://Art/Themes/healthbar.tres" id="15_o6py4"]
-[ext_resource type="Texture2D" uid="uid://daxb7qrq2h0do" path="res://corgi background.png" id="16_amnsy"]
+[ext_resource type="Texture2D" uid="uid://daxb7qrq2h0do" path="res://Art/Sprites/corgi background.png" id="16_amnsy"]
 [ext_resource type="Texture2D" uid="uid://c6y0lkh055u06" path="res://Art/Sprites/heart.png" id="17_biwwo"]
 [ext_resource type="Theme" uid="uid://caletdmnc4r81" path="res://Art/Themes/ui text small mono.tres" id="19_76qcs"]
+[ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="20_bc85l"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2xchs"]
 shader = ExtResource("3_8xjm0")
@@ -93,7 +94,7 @@ border_color = Color(0.223529, 0.223529, 0.223529, 1)
 ProgressBar/styles/background = SubResource("StyleBoxFlat_mcsc2")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_agtf6")
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="UI" type="CanvasLayer"]
 script = ExtResource("1_lk1ej")
 
 [node name="GameOverTextHolder" type="Node2D" parent="."]
@@ -279,10 +280,10 @@ text = "YOU WIN!"
 [node name="Dogtags" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 544.0
-offset_top = 12.0
-offset_right = 544.0
-offset_bottom = 12.0
+offset_left = 96.0
+offset_top = 336.0
+offset_right = 96.0
+offset_bottom = 336.0
 script = ExtResource("11_7ulue")
 
 [node name="Drop" type="Node2D" parent="."]
@@ -403,6 +404,7 @@ offset_right = 248.0
 offset_bottom = 83.0
 
 [node name="MoneyText" type="RichTextLabel" parent="LeftCorner"]
+visible = false
 use_parent_material = true
 clip_contents = false
 layout_mode = 0
@@ -550,3 +552,44 @@ offset_bottom = 33.0
 theme = ExtResource("5_7e6pl")
 bbcode_enabled = true
 text = "[right]0"
+
+[node name="Center" type="Control" parent="."]
+material = ExtResource("15_inkxv")
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Tutorial" type="RichTextLabel" parent="Center"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.0
+offset_top = -77.0
+offset_right = 109.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("20_bc85l")
+bbcode_enabled = true
+text = "[center]FIND GUNS INSIDE CRATES!"
+
+[node name="JuicyMovement" parent="Center/Tutorial" node_paths=PackedStringArray("target_control") instance=ExtResource("14_gog46")]
+target_control = NodePath("../..")
+bob_frequency = 10.0
+bob_amplitude = 10.0
+
+[node name="Timer" type="Timer" parent="Center/Tutorial"]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Center/Tutorial/Timer" to="." method="_on_timer_timeout"]

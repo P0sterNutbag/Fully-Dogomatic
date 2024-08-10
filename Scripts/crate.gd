@@ -33,11 +33,13 @@ func _on_area_entered(area):
 			for i in upgrade_menu.options:
 				i.show_price = true
 		var description = upgrade_menu.get_node("ChooseGuns")
+		var description2 = upgrade_menu.get_node("PositionGuns")
 		match option_array_name:
 			"guns": 
 				description.text = "[center]CHOOSE A GUN!"
 			"gunparts": 
-				description.text = "[center]CHOOSE A GUN PART!"
+				description.text = "[center]CHOOSE AN UPGRADE!"
+				description2.text = "[center]CHOOSE A GUN TO MODIFY"
 			"dogtags": 
 				description.text = "[center]CHOOSE A DOG TAG!"
 		get_tree().current_scene.add_child(inst)

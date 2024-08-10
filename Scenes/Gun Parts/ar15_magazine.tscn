@@ -9,9 +9,10 @@ script = ExtResource("4_3nss5")
 rarity = 2
 
 [node name="Magazine" type="Sprite2D"]
+z_index = 1
 use_parent_material = true
 texture = ExtResource("1_o70n6")
-offset = Vector2(3, 4)
+offset = Vector2(3, 3)
 region_enabled = true
 region_rect = Rect2(80, 0, 16, 16)
 script = ExtResource("2_2n4si")

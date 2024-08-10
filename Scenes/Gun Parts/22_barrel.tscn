@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Art/Sprites/gun parts spritesheet.png" id="1_o3d46"]
 [ext_resource type="Script" path="res://Scripts/gun_part_barrel.gd" id="2_046mh"]
-[ext_resource type="PackedScene" uid="uid://d14blxavxtjk2" path="res://Scenes/Bullets/22cal_bullet.tscn" id="3_1x2jd"]
+[ext_resource type="PackedScene" uid="uid://bmfhcxqevrjcn" path="res://Scenes/Bullets/9mm_bullet.tscn" id="3_apm4n"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_o5ccq"]
 
 [sub_resource type="Resource" id="Resource_bfd7l"]
@@ -18,7 +18,7 @@ script = ExtResource("2_046mh")
 cooldown = 1.25
 spread = 5.0
 knockback = 5.0
-bullet = ExtResource("3_1x2jd")
+bullet = ExtResource("3_apm4n")
 metadata/Title = "Barrel"
 metadata/Type = "Mk 13 Sniper Rifle"
 metadata/Rarity = SubResource("Resource_bfd7l")

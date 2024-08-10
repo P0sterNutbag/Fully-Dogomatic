@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcc5uf7cqe744"]
+
+[ext_resource type="PackedScene" uid="uid://dxh25edu12ok8" path="res://Scenes/Upgrades/gun_upgrade.tscn" id="1_0dghr"]
+[ext_resource type="Texture2D" uid="uid://b0rfe3ff6ilq5" path="res://Art/Sprites/upgrade spritesheet.png" id="2_3pj5i"]
+
+[node name="GunUpgradeRicochet" instance=ExtResource("1_0dghr")]
+upgrade_value = ["reload_time", 0.5]
+multiply = true
+metadata/Title = "Speed Reload"
+
+[node name="UpgradeSprite" parent="." index="0"]
+texture = ExtResource("2_3pj5i")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 16)

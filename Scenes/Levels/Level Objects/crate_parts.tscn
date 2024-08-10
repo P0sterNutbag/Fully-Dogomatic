@@ -4,4 +4,3 @@
 
 [node name="Upgrade Crate" instance=ExtResource("1_57ygq")]
 option_array_name = "gunparts"
-options_amount = 3

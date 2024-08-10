@@ -120,7 +120,7 @@ spawn_chance = 80.0
 [node name="EnemySpawnerController" type="Node2D"]
 script = ExtResource("1_grdac")
 spawn_rounds = [[SubResource("Resource_djs13")], [SubResource("Resource_cpcnp")], [SubResource("Resource_wx7tf"), SubResource("Resource_xu11y")], [SubResource("Resource_dpyvh"), SubResource("Resource_o7d6o")], [SubResource("Resource_f5gtt"), SubResource("Resource_27enh")], [SubResource("Resource_6lvo5"), SubResource("Resource_xt3io"), SubResource("Resource_8wijg")], [SubResource("Resource_2542q"), SubResource("Resource_n25to")], [SubResource("Resource_j2d5g"), SubResource("Resource_tqi51")], [SubResource("Resource_p3nf6"), SubResource("Resource_a2ll5")], [SubResource("Resource_3sxyn"), SubResource("Resource_4c23d"), SubResource("Resource_qcst1")], [SubResource("Resource_sxf32"), SubResource("Resource_2xf4e")]]
-spawn_time = Array[float]([1.0, 0.5, 0.5, 0.3, 0.5, 0.3, 0.4, 0.3, 0.4, 0.3, 0.3])
+spawn_time = Array[float]([1.0, 0.4, 0.3, 0.15, 0.25, 0.15, 0.2, 0.15, 0.2, 0.15, 0.15])
 
 [node name="InitialSpawn" type="Timer" parent="."]
 wait_time = 0.5

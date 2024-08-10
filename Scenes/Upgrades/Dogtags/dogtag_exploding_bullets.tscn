@@ -29,27 +29,27 @@ offset_bottom = 5.0
 script = ExtResource("3_gh0yw")
 gun_upgrade = true
 variable_name = "explode_chance"
-value = 0.1
+value = 0.05
 metadata/Title = "Dogtag"
-metadata/Type = "Bullets Explode on Impact"
+metadata/Type = "10% Chance Bullets Explode"
 metadata/Rarity = SubResource("Resource_25sqj")
 
 [node name="Tag" type="Sprite2D" parent="."]
 use_parent_material = true
-position = Vector2(0, 11)
+position = Vector2(0, 13)
 texture = ExtResource("5_7eibt")
 region_enabled = true
 region_rect = Rect2(32, 64, 16, 32)
 
 [node name="Icon" type="Sprite2D" parent="."]
 use_parent_material = true
-position = Vector2(0, 8)
+position = Vector2(0, 10)
 texture = ExtResource("5_7eibt")
 region_enabled = true
 region_rect = Rect2(48, 64, 16, 16)
 
-[node name="JuicyMovement" parent="." node_paths=PackedStringArray("target") instance=ExtResource("6_gvav4")]
-target = NodePath("..")
+[node name="JuicyMovement" parent="." node_paths=PackedStringArray("target_control") instance=ExtResource("6_gvav4")]
+target_control = NodePath("..")
 bob_frequency = 3.0
 bob_amplitude = 8.0
 rot_frequency = 3.0

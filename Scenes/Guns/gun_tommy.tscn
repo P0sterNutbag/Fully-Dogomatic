@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ssm25cowo6i"]
+[gd_scene load_steps=12 format=3 uid="uid://ssm25cowo6i"]
 
 [ext_resource type="PackedScene" uid="uid://b8qfbi2a3hocl" path="res://Scenes/Guns/Control/gun_parent.tscn" id="1_xldm2"]
 [ext_resource type="Texture2D" uid="uid://bwvobme5vv6us" path="res://Art/Sprites/icon AR15.png" id="2_6s7mr"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cl1q5ofdjapjj" path="res://Scenes/Gun Parts/tommy_stock.tscn" id="6_ky8ca"]
 [ext_resource type="PackedScene" uid="uid://j1vkkxy207cg" path="res://Scenes/Gun Parts/tommy_grip.tscn" id="7_b46ai"]
 [ext_resource type="PackedScene" uid="uid://tkk6eo3avmu0" path="res://Scenes/Gun Parts/tommy_magazine.tscn" id="8_tt3sj"]
+[ext_resource type="PackedScene" uid="uid://bnsm5lupvp618" path="res://Scenes/Gun Parts/no_scope.tscn" id="9_48k6k"]
 
 [sub_resource type="Resource" id="Resource_q37la"]
 script = ExtResource("3_8d770")
@@ -35,3 +36,4 @@ barrel = ExtResource("5_bku2t")
 stock = ExtResource("6_ky8ca")
 grip = ExtResource("7_b46ai")
 magazine = ExtResource("8_tt3sj")
+sight = ExtResource("9_48k6k")

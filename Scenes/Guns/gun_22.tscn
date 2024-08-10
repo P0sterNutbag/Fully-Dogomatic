@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://3wnh1ek55nhd"]
+[gd_scene load_steps=11 format=3 uid="uid://3wnh1ek55nhd"]
 
 [ext_resource type="PackedScene" uid="uid://b8qfbi2a3hocl" path="res://Scenes/Guns/Control/gun_parent.tscn" id="1_g226p"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="2_lt04t"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c7ba5khplxjqx" path="res://Scenes/Gun Parts/22_stock.tscn" id="5_b4l8v"]
 [ext_resource type="PackedScene" uid="uid://cchk03awrjuvs" path="res://Scenes/Gun Parts/22_grip.tscn" id="6_ayvrt"]
 [ext_resource type="PackedScene" uid="uid://bbsk0pwf0w2i3" path="res://Scenes/Gun Parts/22_magazine.tscn" id="7_fmrm0"]
+[ext_resource type="PackedScene" uid="uid://bnsm5lupvp618" path="res://Scenes/Gun Parts/no_scope.tscn" id="8_13cwh"]
 
 [sub_resource type="Resource" id="Resource_vth6q"]
 script = ExtResource("2_lt04t")
@@ -30,3 +31,4 @@ barrel = ExtResource("4_vpegi")
 stock = ExtResource("5_b4l8v")
 grip = ExtResource("6_ayvrt")
 magazine = ExtResource("7_fmrm0")
+sight = ExtResource("8_13cwh")

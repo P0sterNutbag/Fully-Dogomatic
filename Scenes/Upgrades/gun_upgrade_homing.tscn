@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://chsxxs68jprbl"]
+
+[ext_resource type="PackedScene" uid="uid://dxh25edu12ok8" path="res://Scenes/Upgrades/gun_upgrade.tscn" id="1_p2skd"]
+[ext_resource type="Texture2D" uid="uid://b0rfe3ff6ilq5" path="res://Art/Sprites/upgrade spritesheet.png" id="2_fc1uc"]
+
+[node name="GunUpgradeHoming" instance=ExtResource("1_p2skd")]
+upgrade_value = ["homing", true]
+metadata/Title = "Homing Rounds"
+
+[node name="UpgradeSprite" parent="." index="0"]
+texture = ExtResource("2_fc1uc")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 16)

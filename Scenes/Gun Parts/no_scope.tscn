@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnsm5lupvp618"]
+
+[ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Art/Sprites/gun parts spritesheet.png" id="1_oip74"]
+[ext_resource type="Script" path="res://Scripts/gun_part_scope.gd" id="2_aen0t"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_2oowe"]
+
+[sub_resource type="Resource" id="Resource_6r0us"]
+script = ExtResource("3_2oowe")
+rarity = 2
+
+[node name="Scope" type="Sprite2D"]
+use_parent_material = true
+texture = ExtResource("1_oip74")
+offset = Vector2(4, -2)
+region_enabled = true
+region_rect = Rect2(-16, -16, 16, 16)
+script = ExtResource("2_aen0t")
+spread = 0.0
+metadata/Title = "Scope"
+metadata/Type = "M4 Rifle"
+metadata/Rarity = SubResource("Resource_6r0us")

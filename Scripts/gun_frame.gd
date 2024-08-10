@@ -26,13 +26,13 @@ extends Node2D
 	set(value): 
 		sight_object = set_new_part(sight_object, value, "SightSocket", 0)
 		sight = value
-
 var barrel_object: Node2D
 var stock_object: Node2D
 var grip_object: Node2D
 var magazine_object: Node2D
 var sight_object: Node2D
 var bullet_object: Node2D
+var last_changed_part: PackedScene
 
 
 func set_new_part(part_object: Node2D, new_part: PackedScene, socket_name: String, z: int):

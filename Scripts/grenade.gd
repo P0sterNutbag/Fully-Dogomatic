@@ -14,6 +14,7 @@ var homing: bool = false
 
 func _physics_process(_delta):
 	position += move_vector
+	rotation = move_vector.angle()
 	move_vector *= 0.8
 
 

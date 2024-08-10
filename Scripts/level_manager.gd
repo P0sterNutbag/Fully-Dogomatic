@@ -8,7 +8,7 @@ var boss = preload("res://Scenes/Enemies/boss_pug.tscn")
 var crate_amount_variance: int = 0
 var enemy_spawner_variance: int = 0
 var starting_crate_amount = 1
-var barrier_margin = 50
+var barrier_margin = 80
 var barrier_left: Vector2
 var barrier_right: Vector2
 var boss_round = 20
@@ -20,7 +20,7 @@ func _ready():
 	var level: int = 0
 	var world = get_tree().current_scene
 	barrier_left = world.get_node("BarrierLeft").position + Vector2(barrier_margin, barrier_margin)
-	barrier_right = world.get_node("BarrierRight").position - + Vector2(barrier_margin, barrier_margin)
+	barrier_right = world.get_node("BarrierRight").position - Vector2(barrier_margin, barrier_margin)
 	for i in starting_crate_amount:
 		var inst = crate.instantiate()
 		world.call_deferred("add_child", inst)

@@ -9,14 +9,15 @@ var selected: bool = false
 var price: float = 0
 var show_price: bool = false
 var part_scene = preload("res://Scenes/Upgrades/part_upgrade.tscn")
+var gun_upgrade_scene = preload("res://Scenes/Upgrades/gun_upgrade.tscn")
 
 
 func select_gun():
 	# get an option and make sure it isn't already used
 	var upgrade_menu = get_parent()
 	var rand_index = Globals.get_weighted_index(upgrade_menu.upgrade_array)
-	#while upgrade_menu.current_upgrades.has(upgrade_menu.upgrade_array[rand_index].object_to_spawn):
-		#rand_index = Globals.get_weighted_index(upgrade_menu.upgrade_array)
+	while upgrade_menu.current_upgrades.has(upgrade_menu.upgrade_array[rand_index].object_to_spawn):
+		rand_index = Globals.get_weighted_index(upgrade_menu.upgrade_array)
 	option = upgrade_menu.upgrade_array[rand_index]
 	upgrade_menu.current_upgrades.append(option.object_to_spawn)
 	upgrade = option.object_to_spawn.instantiate()
@@ -123,7 +124,7 @@ func _on_pressed():
 		if upgrade.name.contains("Dogtag"):
 			upgrade.apply_upgrade()
 			get_parent().move_options()
-			get_parent()._on_texture_rect_pushed()
+			get_parent().finish()
 			#remove_child(upgrade)
 			Globals.ui.get_node("Dogtags").add_dogtag(upgrade)
 		else: 

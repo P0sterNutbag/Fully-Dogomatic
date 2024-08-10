@@ -1,6 +1,10 @@
 extends Node2D
 
 
+func _ready():
+	AudioManager.menu_music.play()
+
+
 func _on_play_pressed():
 	SceneManager.start_scene_transition("res://Scenes/Levels/world.tscn")
 

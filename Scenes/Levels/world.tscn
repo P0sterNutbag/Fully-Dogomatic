@@ -37,10 +37,10 @@ layer_0/tile_data = PackedInt32Array(-3801147, 0, 0, -3735611, 0, 0, -3670075, 0
 [node name="GameController" parent="." instance=ExtResource("2_66p7h")]
 
 [node name="BarrierLeft" type="Node2D" parent="."]
-position = Vector2(-500, -500)
+position = Vector2(-400, -300)
 
 [node name="BarrierRight" type="Node2D" parent="."]
-position = Vector2(500, 500)
+position = Vector2(400, 300)
 
 [node name="Player" parent="." instance=ExtResource("1_gi1ig")]
 position = Vector2(1, 0)
@@ -49,10 +49,10 @@ position = Vector2(1, 0)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 process_mode = 3
-limit_left = -580
-limit_top = -500
-limit_right = 580
-limit_bottom = 500
+limit_left = -400
+limit_top = -300
+limit_right = 400
+limit_bottom = 300
 script = ExtResource("6_dkkkg")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]

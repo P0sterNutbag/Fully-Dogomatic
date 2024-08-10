@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxh25edu12ok8"]
+
+[ext_resource type="Script" path="res://Scripts/gun_upgrade.gd" id="1_3421v"]
+[ext_resource type="Texture2D" uid="uid://de312nfiun02b" path="res://Art/Sprites/arrows.png" id="2_46wlm"]
+
+[node name="GunUpgrade" type="Node2D"]
+process_mode = 3
+use_parent_material = true
+script = ExtResource("1_3421v")
+metadata/Title = "Explosive Rounds"
+metadata/Type = "Gun Mod"
+
+[node name="UpgradeSprite" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(0, 6)
+
+[node name="Arrow" type="Sprite2D" parent="."]
+visible = false
+use_parent_material = true
+texture = ExtResource("2_46wlm")

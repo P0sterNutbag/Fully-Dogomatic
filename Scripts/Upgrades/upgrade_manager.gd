@@ -8,9 +8,11 @@ var dogtags_folder = "res://Scenes/Upgrades/Dogtags/"
 @export var gun_scenes: Array[PackedScene]
 @export var gunpart_scenes: Array[PackedScene]
 @export var dogtag_scenes: Array[PackedScene]
+@export var shop_guns_scenes: Array[PackedScene]
 var guns: Array
 var gunparts: Array
 var dogtags: Array
+var shop_guns: Array
 var upgrades: Array[SpawnChance] = []
 var master_list: Array[PackedScene] = []
 
@@ -22,10 +24,12 @@ func _ready():
 		add_to_list(guns, gun)
 	#var gunpart_scenes: Array = Globals.get_all_scenes_from_folder(gunpart_folder)
 	for gunpart in gunpart_scenes:
-		add_to_list(gunparts, gunpart)
+		add_to_list_no_rarity(gunparts, gunpart)
 	#var dogtags_scenes: Array = Globals.get_all_scenes_from_folder(dogtags_folder)
 	for dogtag in dogtag_scenes:
 		add_to_list(dogtags, dogtag)
+	for shop_gun in shop_guns_scenes:
+		add_to_list(shop_guns, shop_gun)
 	#for folder in upgrade_folders:
 		#master_list += Globals.get_all_scenes_from_folder(folder)
 	#create_upgrades_list(master_list)
@@ -49,6 +53,15 @@ func add_to_list(list: Array, value: PackedScene):
 	sc.object_to_spawn = value
 	var inst = value.instantiate()
 	sc.spawn_chance = get_spawn_chance(inst.get_meta("Rarity").rarity, inst.name)
+	list.append(sc)
+	inst.queue_free()
+
+
+func add_to_list_no_rarity(list: Array, value: PackedScene):
+	var sc = SpawnChance.new()
+	sc.object_to_spawn = value
+	var inst = value.instantiate()
+	sc.spawn_chance = 10
 	list.append(sc)
 	inst.queue_free()
 

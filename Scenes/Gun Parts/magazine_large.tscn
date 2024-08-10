@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bljuvrokta3a"]
+
+[ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Art/Sprites/gun parts spritesheet.png" id="1_ldfh4"]
+[ext_resource type="Script" path="res://Scripts/gun_part_magazine.gd" id="2_gl8ix"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_b2orj"]
+
+[sub_resource type="Resource" id="Resource_t778x"]
+script = ExtResource("3_b2orj")
+rarity = 2
+
+[node name="Magazine" type="Sprite2D"]
+z_index = 1
+use_parent_material = true
+texture = ExtResource("1_ldfh4")
+offset = Vector2(8, 8)
+region_enabled = true
+region_rect = Rect2(96, 16, 16, 16)
+script = ExtResource("2_gl8ix")
+rounds = 40
+reload_time = 2.0
+metadata/Title = "XL Mag"
+metadata/Type = "Gun Attachment"
+metadata/Rarity = SubResource("Resource_t778x")

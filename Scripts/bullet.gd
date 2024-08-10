@@ -59,7 +59,10 @@ func _on_area_entered(area):
 			spark_inst.global_position = area.global_position
 			spark_inst.set_speed(-rotation_degrees)
 		if ricochet:
-			move_vector.y *= -1
+			if move_vector.x > move_vector.y:
+				move_vector.x *= -1
+			else:
+				move_vector.y *= -1
 			rotation = move_vector.angle()
 		if randf_range(0, 1) < explode_chance:
 			call_deferred("create_explosion", area.global_position)
