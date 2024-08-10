@@ -1,6 +1,6 @@
 extends Area2D
 
-var hp = 25
+var hp = 50
 
 
 func _on_area_entered(area):

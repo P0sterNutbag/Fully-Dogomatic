@@ -23,7 +23,7 @@ func _on_spawn_enemies_timeout():
 
 
 func spawn_enemy(enemy_to_spawn: PackedScene = null, spawn_position: Vector2 = Vector2.ONE):
-	if get_tree().get_nodes_in_group("enemy").size() < 1500:
+	if get_tree().get_nodes_in_group("enemy").size() < 1000:
 		$SpawnEnemies.wait_time = float(spawn_time[spawn_round])
 		var enemy = enemy_to_spawn
 		if enemy == null:

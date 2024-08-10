@@ -118,7 +118,7 @@ shape = SubResource("CircleShape2D_hhmv6")
 [node name="Hurtbox" parent="." index="3"]
 visible = false
 position = Vector2(0, -20)
-health = 300
+health = 600
 rotate_on_hit = false
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]

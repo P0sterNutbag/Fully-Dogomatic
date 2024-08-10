@@ -11,10 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://cwxntloygdy76" path="res://Art/Sprites/player icon 2.png" id="13_i67fy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7s6u8"]
-radius = 11.0454
+radius = 7.12585
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iegk4"]
-radius = 8.0
+radius = 12.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wq62j"]
 radius = 34.0147
@@ -81,6 +81,7 @@ metadata/_edit_horizontal_guides_ = []
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
 z_index = 10
+scale = Vector2(1, 0.75)
 shape = SubResource("CircleShape2D_7s6u8")
 
 [node name="Shadow" parent="." instance=ExtResource("2_3aj65")]

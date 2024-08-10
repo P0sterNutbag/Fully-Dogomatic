@@ -143,6 +143,17 @@ text = "RESTART"
 flat = true
 script = ExtResource("10_xkdwv")
 
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/VBoxContainer/Restart"]
+z_index = -1
+use_parent_material = true
+layout_mode = 0
+offset_left = 11.0
+offset_top = 4.0
+offset_right = 128.0
+offset_bottom = 44.0
+theme = ExtResource("6_2padk")
+text = "RESTART"
+
 [node name="Quit" type="Button" parent="Menu/VBoxContainer"]
 use_parent_material = true
 layout_mode = 2
@@ -150,6 +161,17 @@ theme = SubResource("Theme_rr4cc")
 text = "QUIT"
 flat = true
 script = ExtResource("10_xkdwv")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/VBoxContainer/Quit"]
+z_index = -1
+use_parent_material = true
+layout_mode = 0
+offset_left = 31.0
+offset_top = 4.0
+offset_right = 148.0
+offset_bottom = 44.0
+theme = ExtResource("6_2padk")
+text = "QUIT"
 
 [connection signal="gui_input" from="Restart" to="Restart" method="_on_gui_input"]
 [connection signal="mouse_entered" from="Restart" to="Restart" method="_on_mouse_entered"]
