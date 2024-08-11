@@ -17,7 +17,7 @@ rarity = 1
 size = Vector2(19, 9.00008)
 
 [node name="Gun" instance=ExtResource("1_cyb50")]
-metadata/Title = "44 Magnum"
+metadata/Title = ".44 Magnum"
 metadata/Type = "Revolver"
 metadata/Rarity = SubResource("Resource_vth6q")
 

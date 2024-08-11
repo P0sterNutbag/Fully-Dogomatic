@@ -25,15 +25,15 @@ func _ready():
 
 
 func _process(delta):
-	pass
-	#if Input.is_key_pressed(KEY_B):
-		#spawn_upgrade_menu("guns")
-	#if Input.is_key_pressed(KEY_N):
-		#spawn_upgrade_menu("gunparts")
-	#if Input.is_key_pressed(KEY_M):
-		#spawn_upgrade_menu("dogtags")
-	#if game_over and Input.is_key_pressed(KEY_R):
-		#pass#start_scene_transition("res://Scenes/Levels/world.tscn")
+#	pass
+	if Input.is_key_pressed(KEY_B):
+		spawn_upgrade_menu("guns")
+	if Input.is_key_pressed(KEY_N):
+		spawn_upgrade_menu("gunparts")
+	if Input.is_key_pressed(KEY_M):
+		spawn_upgrade_menu("dogtags")
+	if game_over and Input.is_key_pressed(KEY_R):
+		pass#start_scene_transition("res://Scenes/Levels/world.tscn")
 
 
 func reset_scene():

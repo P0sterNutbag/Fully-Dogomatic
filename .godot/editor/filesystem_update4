@@ -1,8 +1,5 @@
-res://Scenes/Levels/Level Objects/health_pickup.tscn
-res://Art/Themes/healthbar.tres
-res://Scripts/health_pickup.gd
-res://Scenes/Levels/Level Objects/level_manager.tscn
 res://Scenes/Levels/world.tscn
+res://Art/Themes/healthbar.tres
 res://Scenes/Levels/Level Objects/crate_parts.tscn
 res://Scenes/Upgrades/upgrade_manager.tscn
 res://Scenes/Gun Parts/magazine_large.tscn
@@ -10,6 +7,7 @@ res://Scenes/Gun Parts/magazine_medium.tscn
 res://Scenes/Gun Parts/magazine_small.tscn
 res://Scenes/UI/ui.tscn
 res://Scenes/Bullets/grenade.tscn
+res://Scenes/Levels/Level Objects/level_manager.tscn
 res://Scenes/enemy_spawner_controller.tscn
 res://Scenes/Guns/gun_auto_shotgun.tscn
 res://Scenes/Guns/gun_grenade_launcher.tscn
@@ -33,15 +31,8 @@ res://Scenes/Gun Parts/ak47_barrel.tscn
 res://Scenes/Gun Parts/auto_shotgun_barrel.tscn
 res://Scenes/Gun Parts/revolver_barrel.tscn
 res://Scenes/Upgrades/upgrade_option.tscn
-res://Scenes/Upgrades/damage_upgrade.tscn
-res://Scenes/Upgrades/Dogtags/dogtag_player_speed.tscn
-res://Scenes/Upgrades/Dogtags/dogtag_rotate_guns.tscn
-res://Scenes/Enemies/enemy_pug.tscn
-res://Scenes/Enemies/enemy_pug_6.tscn
-res://Scenes/Enemies/enemy_pug_9.tscn
-res://Scenes/Enemies/enemy_pug_12.tscn
-res://Scenes/Enemies/enemy_pug_big.tscn
+res://Scenes/Guns/gun_magnum.tscn
 res://Scenes/Enemies/boss_pug.tscn
+res://Scenes/Enemies/enemy_pug.tscn
+res://Scenes/enemy_spawner.tscn
 res://Scenes/Player/player.tscn
-res://Scenes/UI/death_ui.tscn
-res://Scripts/level_manager.gd

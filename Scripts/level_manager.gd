@@ -70,4 +70,4 @@ func _on_spawn_timeout():
 
 
 func get_border_position() -> Vector2:
-	return Vector2(randf_range(barrier_left.x, barrier_right.x), randf_range(barrier_left.y, barrier_right.y))
+	return Vector2(randf_range(barrier_left.x+64, barrier_right.x-64), randf_range(barrier_left.y+64, barrier_right.y-64))
