@@ -4,9 +4,9 @@
 [ext_resource type="Script" path="res://Scripts/health_pickup.gd" id="1_tg2rv"]
 [ext_resource type="PackedScene" uid="uid://84xxip1wf4vx" path="res://Scenes/UI/minimap_icon.tscn" id="3_fsu83"]
 [ext_resource type="Texture2D" uid="uid://fg0dee7wyidb" path="res://Art/Sprites/health icon.png" id="4_ikjo0"]
-[ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/JuicyMovement.tscn" id="5_1ukq6"]
-[ext_resource type="Texture2D" uid="uid://x0wts2dvnmrq" path="res://Art/Sprites/shadow xt small.png" id="6_kjh08"]
+[ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="6_bwjqp"]
 [ext_resource type="Texture2D" uid="uid://bay35y43qc74n" path="res://Art/Sprites/steam trail.png" id="7_vs8fo"]
+[ext_resource type="PackedScene" uid="uid://bb6l6e5xtb17k" path="res://Scenes/Particles/shadow.tscn" id="8_c2p3m"]
 [ext_resource type="PackedScene" uid="uid://pkl1jd6tt0bd" path="res://Scenes/UI/arrow.tscn" id="8_ob00d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ecj8r"]
@@ -184,17 +184,15 @@ autoplay = "default"
 [node name="MinimapIcon" parent="." instance=ExtResource("3_fsu83")]
 sprite = ExtResource("4_ikjo0")
 
-[node name="JuicyMovement" parent="." node_paths=PackedStringArray("target_node2D") instance=ExtResource("5_1ukq6")]
+[node name="JuicyMovement" parent="." node_paths=PackedStringArray("target_node2D") instance=ExtResource("6_bwjqp")]
 target_node2D = NodePath("../Sprite2D")
 bob_frequency = 7.0
 bob_amplitude = 10.0
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-z_index = -900
-use_parent_material = true
-position = Vector2(0, 7)
-texture = ExtResource("6_kjh08")
-
 [node name="Arrow" parent="." instance=ExtResource("8_ob00d")]
+
+[node name="Shadow" parent="." instance=ExtResource("8_c2p3m")]
+position = Vector2(0.5, 5)
+radius = 8
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

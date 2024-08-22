@@ -9,4 +9,3 @@ extends "res://Scripts/bullet.gd"
 		#move_vector.y *= -1
 		#if penetrations <= 0:
 			#queue_free()
-

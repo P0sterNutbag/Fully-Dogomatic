@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://byrlfy20m4t48"]
+[gd_scene load_steps=14 format=3 uid="uid://byrlfy20m4t48"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_spawner_pipe.gd" id="1_nw32u"]
 [ext_resource type="Script" path="res://Scripts/enemy_health.gd" id="2_gyc7b"]
@@ -8,6 +8,7 @@
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="6_5o07r"]
 [ext_resource type="Theme" uid="uid://dawp23mso2e5a" path="res://Art/Themes/healthbar.tres" id="7_5pxfp"]
 [ext_resource type="PackedScene" uid="uid://84xxip1wf4vx" path="res://Scenes/UI/minimap_icon.tscn" id="8_gc8w3"]
+[ext_resource type="PackedScene" uid="uid://bb6l6e5xtb17k" path="res://Scenes/Particles/shadow.tscn" id="8_is1jq"]
 [ext_resource type="Texture2D" uid="uid://be1sac50cadp3" path="res://Art/Sprites/enemy spawner icon.png" id="9_j63pw"]
 [ext_resource type="PackedScene" uid="uid://pkl1jd6tt0bd" path="res://Scenes/UI/arrow.tscn" id="10_sug7c"]
 
@@ -57,6 +58,10 @@ theme = ExtResource("7_5pxfp")
 max_value = 1.0
 value = 0.5
 show_percentage = false
+
+[node name="Shadow" parent="Sprite2D" instance=ExtResource("8_is1jq")]
+position = Vector2(0, 10)
+radius = 26
 
 [node name="SpawnPoint" type="Node2D" parent="."]
 position = Vector2(0, -14)

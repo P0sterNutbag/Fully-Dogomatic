@@ -24,4 +24,3 @@ func finish():
 	#menu.start()
 	#await get_tree().create_timer(0.01).timeout
 	#queue_free()
-

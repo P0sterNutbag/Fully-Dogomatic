@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://chgfr2kl6t642"]
-
-[ext_resource type="Script" path="res://Scripts/crate_spawner.gd" id="1_ao83y"]
-
-[node name="CrateSpawner" type="Node2D"]
-use_parent_material = true
-script = ExtResource("1_ao83y")

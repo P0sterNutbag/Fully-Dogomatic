@@ -9,9 +9,9 @@ var state = states.spawn
 @export var drop_chance = 0.25
 var player: CharacterBody2D #= preload("res://player.gd")
 var target: CharacterBody2D
-var dollar = preload("res://Scenes/dollar.tscn")
-var blood = preload("res://Scenes/blood.tscn")
-var dogpart = preload("res://Scenes/dogpart.tscn")
+var dollar = preload("res://Scenes/Player/dollar.tscn")
+var blood = preload("res://Scenes/Particles/blood.tscn")
+var dogpart = preload("res://Scenes/Particles/dogpart.tscn")
 var money_min = 0
 var money_max = 0
 var fall_y = -200

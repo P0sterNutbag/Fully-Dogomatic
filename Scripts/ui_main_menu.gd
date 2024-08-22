@@ -6,7 +6,7 @@ func _ready():
 
 
 func _on_play_pressed():
-	SceneManager.start_scene_transition("res://Scenes/Levels/world.tscn")
+	SceneManager.start_scene_transition("res://Scenes/Levels/customize.tscn")
 
 
 func _on_options_pressed():

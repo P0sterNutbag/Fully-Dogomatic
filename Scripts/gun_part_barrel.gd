@@ -2,11 +2,15 @@ extends GunPart
 
 @export_subgroup("Properties")
 @export var bullet_damage: float = 3
+@export var bullet_penetrations: int = 1
+@export var shot_count: int = 1
+@export var bullet_spread_modifier: float = 1
 @export var cooldown: float = 1
 @export var spread: float = 0
 @export var knockback: float = 0
 @export var distance_to_player: float = 30
 @export var bullet: PackedScene
+@export var bullet_explosion: PackedScene
 @export var gunshot_sfx: String = "gunshot_pistol"
 var gun_parent
 

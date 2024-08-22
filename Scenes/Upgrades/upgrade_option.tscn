@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://diu6fl025qdv0"]
+[gd_scene load_steps=14 format=3 uid="uid://diu6fl025qdv0"]
 
 [ext_resource type="Script" path="res://Scripts/Upgrades/upgrade_option.gd" id="1_kc4vw"]
 [ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="1_on7uf"]
@@ -6,8 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://2u72jmj4wnsn" path="res://Art/Sprites/red texture.png" id="5_ebtx4"]
 [ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="6_n5hc7"]
 [ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="7_8utm7"]
+[ext_resource type="Texture2D" uid="uid://c6tfpjjve52aj" path="res://Art/Sprites/black texture.png" id="7_mc7ff"]
+[ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="8_ly7xf"]
 [ext_resource type="Script" path="res://Scripts/Circle.gd" id="18_pedul"]
-[ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/JuicyMovement.tscn" id="19_orlbb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8vmtn"]
 shader = ExtResource("1_on7uf")
@@ -55,7 +56,9 @@ offset_top = 32.0
 offset_right = 32.0
 offset_bottom = 32.0
 script = ExtResource("18_pedul")
+outline_thickness = 4
 circle_texture = ExtResource("5_ebtx4")
+outline_texture = ExtResource("7_mc7ff")
 
 [node name="UpgradeName" type="RichTextLabel" parent="."]
 use_parent_material = true
@@ -101,7 +104,7 @@ offset_top = 64.0
 offset_right = 64.0
 offset_bottom = 64.0
 
-[node name="JuicyMovement" parent="." node_paths=PackedStringArray("target_control") instance=ExtResource("19_orlbb")]
+[node name="JuicyMovement" parent="." node_paths=PackedStringArray("target_control") instance=ExtResource("8_ly7xf")]
 target_control = NodePath("..")
 pulse_frequency = 4.0
 pulse_amplitude = 0.15
@@ -109,5 +112,7 @@ rot_frequency = 2.0
 rot_amplitude = 15.0
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_entered" from="." to="Circle" method="_on_upgrade_option_focus_entered"]
 [connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="focus_exited" from="." to="Circle" method="_on_upgrade_option_focus_exited"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]

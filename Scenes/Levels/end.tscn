@@ -3,16 +3,16 @@
 [ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="1_8pgp7"]
 [ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="2_1k8ot"]
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="3_kjlfc"]
-[ext_resource type="PackedScene" uid="uid://cbuklghcxpiko" path="res://Scenes/tiles.tscn" id="4_hxuxb"]
-[ext_resource type="PackedScene" uid="uid://dx18mgom3chcm" path="res://Scenes/pause_controller.tscn" id="5_vry2c"]
+[ext_resource type="PackedScene" uid="uid://cbuklghcxpiko" path="res://Scenes/Tiles/tiles.tscn" id="4_hxuxb"]
+[ext_resource type="PackedScene" uid="uid://dx18mgom3chcm" path="res://Scenes/UI/pause_controller.tscn" id="5_vry2c"]
 [ext_resource type="Script" path="res://Scripts/ui_menu.gd" id="6_kb17p"]
 [ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="7_0liep"]
 [ext_resource type="Script" path="res://Scripts/ui_menu_button.gd" id="8_3c5tg"]
 [ext_resource type="Texture2D" uid="uid://h7clkc3uwco0" path="res://Art/Sprites/MainMenu/thanksforplaying.png" id="8_ljifh"]
-[ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/JuicyMovement.tscn" id="9_u3xyj"]
+[ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="9_u3xyj"]
 [ext_resource type="PackedScene" uid="uid://dio4jhhmyfnfk" path="res://Audio/AudioManager.tscn" id="10_ckdvq"]
 [ext_resource type="PackedScene" uid="uid://b7r52wai1l1yc" path="res://Scenes/Player/menu_dog.tscn" id="11_mkcdl"]
-[ext_resource type="PackedScene" uid="uid://benlyb5ipwgn8" path="res://Scenes/tennisball.tscn" id="12_nbl3r"]
+[ext_resource type="PackedScene" uid="uid://benlyb5ipwgn8" path="res://Scenes/Player/tennisball.tscn" id="12_nbl3r"]
 [ext_resource type="Texture2D" uid="uid://cxaeqie0fbe0t" path="res://Art/Sprites/MainMenu/point_arrow.png" id="13_q0clx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tyfs5"]
@@ -33,7 +33,7 @@ shader_parameter/fps = 6.0
 shader_parameter/color_threshold = 0.1
 shader_parameter/palette = ExtResource("2_1k8ot")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ap13o"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t805c"]
 
 [sub_resource type="Theme" id="Theme_rr4cc"]
 Button/colors/font_color = Color(1, 1, 1, 1)
@@ -41,7 +41,7 @@ Button/colors/font_focus_color = Color(1, 0, 0, 1)
 Button/colors/font_hover_color = Color(1, 0, 0, 1)
 Button/font_sizes/font_size = 14
 Button/fonts/font = ExtResource("7_0liep")
-Button/styles/focus = SubResource("StyleBoxEmpty_ap13o")
+Button/styles/focus = SubResource("StyleBoxEmpty_t805c")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6usk4"]
 shader = ExtResource("1_8pgp7")

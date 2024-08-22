@@ -50,8 +50,7 @@ func increase_score():
 
 
 func add_to_gun_list(string):
-	$CanvasLayer/GunsHolder/Guns.append_text("\n" + string)
-	$CanvasLayer/GunsHolder.scale = Vector2(1.25, 1.25)
+	pass
 
 
 func set_money(val):

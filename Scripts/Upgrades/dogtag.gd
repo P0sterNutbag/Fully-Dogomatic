@@ -26,4 +26,3 @@ func _process(delta):
 func apply_upgrade():
 	var new_value = scene.get(variable_name) + value
 	scene.set(variable_name, new_value)
-

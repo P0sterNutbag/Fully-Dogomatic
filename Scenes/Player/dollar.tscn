@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dea2ha3lbwrea"]
+
+[ext_resource type="Script" path="res://Scripts/dollar.gd" id="1_3lc0o"]
+[ext_resource type="Texture2D" uid="uid://ciycwwadhk41u" path="res://Art/Sprites/dollar.png" id="2_6a8l7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epagw"]
+size = Vector2(10, 6)
+
+[node name="Area2D" type="Area2D" groups=["destroy", "money"]]
+z_index = -97
+use_parent_material = true
+collision_layer = 64
+collision_mask = 512
+script = ExtResource("1_3lc0o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_epagw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+use_parent_material = true
+texture = ExtResource("2_6a8l7")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

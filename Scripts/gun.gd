@@ -48,7 +48,7 @@ preload("res://Art/Sprites/muzzleflash3.png")]
 var firepoint
 var muzzle_flash
 var firepoint_index = 0
-var shell = preload("res://Scenes/shell.tscn")
+var shell = preload("res://Scenes/Particles/shell.tscn")
 #var gun_name = preload("res://Scenes/Guns/gun_name.tscn")
 var status_effect = preload("res://Scenes/Particles/gun_status.tscn")
 var gun_name_instance: Node2D
@@ -243,4 +243,3 @@ func _on_mouse_exited():
 	is_mouse_entered = false
 	#if get_tree().paused:
 		#Globals.deactivate_gunstats()
-

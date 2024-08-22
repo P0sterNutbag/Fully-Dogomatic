@@ -83,4 +83,3 @@ func get_spawn_chance(rarity: Globals.rarity_levels, title: String) -> int:
 	elif rarity == Globals.rarity_levels.giga_rare:
 		return rarity_chances[5] * multiplier
 	return 0
-

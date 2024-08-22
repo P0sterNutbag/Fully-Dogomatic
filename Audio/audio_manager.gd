@@ -43,4 +43,3 @@ func resume_sounds():
 func stop_all_audio():
 	for child in get_children():
 		child.stop()
-

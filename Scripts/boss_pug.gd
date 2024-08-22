@@ -4,7 +4,7 @@ var distance_to_rush = 250
 var rush_speed = 80
 var rush_dir = Vector2.ZERO
 var boss_name = "Max, prince of lumps"
-var cutscene = preload("res://Scenes/boss_death_cutscene.tscn")
+var cutscene = preload("res://Scenes/Cutscenes/boss_death_cutscene.tscn")
 
 
 func _ready():
@@ -47,4 +47,3 @@ func on_death():
 	Globals.enemy_spawn_controller.process_mode = PROCESS_MODE_DISABLED
 	Globals.create_instance(cutscene)
 	super.on_death()
-

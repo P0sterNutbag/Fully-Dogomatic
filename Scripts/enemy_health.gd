@@ -2,7 +2,7 @@ extends Area2D
 
 @export var health = 3
 @export var rotate_on_hit: bool = true
-@export var death_explosion: PackedScene = preload("res://Scenes/death_explosion.tscn")
+@export var death_explosion: PackedScene = preload("res://Scenes/Particles/death_explosion.tscn")
 @export var sprite: Node2D
 @export var healthbar: ProgressBar
 var flash_material = preload("res://Art/Shaders/flash.tres")

@@ -1,7 +1,7 @@
 extends Node2D
 
 
-@export var upgrade_value: Array
+@export var upgrade_values: Array[Array]
 @export var multiply: bool
 @export var additive: bool
 var follow_mouse: bool = false
@@ -64,10 +64,11 @@ func attach_to_target(_object: Node2D):
 
 
 func add_upgrade_to_gun(gun_to_change: Node2D):
-	if additive:
-		gun_to_change.set(upgrade_value[0], gun_to_change.get(upgrade_value[0]) + upgrade_value[1])
-	elif multiply:
-		gun_to_change.set(upgrade_value[0], gun_to_change.get(upgrade_value[0]) * upgrade_value[1])
-	else:
-		gun_to_change.set(upgrade_value[0], upgrade_value[1])
+	for upgrade_value in upgrade_values:
+		if additive:
+			gun_to_change.set(upgrade_value[0], gun_to_change.get(upgrade_value[0]) + upgrade_value[1])
+		elif multiply:
+			gun_to_change.set(upgrade_value[0], gun_to_change.get(upgrade_value[0]) * upgrade_value[1])
+		else:
+			gun_to_change.set(upgrade_value[0], upgrade_value[1])
 	queue_free()

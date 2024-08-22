@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b061imt63pcav"]
-
-[ext_resource type="Script" path="res://Scripts/Upgrades/explosive_upgrade.gd" id="1_gscjy"]
-
-[node name="ExplosiveUpgrade" type="Node2D" groups=["upgrade"]]
-script = ExtResource("1_gscjy")
-metadata/Type = "Gun Mod"
-metadata/Title = "Explosive Rounds"

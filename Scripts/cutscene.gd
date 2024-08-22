@@ -2,7 +2,7 @@ extends Node
 
 @export var steps: Array[CutsceneStep]
 @export var kill_enemies: bool
-var explosion = preload("res://Scenes/death_explosion.tscn")
+var explosion = preload("res://Scenes/Particles/death_explosion.tscn")
 var big_explosion = preload("res://Scenes/Bullets/bullet_explosion.tscn")
 var step: int = 0
 

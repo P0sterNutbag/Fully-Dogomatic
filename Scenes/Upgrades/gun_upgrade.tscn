@@ -7,6 +7,7 @@
 process_mode = 3
 use_parent_material = true
 script = ExtResource("1_3421v")
+upgrade_value = [null, null]
 metadata/Title = "Explosive Rounds"
 metadata/Type = "Gun Mod"
 

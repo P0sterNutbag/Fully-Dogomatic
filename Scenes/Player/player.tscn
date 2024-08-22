@@ -1,12 +1,12 @@
-[gd_scene load_steps=22 format=3 uid="uid://cfkssnl27y2qn"]
+[gd_scene load_steps=23 format=3 uid="uid://cfkssnl27y2qn"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_2qpty"]
-[ext_resource type="PackedScene" uid="uid://bb6l6e5xtb17k" path="res://Scenes/shadow.tscn" id="2_3aj65"]
+[ext_resource type="PackedScene" uid="uid://bb6l6e5xtb17k" path="res://Scenes/Particles/shadow.tscn" id="2_3aj65"]
 [ext_resource type="Material" uid="uid://bxgmy5m25b5ju" path="res://Art/Shaders/flash.tres" id="3_354og"]
 [ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Art/Sprites/123spritesheet.png" id="3_r6o1k"]
 [ext_resource type="Texture2D" uid="uid://cog1pfevxty7h" path="res://Art/Sprites/arrow.png" id="4_r3toi"]
 [ext_resource type="Texture2D" uid="uid://dpentnylex1c" path="res://Art/Sprites/player run.png" id="5_1sten"]
-[ext_resource type="PackedScene" uid="uid://chgfr2kl6t642" path="res://Scenes/crate_spawner.tscn" id="5_i7m7h"]
+[ext_resource type="Texture2D" uid="uid://chhc6bjga1571" path="res://Art/Sprites/player idle.png" id="5_3i5cs"]
 [ext_resource type="PackedScene" uid="uid://84xxip1wf4vx" path="res://Scenes/UI/minimap_icon.tscn" id="11_2hug4"]
 [ext_resource type="Texture2D" uid="uid://cj1qgbm34pbo6" path="res://Art/Sprites/camsize icon.png" id="12_taoki"]
 [ext_resource type="Texture2D" uid="uid://cwxntloygdy76" path="res://Art/Sprites/player icon 2.png" id="13_i67fy"]
@@ -24,13 +24,17 @@ radius = 34.0147
 atlas = ExtResource("3_r6o1k")
 region = Rect2(64, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_iqgnx"]
-atlas = ExtResource("3_r6o1k")
+[sub_resource type="AtlasTexture" id="AtlasTexture_q00oj"]
+atlas = ExtResource("5_3i5cs")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rwpg1"]
-atlas = ExtResource("3_r6o1k")
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgmbb"]
+atlas = ExtResource("5_3i5cs")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ch2xh"]
+atlas = ExtResource("5_3i5cs")
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pfo1y"]
 atlas = ExtResource("5_1sten")
@@ -60,14 +64,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_iqgnx")
+"texture": SubResource("AtlasTexture_q00oj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rwpg1")
+"texture": SubResource("AtlasTexture_tgmbb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ch2xh")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 3.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -122,8 +129,9 @@ y_sort_enabled = true
 material = ExtResource("3_354og")
 use_parent_material = true
 sprite_frames = SubResource("SpriteFrames_4r1yi")
-animation = &"walk"
-frame_progress = 0.707062
+animation = &"idle"
+frame = 2
+frame_progress = 0.931048
 
 [node name="FlashTimer" type="Timer" parent="."]
 wait_time = 0.075
@@ -135,10 +143,6 @@ use_parent_material = true
 visible = false
 position = Vector2(75, 0)
 texture = ExtResource("4_r3toi")
-
-[node name="CrateSpawner" parent="." instance=ExtResource("5_i7m7h")]
-process_mode = 4
-position = Vector2(0, -177)
 
 [node name="DropCrate" type="Timer" parent="."]
 wait_time = 30.0

@@ -1,19 +1,14 @@
-[gd_scene load_steps=32 format=3 uid="uid://d1c2pbbb47u4h"]
+[gd_scene load_steps=23 format=3 uid="uid://d1c2pbbb47u4h"]
 
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_lk1ej"]
-[ext_resource type="PackedScene" uid="uid://d1yo75f23rful" path="res://Scenes/countdown.tscn" id="2_rquus"]
 [ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="3_4hdc5"]
 [ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="3_8xjm0"]
-[ext_resource type="Script" path="res://Scripts/ui_guns.gd" id="3_queuv"]
-[ext_resource type="Texture2D" uid="uid://bu7pglsgebw5r" path="res://Art/Sprites/gun holder.png" id="4_4i3hf"]
 [ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="4_ss4gi"]
 [ext_resource type="Theme" uid="uid://dpv7tir788p5t" path="res://Art/Themes/ui text small.tres" id="5_7e6pl"]
-[ext_resource type="Texture2D" uid="uid://jtcnyoi86sub" path="res://Art/Sprites/gray texture.png" id="5_755pl"]
-[ext_resource type="Texture2D" uid="uid://2u72jmj4wnsn" path="res://Art/Sprites/red texture.png" id="6_332ki"]
 [ext_resource type="Script" path="res://Scripts/dogtags_ui.gd" id="11_7ulue"]
 [ext_resource type="Theme" uid="uid://d3ab1bo48xa01" path="res://Art/Themes/ui text mid mono.tres" id="13_7jkv8"]
 [ext_resource type="PackedScene" uid="uid://dwx100okd3d23" path="res://Scenes/UI/minimap.tscn" id="13_ehvuj"]
-[ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/JuicyMovement.tscn" id="14_gog46"]
+[ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="14_gog46"]
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="15_inkxv"]
 [ext_resource type="Theme" uid="uid://dawp23mso2e5a" path="res://Art/Themes/healthbar.tres" id="15_o6py4"]
 [ext_resource type="Texture2D" uid="uid://daxb7qrq2h0do" path="res://Art/Sprites/corgi background.png" id="16_amnsy"]
@@ -29,28 +24,6 @@ shader_parameter/is_texture = false
 shader_parameter/fps = 6.0
 shader_parameter/color_threshold = 0.1
 shader_parameter/palette = ExtResource("3_4hdc5")
-
-[sub_resource type="Theme" id="Theme_yvje2"]
-RichTextLabel/colors/default_color = Color(0.94902, 0.0823529, 0.231373, 1)
-RichTextLabel/colors/font_outline_color = Color(0, 0.0352941, 0.243137, 1)
-RichTextLabel/colors/font_shadow_color = Color(0, 0.0352941, 0.243137, 1)
-RichTextLabel/constants/outline_size = 8
-RichTextLabel/font_sizes/normal_font_size = 14
-RichTextLabel/fonts/normal_font = ExtResource("4_ss4gi")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_abta0"]
-texture = ExtResource("5_755pl")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n3v4v"]
-texture = ExtResource("6_332ki")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2yxbf"]
-shader = ExtResource("3_8xjm0")
-shader_parameter/skip_first_row = true
-shader_parameter/use_palette_alpha = false
-shader_parameter/is_texture = true
-shader_parameter/fps = 6.0
-shader_parameter/color_threshold = 0.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o0qgv"]
 shader = ExtResource("3_8xjm0")
@@ -97,26 +70,6 @@ ProgressBar/styles/fill = SubResource("StyleBoxFlat_agtf6")
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_lk1ej")
 
-[node name="GameOverTextHolder" type="Node2D" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_2xchs")
-position = Vector2(320, 258.48)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="GameOverTextHolder"]
-use_parent_material = true
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -149.0
-offset_top = -8.0
-offset_right = 148.0
-offset_bottom = 11.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_yvje2")
-bbcode_enabled = true
-text = "[center]PRESS R TO RESTART"
-
 [node name="ScoreHolder" type="Node2D" parent="."]
 visible = false
 material = SubResource("ShaderMaterial_2xchs")
@@ -157,125 +110,6 @@ theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
 text = "50"
 text_direction = 2
-
-[node name="XpBarHolder" type="Node2D" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_2xchs")
-use_parent_material = true
-
-[node name="XpBar" type="ProgressBar" parent="XpBarHolder"]
-z_index = 100
-use_parent_material = true
-offset_left = 54.0
-offset_top = 9.0
-offset_right = 624.0
-offset_bottom = 14.0
-theme_override_styles/background = SubResource("StyleBoxTexture_abta0")
-theme_override_styles/fill = SubResource("StyleBoxTexture_n3v4v")
-max_value = 1.0
-show_percentage = false
-
-[node name="ColorRect" type="ColorRect" parent="XpBarHolder"]
-use_parent_material = true
-offset_left = 53.0
-offset_top = 8.0
-offset_right = 730.0
-offset_bottom = 60.0
-scale = Vector2(0.845036, 0.136473)
-
-[node name="Level" type="RichTextLabel" parent="XpBarHolder"]
-use_parent_material = true
-clip_contents = false
-offset_left = 9.0
-offset_top = 8.0
-offset_right = 58.0
-offset_bottom = 19.0
-theme = ExtResource("5_7e6pl")
-bbcode_enabled = true
-text = "[left]LVL 1"
-metadata/_edit_use_anchors_ = true
-
-[node name="GunsHolder" type="Node2D" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_2xchs")
-position = Vector2(48.21, 58.56)
-
-[node name="Guns" type="RichTextLabel" parent="GunsHolder"]
-use_parent_material = true
-clip_contents = false
-offset_left = -21.0
-offset_top = -22.0
-offset_right = 219.0
-offset_bottom = 240.0
-theme_override_colors/default_color = Color(0.956863, 0.956863, 0.956863, 1)
-theme_override_colors/font_outline_color = Color(0, 0.0352941, 0.243137, 1)
-theme_override_constants/shadow_offset_x = 1
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/shadow_outline_size = 0
-theme_override_constants/outline_size = 4
-theme_override_fonts/normal_font = ExtResource("4_ss4gi")
-theme_override_font_sizes/normal_font_size = 7
-metadata/_edit_use_anchors_ = true
-
-[node name="HighScoreHolder" type="Node2D" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_2xchs")
-position = Vector2(319.59, 125.305)
-
-[node name="HighScore" type="RichTextLabel" parent="HighScoreHolder"]
-use_parent_material = true
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -149.0
-offset_top = -8.0
-offset_right = 148.0
-offset_bottom = 11.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_yvje2")
-bbcode_enabled = true
-text = "[center]HIGH SCORE: "
-
-[node name="Countdown" parent="." instance=ExtResource("2_rquus")]
-visible = false
-material = SubResource("ShaderMaterial_2xchs")
-position = Vector2(111, 22)
-
-[node name="Level2" type="RichTextLabel" parent="Countdown"]
-use_parent_material = true
-clip_contents = false
-offset_left = -90.0
-offset_top = -4.0
-offset_bottom = 7.0
-theme = ExtResource("5_7e6pl")
-bbcode_enabled = true
-text = "[left]TIME LEFT: "
-
-[node name="Guns" type="Node2D" parent="."]
-material = SubResource("ShaderMaterial_2yxbf")
-use_parent_material = true
-position = Vector2(4, 10)
-script = ExtResource("3_queuv")
-slot_texture = ExtResource("4_4i3hf")
-
-[node name="WinHolder" type="Node2D" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_2xchs")
-position = Vector2(22.92, -17.64)
-
-[node name="YouWin" type="RichTextLabel" parent="WinHolder"]
-use_parent_material = true
-offset_left = 181.08
-offset_top = 84.0
-offset_right = 413.08
-offset_bottom = 119.0
-theme_override_colors/default_color = Color(0.929412, 0.627451, 0.192157, 1)
-theme_override_fonts/normal_font = ExtResource("4_ss4gi")
-theme_override_font_sizes/normal_font_size = 28
-text = "YOU WIN!"
-
-[node name="ParticlesTimer" type="Timer" parent="."]
 
 [node name="Dogtags" type="Control" parent="."]
 layout_mode = 3

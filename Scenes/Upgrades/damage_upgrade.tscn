@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1u1rbh8cmyvt"]
+[gd_scene load_steps=3 format=3 uid="uid://dsr50ivuwva6d"]
 
 [ext_resource type="Script" path="res://Scripts/Upgrades/damage_upgrade.gd" id="1_n7ct5"]
 [ext_resource type="Texture2D" uid="uid://7ppsa5tfac3k" path="res://Art/Sprites/upgrade icon icon.png" id="2_ln7nk"]

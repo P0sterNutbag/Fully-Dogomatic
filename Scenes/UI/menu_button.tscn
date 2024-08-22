@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b50cm06iefifh"]
+
+[ext_resource type="Theme" uid="uid://dpv7tir788p5t" path="res://Art/Themes/ui text small.tres" id="1_lfgvi"]
+[ext_resource type="Script" path="res://Scripts/menu_button.gd" id="2_gknk5"]
+
+[node name="PlayGame" type="RichTextLabel"]
+use_parent_material = true
+clip_contents = false
+offset_right = 65.0
+offset_bottom = 9.0
+pivot_offset = Vector2(32, 4)
+theme = ExtResource("1_lfgvi")
+text = "PLAY GAME"
+script = ExtResource("2_gknk5")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://qnw7051yjuf4"]
+
+[ext_resource type="PackedScene" uid="uid://c37vi5itujbsu" path="res://Scenes/UI/Character Cusomization/character_option.tscn" id="1_a3lih"]
+[ext_resource type="Script" path="res://Scripts/ui_menu.gd" id="1_knr5u"]
+
+[node name="ChooseCharacter" type="Control" node_paths=PackedStringArray("first_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_knr5u")
+first_button = NodePath("Options/HBoxContainer/CharacterOption")
+
+[node name="Options" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 61.0
+offset_top = 137.0
+offset_right = 101.0
+offset_bottom = 177.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Options"]
+layout_mode = 0
+offset_right = 522.0
+offset_bottom = 109.0
+
+[node name="CharacterOption" parent="Options/HBoxContainer" instance=ExtResource("1_a3lih")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CharacterOption2" parent="Options/HBoxContainer" instance=ExtResource("1_a3lih")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CharacterOption3" parent="Options/HBoxContainer" instance=ExtResource("1_a3lih")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CharacterOption4" parent="Options/HBoxContainer" instance=ExtResource("1_a3lih")]
+layout_mode = 2
+size_flags_horizontal = 3

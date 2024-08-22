@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="5_ao6a1"]
 [ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="6_0q51j"]
 [ext_resource type="Script" path="res://Scripts/FinishUpgrades.gd" id="7_3j5g3"]
-[ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/JuicyMovement.tscn" id="9_hgh8f"]
+[ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="9_hgh8f"]
 [ext_resource type="Texture2D" uid="uid://bgx8q6i8fgsha" path="res://Art/Sprites/stopsign.png" id="9_lmgfa"]
 [ext_resource type="Texture2D" uid="uid://dbbdi66uf2bh0" path="res://Art/Sprites/checkmark.png" id="10_fytbm"]
 

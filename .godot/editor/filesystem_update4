@@ -1,38 +1,35 @@
-res://Scenes/Levels/world.tscn
-res://Art/Themes/healthbar.tres
-res://Scenes/Levels/Level Objects/crate_parts.tscn
+res://Scenes/Bullets/xt_large_bullet.tscn
+res://Art/Shaders/colorswap.tres
+res://Art/Shaders/dither.gdshader
+res://Art/Shaders/dither postprocess.gdshader
+res://Scenes/Upgrades/gun_upgrade_xt_large_bullet.tscn
 res://Scenes/Upgrades/upgrade_manager.tscn
-res://Scenes/Gun Parts/magazine_large.tscn
-res://Scenes/Gun Parts/magazine_medium.tscn
-res://Scenes/Gun Parts/magazine_small.tscn
-res://Scenes/UI/ui.tscn
-res://Scenes/Bullets/grenade.tscn
-res://Scenes/Levels/Level Objects/level_manager.tscn
-res://Scenes/enemy_spawner_controller.tscn
-res://Scenes/Guns/gun_auto_shotgun.tscn
-res://Scenes/Guns/gun_grenade_launcher.tscn
-res://Scenes/Levels/Level Objects/enemy_spawner_pipe.tscn
-res://Scenes/Upgrades/ricochet_upgrade.tscn
+res://Scenes/UI/Character Cusomization/choose_character.tscn
+res://Scenes/UI/Character Cusomization/character_option.tscn
+res://Scenes/Player/player.tscn
+res://Scenes/Control/ui_menu.tscn
+res://Scenes/Upgrades/upgrade_option.tscn
+res://Scenes/Upgrades/upgrade_menu.tscn
+res://Scenes/Levels/customize.tscn
+res://Scenes/Levels/end.tscn
+res://Scenes/Levels/main_menu.tscn
+res://Scenes/Enemies/enemy_pug.tscn
+res://Scenes/Enemies/enemy_spawner_controller.tscn
+res://Scenes/Cutscenes/boss_death_cutscene.tscn
+res://Scenes/Bullets/5.56mm_bullet.tscn
+res://Scenes/Bullets/9mm_bullet.tscn
+res://Scenes/Upgrades/gun_upgrade_penetrate.tscn
+res://Scenes/Upgrades/gun_upgrade_reload.tscn
 res://Scenes/Upgrades/gun_upgrade_ricochet.tscn
 res://Scenes/Upgrades/gun_upgrade.tscn
-res://Scenes/Gun Parts/ar15_scope.tscn
-res://Scenes/Gun Parts/ar15_barrel.tscn
-res://Scenes/Gun Parts/sniper_scope.tscn
-res://Scenes/Gun Parts/sniper_barrel.tscn
-res://Scenes/Upgrades/gun_upgrade_damage.tscn
-res://Scenes/Upgrades/gun_upgrade_penetrate.tscn
-res://Scenes/Gun Parts/magnum_magazine.tscn
-res://Scenes/UI/minimap.tscn
-res://Scenes/Upgrades/gun_upgrade_explosive.tscn
-res://Scenes/Upgrades/Dogtags/dogtag_exploding_bullets.tscn
 res://Scenes/Upgrades/part_upgrade.tscn
-res://Scenes/Gun Parts/22_barrel.tscn
+res://Scenes/Upgrades/gun_upgrade_damage.tscn
+res://Scenes/Upgrades/gun_upgrade_explosive.tscn
+res://Scripts/customization_menu.gd
+res://Scenes/Upgrades/reload_upgrade.tscn
+res://Scenes/Upgrades/ricochet_upgrade.tscn
+res://Scenes/Upgrades/upgrade.tscn
+res://Scenes/Upgrades/damage_upgrade.tscn
+res://Scripts/gun_upgrade.gd
 res://Scenes/Gun Parts/ak47_barrel.tscn
-res://Scenes/Gun Parts/auto_shotgun_barrel.tscn
-res://Scenes/Gun Parts/revolver_barrel.tscn
-res://Scenes/Upgrades/upgrade_option.tscn
-res://Scenes/Guns/gun_magnum.tscn
-res://Scenes/Enemies/boss_pug.tscn
-res://Scenes/Enemies/enemy_pug.tscn
-res://Scenes/enemy_spawner.tscn
-res://Scenes/Player/player.tscn
+res://Scripts/gun_part_barrel.gd
