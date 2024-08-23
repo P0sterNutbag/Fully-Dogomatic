@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Art/Sprites/gun parts spritesheet.png" id="1_all5o"]
 [ext_resource type="Script" path="res://Scripts/gun_part_barrel.gd" id="2_2rv66"]
-[ext_resource type="PackedScene" uid="uid://bmfhcxqevrjcn" path="res://Scenes/Bullets/9mm_bullet.tscn" id="3_dly72"]
+[ext_resource type="PackedScene" uid="uid://bmfhcxqevrjcn" path="res://Scenes/Bullets/regular_bullet.tscn" id="3_dly72"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="4_vdirh"]
 
 [sub_resource type="Resource" id="Resource_bfd7l"]

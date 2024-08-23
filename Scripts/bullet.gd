@@ -1,12 +1,10 @@
 extends Area2D
 class_name Bullet
 
-@export var damage: float = 1
-@export var spread_modifier: float = 0
-@export var shot_count: float = 1
-@export var penetrations: int = 1
-@export var explosion: PackedScene
-
+var damage: float = 1
+var spread_modifier: float = 0
+var shot_count: float = 1
+var penetrations: int = 1
 var move_vector: Vector2
 var speed: float
 var ricochet: bool = false
@@ -15,6 +13,7 @@ var homing: bool = false
 var target_enemy
 var hit_enemies: Array
 var can_damage: bool = true
+var explosion = preload("res://Scenes/Bullets/bullet_explosion.tscn")
 var damage_number = preload("res://Scenes/Particles/damage_number.tscn")
 var impact = preload("res://Scenes/Particles/impact.tscn")
 var spark = preload("res://Scenes/Particles/bullet_spark.tscn")
@@ -29,9 +28,10 @@ func _ready():
 
 func _physics_process(delta):
 	position += move_vector * 80 * delta
-	if homing and target_enemy != null:
-		var target_vector = (target_enemy.position - position).normalized() * speed
-		move_vector = lerp(move_vector, target_vector, 7.5 * delta)
+	if homing: 
+		if target_enemy != null:
+			var target_vector = (target_enemy.position - position).normalized() * speed
+			move_vector = lerp(move_vector, target_vector, 7.5 * delta)
 		rotation = move_vector.angle()
 	var top_left_bound = Vector2(Globals.camera.get_screen_center_position().x - 240, Globals.camera.get_screen_center_position().y - 180)
 	var bottom_right_bound = Vector2(Globals.camera.get_screen_center_position().x + 240, Globals.camera.get_screen_center_position().y + 180)
@@ -59,10 +59,11 @@ func _on_area_entered(area):
 			spark_inst.global_position = area.global_position
 			spark_inst.set_speed(-rotation_degrees)
 		if ricochet:
-			if move_vector.x > move_vector.y:
-				move_vector.x *= -1
-			else:
+			var vector_to_enemy = area.global_position - global_position
+			if vector_to_enemy.x > vector_to_enemy.y:
 				move_vector.y *= -1
+			else:
+				move_vector.x *= -1
 			rotation = move_vector.angle()
 		if randf_range(0, 1) < explode_chance:
 			call_deferred("create_explosion", area.global_position)

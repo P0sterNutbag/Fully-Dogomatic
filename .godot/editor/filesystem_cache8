@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1724367225
+::res://::1724370005
 Be Faste.wav::AudioStreamWAV::5952458168537324232::1722466385::1723675418::1::::<><>::
 export_presets.cfg::TextFile::-1::1723359987::0::1::::<><>::
 ::res://addons/::1722628205
@@ -20,12 +20,12 @@ BLUE SKY 8X8 MONOSPACED.TTF::FontFile::4776478759324669198::1721247400::17233091
 Blue Sky 8x8.ttf::FontFile::751087700228049270::1702337269::1722989767::1::::<><>::
 Crispix.ttf::FontFile::6306348713517469745::1707875371::1723309165::1::::<><>::
 Pikzel-Regular.ttf::FontFile::3202093230630975854::1707603170::1723309165::1::::<><>::
-::res://Art/Shaders/::1724367224
+::res://Art/Shaders/::1724373789
 colorswap.gdshader::Shader::-1::1722989757::0::1::::<><>::
 colorswap.tres::ShaderMaterial::3488978402312175123::1724366070::0::1::::<><>::res://Art/Shaders/colorswap.gdshader<>uid://c8b18rvghcej6::::res://Art/Sprites/palette blue orange.png
 color_dither_include.gdshaderinc::ShaderInclude::-1::1723418123::0::1::::<><>::
-dither postprocess.gdshader::Shader::-1::1724367234::0::1::::<><>::
-dither.gdshader::Shader::-1::1724367234::0::1::::<><>::
+dither postprocess.gdshader::Shader::-1::1724373854::0::1::::<><>::
+dither.gdshader::Shader::-1::1724373854::0::1::::<><>::
 drop_shadow.gdshader::Shader::-1::1722989757::0::1::::<><>::
 drop_shadow.tres::ShaderMaterial::9215344170189588856::1721332474::0::1::::<><>::res://Art/Shaders/drop_shadow.gdshader
 flash.gdshader::Shader::-1::1722989757::0::1::::<><>::
@@ -36,7 +36,7 @@ outline.gdshader::Shader::-1::1722989757::0::1::::<><>::
 outline.tres::ShaderMaterial::7756833607695123187::1721332474::0::1::::<><>::res://Art/Shaders/outline.gdshader
 replace_color.gdshader::Shader::-1::1722989757::0::1::::<><>::
 scene_transition.gdshader::Shader::-1::1722989757::0::1::::<><>::
-::res://Art/Sprites/::1724366820
+::res://Art/Sprites/::1724373189
 123spritesheet.png::CompressedTexture2D::1830517617440284128::1723672092::1723672447::1::::<><>::
 arrow.png::CompressedTexture2D::5769477143345139279::1719617889::1722989767::1::::<><>::
 arrows.png::CompressedTexture2D::7499447551910791523::1723150467::1723149453::1::::<><>::
@@ -109,7 +109,7 @@ tiles.png::CompressedTexture2D::5221767380856599327::1719945489::1722989767::1::
 upgrade icon icon.png::CompressedTexture2D::2277951609123808506::1708497029::1722989767::1::::<><>::
 upgrade icon.png::CompressedTexture2D::8650555612553069914::1708374446::1722989767::1::::<><>::
 upgrade mark.png::CompressedTexture2D::1985312640170646638::1708373516::1722989767::1::::<><>::
-upgrade spritesheet.png::CompressedTexture2D::4176548403249136122::1724366814::1724366820::1::::<><>::
+upgrade spritesheet.png::CompressedTexture2D::4176548403249136122::1724373186::1724373189::1::::<><>::
 vending machine-Sheet.png::CompressedTexture2D::7471878201532936430::1718914437::1722989767::1::::<><>::
 white texture.png::CompressedTexture2D::129258052565921110::1718914437::1722989767::1::::<><>::
 ::res://Art/Sprites/MainMenu/::1722989767
@@ -163,94 +163,96 @@ Taps.mp3::AudioStreamMP3::3839819416487239071::1702336196::1722989767::1::::<><>
 ::res://Resources/::1714431236
 settings_option.tres::Resource/Resource::1355748239341477576::1714430902::0::1::::<><>::
 ::res://Scenes/::1723675886
-::res://Scenes/Bullets/::1724366818
-5.56mm_bullet.tscn::PackedScene::4270333736859054781::1724366818::0::1::::<><>::res://Scripts/bullet.gd<>uid://u6ly8mxmxgo4::::res://Scenes/Bullets/bullet_explosion.tscn<>uid://feiddhd4x04w::::res://Art/Sprites/bullet.png
-7.62mm_bullet.tscn::PackedScene::7738275318794223669::1722023462::0::1::::<><>::res://Scripts/bullet.gd<>uid://u6ly8mxmxgo4::::res://Scenes/Bullets/bullet_explosion.tscn<>uid://feiddhd4x04w::::res://Art/Sprites/bullet.png
-9mm_bullet.tscn::PackedScene::3239438519621370957::1724366818::0::1::::<><>::res://Scripts/bullet.gd<>uid://u6ly8mxmxgo4::::res://Scenes/Bullets/bullet_explosion.tscn<>uid://feiddhd4x04w::::res://Art/Sprites/bullet.png
-12gauge_shell.tscn::PackedScene::2581167131921453692::1722894100::0::1::::<><>::res://Scripts/bullet.gd<>uid://u6ly8mxmxgo4::::res://Scenes/Bullets/bullet_explosion.tscn<>uid://bicyrqu13qcex::::res://Art/Sprites/bullet_thin.png
-22cal_bullet.tscn::PackedScene::9044120510284289467::1721247369::0::1::::<><>::res://Scripts/bullet.gd<>uid://u6ly8mxmxgo4::::res://Scenes/Bullets/bullet_explosion.tscn<>uid://bicyrqu13qcex::::res://Art/Sprites/bullet_thin.png
-44Mag.tscn::PackedScene::7861999399345104996::1721247369::0::1::::<><>::res://Scripts/bullet.gd<>uid://u6ly8mxmxgo4::::res://Scenes/Bullets/bullet_explosion.tscn<>uid://ijrsir1vfx4o::::res://Art/Sprites/bullet_fat.png
-bullet.tscn::PackedScene::8722880216262446965::1721247369::0::1::::<><>::res://Scripts/bullet.gd<>uid://feiddhd4x04w::::res://Art/Sprites/bullet.png<>uid://u6ly8mxmxgo4::::res://Scenes/Bullets/bullet_explosion.tscn
-bullet_explosion.tscn::PackedScene::1468485081980819305::1721247369::0::1::::<><>::res://Scripts/explosion.gd<>uid://dijsdf7bej5uj::::res://Art/Sprites/exp2.png
-grenade.tscn::PackedScene::7561075763347937273::1723679777::0::1::::<><>::res://Scripts/grenade.gd<>uid://djqouhew8xv0f::::res://Art/Sprites/grenade.png
-shotgun_shell4.tscn::PackedScene::6333206812769521505::1722894100::0::1::::<><>::res://Scripts/bullet.gd<>uid://u6ly8mxmxgo4::::res://Scenes/Bullets/bullet_explosion.tscn<>uid://bicyrqu13qcex::::res://Art/Sprites/bullet_thin.png
-xt_large_bullet.tscn::PackedScene::205327017354762695::1724366818::0::1::::<><>::res://Scripts/bullet.gd<>uid://u6ly8mxmxgo4::::res://Scenes/Bullets/bullet_explosion.tscn<>uid://bgsqebdfikm4i::::res://Art/Sprites/bullet freakishly large.png
-::res://Scenes/Control/::1724366818
+::res://Scenes/Bullets/::1724373788
+5.56mm_bullet.tscn::PackedScene::4186427181863686126::1724373786::0::1::::<><>::res://Scripts/bullet.gd<>uid://feiddhd4x04w::::res://Art/Sprites/bullet.png
+7.62mm_bullet.tscn::PackedScene::5726984079319808990::1724373788::0::1::::<><>::res://Scripts/bullet.gd<>uid://feiddhd4x04w::::res://Art/Sprites/bullet.png
+12gauge_shell.tscn::PackedScene::4670578755415825882::1724373788::0::1::::<><>::res://Scripts/bullet.gd<>uid://bicyrqu13qcex::::res://Art/Sprites/bullet_thin.png
+22cal_bullet.tscn::PackedScene::4602960344402895112::1724373788::0::1::::<><>::res://Scripts/bullet.gd<>uid://bicyrqu13qcex::::res://Art/Sprites/bullet_thin.png
+44Mag.tscn::PackedScene::2661938722319268539::1724373788::0::1::::<><>::res://Scripts/bullet.gd<>uid://ijrsir1vfx4o::::res://Art/Sprites/bullet_fat.png
+bullet.tscn::PackedScene::7548134557760486593::1724373788::0::1::::<><>::res://Scripts/bullet.gd<>uid://feiddhd4x04w::::res://Art/Sprites/bullet.png
+bullet_explosion.tscn::PackedScene::1468485081980819305::1724373788::0::1::::<><>::res://Scripts/explosion.gd<>uid://dijsdf7bej5uj::::res://Art/Sprites/exp2.png
+grenade.tscn::PackedScene::7561075763347937273::1724373788::0::1::::<><>::res://Scripts/grenade.gd<>uid://djqouhew8xv0f::::res://Art/Sprites/grenade.png
+regular_bullet.tscn::PackedScene::3239438519621370957::1724373786::0::1::::<><>::res://Scripts/bullet.gd<>uid://feiddhd4x04w::::res://Art/Sprites/bullet.png
+rubber_bullet.tscn::PackedScene::7976542696381004275::1724373870::0::1::::<><>::res://Scripts/bullet.gd<>uid://feiddhd4x04w::::res://Art/Sprites/bullet.png
+shotgun_shell4.tscn::PackedScene::6333206812769521505::1724373788::0::1::::<><>::res://Scripts/bullet.gd<>uid://bicyrqu13qcex::::res://Art/Sprites/bullet_thin.png
+small_bullet.tscn::PackedScene::6398272626009214965::1724373788::0::1::::<><>::res://Scripts/bullet.gd<>uid://bicyrqu13qcex::::res://Art/Sprites/bullet_thin.png
+xt_large_bullet.tscn::PackedScene::205327017354762695::1724373786::0::1::::<><>::res://Scripts/bullet.gd<>uid://bgsqebdfikm4i::::res://Art/Sprites/bullet freakishly large.png
+::res://Scenes/Control/::1724373786
 input_controller.tscn::PackedScene::3325054595094931318::1722989228::0::1::::<><>::res://Scripts/input_controller.gd
-ui_menu.tscn::PackedScene::5729766084731568609::1724366818::0::1::::<><>::res://Art/Shaders/colorswap.gdshader<>uid://kx3kmho3mt5o::::res://Art/Sprites/Blue Sky 8x8.ttf<>uid://c8b18rvghcej6::::res://Art/Sprites/palette blue orange.png<>res://Scripts/ui_menu.gd<>res://Scripts/ui_menu_button.gd
-::res://Scenes/Cutscenes/::1724366818
-boss_death_cutscene.tscn::PackedScene::129192940543784936::1724366818::0::1::::<><>::res://Scripts/cutscene.gd<>res://Scripts/cutscene_step.gd
-::res://Scenes/Enemies/::1724366818
+ui_menu.tscn::PackedScene::5729766084731568609::1724373786::0::1::::<><>::res://Art/Shaders/colorswap.gdshader<>uid://kx3kmho3mt5o::::res://Art/Sprites/Blue Sky 8x8.ttf<>uid://c8b18rvghcej6::::res://Art/Sprites/palette blue orange.png<>res://Scripts/ui_menu.gd<>res://Scripts/ui_menu_button.gd
+::res://Scenes/Cutscenes/::1724373786
+boss_death_cutscene.tscn::PackedScene::129192940543784936::1724373786::0::1::::<><>::res://Scripts/cutscene.gd<>res://Scripts/cutscene_step.gd
+::res://Scenes/Enemies/::1724373786
 boss_pug.tscn::PackedScene::2942321331007813782::1723679780::0::1::::<><>::uid://kyho67jpnwf3::::res://Scenes/Enemies/enemy_pug.tscn<>res://Scripts/boss_pug.gd<>uid://1cymfryp4g21::::res://Art/Sprites/123spritesheet.png<>uid://5tfn2k4jut0o::::res://Art/Sprites/boss icon.png<>uid://pkl1jd6tt0bd::::res://Scenes/UI/arrow.tscn
 enemy_buff.tscn::PackedScene::4151190062075062467::1721247369::0::1::::<><>::res://Scripts/enemy.gd<>res://Scripts/enemy_health.gd<>uid://1cymfryp4g21::::res://Art/Sprites/123spritesheet.png
 enemy_bulldog.tscn::PackedScene::4928878449227960691::1723675861::0::1::::<><>::res://Scripts/enemy.gd<>res://Scripts/enemy_health.gd<>uid://1cymfryp4g21::::res://Art/Sprites/123spritesheet.png<>uid://bb6l6e5xtb17k::::res://Scenes/Particles/shadow.tscn
 enemy_chihuahua.tscn::PackedScene::922230914678203630::1721247369::0::1::::<><>::uid://kyho67jpnwf3::::res://Scenes/Enemies/enemy_pug.tscn<>res://Scripts/enemy_fast.gd<>uid://1cymfryp4g21::::res://Art/Sprites/123spritesheet.png
 enemy_explosion.tscn::PackedScene::1146806646237836222::1722023463::0::1::::<><>::uid://dijsdf7bej5uj::::res://Art/Sprites/exp2.png<>res://Scripts/enemy_explosion.gd
 enemy_poodle.tscn::PackedScene::1536858517117281238::1723675861::0::1::::<><>::res://Scripts/enemy.gd<>uid://1cymfryp4g21::::res://Art/Sprites/123spritesheet.png<>res://Scripts/enemy_health.gd<>uid://bb6l6e5xtb17k::::res://Scenes/Particles/shadow.tscn
-enemy_pug.tscn::PackedScene::751885200628888470::1724366818::0::1::::<><>::res://Scripts/enemy.gd<>uid://b4stvrba8y52u::::res://Art/Sprites/pug run.png<>uid://bb6l6e5xtb17k::::res://Scenes/Particles/shadow.tscn<>res://Scripts/enemy_health.gd<>uid://84xxip1wf4vx::::res://Scenes/UI/minimap_icon.tscn<>uid://csq00dpt7bnjq::::res://Art/Sprites/enemy icon.png
+enemy_pug.tscn::PackedScene::751885200628888470::1724373786::0::1::::<><>::res://Scripts/enemy.gd<>uid://b4stvrba8y52u::::res://Art/Sprites/pug run.png<>uid://bb6l6e5xtb17k::::res://Scenes/Particles/shadow.tscn<>res://Scripts/enemy_health.gd<>uid://84xxip1wf4vx::::res://Scenes/UI/minimap_icon.tscn<>uid://csq00dpt7bnjq::::res://Art/Sprites/enemy icon.png
 enemy_pug_6.tscn::PackedScene::3987968343151115020::1723679781::0::1::::<><>::uid://kyho67jpnwf3::::res://Scenes/Enemies/enemy_pug.tscn<>uid://dmjkhohxo1cg0::::res://Art/Sprites/pug2 run.png
 enemy_pug_9.tscn::PackedScene::3492955516355170241::1723679781::0::1::::<><>::uid://kyho67jpnwf3::::res://Scenes/Enemies/enemy_pug.tscn<>uid://cw72nvct4itwp::::res://Art/Sprites/pug3 run.png
 enemy_pug_12.tscn::PackedScene::739676353735693446::1723679781::0::1::::<><>::uid://kyho67jpnwf3::::res://Scenes/Enemies/enemy_pug.tscn<>uid://ckppx52sovtuw::::res://Art/Sprites/pug4 run.png
 enemy_pug_big.tscn::PackedScene::6031915104692111970::1722036967::0::1::::<><>::res://Scripts/enemy.gd<>uid://dw0qr8vsmwbky::::res://Art/Sprites/dog soldier spritesheet.png
 enemy_shepherd.tscn::PackedScene::6889446418252184639::1723675861::0::1::::<><>::res://Scripts/enemy.gd<>uid://1cymfryp4g21::::res://Art/Sprites/123spritesheet.png<>res://Scripts/enemy_health.gd<>uid://bb6l6e5xtb17k::::res://Scenes/Particles/shadow.tscn
-enemy_spawner_controller.tscn::PackedScene::4952218426990113848::1724366818::0::1::::<><>::res://Scripts/enemy_spawner_controller.gd<>uid://kyho67jpnwf3::::res://Scenes/Enemies/enemy_pug.tscn<>res://Scripts/spawn_chance.gd<>uid://bw22ix5lssou3::::res://Scenes/Enemies/enemy_pug_6.tscn<>uid://bp1ap45bibdh6::::res://Scenes/Enemies/enemy_pug_9.tscn<>uid://kskmj4salsda::::res://Scenes/Enemies/enemy_pug_12.tscn
-::res://Scenes/Gun Parts/::1723679779
-22_barrel.tscn::PackedScene::7590327760201266064::1723679779::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_barrel.gd<>uid://bmfhcxqevrjcn::::res://Scenes/Bullets/9mm_bullet.tscn<>res://Scripts/rarity.gd
+enemy_spawner_controller.tscn::PackedScene::4952218426990113848::1724373786::0::1::::<><>::res://Scripts/enemy_spawner_controller.gd<>uid://kyho67jpnwf3::::res://Scenes/Enemies/enemy_pug.tscn<>res://Scripts/spawn_chance.gd<>uid://bw22ix5lssou3::::res://Scenes/Enemies/enemy_pug_6.tscn<>uid://bp1ap45bibdh6::::res://Scenes/Enemies/enemy_pug_9.tscn<>uid://kskmj4salsda::::res://Scenes/Enemies/enemy_pug_12.tscn
+::res://Scenes/Gun Parts/::1724373789
+22_barrel.tscn::PackedScene::7590327760201266064::1724373788::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_barrel.gd<>uid://bmfhcxqevrjcn::::res://Scenes/Bullets/regular_bullet.tscn<>res://Scripts/rarity.gd
 22_grip.tscn::PackedScene::4928322985392451012::1721247369::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_grip.gd<>res://Scripts/rarity.gd
 22_magazine.tscn::PackedScene::2494420963776927480::1723224817::0::1::::<><>::res://Scripts/gun_part_magazine.gd<>res://Scripts/rarity.gd
 22_stock.tscn::PackedScene::7021002852118723427::1721247369::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_stock.gd<>res://Scripts/rarity.gd
-ak47_barrel.tscn::PackedScene::1219052084531987884::1723679779::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_barrel.gd<>uid://b13t1jj4vg1sr::::res://Scenes/Bullets/5.56mm_bullet.tscn<>res://Scripts/rarity.gd
+ak47_barrel.tscn::PackedScene::1219052084531987884::1724373788::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_barrel.gd<>uid://bmfhcxqevrjcn::::res://Scenes/Bullets/regular_bullet.tscn<>res://Scripts/rarity.gd
 ak47_grip.tscn::PackedScene::638072013178897566::1722894098::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_grip.gd<>res://Scripts/rarity.gd
 ak47_magazine.tscn::PackedScene::8113824440423792082::1722894098::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_magazine.gd<>res://Scripts/rarity.gd
 ak47_stock.tscn::PackedScene::5342267048272316018::1722894098::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_stock.gd<>res://Scripts/rarity.gd
-ar15_barrel.tscn::PackedScene::8270042803485554304::1723679778::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_barrel.gd<>uid://b13t1jj4vg1sr::::res://Scenes/Bullets/5.56mm_bullet.tscn<>res://Scripts/rarity.gd
+ar15_barrel.tscn::PackedScene::8270042803485554304::1724373788::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_barrel.gd<>res://Scripts/rarity.gd<>uid://bmfhcxqevrjcn::::res://Scenes/Bullets/regular_bullet.tscn
 ar15_grip.tscn::PackedScene::6942509815550388102::1722894097::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/rarity.gd<>res://Scripts/gun_part_grip.gd
 ar15_magazine.tscn::PackedScene::4758939327354757364::1723235998::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_magazine.gd<>res://Scripts/rarity.gd
 ar15_scope.tscn::PackedScene::7862359155612766262::1723679778::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_scope.gd<>res://Scripts/rarity.gd
 ar15_stock.tscn::PackedScene::7774357250955737779::1722894097::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_stock.gd<>res://Scripts/rarity.gd
-auto_shotgun_barrel.tscn::PackedScene::5855961075161783478::1723679779::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_barrel.gd<>uid://bc1lpfb433y57::::res://Scenes/Bullets/12gauge_shell.tscn<>res://Scripts/rarity.gd
+auto_shotgun_barrel.tscn::PackedScene::5855961075161783478::1724373788::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_barrel.gd<>uid://cxfmu6l00rhkn::::res://Scenes/Bullets/small_bullet.tscn<>res://Scripts/rarity.gd
 auto_shotgun_grip.tscn::PackedScene::7451360307676153296::1722894099::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_grip.gd<>res://Scripts/rarity.gd
 auto_shotgun_magazine.tscn::PackedScene::3800886010773352432::1722894099::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_magazine.gd<>res://Scripts/rarity.gd
-auto_shotgun_stock.tscn::PackedScene::5913911945493930798::1722894099::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_stock.gd<>res://Scripts/rarity.gd
-double_b_barrel.tscn::PackedScene::8808253936805210586::1723066221::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_barrel.gd<>uid://bc1lpfb433y57::::res://Scenes/Bullets/12gauge_shell.tscn<>res://Scripts/rarity.gd
+auto_shotgun_stock.tscn::PackedScene::5913911945493930798::1724373789::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_stock.gd<>res://Scripts/rarity.gd
+double_b_barrel.tscn::PackedScene::8808253936805210586::1724373788::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_barrel.gd<>uid://cxfmu6l00rhkn::::res://Scenes/Bullets/small_bullet.tscn<>res://Scripts/rarity.gd
 double_b_grip.tscn::PackedScene::3881847461852272302::1721247369::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_grip.gd<>res://Scripts/rarity.gd
 double_b_magazine.tscn::PackedScene::8770096207644106532::1720848074::0::1::::<><>::res://Scripts/gun_part_magazine.gd<>res://Scripts/rarity.gd
 double_b_stock.tscn::PackedScene::7237929192603419461::1721247369::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_stock.gd<>res://Scripts/rarity.gd
-launcher_barrel.tscn::PackedScene::2701680725917285912::1723066221::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_barrel.gd<>res://Scripts/rarity.gd<>uid://dfyv2v8qbh3ht::::res://Scenes/Bullets/grenade.tscn
+launcher_barrel.tscn::PackedScene::2701680725917285912::1724373789::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_barrel.gd<>res://Scripts/rarity.gd<>uid://dfyv2v8qbh3ht::::res://Scenes/Bullets/grenade.tscn
 launcher_grip.tscn::PackedScene::8000164179444802124::1721247369::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_grip.gd<>res://Scripts/rarity.gd
 launcher_magazine.tscn::PackedScene::3627249840800422914::1721247369::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_magazine.gd<>res://Scripts/rarity.gd
 launcher_stock.tscn::PackedScene::8593156257526561855::1721247369::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_stock.gd<>res://Scripts/rarity.gd
-mac11_barrel.tscn::PackedScene::8904603409884624385::1723066221::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_barrel.gd<>uid://bmfhcxqevrjcn::::res://Scenes/Bullets/9mm_bullet.tscn<>res://Scripts/rarity.gd
+mac11_barrel.tscn::PackedScene::8904603409884624385::1724373789::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_barrel.gd<>uid://bmfhcxqevrjcn::::res://Scenes/Bullets/regular_bullet.tscn<>res://Scripts/rarity.gd
 mac11_grip.tscn::PackedScene::4949258178280120756::1722894097::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_grip.gd<>res://Scripts/rarity.gd
 mac11_magazine.tscn::PackedScene::4453157799667717628::1722894098::0::1::::<><>::res://Scripts/gun_part_magazine.gd<>res://Scripts/rarity.gd
 magazine_large.tscn::PackedScene::93480297647921136::1723679777::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_magazine.gd<>res://Scripts/rarity.gd
 magazine_medium.tscn::PackedScene::4333756093039579268::1723679777::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_magazine.gd<>res://Scripts/rarity.gd
 magazine_small.tscn::PackedScene::3457956445728627384::1723679777::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_magazine.gd<>res://Scripts/rarity.gd
-magnum_barrel.tscn::PackedScene::6630918566871800305::1723066221::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_barrel.gd<>res://Scripts/rarity.gd<>uid://dkan8mtdjvg8s::::res://Scenes/Bullets/44Mag.tscn
+magnum_barrel.tscn::PackedScene::6630918566871800305::1724373789::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_barrel.gd<>uid://bmfhcxqevrjcn::::res://Scenes/Bullets/regular_bullet.tscn<>res://Scripts/rarity.gd
 magnum_grip.tscn::PackedScene::5587026761125301676::1722894097::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_grip.gd<>res://Scripts/rarity.gd
 magnum_magazine.tscn::PackedScene::8193196205767564741::1723679778::0::1::::<><>::res://Scripts/gun_part_magazine.gd<>uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/rarity.gd
 no_magazine.tscn::PackedScene::8736593215082174406::1723151366::0::1::::<><>::res://Scripts/gun_part_magazine.gd<>res://Scripts/rarity.gd
 no_scope.tscn::PackedScene::3336817237654103097::1723151366::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_scope.gd<>res://Scripts/rarity.gd
 no_stock.tscn::PackedScene::6437763510026818744::1723151366::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_stock.gd<>res://Scripts/rarity.gd
-pistol_barrel.tscn::PackedScene::1312949132382189181::1723066221::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_barrel.gd<>res://Scripts/rarity.gd<>uid://bmfhcxqevrjcn::::res://Scenes/Bullets/9mm_bullet.tscn
+pistol_barrel.tscn::PackedScene::1312949132382189181::1724373789::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_barrel.gd<>res://Scripts/rarity.gd<>uid://bmfhcxqevrjcn::::res://Scenes/Bullets/regular_bullet.tscn
 pistol_grip.tscn::PackedScene::8684614952079286295::1722894097::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/rarity.gd<>res://Scripts/gun_part_grip.gd
 pistol_magazine.tscn::PackedScene::2850701226823844275::1722894097::0::1::::<><>::res://Scripts/gun_part_magazine.gd<>res://Scripts/rarity.gd
-revolver_barrel.tscn::PackedScene::2172621142287195375::1723679779::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>uid://bmfhcxqevrjcn::::res://Scenes/Bullets/9mm_bullet.tscn<>res://Scripts/gun_part_barrel.gd<>res://Scripts/rarity.gd
+revolver_barrel.tscn::PackedScene::2172621142287195375::1724373789::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>uid://bmfhcxqevrjcn::::res://Scenes/Bullets/regular_bullet.tscn<>res://Scripts/gun_part_barrel.gd<>res://Scripts/rarity.gd
 revolver_grip.tscn::PackedScene::8928291946378911697::1719603793::0::1::::<><>::uid://dvy5lsmww0dit::::res://Scenes/Gun Parts/pistol_grip.tscn
 revolver_magazine.tscn::PackedScene::5759425632905820048::1721247369::0::1::::<><>::uid://bgu5vroflg0y6::::res://Scenes/Gun Parts/pistol_magazine.tscn<>uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png
-shotgun_barrel.tscn::PackedScene::619918285170801379::1723066221::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_barrel.gd<>res://Scripts/rarity.gd<>uid://cwh38xq4aiaht::::res://Scenes/Bullets/shotgun_shell4.tscn
+shotgun_barrel.tscn::PackedScene::619918285170801379::1724373789::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_barrel.gd<>res://Scripts/rarity.gd<>uid://cxfmu6l00rhkn::::res://Scenes/Bullets/small_bullet.tscn
 shotgun_grip.tscn::PackedScene::8693256151190864126::1722894099::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_grip.gd<>res://Scripts/rarity.gd
 shotgun_magazine.tscn::PackedScene::2697776145951848843::1722894099::0::1::::<><>::res://Scripts/gun_part_magazine.gd<>res://Scripts/rarity.gd
-smg_barrel.tscn::PackedScene::8240807961133663755::1723066221::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_barrel.gd<>res://Scripts/rarity.gd<>uid://bmfhcxqevrjcn::::res://Scenes/Bullets/9mm_bullet.tscn
+smg_barrel.tscn::PackedScene::8240807961133663755::1724373789::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_barrel.gd<>res://Scripts/rarity.gd<>uid://bmfhcxqevrjcn::::res://Scenes/Bullets/regular_bullet.tscn
 smg_grip.tscn::PackedScene::7455573618389221198::1721247369::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_grip.gd<>res://Scripts/rarity.gd
 smg_magazine.tscn::PackedScene::358606169420612229::1721247369::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_magazine.gd<>res://Scripts/rarity.gd
 smg_stock.tscn::PackedScene::5567756372472733255::1721247369::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_stock.gd<>res://Scripts/rarity.gd
-sniper_barrel.tscn::PackedScene::7603534311219495094::1723679778::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_barrel.gd<>uid://diiqi8djvsue4::::res://Scenes/Bullets/7.62mm_bullet.tscn<>res://Scripts/rarity.gd
+sniper_barrel.tscn::PackedScene::7603534311219495094::1724373789::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_barrel.gd<>res://Scripts/rarity.gd<>uid://bmfhcxqevrjcn::::res://Scenes/Bullets/regular_bullet.tscn
 sniper_grip.tscn::PackedScene::5634626692430711947::1721247369::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_grip.gd<>res://Scripts/rarity.gd
 sniper_magazine.tscn::PackedScene::3071331833850026118::1721247369::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_magazine.gd<>res://Scripts/rarity.gd
 sniper_scope.tscn::PackedScene::5071821187729140056::1723679778::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_scope.gd<>res://Scripts/rarity.gd
 sniper_stock.tscn::PackedScene::2294671752501297077::1721247369::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_stock.gd<>res://Scripts/rarity.gd
-tommy_barrel.tscn::PackedScene::7454458542153787186::1723066221::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_barrel.gd<>uid://b13t1jj4vg1sr::::res://Scenes/Bullets/5.56mm_bullet.tscn<>res://Scripts/rarity.gd
+tommy_barrel.tscn::PackedScene::7454458542153787186::1724373789::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_barrel.gd<>uid://bmfhcxqevrjcn::::res://Scenes/Bullets/regular_bullet.tscn<>res://Scripts/rarity.gd
 tommy_grip.tscn::PackedScene::686666891026544258::1722894098::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_grip.gd<>res://Scripts/rarity.gd
 tommy_magazine.tscn::PackedScene::1354894569195623705::1722894099::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_magazine.gd<>res://Scripts/rarity.gd
 tommy_stock.tscn::PackedScene::5599618257910797863::1722894099::0::1::::<><>::uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>res://Scripts/gun_part_stock.gd<>res://Scripts/rarity.gd
@@ -282,11 +284,11 @@ pistol.tscn::PackedScene::1889131645636104820::1714431467::0::1::::<><>::uid://d
 shotgun.tscn::PackedScene::651815397825252912::1721247369::0::1::::<><>::uid://dpwo44pw6jd44::::res://Scenes/Guns/Old Guns/gun_parent_old.tscn<>uid://diquaf2uu7u58::::res://Art/Sprites/icon_shotgun.png
 smg.tscn::PackedScene::7489229275778081639::1721247369::0::1::::<><>::uid://dpwo44pw6jd44::::res://Scenes/Guns/Old Guns/gun_parent_old.tscn<>uid://dvmb1235cgkwv::::res://Art/Sprites/icon smg.png
 sniper.tscn::PackedScene::6062941354276686441::1721247369::0::1::::<><>::uid://dpwo44pw6jd44::::res://Scenes/Guns/Old Guns/gun_parent_old.tscn<>uid://df5bih1q8nh5p::::res://Art/Sprites/icon sniper.png
-::res://Scenes/Levels/::1724366818
-customize.tscn::PackedScene::3361599966522293937::1724366818::0::1::::<><>::res://Art/Shaders/colorswap.gdshader<>uid://c8b18rvghcej6::::res://Art/Sprites/palette blue orange.png<>uid://cbuklghcxpiko::::res://Scenes/Tiles/tiles.tscn<>uid://cgnp0mhae3ygt::::res://Art/Sprites/tiles.png<>uid://qnw7051yjuf4::::res://Scenes/UI/Character Cusomization/choose_character.tscn
-end.tscn::PackedScene::4316969490393081334::1724366818::0::1::::<><>::res://Art/Shaders/colorswap.gdshader<>uid://c8b18rvghcej6::::res://Art/Sprites/palette blue orange.png<>res://Scripts/main_menu.gd<>uid://cbuklghcxpiko::::res://Scenes/Tiles/tiles.tscn<>uid://dx18mgom3chcm::::res://Scenes/UI/pause_controller.tscn<>res://Scripts/ui_menu.gd<>uid://kx3kmho3mt5o::::res://Art/Sprites/Blue Sky 8x8.ttf<>res://Scripts/ui_menu_button.gd<>uid://h7clkc3uwco0::::res://Art/Sprites/MainMenu/thanksforplaying.png<>uid://beputxcs1pxrh::::res://Scenes/UI/JuicyMovement.tscn<>uid://dio4jhhmyfnfk::::res://Audio/AudioManager.tscn<>uid://b7r52wai1l1yc::::res://Scenes/Player/menu_dog.tscn<>uid://benlyb5ipwgn8::::res://Scenes/Player/tennisball.tscn<>uid://cxaeqie0fbe0t::::res://Art/Sprites/MainMenu/point_arrow.png
+::res://Scenes/Levels/::1724373786
+customize.tscn::PackedScene::3361599966522293937::1724373786::0::1::::<><>::res://Art/Shaders/colorswap.gdshader<>uid://c8b18rvghcej6::::res://Art/Sprites/palette blue orange.png<>uid://cbuklghcxpiko::::res://Scenes/Tiles/tiles.tscn<>uid://cgnp0mhae3ygt::::res://Art/Sprites/tiles.png<>uid://qnw7051yjuf4::::res://Scenes/UI/Character Cusomization/choose_character.tscn
+end.tscn::PackedScene::4316969490393081334::1724373786::0::1::::<><>::res://Art/Shaders/colorswap.gdshader<>uid://c8b18rvghcej6::::res://Art/Sprites/palette blue orange.png<>res://Scripts/main_menu.gd<>uid://cbuklghcxpiko::::res://Scenes/Tiles/tiles.tscn<>uid://dx18mgom3chcm::::res://Scenes/UI/pause_controller.tscn<>res://Scripts/ui_menu.gd<>uid://kx3kmho3mt5o::::res://Art/Sprites/Blue Sky 8x8.ttf<>res://Scripts/ui_menu_button.gd<>uid://h7clkc3uwco0::::res://Art/Sprites/MainMenu/thanksforplaying.png<>uid://beputxcs1pxrh::::res://Scenes/UI/JuicyMovement.tscn<>uid://dio4jhhmyfnfk::::res://Audio/AudioManager.tscn<>uid://b7r52wai1l1yc::::res://Scenes/Player/menu_dog.tscn<>uid://benlyb5ipwgn8::::res://Scenes/Player/tennisball.tscn<>uid://cxaeqie0fbe0t::::res://Art/Sprites/MainMenu/point_arrow.png
 intro.tscn::PackedScene::4046143826065932404::1723066221::0::1::::<><>::uid://bpyc72ajp6yfb::::res://Art/Shaders/colorswap.tres<>uid://bmv1iku1at618::::res://Art/Themes/ui text mid.tres<>res://Scripts/intro.gd<>uid://duyjrxoykjvhk::::res://Art/Sprites/logo.png
-main_menu.tscn::PackedScene::5351627997358855529::1724366818::0::1::::<><>::res://Scripts/ui_main_menu.gd<>uid://cbuklghcxpiko::::res://Scenes/Tiles/tiles.tscn<>uid://b20fme0nos8kp::::res://Art/Sprites/MainMenu/title small 185x28.png<>res://Art/Shaders/colorswap.gdshader<>uid://beputxcs1pxrh::::res://Scenes/UI/JuicyMovement.tscn<>uid://c8b18rvghcej6::::res://Art/Sprites/palette blue orange.png<>uid://bmv1iku1at618::::res://Art/Themes/ui text mid.tres<>res://Scripts/ui_menu.gd<>res://Scripts/ui_menu_button.gd<>uid://b50cm06iefifh::::res://Scenes/UI/menu_button.tscn<>uid://kx3kmho3mt5o::::res://Art/Sprites/Blue Sky 8x8.ttf<>uid://dx18mgom3chcm::::res://Scenes/UI/pause_controller.tscn<>uid://dio4jhhmyfnfk::::res://Audio/AudioManager.tscn<>uid://b7r52wai1l1yc::::res://Scenes/Player/menu_dog.tscn<>uid://benlyb5ipwgn8::::res://Scenes/Player/tennisball.tscn
+main_menu.tscn::PackedScene::5351627997358855529::1724373786::0::1::::<><>::res://Scripts/ui_main_menu.gd<>uid://cbuklghcxpiko::::res://Scenes/Tiles/tiles.tscn<>uid://b20fme0nos8kp::::res://Art/Sprites/MainMenu/title small 185x28.png<>res://Art/Shaders/colorswap.gdshader<>uid://beputxcs1pxrh::::res://Scenes/UI/JuicyMovement.tscn<>uid://c8b18rvghcej6::::res://Art/Sprites/palette blue orange.png<>uid://bmv1iku1at618::::res://Art/Themes/ui text mid.tres<>res://Scripts/ui_menu.gd<>res://Scripts/ui_menu_button.gd<>uid://b50cm06iefifh::::res://Scenes/UI/menu_button.tscn<>uid://kx3kmho3mt5o::::res://Art/Sprites/Blue Sky 8x8.ttf<>uid://dx18mgom3chcm::::res://Scenes/UI/pause_controller.tscn<>uid://dio4jhhmyfnfk::::res://Audio/AudioManager.tscn<>uid://b7r52wai1l1yc::::res://Scenes/Player/menu_dog.tscn<>uid://benlyb5ipwgn8::::res://Scenes/Player/tennisball.tscn
 SceneManager.tscn::PackedScene::6613190878255799340::1723679782::0::1::::<><>::res://Scripts/scene_manager.gd<>uid://cp1qxxdw5a1k7::::res://Scenes/Levels/scene_transition.tscn<>res://Art/Shaders/colorswap.gdshader<>uid://c8b18rvghcej6::::res://Art/Sprites/palette blue orange.png<>uid://ocbll0xmje::::res://Art/Sprites/MainMenu/dog small panting.png<>uid://bpyc72ajp6yfb::::res://Art/Shaders/colorswap.tres<>uid://dpv7tir788p5t::::res://Art/Themes/ui text small.tres
 scene_transition.tscn::PackedScene::5880361602417484476::1723679782::0::1::::<><>::res://Scripts/scene_transition.gd<>res://Art/Shaders/scene_transition.gdshader
 world.tscn::PackedScene::9084083824372354778::1723679777::0::1::::<><>::res://Scripts/world_controller.gd<>uid://cfkssnl27y2qn::::res://Scenes/Player/player.tscn<>uid://dx18mgom3chcm::::res://Scenes/UI/pause_controller.tscn<>uid://cbuklghcxpiko::::res://Scenes/Tiles/tiles.tscn<>uid://ccs5kw7b4231m::::res://Scenes/Enemies/enemy_spawner_controller.tscn<>res://Art/Shaders/colorswap.gdshader<>uid://buybjaddur1vf::::res://Audio/SFX/Taps.mp3<>uid://cdv51tkopnod7::::res://Audio/Music/Midnight-Cruise.mp3<>res://Scripts/camera.gd<>uid://c8b18rvghcej6::::res://Art/Sprites/palette blue orange.png<>uid://d1c2pbbb47u4h::::res://Scenes/UI/ui.tscn<>uid://ddr81bx8gf1xo::::res://Scenes/Guns/Control/gunstats.tscn<>uid://dio4jhhmyfnfk::::res://Audio/AudioManager.tscn<>uid://dj17btvmql3b7::::res://Scenes/Upgrades/upgrade_manager.tscn<>uid://dfbi0qqmatkp8::::res://Scenes/Levels/Level Objects/level_manager.tscn
@@ -311,10 +313,10 @@ impact.tscn::PackedScene::4699504877910506363::1723676690::0::1::::<><>::res://S
 shadow.tscn::PackedScene::2521328741746478026::1723679780::0::1::::<><>::res://Art/Shaders/colorswap.gdshader<>uid://c8b18rvghcej6::::res://Art/Sprites/palette blue orange.png<>res://Scripts/shadow.gd
 shell.tscn::PackedScene::5368349369616729402::1721247369::0::1::::<><>::uid://b2dnjknyk7t54::::res://Art/Sprites/shell.png<>res://Scripts/shell.gd
 wood_particles.tscn::PackedScene::3471214339013119217::1723679782::0::1::::<><>::
-::res://Scenes/Player/::1724366818
+::res://Scenes/Player/::1724373786
 dollar.tscn::PackedScene::7441669328749995628::1723679781::0::1::::<><>::res://Scripts/dollar.gd<>uid://ciycwwadhk41u::::res://Art/Sprites/dollar.png
 menu_dog.tscn::PackedScene::4669428984059974162::1721247369::0::1::::<><>::uid://1cymfryp4g21::::res://Art/Sprites/123spritesheet.png<>res://Scripts/menu_dog.gd
-player.tscn::PackedScene::5145555114343940985::1724366818::0::1::::<><>::res://Scripts/player.gd<>uid://bb6l6e5xtb17k::::res://Scenes/Particles/shadow.tscn<>uid://bxgmy5m25b5ju::::res://Art/Shaders/flash.tres<>uid://1cymfryp4g21::::res://Art/Sprites/123spritesheet.png<>uid://cog1pfevxty7h::::res://Art/Sprites/arrow.png<>uid://dpentnylex1c::::res://Art/Sprites/player run.png<>uid://chhc6bjga1571::::res://Art/Sprites/player idle.png<>uid://84xxip1wf4vx::::res://Scenes/UI/minimap_icon.tscn<>uid://cj1qgbm34pbo6::::res://Art/Sprites/camsize icon.png<>uid://cwxntloygdy76::::res://Art/Sprites/player icon 2.png
+player.tscn::PackedScene::5145555114343940985::1724373786::0::1::::<><>::res://Scripts/player.gd<>uid://bb6l6e5xtb17k::::res://Scenes/Particles/shadow.tscn<>uid://bxgmy5m25b5ju::::res://Art/Shaders/flash.tres<>uid://1cymfryp4g21::::res://Art/Sprites/123spritesheet.png<>uid://cog1pfevxty7h::::res://Art/Sprites/arrow.png<>uid://dpentnylex1c::::res://Art/Sprites/player run.png<>uid://chhc6bjga1571::::res://Art/Sprites/player idle.png<>uid://84xxip1wf4vx::::res://Scenes/UI/minimap_icon.tscn<>uid://cj1qgbm34pbo6::::res://Art/Sprites/camsize icon.png<>uid://cwxntloygdy76::::res://Art/Sprites/player icon 2.png
 ring.gd::GDScript::-1::1720849167::0::1::::<>Node2D<>::
 tennisball.tscn::PackedScene::2694723814274039443::1722463176::0::1::::<><>::uid://bbiporp12jhxu::::res://Art/Sprites/tennisball.png<>res://Scripts/tennisball.gd
 ::res://Scenes/Tiles/::1723679782
@@ -333,40 +335,41 @@ pause_menu.tscn::PackedScene::8036935106916571917::1723066221::0::1::::<><>::uid
 settings_menu.tscn::PackedScene::4102586217647888806::1723066241::0::1::::<><>::res://Art/Shaders/colorswap.gdshader<>uid://c8b18rvghcej6::::res://Art/Sprites/palette blue orange.png<>res://Scripts/ui_settings_menu.gd<>uid://kx3kmho3mt5o::::res://Art/Sprites/Blue Sky 8x8.ttf<>res://Scripts/ui_menu_button.gd
 settings_option.tscn::PackedScene::4482990050187823523::1723679782::0::1::::<><>::uid://bmv1iku1at618::::res://Art/Themes/ui text mid.tres<>res://Scripts/menu_button.gd
 ui.tscn::PackedScene::8989966941043158241::1723679781::0::1::::<><>::res://Scripts/ui.gd<>uid://c8b18rvghcej6::::res://Art/Sprites/palette blue orange.png<>res://Art/Shaders/colorswap.gdshader<>uid://kx3kmho3mt5o::::res://Art/Sprites/Blue Sky 8x8.ttf<>uid://dpv7tir788p5t::::res://Art/Themes/ui text small.tres<>res://Scripts/dogtags_ui.gd<>uid://d3ab1bo48xa01::::res://Art/Themes/ui text mid mono.tres<>uid://dwx100okd3d23::::res://Scenes/UI/minimap.tscn<>uid://beputxcs1pxrh::::res://Scenes/UI/JuicyMovement.tscn<>uid://bpyc72ajp6yfb::::res://Art/Shaders/colorswap.tres<>uid://dawp23mso2e5a::::res://Art/Themes/healthbar.tres<>uid://daxb7qrq2h0do::::res://Art/Sprites/corgi background.png<>uid://c6y0lkh055u06::::res://Art/Sprites/heart.png<>uid://caletdmnc4r81::::res://Art/Themes/ui text small mono.tres<>uid://bmv1iku1at618::::res://Art/Themes/ui text mid.tres
-::res://Scenes/UI/Character Cusomization/::1724366818
+::res://Scenes/UI/Character Cusomization/::1724373786
 character_option.gd::GDScript::-1::1723766837::0::1::::<>UiButton<>::
-character_option.tscn::PackedScene::6805480009529651556::1724366818::0::1::::<><>::res://Art/Shaders/colorswap.gdshader<>uid://c8b18rvghcej6::::res://Art/Sprites/palette blue orange.png<>uid://kx3kmho3mt5o::::res://Art/Sprites/Blue Sky 8x8.ttf<>res://Scenes/UI/Character Cusomization/character_option.gd<>res://Scripts/Circle.gd<>uid://2u72jmj4wnsn::::res://Art/Sprites/red texture.png<>uid://c6tfpjjve52aj::::res://Art/Sprites/black texture.png<>uid://bmv1iku1at618::::res://Art/Themes/ui text mid.tres<>uid://beputxcs1pxrh::::res://Scenes/UI/JuicyMovement.tscn<>uid://bpyc72ajp6yfb::::res://Art/Shaders/colorswap.tres<>uid://chhc6bjga1571::::res://Art/Sprites/player idle.png
-choose_character.tscn::PackedScene::1151252688898770335::1724366818::0::1::::<><>::uid://c37vi5itujbsu::::res://Scenes/UI/Character Cusomization/character_option.tscn<>res://Scripts/customization_menu.gd<>res://Art/Shaders/colorswap.gdshader<>uid://c8b18rvghcej6::::res://Art/Sprites/palette blue orange.png<>uid://d20y8va2yhr08::::res://Art/Themes/ui text large.tres<>uid://beputxcs1pxrh::::res://Scenes/UI/JuicyMovement.tscn<>uid://c36svb8uk5nrg::::res://Art/Sprites/lock.png<>res://Scripts/float_in.gd
+character_option.tscn::PackedScene::6805480009529651556::1724373786::0::1::::<><>::res://Art/Shaders/colorswap.gdshader<>uid://c8b18rvghcej6::::res://Art/Sprites/palette blue orange.png<>uid://kx3kmho3mt5o::::res://Art/Sprites/Blue Sky 8x8.ttf<>res://Scenes/UI/Character Cusomization/character_option.gd<>res://Scripts/Circle.gd<>uid://2u72jmj4wnsn::::res://Art/Sprites/red texture.png<>uid://c6tfpjjve52aj::::res://Art/Sprites/black texture.png<>uid://bmv1iku1at618::::res://Art/Themes/ui text mid.tres<>uid://beputxcs1pxrh::::res://Scenes/UI/JuicyMovement.tscn<>uid://bpyc72ajp6yfb::::res://Art/Shaders/colorswap.tres<>uid://chhc6bjga1571::::res://Art/Sprites/player idle.png
+choose_character.tscn::PackedScene::1151252688898770335::1724373786::0::1::::<><>::uid://c37vi5itujbsu::::res://Scenes/UI/Character Cusomization/character_option.tscn<>res://Scripts/customization_menu.gd<>res://Art/Shaders/colorswap.gdshader<>uid://c8b18rvghcej6::::res://Art/Sprites/palette blue orange.png<>uid://d20y8va2yhr08::::res://Art/Themes/ui text large.tres<>uid://beputxcs1pxrh::::res://Scenes/UI/JuicyMovement.tscn<>uid://c36svb8uk5nrg::::res://Art/Sprites/lock.png<>res://Scripts/float_in.gd
 ::res://Scenes/UI/slot machine/::1721508816
 slot_row.gd::GDScript::-1::1721508816::0::1::::<>Node2D<>::
 slot_row.tscn::PackedScene::5875632978289433190::1721247369::0::1::::<><>::uid://d0xgh2orsogie::::res://Art/Sprites/crate icon.png<>res://Scenes/UI/slot machine/slot_row.gd<>uid://be1sac50cadp3::::res://Art/Sprites/enemy spawner icon.png<>uid://bonnvdx0aojp3::::res://Art/Sprites/dog icon.png
-::res://Scenes/Upgrades/::1724367224
-damage_upgrade.tscn::PackedScene::8459622266580146793::1724366819::0::1::::<><>::res://Scripts/Upgrades/damage_upgrade.gd<>uid://7ppsa5tfac3k::::res://Art/Sprites/upgrade icon icon.png
-gun_upgrade.tscn::PackedScene::8789749247326652645::1724366819::0::1::::<><>::res://Scripts/gun_upgrade.gd<>uid://de312nfiun02b::::res://Art/Sprites/arrows.png
-part_upgrade.tscn::PackedScene::410173832203237608::1724366819::0::1::::<><>::uid://bpyc72ajp6yfb::::res://Art/Shaders/colorswap.tres<>res://Scripts/part_upgrade.gd<>uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>uid://de312nfiun02b::::res://Art/Sprites/arrows.png
-upgrade.tscn::PackedScene::1030818054036941909::1724366819::0::1::::<><>::uid://dvinnfpwutjr3::::res://Art/Sprites/upgrade icon.png<>res://Scripts/Upgrades/upgrade.gd<>uid://blveai4y2nwq5::::res://Art/Fonts/Pikzel-Regular.ttf<>uid://7ppsa5tfac3k::::res://Art/Sprites/upgrade icon icon.png
-upgrade_manager.tscn::PackedScene::7846581225941197258::1724367234::0::1::::<><>::res://Scripts/Upgrades/upgrade_manager.gd<>uid://3wnh1ek55nhd::::res://Scenes/Guns/gun_22.tscn<>uid://q6i3xlchk80p::::res://Scenes/Guns/gun_ak47.tscn<>uid://3khbol34srr6::::res://Scenes/Guns/gun_ar15.tscn<>uid://cnxgjwrawwh2o::::res://Scenes/Guns/gun_auto_shotgun.tscn<>uid://cg6qcljd6ydof::::res://Scenes/Guns/gun_double_b.tscn<>uid://irn8wcu6ofrw::::res://Scenes/Guns/gun_grenade_launcher.tscn<>uid://crh1arho1mgax::::res://Scenes/Guns/gun_mac11.tscn<>uid://d75wnu7dhndw::::res://Scenes/Guns/gun_magnum.tscn<>uid://couat6mj44bws::::res://Scenes/Guns/gun_pistol.tscn<>uid://ct3m0psa4bj32::::res://Scenes/Guns/gun_revolver.tscn<>uid://dhruksuxabxo2::::res://Scenes/Guns/gun_shotgun.tscn<>uid://bw3w1cm787x4m::::res://Scenes/Guns/gun_smg.tscn<>uid://du8dgih13wcrj::::res://Scenes/Guns/gun_sniper.tscn<>uid://ssm25cowo6i::::res://Scenes/Guns/gun_tommy.tscn<>uid://c38tjmk8m2014::::res://Scenes/Upgrades/GunUpgrades/damage_upgrade.tscn<>uid://xxns0mw4h46v::::res://Scenes/Upgrades/GunUpgrades/ricochet_upgrade.tscn<>uid://chsxxs68jprbl::::res://Scenes/Upgrades/GunUpgrades/homing_upgrade.tscn<>uid://bcc5uf7cqe744::::res://Scenes/Upgrades/GunUpgrades/reload_speed_upgrade.tscn<>uid://cn50oxjbu2kvn::::res://Scenes/Upgrades/Dogtags/dogtag_exploding_bullets.tscn<>uid://c1jblxdf7tmkf::::res://Scenes/Upgrades/Dogtags/dogtag_player_speed.tscn<>uid://bljuvrokta3a::::res://Scenes/Gun Parts/magazine_large.tscn<>uid://b20klhd33apce::::res://Scenes/Gun Parts/magazine_medium.tscn<>uid://bpjcbjj3kdaq7::::res://Scenes/Gun Parts/magazine_small.tscn<>uid://dkat53asblqve::::res://Scenes/Gun Parts/ar15_scope.tscn<>uid://cei3fh8hxome7::::res://Scenes/Gun Parts/sniper_scope.tscn<>uid://c86ancsbgfvij::::res://Scenes/Upgrades/GunUpgrades/gun_upgrade_xt_large_bullet.tscn
-upgrade_menu.tscn::PackedScene::5227200921503875056::1724366818::0::1::::<><>::uid://bpyc72ajp6yfb::::res://Art/Shaders/colorswap.tres<>res://Scripts/upgrade_menu.gd<>uid://diu6fl025qdv0::::res://Scenes/Upgrades/upgrade_option.tscn<>uid://kx3kmho3mt5o::::res://Art/Sprites/Blue Sky 8x8.ttf<>res://Art/Shaders/colorswap.gdshader<>res://Scripts/ui_menu_button_grow_on_focus.gd<>uid://c8b18rvghcej6::::res://Art/Sprites/palette blue orange.png<>uid://bmv1iku1at618::::res://Art/Themes/ui text mid.tres<>res://Scripts/FinishUpgrades.gd<>uid://beputxcs1pxrh::::res://Scenes/UI/JuicyMovement.tscn<>uid://bgx8q6i8fgsha::::res://Art/Sprites/stopsign.png<>uid://dbbdi66uf2bh0::::res://Art/Sprites/checkmark.png
+::res://Scenes/Upgrades/::1724373788
+gun_upgrade.tscn::PackedScene::8789749247326652645::1724373786::0::1::::<><>::res://Scripts/gun_upgrade.gd<>uid://de312nfiun02b::::res://Art/Sprites/arrows.png
+part_upgrade.tscn::PackedScene::410173832203237608::1724373788::0::1::::<><>::uid://bpyc72ajp6yfb::::res://Art/Shaders/colorswap.tres<>res://Scripts/part_upgrade.gd<>uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>uid://de312nfiun02b::::res://Art/Sprites/arrows.png
+upgrade.tscn::PackedScene::1030818054036941909::1724373787::0::1::::<><>::uid://dvinnfpwutjr3::::res://Art/Sprites/upgrade icon.png<>res://Scripts/Upgrades/upgrade.gd<>uid://blveai4y2nwq5::::res://Art/Fonts/Pikzel-Regular.ttf<>uid://7ppsa5tfac3k::::res://Art/Sprites/upgrade icon icon.png
+upgrade_manager.tscn::PackedScene::7846581225941197258::1724373854::0::1::::<><>::res://Scripts/Upgrades/upgrade_manager.gd<>uid://3wnh1ek55nhd::::res://Scenes/Guns/gun_22.tscn<>uid://q6i3xlchk80p::::res://Scenes/Guns/gun_ak47.tscn<>uid://3khbol34srr6::::res://Scenes/Guns/gun_ar15.tscn<>uid://cnxgjwrawwh2o::::res://Scenes/Guns/gun_auto_shotgun.tscn<>uid://cg6qcljd6ydof::::res://Scenes/Guns/gun_double_b.tscn<>uid://irn8wcu6ofrw::::res://Scenes/Guns/gun_grenade_launcher.tscn<>uid://crh1arho1mgax::::res://Scenes/Guns/gun_mac11.tscn<>uid://d75wnu7dhndw::::res://Scenes/Guns/gun_magnum.tscn<>uid://couat6mj44bws::::res://Scenes/Guns/gun_pistol.tscn<>uid://ct3m0psa4bj32::::res://Scenes/Guns/gun_revolver.tscn<>uid://dhruksuxabxo2::::res://Scenes/Guns/gun_shotgun.tscn<>uid://bw3w1cm787x4m::::res://Scenes/Guns/gun_smg.tscn<>uid://du8dgih13wcrj::::res://Scenes/Guns/gun_sniper.tscn<>uid://ssm25cowo6i::::res://Scenes/Guns/gun_tommy.tscn<>uid://c38tjmk8m2014::::res://Scenes/Upgrades/GunUpgrades/damage_upgrade.tscn<>uid://xxns0mw4h46v::::res://Scenes/Upgrades/GunUpgrades/ricochet_upgrade.tscn<>uid://chsxxs68jprbl::::res://Scenes/Upgrades/GunUpgrades/homing_upgrade.tscn<>uid://bcc5uf7cqe744::::res://Scenes/Upgrades/GunUpgrades/reload_speed_upgrade.tscn<>uid://cn50oxjbu2kvn::::res://Scenes/Upgrades/Dogtags/dogtag_exploding_bullets.tscn<>uid://dqq74dh4qcvpx::::res://Scenes/Upgrades/GunUpgrades/penetrate_upgrade.tscn<>uid://c1jblxdf7tmkf::::res://Scenes/Upgrades/Dogtags/dogtag_player_speed.tscn<>uid://bljuvrokta3a::::res://Scenes/Gun Parts/magazine_large.tscn<>uid://b20klhd33apce::::res://Scenes/Gun Parts/magazine_medium.tscn<>uid://cei3fh8hxome7::::res://Scenes/Gun Parts/sniper_scope.tscn<>uid://cereajxeh03s0::::res://Scenes/Upgrades/Dogtags/dogtag_rotate_guns.tscn<>uid://c86ancsbgfvij::::res://Scenes/Upgrades/GunUpgrades/xt_large_bullet_upgrade.tscn<>uid://ctss4ealcnr5n::::res://Scenes/Upgrades/GunUpgrades/double_barreled_upgrade.tscn<>uid://bfgkpnsswjar8::::res://Scenes/Upgrades/GunUpgrades/explosive_upgrade.tscn<>uid://cxgdkckdf444o::::res://Scenes/Upgrades/GunUpgrades/fullauto_upgrade.tscn<>uid://p1j0pifyw0qc::::res://Scenes/Upgrades/GunUpgrades/rubber_bullets.tscn
+upgrade_menu.tscn::PackedScene::5227200921503875056::1724373786::0::1::::<><>::uid://bpyc72ajp6yfb::::res://Art/Shaders/colorswap.tres<>res://Scripts/upgrade_menu.gd<>uid://diu6fl025qdv0::::res://Scenes/Upgrades/upgrade_option.tscn<>uid://kx3kmho3mt5o::::res://Art/Sprites/Blue Sky 8x8.ttf<>res://Art/Shaders/colorswap.gdshader<>res://Scripts/ui_menu_button_grow_on_focus.gd<>uid://c8b18rvghcej6::::res://Art/Sprites/palette blue orange.png<>uid://bmv1iku1at618::::res://Art/Themes/ui text mid.tres<>res://Scripts/FinishUpgrades.gd<>uid://beputxcs1pxrh::::res://Scenes/UI/JuicyMovement.tscn<>uid://bgx8q6i8fgsha::::res://Art/Sprites/stopsign.png<>uid://dbbdi66uf2bh0::::res://Art/Sprites/checkmark.png
 upgrade_menu_old.tscn::PackedScene::6728013831455098483::1721686042::0::1::::<><>::res://Scripts/Upgrades/upgrade_menu_old.gd<>uid://bpyc72ajp6yfb::::res://Art/Shaders/colorswap.tres<>uid://bdqrclvbfymsr::::res://Art/Sprites/phone.png<>uid://dcpmheruqmgdh::::res://Art/Sprites/dog arm.png<>uid://blveai4y2nwq5::::res://Art/Fonts/Pikzel-Regular.ttf<>uid://de312nfiun02b::::res://Art/Sprites/arrows.png<>uid://diu6fl025qdv0::::res://Scenes/Upgrades/upgrade_option.tscn
-upgrade_option.tscn::PackedScene::7763952128654484207::1724366818::0::1::::<><>::res://Scripts/Upgrades/upgrade_option.gd<>res://Art/Shaders/colorswap.gdshader<>uid://c8b18rvghcej6::::res://Art/Sprites/palette blue orange.png<>uid://2u72jmj4wnsn::::res://Art/Sprites/red texture.png<>uid://bmv1iku1at618::::res://Art/Themes/ui text mid.tres<>uid://kx3kmho3mt5o::::res://Art/Sprites/Blue Sky 8x8.ttf<>uid://c6tfpjjve52aj::::res://Art/Sprites/black texture.png<>uid://beputxcs1pxrh::::res://Scenes/UI/JuicyMovement.tscn<>res://Scripts/Circle.gd
+upgrade_option.tscn::PackedScene::7763952128654484207::1724373786::0::1::::<><>::res://Scripts/Upgrades/upgrade_option.gd<>res://Art/Shaders/colorswap.gdshader<>uid://c8b18rvghcej6::::res://Art/Sprites/palette blue orange.png<>uid://2u72jmj4wnsn::::res://Art/Sprites/red texture.png<>uid://bmv1iku1at618::::res://Art/Themes/ui text mid.tres<>uid://kx3kmho3mt5o::::res://Art/Sprites/Blue Sky 8x8.ttf<>uid://c6tfpjjve52aj::::res://Art/Sprites/black texture.png<>uid://beputxcs1pxrh::::res://Scenes/UI/JuicyMovement.tscn<>res://Scripts/Circle.gd
 ::res://Scenes/Upgrades/Dogtags/::1724367154
 dogtag_exploding_bullets.tscn::PackedScene::5748771815249775223::1723679778::0::1::::<><>::res://Art/Shaders/colorswap.gdshader<>uid://c8b18rvghcej6::::res://Art/Sprites/palette blue orange.png<>res://Scripts/Upgrades/dogtag.gd<>res://Scripts/rarity.gd<>uid://1cymfryp4g21::::res://Art/Sprites/123spritesheet.png<>uid://beputxcs1pxrh::::res://Scenes/UI/JuicyMovement.tscn
 dogtag_player_speed.tscn::PackedScene::6616412275429469825::1723224817::0::1::::<><>::uid://cn50oxjbu2kvn::::res://Scenes/Upgrades/Dogtags/dogtag_exploding_bullets.tscn<>res://Scripts/rarity.gd
 dogtag_rotate_guns.tscn::PackedScene::5088934540161178213::1723224817::0::1::::<><>::uid://cn50oxjbu2kvn::::res://Scenes/Upgrades/Dogtags/dogtag_exploding_bullets.tscn<>res://Scripts/rarity.gd
-::res://Scenes/Upgrades/GunUpgrades/::1724367224
-damage_upgrade.tscn::PackedScene::6807423797387530285::1724366819::0::1::::<><>::uid://dxh25edu12ok8::::res://Scenes/Upgrades/gun_upgrade.tscn<>uid://b0rfe3ff6ilq5::::res://Art/Sprites/upgrade spritesheet.png
-explosive_upgrade.tscn::PackedScene::2750385836701482443::1724366821::0::1::::<><>::uid://dxh25edu12ok8::::res://Scenes/Upgrades/gun_upgrade.tscn<>uid://b0rfe3ff6ilq5::::res://Art/Sprites/upgrade spritesheet.png
-fullauto_upgrade.tscn::PackedScene::6399771167141560692::1723224817::0::1::::<><>::uid://dxh25edu12ok8::::res://Scenes/Upgrades/gun_upgrade.tscn<>uid://b0rfe3ff6ilq5::::res://Art/Sprites/upgrade spritesheet.png
-gun_upgrade_xt_large_bullet.tscn::PackedScene::7153092266044741781::1724366821::0::1::::<><>::uid://dxh25edu12ok8::::res://Scenes/Upgrades/gun_upgrade.tscn<>uid://c6pyadyyrxe2::::res://Scenes/Bullets/xt_large_bullet.tscn<>uid://b0rfe3ff6ilq5::::res://Art/Sprites/upgrade spritesheet.png
-homing_upgrade.tscn::PackedScene::5302760631340190809::1723224816::0::1::::<><>::uid://dxh25edu12ok8::::res://Scenes/Upgrades/gun_upgrade.tscn<>uid://b0rfe3ff6ilq5::::res://Art/Sprites/upgrade spritesheet.png
-penetrate_upgrade.tscn::PackedScene::8317308494867339993::1724366818::0::1::::<><>::uid://dxh25edu12ok8::::res://Scenes/Upgrades/gun_upgrade.tscn<>uid://b0rfe3ff6ilq5::::res://Art/Sprites/upgrade spritesheet.png
-reload_speed_upgrade.tscn::PackedScene::2532784664301316695::1724366818::0::1::::<><>::uid://dxh25edu12ok8::::res://Scenes/Upgrades/gun_upgrade.tscn<>uid://b0rfe3ff6ilq5::::res://Art/Sprites/upgrade spritesheet.png
-ricochet_upgrade.tscn::PackedScene::1662646889874421231::1724366818::0::1::::<><>::uid://dxh25edu12ok8::::res://Scenes/Upgrades/gun_upgrade.tscn<>uid://b0rfe3ff6ilq5::::res://Art/Sprites/upgrade spritesheet.png
-::res://Scripts/::1724366662
+::res://Scenes/Upgrades/GunUpgrades/::1724373789
+damage_upgrade.tscn::PackedScene::6807423797387530285::1724373788::0::1::::<><>::uid://dxh25edu12ok8::::res://Scenes/Upgrades/gun_upgrade.tscn<>res://Scripts/VariableChange.gd<>uid://b0rfe3ff6ilq5::::res://Art/Sprites/upgrade spritesheet.png
+double_barreled_upgrade.tscn::PackedScene::6144733100571326261::1724373789::0::1::::<><>::uid://dxh25edu12ok8::::res://Scenes/Upgrades/gun_upgrade.tscn<>res://Scripts/VariableChange.gd<>uid://b0rfe3ff6ilq5::::res://Art/Sprites/upgrade spritesheet.png
+explosive_upgrade.tscn::PackedScene::2750385836701482443::1724373788::0::1::::<><>::uid://dxh25edu12ok8::::res://Scenes/Upgrades/gun_upgrade.tscn<>uid://b0rfe3ff6ilq5::::res://Art/Sprites/upgrade spritesheet.png<>res://Scripts/VariableChange.gd
+fullauto_upgrade.tscn::PackedScene::6399771167141560692::1724373788::0::1::::<><>::uid://dxh25edu12ok8::::res://Scenes/Upgrades/gun_upgrade.tscn<>uid://b0rfe3ff6ilq5::::res://Art/Sprites/upgrade spritesheet.png<>res://Scripts/VariableChange.gd
+homing_upgrade.tscn::PackedScene::5302760631340190809::1724373788::0::1::::<><>::uid://dxh25edu12ok8::::res://Scenes/Upgrades/gun_upgrade.tscn<>uid://b0rfe3ff6ilq5::::res://Art/Sprites/upgrade spritesheet.png<>res://Scripts/VariableChange.gd
+penetrate_upgrade.tscn::PackedScene::8317308494867339993::1724373786::0::1::::<><>::uid://dxh25edu12ok8::::res://Scenes/Upgrades/gun_upgrade.tscn<>uid://b0rfe3ff6ilq5::::res://Art/Sprites/upgrade spritesheet.png<>res://Scripts/VariableChange.gd
+reload_speed_upgrade.tscn::PackedScene::2532784664301316695::1724373786::0::1::::<><>::uid://dxh25edu12ok8::::res://Scenes/Upgrades/gun_upgrade.tscn<>uid://b0rfe3ff6ilq5::::res://Art/Sprites/upgrade spritesheet.png<>res://Scripts/VariableChange.gd
+ricochet_upgrade.tscn::PackedScene::1662646889874421231::1724373786::0::1::::<><>::uid://dxh25edu12ok8::::res://Scenes/Upgrades/gun_upgrade.tscn<>res://Scripts/VariableChange.gd<>uid://b0rfe3ff6ilq5::::res://Art/Sprites/upgrade spritesheet.png
+rubber_bullets.tscn::PackedScene::1107098374427391318::1724373789::0::1::::<><>::uid://dxh25edu12ok8::::res://Scenes/Upgrades/gun_upgrade.tscn<>res://Scripts/VariableChange.gd<>uid://b0rfe3ff6ilq5::::res://Art/Sprites/upgrade spritesheet.png
+xt_large_bullet_upgrade.tscn::PackedScene::7153092266044741781::1724373788::0::1::::<><>::uid://dxh25edu12ok8::::res://Scenes/Upgrades/gun_upgrade.tscn<>uid://c6pyadyyrxe2::::res://Scenes/Bullets/xt_large_bullet.tscn<>res://Scripts/VariableChange.gd<>uid://b0rfe3ff6ilq5::::res://Art/Sprites/upgrade spritesheet.png
+::res://Scripts/::1724373781
 arrow.gd::GDScript::-1::1721508816::0::1::::<>Sprite2D<>::
 blood.gd::GDScript::-1::1705345102::0::1::::<>Sprite2D<>::
 boss_pug.gd::GDScript::-1::1723753193::0::1::::<>Enemy<>::
-bullet.gd::GDScript::-1::1723676247::0::1::::Bullet<>Area2D<>::
+bullet.gd::GDScript::-1::1724373781::0::1::::Bullet<>Area2D<>::
 bullet_ricochet.gd::GDScript::-1::1723753193::0::1::::<>Area2D<>::
 camera.gd::GDScript::-1::1718914437::0::1::::<>Camera2D<>::
 Circle.gd::GDScript::-1::1723761213::0::1::::<>Control<>::
@@ -395,18 +398,18 @@ fire_particle.gd::GDScript::-1::1702592339::0::1::::<>GPUParticles2D<>::
 float_in.gd::GDScript::-1::1723764646::0::1::::<>Control<>::
 globals.gd::GDScript::-1::1723758438::0::1::::<>Node<>::
 grenade.gd::GDScript::-1::1723753193::0::1::::<>Area2D<>::
-gun.gd::GDScript::-1::1723753193::0::1::::Gun<>Area2D<>::
+gun.gd::GDScript::-1::1724371832::0::1::::Gun<>Area2D<>::
 gunstats.gd::GDScript::-1::1721242705::0::1::::<>Control<>::
-gun_frame.gd::GDScript::-1::1723134429::0::1::::<>Node2D<>::
+gun_frame.gd::GDScript::-1::1724369258::0::1::::<>Node2D<>::
 gun_part.gd::GDScript::-1::1718914437::0::1::::GunPart<>Node<>::
-gun_part_barrel.gd::GDScript::-1::1722980822::0::1::::<>GunPart<>::
+gun_part_barrel.gd::GDScript::-1::1724369632::0::1::::<>GunPart<>::
 gun_part_bullet.gd::GDScript::-1::1714513779::0::1::::<>Node2D<>::
 gun_part_grip.gd::GDScript::-1::1718914437::0::1::::<>GunPart<>::
 gun_part_magazine.gd::GDScript::-1::1723158684::0::1::::<>GunPart<>::
 gun_part_scope.gd::GDScript::-1::1723753193::0::1::::<>GunPart<>::
 gun_part_stock.gd::GDScript::-1::1718914437::0::1::::<>GunPart<>::
 gun_status.gd::GDScript::-1::1721508652::0::1::::<>Control<>::
-gun_upgrade.gd::GDScript::-1::1723249748::0::1::::<>Node2D<>::
+gun_upgrade.gd::GDScript::-1::1724370469::0::1::::<>Node2D<>::
 health_pickup.gd::GDScript::-1::1723309165::0::1::::<>Area2D<>::
 impact.gd::GDScript::-1::1718914437::0::1::::<>Node2D<>::
 input_controller.gd::GDScript::-1::1722987867::0::1::::<>Node<>::
@@ -422,7 +425,7 @@ menu_option.gd::GDScript::-1::1721702920::0::1::::MenuOption<>RichTextLabel<>::
 minimap.gd::GDScript::-1::1723753193::0::1::::<>Control<>::
 minimap_icon.gd::GDScript::-1::1720641125::0::1::::<>Node2D<>::
 particle_slide.gd::GDScript::-1::1718914437::0::1::::<>Node2D<>::
-part_upgrade.gd::GDScript::-1::1723249748::0::1::::<>Node2D<>::
+part_upgrade.gd::GDScript::-1::1724369182::0::1::::<>Node2D<>::
 pausable_audio.gd::GDScript::-1::1722991435::0::1::::<>Node<>::
 pause_controller.gd::GDScript::-1::1721692770::0::1::::<>Node2D<>::
 player.gd::GDScript::-1::1723309165::0::1::::<>CharacterBody2D<>::
@@ -447,9 +450,10 @@ ui_menu_button.gd::GDScript::-1::1723761232::0::1::::UiButton<>Button<>::
 ui_menu_button_grow_on_focus.gd::GDScript::-1::1722984203::0::1::::UiMenuButton<>Button<>::
 ui_settings_menu.gd::GDScript::-1::1723242760::0::1::::<>Control<>::
 upgrade_menu.gd::GDScript::-1::1722987188::0::1::::<>Control<>::
+VariableChange.gd::GDScript::-1::1724370081::0::1::::VariableChange<>Resource<>::
 wobble_text.gd::GDScript::-1::1710216429::0::1::::<>Node2D<>::
 world_controller.gd::GDScript::-1::1723676147::0::1::::<>Node2D<>::
-::res://Scripts/Upgrades/::1723753194
+::res://Scripts/Upgrades/::1724372413
 damage_upgrade.gd::GDScript::-1::1707010969::0::1::::<>Node2D<>::
 dogtag.gd::GDScript::-1::1723753193::0::1::::<>Control<>::
 double_barreled_upgrade.gd::GDScript::-1::1723753193::0::1::::<>Node2D<>::
@@ -459,4 +463,4 @@ ricochet_upgrade.gd::GDScript::-1::1707291532::0::1::::<>Node2D<>::
 upgrade.gd::GDScript::-1::1722980822::0::1::::<>Area2D<>::
 upgrade_manager.gd::GDScript::-1::1723753194::0::1::::<>GunPart<>::
 upgrade_menu_old.gd::GDScript::-1::1708408785::0::1::::<>CanvasLayer<>::
-upgrade_option.gd::GDScript::-1::1723249818::0::1::::<>UiMenuButton<>::
+upgrade_option.gd::GDScript::-1::1724372413::0::1::::<>UiMenuButton<>::

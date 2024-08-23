@@ -105,5 +105,5 @@ func add_part_to_gun(gun_to_change: Node2D, new_part: PackedScene):
 		elif inst.name.contains("Stock"): 
 			gun_frame.last_changed_part.pack(gun_frame.stock_object)
 			gun_frame.stock = new_part
-	gun_frame.set_stats()
+	#gun_frame.set_stats()
 	inst.queue_free()

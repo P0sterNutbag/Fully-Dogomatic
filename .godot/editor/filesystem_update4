@@ -33,3 +33,44 @@ res://Scenes/Upgrades/damage_upgrade.tscn
 res://Scripts/gun_upgrade.gd
 res://Scenes/Gun Parts/ak47_barrel.tscn
 res://Scripts/gun_part_barrel.gd
+res://Scenes/Gun Parts/22_barrel.tscn
+res://Scenes/Bullets/small_bullet.tscn
+res://Scenes/Gun Parts/double_b_barrel.tscn
+res://Scenes/Gun Parts/shotgun_barrel.tscn
+res://Scripts/bullet.gd
+res://Scripts/part_upgrade.gd
+res://Scripts/gun_frame.gd
+res://Scenes/Bullets/regular_bullet.tscn
+res://Scenes/Upgrades/GunUpgrades/penetrate_upgrade.tscn
+res://Scenes/Upgrades/GunUpgrades/reload_speed_upgrade.tscn
+res://Scenes/Upgrades/GunUpgrades/ricochet_upgrade.tscn
+res://Scenes/Upgrades/GunUpgrades/damage_upgrade.tscn
+res://Scenes/Upgrades/GunUpgrades/xt_large_bullet_upgrade.tscn
+res://Scenes/Upgrades/GunUpgrades/explosive_upgrade.tscn
+res://Scenes/Upgrades/GunUpgrades/fullauto_upgrade.tscn
+res://Scenes/Upgrades/GunUpgrades/homing_upgrade.tscn
+res://Scenes/Bullets/shotgun_shell4.tscn
+res://Scenes/Bullets/bullet_explosion.tscn
+res://Scenes/Bullets/grenade.tscn
+res://Scenes/Gun Parts/ar15_barrel.tscn
+res://Scenes/Gun Parts/auto_shotgun_barrel.tscn
+res://Scenes/Gun Parts/launcher_barrel.tscn
+res://Scenes/Gun Parts/mac11_barrel.tscn
+res://Scenes/Gun Parts/smg_barrel.tscn
+res://Scenes/Gun Parts/magnum_barrel.tscn
+res://Scenes/Gun Parts/pistol_barrel.tscn
+res://Scenes/Gun Parts/revolver_barrel.tscn
+res://Scenes/Gun Parts/sniper_barrel.tscn
+res://Scenes/Gun Parts/tommy_barrel.tscn
+res://Scenes/Gun Parts/auto_shotgun_stock.tscn
+res://Scenes/Bullets/12gauge_shell.tscn
+res://Scenes/Bullets/bullet.tscn
+res://Scenes/Bullets/44Mag.tscn
+res://Scenes/Bullets/22cal_bullet.tscn
+res://Scenes/Bullets/7.62mm_bullet.tscn
+res://Scripts/gun.gd
+res://Scripts/VariableChange.gd
+res://Scenes/Upgrades/GunUpgrades/double_barreled_upgrade.tscn
+res://Scripts/Upgrades/upgrade_option.gd
+res://Scenes/Upgrades/GunUpgrades/rubber_bullets.tscn
+res://Scenes/Bullets/rubber_bullet.tscn

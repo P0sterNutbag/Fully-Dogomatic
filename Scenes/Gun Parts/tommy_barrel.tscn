@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Art/Sprites/gun parts spritesheet.png" id="1_lpbfi"]
 [ext_resource type="Script" path="res://Scripts/gun_part_barrel.gd" id="2_2u6wr"]
-[ext_resource type="PackedScene" uid="uid://b13t1jj4vg1sr" path="res://Scenes/Bullets/5.56mm_bullet.tscn" id="3_iv4af"]
+[ext_resource type="PackedScene" uid="uid://bmfhcxqevrjcn" path="res://Scenes/Bullets/regular_bullet.tscn" id="3_7vndx"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="4_vp6np"]
 
 [sub_resource type="Resource" id="Resource_5fndv"]
@@ -19,7 +19,7 @@ bullet_damage = 0.7
 cooldown = 0.15
 spread = 25.0
 knockback = 2.5
-bullet = ExtResource("3_iv4af")
+bullet = ExtResource("3_7vndx")
 gunshot_sfx = "gunshot_assault"
 metadata/Title = "Barrel"
 metadata/Type = "M4 Rifle"

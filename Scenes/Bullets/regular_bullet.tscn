@@ -1,19 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmfhcxqevrjcn"]
+[gd_scene load_steps=4 format=3 uid="uid://bmfhcxqevrjcn"]
 
-[ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_atsrw"]
-[ext_resource type="PackedScene" uid="uid://u6ly8mxmxgo4" path="res://Scenes/Bullets/bullet_explosion.tscn" id="2_o28rk"]
-[ext_resource type="Texture2D" uid="uid://feiddhd4x04w" path="res://Art/Sprites/bullet.png" id="3_ovhkx"]
+[ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_5itjt"]
+[ext_resource type="Texture2D" uid="uid://feiddhd4x04w" path="res://Art/Sprites/bullet.png" id="3_3b6dt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lshl4"]
-size = Vector2(18, 8)
+size = Vector2(18, 2)
 
 [node name="Area2D" type="Area2D" groups=["bullet"]]
 use_parent_material = true
 collision_layer = 2
 collision_mask = 40
-script = ExtResource("1_atsrw")
-damage = 3.0
-explosion = ExtResource("2_o28rk")
+script = ExtResource("1_5itjt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_lshl4")
@@ -21,7 +18,7 @@ shape = SubResource("RectangleShape2D_lshl4")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 use_parent_material = true
 position = Vector2(0, 0.5)
-texture = ExtResource("3_ovhkx")
+texture = ExtResource("3_3b6dt")
 offset = Vector2(0, -0.5)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

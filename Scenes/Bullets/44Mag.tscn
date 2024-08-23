@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkan8mtdjvg8s"]
+[gd_scene load_steps=4 format=3 uid="uid://bd6p0htm215hv"]
 
 [ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_piurn"]
-[ext_resource type="PackedScene" uid="uid://u6ly8mxmxgo4" path="res://Scenes/Bullets/bullet_explosion.tscn" id="2_bpvq3"]
 [ext_resource type="Texture2D" uid="uid://ijrsir1vfx4o" path="res://Art/Sprites/bullet_fat.png" id="3_nu1rx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lshl4"]
@@ -12,8 +11,6 @@ use_parent_material = true
 collision_layer = 2
 collision_mask = 40
 script = ExtResource("1_piurn")
-damage = 5.0
-explosion = ExtResource("2_bpvq3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_lshl4")

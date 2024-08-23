@@ -1,11 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://c86ancsbgfvij"]
+[gd_scene load_steps=7 format=3 uid="uid://c86ancsbgfvij"]
 
 [ext_resource type="PackedScene" uid="uid://dxh25edu12ok8" path="res://Scenes/Upgrades/gun_upgrade.tscn" id="1_641od"]
 [ext_resource type="PackedScene" uid="uid://c6pyadyyrxe2" path="res://Scenes/Bullets/xt_large_bullet.tscn" id="2_7hilk"]
+[ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="2_8ae2u"]
 [ext_resource type="Texture2D" uid="uid://b0rfe3ff6ilq5" path="res://Art/Sprites/upgrade spritesheet.png" id="3_fj0ot"]
 
+[sub_resource type="Resource" id="Resource_xwj61"]
+script = ExtResource("2_8ae2u")
+values = ["bullet", ExtResource("2_7hilk")]
+multiply_value = false
+add_value = false
+
+[sub_resource type="Resource" id="Resource_ryy7h"]
+script = ExtResource("2_8ae2u")
+values = ["bullet_damage", 2.0]
+multiply_value = true
+add_value = false
+
 [node name="GunUpgradeXtLargeBullet" instance=ExtResource("1_641od")]
-upgrade_value = ["bullet", ExtResource("2_7hilk")]
+upgrade_values = Array[ExtResource("2_8ae2u")]([SubResource("Resource_xwj61"), SubResource("Resource_ryy7h")])
 metadata/Title = "XXXL Bullets"
 
 [node name="UpgradeSprite" parent="." index="0"]

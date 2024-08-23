@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Art/Sprites/gun parts spritesheet.png" id="1_p4re2"]
 [ext_resource type="Script" path="res://Scripts/gun_part_barrel.gd" id="2_btuw2"]
-[ext_resource type="PackedScene" uid="uid://diiqi8djvsue4" path="res://Scenes/Bullets/7.62mm_bullet.tscn" id="3_g4a7a"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_g5r0q"]
+[ext_resource type="PackedScene" uid="uid://bmfhcxqevrjcn" path="res://Scenes/Bullets/regular_bullet.tscn" id="3_r3fv1"]
 
 [sub_resource type="Resource" id="Resource_bfd7l"]
 script = ExtResource("3_g5r0q")
@@ -16,9 +16,10 @@ region_enabled = true
 region_rect = Rect2(32, 96, 48, 16)
 script = ExtResource("2_btuw2")
 bullet_damage = 6.0
+bullet_penetrations = 2
 spread = 20.0
 knockback = 5.0
-bullet = ExtResource("3_g4a7a")
+bullet = ExtResource("3_r3fv1")
 gunshot_sfx = "gunshot_rifle"
 metadata/Title = "Barrel"
 metadata/Type = "Mk 13 Sniper Rifle"

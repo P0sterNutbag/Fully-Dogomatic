@@ -1,14 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxgdkckdf444o"]
+[gd_scene load_steps=5 format=3 uid="uid://cxgdkckdf444o"]
 
-[ext_resource type="PackedScene" uid="uid://dxh25edu12ok8" path="res://Scenes/Upgrades/gun_upgrade.tscn" id="1_46css"]
-[ext_resource type="Texture2D" uid="uid://b0rfe3ff6ilq5" path="res://Art/Sprites/upgrade spritesheet.png" id="2_ljce8"]
+[ext_resource type="PackedScene" uid="uid://dxh25edu12ok8" path="res://Scenes/Upgrades/gun_upgrade.tscn" id="1_gvglc"]
+[ext_resource type="Texture2D" uid="uid://b0rfe3ff6ilq5" path="res://Art/Sprites/upgrade spritesheet.png" id="2_0jj0j"]
+[ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="2_2hnph"]
 
-[node name="GunUpgradeDamage" instance=ExtResource("1_46css")]
-upgrade_value = ["bullet_damage", 2.0]
-multiply = true
-metadata/Title = "Armor Piercing"
+[sub_resource type="Resource" id="Resource_5ulwt"]
+script = ExtResource("2_2hnph")
+values = ["cooldown", 0.1]
+multiply_value = false
+add_value = false
+
+[node name="FullAuto" instance=ExtResource("1_gvglc")]
+upgrade_values = Array[ExtResource("2_2hnph")]([SubResource("Resource_5ulwt")])
+metadata/Title = "Full Auto"
 
 [node name="UpgradeSprite" parent="." index="0"]
-texture = ExtResource("2_ljce8")
+texture = ExtResource("2_0jj0j")
 region_enabled = true
-region_rect = Rect2(48, 0, 16, 16)
+region_rect = Rect2(0, 32, 32, 16)

@@ -5,11 +5,11 @@ extends Node2D
 @export var barrel: PackedScene:
 	set(value): 
 		barrel_object = set_new_part(barrel_object, value, "", 3)
-		barrel = value
-		stock = stock
-		grip = grip
-		magazine = magazine
-		sight = sight
+		#barrel = value
+		#stock = stock
+		#grip = grip
+		#magazine = magazine
+		#sight = sight
 @export var stock: PackedScene:
 	set(value): 
 		stock_object = set_new_part(stock_object, value, "StockSocket", 1)
@@ -46,6 +46,8 @@ func set_new_part(part_object: Node2D, new_part: PackedScene, socket_name: Strin
 			add_child(part_object)
 		part_object.position = Vector2.ZERO
 		part_object.z_index = z
+		if part_object.has_method("set_gun_stats"):
+			part_object.set_gun_stats()
 		return part_object
 	else: 
 		if part_object:

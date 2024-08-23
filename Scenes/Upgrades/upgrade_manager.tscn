@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dj17btvmql3b7"]
+[gd_scene load_steps=20 format=3 uid="uid://dj17btvmql3b7"]
 
 [ext_resource type="Script" path="res://Scripts/Upgrades/upgrade_manager.gd" id="1_aerk1"]
 [ext_resource type="PackedScene" uid="uid://3wnh1ek55nhd" path="res://Scenes/Guns/gun_22.tscn" id="2_avf6d"]
@@ -15,22 +15,14 @@
 [ext_resource type="PackedScene" uid="uid://bw3w1cm787x4m" path="res://Scenes/Guns/gun_smg.tscn" id="13_r0jj3"]
 [ext_resource type="PackedScene" uid="uid://du8dgih13wcrj" path="res://Scenes/Guns/gun_sniper.tscn" id="14_500or"]
 [ext_resource type="PackedScene" uid="uid://ssm25cowo6i" path="res://Scenes/Guns/gun_tommy.tscn" id="15_gr5e7"]
-[ext_resource type="PackedScene" uid="uid://c38tjmk8m2014" path="res://Scenes/Upgrades/GunUpgrades/damage_upgrade.tscn" id="16_hkpnl"]
-[ext_resource type="PackedScene" uid="uid://xxns0mw4h46v" path="res://Scenes/Upgrades/GunUpgrades/ricochet_upgrade.tscn" id="18_47aix"]
 [ext_resource type="PackedScene" uid="uid://chsxxs68jprbl" path="res://Scenes/Upgrades/GunUpgrades/homing_upgrade.tscn" id="18_pung6"]
-[ext_resource type="PackedScene" uid="uid://bcc5uf7cqe744" path="res://Scenes/Upgrades/GunUpgrades/reload_speed_upgrade.tscn" id="19_dwvns"]
-[ext_resource type="PackedScene" uid="uid://cn50oxjbu2kvn" path="res://Scenes/Upgrades/Dogtags/dogtag_exploding_bullets.tscn" id="20_0phta"]
-[ext_resource type="PackedScene" uid="uid://c1jblxdf7tmkf" path="res://Scenes/Upgrades/Dogtags/dogtag_player_speed.tscn" id="21_c44b3"]
 [ext_resource type="PackedScene" uid="uid://bljuvrokta3a" path="res://Scenes/Gun Parts/magazine_large.tscn" id="22_67yba"]
-[ext_resource type="PackedScene" uid="uid://b20klhd33apce" path="res://Scenes/Gun Parts/magazine_medium.tscn" id="23_4enc5"]
-[ext_resource type="PackedScene" uid="uid://bpjcbjj3kdaq7" path="res://Scenes/Gun Parts/magazine_small.tscn" id="24_7lpd2"]
-[ext_resource type="PackedScene" uid="uid://dkat53asblqve" path="res://Scenes/Gun Parts/ar15_scope.tscn" id="25_nrfcf"]
-[ext_resource type="PackedScene" uid="uid://cei3fh8hxome7" path="res://Scenes/Gun Parts/sniper_scope.tscn" id="26_8kypx"]
 [ext_resource type="PackedScene" uid="uid://c86ancsbgfvij" path="res://Scenes/Upgrades/GunUpgrades/xt_large_bullet_upgrade.tscn" id="27_pcsif"]
+[ext_resource type="PackedScene" uid="uid://cxgdkckdf444o" path="res://Scenes/Upgrades/GunUpgrades/fullauto_upgrade.tscn" id="30_h62l8"]
 
 [node name="UpgradeManager" type="Node"]
 script = ExtResource("1_aerk1")
 rarity_chances = Array[int]([1000, 500, 100, 50, 10, 1])
 gun_scenes = Array[PackedScene]([ExtResource("2_avf6d"), ExtResource("3_q08xt"), ExtResource("4_ihtes"), ExtResource("5_v8yrn"), ExtResource("6_tqdtw"), ExtResource("7_2j73f"), ExtResource("8_uuoqm"), ExtResource("9_hl84v"), ExtResource("10_pqy6v"), ExtResource("11_crge7"), ExtResource("12_bq3wm"), ExtResource("13_r0jj3"), ExtResource("14_500or"), ExtResource("15_gr5e7")])
-gunpart_scenes = Array[PackedScene]([ExtResource("16_hkpnl"), ExtResource("18_pung6"), ExtResource("18_47aix"), ExtResource("19_dwvns"), ExtResource("20_0phta"), ExtResource("21_c44b3"), ExtResource("22_67yba"), ExtResource("23_4enc5"), ExtResource("24_7lpd2"), ExtResource("25_nrfcf"), ExtResource("26_8kypx"), ExtResource("27_pcsif")])
+gunpart_scenes = Array[PackedScene]([ExtResource("18_pung6"), ExtResource("27_pcsif"), ExtResource("30_h62l8"), ExtResource("22_67yba")])
 shop_guns_scenes = Array[PackedScene]([ExtResource("3_q08xt"), ExtResource("4_ihtes"), ExtResource("5_v8yrn"), ExtResource("7_2j73f"), ExtResource("14_500or")])

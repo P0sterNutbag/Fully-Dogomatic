@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://csbsp55dmrv62" path="res://Art/Sprites/gun parts spritesheet.png" id="1_o1o21"]
 [ext_resource type="Script" path="res://Scripts/gun_part_barrel.gd" id="2_fbf58"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_7saay"]
-[ext_resource type="PackedScene" uid="uid://cwh38xq4aiaht" path="res://Scenes/Bullets/shotgun_shell4.tscn" id="3_ycc7s"]
+[ext_resource type="PackedScene" uid="uid://cxfmu6l00rhkn" path="res://Scenes/Bullets/small_bullet.tscn" id="3_giuq6"]
 
 [sub_resource type="Resource" id="Resource_esapx"]
 script = ExtResource("3_7saay")
@@ -16,10 +16,11 @@ region_enabled = true
 region_rect = Rect2(80, 144, 32, 16)
 script = ExtResource("2_fbf58")
 bullet_damage = 1.0
+shot_count = 4
 spread = 20.0
 knockback = 5.0
 distance_to_player = 35.0
-bullet = ExtResource("3_ycc7s")
+bullet = ExtResource("3_giuq6")
 gunshot_sfx = "gunshot_shotgun"
 metadata/Title = "Barrel"
 metadata/Type = "Sawed Off Shotgun"

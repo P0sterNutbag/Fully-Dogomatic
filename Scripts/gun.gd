@@ -8,16 +8,20 @@ class_name Gun
 
 @export_subgroup("Properties")
 @export var bullet: PackedScene = preload("res://Scenes/Bullets/bullet.tscn")
-@export var cooldown: float = 1
-@export var damage_modifier: float = 0 
+@export var cooldown: float = 1:
+	set(value): 
+		cooldown = value
+		$Timer.wait_time = value
 @export var spread: float = 0 
 @export var shot_count: int = 1 
 @export var knockback: int = 15  
 @export var rounds: int = 20  
 @export var bullet_speed: int = 15 
 @export var reload_time: float = 1: 
-	set(value): $ReloadTimer.wait_time = reload_time
-@export var penetrations_modifier: int = 0
+	set(value): 
+		reload_time = value
+		$ReloadTimer.wait_time = reload_time
+@export var penetrations: int = 1
 @export var distance_to_player = 30
 @export var ricochet: bool = false
 @export var homing: bool = false
@@ -52,7 +56,8 @@ var shell = preload("res://Scenes/Particles/shell.tscn")
 #var gun_name = preload("res://Scenes/Guns/gun_name.tscn")
 var status_effect = preload("res://Scenes/Particles/gun_status.tscn")
 var gun_name_instance: Node2D
-var bullet_damage
+var bullet_damage: float
+var bullet_explosion: PackedScene
 var can_press: bool
 var gunshot_sfx: AudioStreamPlayer2D
 signal gun_deleted
@@ -132,11 +137,9 @@ func reload():
 func _on_timer_timeout(): # shoot bullets
 	if get_tree().paused: return
 	if shots_left > 0 && holder.state != holder.states.dead:
-		var b = bullet.instantiate()
-		shot_count = b.shot_count
 		var accuracy_mod = -5
 		if abs(Globals.player.velocity) > Vector2.ZERO:
-			accuracy_mod = 3 #max(abs(Globals.player.velocity.x), abs(Globals.player.velocity.y)) / 10
+			accuracy_mod = 3
 		for i in shot_count:
 			var instance = bullet.instantiate()
 			get_tree().current_scene.add_child(instance)
@@ -147,15 +150,11 @@ func _on_timer_timeout(): # shoot bullets
 			instance.move_vector = bullet_vector
 			instance.speed = bullet_speed
 			instance.global_rotation = bullet_angle
-			instance.damage  = bullet_damage#+= damage_modifier
-			instance.penetrations += penetrations_modifier
+			instance.damage  = bullet_damage
+			instance.penetrations = penetrations
 			instance.ricochet = ricochet
-			if ricochet:
-				instance.penetrations += 1
-			if Globals.explode_chance > 0:
-				instance.explode_chance = Globals.explode_chance
-			else:
-				instance.explode_chance = explode_chance
+			instance.explosion = bullet_explosion
+			instance.explode_chance = max(explode_chance, Globals.explode_chance)
 			instance.homing = homing
 			muzzle_flash.visible = true
 		position += (knockback * (holder.global_position - global_position).normalized())
@@ -175,7 +174,6 @@ func _on_timer_timeout(): # shoot bullets
 		elif gunshot_sfx.get_playback_position() > 0.05:
 			gunshot_sfx.pitch_scale = randf_range(0.9, 1.1)
 			gunshot_sfx.play()
-		b.queue_free()
 		muzzle_flash.texture = muzzleflash_textures[randi_range(0, muzzleflash_textures.size()-1)]
 
 

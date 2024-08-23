@@ -1,11 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://c38tjmk8m2014"]
+[gd_scene load_steps=5 format=3 uid="uid://c38tjmk8m2014"]
 
 [ext_resource type="PackedScene" uid="uid://dxh25edu12ok8" path="res://Scenes/Upgrades/gun_upgrade.tscn" id="1_c5dph"]
+[ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="2_344q1"]
 [ext_resource type="Texture2D" uid="uid://b0rfe3ff6ilq5" path="res://Art/Sprites/upgrade spritesheet.png" id="2_ch0ot"]
 
+[sub_resource type="Resource" id="Resource_cogub"]
+script = ExtResource("2_344q1")
+values = ["bullet_damage", 2.0]
+multiply_value = true
+add_value = false
+
 [node name="GunUpgradeDamage" instance=ExtResource("1_c5dph")]
-upgrade_value = ["bullet_damage", 2.0]
-multiply = true
+upgrade_values = Array[ExtResource("2_344q1")]([SubResource("Resource_cogub")])
 metadata/Title = "Reinforced Bullets"
 
 [node name="UpgradeSprite" parent="." index="0"]
