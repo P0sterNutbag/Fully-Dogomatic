@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1725320562
+::res://::1725376218
 Be Faste.wav::AudioStreamWAV::5952458168537324232::1722466385::1723675418::1::::<><>::
 export_presets.cfg::TextFile::-1::1724706822::0::1::::<><>::
 ::res://addons/::1722628205
@@ -13,21 +13,21 @@ godotsteam.gdextension::GDExtension::-1::1722628205::0::1::::<><>::
 ::res://addons/godotsteam/osx/libgodotsteam.macos.template_release.framework/::1722628205
 ::res://addons/godotsteam/osx/libgodotsteam.macos.template_release.framework/Resources/::1722628205
 ::res://addons/godotsteam/win32/::1722628205
-::res://addons/godotsteam/win64/::1725318274
+::res://addons/godotsteam/win64/::1725376213
 ::res://Art/::1722630813
 ::res://Art/Fonts/::1725034597
 BLUE SKY 8X8 MONOSPACED.TTF::FontFile::4776478759324669198::1721247400::1723309165::1::::<><>::
 Blue Sky 8x8.ttf::FontFile::751087700228049270::1702337269::1725034597::1::::<><>::
 Crispix.ttf::FontFile::6306348713517469745::1707875371::1723309165::1::::<><>::
 Pikzel-Regular.ttf::FontFile::3202093230630975854::1707603170::1723309165::1::::<><>::
-::res://Art/Shaders/::1725330239
-colorswap.gdshader::Shader::-1::1725330239::0::1::::<><>::
+::res://Art/Shaders/::1725330464
+colorswap.gdshader::Shader::-1::1725330464::0::1::::<><>::
 colorswap.tres::ShaderMaterial::3488978402312175123::1725316839::0::1::::<><>::res://Art/Shaders/colorswap.gdshader<>uid://c8b18rvghcej6::::res://Art/Sprites/palette blue orange.png
-color_change.gdshader::Shader::-1::1725330239::0::1::::<><>::
+color_change.gdshader::Shader::-1::1725330464::0::1::::<><>::
 color_change.tres::ShaderMaterial::4392030099669332020::1725316839::0::1::::<><>::res://Art/Shaders/color_change.gdshader
 color_dither_include.gdshaderinc::ShaderInclude::-1::1723418123::0::1::::<><>::
-dither postprocess.gdshader::Shader::-1::1725330239::0::1::::<><>::
-dither.gdshader::Shader::-1::1725330239::0::1::::<><>::
+dither postprocess.gdshader::Shader::-1::1725330464::0::1::::<><>::
+dither.gdshader::Shader::-1::1725330464::0::1::::<><>::
 drop_shadow.gdshader::Shader::-1::1722989757::0::1::::<><>::
 drop_shadow.tres::ShaderMaterial::9215344170189588856::1721332474::0::1::::<><>::res://Art/Shaders/drop_shadow.gdshader
 flash.gdshader::Shader::-1::1722989757::0::1::::<><>::
@@ -38,7 +38,7 @@ outline.gdshader::Shader::-1::1722989757::0::1::::<><>::
 outline.tres::ShaderMaterial::7756833607695123187::1721332474::0::1::::<><>::res://Art/Shaders/outline.gdshader
 replace_color.gdshader::Shader::-1::1722989757::0::1::::<><>::
 scene_transition.gdshader::Shader::-1::1722989757::0::1::::<><>::
-::res://Art/Sprites/::1725322950
+::res://Art/Sprites/::1725330289
 123spritesheet.png::CompressedTexture2D::1830517617440284128::1725038920::1725038927::1::::<><>::
 arrow.png::CompressedTexture2D::5769477143345139279::1719617889::1722989767::1::::<><>::
 arrows.png::CompressedTexture2D::7499447551910791523::1723150467::1723149453::1::::<><>::
@@ -176,13 +176,13 @@ Taps.mp3::AudioStreamMP3::3839819416487239071::1702336196::1722989767::1::::<><>
 ::res://Resources/::1714431236
 settings_option.tres::Resource/Resource::1355748239341477576::1714430902::0::1::::<><>::
 ::res://Scenes/::1725320195
-::res://Scenes/Bullets/::1725330238
+::res://Scenes/Bullets/::1725330404
 bullet_explosion.tscn::PackedScene::1468485081980819305::1725320628::0::1::::<><>::res://Scripts/explosion.gd<>uid://dijsdf7bej5uj::::res://Art/Sprites/exp2.png
 grenade.tscn::PackedScene::7561075763347937273::1725319917::0::1::::<><>::res://Scripts/grenade.gd<>uid://djqouhew8xv0f::::res://Art/Sprites/grenade.png
 regular_bullet.tscn::PackedScene::3239438519621370957::1725320592::0::1::::<><>::res://Scripts/bullet.gd<>uid://feiddhd4x04w::::res://Art/Sprites/bullet.png
 rubber_bullet.tscn::PackedScene::7976542696381004275::1725319918::0::1::::<><>::res://Scripts/bullet.gd<>uid://feiddhd4x04w::::res://Art/Sprites/bullet.png
-shotgun_shell.tscn::PackedScene::4670578755415825882::1725330238::0::1::::<><>::res://Scripts/bullet.gd<>uid://bicyrqu13qcex::::res://Art/Sprites/bullet_thin.png
-small_bullet.tscn::PackedScene::6398272626009214965::1725330238::0::1::::<><>::res://Scripts/bullet.gd<>uid://bicyrqu13qcex::::res://Art/Sprites/bullet_thin.png
+shotgun_shell.tscn::PackedScene::4670578755415825882::1725330404::0::1::::<><>::res://Scripts/bullet.gd<>uid://bicyrqu13qcex::::res://Art/Sprites/bullet_thin.png
+small_bullet.tscn::PackedScene::6398272626009214965::1725330404::0::1::::<><>::res://Scripts/bullet.gd<>uid://bicyrqu13qcex::::res://Art/Sprites/bullet_thin.png
 xt_large_bullet.tscn::PackedScene::205327017354762695::1725319915::0::1::::<><>::res://Scripts/bullet.gd<>uid://bgsqebdfikm4i::::res://Art/Sprites/bullet freakishly large.png
 ::res://Scenes/Control/::1725319914
 input_controller.tscn::PackedScene::3325054595094931318::1722989228::0::1::::<><>::res://Scripts/input_controller.gd
@@ -203,19 +203,19 @@ enemy_pug_12.tscn::PackedScene::739676353735693446::1723679781::0::1::::<><>::ui
 enemy_pug_big.tscn::PackedScene::6031915104692111970::1722036967::0::1::::<><>::res://Scripts/enemy.gd<>uid://dw0qr8vsmwbky::::res://Art/Sprites/dog soldier spritesheet.png
 enemy_shepherd.tscn::PackedScene::6889446418252184639::1723675861::0::1::::<><>::res://Scripts/enemy.gd<>uid://1cymfryp4g21::::res://Art/Sprites/123spritesheet.png<>res://Scripts/enemy_health.gd<>uid://bb6l6e5xtb17k::::res://Scenes/Particles/shadow.tscn
 enemy_spawner_controller.tscn::PackedScene::4952218426990113848::1725319915::0::1::::<><>::res://Scripts/enemy_spawner_controller.gd<>uid://kyho67jpnwf3::::res://Scenes/Enemies/enemy_pug.tscn<>res://Scripts/spawn_chance.gd<>uid://bw22ix5lssou3::::res://Scenes/Enemies/enemy_pug_6.tscn<>uid://bp1ap45bibdh6::::res://Scenes/Enemies/enemy_pug_9.tscn
-::res://Scenes/Guns/::1725330239
-22.tscn::PackedScene::1512577141525037392::1725330238::0::1::::<><>::uid://dxg8m0y80dpyp::::res://Scenes/Guns/Parent/gun_parent.tscn
-ar15.tscn::PackedScene::7979491928626157724::1725330238::0::1::::<><>::uid://dxg8m0y80dpyp::::res://Scenes/Guns/Parent/gun_parent.tscn<>res://Scripts/rarity.gd
-mac11.tscn::PackedScene::6627018806930050519::1725330238::0::1::::<><>::uid://dxg8m0y80dpyp::::res://Scenes/Guns/Parent/gun_parent.tscn
-pistol.tscn::PackedScene::2321070742422759306::1725330239::0::1::::<><>::uid://dxg8m0y80dpyp::::res://Scenes/Guns/Parent/gun_parent.tscn<>res://Scripts/rarity.gd
-revolver.tscn::PackedScene::6715961909367252327::1725330239::0::1::::<><>::uid://dxg8m0y80dpyp::::res://Scenes/Guns/Parent/gun_parent.tscn
-sawed_off.tscn::PackedScene::2902416601714864316::1725330238::0::1::::<><>::uid://dxg8m0y80dpyp::::res://Scenes/Guns/Parent/gun_parent.tscn<>uid://b7sp0qxb75kog::::res://Scenes/Bullets/shotgun_shell.tscn
-::res://Scenes/Guns/Parent/::1725330239
-gun_parent.tscn::PackedScene::8788018163258531779::1725330239::0::1::::<><>::res://Scripts/gun.gd<>res://Scripts/rarity.gd<>uid://dcayjrr65pgpy::::res://Art/Sprites/gun spritesheet.png<>uid://l0xncvn3i5id::::res://Art/Sprites/muzzleflash.png
-::res://Scenes/Guns/Parts/::1725330239
-large_magazine.tscn::PackedScene::6527916756973307792::1725330239::0::1::::<><>::res://Scenes/Guns/Parts/gun_attachment.gd<>uid://dcayjrr65pgpy::::res://Art/Sprites/gun spritesheet.png<>uid://de312nfiun02b::::res://Art/Sprites/arrows.png
+::res://Scenes/Guns/::1725330461
+22.tscn::PackedScene::1512577141525037392::1725330461::0::1::::<><>::uid://dxg8m0y80dpyp::::res://Scenes/Guns/Parent/gun_parent.tscn
+ar15.tscn::PackedScene::7979491928626157724::1725330404::0::1::::<><>::uid://dxg8m0y80dpyp::::res://Scenes/Guns/Parent/gun_parent.tscn<>res://Scripts/rarity.gd
+mac11.tscn::PackedScene::6627018806930050519::1725330405::0::1::::<><>::uid://dxg8m0y80dpyp::::res://Scenes/Guns/Parent/gun_parent.tscn
+pistol.tscn::PackedScene::2321070742422759306::1725330405::0::1::::<><>::uid://dxg8m0y80dpyp::::res://Scenes/Guns/Parent/gun_parent.tscn<>res://Scripts/rarity.gd
+revolver.tscn::PackedScene::6715961909367252327::1725330405::0::1::::<><>::uid://dxg8m0y80dpyp::::res://Scenes/Guns/Parent/gun_parent.tscn
+sawed_off.tscn::PackedScene::2902416601714864316::1725330404::0::1::::<><>::uid://dxg8m0y80dpyp::::res://Scenes/Guns/Parent/gun_parent.tscn<>uid://b7sp0qxb75kog::::res://Scenes/Bullets/shotgun_shell.tscn
+::res://Scenes/Guns/Parent/::1725330405
+gun_parent.tscn::PackedScene::8788018163258531779::1725330405::0::1::::<><>::res://Scripts/gun.gd<>res://Scripts/rarity.gd<>uid://dcayjrr65pgpy::::res://Art/Sprites/gun spritesheet.png<>uid://l0xncvn3i5id::::res://Art/Sprites/muzzleflash.png
+::res://Scenes/Guns/Parts/::1725330405
 gun_attachment.gd::GDScript::-1::1725329971::0::1::::GunAttachment<>GunUpgrade<>::
-scope.tscn::PackedScene::6607997923186424404::1725330239::0::1::::<><>::uid://dcayjrr65pgpy::::res://Art/Sprites/gun spritesheet.png<>res://Scenes/Guns/Parts/gun_attachment.gd<>res://Scripts/VariableChange.gd<>uid://de312nfiun02b::::res://Art/Sprites/arrows.png
+large_magazine.tscn::PackedScene::6527916756973307792::1725330405::0::1::::<><>::res://Scenes/Guns/Parts/gun_attachment.gd<>uid://dcayjrr65pgpy::::res://Art/Sprites/gun spritesheet.png<>uid://de312nfiun02b::::res://Art/Sprites/arrows.png
+scope.tscn::PackedScene::6607997923186424404::1725330405::0::1::::<><>::uid://dcayjrr65pgpy::::res://Art/Sprites/gun spritesheet.png<>res://Scenes/Guns/Parts/gun_attachment.gd<>res://Scripts/VariableChange.gd<>uid://de312nfiun02b::::res://Art/Sprites/arrows.png
 ::res://Scenes/Levels/::1725320024
 customize.tscn::PackedScene::3361599966522293937::1725319914::0::1::::<><>::res://Art/Shaders/colorswap.gdshader<>uid://c8b18rvghcej6::::res://Art/Sprites/palette blue orange.png<>uid://cbuklghcxpiko::::res://Scenes/Tiles/tiles.tscn<>uid://cgnp0mhae3ygt::::res://Art/Sprites/tiles.png<>uid://qnw7051yjuf4::::res://Scenes/UI/Character Cusomization/choose_character.tscn
 end.tscn::PackedScene::4316969490393081334::1725319914::0::1::::<><>::res://Art/Shaders/colorswap.gdshader<>uid://c8b18rvghcej6::::res://Art/Sprites/palette blue orange.png<>res://Scripts/main_menu.gd<>uid://cbuklghcxpiko::::res://Scenes/Tiles/tiles.tscn<>uid://dx18mgom3chcm::::res://Scenes/UI/pause_controller.tscn<>res://Scripts/ui_menu.gd<>uid://kx3kmho3mt5o::::res://Art/Sprites/Blue Sky 8x8.ttf<>res://Scripts/ui_menu_button.gd<>uid://h7clkc3uwco0::::res://Art/Sprites/MainMenu/thanksforplaying.png<>uid://beputxcs1pxrh::::res://Scenes/UI/JuicyMovement.tscn<>uid://dio4jhhmyfnfk::::res://Audio/AudioManager.tscn<>uid://b7r52wai1l1yc::::res://Scenes/Player/menu_dog.tscn<>uid://benlyb5ipwgn8::::res://Scenes/Player/tennisball.tscn<>uid://cxaeqie0fbe0t::::res://Art/Sprites/MainMenu/point_arrow.png
@@ -279,21 +279,21 @@ choose_character.tscn::PackedScene::1151252688898770335::1725319914::0::1::::<><
 ::res://Scenes/UI/slot machine/::1721508816
 slot_row.gd::GDScript::-1::1721508816::0::1::::<>Node2D<>::
 slot_row.tscn::PackedScene::5875632978289433190::1721247369::0::1::::<><>::uid://d0xgh2orsogie::::res://Art/Sprites/crate icon.png<>res://Scenes/UI/slot machine/slot_row.gd<>uid://be1sac50cadp3::::res://Art/Sprites/enemy spawner icon.png<>uid://bonnvdx0aojp3::::res://Art/Sprites/dog icon.png
-::res://Scenes/Upgrades/::1725330239
-gun_upgrade.tscn::PackedScene::8789749247326652645::1725330239::0::1::::<><>::res://Scripts/gun_upgrade.gd<>uid://de312nfiun02b::::res://Art/Sprites/arrows.png
+::res://Scenes/Upgrades/::1725330405
+gun_upgrade.tscn::PackedScene::8789749247326652645::1725330405::0::1::::<><>::res://Scripts/gun_upgrade.gd<>uid://de312nfiun02b::::res://Art/Sprites/arrows.png
 part_upgrade.tscn::PackedScene::410173832203237608::1725319915::0::1::::<><>::uid://bpyc72ajp6yfb::::res://Art/Shaders/colorswap.tres<>res://Scripts/part_upgrade.gd<>uid://csbsp55dmrv62::::res://Art/Sprites/gun parts spritesheet.png<>uid://de312nfiun02b::::res://Art/Sprites/arrows.png
 upgrade.tscn::PackedScene::1030818054036941909::1725319915::0::1::::<><>::uid://dvinnfpwutjr3::::res://Art/Sprites/upgrade icon.png<>res://Scripts/Upgrades/upgrade.gd<>uid://blveai4y2nwq5::::res://Art/Fonts/Pikzel-Regular.ttf<>uid://7ppsa5tfac3k::::res://Art/Sprites/upgrade icon icon.png
-upgrade_manager.tscn::PackedScene::7846581225941197258::1725330238::0::1::::<><>::res://Scripts/Upgrades/upgrade_manager.gd<>uid://dlxlcit0cgc8c::::res://Scenes/Guns/ar15.tscn<>uid://vsx6o00th7ls::::res://Scenes/Guns/22.tscn<>uid://8clxwuf6xyr7::::res://Scenes/Guns/pistol.tscn<>uid://c1ogbcpjo7mg2::::res://Scenes/Guns/mac11.tscn<>uid://c2xi58u7xflxv::::res://Scenes/Guns/revolver.tscn<>uid://bhl7m3iu8lmiu::::res://Scenes/Guns/sawed_off.tscn<>uid://c0af3nsslogxk::::res://Scenes/Guns/Parts/large_magazine.tscn<>uid://c1e703773coy3::::res://Scenes/Guns/Parts/scope.tscn<>uid://c38tjmk8m2014::::res://Scenes/Upgrades/GunUpgrades/damage_upgrade.tscn
+upgrade_manager.tscn::PackedScene::7846581225941197258::1725330404::0::1::::<><>::res://Scripts/Upgrades/upgrade_manager.gd<>uid://dlxlcit0cgc8c::::res://Scenes/Guns/ar15.tscn<>uid://vsx6o00th7ls::::res://Scenes/Guns/22.tscn<>uid://8clxwuf6xyr7::::res://Scenes/Guns/pistol.tscn<>uid://c1ogbcpjo7mg2::::res://Scenes/Guns/mac11.tscn<>uid://c2xi58u7xflxv::::res://Scenes/Guns/revolver.tscn<>uid://bhl7m3iu8lmiu::::res://Scenes/Guns/sawed_off.tscn<>uid://c0af3nsslogxk::::res://Scenes/Guns/Parts/large_magazine.tscn<>uid://c1e703773coy3::::res://Scenes/Guns/Parts/scope.tscn<>uid://c38tjmk8m2014::::res://Scenes/Upgrades/GunUpgrades/damage_upgrade.tscn
 upgrade_menu.tscn::PackedScene::5227200921503875056::1725319914::0::1::::<><>::uid://bpyc72ajp6yfb::::res://Art/Shaders/colorswap.tres<>res://Scripts/upgrade_menu.gd<>uid://diu6fl025qdv0::::res://Scenes/Upgrades/upgrade_option.tscn<>uid://kx3kmho3mt5o::::res://Art/Sprites/Blue Sky 8x8.ttf<>res://Art/Shaders/colorswap.gdshader<>res://Scripts/ui_menu_button_grow_on_focus.gd<>uid://c8b18rvghcej6::::res://Art/Sprites/palette blue orange.png<>uid://bmv1iku1at618::::res://Art/Themes/ui text mid.tres<>res://Scripts/FinishUpgrades.gd<>uid://beputxcs1pxrh::::res://Scenes/UI/JuicyMovement.tscn<>uid://bgx8q6i8fgsha::::res://Art/Sprites/stopsign.png<>uid://dbbdi66uf2bh0::::res://Art/Sprites/checkmark.png
 upgrade_menu_old.tscn::PackedScene::6728013831455098483::1721686042::0::1::::<><>::res://Scripts/Upgrades/upgrade_menu_old.gd<>uid://bpyc72ajp6yfb::::res://Art/Shaders/colorswap.tres<>uid://bdqrclvbfymsr::::res://Art/Sprites/phone.png<>uid://dcpmheruqmgdh::::res://Art/Sprites/dog arm.png<>uid://blveai4y2nwq5::::res://Art/Fonts/Pikzel-Regular.ttf<>uid://de312nfiun02b::::res://Art/Sprites/arrows.png<>uid://diu6fl025qdv0::::res://Scenes/Upgrades/upgrade_option.tscn
 upgrade_option.tscn::PackedScene::7763952128654484207::1725319914::0::1::::<><>::res://Scripts/Upgrades/upgrade_option.gd<>res://Art/Shaders/colorswap.gdshader<>uid://c8b18rvghcej6::::res://Art/Sprites/palette blue orange.png<>uid://2u72jmj4wnsn::::res://Art/Sprites/red texture.png<>uid://bmv1iku1at618::::res://Art/Themes/ui text mid.tres<>uid://kx3kmho3mt5o::::res://Art/Sprites/Blue Sky 8x8.ttf<>uid://c6tfpjjve52aj::::res://Art/Sprites/black texture.png<>uid://beputxcs1pxrh::::res://Scenes/UI/JuicyMovement.tscn<>res://Scripts/Circle.gd
-::res://Scenes/Upgrades/Dogtags/::1725330239
-dogtag_exploding_bullets.tscn::PackedScene::5748771815249775223::1725330239::0::1::::<><>::res://Art/Shaders/colorswap.gdshader<>uid://c8b18rvghcej6::::res://Art/Sprites/palette blue orange.png<>res://Scripts/Upgrades/dogtag.gd<>res://Scripts/rarity.gd<>uid://1cymfryp4g21::::res://Art/Sprites/123spritesheet.png<>uid://beputxcs1pxrh::::res://Scenes/UI/JuicyMovement.tscn
-dogtag_player_speed.tscn::PackedScene::6616412275429469825::1725330239::0::1::::<><>::uid://cn50oxjbu2kvn::::res://Scenes/Upgrades/Dogtags/dogtag_exploding_bullets.tscn<>res://Scripts/rarity.gd
+::res://Scenes/Upgrades/Dogtags/::1725330405
+dogtag_exploding_bullets.tscn::PackedScene::5748771815249775223::1725330405::0::1::::<><>::res://Art/Shaders/colorswap.gdshader<>uid://c8b18rvghcej6::::res://Art/Sprites/palette blue orange.png<>res://Scripts/Upgrades/dogtag.gd<>res://Scripts/rarity.gd<>uid://1cymfryp4g21::::res://Art/Sprites/123spritesheet.png<>uid://beputxcs1pxrh::::res://Scenes/UI/JuicyMovement.tscn
+dogtag_player_speed.tscn::PackedScene::6616412275429469825::1725330405::0::1::::<><>::uid://cn50oxjbu2kvn::::res://Scenes/Upgrades/Dogtags/dogtag_exploding_bullets.tscn<>res://Scripts/rarity.gd
 dogtag_rotate_guns.tscn::PackedScene::5088934540161178213::1723224817::0::1::::<><>::uid://cn50oxjbu2kvn::::res://Scenes/Upgrades/Dogtags/dogtag_exploding_bullets.tscn<>res://Scripts/rarity.gd
-::res://Scenes/Upgrades/GunUpgrades/::1725330239
-damage_upgrade.tscn::PackedScene::6807423797387530285::1725330239::0::1::::<><>::uid://dxh25edu12ok8::::res://Scenes/Upgrades/gun_upgrade.tscn<>res://Scripts/VariableChange.gd<>uid://b0rfe3ff6ilq5::::res://Art/Sprites/upgrade spritesheet.png
-double_barreled_upgrade.tscn::PackedScene::6144733100571326261::1725330239::0::1::::<><>::uid://dxh25edu12ok8::::res://Scenes/Upgrades/gun_upgrade.tscn<>res://Scripts/VariableChange.gd<>uid://b0rfe3ff6ilq5::::res://Art/Sprites/upgrade spritesheet.png
+::res://Scenes/Upgrades/GunUpgrades/::1725330405
+damage_upgrade.tscn::PackedScene::6807423797387530285::1725330405::0::1::::<><>::uid://dxh25edu12ok8::::res://Scenes/Upgrades/gun_upgrade.tscn<>res://Scripts/VariableChange.gd<>uid://b0rfe3ff6ilq5::::res://Art/Sprites/upgrade spritesheet.png
+double_barreled_upgrade.tscn::PackedScene::6144733100571326261::1725330405::0::1::::<><>::uid://dxh25edu12ok8::::res://Scenes/Upgrades/gun_upgrade.tscn<>res://Scripts/VariableChange.gd<>uid://b0rfe3ff6ilq5::::res://Art/Sprites/upgrade spritesheet.png
 explosive_upgrade.tscn::PackedScene::2750385836701482443::1725319916::0::1::::<><>::uid://dxh25edu12ok8::::res://Scenes/Upgrades/gun_upgrade.tscn<>uid://b0rfe3ff6ilq5::::res://Art/Sprites/upgrade spritesheet.png<>res://Scripts/VariableChange.gd
 fullauto_upgrade.tscn::PackedScene::6399771167141560692::1725319916::0::1::::<><>::uid://dxh25edu12ok8::::res://Scenes/Upgrades/gun_upgrade.tscn<>uid://b0rfe3ff6ilq5::::res://Art/Sprites/upgrade spritesheet.png<>res://Scripts/VariableChange.gd
 homing_upgrade.tscn::PackedScene::5302760631340190809::1725319916::0::1::::<><>::uid://dxh25edu12ok8::::res://Scenes/Upgrades/gun_upgrade.tscn<>uid://b0rfe3ff6ilq5::::res://Art/Sprites/upgrade spritesheet.png<>res://Scripts/VariableChange.gd
@@ -302,7 +302,7 @@ reload_speed_upgrade.tscn::PackedScene::2532784664301316695::1725319915::0::1:::
 ricochet_upgrade.tscn::PackedScene::1662646889874421231::1725319915::0::1::::<><>::uid://dxh25edu12ok8::::res://Scenes/Upgrades/gun_upgrade.tscn<>res://Scripts/VariableChange.gd<>uid://b0rfe3ff6ilq5::::res://Art/Sprites/upgrade spritesheet.png
 rubber_bullets.tscn::PackedScene::1107098374427391318::1725319918::0::1::::<><>::uid://dxh25edu12ok8::::res://Scenes/Upgrades/gun_upgrade.tscn<>res://Scripts/VariableChange.gd<>uid://b0rfe3ff6ilq5::::res://Art/Sprites/upgrade spritesheet.png<>uid://dlv5q0x4w88ix::::res://Scenes/Bullets/rubber_bullet.tscn
 xt_large_bullet_upgrade.tscn::PackedScene::7153092266044741781::1725319916::0::1::::<><>::uid://dxh25edu12ok8::::res://Scenes/Upgrades/gun_upgrade.tscn<>uid://c6pyadyyrxe2::::res://Scenes/Bullets/xt_large_bullet.tscn<>res://Scripts/VariableChange.gd<>uid://b0rfe3ff6ilq5::::res://Art/Sprites/upgrade spritesheet.png
-::res://Scripts/::1725330237
+::res://Scripts/::1725330397
 arrow.gd::GDScript::-1::1721508816::0::1::::<>Sprite2D<>::
 blood.gd::GDScript::-1::1705345102::0::1::::<>Sprite2D<>::
 boss_pug.gd::GDScript::-1::1723753193::0::1::::<>Enemy<>::
@@ -335,7 +335,7 @@ fire_particle.gd::GDScript::-1::1702592339::0::1::::<>GPUParticles2D<>::
 float_in.gd::GDScript::-1::1723764646::0::1::::<>Control<>::
 globals.gd::GDScript::-1::1724901229::0::1::::<>Node<>::
 grenade.gd::GDScript::-1::1723753193::0::1::::<>Area2D<>::
-gun.gd::GDScript::-1::1725330237::0::1::::Gun<>Area2D<>::
+gun.gd::GDScript::-1::1725330397::0::1::::Gun<>Area2D<>::
 gunstats.gd::GDScript::-1::1721242705::0::1::::<>Control<>::
 gun_frame.gd::GDScript::-1::1725301205::0::1::::<>Node2D<>::
 gun_part.gd::GDScript::-1::1725301551::0::1::::GunPart<>Node<>::
