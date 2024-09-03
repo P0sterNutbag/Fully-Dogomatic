@@ -15,6 +15,7 @@ dest_files=["res://.godot/imported/Blue Sky 8x8.ttf-5e47467baf33a16dbca180c588c4
 Rendering=null
 antialiasing=0
 generate_mipmaps=false
+disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48

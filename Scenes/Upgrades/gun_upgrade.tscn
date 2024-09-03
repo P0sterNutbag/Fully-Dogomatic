@@ -18,3 +18,7 @@ position = Vector2(0, 6)
 visible = false
 use_parent_material = true
 texture = ExtResource("2_46wlm")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 15)
+collision_mask = 4

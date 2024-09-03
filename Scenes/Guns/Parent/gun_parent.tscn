@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://dxg8m0y80dpyp"]
+
+[ext_resource type="Script" path="res://Scripts/gun.gd" id="1_hbx3y"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="2_gw35d"]
+[ext_resource type="Texture2D" uid="uid://dcayjrr65pgpy" path="res://Art/Sprites/gun spritesheet.png" id="3_6aho8"]
+[ext_resource type="Texture2D" uid="uid://l0xncvn3i5id" path="res://Art/Sprites/muzzleflash.png" id="4_4neoc"]
+
+[sub_resource type="Resource" id="Resource_8vy61"]
+script = ExtResource("2_gw35d")
+rarity = 0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dyahl"]
+size = Vector2(35, 7.99984)
+
+[node name="Gun" type="Area2D" groups=["gun"]]
+process_mode = 3
+use_parent_material = true
+rotation = 6.28319
+collision_layer = 4
+collision_mask = 128
+script = ExtResource("1_hbx3y")
+metadata/Title = "Pistol"
+metadata/Type = "Pistol"
+metadata/Rarity = SubResource("Resource_8vy61")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.06487e-12, -2.38419e-07)
+shape = SubResource("RectangleShape2D_dyahl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+use_parent_material = true
+texture = ExtResource("3_6aho8")
+region_enabled = true
+
+[node name="SightHolder" type="Node2D" parent="Sprite2D"]
+use_parent_material = true
+
+[node name="MagazineHolder" type="Node2D" parent="Sprite2D"]
+use_parent_material = true
+
+[node name="Firepoint" type="Node2D" parent="."]
+use_parent_material = true
+
+[node name="MuzzleFlash" type="Sprite2D" parent="Firepoint"]
+visible = false
+use_parent_material = true
+position = Vector2(8, -3.5731e-05)
+texture = ExtResource("4_4neoc")
+
+[node name="ShootTimer" type="Timer" parent="."]
+process_mode = 1
+
+[node name="ReloadTimer" type="Timer" parent="."]
+process_mode = 1
+one_shot = true
+
+[node name="FlashTimer" type="Timer" parent="."]
+wait_time = 0.05
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
+[connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]

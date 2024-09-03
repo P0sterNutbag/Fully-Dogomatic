@@ -6,11 +6,11 @@ func _ready():
 
 
 func _on_play_pressed():
-	SceneManager.start_scene_transition("res://Scenes/Levels/customize.tscn")
+	SceneManager.start_scene_transition("res://Scenes/Levels/customize.tscn", false)
 
 
 func _on_options_pressed():
-	$GameController.pause_game()
+	get_tree().root.get_node("PauseController").pause_game()
 
 
 func _on_wishlist_pressed():

@@ -4,7 +4,7 @@ extends Node2D
 var spawners: Array
 @export var spawn_rounds = []
 @export var spawn_time: Array[float]
-var spawn_round = 3
+var spawn_round = 0
 var spawn_amount_min = 1
 var spawn_amount_max = 3
 var enemy2_probability = 0

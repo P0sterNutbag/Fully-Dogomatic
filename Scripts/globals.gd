@@ -1,5 +1,6 @@
 extends Node
 
+var player_to_spawn = preload("res://Scenes/Player/player.tscn")
 var player
 var crate_spawner
 var shoot_sfx

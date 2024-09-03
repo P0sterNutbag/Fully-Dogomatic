@@ -9,12 +9,17 @@ extends UiButton
 @export var sprite: Texture :
 	set(value):
 		$ScaleOffset/Sprite2D.texture = value
+@export var unlocked: bool
+var off_shader = preload("res://Art/Shaders/color_change.tres")
 var target_scale: float = 1
 
 
 func _ready() -> void:
 	super._ready()
 	juice.process_mode = Node.PROCESS_MODE_DISABLED
+	if !unlocked:
+		character_name = "???"
+		$ScaleOffset/Sprite2D.material = off_shader
 	#position_origin = position
 
 

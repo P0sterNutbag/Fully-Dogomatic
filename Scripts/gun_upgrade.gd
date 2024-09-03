@@ -1,9 +1,10 @@
 extends Node2D
-
+class_name GunUpgrade
 
 @export var upgrade_values: Array[VariableChange]
 var follow_mouse: bool = false
 var target_position: Vector2
+var closest_gun: Node2D
 @onready var arrow = $Arrow
 @onready var upgrade_sprite = $UpgradeSprite
 
@@ -21,15 +22,25 @@ func _process(delta):
 			target_position = Globals.player.global_position + Vector2(Input.get_joy_axis(0, JOY_AXIS_LEFT_X), Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)).normalized() * 32
 		elif Input.is_action_just_pressed("right") or Input.is_action_just_pressed("left"):
 			if Globals.player.guns.size() > 1:
-				var closest_gun = find_nearest_gun(target_position)
-				var i = 0
-				target_position = closest_gun.global_position - Globals.player.global_position
+				#var closest_gun = find_nearest_gun(target_position)
+				#$RayCast2D.global_position = Globals.player.global_position
+				#$RayCast2D.rotation = (closest_gun.global_position - Globals.player.global_position).angle()
+				#for i in 360:
+					#$RayCast2D.rotate(deg_to_rad(sign(Input.get_axis("left", "right"))))
+					#var new_gun = $RayCast2D.get_collider()
+					#if new_gun != closest_gun:
+						#target_position = new_gun.global_position
+						#break
+				closest_gun = find_nearest_gun(target_position)
+				var i = 1
+				target_position = Globals.player.global_position + (closest_gun.global_position - Globals.player.global_position)
 				while find_nearest_gun(target_position) == closest_gun:
-					target_position = (closest_gun.global_position - Globals.player.global_position).rotated(Input.get_axis("left", "right") * i) 
+					target_position = (Globals.player.global_position + (closest_gun.global_position - Globals.player.global_position).rotated(Input.get_axis("left", "right") * deg_to_rad(i))) 
+					#target_position = Globals.player.global_position + (Vector2.RIGHT * 30).rotated(Input.get_axis("left", "right") * deg_to_rad(i)) 
 					i += 1
 					if i > 360:
-						return
-		var closest_gun = find_nearest_gun(target_position)
+						break
+		closest_gun = find_nearest_gun(target_position)
 		
 		# move arrow to closest gun
 		var dest = closest_gun.global_position + (closest_gun.global_position - Globals.player.global_position).normalized() * 32
@@ -46,13 +57,13 @@ func _process(delta):
 
 func find_nearest_gun(pos: Vector2) -> Node2D:
 	var closest_dis = 1000
-	var closest_gun: Node2D
+	var nearest_gun: Node2D
 	for gun in Globals.player.guns:
 		var dis = gun.global_position.distance_to(pos)
 		if dis < closest_dis:
 			closest_dis = dis
-			closest_gun = gun
-	return closest_gun
+			nearest_gun = gun
+	return nearest_gun
 
 
 func attach_to_target(_object: Node2D):
@@ -69,4 +80,3 @@ func add_upgrade_to_gun(gun_to_change: Node2D):
 			gun_to_change.set(variable_change.values[0], gun_to_change.get(variable_change.values[0]) * variable_change.values[1])
 		else:
 			gun_to_change.set(variable_change.values[0], variable_change.values[1])
-	queue_free()

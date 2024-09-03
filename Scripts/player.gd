@@ -30,6 +30,7 @@ var gun_rotation: float = 0
 
 func _ready():
 	Globals.player = self
+	player_died.connect(Globals.ui.on_player_died)
 
 
 func _physics_process(_delta):

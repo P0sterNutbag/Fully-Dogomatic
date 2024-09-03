@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1e703773coy3"]
+
+[ext_resource type="Texture2D" uid="uid://dcayjrr65pgpy" path="res://Art/Sprites/gun spritesheet.png" id="1_rieko"]
+[ext_resource type="Script" path="res://Scenes/Guns/Parts/gun_attachment.gd" id="1_swskk"]
+[ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="2_qppxn"]
+[ext_resource type="Texture2D" uid="uid://de312nfiun02b" path="res://Art/Sprites/arrows.png" id="4_ona5s"]
+
+[sub_resource type="Resource" id="Resource_a112j"]
+script = ExtResource("2_qppxn")
+values = ["spread", 0.25]
+multiply_value = true
+add_value = false
+
+[node name="Scope" type="Node2D"]
+process_mode = 3
+use_parent_material = true
+script = ExtResource("1_swskk")
+node_to_attach_to = "SightHolder"
+upgrade_values = Array[ExtResource("2_qppxn")]([SubResource("Resource_a112j")])
+metadata/Title = "x4 Scope"
+metadata/Type = "Attachment"
+
+[node name="Part" type="Sprite2D" parent="."]
+visible = false
+use_parent_material = true
+texture = ExtResource("1_rieko")
+offset = Vector2(4, -1)
+region_enabled = true
+region_rect = Rect2(96, 32, 16, 16)
+
+[node name="UpgradeSprite" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(0, 6)
+texture = ExtResource("1_rieko")
+region_enabled = true
+region_rect = Rect2(96, 32, 16, 16)
+
+[node name="Arrow" type="Sprite2D" parent="."]
+visible = false
+use_parent_material = true
+texture = ExtResource("4_ona5s")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ciimscdu65cq8"]
+[gd_scene load_steps=23 format=3 uid="uid://ciimscdu65cq8"]
 
 [ext_resource type="Script" path="res://Scripts/ui_main_menu.gd" id="3_1tmc7"]
 [ext_resource type="PackedScene" uid="uid://cbuklghcxpiko" path="res://Scenes/Tiles/tiles.tscn" id="3_e75qk"]
@@ -11,7 +11,6 @@
 [ext_resource type="Script" path="res://Scripts/ui_menu_button.gd" id="8_a27qw"]
 [ext_resource type="PackedScene" uid="uid://b50cm06iefifh" path="res://Scenes/UI/menu_button.tscn" id="8_q2v0g"]
 [ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="9_1cbxf"]
-[ext_resource type="PackedScene" uid="uid://dx18mgom3chcm" path="res://Scenes/UI/pause_controller.tscn" id="10_ljqkk"]
 [ext_resource type="PackedScene" uid="uid://dio4jhhmyfnfk" path="res://Audio/AudioManager.tscn" id="11_3edp1"]
 [ext_resource type="PackedScene" uid="uid://b7r52wai1l1yc" path="res://Scenes/Player/menu_dog.tscn" id="11_rfde3"]
 [ext_resource type="PackedScene" uid="uid://benlyb5ipwgn8" path="res://Scenes/Player/tennisball.tscn" id="12_djnm7"]
@@ -88,9 +87,6 @@ visible = false
 offset_right = 640.0
 offset_bottom = 360.0
 color = Color(0.329412, 0.356863, 0.792157, 1)
-
-[node name="GameController" parent="." instance=ExtResource("10_ljqkk")]
-visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -236,6 +232,5 @@ scale = Vector2(2, 2)
 [connection signal="pressed" from="CanvasLayer/Menu/VBoxContainer/Wishlist" to="." method="_on_wishlist_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menu/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="gui_input" from="CanvasLayer/Control/VBoxContainer/PlayGame" to="." method="_on_play_game_gui_input"]
-[connection signal="gui_input" from="CanvasLayer/Control/VBoxContainer/Options" to="GameController" method="_on_options_gui_input"]
 [connection signal="gui_input" from="CanvasLayer/Control/VBoxContainer/Wishlist" to="." method="_on_wishlist_gui_input"]
 [connection signal="gui_input" from="CanvasLayer/Control/VBoxContainer/Quit" to="." method="_on_quit_gui_input"]

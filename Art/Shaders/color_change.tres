@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b3tsdgy38y6om"]
+
+[ext_resource type="Shader" path="res://Art/Shaders/color_change.gdshader" id="1_04uq2"]
+
+[resource]
+shader = ExtResource("1_04uq2")
+shader_parameter/active = true
+shader_parameter/tint = Color(0.0980392, 0.105882, 0.223529, 1)

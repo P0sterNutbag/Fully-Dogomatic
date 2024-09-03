@@ -1,8 +1,16 @@
-res://Scenes/Bullets/xt_large_bullet.tscn
+res://Scenes/Guns New/new_gun_parent.tscn
+res://Art/Shaders/colorswap.gdshader
 res://Art/Shaders/colorswap.tres
+res://Art/Shaders/color_change.gdshader
+res://Art/Shaders/color_change.tres
+res://Art/Themes/healthbar.tres
 res://Art/Shaders/dither.gdshader
 res://Art/Shaders/dither postprocess.gdshader
-res://Scenes/Upgrades/gun_upgrade_xt_large_bullet.tscn
+res://Scripts/gun.gd
+res://Scenes/Gun Parts/22_barrel.tscn
+res://Scenes/Guns New/new_gun.gd
+res://Scenes/Guns New/ar15.tscn
+res://Scenes/Guns New/pistol.tscn
 res://Scenes/Upgrades/upgrade_manager.tscn
 res://Scenes/UI/Character Cusomization/choose_character.tscn
 res://Scenes/UI/Character Cusomization/character_option.tscn
@@ -17,60 +25,83 @@ res://Scenes/Enemies/enemy_pug.tscn
 res://Scenes/Enemies/enemy_spawner_controller.tscn
 res://Scenes/Cutscenes/boss_death_cutscene.tscn
 res://Scenes/Bullets/5.56mm_bullet.tscn
-res://Scenes/Bullets/9mm_bullet.tscn
-res://Scenes/Upgrades/gun_upgrade_penetrate.tscn
-res://Scenes/Upgrades/gun_upgrade_reload.tscn
-res://Scenes/Upgrades/gun_upgrade_ricochet.tscn
-res://Scenes/Upgrades/gun_upgrade.tscn
-res://Scenes/Upgrades/part_upgrade.tscn
-res://Scenes/Upgrades/gun_upgrade_damage.tscn
-res://Scenes/Upgrades/gun_upgrade_explosive.tscn
-res://Scripts/customization_menu.gd
-res://Scenes/Upgrades/reload_upgrade.tscn
-res://Scenes/Upgrades/ricochet_upgrade.tscn
-res://Scenes/Upgrades/upgrade.tscn
-res://Scenes/Upgrades/damage_upgrade.tscn
-res://Scripts/gun_upgrade.gd
-res://Scenes/Gun Parts/ak47_barrel.tscn
-res://Scripts/gun_part_barrel.gd
-res://Scenes/Gun Parts/22_barrel.tscn
-res://Scenes/Bullets/small_bullet.tscn
-res://Scenes/Gun Parts/double_b_barrel.tscn
-res://Scenes/Gun Parts/shotgun_barrel.tscn
-res://Scripts/bullet.gd
-res://Scripts/part_upgrade.gd
-res://Scripts/gun_frame.gd
 res://Scenes/Bullets/regular_bullet.tscn
+res://Scenes/Bullets/xt_large_bullet.tscn
 res://Scenes/Upgrades/GunUpgrades/penetrate_upgrade.tscn
 res://Scenes/Upgrades/GunUpgrades/reload_speed_upgrade.tscn
 res://Scenes/Upgrades/GunUpgrades/ricochet_upgrade.tscn
+res://Scenes/Upgrades/gun_upgrade.tscn
+res://Scenes/Upgrades/upgrade.tscn
+res://Scenes/Upgrades/part_upgrade.tscn
 res://Scenes/Upgrades/GunUpgrades/damage_upgrade.tscn
 res://Scenes/Upgrades/GunUpgrades/xt_large_bullet_upgrade.tscn
 res://Scenes/Upgrades/GunUpgrades/explosive_upgrade.tscn
 res://Scenes/Upgrades/GunUpgrades/fullauto_upgrade.tscn
 res://Scenes/Upgrades/GunUpgrades/homing_upgrade.tscn
+res://Scenes/Gun Parts/ak47_barrel.tscn
+res://Scenes/Bullets/12gauge_shell.tscn
 res://Scenes/Bullets/shotgun_shell4.tscn
 res://Scenes/Bullets/bullet_explosion.tscn
+res://Scenes/Bullets/bullet.tscn
+res://Scenes/Bullets/44Mag.tscn
+res://Scenes/Bullets/22cal_bullet.tscn
+res://Scenes/Bullets/7.62mm_bullet.tscn
 res://Scenes/Bullets/grenade.tscn
 res://Scenes/Gun Parts/ar15_barrel.tscn
 res://Scenes/Gun Parts/auto_shotgun_barrel.tscn
+res://Scenes/Bullets/small_bullet.tscn
+res://Scenes/Gun Parts/double_b_barrel.tscn
 res://Scenes/Gun Parts/launcher_barrel.tscn
 res://Scenes/Gun Parts/mac11_barrel.tscn
 res://Scenes/Gun Parts/smg_barrel.tscn
 res://Scenes/Gun Parts/magnum_barrel.tscn
 res://Scenes/Gun Parts/pistol_barrel.tscn
 res://Scenes/Gun Parts/revolver_barrel.tscn
+res://Scenes/Gun Parts/shotgun_barrel.tscn
 res://Scenes/Gun Parts/sniper_barrel.tscn
 res://Scenes/Gun Parts/tommy_barrel.tscn
 res://Scenes/Gun Parts/auto_shotgun_stock.tscn
-res://Scenes/Bullets/12gauge_shell.tscn
-res://Scenes/Bullets/bullet.tscn
-res://Scenes/Bullets/44Mag.tscn
-res://Scenes/Bullets/22cal_bullet.tscn
-res://Scenes/Bullets/7.62mm_bullet.tscn
-res://Scripts/gun.gd
-res://Scripts/VariableChange.gd
 res://Scenes/Upgrades/GunUpgrades/double_barreled_upgrade.tscn
-res://Scripts/Upgrades/upgrade_option.gd
 res://Scenes/Upgrades/GunUpgrades/rubber_bullets.tscn
 res://Scenes/Bullets/rubber_bullet.tscn
+res://Scenes/Levels/Level Objects/level_manager.tscn
+res://Audio/AudioManager.tscn
+res://Scenes/Levels/scene_transition.tscn
+res://Scenes/Player/terrier.tscn
+res://Scenes/Player/dachshund.tscn
+res://Scenes/Player/cat.tscn
+res://Scenes/Levels/world.tscn
+res://Scenes/Levels/SceneManager.tscn
+res://Scenes/Player/bulldog.tscn
+res://Scenes/Levels/Level Objects/crate_guns.tscn
+res://Scenes/UI/ui.tscn
+res://Scenes/UI/pause_controller.tscn
+res://Scenes/Levels/intro.tscn
+res://Scenes/Guns/Control/gun_parent.tscn
+res://Scenes/Guns/gun_22.tscn
+res://Scenes/Guns/gun_ak47.tscn
+res://Scenes/Gun Parts/22_stock.tscn
+res://Scenes/Guns/gun_tommy.tscn
+res://Scenes/Guns/Control/gun_frame.tscn
+res://Scenes/Guns/gun_ar15.tscn
+res://Scenes/Guns/Control/gun_name.tscn
+res://Scenes/Particles/gun_status.tscn
+res://Scripts/Upgrades/upgrade_manager.gd
+res://Scenes/Guns/Old Guns/pistol.tscn
+res://Scenes/Guns/new_gun_parent.tscn
+res://Scenes/Guns/pistol.tscn
+res://Scenes/Guns/ar15.tscn
+res://Scenes/Guns/22.tscn
+res://Scenes/Guns/revolver.tscn
+res://Scenes/Guns/mac11.tscn
+res://Scenes/Bullets/shotgun_shell.tscn
+res://Scenes/Guns/sawed_off.tscn
+res://Scenes/Guns/Parent/gun_parent.tscn
+res://Scenes/Guns/Parts/large_magazine.tscn
+res://Scenes/Guns/Parts/scope.tscn
+res://Scripts/gun_upgrade.gd
+res://Scripts/world_controller.gd
+res://Scripts/Upgrades/upgrade_option.gd
+res://Scenes/Upgrades/Dogtags/dogtag_exploding_bullets.tscn
+res://Scenes/Upgrades/Dogtags/dogtag_player_speed.tscn
+res://Scenes/Guns/Parts/gun_attachment.gd

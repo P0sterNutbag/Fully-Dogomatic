@@ -19,7 +19,7 @@ add_value = false
 
 [sub_resource type="Resource" id="Resource_u2g50"]
 script = ExtResource("2_mkcfa")
-values = ["bullet_damage", 0.2]
+values = ["bullet_damage", 0.5]
 multiply_value = true
 add_value = false
 

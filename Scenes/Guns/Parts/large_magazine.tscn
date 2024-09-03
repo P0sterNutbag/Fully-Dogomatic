@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0af3nsslogxk"]
+
+[ext_resource type="Script" path="res://Scenes/Guns/Parts/gun_attachment.gd" id="1_4a28f"]
+[ext_resource type="Texture2D" uid="uid://dcayjrr65pgpy" path="res://Art/Sprites/gun spritesheet.png" id="1_uqv5n"]
+[ext_resource type="Texture2D" uid="uid://de312nfiun02b" path="res://Art/Sprites/arrows.png" id="4_4xgxc"]
+
+[node name="LargeMagazine" type="Node2D"]
+process_mode = 3
+use_parent_material = true
+script = ExtResource("1_4a28f")
+node_to_attach_to = "MagazineHolder"
+metadata/Title = "XL Magazine"
+metadata/Type = "Attachment"
+
+[node name="Part" type="Sprite2D" parent="."]
+visible = false
+use_parent_material = true
+texture = ExtResource("1_uqv5n")
+offset = Vector2(7, 7)
+region_enabled = true
+region_rect = Rect2(96, 16, 16, 16)
+
+[node name="UpgradeSprite" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(0, 11)
+texture = ExtResource("1_uqv5n")
+region_enabled = true
+region_rect = Rect2(96, 16, 16, 16)
+
+[node name="Arrow" type="Sprite2D" parent="."]
+visible = false
+use_parent_material = true
+texture = ExtResource("4_4xgxc")

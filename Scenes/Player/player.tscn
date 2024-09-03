@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cfkssnl27y2qn"]
+[gd_scene load_steps=24 format=3 uid="uid://cfkssnl27y2qn"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_2qpty"]
 [ext_resource type="PackedScene" uid="uid://bb6l6e5xtb17k" path="res://Scenes/Particles/shadow.tscn" id="2_3aj65"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dpentnylex1c" path="res://Art/Sprites/player run.png" id="5_1sten"]
 [ext_resource type="Texture2D" uid="uid://chhc6bjga1571" path="res://Art/Sprites/player idle.png" id="5_3i5cs"]
 [ext_resource type="PackedScene" uid="uid://84xxip1wf4vx" path="res://Scenes/UI/minimap_icon.tscn" id="11_2hug4"]
+[ext_resource type="Script" path="res://Scripts/camera.gd" id="11_xl0am"]
 [ext_resource type="Texture2D" uid="uid://cj1qgbm34pbo6" path="res://Art/Sprites/camsize icon.png" id="12_taoki"]
 [ext_resource type="Texture2D" uid="uid://cwxntloygdy76" path="res://Art/Sprites/player icon 2.png" id="13_i67fy"]
 
@@ -129,9 +130,9 @@ y_sort_enabled = true
 material = ExtResource("3_354og")
 use_parent_material = true
 sprite_frames = SubResource("SpriteFrames_4r1yi")
-animation = &"idle"
-frame = 2
-frame_progress = 0.931048
+animation = &"walk"
+frame = 1
+frame_progress = 0.684073
 
 [node name="FlashTimer" type="Timer" parent="."]
 wait_time = 0.075
@@ -160,6 +161,14 @@ follow = true
 [node name="MinimapIcon2" parent="." instance=ExtResource("11_2hug4")]
 sprite = ExtResource("13_i67fy")
 follow = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_mode = 3
+limit_left = -400
+limit_top = -300
+limit_right = 400
+limit_bottom = 300
+script = ExtResource("11_xl0am")
 
 [connection signal="area_exited" from="Hurtbox" to="." method="_on_hurtbox_area_exited"]
 [connection signal="area_entered" from="MoneyPickup" to="." method="_on_money_pickup_area_entered"]

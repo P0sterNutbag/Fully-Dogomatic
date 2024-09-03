@@ -3,6 +3,7 @@ extends Node
 @export var player_objects_to_spawn: Array
 @export var enemy_objects_to_spawn: Array
 var crate = preload("res://Scenes/Levels/Level Objects/crate_guns.tscn")
+var upgrade_crate = preload("res://Scenes/Levels/Level Objects/crate_parts.tscn")
 var boss = preload("res://Scenes/Enemies/boss_pug.tscn")
 var hp_pickup = preload("res://Scenes/Levels/Level Objects/health_pickup.tscn")
 var crate_amount_variance: int = 0
@@ -14,6 +15,7 @@ var barrier_right: Vector2
 var boss_round = 20
 var spawn_round = 0
 var health_rounds: Array[int]
+var upgrade_rounds: Array[int]
 
 
 func _ready():
@@ -26,6 +28,10 @@ func _ready():
 		var inst = create_level_object(crate, Vector2(randf_range(-200, 200), randf_range(-100, 100)))
 	health_rounds.append(randi_range(4,8))
 	health_rounds.append(randi_range(15,19))
+	upgrade_rounds.append(randi_range(4,6))
+	upgrade_rounds.append(randi_range(8,10))
+	upgrade_rounds.append(randi_range(12,14))
+	upgrade_rounds.append(randi_range(16,18))
 
 
 func _on_spawn_timeout():
@@ -35,18 +41,18 @@ func _on_spawn_timeout():
 			var inst = Globals.create_instance(hp_pickup, get_border_position())
 			Globals.ui.add_level_obj(inst.name.to_upper(), true)
 	if spawn_round < boss_round:
-		for i in randi_range(1, 1 + crate_amount_variance):
-			var obj
-			if spawn_round <= 3:
-				obj = player_objects_to_spawn[0].object_to_spawn
-			else:
-				obj = player_objects_to_spawn[Globals.get_weighted_index(player_objects_to_spawn)].object_to_spawn
-			var inst = create_level_object(obj, get_border_position())
-			Globals.ui.add_level_obj(inst.name.to_upper(), true)
+		var inst
+		var is_upgrade_round = upgrade_rounds.has(spawn_round)
+		if is_upgrade_round:
+			inst = Globals.create_instance(upgrade_crate, get_border_position())
+		else:
+			var obj = player_objects_to_spawn[Globals.get_weighted_index(player_objects_to_spawn)].object_to_spawn
+			inst = create_level_object(obj, get_border_position())
+		Globals.ui.add_level_obj(inst.name.to_upper(), true)
 		for i in randi_range(1, 1 + enemy_spawner_variance):
 			var obj = enemy_objects_to_spawn[Globals.get_weighted_index(enemy_objects_to_spawn)].object_to_spawn
 			if obj != null:
-				var inst = create_level_object(obj, get_border_position())
+				inst = create_level_object(obj, get_border_position())
 				Globals.ui.add_level_obj(inst.name.to_upper(), false)
 	else:
 		var inst = create_level_object(boss, get_border_position())

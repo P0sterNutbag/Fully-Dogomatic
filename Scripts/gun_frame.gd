@@ -1,4 +1,3 @@
-@tool
 extends Node2D
 
 @export_subgroup("Parts")
@@ -35,7 +34,7 @@ var bullet_object: Node2D
 var last_changed_part: PackedScene
 
 
-func set_new_part(part_object: Node2D, new_part: PackedScene, socket_name: String, z: int):
+func set_new_part(part_object: Node, new_part: PackedScene, socket_name: String, z: int):
 	if new_part:
 		if part_object:
 			part_object.queue_free()

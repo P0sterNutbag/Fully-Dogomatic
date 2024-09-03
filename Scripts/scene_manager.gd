@@ -4,6 +4,7 @@ extends Node
 @onready var loading_sprite = $CanvasLayer/LoadingSprite
 @onready var animation_player = $CanvasLayer/LoadingSprite/AnimationPlayer
 var next_scene: String
+var pause_music: bool
 
 
 func _ready():
@@ -13,9 +14,10 @@ func _ready():
 	set_process(false)
 
 
-func start_scene_transition(scene: String) -> void:
+func start_scene_transition(scene: String, stop_music: bool = true) -> void:
 	scene_transition.transition_in()
 	next_scene = scene
+	pause_music = stop_music
 
 
 func change_scene() -> void:
@@ -30,7 +32,8 @@ func start_load() -> void:
 	set_process(true)
 	if !next_scene.contains("main_menu"):
 		animation_player.play("popin")
-	AudioManager.stop_all_audio()
+	if pause_music:
+		AudioManager.stop_all_audio()
 
 
 func _process(_delta):

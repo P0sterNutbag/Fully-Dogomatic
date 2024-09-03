@@ -19,21 +19,18 @@ func _ready():
 	Globals.barrier_left = $BarrierLeft.position
 	Globals.barrier_right = $BarrierRight.position
 	Globals.audio_manager.stage_music.play()
-	#circle_transition.visible = true
-	#circle_transition.transition_out()
-	$Player.player_died.connect(on_player_died)
+	var player = Globals.create_instance(Globals.player_to_spawn, Vector2.ZERO, self)
+	player.global_position = $PlayerSpawner.global_position
+	player.player_died.connect(on_player_died)
 
 
 func _process(delta):
-#	pass
 	if Input.is_key_pressed(KEY_B):
 		spawn_upgrade_menu("guns")
 	if Input.is_key_pressed(KEY_N):
-		spawn_upgrade_menu("gunparts")
-	if Input.is_key_pressed(KEY_M):
-		spawn_upgrade_menu("dogtags")
-	if game_over and Input.is_key_pressed(KEY_R):
-		pass#start_scene_transition("res://Scenes/Levels/world.tscn")
+		spawn_upgrade_menu("upgrades")
+	#if game_over and Input.is_key_pressed(KEY_R):
+		#pass#start_scene_transition("res://Scenes/Levels/world.tscn")
 
 
 func reset_scene():

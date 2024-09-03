@@ -1,10 +1,12 @@
+Sprite2D
+Node2D
+Timer
+RayCast2D
 ColorRect
 RichTextLabel
 TextEdit
 TextureButton
 Control
 HBoxContainer
-Sprite2D
 Button
-Timer
 AudioStreamPlayer

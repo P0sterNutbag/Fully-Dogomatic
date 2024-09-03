@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhl7m3iu8lmiu"]
+
+[ext_resource type="PackedScene" uid="uid://dxg8m0y80dpyp" path="res://Scenes/Guns/Parent/gun_parent.tscn" id="1_j5qh5"]
+[ext_resource type="PackedScene" uid="uid://b7sp0qxb75kog" path="res://Scenes/Bullets/shotgun_shell.tscn" id="2_m7wlc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7sqk0"]
+size = Vector2(25, 8.00011)
+
+[node name="Gun" instance=ExtResource("1_j5qh5")]
+bullet = ExtResource("2_m7wlc")
+spread = 40.0
+sound_shoot = "gunshot_shotgun"
+metadata/Title = "Sawed-Off"
+metadata/Type = "Shotgun"
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-0.499996, 1)
+shape = SubResource("RectangleShape2D_7sqk0")
+
+[node name="Sprite2D" parent="." index="1"]
+region_rect = Rect2(48, 64, 32, 16)
+
+[node name="SightHolder" parent="Sprite2D" index="0"]
+position = Vector2(-5.00001, -2.99998)
+
+[node name="MagazineHolder" parent="Sprite2D" index="1"]
+position = Vector2(-4.99999, 2.00002)
+
+[node name="Firepoint" parent="." index="2"]
+position = Vector2(11, -2.00005)

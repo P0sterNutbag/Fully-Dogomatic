@@ -1,0 +1,93 @@
+[gd_scene load_steps=16 format=3 uid="uid://gptg2kpnqe6t"]
+
+[ext_resource type="PackedScene" uid="uid://cfkssnl27y2qn" path="res://Scenes/Player/player.tscn" id="1_a50qb"]
+[ext_resource type="Shader" path="res://Art/Shaders/flash.gdshader" id="2_tfi7a"]
+[ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Art/Sprites/123spritesheet.png" id="3_okcom"]
+[ext_resource type="Texture2D" uid="uid://bgdv7cixbs4je" path="res://Art/Sprites/dachsund idle.png" id="4_5na8j"]
+[ext_resource type="Texture2D" uid="uid://crjojyt0eud0f" path="res://Art/Sprites/dachsund run.png" id="5_gjqup"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yg7og"]
+shader = ExtResource("2_tfi7a")
+shader_parameter/active = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drq76"]
+atlas = ExtResource("3_okcom")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nilym"]
+atlas = ExtResource("4_5na8j")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2bpfn"]
+atlas = ExtResource("4_5na8j")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4sk6"]
+atlas = ExtResource("4_5na8j")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_283pk"]
+atlas = ExtResource("5_gjqup")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_880mn"]
+atlas = ExtResource("5_gjqup")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu80a"]
+atlas = ExtResource("5_gjqup")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n14br"]
+atlas = ExtResource("5_gjqup")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5tcya"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drq76")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nilym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2bpfn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4sk6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_283pk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_880mn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pu80a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n14br")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[node name="Player" instance=ExtResource("1_a50qb")]
+
+[node name="PlayerSprite" parent="." index="4"]
+material = SubResource("ShaderMaterial_yg7og")
+sprite_frames = SubResource("SpriteFrames_5tcya")
+frame = 0
+frame_progress = 0.0

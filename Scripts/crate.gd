@@ -25,6 +25,8 @@ func _physics_process(delta):
 
 func _on_area_entered(area):
 	if !falling and !area.name.contains("Money"):
+		if Globals.ui.tutorial != null:
+			Globals.ui.tutorial.queue_free()
 		var inst = shop.instantiate()
 		var upgrade_menu = inst.get_node("UpgradeMenu")
 		upgrade_menu.upgrade_array = Globals.upgrade_manager.get(option_array_name)

@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlxlcit0cgc8c"]
+
+[ext_resource type="PackedScene" uid="uid://dxg8m0y80dpyp" path="res://Scenes/Guns/Parent/gun_parent.tscn" id="1_06myo"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="2_2s2jq"]
+
+[sub_resource type="Resource" id="Resource_q8twv"]
+script = ExtResource("2_2s2jq")
+rarity = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j2nmn"]
+size = Vector2(39.0001, 13.9998)
+
+[node name="Gun" instance=ExtResource("1_06myo")]
+bullet_damage = 2.5
+cooldown = 0.2
+spread = 17.0
+knockback = 1
+sound_shoot = "gunshot_assault"
+metadata/Title = "M4 Carbine"
+metadata/Type = "Assault Rifle"
+metadata/Rarity = SubResource("Resource_q8twv")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0.5, -2.17359e-06)
+shape = SubResource("RectangleShape2D_j2nmn")
+
+[node name="Sprite2D" parent="." index="1"]
+region_rect = Rect2(0, 0, 48, 16)
+
+[node name="SightHolder" parent="Sprite2D" index="0"]
+position = Vector2(-5.00002, -3.99998)
+
+[node name="MagazineHolder" parent="Sprite2D" index="1"]
+position = Vector2(-4, 1.00002)
+
+[node name="Firepoint" parent="." index="2"]
+position = Vector2(19, -2.00008)
+
+[node name="ShootTimer" parent="." index="3"]
+autostart = true

@@ -21,11 +21,6 @@ func select_gun():
 	option = upgrade_menu.upgrade_array[rand_index]
 	upgrade_menu.current_upgrades.append(option.object_to_spawn)
 	upgrade = option.object_to_spawn.instantiate()
-	if upgrade is GunPart:
-		upgrade.queue_free()
-		upgrade = part_scene.instantiate()
-		upgrade.part = option.object_to_spawn
-		upgrade.set_sprite()
 	call_deferred("add_child", upgrade)
 	upgrade.scale *= 2
 	upgrade.position = $GunHolder.position

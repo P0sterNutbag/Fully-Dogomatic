@@ -2,69 +2,63 @@ extends Area2D
 
 class_name Gun
 
-@export_subgroup("Sprite")
-#@export var sprite: AnimatedSprite2D  # Model of the weapon
-#@export var bullet: String = "res://bullet.tscn"
 
 @export_subgroup("Properties")
-@export var bullet: PackedScene = preload("res://Scenes/Bullets/bullet.tscn")
+@export var bullet: PackedScene = preload("res://Scenes/Bullets/regular_bullet.tscn")
+@export var bullet_damage: float = 3
 @export var cooldown: float = 1:
 	set(value): 
 		cooldown = value
-		$Timer.wait_time = value
-@export var spread: float = 0 
-@export var shot_count: int = 1 
-@export var knockback: int = 15  
+		if cooldown > 0:
+			$ShootTimer.wait_time = value
+@export var spread: float = 20 
 @export var rounds: int = 20  
-@export var bullet_speed: int = 15 
-@export var reload_time: float = 1: 
+@export var bullet_speed: int = 15
+@export var reload_time: float = 2: 
 	set(value): 
 		reload_time = value
 		$ReloadTimer.wait_time = reload_time
 @export var penetrations: int = 1
-@export var distance_to_player = 30
-@export var ricochet: bool = false
-@export var homing: bool = false
-
+@export var knockback: int = 5
+@export var bullet_explosion: PackedScene = preload("res://Scenes/Bullets/bullet_explosion.tscn")
 @export_subgroup("Sounds")
 @export var sound_shoot: String  # Sound path
-
+var distance_to_player = 18
+var shot_count: int = 1 
+var ricochet: bool = false
+var homing: bool = false
+var explode_chance: float = 0
 var holder = null
 var hold_offset: Vector2
 var direction_vector: Vector2
-var shots_left: int
+var shots_left: int = rounds
 var flash_timer := 0
 var grav_force = -200
 var x_force = 0
 var game_over = false
 var upgrades = 0
 var follow_mouse = false
-var explode_chance: float = 0
 var locked: bool = false
 var is_mouse_entered: bool = false
 var aim_dir := Vector2.RIGHT
 var can_delete: bool = false
+var can_press: bool
+var gunshot_sfx: AudioStreamPlayer2D
+var shell = preload("res://Scenes/Particles/shell.tscn")
+var status_effect = preload("res://Scenes/Particles/gun_status.tscn")
 var muzzleflash_textures = [preload("res://Art/Sprites/muzzleflash.png"), 
 preload("res://Art/Sprites/muzzleflash2.png"),
 preload("res://Art/Sprites/muzzleflash3.png")]
-
-@onready var sprite = $GunFrame
-var firepoint
-var muzzle_flash
-var firepoint_index = 0
-var shell = preload("res://Scenes/Particles/shell.tscn")
-#var gun_name = preload("res://Scenes/Guns/gun_name.tscn")
-var status_effect = preload("res://Scenes/Particles/gun_status.tscn")
-var gun_name_instance: Node2D
-var bullet_damage: float
-var bullet_explosion: PackedScene
-var can_press: bool
-var gunshot_sfx: AudioStreamPlayer2D
+@onready var sprite = $Sprite2D
+@onready var firepoint = $Firepoint
+@onready var muzzle_flash = $Firepoint/MuzzleFlash
 signal gun_deleted
 
 
 func _ready():
 	x_force = randf_range(-100,100)
+	gunshot_sfx = Globals.audio_manager.get(sound_shoot)
+	distance_to_player += $CollisionShape2D.shape.size.x / 2
 
 
 func _physics_process(delta):
@@ -83,7 +77,6 @@ func _physics_process(delta):
 			scale.y = -1
 		else:
 			scale.y = 1
-		#rotate_away_from_position(holder.position)
 	else:
 		if holder != null:
 			if not game_over:
@@ -102,12 +95,6 @@ func _physics_process(delta):
 
 
 func _process(delta):
-	if muzzle_flash:
-		if flash_timer > 0:
-			muzzle_flash.visible = true
-			flash_timer -= delta
-		elif muzzle_flash.visible:
-			muzzle_flash.visible = false
 	if Input.is_action_just_pressed("select") and can_press:
 		if can_delete and is_mouse_entered:
 			gun_deleted.emit()
@@ -136,15 +123,18 @@ func reload():
 
 func _on_timer_timeout(): # shoot bullets
 	if get_tree().paused: return
+	if Globals.player == null: return
 	if shots_left > 0 && holder.state != holder.states.dead:
+		# determine accuracy
 		var accuracy_mod = -5
 		if abs(Globals.player.velocity) > Vector2.ZERO:
 			accuracy_mod = 3
+		# shoot bullets
 		for i in shot_count:
 			var instance = bullet.instantiate()
 			get_tree().current_scene.add_child(instance)
 			instance.global_position = firepoint.global_position
-			var accuracy = clamp(spread + instance.spread_modifier + accuracy_mod, 0, 100)
+			var accuracy = clamp(spread + accuracy_mod, 0, 100)
 			var bullet_angle = global_rotation + randf_range(-accuracy/100, accuracy/100)
 			var bullet_vector = Vector2(cos(bullet_angle), sin(bullet_angle)) * bullet_speed
 			instance.move_vector = bullet_vector
@@ -156,25 +146,25 @@ func _on_timer_timeout(): # shoot bullets
 			instance.explosion = bullet_explosion
 			instance.explode_chance = max(explode_chance, Globals.explode_chance)
 			instance.homing = homing
-			muzzle_flash.visible = true
-		position += (knockback * (holder.global_position - global_position).normalized())
-		flash_timer = 1
+		# expend ammo
 		shots_left -= 1
 		if shots_left <= 0:
 			reload()
-		var inst = shell.instantiate()
-		get_tree().current_scene.add_child(inst)
-		inst.global_position = global_position
-		inst.max_y = global_position.y+5
+		# effects
+		position += (knockback * (holder.global_position - global_position).normalized())
 		sprite.scale = Vector2(1.3, 1.3)
-		#Globals.camera.screenshake(shot_count * b.damage * 0.75)
+		muzzle_flash.texture = muzzleflash_textures[randi_range(0, muzzleflash_textures.size()-1)]
+		muzzle_flash.visible = true
+		$FlashTimer.start()
+		var shell_inst = Globals.create_instance(shell, global_position)
+		shell_inst.max_y = global_position.y+5
+		# play sounds
 		if !gunshot_sfx.is_playing():
 			gunshot_sfx.pitch_scale = randf_range(0.9, 1.1)
 			gunshot_sfx.play()
 		elif gunshot_sfx.get_playback_position() > 0.05:
 			gunshot_sfx.pitch_scale = randf_range(0.9, 1.1)
 			gunshot_sfx.play()
-		muzzle_flash.texture = muzzleflash_textures[randi_range(0, muzzleflash_textures.size()-1)]
 
 
 func _on_reload_timer_timeout():
@@ -183,30 +173,7 @@ func _on_reload_timer_timeout():
 
 func set_game_over():
 	game_over = true
-	$Timer.stop()
-
-
-func show_name():
-	#gun_name_instance = gun_name.instantiate()
-	get_tree().current_scene.add_child(gun_name_instance)
-	var yoffset: int = 30 * sign(Globals.player.global_position.y - global_position.y)
-	gun_name_instance.global_position = global_position + Vector2(0, -yoffset)
-	gun_name_instance.get_node("RichTextLabel").text = "[center]Grab " + get_meta("Title") + "?"
-
-
-func reset_material():
-	if gun_name_instance != null:
-		gun_name_instance.queue_free()
-
-
-func _on_setup_timeout():
-	setup_gun()
-
-
-func setup_gun():
-	shots_left = rounds
-	firepoint = $GunFrame/Barrel/Firepoint
-	muzzle_flash = $GunFrame/Barrel/Firepoint/MuzzleFlash
+	$ShootTimer.stop()
 
 
 func attach_to_target(target: Node2D):
@@ -215,13 +182,13 @@ func attach_to_target(target: Node2D):
 	target.gun_pickup.emit()
 	target.guns.append(self)
 	holder = target
-	$Timer.start()
+	$ShootTimer.start()
 	Globals.world_controller.add_to_gun_list(get_meta("Title"))
 	get_parent().remove_child(self)
 	Globals.player.get_node("Guns").add_child(self)
 	Globals.ui.set_gun_amount()
 
- 
+
 func spin_gun():
 	await get_tree().create_timer($ReloadTimer.wait_time-0.75).timeout
 	Globals.audio_manager.reload.play()
@@ -233,11 +200,11 @@ func spin_gun():
 
 func _on_mouse_entered():
 	is_mouse_entered = true
-	#if get_tree().paused:
-		#Globals.activate_gunstats(self)
 
 
 func _on_mouse_exited():
 	is_mouse_entered = false
-	#if get_tree().paused:
-		#Globals.deactivate_gunstats()
+
+
+func _on_flash_timer_timeout() -> void:
+	muzzle_flash.visible = false

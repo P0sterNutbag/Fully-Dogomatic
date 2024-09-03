@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1ogbcpjo7mg2"]
+
+[ext_resource type="PackedScene" uid="uid://dxg8m0y80dpyp" path="res://Scenes/Guns/Parent/gun_parent.tscn" id="1_nr6q2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwtrg"]
+size = Vector2(17.9999, 13.0001)
+
+[node name="Gun" instance=ExtResource("1_nr6q2")]
+bullet_damage = 0.7
+cooldown = 0.05
+spread = 30.0
+rounds = 16
+knockback = 1
+sound_shoot = "gunshot_pistol"
+metadata/Title = "Mac-11"
+metadata/Type = "SMG"
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(1.00001, 1.5)
+shape = SubResource("RectangleShape2D_fwtrg")
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(4, 0.999982)
+region_rect = Rect2(88, 64, 24, 16)
+
+[node name="SightHolder" parent="Sprite2D" index="0"]
+position = Vector2(-7.00003, -5.99997)
+
+[node name="MagazineHolder" parent="Sprite2D" index="1"]
+position = Vector2(-8, 1.00004)
+
+[node name="Firepoint" parent="." index="2"]
+position = Vector2(9.99999, -3.00004)

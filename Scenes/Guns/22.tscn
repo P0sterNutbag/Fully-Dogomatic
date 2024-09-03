@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://vsx6o00th7ls"]
+
+[ext_resource type="PackedScene" uid="uid://dxg8m0y80dpyp" path="res://Scenes/Guns/Parent/gun_parent.tscn" id="1_ramvw"]
+
+[node name="Gun" instance=ExtResource("1_ramvw")]
+cooldown = 0.7
+spread = 5.0
+rounds = 16
+sound_shoot = "gunshot_assault"
+metadata/Title = ".22 Cal"
+metadata/Type = "Long Rifle"
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-0.5, 0)
+
+[node name="Sprite2D" parent="." index="1"]
+region_rect = Rect2(64, 48, 48, 16)
+
+[node name="SightHolder" parent="Sprite2D" index="0"]
+position = Vector2(-5.00002, -3.99998)
+
+[node name="MagazineHolder" parent="Sprite2D" index="1"]
+position = Vector2(-3, 1.00001)
+
+[node name="Firepoint" parent="." index="2"]
+position = Vector2(19, -3.00008)

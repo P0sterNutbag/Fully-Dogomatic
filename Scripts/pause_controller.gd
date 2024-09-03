@@ -16,7 +16,7 @@ func _process(_delta):
 
 
 func pause_game():
-	if pause_menu_instance == null:
+	if pause_menu_instance == null and !get_tree().paused:
 		get_tree().paused = true
 		pause_menu_instance = pause_menu.instantiate()
 		pause_menu_instance.global_position = Vector2(0, 0)

@@ -19,7 +19,6 @@ func set_gun_stats():
 	if gun_parent is Gun:
 		gun_parent.cooldown = cooldown
 		gun_parent.spread = spread
-		gun_parent.cooldown = cooldown
 		gun_parent.knockback = knockback
 		gun_parent.firepoint = $Firepoint
 		gun_parent.muzzle_flash = $Firepoint/MuzzleFlash
