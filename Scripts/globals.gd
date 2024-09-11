@@ -98,17 +98,17 @@ func get_gun_price(gun) -> float:
 	var price: float
 	match gun.get_meta("Rarity").rarity:
 		rarity_levels.common:
-			price = 5 + randf_range(-1, 1)
+			price = 25
 		rarity_levels.uncommon:
-			price = 10 + randf_range(-1, 1)
+			price = 50
 		rarity_levels.rare:
-			price = 20 + randf_range(-2, 2)
+			price = 100
 		rarity_levels.super_rare:
-			price = 30 + randf_range(-2, 2)
+			price = 30
 		rarity_levels.ultra_rare:
-			price = 40 + randf_range(-3, 3)
+			price = 40
 		rarity_levels.giga_rare:
-			price = 50 + randf_range(-3, 3)
+			price = 50
 	return price
 
 

@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://oomtcedhg0at"]
+
+[ext_resource type="PackedScene" uid="uid://dxg8m0y80dpyp" path="res://Scenes/Guns/Parent/gun_parent.tscn" id="1_t8yd1"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="2_hjall"]
+
+[sub_resource type="Resource" id="Resource_152ur"]
+script = ExtResource("2_hjall")
+rarity = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwtrg"]
+size = Vector2(25, 12.9999)
+
+[node name="Gun" instance=ExtResource("1_t8yd1")]
+bullet_damage = 1.0
+cooldown = 0.05
+rounds = 24
+knockback = 1
+sound_shoot = "gunshot_smg"
+metadata/Title = "MP5"
+metadata/Type = "SMG"
+metadata/Rarity = SubResource("Resource_152ur")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-0.5, 0.499998)
+shape = SubResource("RectangleShape2D_fwtrg")
+
+[node name="Sprite2D" parent="." index="1"]
+region_rect = Rect2(0, 16, 32, 16)
+
+[node name="SightHolder" parent="Sprite2D" index="0"]
+position = Vector2(-2.00003, -5.99999)
+
+[node name="MagazineHolder" parent="Sprite2D" index="1"]
+position = Vector2(-1.00001, -2)
+
+[node name="Firepoint" parent="." index="2"]
+position = Vector2(12, -4.00005)

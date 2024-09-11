@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqq2b80acoun5"]
+
+[ext_resource type="PackedScene" uid="uid://dxg8m0y80dpyp" path="res://Scenes/Guns/Parent/gun_parent.tscn" id="1_vsr4h"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="2_skusn"]
+
+[sub_resource type="Resource" id="Resource_ahfgn"]
+script = ExtResource("2_skusn")
+rarity = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j2nmn"]
+size = Vector2(39.0001, 11.9999)
+
+[node name="Gun" instance=ExtResource("1_vsr4h")]
+bullet_damage = 2.0
+cooldown = 0.1
+knockback = 1
+sound_shoot = "gunshot_assault"
+metadata/Title = "AK47"
+metadata/Type = "Assault Rifle"
+metadata/Rarity = SubResource("Resource_ahfgn")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0.5, 0.999947)
+shape = SubResource("RectangleShape2D_j2nmn")
+
+[node name="Sprite2D" parent="." index="1"]
+region_rect = Rect2(32, 32, 48, 16)
+
+[node name="SightHolder" parent="Sprite2D" index="0"]
+position = Vector2(-5.00002, -4.99998)
+
+[node name="MagazineHolder" parent="Sprite2D" index="1"]
+position = Vector2(-3, -0.999987)
+
+[node name="Firepoint" parent="." index="2"]
+position = Vector2(20, -3.00009)
+
+[node name="ShootTimer" parent="." index="3"]
+autostart = true

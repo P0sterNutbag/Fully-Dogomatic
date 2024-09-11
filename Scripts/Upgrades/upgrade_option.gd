@@ -13,13 +13,6 @@ var gun_upgrade_scene = preload("res://Scenes/Upgrades/gun_upgrade.tscn")
 
 
 func select_gun():
-	# get an option and make sure it isn't already used
-	var upgrade_menu = get_parent()
-	var rand_index = Globals.get_weighted_index(upgrade_menu.upgrade_array)
-	while upgrade_menu.current_upgrades.has(upgrade_menu.upgrade_array[rand_index].object_to_spawn):
-		rand_index = Globals.get_weighted_index(upgrade_menu.upgrade_array)
-	option = upgrade_menu.upgrade_array[rand_index]
-	upgrade_menu.current_upgrades.append(option.object_to_spawn)
 	upgrade = option.object_to_spawn.instantiate()
 	call_deferred("add_child", upgrade)
 	upgrade.scale *= 2
@@ -28,7 +21,7 @@ func select_gun():
 	$UpgradeDescription.text = "[center]" + upgrade.get_meta("Type")
 	# write price
 	if show_price:
-		price = round(Globals.get_gun_price(upgrade)*pow(10,2))/pow(10,2)
+		price = round(Globals.get_gun_price(upgrade))
 	if price > 0:
 		$Price.text = "[center]$" + str(price)
 

@@ -6,6 +6,7 @@ class_name Gun
 @export_subgroup("Properties")
 @export var bullet: PackedScene = preload("res://Scenes/Bullets/regular_bullet.tscn")
 @export var bullet_damage: float = 3
+@export var bullet_count: float = 1
 @export var cooldown: float = 1:
 	set(value): 
 		cooldown = value
@@ -24,7 +25,6 @@ class_name Gun
 @export_subgroup("Sounds")
 @export var sound_shoot: String  # Sound path
 var distance_to_player = 18
-var shot_count: int = 1 
 var ricochet: bool = false
 var homing: bool = false
 var explode_chance: float = 0
@@ -130,7 +130,7 @@ func _on_timer_timeout(): # shoot bullets
 		if abs(Globals.player.velocity) > Vector2.ZERO:
 			accuracy_mod = 3
 		# shoot bullets
-		for i in shot_count:
+		for i in bullet_count:
 			var instance = bullet.instantiate()
 			get_tree().current_scene.add_child(instance)
 			instance.global_position = firepoint.global_position

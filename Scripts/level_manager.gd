@@ -8,7 +8,7 @@ var boss = preload("res://Scenes/Enemies/boss_pug.tscn")
 var hp_pickup = preload("res://Scenes/Levels/Level Objects/health_pickup.tscn")
 var crate_amount_variance: int = 0
 var enemy_spawner_variance: int = 0
-var starting_crate_amount = 1
+var starting_crate_amount = 0
 var barrier_margin = 80
 var barrier_left: Vector2
 var barrier_right: Vector2

@@ -48,4 +48,5 @@ func _on_area_entered(area):
 		var particle = break_particle.instantiate()
 		get_tree().current_scene.add_child(particle)
 		particle.global_position = global_position
-		queue_free()
+		if !pay_for_guns:
+			queue_free()

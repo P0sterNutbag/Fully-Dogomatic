@@ -51,7 +51,8 @@ func add_to_gun_list(string):
 
 
 func set_money(val):
-	$CanvasLayer/XpBarHolder/XpBar.value = val
+	pass
+	#$CanvasLayer/XpBarHolder/XpBar.value = val
 
 
 func reset_score():

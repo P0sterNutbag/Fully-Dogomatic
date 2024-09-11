@@ -3,4 +3,4 @@
 [ext_resource type="PackedScene" uid="uid://bpis8skquuip5" path="res://Scenes/Levels/Level Objects/crate_guns.tscn" id="1_57ygq"]
 
 [node name="Upgrade Crate" instance=ExtResource("1_57ygq")]
-option_array_name = "gunparts"
+option_array_name = "upgrades"

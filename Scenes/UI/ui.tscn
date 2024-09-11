@@ -238,7 +238,6 @@ offset_right = 248.0
 offset_bottom = 83.0
 
 [node name="MoneyText" type="RichTextLabel" parent="LeftCorner"]
-visible = false
 use_parent_material = true
 clip_contents = false
 layout_mode = 0

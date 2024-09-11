@@ -11,6 +11,7 @@ rarity = 2
 player_upgrade = true
 variable_name = "gun_rotation"
 value = 5.0
+metadata/Type = "Rotating Guns"
 metadata/Rarity = SubResource("Resource_134ul")
 
 [node name="Icon" parent="." index="1"]

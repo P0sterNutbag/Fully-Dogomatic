@@ -11,14 +11,35 @@ var enemy2_probability = 0
 var enemy3_probability = 0
 
 
-func _ready():
+func _ready() -> void:
 	Globals.enemy_spawn_controller = self
 	for i in get_child_count():
 		if get_child(i) is Node2D:
 			spawners.append(get_child(i))
 
 
-func _on_spawn_enemies_timeout():
+func _process(delta: float) -> void:
+	if Input.is_key_pressed(KEY_1):
+		spawn_round = 1
+	elif Input.is_key_pressed(KEY_2):
+		spawn_round = 2
+	elif Input.is_key_pressed(KEY_3):
+		spawn_round = 3
+	elif Input.is_key_pressed(KEY_4):
+		spawn_round = 4
+	elif Input.is_key_pressed(KEY_5):
+		spawn_round = 5
+	elif Input.is_key_pressed(KEY_6):
+		spawn_round = 6
+	elif Input.is_key_pressed(KEY_7):
+		spawn_round = 7
+	elif Input.is_key_pressed(KEY_8):
+		spawn_round = 8
+	elif Input.is_key_pressed(KEY_9):
+		spawn_round = 9
+
+
+func _on_spawn_enemies_timeout() -> void:
 	spawn_enemy()
 
 
@@ -44,13 +65,13 @@ func get_enemy_to_spawn() -> PackedScene:
 	return spawn_rounds[spawn_round][Globals.get_weighted_index(spawn_rounds[spawn_round])].object_to_spawn
 
 
-func _on_spawn_round_timeout():
+func _on_spawn_round_timeout() -> void:
 	spawn_round = clamp(spawn_round + 1, 0, spawn_rounds.size()-1)
 
 
-func _on_initial_spawn_timeout():
+func _on_initial_spawn_timeout() -> void:
 	spawn_enemy()
 
 
-func _on_node_2d_stop_spawning_enemies():
+func _on_node_2d_stop_spawning_enemies() -> void:
 	queue_free()

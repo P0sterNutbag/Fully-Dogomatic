@@ -12,8 +12,8 @@ var target: CharacterBody2D
 var dollar = preload("res://Scenes/Player/dollar.tscn")
 var blood = preload("res://Scenes/Particles/blood.tscn")
 var dogpart = preload("res://Scenes/Particles/dogpart.tscn")
-var money_min = 0
-var money_max = 0
+var money_min = 3
+var money_max = 4
 var fall_y = -200
 var fall_x = 0
 var time = 0

@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1fbp2bo5h33s"]
+
+[ext_resource type="PackedScene" uid="uid://dxg8m0y80dpyp" path="res://Scenes/Guns/Parent/gun_parent.tscn" id="1_r6wlw"]
+[ext_resource type="PackedScene" uid="uid://b7sp0qxb75kog" path="res://Scenes/Bullets/shotgun_shell.tscn" id="2_prrie"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_u3oh1"]
+
+[sub_resource type="Resource" id="Resource_e01yd"]
+script = ExtResource("3_u3oh1")
+rarity = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7sqk0"]
+size = Vector2(37, 8.00001)
+
+[node name="Gun" instance=ExtResource("1_r6wlw")]
+bullet = ExtResource("2_prrie")
+bullet_damage = 2.0
+bullet_count = 6.0
+spread = 25.0
+rounds = 2
+sound_shoot = "gunshot_shotgun"
+metadata/Title = "Double Barrel"
+metadata/Type = "Shotgun"
+metadata/Rarity = SubResource("Resource_e01yd")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-1.5, -2.36035e-06)
+shape = SubResource("RectangleShape2D_7sqk0")
+
+[node name="Sprite2D" parent="." index="1"]
+region_rect = Rect2(0, 64, 48, 16)
+
+[node name="SightHolder" parent="Sprite2D" index="0"]
+position = Vector2(-7.00002, -3.99997)
+
+[node name="MagazineHolder" parent="Sprite2D" index="1"]
+position = Vector2(-7, 1.00003)
+
+[node name="Firepoint" parent="." index="2"]
+position = Vector2(17, -3.00008)

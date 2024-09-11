@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://qavuwtph0wq3"]
+
+[ext_resource type="Script" path="res://Scripts/money_crate.gd" id="1_wkclp"]
+[ext_resource type="Texture2D" uid="uid://bh1jul4jbpiym" path="res://Art/Sprites/crate.png" id="2_i30j3"]
+[ext_resource type="PackedScene" uid="uid://84xxip1wf4vx" path="res://Scenes/UI/minimap_icon.tscn" id="3_52cgw"]
+[ext_resource type="Texture2D" uid="uid://d0xgh2orsogie" path="res://Art/Sprites/crate icon.png" id="4_viubq"]
+[ext_resource type="PackedScene" uid="uid://pkl1jd6tt0bd" path="res://Scenes/UI/arrow.tscn" id="5_xa273"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bbmw7"]
+size = Vector2(22, 22)
+
+[node name="MoneyCrate" type="Area2D"]
+use_parent_material = true
+collision_mask = 2
+script = ExtResource("1_wkclp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bbmw7")
+
+[node name="CrateSprite" type="Sprite2D" parent="."]
+use_parent_material = true
+texture = ExtResource("2_i30j3")
+
+[node name="MinimapIcon" parent="." instance=ExtResource("3_52cgw")]
+sprite = ExtResource("4_viubq")
+
+[node name="Arrow" parent="." instance=ExtResource("5_xa273")]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

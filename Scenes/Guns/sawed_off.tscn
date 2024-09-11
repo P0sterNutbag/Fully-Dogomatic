@@ -8,7 +8,10 @@ size = Vector2(25, 8.00011)
 
 [node name="Gun" instance=ExtResource("1_j5qh5")]
 bullet = ExtResource("2_m7wlc")
+bullet_damage = 2.0
+bullet_count = 4.0
 spread = 40.0
+rounds = 6
 sound_shoot = "gunshot_shotgun"
 metadata/Title = "Sawed-Off"
 metadata/Type = "Shotgun"

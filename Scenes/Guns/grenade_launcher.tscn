@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://dyym4owbrpqw"]
+
+[ext_resource type="PackedScene" uid="uid://dxg8m0y80dpyp" path="res://Scenes/Guns/Parent/gun_parent.tscn" id="1_y0g2b"]
+[ext_resource type="PackedScene" uid="uid://dfyv2v8qbh3ht" path="res://Scenes/Bullets/grenade.tscn" id="2_l6bvx"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_r4ce5"]
+
+[sub_resource type="Resource" id="Resource_snpq1"]
+script = ExtResource("3_r4ce5")
+rarity = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_18vyg"]
+size = Vector2(26.9999, 12.0001)
+
+[node name="Gun" instance=ExtResource("1_y0g2b")]
+bullet = ExtResource("2_l6bvx")
+cooldown = 3.0
+rounds = 6
+sound_shoot = "gunshot_shotgun"
+metadata/Title = "Grenade Launcher"
+metadata/Type = ""
+metadata/Rarity = SubResource("Resource_snpq1")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0.500005, 0.999998)
+shape = SubResource("RectangleShape2D_18vyg")
+
+[node name="Sprite2D" parent="." index="1"]
+region_rect = Rect2(0, 32, 32, 16)
+
+[node name="SightHolder" parent="Sprite2D" index="0"]
+position = Vector2(-3.00002, -4.99999)
+
+[node name="MagazineHolder" parent="Sprite2D" index="1"]
+position = Vector2(-1, 4.52995e-06)
+
+[node name="Firepoint" parent="." index="2"]
+position = Vector2(14, -3.00006)
