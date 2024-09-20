@@ -3,17 +3,17 @@
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_lk1ej"]
 [ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="3_4hdc5"]
 [ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="3_8xjm0"]
-[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="4_ss4gi"]
 [ext_resource type="Theme" uid="uid://dpv7tir788p5t" path="res://Art/Themes/ui text small.tres" id="5_7e6pl"]
+[ext_resource type="Theme" uid="uid://d20y8va2yhr08" path="res://Art/Themes/ui text large.tres" id="5_vt4an"]
 [ext_resource type="Script" path="res://Scripts/dogtags_ui.gd" id="11_7ulue"]
 [ext_resource type="Theme" uid="uid://d3ab1bo48xa01" path="res://Art/Themes/ui text mid mono.tres" id="13_7jkv8"]
 [ext_resource type="PackedScene" uid="uid://dwx100okd3d23" path="res://Scenes/UI/minimap.tscn" id="13_ehvuj"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="14_gog46"]
+[ext_resource type="Theme" uid="uid://lra3teo37km0" path="res://Art/Themes/ui text mini.tres" id="15_55jpf"]
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="15_inkxv"]
 [ext_resource type="Theme" uid="uid://dawp23mso2e5a" path="res://Art/Themes/healthbar.tres" id="15_o6py4"]
 [ext_resource type="Texture2D" uid="uid://daxb7qrq2h0do" path="res://Art/Sprites/corgi background.png" id="16_amnsy"]
 [ext_resource type="Texture2D" uid="uid://c6y0lkh055u06" path="res://Art/Sprites/heart.png" id="17_biwwo"]
-[ext_resource type="Theme" uid="uid://caletdmnc4r81" path="res://Art/Themes/ui text small mono.tres" id="19_76qcs"]
 [ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="20_bc85l"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2xchs"]
@@ -71,9 +71,9 @@ ProgressBar/styles/fill = SubResource("StyleBoxFlat_agtf6")
 script = ExtResource("1_lk1ej")
 
 [node name="ScoreHolder" type="Node2D" parent="."]
-visible = false
 material = SubResource("ShaderMaterial_2xchs")
-position = Vector2(517, 63)
+position = Vector2(460, 32)
+metadata/_edit_group_ = true
 
 [node name="Kills" type="RichTextLabel" parent="ScoreHolder"]
 use_parent_material = true
@@ -84,16 +84,14 @@ anchor_bottom = 1.0
 offset_left = 2.0
 offset_top = -8.0
 offset_right = 111.0
-offset_bottom = 37.0
+offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("5_7e6pl")
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 8
-theme_override_fonts/normal_font = ExtResource("4_ss4gi")
-theme_override_font_sizes/normal_font_size = 14
+theme = ExtResource("20_bc85l")
 bbcode_enabled = true
-text = "KILL-STREAK"
+text = "KILLS
+PER
+SECOND"
 
 [node name="Score" type="RichTextLabel" parent="ScoreHolder"]
 use_parent_material = true
@@ -102,14 +100,15 @@ offset_left = -184.0
 offset_top = -13.0
 offset_right = -10.0
 offset_bottom = 24.0
-theme = ExtResource("5_7e6pl")
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 8
-theme_override_fonts/normal_font = ExtResource("4_ss4gi")
-theme_override_font_sizes/normal_font_size = 28
+theme = ExtResource("5_vt4an")
 bbcode_enabled = true
 text = "50"
 text_direction = 2
+
+[node name="JuicyMovement" parent="ScoreHolder" node_paths=PackedStringArray("target_node2D") instance=ExtResource("14_gog46")]
+target_node2D = NodePath("..")
+rot_frequency = 2.0
+rot_amplitude = 15.0
 
 [node name="Dogtags" type="Control" parent="."]
 layout_mode = 3
@@ -119,42 +118,6 @@ offset_top = 336.0
 offset_right = 96.0
 offset_bottom = 336.0
 script = ExtResource("11_7ulue")
-
-[node name="Drop" type="Node2D" parent="."]
-position = Vector2(320, 38)
-
-[node name="DropAlert" type="RichTextLabel" parent="Drop"]
-material = SubResource("ShaderMaterial_2xchs")
-clip_contents = false
-offset_left = -32.0
-offset_top = 2.0
-offset_right = 35.0
-offset_bottom = 35.0
-pivot_offset = Vector2(33, 11)
-theme = ExtResource("5_7e6pl")
-bbcode_enabled = true
-text = "[center]DROP INCOMING: "
-
-[node name="JuicyMovement" parent="Drop/DropAlert" node_paths=PackedStringArray("target_control") instance=ExtResource("14_gog46")]
-position = Vector2(0, 24)
-target_control = NodePath("..")
-pulse_frequency = 5.0
-pulse_amplitude = 0.35
-rot_frequency = 2.5
-rot_amplitude = 15.0
-
-[node name="DropTimer" type="RichTextLabel" parent="Drop"]
-material = SubResource("ShaderMaterial_2xchs")
-clip_contents = false
-offset_left = -29.0
-offset_top = 24.0
-offset_right = 37.0
-offset_bottom = 61.0
-pivot_offset = Vector2(41, 11)
-theme = ExtResource("13_7jkv8")
-bbcode_enabled = true
-text = "[left]9.00
-"
 
 [node name="BossHp" type="Node2D" parent="."]
 visible = false
@@ -185,7 +148,6 @@ bbcode_enabled = true
 text = "[center]MAX, CONSUMER OF LUMPS"
 
 [node name="ColorRect" type="ColorRect" parent="."]
-z_index = 950
 material = SubResource("ShaderMaterial_o0qgv")
 use_parent_material = true
 clip_contents = true
@@ -200,7 +162,6 @@ scale = Vector2(0.916667, 0.916667)
 texture = ExtResource("16_amnsy")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
-z_index = 1000
 material = SubResource("ShaderMaterial_o0qgv")
 use_parent_material = true
 clip_contents = true
@@ -215,16 +176,47 @@ position = Vector2(137.5, 176)
 scale = Vector2(0.916667, 0.916667)
 texture = ExtResource("16_amnsy")
 
+[node name="Drop" type="Node2D" parent="."]
+position = Vector2(318, 58)
+
+[node name="DropAlert" type="RichTextLabel" parent="Drop"]
+material = SubResource("ShaderMaterial_2xchs")
+clip_contents = false
+offset_left = -93.0
+offset_top = 5.0
+offset_right = 105.0
+offset_bottom = 75.0
+theme = ExtResource("20_bc85l")
+bbcode_enabled = true
+text = "DROP INCOMING:"
+
+[node name="JuicyMovement" parent="Drop/DropAlert" node_paths=PackedStringArray("target_control") instance=ExtResource("14_gog46")]
+position = Vector2(-87, 28)
+target_control = NodePath("..")
+blink_frequency = 0.3
+
+[node name="DropTimer" type="RichTextLabel" parent="Drop"]
+material = SubResource("ShaderMaterial_2xchs")
+clip_contents = false
+offset_left = -31.0
+offset_top = 25.0
+offset_right = 33.0
+offset_bottom = 62.0
+theme = ExtResource("13_7jkv8")
+bbcode_enabled = true
+text = "[left]9.00
+"
+
 [node name="Minimap" parent="." instance=ExtResource("13_ehvuj")]
 material = SubResource("ShaderMaterial_o0qgv")
 layout_direction = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 121.0
-offset_top = 41.0
-offset_right = 121.0
-offset_bottom = 41.0
+offset_left = 120.0
+offset_top = 79.0
+offset_right = 120.0
+offset_bottom = 79.0
 grow_horizontal = 1
 grow_vertical = 1
 
@@ -232,25 +224,23 @@ grow_vertical = 1
 material = ExtResource("15_inkxv")
 layout_mode = 3
 anchors_preset = 0
-offset_left = 88.0
-offset_top = 8.0
-offset_right = 248.0
-offset_bottom = 83.0
+offset_left = 87.0
+offset_top = 6.0
+offset_right = 109.0
+offset_bottom = 27.0
 
 [node name="MoneyText" type="RichTextLabel" parent="LeftCorner"]
 use_parent_material = true
 clip_contents = false
 layout_mode = 0
-offset_left = 75.0
 offset_top = 26.0
-offset_right = 144.0
+offset_right = 69.0
 offset_bottom = 66.0
 theme = ExtResource("5_7e6pl")
 text = "$0"
 
 [node name="HPBar" type="Node2D" parent="LeftCorner"]
 material = SubResource("ShaderMaterial_2xchs")
-position = Vector2(75, 0)
 
 [node name="Heart" type="Sprite2D" parent="LeftCorner/HPBar"]
 material = SubResource("ShaderMaterial_r5tbb")
@@ -261,7 +251,7 @@ texture = ExtResource("17_biwwo")
 z_index = 100
 material = SubResource("ShaderMaterial_t5vgb")
 offset_top = 11.0
-offset_right = 75.0
+offset_right = 50.0
 offset_bottom = 18.0
 theme = SubResource("Theme_0bs5q")
 value = 100.0
@@ -277,112 +267,112 @@ offset_bottom = 9.0
 theme = ExtResource("5_7e6pl")
 text = "HP"
 
-[node name="RightCorner" type="Control" parent="."]
+[node name="Info" type="Control" parent="."]
 material = ExtResource("15_inkxv")
 layout_direction = 3
 layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -552.0
-offset_top = 8.0
-offset_right = -509.0
-offset_bottom = 48.0
+offset_left = -193.0
+offset_top = 121.0
+offset_right = -150.0
+offset_bottom = 153.0
 grow_horizontal = 0
 
-[node name="Time" type="RichTextLabel" parent="RightCorner"]
+[node name="Time" type="RichTextLabel" parent="Info"]
 use_parent_material = true
 clip_contents = false
 layout_mode = 2
-offset_left = 67.0
-offset_top = -1.0
-offset_right = 105.0
-offset_bottom = 9.0
-theme = ExtResource("5_7e6pl")
+offset_left = 68.0
+offset_top = -8.0
+offset_right = 106.0
+offset_bottom = 10.0
+theme = ExtResource("15_55jpf")
 bbcode_enabled = true
 text = "[left]TIME:"
 
-[node name="TimeAmnt" type="RichTextLabel" parent="RightCorner"]
+[node name="TimeAmnt" type="RichTextLabel" parent="Info"]
 use_parent_material = true
 clip_contents = false
 layout_mode = 0
-offset_top = -1.0
-offset_right = 77.0
+offset_left = 39.0
+offset_top = -8.0
+offset_right = 78.0
 offset_bottom = 9.0
-theme = ExtResource("19_76qcs")
+theme = ExtResource("15_55jpf")
 bbcode_enabled = true
 text = "[right]00:00:00"
 
-[node name="Guns" type="RichTextLabel" parent="RightCorner"]
+[node name="Guns" type="RichTextLabel" parent="Info"]
 use_parent_material = true
 clip_contents = false
 layout_mode = 2
-offset_left = 71.0
-offset_top = 12.0
-offset_right = 119.0
-offset_bottom = 20.0
-theme = ExtResource("5_7e6pl")
+offset_left = 87.0
+offset_top = 3.0
+offset_right = 135.0
+offset_bottom = 22.0
+theme = ExtResource("15_55jpf")
 bbcode_enabled = true
 text = "[right]GUNS:"
 
-[node name="GunsAmnt" type="RichTextLabel" parent="RightCorner"]
+[node name="GunsAmnt" type="RichTextLabel" parent="Info"]
 use_parent_material = true
 clip_contents = false
 layout_mode = 2
-offset_top = 12.0
-offset_right = 64.0
+offset_left = 39.0
+offset_top = 3.0
+offset_right = 106.0
 offset_bottom = 21.0
-theme = ExtResource("19_76qcs")
-bbcode_enabled = true
-text = "[right]0/10"
-
-[node name="Kills" type="RichTextLabel" parent="RightCorner"]
-visible = false
-use_parent_material = true
-clip_contents = false
-layout_mode = 2
-offset_left = 34.0
-offset_top = 36.0
-offset_right = 89.0
-offset_bottom = 46.0
-theme = ExtResource("5_7e6pl")
-bbcode_enabled = true
-text = "[right]KILLS:"
-
-[node name="KillsMmnt" type="RichTextLabel" parent="RightCorner"]
-visible = false
-use_parent_material = true
-clip_contents = false
-layout_mode = 2
-offset_top = 36.0
-offset_right = 33.0
-offset_bottom = 46.0
-theme = ExtResource("5_7e6pl")
+theme = ExtResource("15_55jpf")
 bbcode_enabled = true
 text = "[right]0"
 
-[node name="DPS" type="RichTextLabel" parent="RightCorner"]
-visible = false
+[node name="Kills" type="RichTextLabel" parent="Info"]
 use_parent_material = true
 clip_contents = false
 layout_mode = 2
-offset_left = 34.0
-offset_top = 24.0
-offset_right = 89.0
-offset_bottom = 33.0
-theme = ExtResource("5_7e6pl")
+offset_left = 51.0
+offset_top = 14.0
+offset_right = 106.0
+offset_bottom = 29.0
+theme = ExtResource("15_55jpf")
 bbcode_enabled = true
-text = "[right]DPS:"
+text = "KILLS:"
 
-[node name="DPSAmnt" type="RichTextLabel" parent="RightCorner"]
-visible = false
+[node name="KillsAmnt" type="RichTextLabel" parent="Info"]
 use_parent_material = true
 clip_contents = false
 layout_mode = 2
-offset_top = 24.0
-offset_right = 33.0
-offset_bottom = 33.0
-theme = ExtResource("5_7e6pl")
+offset_left = 39.0
+offset_top = 14.0
+offset_right = 72.0
+offset_bottom = 31.0
+theme = ExtResource("15_55jpf")
+bbcode_enabled = true
+text = "[right]0"
+
+[node name="KPS" type="RichTextLabel" parent="Info"]
+use_parent_material = true
+clip_contents = false
+layout_mode = 2
+offset_left = 51.0
+offset_top = 25.0
+offset_right = 106.0
+offset_bottom = 40.0
+theme = ExtResource("15_55jpf")
+bbcode_enabled = true
+text = "KILLS/SEC:"
+
+[node name="KPSAmnt2" type="RichTextLabel" parent="Info"]
+use_parent_material = true
+clip_contents = false
+layout_mode = 2
+offset_left = 39.0
+offset_top = 25.0
+offset_right = 72.0
+offset_bottom = 42.0
+theme = ExtResource("15_55jpf")
 bbcode_enabled = true
 text = "[right]0"
 
@@ -398,6 +388,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Tutorial" type="RichTextLabel" parent="Center"]
+visible = false
 use_parent_material = true
 layout_mode = 1
 anchors_preset = 8

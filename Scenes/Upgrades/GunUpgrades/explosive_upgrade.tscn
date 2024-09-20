@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfgkpnsswjar8"]
+[gd_scene load_steps=7 format=3 uid="uid://bfgkpnsswjar8"]
 
 [ext_resource type="PackedScene" uid="uid://dxh25edu12ok8" path="res://Scenes/Upgrades/gun_upgrade.tscn" id="1_m2niw"]
 [ext_resource type="Texture2D" uid="uid://b0rfe3ff6ilq5" path="res://Art/Sprites/upgrade spritesheet.png" id="2_sv7m2"]
 [ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="2_wqka5"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_gwtji"]
 
 [sub_resource type="Resource" id="Resource_iqdtj"]
 script = ExtResource("2_wqka5")
@@ -10,8 +11,13 @@ values = ["explode_chance", 1.0]
 multiply_value = false
 add_value = false
 
+[sub_resource type="Resource" id="Resource_exgce"]
+script = ExtResource("3_gwtji")
+rarity = 2
+
 [node name="GunUpgradeExplosive" instance=ExtResource("1_m2niw")]
 upgrade_values = Array[ExtResource("2_wqka5")]([SubResource("Resource_iqdtj")])
+metadata/Rarity = SubResource("Resource_exgce")
 
 [node name="UpgradeSprite" parent="." index="0"]
 texture = ExtResource("2_sv7m2")

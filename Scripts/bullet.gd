@@ -21,7 +21,8 @@ var spark = preload("res://Scenes/Particles/bullet_spark.tscn")
 func _ready():
 	await get_tree().create_timer(0.01).timeout
 	if homing:
-		target_enemy = get_nearest_enemy()
+		$HomingArea.process_mode = Node.PROCESS_MODE_INHERIT
+		#target_enemy = get_nearest_enemy()
 	if randi_range(0,1) == 1:
 		scale.y *= -1
 
@@ -32,6 +33,8 @@ func _physics_process(delta):
 		if target_enemy != null:
 			var target_vector = (target_enemy.position - position).normalized() * speed
 			move_vector = lerp(move_vector, target_vector, 7.5 * delta)
+		#else:
+			#target_enemy = get_nearest_enemy()
 		rotation = move_vector.angle()
 	var top_left_bound = Vector2(Globals.camera.get_screen_center_position().x - 240, Globals.camera.get_screen_center_position().y - 180)
 	var bottom_right_bound = Vector2(Globals.camera.get_screen_center_position().x + 240, Globals.camera.get_screen_center_position().y + 180)
@@ -73,7 +76,7 @@ func _on_area_entered(area):
 			queue_free()
 		elif homing:
 			hit_enemies.append(target_enemy)
-			target_enemy = get_nearest_enemy()
+			#target_enemy = get_nearest_enemy()
 
 
 func create_explosion(spawn_position: Vector2):
@@ -90,3 +93,8 @@ func get_nearest_enemy():
 			closest_enemy = enemy
 			closest_dist = distance
 	return closest_enemy
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if target_enemy == null:
+		target_enemy = area.get_parent()

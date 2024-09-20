@@ -1,19 +1,21 @@
 extends UiMenuButton
 
-var option
+@export var upgrade_array: Array[String]
+@export var show_price: bool
 var upgrade
 var destination = Vector2.ZERO
 var bobbing = false
 var mouse_over = false
-var selected: bool = false
 var price: float = 0
-var show_price: bool = false
 var part_scene = preload("res://Scenes/Upgrades/part_upgrade.tscn")
 var gun_upgrade_scene = preload("res://Scenes/Upgrades/gun_upgrade.tscn")
+var not_enough_money = preload("res://Scenes/UI/not_enough_money.tscn")
 
 
-func select_gun():
-	upgrade = option.object_to_spawn.instantiate()
+func create_upgrade(upgrade_scene: PackedScene):
+	if upgrade != null:
+		upgrade.queue_free()
+	upgrade = upgrade_scene.instantiate()
 	call_deferred("add_child", upgrade)
 	upgrade.scale *= 2
 	upgrade.position = $GunHolder.position
@@ -30,105 +32,34 @@ func _process(delta):
 	# move away
 	if destination != Vector2.ZERO:
 		position = lerp(position, destination, 5 * delta)
-	
-	#if position.distance_to(get_global_mouse_position()) < $Circle.circle_radius and !selected:
-		#scale = lerp(scale, Vector2.ONE * 1.25, 5 * delta)
-		#if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-			#if upgrade and Globals.player.money >= price:
-				#selected = true
-				#if price > 0:
-					#Globals.player.spend_money(price)
-				#if upgrade.name.contains("Dogtag"):
-					#upgrade.apply_upgrade()
-					#get_parent().move_options()
-					#get_parent()._on_texture_rect_pushed()
-					##remove_child(upgrade)
-					#Globals.ui.get_node("Dogtags").add_dogtag(upgrade)
-				#else: 
-					#upgrade.follow_mouse = true
-					#remove_child(upgrade)
-					#get_tree().current_scene.add_child(upgrade)
-					#upgrade.call_deferred("attach_to_target", Globals.player)
-					#upgrade.scale = Vector2.ONE
-					#upgrade = null
-					#get_parent().move_options()
-	#else:
-	#	scale = lerp(scale, Vector2.ONE, 5 * delta)
-
-
-func apply_to_upgrade(_upgrade: Node2D):
-	var instance = option.object_to_spawn.instantiate()
-	_upgrade.add_child(instance)
-
-
-#func select():
-	#scale *= 1.35
-	#bobbing = true
-	#z_index += 1
-#
-#
-#func unselect():
-	#scale = Vector2(1, 1)
-	#bobbing = false
-	#z_index -= 1
-
-
-#func _on_color_rect_gui_input(event):
-	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		#if upgrade and Globals.player.money >= price:
-			#selected = true
-			#if price > 0:
-				#Globals.player.spend_money(price)
-			#if upgrade.name.contains("Dogtag"):
-				#upgrade.apply_upgrade()
-				#get_parent().move_options()
-				#get_parent()._on_texture_rect_pushed()
-				##remove_child(upgrade)
-				#Globals.ui.get_node("Dogtags").add_dogtag(upgrade)
-			#else: 
-				#remove_child(upgrade)
-				#get_tree().current_scene.add_child(upgrade)
-				#upgrade.call_deferred("attach_to_target", Globals.player)
-				#upgrade.scale = Vector2.ONE
-				#upgrade = null
-				#get_parent().move_options()
-
-
-#func _on_color_rect_mouse_entered():
-	#var tween = create_tween().set_trans(Tween.TRANS_SINE)
-	#tween.tween_property(self, "scale", Vector2.ONE * 1.25, 0.2)
-#
-#
-#func _on_color_rect_mouse_exited():
-	#var tween = create_tween().set_trans(Tween.TRANS_SINE)
-	#tween.tween_property(self, "scale", Vector2.ONE, 0.2)
 
 
 func _on_pressed():
 	if upgrade and Globals.player.money >= price:
-		selected = true
 		if price > 0:
 			Globals.player.spend_money(price)
 		if upgrade.name.contains("Dogtag"):
 			upgrade.apply_upgrade()
-			get_parent().move_options()
-			get_parent().finish()
-			#remove_child(upgrade)
+			get_parent().move_options_out()
 			Globals.ui.get_node("Dogtags").add_dogtag(upgrade)
+			get_parent().finish()
 		else: 
 			remove_child(upgrade)
 			get_tree().current_scene.add_child(upgrade)
 			upgrade.call_deferred("attach_to_target", Globals.player)
 			upgrade.scale = Vector2.ONE
 			upgrade = null
-			get_parent().move_options()
+			get_parent().move_options_out()
+		var tween = create_tween()
+		tween.tween_property(self, "scale", Vector2.ZERO, 0.25)
+		tween.tween_callback(queue_free)
+	else:
+		var inst = Globals.create_instance(not_enough_money, global_position + Vector2(77.5, 0), get_parent())
+		var tween = create_tween()
+		tween.tween_property(inst, "global_position", inst.global_position + Vector2.UP * 12, 1)
+		tween.tween_callback(inst.queue_free)
 
 
-#func _on_focus_entered():
-	#var tween = create_tween().set_trans(Tween.TRANS_SINE)
-	#tween.tween_property(self, "scale", Vector2.ONE * 1.25, 0.2)
-#
-#
-#func _on_focus_exited():
-	#var tween = create_tween().set_trans(Tween.TRANS_SINE)
-	#tween.tween_property(self, "scale", Vector2.ONE, 0.2)
+func _exit_tree() -> void:
+	var options = get_parent().options
+	options.erase(self)

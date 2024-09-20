@@ -1,10 +1,14 @@
 extends Area2D
+class_name HealthComponent
 
 @export var health = 3
 @export var rotate_on_hit: bool = true
+@export var shake_on_hit: bool
 @export var death_explosion: PackedScene = preload("res://Scenes/Particles/death_explosion.tscn")
 @export var sprite: Node2D
 @export var healthbar: ProgressBar
+var shake_timer: float = 0.0
+var sprite_origin: Vector2
 var flash_material = preload("res://Art/Shaders/flash.tres")
 var dead: bool = false
 var max_health
@@ -13,6 +17,14 @@ var bullet_dir
 
 func _ready():
 	max_health = health
+	sprite_origin = sprite.position
+
+
+func _process(delta: float) -> void:
+	if shake_timer > 0:
+		shake_timer -= delta
+		if shake_timer <= 0:
+			sprite.position = sprite_origin
 
 
 func take_damage(dmg: float, bullet_direction: float):
@@ -27,6 +39,9 @@ func take_damage(dmg: float, bullet_direction: float):
 			sprite.rotate(-2)
 		else:
 			sprite.rotate(2)
+	if shake_on_hit:
+		sprite.position = sprite_origin + Vector2(randi_range(-1, 1), randi_range(-1, 1))
+		shake_timer = 0.05
 	if healthbar != null:
 		healthbar.visible = true
 		healthbar.value = health / max_health

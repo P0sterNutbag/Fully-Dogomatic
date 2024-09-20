@@ -4,7 +4,6 @@ var level_width: float
 var level_height: float
 var x_ratio: float
 var y_ratop: float
-var player: Node2D
 var icon = preload("res://Scenes/UI/map_icon.tscn")
 @onready var map = $Mask/Anchor/Map
 
@@ -14,7 +13,6 @@ func _ready():
 	var barrier_right = get_tree().current_scene.get_node("BarrierRight")
 	level_width = abs(barrier_right.position.x) + abs(barrier_left.position.x)
 	level_height = abs(barrier_right.position.y) + abs(barrier_left.position.y)
-	player = Globals.player
 
 
 func add_to_map(texture: Texture2D, pos: Vector2, follow_obj: Node2D = null) -> Sprite2D:

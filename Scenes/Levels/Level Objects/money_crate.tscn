@@ -1,29 +1,41 @@
 [gd_scene load_steps=7 format=3 uid="uid://qavuwtph0wq3"]
 
 [ext_resource type="Script" path="res://Scripts/money_crate.gd" id="1_wkclp"]
-[ext_resource type="Texture2D" uid="uid://bh1jul4jbpiym" path="res://Art/Sprites/crate.png" id="2_i30j3"]
-[ext_resource type="PackedScene" uid="uid://84xxip1wf4vx" path="res://Scenes/UI/minimap_icon.tscn" id="3_52cgw"]
-[ext_resource type="Texture2D" uid="uid://d0xgh2orsogie" path="res://Art/Sprites/crate icon.png" id="4_viubq"]
-[ext_resource type="PackedScene" uid="uid://pkl1jd6tt0bd" path="res://Scenes/UI/arrow.tscn" id="5_xa273"]
+[ext_resource type="Texture2D" uid="uid://d3ildmso0lp8b" path="res://Art/Sprites/crate big.png" id="2_wl6q0"]
+[ext_resource type="Script" path="res://Scripts/enemy_health.gd" id="6_2snq4"]
+[ext_resource type="PackedScene" uid="uid://u6ly8mxmxgo4" path="res://Scenes/Bullets/bullet_explosion.tscn" id="7_tcu15"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bbmw7"]
-size = Vector2(22, 22)
+size = Vector2(42, 42)
 
-[node name="MoneyCrate" type="Area2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i6355"]
+size = Vector2(42, 42)
+
+[node name="Crate" type="StaticBody2D"]
 use_parent_material = true
-collision_mask = 2
+collision_layer = 256
+collision_mask = 0
 script = ExtResource("1_wkclp")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(2, -4)
 shape = SubResource("RectangleShape2D_bbmw7")
 
 [node name="CrateSprite" type="Sprite2D" parent="."]
 use_parent_material = true
-texture = ExtResource("2_i30j3")
+position = Vector2(2, -4)
+texture = ExtResource("2_wl6q0")
 
-[node name="MinimapIcon" parent="." instance=ExtResource("3_52cgw")]
-sprite = ExtResource("4_viubq")
+[node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("sprite") groups=["enemy"]]
+collision_layer = 256
+collision_mask = 2
+script = ExtResource("6_2snq4")
+health = 25
+rotate_on_hit = false
+shake_on_hit = true
+death_explosion = ExtResource("7_tcu15")
+sprite = NodePath("../CrateSprite")
 
-[node name="Arrow" parent="." instance=ExtResource("5_xa273")]
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2, -4)
+shape = SubResource("RectangleShape2D_i6355")

@@ -1,37 +1,36 @@
-[gd_scene load_steps=10 format=3 uid="uid://dfbi0qqmatkp8"]
+[gd_scene load_steps=8 format=3 uid="uid://dfbi0qqmatkp8"]
 
 [ext_resource type="Script" path="res://Scripts/level_manager.gd" id="1_yyqyc"]
-[ext_resource type="PackedScene" uid="uid://qavuwtph0wq3" path="res://Scenes/Levels/Level Objects/money_crate.tscn" id="2_4ddx5"]
-[ext_resource type="Script" path="res://Scripts/spawn_chance.gd" id="3_rjgml"]
-[ext_resource type="PackedScene" uid="uid://byrlfy20m4t48" path="res://Scenes/Levels/Level Objects/enemy_spawner_pipe.tscn" id="4_hkvnw"]
-[ext_resource type="PackedScene" uid="uid://cgoaorkqow0r0" path="res://Scenes/Levels/Level Objects/enemy_group.tscn" id="6_wginf"]
+[ext_resource type="Script" path="res://Scripts/spawn_chance.gd" id="2_hmqxk"]
+[ext_resource type="PackedScene" uid="uid://qavuwtph0wq3" path="res://Scenes/Levels/Level Objects/money_crate.tscn" id="3_bpmjp"]
+[ext_resource type="PackedScene" uid="uid://cx7byh4hc2ic3" path="res://Scenes/Levels/Level Objects/pot.tscn" id="4_vuvp8"]
 
-[sub_resource type="Resource" id="Resource_yw2cs"]
-script = ExtResource("3_rjgml")
-object_to_spawn = ExtResource("2_4ddx5")
-spawn_chance = 100.0
+[sub_resource type="Resource" id="Resource_rra2h"]
+script = ExtResource("2_hmqxk")
+object_to_spawn = ExtResource("3_bpmjp")
+spawn_chance = 50.0
 
-[sub_resource type="Resource" id="Resource_maev6"]
-script = ExtResource("3_rjgml")
-object_to_spawn = ExtResource("6_wginf")
-spawn_chance = 20.0
+[sub_resource type="Resource" id="Resource_xdoqf"]
+script = ExtResource("2_hmqxk")
+object_to_spawn = ExtResource("4_vuvp8")
+spawn_chance = 50.0
 
-[sub_resource type="Resource" id="Resource_1odi6"]
-script = ExtResource("3_rjgml")
-object_to_spawn = ExtResource("4_hkvnw")
-spawn_chance = 20.0
-
-[sub_resource type="Resource" id="Resource_ww3v6"]
-script = ExtResource("3_rjgml")
-spawn_chance = 100.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6hut"]
+size = Vector2(64, 64)
 
 [node name="LevelManager" type="Node"]
 script = ExtResource("1_yyqyc")
-player_objects_to_spawn = [SubResource("Resource_yw2cs")]
-enemy_objects_to_spawn = [SubResource("Resource_maev6"), SubResource("Resource_1odi6"), SubResource("Resource_ww3v6")]
+drop_round_length = Array[int]([45, 45, 45, 45, 60, 60, 60, 60, 60, 60, 60, 60, 60])
+level_items = Array[ExtResource("2_hmqxk")]([SubResource("Resource_rra2h"), SubResource("Resource_xdoqf")])
 
 [node name="Spawn" type="Timer" parent="."]
-wait_time = 30.0
-autostart = true
+wait_time = 60.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 289
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_m6hut")
 
 [connection signal="timeout" from="Spawn" to="." method="_on_spawn_timeout"]

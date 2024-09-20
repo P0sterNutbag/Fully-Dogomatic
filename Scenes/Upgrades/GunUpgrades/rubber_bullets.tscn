@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://p1j0pifyw0qc"]
+[gd_scene load_steps=11 format=3 uid="uid://p1j0pifyw0qc"]
 
 [ext_resource type="PackedScene" uid="uid://dxh25edu12ok8" path="res://Scenes/Upgrades/gun_upgrade.tscn" id="1_ccqu2"]
 [ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="2_mkcfa"]
 [ext_resource type="Texture2D" uid="uid://b0rfe3ff6ilq5" path="res://Art/Sprites/upgrade spritesheet.png" id="3_7e52e"]
 [ext_resource type="PackedScene" uid="uid://dlv5q0x4w88ix" path="res://Scenes/Bullets/rubber_bullet.tscn" id="3_gmlja"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="4_efv8g"]
 
 [sub_resource type="Resource" id="Resource_8m32h"]
 script = ExtResource("2_mkcfa")
@@ -29,9 +30,14 @@ values = ["bullet", ExtResource("3_gmlja")]
 multiply_value = false
 add_value = false
 
+[sub_resource type="Resource" id="Resource_pn43u"]
+script = ExtResource("4_efv8g")
+rarity = 2
+
 [node name="RubberBullets" instance=ExtResource("1_ccqu2")]
 upgrade_values = Array[ExtResource("2_mkcfa")]([SubResource("Resource_8m32h"), SubResource("Resource_yn52y"), SubResource("Resource_u2g50"), SubResource("Resource_eog7p")])
 metadata/Title = "Rubber Bullets"
+metadata/Rarity = SubResource("Resource_pn43u")
 
 [node name="UpgradeSprite" parent="." index="0"]
 texture = ExtResource("3_7e52e")

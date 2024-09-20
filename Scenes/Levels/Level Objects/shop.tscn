@@ -1,18 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://c0wfnsgdnyqg6"]
+[gd_scene load_steps=11 format=3 uid="uid://c0wfnsgdnyqg6"]
 
 [ext_resource type="Script" path="res://Scripts/shop.gd" id="1_23wgj"]
 [ext_resource type="Texture2D" uid="uid://depo0iekr4uok" path="res://Art/Sprites/vending machine-Sheet.png" id="2_44f2k"]
 [ext_resource type="PackedScene" uid="uid://84xxip1wf4vx" path="res://Scenes/UI/minimap_icon.tscn" id="4_2luiv"]
 [ext_resource type="Texture2D" uid="uid://bv6glb1xau5xq" path="res://Art/Sprites/shop icon.png" id="4_3alt0"]
 [ext_resource type="PackedScene" uid="uid://pkl1jd6tt0bd" path="res://Scenes/UI/arrow.tscn" id="5_t7igd"]
-[ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="6_jlhqw"]
-[ext_resource type="Theme" uid="uid://caletdmnc4r81" path="res://Art/Themes/ui text small mono.tres" id="7_kvxvj"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ca6fn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtwpp"]
 atlas = ExtResource("2_44f2k")
 region = Rect2(0, 0, 44, 66)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dogp8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_g31wf"]
 atlas = ExtResource("2_44f2k")
 region = Rect2(44, 0, 44, 66)
 
@@ -20,10 +18,10 @@ region = Rect2(44, 0, 44, 66)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ca6fn")
+"texture": SubResource("AtlasTexture_dtwpp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dogp8")
+"texture": SubResource("AtlasTexture_g31wf")
 }],
 "loop": true,
 "name": &"default",
@@ -31,15 +29,20 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jonbb"]
-size = Vector2(38, 30)
+size = Vector2(44, 45)
 
-[node name="Gun Shop" type="Area2D" groups=["destroy"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqj6e"]
+size = Vector2(46, 47)
+
+[node name="Gun Shop" type="StaticBody2D" groups=["destroy"]]
+process_mode = 3
 use_parent_material = true
-script = ExtResource("1_23wgj")
+collision_layer = 256
+collision_mask = 0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 use_parent_material = true
-position = Vector2(0, -33)
+position = Vector2(2, -30)
 sprite_frames = SubResource("SpriteFrames_reqpl")
 autoplay = "default"
 frame = 1
@@ -49,24 +52,16 @@ frame_progress = 0.29428
 sprite = ExtResource("4_3alt0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -19)
+position = Vector2(2, -20.5)
 shape = SubResource("RectangleShape2D_jonbb")
 
 [node name="Arrow" parent="." instance=ExtResource("5_t7igd")]
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 60.0
-autostart = true
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_23wgj")
 
-[node name="TimerText" type="RichTextLabel" parent="."]
-material = ExtResource("6_jlhqw")
-offset_left = -57.0
-offset_top = -76.0
-offset_right = 57.0
-offset_bottom = -67.0
-theme = ExtResource("7_kvxvj")
-bbcode_enabled = true
-text = "[center]00:00:00"
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2, -20.5)
+shape = SubResource("RectangleShape2D_kqj6e")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]

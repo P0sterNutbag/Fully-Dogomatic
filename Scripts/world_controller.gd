@@ -7,7 +7,12 @@ var amplitude = 20
 var score = 0
 var high_score = 0
 var game_over: bool = false
-var particle_round = 1
+var total_kills: int:
+	set(value):
+		total_kills = value
+		kills += 1
+var kills: int
+var kills_per_sec: int
 var upgrade_menu = preload("res://Scenes/Upgrades/upgrade_menu.tscn")
 #@onready var circle_transition = $CanvasLayer/CircleTransition
 
@@ -25,10 +30,15 @@ func _ready():
 
 
 func _process(delta):
-	if Input.is_key_pressed(KEY_B):
-		spawn_upgrade_menu("guns")
-	if Input.is_key_pressed(KEY_N):
-		spawn_upgrade_menu("upgrades")
+	time += delta
+	if time > 1:
+		kills_per_sec = kills
+		kills = 0
+		time = 0
+	#if Input.is_key_pressed(KEY_B):
+		#spawn_upgrade_menu("guns")
+	#if Input.is_key_pressed(KEY_N):
+		#spawn_upgrade_menu("upgrades")
 	#if game_over and Input.is_key_pressed(KEY_R):
 		#pass#start_scene_transition("res://Scenes/Levels/world.tscn")
 

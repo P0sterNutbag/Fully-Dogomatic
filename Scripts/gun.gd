@@ -31,11 +31,10 @@ var explode_chance: float = 0
 var holder = null
 var hold_offset: Vector2
 var direction_vector: Vector2
-var shots_left: int = rounds
+var shots_left: int
 var flash_timer := 0
 var grav_force = -200
 var x_force = 0
-var game_over = false
 var upgrades = 0
 var follow_mouse = false
 var locked: bool = false
@@ -59,6 +58,7 @@ func _ready():
 	x_force = randf_range(-100,100)
 	gunshot_sfx = Globals.audio_manager.get(sound_shoot)
 	distance_to_player += $CollisionShape2D.shape.size.x / 2
+	shots_left = rounds
 
 
 func _physics_process(delta):
@@ -79,17 +79,7 @@ func _physics_process(delta):
 			scale.y = 1
 	else:
 		if holder != null:
-			if not game_over:
-				position = lerp(position, aim_dir * distance_to_player, delta * 10)
-			else:
-				position += Vector2(x_force * delta, grav_force * delta)
-				grav_force += 10
-				var rot_dir = 1
-				if $PlayerSprite.flip_h:
-					rot_dir = -1
-				rotate(5 * rot_dir)
-				if position.x > 900:
-					queue_free()
+			position = lerp(position, aim_dir * distance_to_player, delta * 10)
 	if sprite.scale != Vector2(1,1):
 		sprite.scale = sprite.scale.lerp(Vector2(1, 1), 6 * delta)
 
@@ -102,6 +92,8 @@ func _process(delta):
 			queue_free()
 		if follow_mouse:
 			follow_mouse = false
+			$ShootTimer.start()
+			process_mode = PROCESS_MODE_PAUSABLE
 			Globals.upgrade_menu.finish()
 	can_press = true
 
@@ -117,14 +109,17 @@ func rotate_away_from_position(vector: Vector2):
 
 func reload():
 	$ReloadTimer.start()
-	spin_gun()
 	var status_effect = Globals.create_instance(status_effect, global_position + Vector2(0, -8))
+	await get_tree().create_timer($ReloadTimer.wait_time-0.75).timeout
+	spin_gun()
 
 
 func _on_timer_timeout(): # shoot bullets
 	if get_tree().paused: return
 	if Globals.player == null: return
-	if shots_left > 0 && holder.state != holder.states.dead:
+	if shots_left > 0:
+		if holder.state == holder.states.dead:
+			return
 		# determine accuracy
 		var accuracy_mod = -5
 		if abs(Globals.player.velocity) > Vector2.ZERO:
@@ -171,18 +166,12 @@ func _on_reload_timer_timeout():
 	shots_left = rounds
 
 
-func set_game_over():
-	game_over = true
-	$ShootTimer.stop()
-
-
 func attach_to_target(target: Node2D):
 	follow_mouse = true
 	can_press = false
 	target.gun_pickup.emit()
 	target.guns.append(self)
 	holder = target
-	$ShootTimer.start()
 	Globals.world_controller.add_to_gun_list(get_meta("Title"))
 	get_parent().remove_child(self)
 	Globals.player.get_node("Guns").add_child(self)
@@ -190,7 +179,6 @@ func attach_to_target(target: Node2D):
 
 
 func spin_gun():
-	await get_tree().create_timer($ReloadTimer.wait_time-0.75).timeout
 	Globals.audio_manager.reload.play()
 	var reload_tween = create_tween().set_trans(Tween.TRANS_ELASTIC)
 	reload_tween.set_ease(Tween.EASE_IN_OUT)

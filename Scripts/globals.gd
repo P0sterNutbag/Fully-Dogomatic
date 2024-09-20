@@ -23,7 +23,8 @@ var barrier_left: Vector2
 var barrier_right: Vector2
 var camera: Camera2D
 var muted: bool = false
-var pause_controller: Node2D
+var pause_controller: Node
+var money_drop_rate = 0.35
 enum rarity_levels {common, uncommon, rare, super_rare, ultra_rare, giga_rare }
 
 
@@ -41,18 +42,6 @@ func create_instance(scene: PackedScene, position: Vector2 = Vector2.ZERO, paren
 			instance.global_position = position
 		return instance
 	return null
-
-
-func generate_circle_points(center: Vector2, radius: float, segments: int) -> Array:
-	var points = []
-	var angle_increment = 2 * PI / segments
-	for i in range(segments):
-		var angle = i * angle_increment
-		var x = center.x + radius * cos(angle)
-		var y = center.y + radius * sin(angle)
-		points.append(Vector2(x, y))
-	points.append(points[0])
-	return points
 
 
 func get_weighted_index(array: Array) -> int:
@@ -96,19 +85,20 @@ func get_all_scenes_from_folder(path: String) -> Array[PackedScene]:
 
 func get_gun_price(gun) -> float:
 	var price: float
+	var multiplier = enemy_spawn_controller.spawn_time[enemy_spawn_controller.spawn_round] * 2
 	match gun.get_meta("Rarity").rarity:
 		rarity_levels.common:
-			price = 25
+			price = 5 / multiplier
 		rarity_levels.uncommon:
-			price = 50
+			price = 12 / multiplier
 		rarity_levels.rare:
-			price = 100
+			price = 35 / multiplier
 		rarity_levels.super_rare:
-			price = 30
+			price = 100 / multiplier
 		rarity_levels.ultra_rare:
-			price = 40
+			price = 200 / multiplier
 		rarity_levels.giga_rare:
-			price = 50
+			price = 300 / multiplier
 	return price
 
 
@@ -118,3 +108,13 @@ func time_to_minutes_secs_mili(time : float):
 	var secs = int(time)
 	var mili = int((time - int(time)) * 100)
 	return str("%0*d" % [2, mins]) + ":" + str("%0*d" % [2, secs]) + ":" + str("%0*d" % [2, mili]) 
+
+
+func scroll_array_index(array: Array, current_index: int, index_change: int) -> int :
+	var size = array.size()-1
+	current_index += index_change
+	if current_index < 0:
+		current_index = size
+	elif current_index > size:
+		current_index = 0
+	return current_index

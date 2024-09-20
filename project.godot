@@ -24,7 +24,6 @@ Globals="*res://Scripts/globals.gd"
 SceneManager="*res://Scenes/Levels/SceneManager.tscn"
 InputController="*res://Scenes/Control/input_controller.tscn"
 AudioManager="*res://Audio/AudioManager.tscn"
-PauseController="*res://Scenes/UI/pause_controller.tscn"
 
 [debug]
 
@@ -39,6 +38,10 @@ window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="viewport"
 mouse_cursor/custom_image="res://Art/Sprites/cursor.png"
+
+[global_group]
+
+enemy=""
 
 [input]
 
@@ -166,6 +169,7 @@ back={
 2d_physics/layer_6="Breakables"
 2d_physics/layer_7="Money"
 2d_physics/layer_8="Part"
+2d_physics/layer_9="Environment"
 
 [rendering]
 

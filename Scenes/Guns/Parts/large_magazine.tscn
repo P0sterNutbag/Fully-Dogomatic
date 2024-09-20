@@ -1,16 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0af3nsslogxk"]
+[gd_scene load_steps=8 format=3 uid="uid://c0af3nsslogxk"]
 
 [ext_resource type="Script" path="res://Scenes/Guns/Parts/gun_attachment.gd" id="1_4a28f"]
 [ext_resource type="Texture2D" uid="uid://dcayjrr65pgpy" path="res://Art/Sprites/gun spritesheet.png" id="1_uqv5n"]
+[ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="2_hudlf"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="2_ydwxp"]
 [ext_resource type="Texture2D" uid="uid://de312nfiun02b" path="res://Art/Sprites/arrows.png" id="4_4xgxc"]
+
+[sub_resource type="Resource" id="Resource_somxo"]
+script = ExtResource("2_hudlf")
+values = ["rounds", 40]
+multiply_value = false
+add_value = false
+
+[sub_resource type="Resource" id="Resource_ys47q"]
+script = ExtResource("2_ydwxp")
+rarity = 0
 
 [node name="LargeMagazine" type="Node2D"]
 process_mode = 3
 use_parent_material = true
 script = ExtResource("1_4a28f")
 node_to_attach_to = "MagazineHolder"
+upgrade_values = Array[ExtResource("2_hudlf")]([SubResource("Resource_somxo")])
 metadata/Title = "XL Magazine"
 metadata/Type = "Attachment"
+metadata/Rarity = SubResource("Resource_ys47q")
 
 [node name="Part" type="Sprite2D" parent="."]
 visible = false

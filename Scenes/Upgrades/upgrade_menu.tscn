@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cgqdiahb143ma"]
+[gd_scene load_steps=18 format=3 uid="uid://gmmedoo7mc4r"]
 
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="1_llati"]
 [ext_resource type="Script" path="res://Scripts/upgrade_menu.gd" id="2_glf8i"]
@@ -31,7 +31,7 @@ shader_parameter/fps = 6.0
 shader_parameter/color_threshold = 0.1
 shader_parameter/palette = ExtResource("5_ao6a1")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ap13o"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sv6qb"]
 
 [sub_resource type="Theme" id="Theme_4dlh6"]
 Button/colors/font_color = Color(1, 1, 1, 1)
@@ -39,7 +39,7 @@ Button/colors/font_focus_color = Color(1, 0, 0, 1)
 Button/colors/font_hover_color = Color(1, 0, 0, 1)
 Button/font_sizes/font_size = 14
 Button/fonts/font = ExtResource("3_rpoib")
-Button/styles/focus = SubResource("StyleBoxEmpty_ap13o")
+Button/styles/focus = SubResource("StyleBoxEmpty_sv6qb")
 
 [sub_resource type="Theme" id="Theme_31l1g"]
 Button/colors/font_color = Color(1, 1, 1, 1)
@@ -47,7 +47,7 @@ Button/colors/font_focus_color = Color(1, 0, 0, 1)
 Button/colors/font_hover_color = Color(1, 0, 0, 1)
 Button/font_sizes/font_size = 14
 Button/fonts/font = ExtResource("3_rpoib")
-Button/styles/focus = SubResource("StyleBoxEmpty_ap13o")
+Button/styles/focus = SubResource("StyleBoxEmpty_sv6qb")
 
 [node name="UpgradeMenuGui" type="CanvasLayer"]
 process_mode = 3

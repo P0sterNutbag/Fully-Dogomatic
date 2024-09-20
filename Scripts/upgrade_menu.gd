@@ -9,7 +9,7 @@ var has_finished: bool = false
 var upgrade_array: Array
 var step = 0
 var upgrades_spawned: int = 0
-var random_upgrades: bool
+var random_upgrades: bool = true
 signal gun_selected(change_int: int)
 signal upgrade_assigned
 @onready var cancel_button = $Cancel
@@ -27,8 +27,8 @@ func _ready():
 			gun.can_delete = true
 			gun.gun_deleted.connect(on_gun_deleted)
 	options[0].grab_focus()
-	if upgrades.size() == 0:
-		random_upgrades = true
+	if upgrades.size() > 0:
+		random_upgrades = false
 
 
 func _process(delta):
@@ -118,8 +118,10 @@ func _on_accept_pressed():
 
 
 func finish():
-	get_tree().paused = false
-	step += 1
-	for gun in Globals.player.guns:
-		gun.locked = true
-	destroy()
+	move_options()
+	step = 2
+	#get_tree().paused = false
+	#step += 1
+	#for gun in Globals.player.guns:
+		#gun.locked = true
+	#destroy()

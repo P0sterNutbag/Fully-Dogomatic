@@ -7,7 +7,7 @@ var base_health = 10
 
 
 func _ready():
-	spawn_timer.wait_time = Globals.enemy_spawn_controller.get_node("SpawnEnemies").wait_time * 5
+	spawn_timer.wait_time = Globals.enemy_spawn_controller.get_node("SpawnEnemies").wait_time * 10
 	health_component.health = base_health + (Globals.enemy_spawn_controller.spawn_round * 3)
 	health_component.max_health = health_component.health
 	#health_bar.max_value = health_component.health

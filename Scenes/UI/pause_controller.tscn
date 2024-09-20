@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/pause_controller.gd" id="1_a7pen"]
 [ext_resource type="PackedScene" uid="uid://dmrfe86xnntkv" path="res://Scenes/UI/pause_menu.tscn" id="2_n2v8e"]
 
-[node name="PauseController" type="Node2D"]
+[node name="PauseController" type="Node"]
 script = ExtResource("1_a7pen")
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_n2v8e")]

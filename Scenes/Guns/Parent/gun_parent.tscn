@@ -48,10 +48,8 @@ position = Vector2(8, -3.5731e-05)
 texture = ExtResource("4_4neoc")
 
 [node name="ShootTimer" type="Timer" parent="."]
-process_mode = 1
 
 [node name="ReloadTimer" type="Timer" parent="."]
-process_mode = 1
 one_shot = true
 
 [node name="FlashTimer" type="Timer" parent="."]

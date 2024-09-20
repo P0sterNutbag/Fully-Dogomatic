@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgnjjpiqlrm4h"]
-
-[ext_resource type="PackedScene" uid="uid://bpis8skquuip5" path="res://Scenes/Levels/Level Objects/crate_guns.tscn" id="1_kv5qx"]
-
-[node name="Upgrade Crate" instance=ExtResource("1_kv5qx")]
-options_amount = 3

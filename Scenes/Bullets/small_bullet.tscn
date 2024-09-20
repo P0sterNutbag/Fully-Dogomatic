@@ -9,16 +9,16 @@ size = Vector2(22, 1)
 [node name="Area2D" type="Area2D" groups=["bullet"]]
 use_parent_material = true
 collision_layer = 2
-collision_mask = 40
+collision_mask = 296
 script = ExtResource("1_v2lmc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
+position = Vector2(8, -0.5)
 shape = SubResource("RectangleShape2D_lshl4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 use_parent_material = true
-position = Vector2(0, 0.5)
+position = Vector2(8, 0.5)
 texture = ExtResource("3_or3wu")
 offset = Vector2(0, -0.5)
 

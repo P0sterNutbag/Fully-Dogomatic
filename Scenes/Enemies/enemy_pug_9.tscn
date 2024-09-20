@@ -50,6 +50,7 @@ animations = [{
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_44ghx")
+frame = 0
 frame_progress = 0.832687
 
 [node name="Hurtbox" parent="." index="3"]

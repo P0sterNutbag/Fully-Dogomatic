@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://xxns0mw4h46v"]
+[gd_scene load_steps=8 format=3 uid="uid://xxns0mw4h46v"]
 
 [ext_resource type="PackedScene" uid="uid://dxh25edu12ok8" path="res://Scenes/Upgrades/gun_upgrade.tscn" id="1_44nxl"]
 [ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="2_gvjrx"]
 [ext_resource type="Texture2D" uid="uid://b0rfe3ff6ilq5" path="res://Art/Sprites/upgrade spritesheet.png" id="2_vwl2p"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_st63y"]
 
 [sub_resource type="Resource" id="Resource_qgg62"]
 script = ExtResource("2_gvjrx")
@@ -16,9 +17,14 @@ values = ["penetrations", 1]
 multiply_value = false
 add_value = true
 
+[sub_resource type="Resource" id="Resource_x1r2o"]
+script = ExtResource("3_st63y")
+rarity = 1
+
 [node name="GunUpgradeRicochet" instance=ExtResource("1_44nxl")]
 upgrade_values = Array[ExtResource("2_gvjrx")]([SubResource("Resource_qgg62"), SubResource("Resource_li48y")])
 metadata/Title = "Ricochet"
+metadata/Rarity = SubResource("Resource_x1r2o")
 
 [node name="UpgradeSprite" parent="." index="0"]
 texture = ExtResource("2_vwl2p")

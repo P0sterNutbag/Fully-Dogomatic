@@ -1,11 +1,64 @@
-[gd_scene load_steps=8 format=3 uid="uid://bpis8skquuip5"]
+[gd_scene load_steps=8 format=3 uid="uid://cqltx2ny57uw5"]
 
-[ext_resource type="Script" path="res://Scripts/crate.gd" id="1_gh17r"]
 [ext_resource type="Texture2D" uid="uid://bh1jul4jbpiym" path="res://Art/Sprites/crate.png" id="2_aktxt"]
 [ext_resource type="Texture2D" uid="uid://e0g7q6wjr1w1" path="res://Art/Sprites/crate falling.png" id="3_0i3a0"]
 [ext_resource type="PackedScene" uid="uid://84xxip1wf4vx" path="res://Scenes/UI/minimap_icon.tscn" id="5_etbcj"]
 [ext_resource type="Texture2D" uid="uid://d0xgh2orsogie" path="res://Art/Sprites/crate icon.png" id="6_b8ay6"]
 [ext_resource type="PackedScene" uid="uid://pkl1jd6tt0bd" path="res://Scenes/UI/arrow.tscn" id="7_cot2c"]
+
+[sub_resource type="GDScript" id="GDScript_dl6s1"]
+script/source = "extends Area2D
+
+@export var option_array_name: String
+@export var options_amount: int
+@export var pay_for_guns: bool = false
+var shop = preload(\"res://Scenes/Upgrades/upgrade_shop.tscn\")
+var target_y: float
+var falling = false
+var fall_speed = 75
+var break_particle = preload(\"res://Scenes/Particles/wood_particles.tscn\")
+
+
+func _physics_process(delta):
+	if falling:
+		if position.y <= target_y:
+			position.y += fall_speed * delta
+		else:
+			$FallingSprite.visible = false
+			$CrateSprite.visible = true 
+			$Shadow.visible = true
+			if falling:
+				Globals.player.crate_position = global_position
+			falling = false
+
+
+func _on_area_entered(area):
+	if !falling and !area.name.contains(\"Money\"):
+		if Globals.ui.tutorial != null:
+			Globals.ui.tutorial.queue_free()
+		var inst = shop.instantiate()
+		var upgrade_menu = inst.get_node(\"UpgradeMenu\")
+		upgrade_menu.upgrade_array = Globals.upgrade_manager.get(option_array_name)
+		upgrade_menu.options_amount = options_amount
+		if pay_for_guns:
+			for i in upgrade_menu.options:
+				i.show_price = true
+		var description = upgrade_menu.get_node(\"ChooseGuns\")
+		var description2 = upgrade_menu.get_node(\"PositionGuns\")
+		match option_array_name:
+			\"guns\": 
+				description.text = \"[center]CHOOSE A GUN!\"
+			\"gunparts\": 
+				description.text = \"[center]CHOOSE AN UPGRADE!\"
+				description2.text = \"[center]CHOOSE A GUN TO MODIFY\"
+			\"dogtags\": 
+				description.text = \"[center]CHOOSE A DOG TAG!\"
+		get_tree().current_scene.add_child(inst)
+		var particle = break_particle.instantiate()
+		get_tree().current_scene.add_child(particle)
+		particle.global_position = global_position
+		queue_free()
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jonbb"]
 size = Vector2(22, 22)
@@ -13,7 +66,7 @@ size = Vector2(22, 22)
 [node name="Gun Crate" type="Area2D" groups=["destroy"]]
 y_sort_enabled = true
 use_parent_material = true
-script = ExtResource("1_gh17r")
+script = SubResource("GDScript_dl6s1")
 option_array_name = "guns"
 options_amount = 2
 

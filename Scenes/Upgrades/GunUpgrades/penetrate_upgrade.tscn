@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqq74dh4qcvpx"]
+[gd_scene load_steps=7 format=3 uid="uid://dqq74dh4qcvpx"]
 
 [ext_resource type="PackedScene" uid="uid://dxh25edu12ok8" path="res://Scenes/Upgrades/gun_upgrade.tscn" id="1_n747t"]
 [ext_resource type="Texture2D" uid="uid://b0rfe3ff6ilq5" path="res://Art/Sprites/upgrade spritesheet.png" id="2_ab6s4"]
 [ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="2_nfgay"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_0wltd"]
 
 [sub_resource type="Resource" id="Resource_mmyiv"]
 script = ExtResource("2_nfgay")
@@ -10,9 +11,14 @@ values = ["penetrations", 1]
 multiply_value = false
 add_value = true
 
+[sub_resource type="Resource" id="Resource_px5s8"]
+script = ExtResource("3_0wltd")
+rarity = 1
+
 [node name="GunUpgradeDamage" instance=ExtResource("1_n747t")]
 upgrade_values = Array[ExtResource("2_nfgay")]([SubResource("Resource_mmyiv")])
 metadata/Title = "Armor Piercing"
+metadata/Rarity = SubResource("Resource_px5s8")
 
 [node name="UpgradeSprite" parent="." index="0"]
 texture = ExtResource("2_ab6s4")

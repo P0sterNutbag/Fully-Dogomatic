@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dj17btvmql3b7"]
+[gd_scene load_steps=33 format=3 uid="uid://dj17btvmql3b7"]
 
 [ext_resource type="Script" path="res://Scripts/Upgrades/upgrade_manager.gd" id="1_aerk1"]
 [ext_resource type="PackedScene" uid="uid://dlxlcit0cgc8c" path="res://Scenes/Guns/ar15.tscn" id="2_mw56q"]
@@ -17,9 +17,12 @@
 [ext_resource type="PackedScene" uid="uid://oomtcedhg0at" path="res://Scenes/Guns/mp5.tscn" id="10_u57u6"]
 [ext_resource type="PackedScene" uid="uid://c5a2r0yf8hegs" path="res://Scenes/Guns/sniper_rifle.tscn" id="14_eoogk"]
 [ext_resource type="PackedScene" uid="uid://cbbrtjr5muw34" path="res://Scenes/Guns/tommy_gun.tscn" id="15_y1b8d"]
+[ext_resource type="PackedScene" uid="uid://6a50raomjrbx" path="res://Scenes/Upgrades/Dogtags/dogtag_grab_radius.tscn" id="16_38n87"]
 [ext_resource type="PackedScene" uid="uid://ctss4ealcnr5n" path="res://Scenes/Upgrades/GunUpgrades/double_barreled_upgrade.tscn" id="17_fg47m"]
+[ext_resource type="PackedScene" uid="uid://cwyhebjlc67pi" path="res://Scenes/Upgrades/Dogtags/dogtag_hp.tscn" id="17_fiucb"]
 [ext_resource type="PackedScene" uid="uid://c38tjmk8m2014" path="res://Scenes/Upgrades/GunUpgrades/damage_upgrade.tscn" id="18_06mau"]
 [ext_resource type="PackedScene" uid="uid://bfgkpnsswjar8" path="res://Scenes/Upgrades/GunUpgrades/explosive_upgrade.tscn" id="18_ekt5q"]
+[ext_resource type="PackedScene" uid="uid://dlhgr84xobvpw" path="res://Scenes/Upgrades/Dogtags/dogtag_money_droprate.tscn" id="18_yd6iy"]
 [ext_resource type="PackedScene" uid="uid://cxgdkckdf444o" path="res://Scenes/Upgrades/GunUpgrades/fullauto_upgrade.tscn" id="19_y1bth"]
 [ext_resource type="PackedScene" uid="uid://chsxxs68jprbl" path="res://Scenes/Upgrades/GunUpgrades/homing_upgrade.tscn" id="20_p2kdy"]
 [ext_resource type="PackedScene" uid="uid://dqq74dh4qcvpx" path="res://Scenes/Upgrades/GunUpgrades/penetrate_upgrade.tscn" id="21_p8iqc"]
@@ -34,4 +37,4 @@
 script = ExtResource("1_aerk1")
 rarity_chances = Array[int]([1000, 500, 100, 50, 10, 1])
 gun_scenes = Array[PackedScene]([ExtResource("2_snx5w"), ExtResource("3_uiew3"), ExtResource("4_4bial"), ExtResource("2_mw56q"), ExtResource("6_ydf75"), ExtResource("7_h2dit"), ExtResource("8_17go0"), ExtResource("4_uvdvk"), ExtResource("10_u57u6"), ExtResource("3_atk6s"), ExtResource("6_vsxq7"), ExtResource("7_c46gv"), ExtResource("14_eoogk"), ExtResource("15_y1b8d")])
-upgrades_scenes = Array[PackedScene]([ExtResource("18_06mau"), ExtResource("17_fg47m"), ExtResource("18_ekt5q"), ExtResource("19_y1bth"), ExtResource("20_p2kdy"), ExtResource("21_p8iqc"), ExtResource("22_cy6tt"), ExtResource("23_qw34w"), ExtResource("24_300bc"), ExtResource("25_j1swo"), ExtResource("26_sdvwo"), ExtResource("27_c26x3"), ExtResource("8_vaq5p"), ExtResource("9_mr3ap")])
+upgrades_scenes = Array[PackedScene]([ExtResource("18_06mau"), ExtResource("17_fg47m"), ExtResource("18_ekt5q"), ExtResource("19_y1bth"), ExtResource("20_p2kdy"), ExtResource("21_p8iqc"), ExtResource("22_cy6tt"), ExtResource("23_qw34w"), ExtResource("24_300bc"), ExtResource("25_j1swo"), ExtResource("26_sdvwo"), ExtResource("27_c26x3"), ExtResource("8_vaq5p"), ExtResource("9_mr3ap"), ExtResource("17_fiucb"), ExtResource("16_38n87"), ExtResource("18_yd6iy")])

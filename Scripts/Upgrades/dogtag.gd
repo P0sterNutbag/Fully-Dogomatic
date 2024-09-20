@@ -1,9 +1,7 @@
 extends Control
 
-@export var gun_upgrade: bool
+@export var upgrade_values: Array[VariableChange]
 @export var player_upgrade: bool
-@export var variable_name: String
-@export var value: float
 var target_position: Vector2
 var scene: Node
 
@@ -24,5 +22,12 @@ func _process(delta):
 
 
 func apply_upgrade():
-	var new_value = scene.get(variable_name) + value
-	scene.set(variable_name, new_value)
+	for variable_change in upgrade_values:
+		if variable_change.add_value:
+			scene.set(variable_change.values[0], scene.get(variable_change.values[0]) + variable_change.values[1])
+		elif variable_change.multiply_value:
+			scene.set(variable_change.values[0], scene.get(variable_change.values[0]) * variable_change.values[1])
+		else:
+			scene.set(variable_change.values[0], variable_change.values[1])
+		if variable_change.values[0] == "max_hp":
+			Globals.ui.hp_bar.size.x += variable_change.values[1] * 0.75

@@ -10,7 +10,9 @@ extends Node2D
 @export var pulse_amplitude: float = 0
 @export var rot_frequency: float = 0
 @export var rot_amplitude: float = 0
+@export var blink_frequency: float = 0
 var target
+var blink_timer: Timer
 var time : float = 0
 
 
@@ -19,6 +21,12 @@ func _ready():
 		target = target_control
 	elif target_node2D != null:
 		target = target_node2D
+	if blink_frequency > 0:
+		blink_timer = Timer.new()
+		add_child(blink_timer)
+		blink_timer.wait_time = blink_frequency
+		blink_timer.timeout.connect(blink)
+		blink_timer.start()
 
 
 func _process(delta):
@@ -33,4 +41,6 @@ func _process(delta):
 		target.scale.y += pulse * delta
 		var rot = cos(time * rot_frequency) * rot_amplitude
 		target.rotation_degrees += rot * delta
-	
+
+func blink():
+	target.visible = !target.visible

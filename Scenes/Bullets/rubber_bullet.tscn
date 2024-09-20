@@ -9,7 +9,7 @@ size = Vector2(6, 2)
 [node name="Area2D" type="Area2D" groups=["bullet"]]
 use_parent_material = true
 collision_layer = 2
-collision_mask = 40
+collision_mask = 296
 script = ExtResource("1_ybh3c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

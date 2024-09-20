@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/particle_slide.gd" id="2_8piun"]
 
 [node name="BulletSpark" type="Sprite2D"]
+use_parent_material = true
 texture = ExtResource("1_8arur")
 script = ExtResource("2_8piun")
 

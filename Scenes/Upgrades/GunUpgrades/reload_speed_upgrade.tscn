@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcc5uf7cqe744"]
+[gd_scene load_steps=7 format=3 uid="uid://bcc5uf7cqe744"]
 
 [ext_resource type="PackedScene" uid="uid://dxh25edu12ok8" path="res://Scenes/Upgrades/gun_upgrade.tscn" id="1_0dghr"]
 [ext_resource type="Texture2D" uid="uid://b0rfe3ff6ilq5" path="res://Art/Sprites/upgrade spritesheet.png" id="2_3pj5i"]
 [ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="2_bddnc"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_fvdmu"]
 
 [sub_resource type="Resource" id="Resource_3kkt4"]
 script = ExtResource("2_bddnc")
@@ -10,9 +11,14 @@ values = ["reload_time", 0.5]
 multiply_value = true
 add_value = false
 
+[sub_resource type="Resource" id="Resource_d6uiu"]
+script = ExtResource("3_fvdmu")
+rarity = 0
+
 [node name="GunUpgradeRicochet" instance=ExtResource("1_0dghr")]
 upgrade_values = Array[ExtResource("2_bddnc")]([SubResource("Resource_3kkt4")])
 metadata/Title = "Speed Reload"
+metadata/Rarity = SubResource("Resource_d6uiu")
 
 [node name="UpgradeSprite" parent="." index="0"]
 texture = ExtResource("2_3pj5i")

@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 var pause_menu = preload("res://Scenes/UI/settings_menu.tscn")
 var pause_menu_instance

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d2onseuhefihe"]
+[gd_scene load_steps=18 format=3 uid="uid://d2onseuhefihe"]
 
 [ext_resource type="Script" path="res://Scripts/world_controller.gd" id="1_ap3r4"]
 [ext_resource type="PackedScene" uid="uid://cbuklghcxpiko" path="res://Scenes/Tiles/tiles.tscn" id="2_r8tb5"]
@@ -10,8 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://d1c2pbbb47u4h" path="res://Scenes/UI/ui.tscn" id="10_cogr5"]
 [ext_resource type="PackedScene" uid="uid://ddr81bx8gf1xo" path="res://Scenes/UI/gunstats.tscn" id="12_7pts0"]
 [ext_resource type="PackedScene" uid="uid://c0wfnsgdnyqg6" path="res://Scenes/Levels/Level Objects/shop.tscn" id="13_4apme"]
+[ext_resource type="PackedScene" uid="uid://cbaqxge1nx04m" path="res://Scenes/Upgrades/upgrade_shop_intro.tscn" id="14_00jp5"]
 [ext_resource type="PackedScene" uid="uid://dio4jhhmyfnfk" path="res://Audio/AudioManager.tscn" id="14_1r8hx"]
 [ext_resource type="PackedScene" uid="uid://dj17btvmql3b7" path="res://Scenes/Upgrades/upgrade_manager.tscn" id="14_8k2ac"]
+[ext_resource type="PackedScene" uid="uid://dx18mgom3chcm" path="res://Scenes/UI/pause_controller.tscn" id="15_qfu46"]
 [ext_resource type="PackedScene" uid="uid://dfbi0qqmatkp8" path="res://Scenes/Levels/Level Objects/level_manager.tscn" id="15_v1te5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ljvca"]
@@ -22,6 +24,21 @@ shader_parameter/is_texture = true
 shader_parameter/fps = 6.0
 shader_parameter/color_threshold = 0.1
 shader_parameter/palette = ExtResource("6_ywwnu")
+
+[sub_resource type="GDScript" id="GDScript_sy611"]
+script/source = "extends Area2D
+
+@export var shop = preload(\"res://Scenes/Upgrades/upgrade_shop.tscn\")
+
+
+func _on_area_entered(area):
+	if Globals.ui.tutorial != null:
+		Globals.ui.tutorial.queue_free()
+	var inst = Globals.create_instance(shop, Vector2.ZERO, Globals.ui)
+	var tween = create_tween()
+	tween.tween_property(self, \"scale\", Vector2.ZERO, 0.2)
+	tween.tween_callback(get_parent().queue_free)
+"
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
@@ -70,3 +87,12 @@ gui_layer = NodePath("..")
 [node name="LevelManager" parent="." instance=ExtResource("15_v1te5")]
 
 [node name="Gun Shop" parent="." instance=ExtResource("13_4apme")]
+position = Vector2(0, -19)
+
+[node name="Area2D" parent="Gun Shop" index="4"]
+script = SubResource("GDScript_sy611")
+shop = ExtResource("14_00jp5")
+
+[node name="PauseController" parent="." instance=ExtResource("15_qfu46")]
+
+[editable path="Gun Shop"]

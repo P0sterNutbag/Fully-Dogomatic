@@ -1,12 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://c37vi5itujbsu"]
+[gd_scene load_steps=14 format=3 uid="uid://c37vi5itujbsu"]
 
 [ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="1_j3f4n"]
 [ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="2_r8tsc"]
 [ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="3_48k3r"]
 [ext_resource type="Script" path="res://Scenes/UI/Character Cusomization/character_option.gd" id="4_a02u5"]
-[ext_resource type="Script" path="res://Scripts/Circle.gd" id="4_rv68d"]
-[ext_resource type="Texture2D" uid="uid://2u72jmj4wnsn" path="res://Art/Sprites/red texture.png" id="5_e0cwr"]
-[ext_resource type="Texture2D" uid="uid://c6tfpjjve52aj" path="res://Art/Sprites/black texture.png" id="6_5nnm8"]
+[ext_resource type="Script" path="res://Scripts/circle.gd" id="4_rv68d"]
 [ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="7_nauhl"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="8_1ck4b"]
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="9_qu2d1"]
@@ -35,7 +33,7 @@ Button/styles/focus = SubResource("StyleBoxEmpty_ap13o")
 shader = ExtResource("1_j3f4n")
 shader_parameter/skip_first_row = true
 shader_parameter/use_palette_alpha = false
-shader_parameter/is_texture = true
+shader_parameter/is_texture = false
 shader_parameter/fps = 6.0
 shader_parameter/color_threshold = 0.1
 shader_parameter/palette = ExtResource("2_r8tsc")
@@ -70,8 +68,6 @@ offset_bottom = 24.0
 script = ExtResource("4_rv68d")
 circle_radius = 48
 outline_thickness = 4
-circle_texture = ExtResource("5_e0cwr")
-outline_texture = ExtResource("6_5nnm8")
 
 [node name="UpgradeName" type="RichTextLabel" parent="ScaleOffset"]
 use_parent_material = true

@@ -6,14 +6,13 @@ var state = states.spawn
 
 @export var speed = 10.0
 @export var damage = 0.05
-@export var drop_chance = 0.25
 var player: CharacterBody2D #= preload("res://player.gd")
 var target: CharacterBody2D
 var dollar = preload("res://Scenes/Player/dollar.tscn")
 var blood = preload("res://Scenes/Particles/blood.tscn")
 var dogpart = preload("res://Scenes/Particles/dogpart.tscn")
-var money_min = 3
-var money_max = 4
+var money_min = 1
+var money_max = 1
 var fall_y = -200
 var fall_x = 0
 var time = 0
@@ -81,10 +80,11 @@ func on_damage():
 
 
 func on_death():
-	if randf_range(0, 1) <= drop_chance:
+	if randf_range(0, 1) <= Globals.money_drop_rate:
 		for i in randi_range(money_min, money_max):
 			call_deferred("spawn", dollar)
 	call_deferred("spawn", blood)
+	Globals.world_controller.total_kills += 1
 
 
 func _process(_delta):

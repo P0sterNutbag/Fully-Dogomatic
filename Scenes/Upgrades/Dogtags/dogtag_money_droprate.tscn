@@ -1,0 +1,61 @@
+[gd_scene load_steps=12 format=3 uid="uid://dlhgr84xobvpw"]
+
+[ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="1_xr2by"]
+[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="2_w6dgj"]
+[ext_resource type="Script" path="res://Scripts/Upgrades/dogtag.gd" id="3_um52l"]
+[ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="4_qcvdg"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="4_r5d8w"]
+[ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Art/Sprites/123spritesheet.png" id="5_a7vui"]
+[ext_resource type="Texture2D" uid="uid://b0rfe3ff6ilq5" path="res://Art/Sprites/upgrade spritesheet.png" id="6_2c2wx"]
+[ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="6_uqif6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k0t5h"]
+shader = ExtResource("1_xr2by")
+shader_parameter/skip_first_row = true
+shader_parameter/use_palette_alpha = false
+shader_parameter/is_texture = true
+shader_parameter/fps = 6.0
+shader_parameter/color_threshold = 0.1
+shader_parameter/palette = ExtResource("2_w6dgj")
+
+[sub_resource type="Resource" id="Resource_cleew"]
+script = ExtResource("4_qcvdg")
+values = ["money_drop_rate", 0.05]
+multiply_value = false
+add_value = true
+
+[sub_resource type="Resource" id="Resource_25sqj"]
+script = ExtResource("4_r5d8w")
+rarity = 2
+
+[node name="Dogtag" type="Control" groups=["dogtag"]]
+process_mode = 3
+material = SubResource("ShaderMaterial_k0t5h")
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("3_um52l")
+upgrade_values = Array[ExtResource("4_qcvdg")]([SubResource("Resource_cleew")])
+metadata/Title = "Dogtag"
+metadata/Type = "+5% Money Drops"
+metadata/Rarity = SubResource("Resource_25sqj")
+
+[node name="Tag" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(0, 13)
+texture = ExtResource("5_a7vui")
+region_enabled = true
+region_rect = Rect2(32, 64, 16, 32)
+
+[node name="Icon" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(0, 10)
+texture = ExtResource("6_2c2wx")
+region_enabled = true
+region_rect = Rect2(80, 32, 16, 16)
+
+[node name="JuicyMovement" parent="." node_paths=PackedStringArray("target_control") instance=ExtResource("6_uqif6")]
+target_control = NodePath("..")
+bob_frequency = 3.0
+bob_amplitude = 8.0
+rot_frequency = 3.0
+rot_amplitude = 0.5

@@ -58,7 +58,7 @@ func spawn_enemy(enemy_to_spawn: PackedScene = null, spawn_position: Vector2 = V
 				1: position = Vector2(randf_range(barrier_left.x,barrier_right.x), barrier_right.y)
 				2: position = Vector2(barrier_left.x, randf_range(barrier_left.y,barrier_right.y))
 				3: position = Vector2(barrier_right.x, randf_range(barrier_left.y,barrier_right.y))	
-		Globals.create_instance(enemy, position + Vector2(randf_range(-50,50), randf_range(-50,50)))
+		Globals.create_instance(enemy, position)
 
 
 func get_enemy_to_spawn() -> PackedScene:

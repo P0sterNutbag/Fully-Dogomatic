@@ -1,18 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctss4ealcnr5n"]
+[gd_scene load_steps=7 format=3 uid="uid://ctss4ealcnr5n"]
 
 [ext_resource type="PackedScene" uid="uid://dxh25edu12ok8" path="res://Scenes/Upgrades/gun_upgrade.tscn" id="1_n8401"]
 [ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="2_gl8qi"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_653an"]
 [ext_resource type="Texture2D" uid="uid://b0rfe3ff6ilq5" path="res://Art/Sprites/upgrade spritesheet.png" id="3_qbq4p"]
 
 [sub_resource type="Resource" id="Resource_ytshe"]
 script = ExtResource("2_gl8qi")
-values = ["shot_count", 2.0]
+values = ["bullet_count", 2.0]
 multiply_value = true
 add_value = false
+
+[sub_resource type="Resource" id="Resource_m8kjj"]
+script = ExtResource("3_653an")
+rarity = 1
 
 [node name="DoubleBarreled" instance=ExtResource("1_n8401")]
 upgrade_values = Array[ExtResource("2_gl8qi")]([SubResource("Resource_ytshe")])
 metadata/Title = "Double Barreled"
+metadata/Rarity = SubResource("Resource_m8kjj")
 
 [node name="UpgradeSprite" parent="." index="0"]
 texture = ExtResource("3_qbq4p")

@@ -25,6 +25,10 @@ var level: int = 1
 var time: float = 0
 var target_zoom = 1
 var gun_rotation: float = 0
+var pickup_radius: float = 34:
+	set(value):
+		pickup_radius = value
+		$MoneyPickup/CollisionShape2D.shape.radius = pickup_radius
 @onready var sprite = $PlayerSprite
 
 
@@ -57,7 +61,7 @@ func _physics_process(_delta):
 			move_and_slide()
 			
 			# stay in bounds
-			position.x = clamp(position.x, Globals.barrier_left.x + 80 + 16, Globals.barrier_right.x - 80 - 16)
+			position.x = clamp(position.x, Globals.barrier_left.x + 16, Globals.barrier_right.x- 16)
 			position.y = clamp(position.y, Globals.barrier_left.y + 16, Globals.barrier_right.y - 16)
 		
 
@@ -70,9 +74,9 @@ func _process(delta):
 			if velocity.x != 0 or velocity.y != 0:
 				sprite.play("walk")
 				if velocity.x > 0:
-					sprite.flip_h = false
+					sprite.scale.x = 1
 				elif velocity.x < 0:
-					sprite.flip_h = true
+					sprite.scale.x = -1
 			else:
 				sprite.play("idle")
 

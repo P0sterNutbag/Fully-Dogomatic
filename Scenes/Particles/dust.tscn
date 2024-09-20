@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cobdchxlvoylq"]
+
+[ext_resource type="Texture2D" uid="uid://u7kpowi84vg6" path="res://Art/Sprites/dust particle.png" id="1_qhflf"]
+[ext_resource type="Script" path="res://Scripts/dust_particle.gd" id="2_mb00b"]
+
+[node name="Dust" type="Sprite2D"]
+z_index = -1
+use_parent_material = true
+texture = ExtResource("1_qhflf")
+script = ExtResource("2_mb00b")

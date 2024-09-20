@@ -6,9 +6,6 @@ var last_focus_owner: Control
 func _ready():
 	last_focus_owner = get_viewport().gui_get_focus_owner()
 	$Menu/VBoxContainer/Continue.grab_focus()
-	if Globals.player != null:
-		for gun in Globals.player.guns:	
-			gun.process_mode = Node.PROCESS_MODE_DISABLED
 	get_tree().root.get_node("AudioManager").pause_sounds()
 
 

@@ -3,11 +3,15 @@ extends CanvasLayer
 var level_obj_sign = preload("res://Scenes/UI/level_object_sign.tscn")
 var level_signs: Array[String]
 var level_signs_affinity: Array[bool]
+var level_signs_amount: Array[int]
 var game_time: float
 var death_ui = preload("res://Scenes/UI/death_ui.tscn")
 @onready var drop_pos_origin = $Drop.position
 @onready var drop_timer = $Drop/DropTimer
 @onready var tutorial = $Center/Tutorial
+@onready var hp_bar = $LeftCorner/HPBar/HealthBar
+@onready var score = $ScoreHolder/Score
+@onready var score_holder = $ScoreHolder
 
 
 func _ready():
@@ -30,8 +34,18 @@ func _process(delta):
 		$Drop.position.y = lerp($Drop.position.y, drop_pos_origin.y - 200, 5 * delta)
 	# game time
 	game_time += delta
-	$RightCorner/TimeAmnt.text = "[right]" + Globals.time_to_minutes_secs_mili(game_time)
+	$Info/TimeAmnt.text = "[right]" + Globals.time_to_minutes_secs_mili(game_time)
+	$Info/KillsAmnt.text = "[right]" + str(Globals.world_controller.total_kills)
 	#$RightCorner/TimeAmnt.text = "[right]" + str(int(game_time / 60)) + "." + str("%.2f" % fmod(game_time / 60, 60))#str("%.2f" % game_time)	
+	# Score
+	var kps = Globals.world_controller.kills_per_sec
+	score.text = str(kps)
+	if kps > 2:
+		score_holder.visible = true
+	if kps < 1:
+		score_holder.visible = false
+	$Info/KPSAmnt2.text = str(kps)
+
 
 
 func set_money(money: int):
@@ -39,13 +53,14 @@ func set_money(money: int):
 
 
 func set_gun_amount():
-	Globals.gun_amount = Globals.player.guns.size()
-	$RightCorner/GunsAmnt.text = "[right]" + str(Globals.gun_amount) + "/" + str(Globals.player.gun_cap)
+	#Globals.gun_amount = Globals.player.guns.size()
+	$Info/GunsAmnt.text = "[right]" + str(Globals.gun_amount)# + "/" + str(Globals.player.gun_cap)
 
 
-func add_level_obj(obj_text: String, good: bool):
+func add_level_obj(obj_text: String, good: bool, amount: int = 1):
 	level_signs.append(obj_text)
 	level_signs_affinity.append(good)
+	level_signs_amount.append(amount)
 
 
 func create_level_obj_signs():
@@ -53,7 +68,10 @@ func create_level_obj_signs():
 		var inst = level_obj_sign.instantiate()
 		add_child(inst)
 		inst.position = drop_pos_origin + Vector2(-113, (40 + (12 * (i + 1))))
-		inst.text = "[center]+" + level_signs[i] + "!"
+		var num = ""
+		if level_signs_amount[i] > 1:
+			num += " x" + str(level_signs_amount[i])
+		inst.text = "[center]+" + level_signs[i] + num + "!"
 		if level_signs_affinity[i] == false:
 			inst.add_theme_color_override("default_color", "ff0000")
 		await get_tree().create_timer(0.5).timeout
@@ -73,8 +91,6 @@ func set_boss_hp(boss_name: String, progress: float):
 func on_player_died():
 	var dui = death_ui.instantiate()
 	add_child(dui)
-
-
 
 
 func _on_timer_timeout():

@@ -9,8 +9,6 @@ rarity = 2
 
 [node name="Dogtag" instance=ExtResource("1_4spux")]
 player_upgrade = true
-variable_name = "gun_rotation"
-value = 5.0
 metadata/Type = "Rotating Guns"
 metadata/Rarity = SubResource("Resource_134ul")
 

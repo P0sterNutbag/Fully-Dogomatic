@@ -71,10 +71,10 @@ script = ExtResource("3_44aal")
 
 [node name="StageMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_l7o4s")
-volume_db = -10.0
+volume_db = -80.0
 script = ExtResource("3_44aal")
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_okhr8")
-volume_db = -10.0
+volume_db = -80.0
 script = ExtResource("3_44aal")
