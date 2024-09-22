@@ -1,10 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbaqxge1nx04m"]
+[gd_scene load_steps=7 format=3 uid="uid://cbaqxge1nx04m"]
 
+[ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="1_6yuqj"]
 [ext_resource type="Script" path="res://Scripts/upgrade_shop.gd" id="1_de2la"]
 [ext_resource type="PackedScene" uid="uid://diu6fl025qdv0" path="res://Scenes/Upgrades/upgrade_option.tscn" id="2_m1qjf"]
+[ext_resource type="Theme" uid="uid://d20y8va2yhr08" path="res://Art/Themes/ui text large.tres" id="4_rl4uj"]
+[ext_resource type="Script" path="res://Scripts/float_in.gd" id="5_o5fay"]
+[ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="6_huop2"]
 
 [node name="UpgradeShop" type="Control" node_paths=PackedStringArray("options")]
 process_mode = 3
+material = ExtResource("1_6yuqj")
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_de2la")
@@ -14,30 +19,50 @@ can_quit = false
 
 [node name="UpgradeOption" parent="." instance=ExtResource("2_m1qjf")]
 layout_mode = 0
-offset_left = 104.0
-offset_top = 194.0
-offset_right = 232.0
-offset_bottom = 322.0
+offset_left = 152.0
+offset_top = 218.0
+offset_right = 280.0
+offset_bottom = 346.0
 focus_neighbor_left = NodePath("../UpgradeOption3")
 focus_neighbor_right = NodePath("../UpgradeOption2")
 upgrade_array = Array[String](["common_guns"])
 
 [node name="UpgradeOption2" parent="." instance=ExtResource("2_m1qjf")]
 layout_mode = 0
-offset_left = 256.0
-offset_top = 192.0
-offset_right = 384.0
-offset_bottom = 320.0
+offset_left = 268.0
+offset_top = 218.0
+offset_right = 372.0
+offset_bottom = 322.0
 focus_neighbor_left = NodePath("../UpgradeOption")
 focus_neighbor_right = NodePath("../UpgradeOption3")
 upgrade_array = Array[String](["common_guns"])
 
 [node name="UpgradeOption3" parent="." instance=ExtResource("2_m1qjf")]
 layout_mode = 0
-offset_left = 407.0
-offset_top = 194.0
-offset_right = 535.0
-offset_bottom = 322.0
+offset_left = 384.0
+offset_top = 218.0
+offset_right = 512.0
+offset_bottom = 346.0
 focus_neighbor_left = NodePath("../UpgradeOption2")
 focus_neighbor_right = NodePath("../UpgradeOption")
 upgrade_array = Array[String](["common_guns"])
+
+[node name="Title" type="RichTextLabel" parent="."]
+use_parent_material = true
+layout_mode = 0
+offset_left = 99.0
+offset_top = 30.0
+offset_right = 544.0
+offset_bottom = 102.0
+pivot_offset = Vector2(222, 36)
+theme = ExtResource("4_rl4uj")
+bbcode_enabled = true
+text = "[center]CHOOSE AN UPGRADE!"
+script = ExtResource("5_o5fay")
+
+[node name="JuicyMovement" parent="Title" node_paths=PackedStringArray("target_control") instance=ExtResource("6_huop2")]
+target_control = NodePath("..")
+bob_frequency = 5.0
+bob_amplitude = 10.0
+rot_frequency = 2.5
+rot_amplitude = 10.0

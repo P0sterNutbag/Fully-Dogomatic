@@ -25,6 +25,7 @@ var camera: Camera2D
 var muted: bool = false
 var pause_controller: Node
 var money_drop_rate = 0.35
+var shop_scene = preload("res://Scenes/Upgrades/upgrade_shop.tscn")
 enum rarity_levels {common, uncommon, rare, super_rare, ultra_rare, giga_rare }
 
 

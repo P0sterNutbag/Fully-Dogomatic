@@ -77,9 +77,9 @@ func _physics_process(delta):
 			scale.y = -1
 		else:
 			scale.y = 1
-	else:
-		if holder != null:
-			position = lerp(position, aim_dir * distance_to_player, delta * 10)
+	#else:
+		#if holder != null:
+			#position = lerp(position, aim_dir * distance_to_player, delta * 10)
 	if sprite.scale != Vector2(1,1):
 		sprite.scale = sprite.scale.lerp(Vector2(1, 1), 6 * delta)
 

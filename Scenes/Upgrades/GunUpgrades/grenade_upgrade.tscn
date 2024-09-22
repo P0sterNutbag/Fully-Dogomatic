@@ -1,0 +1,27 @@
+[gd_scene load_steps=8 format=3 uid="uid://brtb6hrghklh"]
+
+[ext_resource type="PackedScene" uid="uid://dxh25edu12ok8" path="res://Scenes/Upgrades/gun_upgrade.tscn" id="1_so6yn"]
+[ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="2_mbojg"]
+[ext_resource type="PackedScene" uid="uid://dfyv2v8qbh3ht" path="res://Scenes/Bullets/grenade.tscn" id="3_kscii"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_nf16u"]
+[ext_resource type="Texture2D" uid="uid://b0rfe3ff6ilq5" path="res://Art/Sprites/upgrade spritesheet.png" id="4_k1fec"]
+
+[sub_resource type="Resource" id="Resource_cogub"]
+script = ExtResource("2_mbojg")
+values = ["bullet", ExtResource("3_kscii")]
+multiply_value = false
+add_value = false
+
+[sub_resource type="Resource" id="Resource_23pya"]
+script = ExtResource("3_nf16u")
+rarity = 1
+
+[node name="GunUpgradeDamage" instance=ExtResource("1_so6yn")]
+upgrade_values = Array[ExtResource("2_mbojg")]([SubResource("Resource_cogub")])
+metadata/Title = "Grenade Bullets"
+metadata/Rarity = SubResource("Resource_23pya")
+
+[node name="UpgradeSprite" parent="." index="0"]
+texture = ExtResource("4_k1fec")
+region_enabled = true
+region_rect = Rect2(16, 48, 16, 16)

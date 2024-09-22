@@ -16,13 +16,14 @@ func _process(_delta):
 
 
 func pause_game():
-	if pause_menu_instance == null and !get_tree().paused:
-		get_tree().paused = true
-		pause_menu_instance = pause_menu.instantiate()
-		pause_menu_instance.global_position = Vector2(0, 0)
-		get_tree().current_scene.get_node("CanvasLayer").add_child(pause_menu_instance)
-		if get_tree().current_scene.get_node("CanvasLayer").scale == Vector2.ONE * 2:
-			pause_menu_instance.scale = Vector2.ONE * 0.5
+	if pause_menu_instance == null:
+		if !get_tree().paused:
+			get_tree().paused = true
+			pause_menu_instance = pause_menu.instantiate()
+			pause_menu_instance.global_position = Vector2(0, 0)
+			get_tree().current_scene.get_node("CanvasLayer").add_child(pause_menu_instance)
+			if get_tree().current_scene.get_node("CanvasLayer").scale == Vector2.ONE * 2:
+				pause_menu_instance.scale = Vector2.ONE * 0.5
 	else:
 		get_tree().paused = false
 		if pause_menu_instance != null:

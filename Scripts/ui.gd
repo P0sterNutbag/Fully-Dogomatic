@@ -44,7 +44,7 @@ func _process(delta):
 		score_holder.visible = true
 	if kps < 1:
 		score_holder.visible = false
-	$Info/KPSAmnt2.text = str(kps)
+	$Info/KPSAmnt2.text = "[right]" + str(kps)
 
 
 

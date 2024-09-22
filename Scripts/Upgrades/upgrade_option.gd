@@ -19,8 +19,8 @@ func create_upgrade(upgrade_scene: PackedScene):
 	call_deferred("add_child", upgrade)
 	upgrade.scale *= 2
 	upgrade.position = $GunHolder.position
-	$UpgradeName.text = "[center]" + upgrade.get_meta("Title")
-	$UpgradeDescription.text = "[center]" + upgrade.get_meta("Type")
+	$UpgradeName.text = "[center]" + (upgrade.get_meta("Title")).to_upper()
+	$UpgradeDescription.text = "[center]" + (upgrade.get_meta("Type")).to_upper()
 	# write price
 	if show_price:
 		price = round(Globals.get_gun_price(upgrade))
@@ -63,3 +63,12 @@ func _on_pressed():
 func _exit_tree() -> void:
 	var options = get_parent().options
 	options.erase(self)
+
+
+func _on_focus_entered() -> void:
+	$JuicyMovement.process_mode = Node.PROCESS_MODE_INHERIT
+
+
+func _on_focus_exited() -> void:
+	$JuicyMovement.process_mode = Node.PROCESS_MODE_DISABLED
+	rotation_degrees = 0

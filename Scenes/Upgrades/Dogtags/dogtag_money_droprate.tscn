@@ -41,14 +41,14 @@ metadata/Rarity = SubResource("Resource_25sqj")
 
 [node name="Tag" type="Sprite2D" parent="."]
 use_parent_material = true
-position = Vector2(0, 13)
+position = Vector2(0, 8)
 texture = ExtResource("5_a7vui")
 region_enabled = true
 region_rect = Rect2(32, 64, 16, 32)
 
 [node name="Icon" type="Sprite2D" parent="."]
 use_parent_material = true
-position = Vector2(0, 10)
+position = Vector2(0, 5)
 texture = ExtResource("6_2c2wx")
 region_enabled = true
 region_rect = Rect2(80, 32, 16, 16)

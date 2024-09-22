@@ -1,13 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://ce3yg2stl38va"]
+[gd_scene load_steps=15 format=3 uid="uid://ce3yg2stl38va"]
 
 [ext_resource type="Script" path="res://Scripts/upgrade_shop.gd" id="1_i1wjx"]
 [ext_resource type="PackedScene" uid="uid://diu6fl025qdv0" path="res://Scenes/Upgrades/upgrade_option.tscn" id="2_yk5qi"]
 [ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="3_dpyk4"]
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="3_qmdkj"]
 [ext_resource type="Script" path="res://Scripts/ui_menu_button_grow_on_focus.gd" id="3_yonfi"]
-[ext_resource type="Texture2D" uid="uid://cfexhnjuunwva" path="res://Art/Sprites/cancel.png" id="4_hg71v"]
+[ext_resource type="Texture2D" uid="uid://b2d2io1t7plqf" path="res://Art/Sprites/x sign.png" id="6_glku4"]
 [ext_resource type="Theme" uid="uid://dpv7tir788p5t" path="res://Art/Themes/ui text small.tres" id="7_cd2gk"]
 [ext_resource type="Script" path="res://Scripts/circle.gd" id="7_fyufh"]
+[ext_resource type="Theme" uid="uid://d20y8va2yhr08" path="res://Art/Themes/ui text large.tres" id="9_lm21w"]
+[ext_resource type="Texture2D" uid="uid://chpu832wpjis2" path="res://Art/Sprites/die.png" id="9_ysqid"]
+[ext_resource type="Script" path="res://Scripts/float_in.gd" id="10_ktf1i"]
+[ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="11_cgxk0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ap13o"]
 
@@ -30,11 +34,11 @@ options = [NodePath("UpgradeOption"), NodePath("UpgradeOption2"), NodePath("Upgr
 [node name="ExitButton" type="Button" parent="."]
 use_parent_material = true
 layout_mode = 0
-offset_left = 89.0
-offset_top = 163.0
-offset_right = 137.0
-offset_bottom = 211.0
-pivot_offset = Vector2(17, 17)
+offset_left = 92.0
+offset_top = 247.0
+offset_right = 140.0
+offset_bottom = 295.0
+pivot_offset = Vector2(24, 24)
 focus_neighbor_left = NodePath("../Reroll")
 focus_neighbor_right = NodePath("../UpgradeOption")
 theme = SubResource("Theme_h1fl5")
@@ -43,6 +47,7 @@ script = ExtResource("3_yonfi")
 metadata/_edit_group_ = true
 
 [node name="Circle" type="Control" parent="ExitButton"]
+visible = false
 use_parent_material = true
 layout_mode = 3
 anchors_preset = 0
@@ -52,19 +57,19 @@ offset_right = 12.0
 offset_bottom = 12.0
 script = ExtResource("7_fyufh")
 circle_radius = 24
+outline_thickness = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="ExitButton"]
-visible = false
 material = ExtResource("3_qmdkj")
-position = Vector2(17, 17)
-texture = ExtResource("4_hg71v")
+position = Vector2(25, 24)
+texture = ExtResource("6_glku4")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ExitButton"]
 use_parent_material = true
 layout_mode = 0
-offset_left = 3.0
+offset_left = 1.0
 offset_top = 19.0
-offset_right = 45.0
+offset_right = 49.0
 offset_bottom = 30.0
 mouse_filter = 2
 theme = ExtResource("7_cd2gk")
@@ -73,10 +78,10 @@ text = "[center]EXIT"
 
 [node name="UpgradeOption" parent="." instance=ExtResource("2_yk5qi")]
 layout_mode = 0
-offset_left = 104.0
+offset_left = 152.0
 offset_top = 218.0
-offset_right = 232.0
-offset_bottom = 346.0
+offset_right = 256.0
+offset_bottom = 322.0
 focus_neighbor_left = NodePath("../ExitButton")
 focus_neighbor_right = NodePath("../UpgradeOption2")
 upgrade_array = Array[String](["common_guns"])
@@ -84,10 +89,10 @@ show_price = true
 
 [node name="UpgradeOption2" parent="." instance=ExtResource("2_yk5qi")]
 layout_mode = 0
-offset_left = 254.0
+offset_left = 268.0
 offset_top = 218.0
-offset_right = 382.0
-offset_bottom = 346.0
+offset_right = 372.0
+offset_bottom = 322.0
 focus_neighbor_left = NodePath("../UpgradeOption")
 focus_neighbor_right = NodePath("../UpgradeOption3")
 upgrade_array = Array[String](["uncommon_guns", "rare_guns"])
@@ -95,10 +100,10 @@ show_price = true
 
 [node name="UpgradeOption3" parent="." instance=ExtResource("2_yk5qi")]
 layout_mode = 0
-offset_left = 407.0
+offset_left = 384.0
 offset_top = 218.0
-offset_right = 535.0
-offset_bottom = 346.0
+offset_right = 488.0
+offset_bottom = 322.0
 focus_neighbor_left = NodePath("../UpgradeOption2")
 focus_neighbor_right = NodePath("../Reroll")
 upgrade_array = Array[String](["upgrades"])
@@ -107,11 +112,11 @@ show_price = true
 [node name="Reroll" type="Button" parent="."]
 use_parent_material = true
 layout_mode = 0
-offset_left = 506.0
-offset_top = 164.0
-offset_right = 554.0
-offset_bottom = 212.0
-pivot_offset = Vector2(21, 12)
+offset_left = 500.0
+offset_top = 247.0
+offset_right = 548.0
+offset_bottom = 295.0
+pivot_offset = Vector2(24, 24)
 focus_neighbor_left = NodePath("../UpgradeOption3")
 focus_neighbor_right = NodePath("../ExitButton")
 theme = SubResource("Theme_h1fl5")
@@ -120,6 +125,7 @@ script = ExtResource("3_yonfi")
 metadata/_edit_group_ = true
 
 [node name="Circle" type="Control" parent="Reroll"]
+visible = false
 use_parent_material = true
 anchors_preset = 0
 offset_left = 12.0
@@ -128,13 +134,18 @@ offset_right = 12.0
 offset_bottom = 12.0
 script = ExtResource("7_fyufh")
 circle_radius = 24
+outline_thickness = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Reroll"]
+use_parent_material = true
+position = Vector2(24, 24)
+texture = ExtResource("9_ysqid")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Reroll"]
 use_parent_material = true
 layout_mode = 0
-offset_left = 3.0
 offset_top = 13.0
-offset_right = 45.0
+offset_right = 48.0
 offset_bottom = 37.0
 mouse_filter = 2
 theme = ExtResource("7_cd2gk")
@@ -142,6 +153,26 @@ bbcode_enabled = true
 text = "[center]REROLL
 
 $5"
+
+[node name="Title" type="RichTextLabel" parent="."]
+use_parent_material = true
+layout_mode = 0
+offset_left = 99.0
+offset_top = 30.0
+offset_right = 544.0
+offset_bottom = 102.0
+pivot_offset = Vector2(222, 36)
+theme = ExtResource("9_lm21w")
+bbcode_enabled = true
+text = "[center]CHOOSE AN UPGRADE!"
+script = ExtResource("10_ktf1i")
+
+[node name="JuicyMovement" parent="Title" node_paths=PackedStringArray("target_control") instance=ExtResource("11_cgxk0")]
+target_control = NodePath("..")
+bob_frequency = 5.0
+bob_amplitude = 10.0
+rot_frequency = 2.5
+rot_amplitude = 10.0
 
 [connection signal="focus_entered" from="ExitButton" to="ExitButton/Circle" method="_on_upgrade_option_focus_entered"]
 [connection signal="focus_exited" from="ExitButton" to="ExitButton/Circle" method="_on_upgrade_option_focus_exited"]
