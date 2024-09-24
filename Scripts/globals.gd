@@ -26,6 +26,7 @@ var muted: bool = false
 var pause_controller: Node
 var money_drop_rate = 0.35
 var shop_scene = preload("res://Scenes/Upgrades/upgrade_shop.tscn")
+var no_guns_shop = preload("res://Scenes/Upgrades/upgrade_shop_no_guns.tscn")
 enum rarity_levels {common, uncommon, rare, super_rare, ultra_rare, giga_rare }
 
 
@@ -89,13 +90,13 @@ func get_gun_price(gun) -> float:
 	var multiplier = enemy_spawn_controller.spawn_time[enemy_spawn_controller.spawn_round] * 2
 	match gun.get_meta("Rarity").rarity:
 		rarity_levels.common:
-			price = 5 / multiplier
+			price = 8 / multiplier
 		rarity_levels.uncommon:
-			price = 12 / multiplier
+			price = 20 / multiplier
 		rarity_levels.rare:
-			price = 35 / multiplier
+			price = 45 / multiplier
 		rarity_levels.super_rare:
-			price = 100 / multiplier
+			price = 55 / multiplier
 		rarity_levels.ultra_rare:
 			price = 200 / multiplier
 		rarity_levels.giga_rare:

@@ -18,14 +18,16 @@ func _ready():
 	move_options_in()
 	options[0].grab_focus()
 	set_focus_neighbors()
+	$Money.text = "Money: $" + str(Globals.player.money)
 	if !only_one_pick:
 		reroll_price = 3 / (Globals.enemy_spawn_controller.spawn_time[Globals.enemy_spawn_controller.spawn_round] * 2)
 		$Reroll/RichTextLabel.text = "[center]REROLL \n $" + str(reroll_price)
 
 
 func _process(delta):
-	if Input.is_action_just_pressed("ui_cancel") and can_quit:
-		queue_free()
+	pass
+	#if Input.is_action_just_pressed("ui_cancel") and can_quit:
+		#queue_free()
 
 
 func assign_upgrades_options():
@@ -66,6 +68,7 @@ func move_options_in():
 
 
 func move_options_out():
+	$Money.text = "Money: $" + str(Globals.player.money)
 	var tween = create_tween().set_trans(Tween.TRANS_EXPO)
 	tween.set_ease(Tween.EASE_IN)
 	tween.tween_property(self, "global_position", Vector2.DOWN*400, 0.5)
@@ -87,6 +90,7 @@ func _on_exit_button_pressed() -> void:
 
 func _on_reroll_pressed() -> void:
 	if Globals.player.money >= reroll_price:
+		upgrades.clear()
 		assign_upgrades_options() 
 		Globals.player.spend_money(reroll_price)
 	else:

@@ -23,7 +23,7 @@ script = ExtResource("1_4a28f")
 node_to_attach_to = "MagazineHolder"
 upgrade_values = Array[ExtResource("2_hudlf")]([SubResource("Resource_somxo")])
 metadata/Title = "XL Magazine"
-metadata/Type = "Attachment"
+metadata/Type = ""
 metadata/Rarity = SubResource("Resource_ys47q")
 
 [node name="Part" type="Sprite2D" parent="."]
@@ -36,7 +36,7 @@ region_rect = Rect2(96, 16, 16, 16)
 
 [node name="UpgradeSprite" type="Sprite2D" parent="."]
 use_parent_material = true
-position = Vector2(0, 11)
+position = Vector2(0, 3)
 texture = ExtResource("1_uqv5n")
 region_enabled = true
 region_rect = Rect2(96, 16, 16, 16)

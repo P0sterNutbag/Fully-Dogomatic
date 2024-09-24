@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbaqxge1nx04m"]
+[gd_scene load_steps=8 format=3 uid="uid://cbaqxge1nx04m"]
 
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="1_6yuqj"]
 [ext_resource type="Script" path="res://Scripts/upgrade_shop.gd" id="1_de2la"]
@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://d20y8va2yhr08" path="res://Art/Themes/ui text large.tres" id="4_rl4uj"]
 [ext_resource type="Script" path="res://Scripts/float_in.gd" id="5_o5fay"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="6_huop2"]
+[ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="7_6kynl"]
 
 [node name="UpgradeShop" type="Control" node_paths=PackedStringArray("options")]
 process_mode = 3
@@ -66,3 +67,13 @@ bob_frequency = 5.0
 bob_amplitude = 10.0
 rot_frequency = 2.5
 rot_amplitude = 10.0
+
+[node name="Money" type="RichTextLabel" parent="."]
+visible = false
+use_parent_material = true
+offset_left = 154.0
+offset_top = 187.0
+offset_right = 315.0
+offset_bottom = 210.0
+theme = ExtResource("7_6kynl")
+text = "$"

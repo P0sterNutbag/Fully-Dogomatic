@@ -43,6 +43,7 @@ var aim_dir := Vector2.RIGHT
 var can_delete: bool = false
 var can_press: bool
 var gunshot_sfx: AudioStreamPlayer2D
+var loadout_text: Control
 var shell = preload("res://Scenes/Particles/shell.tscn")
 var status_effect = preload("res://Scenes/Particles/gun_status.tscn")
 var muzzleflash_textures = [preload("res://Art/Sprites/muzzleflash.png"), 
@@ -170,12 +171,9 @@ func attach_to_target(target: Node2D):
 	follow_mouse = true
 	can_press = false
 	target.gun_pickup.emit()
-	target.guns.append(self)
+	target.add_new_gun(self)
 	holder = target
 	Globals.world_controller.add_to_gun_list(get_meta("Title"))
-	get_parent().remove_child(self)
-	Globals.player.get_node("Guns").add_child(self)
-	Globals.ui.set_gun_amount()
 
 
 func spin_gun():

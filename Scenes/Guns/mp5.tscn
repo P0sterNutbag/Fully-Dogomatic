@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://oomtcedhg0at"]
+[gd_scene load_steps=6 format=3 uid="uid://oomtcedhg0at"]
 
 [ext_resource type="PackedScene" uid="uid://dxg8m0y80dpyp" path="res://Scenes/Guns/Parent/gun_parent.tscn" id="1_t8yd1"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="2_hjall"]
+[ext_resource type="Texture2D" uid="uid://dvmb1235cgkwv" path="res://Art/Sprites/icon smg.png" id="3_bite6"]
 
 [sub_resource type="Resource" id="Resource_152ur"]
 script = ExtResource("2_hjall")
@@ -16,9 +17,10 @@ cooldown = 0.05
 rounds = 24
 knockback = 1
 sound_shoot = "gunshot_smg"
-metadata/Title = "MP5"
-metadata/Type = "SMG"
+metadata/Title = "Submachine Gun"
+metadata/Type = ""
 metadata/Rarity = SubResource("Resource_152ur")
+metadata/Icon = ExtResource("3_bite6")
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(-0.5, 0.499998)

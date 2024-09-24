@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c04tmrypkmgxh"]
+[gd_scene load_steps=7 format=3 uid="uid://c04tmrypkmgxh"]
 
 [ext_resource type="PackedScene" uid="uid://dxg8m0y80dpyp" path="res://Scenes/Guns/Parent/gun_parent.tscn" id="1_toseq"]
 [ext_resource type="PackedScene" uid="uid://b7sp0qxb75kog" path="res://Scenes/Bullets/shotgun_shell.tscn" id="2_5hcgl"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_ospcd"]
+[ext_resource type="Texture2D" uid="uid://diquaf2uu7u58" path="res://Art/Sprites/icon_shotgun.png" id="4_46s3p"]
 
 [sub_resource type="Resource" id="Resource_c8aui"]
 script = ExtResource("3_ospcd")
@@ -20,9 +21,10 @@ spread = 25.0
 rounds = 8
 knockback = 1
 sound_shoot = "gunshot_shotgun"
-metadata/Title = "AA-12"
-metadata/Type = "Assault Shotgun"
+metadata/Title = "Assault Shotgun"
+metadata/Type = ""
 metadata/Rarity = SubResource("Resource_c8aui")
+metadata/Icon = ExtResource("4_46s3p")
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(-0.499998, 1)

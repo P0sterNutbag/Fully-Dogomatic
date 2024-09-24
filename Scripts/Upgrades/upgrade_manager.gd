@@ -2,16 +2,22 @@ extends GunPart
 
 
 @export var rarity_chances: Array[int]
+@export var rarity_chances_upgrade: Array[int]
 var guns_folder = "res://Scenes/Guns/"
 var gunpart_folder = "res://Scenes/Gun Parts/"
 var dogtags_folder = "res://Scenes/Upgrades/Dogtags/"
 @export var gun_scenes: Array[PackedScene]
 @export var upgrades_scenes: Array[PackedScene]
 var guns: Array
-var upgrades: Array
 var common_guns: Array
 var uncommon_guns: Array
 var rare_guns: Array
+var super_rare_guns: Array
+var upgrades: Array
+var common_upgrades: Array
+var uncommon_upgrades: Array
+var rare_upgrades: Array
+var super_rare_upgrades: Array
 
 
 func _ready():
@@ -19,7 +25,16 @@ func _ready():
 	for gun in gun_scenes:
 		add_to_list(guns, gun)
 	for upgrade in upgrades_scenes:
-		add_to_list_no_rarity(upgrades, upgrade)
+		add_to_list(upgrades, upgrade)
+	for upgrade in upgrades:
+		if upgrade.spawn_chance == rarity_chances[0]:
+			common_upgrades.append(upgrade)
+		elif upgrade.spawn_chance == rarity_chances[1]:
+			common_upgrades.append(upgrade)
+		elif upgrade.spawn_chance == rarity_chances[2]:
+			rare_upgrades.append(upgrade)
+		elif upgrade.spawn_chance == rarity_chances[3]:
+			super_rare_upgrades.append(upgrade)
 	for gun in guns:
 		if gun.spawn_chance == rarity_chances[0]:
 			common_guns.append(gun)
@@ -27,6 +42,8 @@ func _ready():
 			uncommon_guns.append(gun)
 		elif gun.spawn_chance == rarity_chances[2]:
 			rare_guns.append(gun)
+		elif gun.spawn_chance == rarity_chances[3]:
+			super_rare_guns.append(gun)
 
 
 func add_to_list(list: Array, value: PackedScene):
@@ -60,4 +77,20 @@ func get_spawn_chance(rarity: Globals.rarity_levels, title: String) -> int:
 		return rarity_chances[4]
 	elif rarity == Globals.rarity_levels.giga_rare:
 		return rarity_chances[5]
+	return 0
+
+
+func get_spawn_chance_upgrade(rarity: Globals.rarity_levels, title: String) -> int:
+	if rarity == Globals.rarity_levels.common:
+		return rarity_chances_upgrade[0]
+	elif rarity == Globals.rarity_levels.uncommon:
+		return rarity_chances_upgrade[1]
+	elif rarity == Globals.rarity_levels.rare:
+		return rarity_chances_upgrade[2]
+	elif rarity == Globals.rarity_levels.super_rare:
+		return rarity_chances_upgrade[3]
+	elif rarity == Globals.rarity_levels.ultra_rare:
+		return rarity_chances_upgrade[4]
+	elif rarity == Globals.rarity_levels.giga_rare:
+		return rarity_chances_upgrade[5]
 	return 0

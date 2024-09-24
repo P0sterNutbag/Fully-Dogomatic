@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dyym4owbrpqw"]
+[gd_scene load_steps=7 format=3 uid="uid://dyym4owbrpqw"]
 
 [ext_resource type="PackedScene" uid="uid://dxg8m0y80dpyp" path="res://Scenes/Guns/Parent/gun_parent.tscn" id="1_y0g2b"]
 [ext_resource type="PackedScene" uid="uid://dfyv2v8qbh3ht" path="res://Scenes/Bullets/grenade.tscn" id="2_l6bvx"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_r4ce5"]
+[ext_resource type="Texture2D" uid="uid://dg3sbdnu3668p" path="res://Art/Sprites/icon grenade launcher.png" id="4_3insv"]
 
 [sub_resource type="Resource" id="Resource_snpq1"]
 script = ExtResource("3_r4ce5")
@@ -19,6 +20,7 @@ sound_shoot = "gunshot_shotgun"
 metadata/Title = "Grenade Launcher"
 metadata/Type = ""
 metadata/Rarity = SubResource("Resource_snpq1")
+metadata/Icon = ExtResource("4_3insv")
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(0.500005, 0.999998)

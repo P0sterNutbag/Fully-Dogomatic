@@ -11,8 +11,8 @@ spread = 10.0
 rounds = 6
 reload_time = 2.5
 sound_shoot = "gunshot_pistol"
-metadata/Title = "Remmy"
-metadata/Type = "Revolver"
+metadata/Title = "Revolver"
+metadata/Type = ""
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(-0.499993, 0.999987)

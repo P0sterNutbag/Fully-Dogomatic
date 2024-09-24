@@ -1,6 +1,6 @@
 extends Node2D
 
-var base_health = 10
+var base_health = 25
 @onready var health_component = $Area2D
 @onready var spawn_timer = $SpawnTimer
 @onready var health_bar = $Sprite2D/HealthBar

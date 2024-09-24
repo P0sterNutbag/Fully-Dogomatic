@@ -14,7 +14,7 @@ add_value = false
 
 [sub_resource type="Resource" id="Resource_23pya"]
 script = ExtResource("3_nf16u")
-rarity = 1
+rarity = 2
 
 [node name="GunUpgradeDamage" instance=ExtResource("1_so6yn")]
 upgrade_values = Array[ExtResource("2_mbojg")]([SubResource("Resource_cogub")])

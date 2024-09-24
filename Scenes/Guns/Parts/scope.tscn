@@ -23,7 +23,7 @@ script = ExtResource("1_swskk")
 node_to_attach_to = "SightHolder"
 upgrade_values = Array[ExtResource("2_qppxn")]([SubResource("Resource_a112j")])
 metadata/Title = "x4 Scope"
-metadata/Type = "Attachment"
+metadata/Type = ""
 metadata/Rarity = SubResource("Resource_qwgur")
 
 [node name="Part" type="Sprite2D" parent="."]
@@ -36,7 +36,6 @@ region_rect = Rect2(96, 32, 16, 16)
 
 [node name="UpgradeSprite" type="Sprite2D" parent="."]
 use_parent_material = true
-position = Vector2(0, 6)
 texture = ExtResource("1_rieko")
 region_enabled = true
 region_rect = Rect2(96, 32, 16, 16)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqq2b80acoun5"]
+[gd_scene load_steps=6 format=3 uid="uid://cqq2b80acoun5"]
 
 [ext_resource type="PackedScene" uid="uid://dxg8m0y80dpyp" path="res://Scenes/Guns/Parent/gun_parent.tscn" id="1_vsr4h"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="2_skusn"]
+[ext_resource type="Texture2D" uid="uid://bwvobme5vv6us" path="res://Art/Sprites/icon AR15.png" id="3_136pe"]
 
 [sub_resource type="Resource" id="Resource_ahfgn"]
 script = ExtResource("2_skusn")
@@ -16,8 +17,9 @@ cooldown = 0.1
 knockback = 1
 sound_shoot = "gunshot_assault"
 metadata/Title = "AK47"
-metadata/Type = "Assault Rifle"
+metadata/Type = ""
 metadata/Rarity = SubResource("Resource_ahfgn")
+metadata/Icon = ExtResource("3_136pe")
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(0.5, 0.999947)

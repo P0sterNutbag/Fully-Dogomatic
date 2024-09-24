@@ -25,17 +25,18 @@ add_value = true
 
 [sub_resource type="Resource" id="Resource_25sqj"]
 script = ExtResource("4_5iasq")
-rarity = 2
+rarity = 3
 
 [node name="Dogtag" type="Control" groups=["dogtag"]]
 process_mode = 3
 material = SubResource("ShaderMaterial_k0t5h")
+custom_minimum_size = Vector2(12, 20)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("3_gh0yw")
 upgrade_values = Array[ExtResource("4_p3eox")]([SubResource("Resource_j26hk")])
-metadata/Title = "Dogtag"
-metadata/Type = "+5% Chance Bullets Explode"
+metadata/Title = "+5% Chance Bullets Explode"
+metadata/Type = ""
 metadata/Rarity = SubResource("Resource_25sqj")
 
 [node name="Tag" type="Sprite2D" parent="."]

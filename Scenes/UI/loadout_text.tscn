@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://byai1fe5jthdf"]
+
+[ext_resource type="Theme" uid="uid://lra3teo37km0" path="res://Art/Themes/ui text mini.tres" id="1_6vuwm"]
+[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="2_8lm10"]
+[ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="2_fiyfl"]
+[ext_resource type="Texture2D" uid="uid://bm8fboif1sean" path="res://Art/Sprites/icon pistol.png" id="3_rktx4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5gsru"]
+shader = ExtResource("2_fiyfl")
+shader_parameter/skip_first_row = true
+shader_parameter/use_palette_alpha = false
+shader_parameter/is_texture = false
+shader_parameter/fps = 6.0
+shader_parameter/color_threshold = 0.1
+shader_parameter/palette = ExtResource("2_8lm10")
+
+[node name="Title" type="HBoxContainer"]
+material = SubResource("ShaderMaterial_5gsru")
+offset_right = 66.0
+offset_bottom = 18.0
+theme = ExtResource("1_6vuwm")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+use_parent_material = true
+clip_contents = false
+custom_minimum_size = Vector2(0, 11)
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Gun name "
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+use_parent_material = true
+layout_mode = 2
+texture = ExtResource("3_rktx4")
+stretch_mode = 2

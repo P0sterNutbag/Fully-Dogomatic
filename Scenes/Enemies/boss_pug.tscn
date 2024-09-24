@@ -87,6 +87,7 @@ func _exit_tree():
 
 [node name="Boss" instance=ExtResource("1_5e3fs")]
 script = ExtResource("2_dy8ol")
+speed = 20.0
 damage = 25.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
@@ -118,7 +119,7 @@ shape = SubResource("CircleShape2D_hhmv6")
 [node name="Hurtbox" parent="." index="3"]
 visible = false
 position = Vector2(0, -20)
-health = 600
+health = 1000
 rotate_on_hit = false
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]

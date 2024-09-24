@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ce3yg2stl38va"]
+[gd_scene load_steps=16 format=3 uid="uid://ce3yg2stl38va"]
 
 [ext_resource type="Script" path="res://Scripts/upgrade_shop.gd" id="1_i1wjx"]
 [ext_resource type="PackedScene" uid="uid://diu6fl025qdv0" path="res://Scenes/Upgrades/upgrade_option.tscn" id="2_yk5qi"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://chpu832wpjis2" path="res://Art/Sprites/die.png" id="9_ysqid"]
 [ext_resource type="Script" path="res://Scripts/float_in.gd" id="10_ktf1i"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="11_cgxk0"]
+[ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="13_2wwyi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ap13o"]
 
@@ -106,7 +107,7 @@ offset_right = 488.0
 offset_bottom = 322.0
 focus_neighbor_left = NodePath("../UpgradeOption2")
 focus_neighbor_right = NodePath("../Reroll")
-upgrade_array = Array[String](["upgrades"])
+upgrade_array = Array[String](["common_upgrades", "uncommon_upgrades", "rare_upgrades", "super_rare_upgrades"])
 show_price = true
 
 [node name="Reroll" type="Button" parent="."]
@@ -173,6 +174,23 @@ bob_frequency = 5.0
 bob_amplitude = 10.0
 rot_frequency = 2.5
 rot_amplitude = 10.0
+
+[node name="Money" type="RichTextLabel" parent="."]
+use_parent_material = true
+layout_mode = 0
+offset_left = 154.0
+offset_top = 176.0
+offset_right = 315.0
+offset_bottom = 199.0
+pivot_offset = Vector2(35, 9)
+theme = ExtResource("13_2wwyi")
+text = "Money: $"
+
+[node name="JuicyMovement" parent="Money" node_paths=PackedStringArray("target_control") instance=ExtResource("11_cgxk0")]
+position = Vector2(-154, -187)
+target_control = NodePath("..")
+bob_frequency = 2.5
+bob_amplitude = 5.0
 
 [connection signal="focus_entered" from="ExitButton" to="ExitButton/Circle" method="_on_upgrade_option_focus_entered"]
 [connection signal="focus_exited" from="ExitButton" to="ExitButton/Circle" method="_on_upgrade_option_focus_exited"]

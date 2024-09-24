@@ -12,8 +12,7 @@ spread = 30.0
 rounds = 16
 knockback = 1
 sound_shoot = "gunshot_smg"
-metadata/Title = "Mac-11"
-metadata/Type = "SMG"
+metadata/Title = "Machine Pistol"
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(0.500002, 0.499998)

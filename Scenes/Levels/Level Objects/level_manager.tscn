@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/level_manager.gd" id="1_yyqyc"]
 [ext_resource type="Script" path="res://Scripts/spawn_chance.gd" id="2_hmqxk"]
 [ext_resource type="PackedScene" uid="uid://qavuwtph0wq3" path="res://Scenes/Levels/Level Objects/money_crate.tscn" id="3_bpmjp"]
-[ext_resource type="PackedScene" uid="uid://cx7byh4hc2ic3" path="res://Scenes/Levels/Level Objects/pot.tscn" id="4_vuvp8"]
+[ext_resource type="PackedScene" uid="uid://cx7byh4hc2ic3" path="res://Scenes/Levels/Level Objects/barrel.tscn" id="4_vuvp8"]
 
 [sub_resource type="Resource" id="Resource_rra2h"]
 script = ExtResource("2_hmqxk")
@@ -15,22 +15,20 @@ script = ExtResource("2_hmqxk")
 object_to_spawn = ExtResource("4_vuvp8")
 spawn_chance = 50.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6hut"]
-size = Vector2(64, 64)
+[sub_resource type="CircleShape2D" id="CircleShape2D_q3y0q"]
+radius = 32.0
 
 [node name="LevelManager" type="Node"]
 script = ExtResource("1_yyqyc")
-drop_round_length = Array[int]([45, 45, 45, 45, 60, 60, 60, 60, 60, 60, 60, 60, 60])
+drop_round_length = Array[int]([45, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60])
 level_items = Array[ExtResource("2_hmqxk")]([SubResource("Resource_rra2h"), SubResource("Resource_xdoqf")])
 
 [node name="Spawn" type="Timer" parent="."]
 wait_time = 60.0
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 256
+[node name="ShapeCast2D" type="ShapeCast2D" parent="."]
+shape = SubResource("CircleShape2D_q3y0q")
+target_position = Vector2(0, 0)
 collision_mask = 289
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_m6hut")
 
 [connection signal="timeout" from="Spawn" to="." method="_on_spawn_timeout"]

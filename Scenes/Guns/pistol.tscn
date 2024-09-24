@@ -14,7 +14,7 @@ size = Vector2(16, 11)
 cooldown = 0.5
 rounds = 8
 sound_shoot = "gunshot_pistol"
-metadata/Title = "M9"
+metadata/Type = ""
 metadata/Rarity = SubResource("Resource_q7je0")
 
 [node name="CollisionShape2D" parent="." index="0"]

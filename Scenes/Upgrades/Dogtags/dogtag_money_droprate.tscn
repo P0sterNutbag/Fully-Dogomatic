@@ -31,12 +31,13 @@ rarity = 2
 [node name="Dogtag" type="Control" groups=["dogtag"]]
 process_mode = 3
 material = SubResource("ShaderMaterial_k0t5h")
+custom_minimum_size = Vector2(12, 20)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("3_um52l")
 upgrade_values = Array[ExtResource("4_qcvdg")]([SubResource("Resource_cleew")])
-metadata/Title = "Dogtag"
-metadata/Type = "+5% Money Drops"
+metadata/Title = "+5% Money Drops"
+metadata/Type = ""
 metadata/Rarity = SubResource("Resource_25sqj")
 
 [node name="Tag" type="Sprite2D" parent="."]

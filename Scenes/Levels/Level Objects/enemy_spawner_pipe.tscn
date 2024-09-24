@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/enemy_spawner_pipe.gd" id="1_nw32u"]
 [ext_resource type="Script" path="res://Scripts/enemy_health.gd" id="2_gyc7b"]
-[ext_resource type="PackedScene" uid="uid://qlr0da6xsoiw" path="res://Scenes/Enemies/enemy_explosion.tscn" id="3_c8o08"]
+[ext_resource type="PackedScene" uid="uid://b72oe3vffkglg" path="res://Scenes/Particles/explosion.tscn" id="3_v3m0e"]
 [ext_resource type="Shader" path="res://Art/Shaders/flash.gdshader" id="4_06esj"]
 [ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Art/Sprites/123spritesheet.png" id="5_55cfk"]
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="6_5o07r"]
@@ -29,7 +29,7 @@ collision_mask = 2
 script = ExtResource("2_gyc7b")
 health = 30
 rotate_on_hit = false
-death_explosion = ExtResource("3_c8o08")
+death_explosion = ExtResource("3_v3m0e")
 sprite = NodePath("../Sprite2D")
 healthbar = NodePath("../Sprite2D/HealthBar")
 

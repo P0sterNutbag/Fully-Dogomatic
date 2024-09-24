@@ -8,11 +8,10 @@ process_mode = 3
 use_parent_material = true
 script = ExtResource("1_3421v")
 metadata/Title = "Explosive Rounds"
-metadata/Type = "Gun Mod"
+metadata/Type = ""
 
 [node name="UpgradeSprite" type="Sprite2D" parent="."]
 use_parent_material = true
-position = Vector2(0, 6)
 
 [node name="Arrow" type="Sprite2D" parent="."]
 visible = false

@@ -83,7 +83,7 @@ func on_death():
 	if randf_range(0, 1) <= Globals.money_drop_rate:
 		for i in randi_range(money_min, money_max):
 			call_deferred("spawn", dollar)
-	call_deferred("spawn", blood)
+	Globals.create_instance(blood, $Shadow.global_position)
 	Globals.world_controller.total_kills += 1
 
 

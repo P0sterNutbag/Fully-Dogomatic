@@ -14,11 +14,11 @@ var in_enemy = false
 var enemies = []
 var point_at_crate = false
 var crate_position: Vector2
-var money: float = 0
+@export var money: float = 0
 var money_cap: float = 4
 var money_increase_rate = 1.4
 var guns: Array[Node2D]
-var gun_cap := 20
+var gun_cap = 12
 var dogtags: Array[Control]
 var gun_slots: int = 10
 var level: int = 1
@@ -131,6 +131,23 @@ func spend_money(amount: int):
 	money -= amount
 	money_pickup.emit()
 	Globals.ui.set_money(money)
+
+
+func add_new_gun(gun: Gun):
+	guns.append(gun)
+	var gun_amount = guns.size()
+	if gun_amount > gun_cap:
+		Globals.shop_scene = Globals.no_guns_shop
+	gun.get_parent().remove_child(gun)
+	$Guns.add_child(gun)
+	Globals.ui.set_gun_amount(gun_amount, gun_cap)
+	var inst = load("res://Scenes/UI/loadout_text.tscn").instantiate()
+	var text = inst.get_node("RichTextLabel")
+	text.text = gun.get_meta("Title")
+	#text.custom_minimum_size.y *= text.get_line_count()+1
+	inst.get_node("TextureRect").texture = gun.get_meta("Icon")
+	Globals.ui.loadout.add_child(inst)
+	gun.loadout_text = inst
 
 
 func _on_money_pickup_area_entered(area):

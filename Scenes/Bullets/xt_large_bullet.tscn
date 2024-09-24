@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6pyadyyrxe2"]
+[gd_scene load_steps=5 format=3 uid="uid://c6pyadyyrxe2"]
 
 [ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_es2rv"]
 [ext_resource type="Texture2D" uid="uid://feiddhd4x04w" path="res://Art/Sprites/bullet.png" id="2_jecqp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lshl4"]
-size = Vector2(80, 20)
+size = Vector2(84, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hib5b"]
+radius = 123.004
 
 [node name="Area2D" type="Area2D" groups=["bullet"]]
 use_parent_material = true
@@ -13,7 +16,7 @@ collision_mask = 296
 script = ExtResource("1_es2rv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(30, 0)
+position = Vector2(28, 0)
 shape = SubResource("RectangleShape2D_lshl4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -22,5 +25,13 @@ position = Vector2(28, 0)
 scale = Vector2(3.5, 5)
 texture = ExtResource("2_jecqp")
 offset = Vector2(0, -0.5)
+
+[node name="HomingArea" type="Area2D" parent="."]
+process_mode = 4
+position = Vector2(28, 0)
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HomingArea"]
+shape = SubResource("CircleShape2D_hib5b")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

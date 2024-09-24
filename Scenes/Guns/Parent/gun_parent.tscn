@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxg8m0y80dpyp"]
+[gd_scene load_steps=9 format=3 uid="uid://dxg8m0y80dpyp"]
 
 [ext_resource type="Script" path="res://Scripts/gun.gd" id="1_hbx3y"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="2_gw35d"]
+[ext_resource type="Texture2D" uid="uid://bm8fboif1sean" path="res://Art/Sprites/icon pistol.png" id="3_3bisb"]
 [ext_resource type="Texture2D" uid="uid://dcayjrr65pgpy" path="res://Art/Sprites/gun spritesheet.png" id="3_6aho8"]
 [ext_resource type="Texture2D" uid="uid://l0xncvn3i5id" path="res://Art/Sprites/muzzleflash.png" id="4_4neoc"]
 [ext_resource type="Script" path="res://Scripts/gun_positioner.gd" id="5_lv77j"]
@@ -21,8 +22,9 @@ collision_layer = 4
 collision_mask = 128
 script = ExtResource("1_hbx3y")
 metadata/Title = "Pistol"
-metadata/Type = "Pistol"
+metadata/Type = ""
 metadata/Rarity = SubResource("Resource_8vy61")
+metadata/Icon = ExtResource("3_3bisb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.06487e-12, -2.38419e-07)

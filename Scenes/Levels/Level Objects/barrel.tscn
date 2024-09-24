@@ -1,42 +1,42 @@
 [gd_scene load_steps=7 format=3 uid="uid://cx7byh4hc2ic3"]
 
-[ext_resource type="Script" path="res://Scripts/money_crate.gd" id="1_gli8u"]
-[ext_resource type="Texture2D" uid="uid://bvxd7a6lk6bb4" path="res://Art/Sprites/pot.png" id="2_nsty0"]
-[ext_resource type="Script" path="res://Scripts/enemy_health.gd" id="3_ayaoh"]
-[ext_resource type="PackedScene" uid="uid://u6ly8mxmxgo4" path="res://Scenes/Bullets/bullet_explosion.tscn" id="4_puc6y"]
+[ext_resource type="Script" path="res://Scripts/money_crate.gd" id="1_myeql"]
+[ext_resource type="Texture2D" uid="uid://bvxd7a6lk6bb4" path="res://Art/Sprites/pot.png" id="2_asc63"]
+[ext_resource type="Script" path="res://Scripts/enemy_health.gd" id="3_q21ip"]
+[ext_resource type="PackedScene" uid="uid://u6ly8mxmxgo4" path="res://Scenes/Bullets/bullet_explosion.tscn" id="4_xmjb7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bbmw7"]
 size = Vector2(21, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i6355"]
-size = Vector2(23, 34)
+size = Vector2(24.5, 34)
 
-[node name="Crate" type="StaticBody2D"]
+[node name="CRATE" type="StaticBody2D"]
 use_parent_material = true
 collision_layer = 256
 collision_mask = 0
-script = ExtResource("1_gli8u")
+script = ExtResource("1_myeql")
 money_amount = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -15)
+position = Vector2(-0.5, -1)
 shape = SubResource("RectangleShape2D_bbmw7")
 
 [node name="CrateSprite" type="Sprite2D" parent="."]
 use_parent_material = true
-position = Vector2(0, -15)
-texture = ExtResource("2_nsty0")
+position = Vector2(0, -1)
+texture = ExtResource("2_asc63")
 
 [node name="Area2D" type="Area2D" parent="." node_paths=PackedStringArray("sprite") groups=["enemy"]]
 collision_layer = 256
 collision_mask = 2
-script = ExtResource("3_ayaoh")
+script = ExtResource("3_q21ip")
 health = 9
 rotate_on_hit = false
 shake_on_hit = true
-death_explosion = ExtResource("4_puc6y")
+death_explosion = ExtResource("4_xmjb7")
 sprite = NodePath("../CrateSprite")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.5, -15)
+position = Vector2(-0.25, -1)
 shape = SubResource("RectangleShape2D_i6355")

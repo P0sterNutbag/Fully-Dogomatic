@@ -1,4 +1,0 @@
-[gd_scene format=3 uid="uid://cl3p4jj3tnj2r"]
-
-[node name="Upgrade Crate"]
-option_array_name = "upgrades"

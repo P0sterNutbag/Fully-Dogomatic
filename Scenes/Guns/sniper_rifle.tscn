@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5a2r0yf8hegs"]
+[gd_scene load_steps=6 format=3 uid="uid://c5a2r0yf8hegs"]
 
 [ext_resource type="PackedScene" uid="uid://dxg8m0y80dpyp" path="res://Scenes/Guns/Parent/gun_parent.tscn" id="1_mnacc"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="2_k3pjy"]
+[ext_resource type="Texture2D" uid="uid://df5bih1q8nh5p" path="res://Art/Sprites/icon sniper.png" id="3_5shd0"]
 
 [sub_resource type="Resource" id="Resource_370uk"]
 script = ExtResource("2_k3pjy")
@@ -17,9 +18,10 @@ rounds = 12
 penetrations = 2
 knockback = 1
 sound_shoot = "gunshot_assault"
-metadata/Title = "DMR"
-metadata/Type = "Sniper Rifle"
+metadata/Title = "Sniper Rifle"
+metadata/Type = ""
 metadata/Rarity = SubResource("Resource_370uk")
+metadata/Icon = ExtResource("3_5shd0")
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(-0.999998, -4.94758e-05)

@@ -35,7 +35,15 @@ func _process(delta):
 
 
 func _on_pressed():
-	if upgrade and Globals.player.money >= price:
+	if !upgrade:
+		return 
+	if Globals.player.guns.size() >= Globals.player.gun_cap:
+		var inst = Globals.create_instance(not_enough_money, global_position + Vector2(77.5, 0), get_parent())
+		inst.get_node(0).text = "GUN CAP REACHED!"
+		var tween = create_tween()
+		tween.tween_property(inst, "global_position", inst.global_position + Vector2.UP * 12, 1)
+		tween.tween_callback(inst.queue_free)
+	if Globals.player.money >= price:
 		if price > 0:
 			Globals.player.spend_money(price)
 		if upgrade.name.contains("Dogtag"):

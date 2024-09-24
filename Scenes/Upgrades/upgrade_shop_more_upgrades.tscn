@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d41pvqqkcr84"]
+[gd_scene load_steps=16 format=3 uid="uid://d41pvqqkcr84"]
 
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="1_78w3h"]
 [ext_resource type="Script" path="res://Scripts/upgrade_shop.gd" id="2_n2w1n"]
@@ -12,6 +12,7 @@
 [ext_resource type="Theme" uid="uid://d20y8va2yhr08" path="res://Art/Themes/ui text large.tres" id="10_tjmnu"]
 [ext_resource type="Script" path="res://Scripts/float_in.gd" id="11_diwur"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="12_g8xkm"]
+[ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="13_0o8o8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ap13o"]
 
@@ -173,6 +174,21 @@ bob_frequency = 5.0
 bob_amplitude = 10.0
 rot_frequency = 2.5
 rot_amplitude = 10.0
+
+[node name="Money" type="RichTextLabel" parent="."]
+use_parent_material = true
+offset_left = 154.0
+offset_top = 176.0
+offset_right = 315.0
+offset_bottom = 199.0
+theme = ExtResource("13_0o8o8")
+text = "$"
+
+[node name="JuicyMovement" parent="Money" node_paths=PackedStringArray("target_control") instance=ExtResource("12_g8xkm")]
+position = Vector2(-154, -187)
+target_control = NodePath("..")
+bob_frequency = 2.5
+bob_amplitude = 2.0
 
 [connection signal="focus_entered" from="ExitButton" to="ExitButton/Circle" method="_on_upgrade_option_focus_entered"]
 [connection signal="focus_exited" from="ExitButton" to="ExitButton/Circle" method="_on_upgrade_option_focus_exited"]

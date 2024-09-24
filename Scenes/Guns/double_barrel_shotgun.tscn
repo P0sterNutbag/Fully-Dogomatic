@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1fbp2bo5h33s"]
+[gd_scene load_steps=7 format=3 uid="uid://d1fbp2bo5h33s"]
 
 [ext_resource type="PackedScene" uid="uid://dxg8m0y80dpyp" path="res://Scenes/Guns/Parent/gun_parent.tscn" id="1_r6wlw"]
 [ext_resource type="PackedScene" uid="uid://b7sp0qxb75kog" path="res://Scenes/Bullets/shotgun_shell.tscn" id="2_prrie"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_u3oh1"]
+[ext_resource type="Texture2D" uid="uid://diquaf2uu7u58" path="res://Art/Sprites/icon_shotgun.png" id="4_wdpnt"]
 
 [sub_resource type="Resource" id="Resource_e01yd"]
 script = ExtResource("3_u3oh1")
@@ -18,9 +19,10 @@ bullet_count = 6.0
 spread = 25.0
 rounds = 2
 sound_shoot = "gunshot_shotgun"
-metadata/Title = "Double Barrel"
-metadata/Type = "Shotgun"
+metadata/Title = "Double Barrel Shotgun"
+metadata/Type = ""
 metadata/Rarity = SubResource("Resource_e01yd")
+metadata/Icon = ExtResource("4_wdpnt")
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(-1.5, -2.36035e-06)

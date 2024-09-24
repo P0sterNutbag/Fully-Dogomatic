@@ -12,11 +12,12 @@ var death_ui = preload("res://Scenes/UI/death_ui.tscn")
 @onready var hp_bar = $LeftCorner/HPBar/HealthBar
 @onready var score = $ScoreHolder/Score
 @onready var score_holder = $ScoreHolder
-
+@onready var loadout = $Loadout
 
 func _ready():
 	Globals.ui = self
 	$Drop.position.y -= 200
+	$Info/GunsAmnt.text = "[right]" + "0" + "/" + "12"
 	#Globals.player.player_died.connect(on_player_died)
 
 
@@ -52,9 +53,9 @@ func set_money(money: int):
 	$LeftCorner/MoneyText.text = "$" + str(money)
 
 
-func set_gun_amount():
+func set_gun_amount(gun_amount: int, gun_cap: int):
 	#Globals.gun_amount = Globals.player.guns.size()
-	$Info/GunsAmnt.text = "[right]" + str(Globals.gun_amount)# + "/" + str(Globals.player.gun_cap)
+	$Info/GunsAmnt.text = "[right]" + str(gun_amount) + "/" + str(gun_cap)
 
 
 func add_level_obj(obj_text: String, good: bool, amount: int = 1):

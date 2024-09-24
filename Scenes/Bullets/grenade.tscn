@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfyv2v8qbh3ht"]
+[gd_scene load_steps=6 format=3 uid="uid://dfyv2v8qbh3ht"]
 
 [ext_resource type="Script" path="res://Scripts/grenade.gd" id="1_ssxut"]
 [ext_resource type="Texture2D" uid="uid://djqouhew8xv0f" path="res://Art/Sprites/grenade.png" id="3_a68qc"]
@@ -8,9 +8,14 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lshl4"]
 size = Vector2(8, 8)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xhtje"]
+radius = 123.004
+
 [node name="Area2D" type="Area2D"]
 material = SubResource("ShaderMaterial_ou5ux")
 use_parent_material = true
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_ssxut")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -24,4 +29,13 @@ texture = ExtResource("3_a68qc")
 wait_time = 1.5
 autostart = true
 
+[node name="HomingArea" type="Area2D" parent="."]
+process_mode = 4
+position = Vector2(8, 0)
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HomingArea"]
+shape = SubResource("CircleShape2D_xhtje")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="HomingArea" to="." method="_on_homing_area_area_entered"]

@@ -97,9 +97,9 @@ bbcode_enabled = true
 [node name="GunHolder" type="Control" parent="."]
 anchors_preset = 0
 offset_left = 52.0
-offset_top = 60.0
+offset_top = 52.0
 offset_right = 52.0
-offset_bottom = 60.0
+offset_bottom = 52.0
 
 [node name="JuicyMovement" parent="." node_paths=PackedStringArray("target_control") instance=ExtResource("8_ly7xf")]
 process_mode = 4
