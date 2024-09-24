@@ -48,7 +48,7 @@ func _on_pressed():
 			Globals.player.spend_money(price)
 		if upgrade.name.contains("Dogtag"):
 			upgrade.apply_upgrade()
-			get_parent().move_options_out()
+			Globals.upgrade_menu.move_options_out()
 			Globals.ui.get_node("Dogtags").add_dogtag(upgrade)
 			get_parent().finish()
 		else: 
@@ -57,7 +57,7 @@ func _on_pressed():
 			upgrade.call_deferred("attach_to_target", Globals.player)
 			upgrade.scale = Vector2.ONE
 			upgrade = null
-			get_parent().move_options_out()
+			Globals.upgrade_menu.move_options_out()
 		var tween = create_tween()
 		tween.tween_property(self, "scale", Vector2.ZERO, 0.25)
 		tween.tween_callback(queue_free)
@@ -69,7 +69,7 @@ func _on_pressed():
 
 
 func _exit_tree() -> void:
-	var options = get_parent().options
+	var options = Globals.upgrade_menu.options
 	options.erase(self)
 
 

@@ -1,99 +1,29 @@
-res://Audio/AudioManager.tscn
 res://Art/Shaders/colorswap.gdshader
 res://Art/Shaders/colorswap.tres
-res://Art/Themes/healthbar.tres
 res://Art/Shaders/color_change.gdshader
 res://Art/Shaders/color_change.tres
+res://Art/Themes/healthbar.tres
 res://Art/Shaders/dither.gdshader
 res://Art/Shaders/dither postprocess.gdshader
-res://Scripts/player.gd
-res://Scenes/Upgrades/Dogtags/dogtag_exploding_bullets.tscn
-res://Scripts/Upgrades/upgrade_manager.gd
-res://Scenes/Upgrades/upgrade_shop.tscn
-res://Scenes/Upgrades/upgrade_shop_no_guns.tscn
-res://Scripts/gun.gd
-res://Scripts/globals.gd
 res://Scenes/Upgrades/upgrade_manager.tscn
-res://Scenes/UI/ui.tscn
-res://Scripts/ui.gd
-res://Scenes/Player/player.tscn
-res://Scenes/Particles/dust.tscn
-res://Scenes/Levels/Level Objects/level_manager.tscn
-res://Scenes/UI/Character Cusomization/character_option.tscn
-res://Scenes/Upgrades/upgrade_option.tscn
-res://Scenes/Upgrades/upgrade_shop_intro.tscn
-res://Scenes/Levels/customize.tscn
-res://Scenes/UI/Character Cusomization/choose_character.tscn
-res://Scenes/Upgrades/Dogtags/dogtag_grab_radius.tscn
-res://Scenes/Upgrades/Dogtags/dogtag_hp.tscn
-res://Scenes/Upgrades/Dogtags/dogtag_money_droprate.tscn
-res://Scenes/Upgrades/Dogtags/dogtag_rotate_guns.tscn
-res://Scenes/Upgrades/Dogtags/dogtag_player_speed.tscn
-res://Scenes/Levels/world.tscn
-res://Scenes/Bullets/bullet_explosion.tscn
-res://Scenes/Guns/Parent/gun_parent.tscn
-res://Scenes/Upgrades/GunUpgrades/penetrate_upgrade.tscn
-res://Scenes/Upgrades/GunUpgrades/reload_speed_upgrade.tscn
-res://Scenes/Upgrades/GunUpgrades/ricochet_upgrade.tscn
-res://Scenes/Upgrades/GunUpgrades/explosive_upgrade.tscn
-res://Scenes/Upgrades/GunUpgrades/damage_upgrade.tscn
-res://Scenes/Upgrades/GunUpgrades/grenade_upgrade.tscn
-res://Scenes/Upgrades/Dogtags/dogtag_upgrades.tscn
-res://Scenes/Upgrades/upgrade_shop_more_upgrades.tscn
 res://Scenes/Levels/Level Objects/shop.tscn
-res://Scripts/Upgrades/upgrade_option.gd
-res://Scenes/UI/not_enough_money.tscn
-res://Scripts/gun_upgrade.gd
-res://Scenes/Guns/pistol.tscn
-res://Scripts/dogtags_ui.gd
+res://Scenes/Bullets/grenade.tscn
+res://Scenes/Bullets/bullet_explosion.tscn
+res://Scenes/Bullets/regular_bullet.tscn
 res://Scenes/Guns/Parts/large_magazine.tscn
 res://Scenes/Guns/Parts/scope.tscn
-res://Scripts/level_manager.gd
-res://Scenes/UI/loadout_text.tscn
-res://Scenes/Guns/22.tscn
-res://Scenes/Guns/ar15.tscn
-res://Scenes/Guns/assault_shotgun.tscn
-res://Scenes/Guns/double_barrel_shotgun.tscn
-res://Scenes/Guns/grenade_launcher.tscn
-res://Scenes/Guns/mac11.tscn
-res://Scenes/Guns/mp5.tscn
-res://Scenes/Guns/sawed_off.tscn
-res://Scenes/Guns/sniper_rifle.tscn
-res://Scenes/Guns/tommy_gun.tscn
-res://Scenes/Guns/ak47.tscn
-res://Scenes/Levels/Level Objects/money_crate.tscn
-res://Scenes/Upgrades/gun_upgrade.tscn
-res://Scenes/Bullets/regular_bullet.tscn
-res://Scenes/Bullets/small_bullet.tscn
-res://Scenes/Bullets/xt_large_bullet.tscn
-res://Scripts/upgrade_shop.gd
-res://Scenes/Enemies/enemy_explosion.tscn
-res://Scenes/Particles/explosion.tscn
-res://Scenes/Bullets/grenade.tscn
-res://Scripts/grenade.gd
-res://Scenes/Upgrades/GunUpgrades/double_barreled_upgrade.tscn
-res://Scenes/Upgrades/GunUpgrades/fullauto_upgrade.tscn
-res://Scenes/Upgrades/GunUpgrades/homing_upgrade.tscn
-res://Scenes/Upgrades/GunUpgrades/xt_large_bullet_upgrade.tscn
-res://Scenes/Levels/Level Objects/barrel.tscn
-res://Scenes/Upgrades/part_upgrade.tscn
-res://Scenes/Upgrades/upgrade_menu.tscn
-res://Scenes/Bullets/rubber_bullet.tscn
-res://Scenes/Particles/death_explosion.tscn
-res://Scenes/Upgrades/GunUpgrades/rubber_bullets.tscn
-res://Scenes/Guns/44_magnum.tscn
-res://Scenes/Guns/revolver.tscn
-res://Scenes/Enemies/boss_pug.tscn
-res://Scenes/Levels/Level Objects/crate_guns.tscn
-res://Scripts/enemy_explosion.gd
-res://Scenes/Enemies/enemy_pug.tscn
-res://Scenes/Levels/Level Objects/enemy_spawner_pipe.tscn
-res://Scenes/Levels/test_world.tscn
-res://Scripts/world_controller.gd
-res://Scripts/enemy_spawner_pipe.gd
-res://Scenes/UI/settings_menu.tscn
+res://Scenes/Levels/Level Objects/level_manager.tscn
 res://Scenes/UI/pause_menu.tscn
 res://Scenes/UI/pause_controller.tscn
+res://Scenes/UI/settings_menu.tscn
 res://Scenes/Control/ui_menu.tscn
+res://Scenes/UI/ui.tscn
 res://Scenes/Particles/blood.tscn
-res://Scripts/enemy.gd
+res://Scenes/Enemies/enemy_pug.tscn
+res://Scenes/Levels/test_world.tscn
+res://Scenes/Upgrades/upgrade_shop.tscn
+res://Scenes/Upgrades/upgrade_shop_intro.tscn
+res://Scripts/upgrade_shop.gd
+res://Scripts/Upgrades/upgrade_option.gd
+res://Scenes/Levels/Level Objects/health_pickup.tscn
+res://Scripts/health_pickup.gd

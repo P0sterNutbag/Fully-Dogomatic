@@ -1,3 +1,5 @@
+Control
+ColorRect
 CollisionShape2D
 ShapeCast2D
 RichTextLabel
@@ -6,9 +8,7 @@ HBoxContainer
 Sprite2D
 GridContainer
 BoxContainer
-Control
 Node2D
 Timer
 Polygon2D
 Area2D
-Node

@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dj17btvmql3b7" path="res://Scenes/Upgrades/upgrade_manager.tscn" id="11_e06e1"]
 [ext_resource type="PackedScene" uid="uid://dfbi0qqmatkp8" path="res://Scenes/Levels/Level Objects/level_manager.tscn" id="12_hfpru"]
 [ext_resource type="PackedScene" uid="uid://c0wfnsgdnyqg6" path="res://Scenes/Levels/Level Objects/shop.tscn" id="13_f7upa"]
-[ext_resource type="PackedScene" uid="uid://cbaqxge1nx04m" path="res://Scenes/Upgrades/upgrade_shop_intro.tscn" id="14_x7drc"]
+[ext_resource type="PackedScene" uid="uid://dq4bta30vmwew" path="res://Scenes/Upgrades/upgrade_shop_intro.tscn" id="14_x7drc"]
 [ext_resource type="PackedScene" uid="uid://dx18mgom3chcm" path="res://Scenes/UI/pause_controller.tscn" id="15_l14rn"]
 [ext_resource type="PackedScene" uid="uid://cfkssnl27y2qn" path="res://Scenes/Player/player.tscn" id="16_6y5gy"]
 
@@ -131,6 +131,5 @@ position = Vector2(-266, -52)
 
 [node name="Player" parent="." instance=ExtResource("16_6y5gy")]
 position = Vector2(-2, 33)
-money = 100.0
 
 [editable path="Gun Shop"]

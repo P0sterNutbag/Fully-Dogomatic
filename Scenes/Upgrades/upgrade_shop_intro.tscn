@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbaqxge1nx04m"]
+[gd_scene load_steps=8 format=3 uid="uid://dq4bta30vmwew"]
 
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="1_6yuqj"]
 [ext_resource type="Script" path="res://Scripts/upgrade_shop.gd" id="1_de2la"]
@@ -10,6 +10,7 @@
 
 [node name="UpgradeShop" type="Control" node_paths=PackedStringArray("options")]
 process_mode = 3
+z_index = 1000
 material = ExtResource("1_6yuqj")
 layout_mode = 3
 anchors_preset = 0
@@ -71,9 +72,36 @@ rot_amplitude = 10.0
 [node name="Money" type="RichTextLabel" parent="."]
 visible = false
 use_parent_material = true
+layout_mode = 0
 offset_left = 154.0
 offset_top = 187.0
 offset_right = 315.0
 offset_bottom = 210.0
 theme = ExtResource("7_6kynl")
 text = "$"
+
+[node name="ColorRect" type="ColorRect" parent="Money"]
+z_index = -1
+use_parent_material = true
+offset_left = 80.0
+offset_right = 560.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 0.588235)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+use_parent_material = true
+offset_left = 80.0
+offset_top = 203.0
+offset_right = 560.0
+offset_bottom = 360.0
+color = Color(0.101961, 0.101961, 0.101961, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+z_index = -1
+use_parent_material = true
+offset_left = 80.0
+offset_top = 196.0
+offset_right = 560.0
+offset_bottom = 203.0
+color = Color(0, 0, 0, 1)

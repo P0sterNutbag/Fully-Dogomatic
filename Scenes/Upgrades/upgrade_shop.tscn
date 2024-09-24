@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://ce3yg2stl38va"]
+[gd_scene load_steps=16 format=3 uid="uid://b4uuhql6pbtgt"]
 
 [ext_resource type="Script" path="res://Scripts/upgrade_shop.gd" id="1_i1wjx"]
 [ext_resource type="PackedScene" uid="uid://diu6fl025qdv0" path="res://Scenes/Upgrades/upgrade_option.tscn" id="2_yk5qi"]
-[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="3_dpyk4"]
+[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Fonts/Blue Sky 8x8.ttf" id="3_dpyk4"]
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="3_qmdkj"]
 [ext_resource type="Script" path="res://Scripts/ui_menu_button_grow_on_focus.gd" id="3_yonfi"]
 [ext_resource type="Texture2D" uid="uid://b2d2io1t7plqf" path="res://Art/Sprites/x sign.png" id="6_glku4"]
@@ -31,6 +31,24 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_i1wjx")
 options = [NodePath("UpgradeOption"), NodePath("UpgradeOption2"), NodePath("UpgradeOption3")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+use_parent_material = true
+offset_left = 80.0
+offset_top = 160.0
+offset_right = 560.0
+offset_bottom = 360.0
+color = Color(0.101961, 0.101961, 0.101961, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+z_index = -1
+use_parent_material = true
+offset_left = 80.0
+offset_top = 153.0
+offset_right = 560.0
+offset_bottom = 160.0
+color = Color(0, 0, 0, 1)
 
 [node name="ExitButton" type="Button" parent="."]
 use_parent_material = true
