@@ -65,9 +65,9 @@ stream = ExtResource("6_fngcl")
 stream = ExtResource("7_mgc0n")
 volume_db = 4.0
 
-[node name="CanvasLayer" parent="." instance=ExtResource("8_y6a6b")]
+[node name="UI" parent="." instance=ExtResource("8_y6a6b")]
 
-[node name="Gunstats" parent="CanvasLayer" node_paths=PackedStringArray("gui_layer") instance=ExtResource("9_jlh73")]
+[node name="Gunstats" parent="UI" node_paths=PackedStringArray("gui_layer") instance=ExtResource("9_jlh73")]
 visible = false
 z_index = 900
 offset_left = -120.0
@@ -131,5 +131,9 @@ position = Vector2(-266, -52)
 
 [node name="Player" parent="." instance=ExtResource("16_6y5gy")]
 position = Vector2(-2, 33)
+money = 100.0
+
+[node name="ShopUI" type="CanvasLayer" parent="."]
+layer = 2
 
 [editable path="Gun Shop"]

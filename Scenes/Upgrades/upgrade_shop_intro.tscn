@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dq4bta30vmwew"]
+[gd_scene load_steps=9 format=3 uid="uid://dq4bta30vmwew"]
 
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="1_6yuqj"]
 [ext_resource type="Script" path="res://Scripts/upgrade_shop.gd" id="1_de2la"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/float_in.gd" id="5_o5fay"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="6_huop2"]
 [ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="7_6kynl"]
+[ext_resource type="Theme" uid="uid://lra3teo37km0" path="res://Art/Themes/ui text mini.tres" id="8_0w6oe"]
 
 [node name="UpgradeShop" type="Control" node_paths=PackedStringArray("options")]
 process_mode = 3
@@ -19,12 +20,45 @@ options = [NodePath("UpgradeOption"), NodePath("UpgradeOption2"), NodePath("Upgr
 only_one_pick = true
 can_quit = false
 
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+use_parent_material = true
+layout_mode = 0
+offset_left = 80.0
+offset_top = 136.0
+offset_right = 560.0
+offset_bottom = 273.0
+mouse_filter = 2
+color = Color(0.101961, 0.101961, 0.101961, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+z_index = -1
+use_parent_material = true
+layout_mode = 0
+offset_left = 80.0
+offset_top = 129.0
+offset_right = 560.0
+offset_bottom = 136.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+z_index = -1
+use_parent_material = true
+layout_mode = 0
+offset_left = 80.0
+offset_top = 273.0
+offset_right = 560.0
+offset_bottom = 280.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
 [node name="UpgradeOption" parent="." instance=ExtResource("2_m1qjf")]
 layout_mode = 0
 offset_left = 152.0
-offset_top = 218.0
+offset_top = 151.0
 offset_right = 280.0
-offset_bottom = 346.0
+offset_bottom = 279.0
 focus_neighbor_left = NodePath("../UpgradeOption3")
 focus_neighbor_right = NodePath("../UpgradeOption2")
 upgrade_array = Array[String](["common_guns"])
@@ -32,9 +66,9 @@ upgrade_array = Array[String](["common_guns"])
 [node name="UpgradeOption2" parent="." instance=ExtResource("2_m1qjf")]
 layout_mode = 0
 offset_left = 268.0
-offset_top = 218.0
+offset_top = 151.0
 offset_right = 372.0
-offset_bottom = 322.0
+offset_bottom = 255.0
 focus_neighbor_left = NodePath("../UpgradeOption")
 focus_neighbor_right = NodePath("../UpgradeOption3")
 upgrade_array = Array[String](["common_guns"])
@@ -42,9 +76,9 @@ upgrade_array = Array[String](["common_guns"])
 [node name="UpgradeOption3" parent="." instance=ExtResource("2_m1qjf")]
 layout_mode = 0
 offset_left = 384.0
-offset_top = 218.0
+offset_top = 151.0
 offset_right = 512.0
-offset_bottom = 346.0
+offset_bottom = 279.0
 focus_neighbor_left = NodePath("../UpgradeOption2")
 focus_neighbor_right = NodePath("../UpgradeOption")
 upgrade_array = Array[String](["common_guns"])
@@ -80,28 +114,42 @@ offset_bottom = 210.0
 theme = ExtResource("7_6kynl")
 text = "$"
 
-[node name="ColorRect" type="ColorRect" parent="Money"]
-z_index = -1
+[node name="Tooltip" type="Control" parent="."]
+z_index = 10
 use_parent_material = true
-offset_left = 80.0
-offset_right = 560.0
-offset_bottom = 360.0
-color = Color(0, 0, 0, 0.588235)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 489.0
+offset_top = 374.0
+offset_right = 489.0
+offset_bottom = 374.0
+mouse_filter = 2
 
-[node name="ColorRect" type="ColorRect" parent="."]
-z_index = -1
+[node name="ColorRect5" type="ColorRect" parent="Tooltip"]
 use_parent_material = true
-offset_left = 80.0
-offset_top = 203.0
-offset_right = 560.0
-offset_bottom = 360.0
+layout_mode = 0
+offset_left = -61.0
+offset_right = 61.0
+offset_bottom = 45.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Tooltip"]
+use_parent_material = true
+layout_mode = 0
+offset_left = -57.0
+offset_top = 4.0
+offset_right = 57.0
+offset_bottom = 41.0
 color = Color(0.101961, 0.101961, 0.101961, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="."]
-z_index = -1
+[node name="RichTextLabel" type="RichTextLabel" parent="Tooltip"]
 use_parent_material = true
-offset_left = 80.0
-offset_top = 196.0
-offset_right = 560.0
-offset_bottom = 203.0
-color = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -53.0
+offset_top = 4.0
+offset_right = 51.0
+offset_bottom = 41.0
+theme = ExtResource("8_0w6oe")
+text = "Item Description"
+fit_content = true
+scroll_active = false

@@ -11,6 +11,7 @@ var ricochet: bool = false
 var explode_chance: float = 0
 var homing: bool = false
 var target_enemy
+var can_warp: bool
 var hit_enemies: Array
 var can_damage: bool = true
 var explosion = preload("res://Scenes/Bullets/bullet_explosion.tscn")
@@ -38,8 +39,30 @@ func _physics_process(delta):
 		rotation = move_vector.angle()
 	var top_left_bound = Vector2(Globals.camera.get_screen_center_position().x - 240, Globals.camera.get_screen_center_position().y - 180)
 	var bottom_right_bound = Vector2(Globals.camera.get_screen_center_position().x + 240, Globals.camera.get_screen_center_position().y + 180)
-	if global_position.x < top_left_bound.x or global_position.x > bottom_right_bound.x or global_position.y < top_left_bound.y or global_position.y > bottom_right_bound.y:
-		queue_free()
+	if global_position.x < top_left_bound.x:
+		if can_warp:
+			global_position.x = bottom_right_bound.x
+			can_warp = false
+		else:
+			queue_free()
+	elif global_position.x > bottom_right_bound.x:
+		if can_warp:
+			global_position.x = top_left_bound.x
+			can_warp = false
+		else:
+			queue_free()
+	elif global_position.y < top_left_bound.y:
+		if can_warp:
+			global_position.y = bottom_right_bound.y
+			can_warp = false
+		else:
+			queue_free()
+	elif global_position.y > bottom_right_bound.y:
+		if can_warp:
+			global_position.y = top_left_bound.y
+			can_warp = false
+		else:
+			queue_free()
 	#if global_position.distance_to(Globals.player.global_position) > 260:
 		#queue_free()
 

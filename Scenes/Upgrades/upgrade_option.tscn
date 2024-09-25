@@ -73,6 +73,7 @@ bbcode_enabled = true
 text = "[center]OPTION 1"
 
 [node name="UpgradeDescription" type="RichTextLabel" parent="."]
+visible = false
 use_parent_material = true
 layout_mode = 0
 offset_top = 24.0

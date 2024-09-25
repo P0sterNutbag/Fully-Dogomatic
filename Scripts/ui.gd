@@ -56,7 +56,10 @@ func set_money(money: int):
 func set_gun_amount(gun_amount: int, gun_cap: int):
 	#Globals.gun_amount = Globals.player.guns.size()
 	$Info/GunsAmnt.text = "[right]" + str(gun_amount) + "/" + str(gun_cap)
-
+	if gun_amount >= gun_cap:
+		Globals.shop_scene = Globals.no_guns_shop
+	else:
+		Globals.shop_scene = Globals.gun_shop
 
 func add_level_obj(obj_text: String, good: bool, amount: int = 1):
 	level_signs.append(obj_text)

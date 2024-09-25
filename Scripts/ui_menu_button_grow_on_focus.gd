@@ -10,9 +10,11 @@ func _ready():
 
 func grow():
 	var tween = create_tween().set_trans(Tween.TRANS_SINE)
-	tween.tween_property(self, "scale", Vector2.ONE * 1.25, 0.2)
+	tween.tween_property(self, "scale", Vector2.ONE * 1.5, 0.2)
+	z_index = 1
 
 
 func shrink():
 	var tween = create_tween().set_trans(Tween.TRANS_SINE)
 	tween.tween_property(self, "scale", Vector2.ONE, 0.2)
+	z_index = 0

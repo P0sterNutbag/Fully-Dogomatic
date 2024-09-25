@@ -37,6 +37,7 @@ rarity = 2
 [node name="RubberBullets" instance=ExtResource("1_ccqu2")]
 upgrade_values = Array[ExtResource("2_mkcfa")]([SubResource("Resource_8m32h"), SubResource("Resource_yn52y"), SubResource("Resource_u2g50"), SubResource("Resource_eog7p")])
 metadata/Title = "Rubber Bullets"
+metadata/Type = "Bullets bounce off enemies 10 times, deal less damage"
 metadata/Rarity = SubResource("Resource_pn43u")
 
 [node name="UpgradeSprite" parent="." index="0"]

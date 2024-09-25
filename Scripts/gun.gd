@@ -24,6 +24,9 @@ class_name Gun
 @export var bullet_explosion: PackedScene = preload("res://Scenes/Bullets/bullet_explosion.tscn")
 @export_subgroup("Sounds")
 @export var sound_shoot: String  # Sound path
+var bullet_can_warp: bool
+var burst_fire: bool
+var burst_shots_left: int = 3
 var distance_to_player = 18
 var ricochet: bool = false
 var homing: bool = false
@@ -44,8 +47,15 @@ var can_delete: bool = false
 var can_press: bool
 var gunshot_sfx: AudioStreamPlayer2D
 var loadout_text: Control
+var original_aim_dir: Vector2
+var has_aim_assist: bool:
+	set (value):
+		has_aim_assist = value
+		if value == true:
+			Globals.create_instance(aim_assist, Vector2.ZERO, self)
 var shell = preload("res://Scenes/Particles/shell.tscn")
 var status_effect = preload("res://Scenes/Particles/gun_status.tscn")
+var aim_assist = preload("res://Scenes/Guns/Parent/aim_assist.tscn")
 var muzzleflash_textures = [preload("res://Art/Sprites/muzzleflash.png"), 
 preload("res://Art/Sprites/muzzleflash2.png"),
 preload("res://Art/Sprites/muzzleflash3.png")]
@@ -78,8 +88,10 @@ func _physics_process(delta):
 			scale.y = -1
 		else:
 			scale.y = 1
-	#else:
-		#if holder != null:
+		original_aim_dir = aim_dir
+	else:
+		if holder != null:
+			rotation = lerp_angle(rotation, aim_dir.angle(), 10 * delta)
 			#position = lerp(position, aim_dir * distance_to_player, delta * 10)
 	if sprite.scale != Vector2(1,1):
 		sprite.scale = sprite.scale.lerp(Vector2(1, 1), 6 * delta)
@@ -122,16 +134,16 @@ func _on_timer_timeout(): # shoot bullets
 		if holder.state == holder.states.dead:
 			return
 		# determine accuracy
-		var accuracy_mod = -5
+		var accuracy_mod = -10
 		if abs(Globals.player.velocity) > Vector2.ZERO:
-			accuracy_mod = 3
+			accuracy_mod = 0
 		# shoot bullets
 		for i in bullet_count:
 			var instance = bullet.instantiate()
 			get_tree().current_scene.add_child(instance)
 			instance.global_position = firepoint.global_position
 			var accuracy = clamp(spread + accuracy_mod, 0, 100)
-			var bullet_angle = global_rotation + randf_range(-accuracy/100, accuracy/100)
+			var bullet_angle = aim_dir.angle() + deg_to_rad(randf_range(-accuracy, accuracy))
 			var bullet_vector = Vector2(cos(bullet_angle), sin(bullet_angle)) * bullet_speed
 			instance.move_vector = bullet_vector
 			instance.speed = bullet_speed
@@ -142,6 +154,8 @@ func _on_timer_timeout(): # shoot bullets
 			instance.explosion = bullet_explosion
 			instance.explode_chance = max(explode_chance, Globals.explode_chance)
 			instance.homing = homing
+			instance.can_warp = bullet_can_warp
+			rotation = bullet_angle
 		# expend ammo
 		shots_left -= 1
 		if shots_left <= 0:
@@ -161,6 +175,19 @@ func _on_timer_timeout(): # shoot bullets
 		elif gunshot_sfx.get_playback_position() > 0.05:
 			gunshot_sfx.pitch_scale = randf_range(0.9, 1.1)
 			gunshot_sfx.play()
+		# burst fire
+		if burst_fire:
+			if shots_left > 0:
+				if burst_shots_left > 1:
+					burst_shots_left -= 1
+					$ShootTimer.wait_time = cooldown * 0.25
+					$ShootTimer.start()
+				else:
+					burst_shots_left = 3
+					$ShootTimer.wait_time = cooldown * 1.5
+					$ShootTimer.start()
+			else:
+				burst_shots_left = 3
 
 
 func _on_reload_timer_timeout():

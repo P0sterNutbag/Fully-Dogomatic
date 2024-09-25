@@ -25,6 +25,7 @@ rarity = 3
 [node name="GunUpgradeXtLargeBullet" instance=ExtResource("1_641od")]
 upgrade_values = Array[ExtResource("2_8ae2u")]([SubResource("Resource_xwj61"), SubResource("Resource_ryy7h")])
 metadata/Title = "XXXL Bullets"
+metadata/Type = "Giant bullets that deal x2 more damage"
 metadata/Rarity = SubResource("Resource_plmo1")
 
 [node name="UpgradeSprite" parent="." index="0"]

@@ -18,7 +18,8 @@ rarity = 1
 [node name="Dogtag" instance=ExtResource("1_fxptv")]
 upgrade_values = Array[ExtResource("2_ti41u")]([SubResource("Resource_4dcn8")])
 player_upgrade = true
-metadata/Title = "+Item Pickup Range"
+metadata/Title = "Money Magnet"
+metadata/Type = "+Item Pickup Range"
 metadata/Rarity = SubResource("Resource_mhcv3")
 
 [node name="Icon" parent="." index="1"]

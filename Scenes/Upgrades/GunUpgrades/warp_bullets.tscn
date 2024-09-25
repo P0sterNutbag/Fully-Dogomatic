@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://yqrlfjonghme"]
+
+[ext_resource type="PackedScene" uid="uid://dxh25edu12ok8" path="res://Scenes/Upgrades/gun_upgrade.tscn" id="1_blffs"]
+[ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="2_74ce6"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_huf0x"]
+[ext_resource type="Texture2D" uid="uid://b0rfe3ff6ilq5" path="res://Art/Sprites/upgrade spritesheet.png" id="4_vhax4"]
+
+[sub_resource type="Resource" id="Resource_cogub"]
+script = ExtResource("2_74ce6")
+values = ["bullet_can_warp", true]
+multiply_value = false
+add_value = false
+
+[sub_resource type="Resource" id="Resource_23pya"]
+script = ExtResource("3_huf0x")
+rarity = 0
+
+[node name="BurstFire" instance=ExtResource("1_blffs")]
+upgrade_values = Array[ExtResource("2_74ce6")]([SubResource("Resource_cogub")])
+metadata/Title = "Warp Bullets"
+metadata/Type = "Bullets warp across the screen when exiting screen bounds"
+metadata/Rarity = SubResource("Resource_23pya")
+
+[node name="UpgradeSprite" parent="." index="0"]
+texture = ExtResource("4_vhax4")
+region_enabled = true
+region_rect = Rect2(96, 48, 16, 16)

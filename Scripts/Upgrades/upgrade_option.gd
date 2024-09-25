@@ -23,7 +23,7 @@ func create_upgrade(upgrade_scene: PackedScene):
 	$UpgradeDescription.text = "[center]" + (upgrade.get_meta("Type")).to_upper()
 	# write price
 	if show_price:
-		price = round(Globals.get_gun_price(upgrade))
+		price = round(Globals.get_gun_price(upgrade) * (1 - Globals.shop_discount))
 	if price > 0:
 		$Price.text = "[center]$" + str(price)
 
@@ -37,18 +37,18 @@ func _process(delta):
 func _on_pressed():
 	if !upgrade:
 		return 
-	if Globals.player.guns.size() >= Globals.player.gun_cap:
+	if Globals.player.guns.size() >= Globals.player.gun_cap and upgrade is Gun:
 		var inst = Globals.create_instance(not_enough_money, global_position + Vector2(77.5, 0), get_parent())
-		inst.get_node(0).text = "GUN CAP REACHED!"
+		inst.get_child(0).text = "GUN CAP REACHED!"
 		var tween = create_tween()
 		tween.tween_property(inst, "global_position", inst.global_position + Vector2.UP * 12, 1)
 		tween.tween_callback(inst.queue_free)
-	if Globals.player.money >= price:
+	elif Globals.player.money >= price:
 		if price > 0:
 			Globals.player.spend_money(price)
 		if upgrade.name.contains("Dogtag"):
 			upgrade.apply_upgrade()
-			Globals.upgrade_menu.move_options_out()
+			#Globals.upgrade_menu.move_options_out()
 			Globals.ui.get_node("Dogtags").add_dogtag(upgrade)
 			get_parent().finish()
 		else: 
@@ -75,8 +75,11 @@ func _exit_tree() -> void:
 
 func _on_focus_entered() -> void:
 	$JuicyMovement.process_mode = Node.PROCESS_MODE_INHERIT
+	if upgrade.get_meta("Type") != "":
+		Globals.upgrade_menu.show_tooltip(global_position + pivot_offset + Vector2.DOWN * 72, upgrade.get_meta("Type"))
 
 
 func _on_focus_exited() -> void:
 	$JuicyMovement.process_mode = Node.PROCESS_MODE_DISABLED
 	rotation_degrees = 0
+	Globals.upgrade_menu.hide_tooltip()

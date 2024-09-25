@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://b4uuhql6pbtgt"]
+[gd_scene load_steps=17 format=3 uid="uid://b4uuhql6pbtgt"]
 
 [ext_resource type="Script" path="res://Scripts/upgrade_shop.gd" id="1_i1wjx"]
 [ext_resource type="PackedScene" uid="uid://diu6fl025qdv0" path="res://Scenes/Upgrades/upgrade_option.tscn" id="2_yk5qi"]
-[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Fonts/Blue Sky 8x8.ttf" id="3_dpyk4"]
+[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="3_dpyk4"]
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="3_qmdkj"]
 [ext_resource type="Script" path="res://Scripts/ui_menu_button_grow_on_focus.gd" id="3_yonfi"]
 [ext_resource type="Texture2D" uid="uid://b2d2io1t7plqf" path="res://Art/Sprites/x sign.png" id="6_glku4"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://Scripts/float_in.gd" id="10_ktf1i"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="11_cgxk0"]
 [ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="13_2wwyi"]
+[ext_resource type="Theme" uid="uid://lra3teo37km0" path="res://Art/Themes/ui text mini.tres" id="14_68342"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ap13o"]
 
@@ -35,28 +36,43 @@ options = [NodePath("UpgradeOption"), NodePath("UpgradeOption2"), NodePath("Upgr
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -1
 use_parent_material = true
+layout_mode = 0
 offset_left = 80.0
-offset_top = 160.0
+offset_top = 117.0
 offset_right = 560.0
-offset_bottom = 360.0
+offset_bottom = 317.0
+mouse_filter = 2
 color = Color(0.101961, 0.101961, 0.101961, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 z_index = -1
 use_parent_material = true
+layout_mode = 0
 offset_left = 80.0
-offset_top = 153.0
+offset_top = 110.0
 offset_right = 560.0
-offset_bottom = 160.0
+offset_bottom = 117.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+z_index = -1
+use_parent_material = true
+layout_mode = 0
+offset_left = 80.0
+offset_top = 317.0
+offset_right = 560.0
+offset_bottom = 324.0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="ExitButton" type="Button" parent="."]
 use_parent_material = true
 layout_mode = 0
 offset_left = 92.0
-offset_top = 247.0
+offset_top = 204.0
 offset_right = 140.0
-offset_bottom = 295.0
+offset_bottom = 252.0
 pivot_offset = Vector2(24, 24)
 focus_neighbor_left = NodePath("../Reroll")
 focus_neighbor_right = NodePath("../UpgradeOption")
@@ -98,9 +114,9 @@ text = "[center]EXIT"
 [node name="UpgradeOption" parent="." instance=ExtResource("2_yk5qi")]
 layout_mode = 0
 offset_left = 152.0
-offset_top = 218.0
+offset_top = 175.0
 offset_right = 256.0
-offset_bottom = 322.0
+offset_bottom = 279.0
 focus_neighbor_left = NodePath("../ExitButton")
 focus_neighbor_right = NodePath("../UpgradeOption2")
 upgrade_array = Array[String](["common_guns"])
@@ -109,9 +125,9 @@ show_price = true
 [node name="UpgradeOption2" parent="." instance=ExtResource("2_yk5qi")]
 layout_mode = 0
 offset_left = 268.0
-offset_top = 218.0
+offset_top = 175.0
 offset_right = 372.0
-offset_bottom = 322.0
+offset_bottom = 279.0
 focus_neighbor_left = NodePath("../UpgradeOption")
 focus_neighbor_right = NodePath("../UpgradeOption3")
 upgrade_array = Array[String](["uncommon_guns", "rare_guns"])
@@ -120,9 +136,9 @@ show_price = true
 [node name="UpgradeOption3" parent="." instance=ExtResource("2_yk5qi")]
 layout_mode = 0
 offset_left = 384.0
-offset_top = 218.0
+offset_top = 175.0
 offset_right = 488.0
-offset_bottom = 322.0
+offset_bottom = 279.0
 focus_neighbor_left = NodePath("../UpgradeOption2")
 focus_neighbor_right = NodePath("../Reroll")
 upgrade_array = Array[String](["common_upgrades", "uncommon_upgrades", "rare_upgrades", "super_rare_upgrades"])
@@ -132,9 +148,9 @@ show_price = true
 use_parent_material = true
 layout_mode = 0
 offset_left = 500.0
-offset_top = 247.0
+offset_top = 204.0
 offset_right = 548.0
-offset_bottom = 295.0
+offset_bottom = 252.0
 pivot_offset = Vector2(24, 24)
 focus_neighbor_left = NodePath("../UpgradeOption3")
 focus_neighbor_right = NodePath("../ExitButton")
@@ -197,9 +213,9 @@ rot_amplitude = 10.0
 use_parent_material = true
 layout_mode = 0
 offset_left = 154.0
-offset_top = 176.0
+offset_top = 133.0
 offset_right = 315.0
-offset_bottom = 199.0
+offset_bottom = 156.0
 pivot_offset = Vector2(35, 9)
 theme = ExtResource("13_2wwyi")
 text = "Money: $"
@@ -209,6 +225,45 @@ position = Vector2(-154, -187)
 target_control = NodePath("..")
 bob_frequency = 2.5
 bob_amplitude = 5.0
+
+[node name="Tooltip" type="Control" parent="."]
+z_index = 10
+use_parent_material = true
+anchors_preset = 0
+offset_left = 489.0
+offset_top = 374.0
+offset_right = 489.0
+offset_bottom = 374.0
+mouse_filter = 2
+
+[node name="ColorRect5" type="ColorRect" parent="Tooltip"]
+use_parent_material = true
+layout_mode = 0
+offset_left = -61.0
+offset_right = 61.0
+offset_bottom = 45.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Tooltip"]
+use_parent_material = true
+layout_mode = 0
+offset_left = -57.0
+offset_top = 4.0
+offset_right = 57.0
+offset_bottom = 41.0
+color = Color(0.101961, 0.101961, 0.101961, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Tooltip"]
+use_parent_material = true
+layout_mode = 0
+offset_left = -53.0
+offset_top = 4.0
+offset_right = 51.0
+offset_bottom = 41.0
+theme = ExtResource("14_68342")
+text = "Item Description"
+fit_content = true
+scroll_active = false
 
 [connection signal="focus_entered" from="ExitButton" to="ExitButton/Circle" method="_on_upgrade_option_focus_entered"]
 [connection signal="focus_exited" from="ExitButton" to="ExitButton/Circle" method="_on_upgrade_option_focus_exited"]

@@ -18,6 +18,7 @@ rarity = 2
 [node name="FullAuto" instance=ExtResource("1_gvglc")]
 upgrade_values = Array[ExtResource("2_2hnph")]([SubResource("Resource_5ulwt")])
 metadata/Title = "Full Auto"
+metadata/Type = "Shoots bullets 10x faster"
 metadata/Rarity = SubResource("Resource_l4ecl")
 
 [node name="UpgradeSprite" parent="." index="0"]

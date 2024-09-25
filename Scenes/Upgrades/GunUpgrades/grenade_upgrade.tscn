@@ -18,7 +18,8 @@ rarity = 2
 
 [node name="GunUpgradeDamage" instance=ExtResource("1_so6yn")]
 upgrade_values = Array[ExtResource("2_mbojg")]([SubResource("Resource_cogub")])
-metadata/Title = "Grenade Bullets"
+metadata/Title = "Frag Grenade"
+metadata/Type = "Shoots frag  grenades instead of bullets"
 metadata/Rarity = SubResource("Resource_23pya")
 
 [node name="UpgradeSprite" parent="." index="0"]

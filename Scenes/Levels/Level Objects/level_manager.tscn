@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/level_manager.gd" id="1_yyqyc"]
 [ext_resource type="Script" path="res://Scripts/spawn_chance.gd" id="2_hmqxk"]
 [ext_resource type="PackedScene" uid="uid://qavuwtph0wq3" path="res://Scenes/Levels/Level Objects/money_crate.tscn" id="3_bpmjp"]
-[ext_resource type="PackedScene" path="res://Scenes/Levels/Level Objects/barrel.tscn" id="4_vuvp8"]
+[ext_resource type="PackedScene" uid="uid://cx7byh4hc2ic3" path="res://Scenes/Levels/Level Objects/barrel.tscn" id="4_vuvp8"]
 
 [sub_resource type="Resource" id="Resource_rra2h"]
 script = ExtResource("2_hmqxk")

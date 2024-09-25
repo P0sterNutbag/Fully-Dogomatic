@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://bl8vkw10mec44"]
+
+[ext_resource type="PackedScene" uid="uid://dxh25edu12ok8" path="res://Scenes/Upgrades/gun_upgrade.tscn" id="1_skyni"]
+[ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="2_g0oxg"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_du8by"]
+[ext_resource type="Texture2D" uid="uid://b0rfe3ff6ilq5" path="res://Art/Sprites/upgrade spritesheet.png" id="4_e84or"]
+
+[sub_resource type="Resource" id="Resource_cogub"]
+script = ExtResource("2_g0oxg")
+values = ["has_aim_assist", true]
+multiply_value = false
+add_value = false
+
+[sub_resource type="Resource" id="Resource_23pya"]
+script = ExtResource("3_du8by")
+rarity = 0
+
+[node name="BurstFire" instance=ExtResource("1_skyni")]
+upgrade_values = Array[ExtResource("2_g0oxg")]([SubResource("Resource_cogub")])
+metadata/Title = "Aim Assist"
+metadata/Type = "Shoot towards nearby targets"
+metadata/Rarity = SubResource("Resource_23pya")
+
+[node name="UpgradeSprite" parent="." index="0"]
+texture = ExtResource("4_e84or")
+region_enabled = true
+region_rect = Rect2(0, 64, 16, 16)

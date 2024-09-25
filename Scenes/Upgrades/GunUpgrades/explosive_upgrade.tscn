@@ -17,6 +17,7 @@ rarity = 3
 
 [node name="GunUpgradeExplosive" instance=ExtResource("1_m2niw")]
 upgrade_values = Array[ExtResource("2_wqka5")]([SubResource("Resource_iqdtj")])
+metadata/Type = "Bullets explode on impact"
 metadata/Rarity = SubResource("Resource_exgce")
 
 [node name="UpgradeSprite" parent="." index="0"]

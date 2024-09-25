@@ -18,6 +18,7 @@ rarity = 2
 [node name="GunUpgradeDamage" instance=ExtResource("1_n747t")]
 upgrade_values = Array[ExtResource("2_nfgay")]([SubResource("Resource_mmyiv")])
 metadata/Title = "Armor Piercing"
+metadata/Type = "Bullets shoot through +1 enemy"
 metadata/Rarity = SubResource("Resource_px5s8")
 
 [node name="UpgradeSprite" parent="." index="0"]

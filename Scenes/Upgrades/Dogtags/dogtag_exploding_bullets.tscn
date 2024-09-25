@@ -33,10 +33,12 @@ material = SubResource("ShaderMaterial_k0t5h")
 custom_minimum_size = Vector2(12, 20)
 layout_mode = 3
 anchors_preset = 0
+offset_right = 16.0
+offset_bottom = 20.0
 script = ExtResource("3_gh0yw")
 upgrade_values = Array[ExtResource("4_p3eox")]([SubResource("Resource_j26hk")])
-metadata/Title = "+5% Chance Bullets Explode"
-metadata/Type = ""
+metadata/Title = "Semi Explosive Bullets"
+metadata/Type = "+5% Chance Bullets Explode"
 metadata/Rarity = SubResource("Resource_25sqj")
 
 [node name="Tag" type="Sprite2D" parent="."]

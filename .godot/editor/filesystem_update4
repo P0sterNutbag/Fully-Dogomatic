@@ -1,29 +1,56 @@
+res://Scenes/Upgrades/upgrade_manager.tscn
 res://Art/Shaders/colorswap.gdshader
 res://Art/Shaders/colorswap.tres
-res://Art/Shaders/color_change.gdshader
-res://Art/Shaders/color_change.tres
 res://Art/Themes/healthbar.tres
 res://Art/Shaders/dither.gdshader
 res://Art/Shaders/dither postprocess.gdshader
-res://Scenes/Upgrades/upgrade_manager.tscn
-res://Scenes/Levels/Level Objects/shop.tscn
-res://Scenes/Bullets/grenade.tscn
-res://Scenes/Bullets/bullet_explosion.tscn
-res://Scenes/Bullets/regular_bullet.tscn
-res://Scenes/Guns/Parts/large_magazine.tscn
-res://Scenes/Guns/Parts/scope.tscn
-res://Scenes/Levels/Level Objects/level_manager.tscn
-res://Scenes/UI/pause_menu.tscn
-res://Scenes/UI/pause_controller.tscn
-res://Scenes/UI/settings_menu.tscn
-res://Scenes/Control/ui_menu.tscn
-res://Scenes/UI/ui.tscn
-res://Scenes/Particles/blood.tscn
-res://Scenes/Enemies/enemy_pug.tscn
-res://Scenes/Levels/test_world.tscn
+res://Art/Shaders/color_change.gdshader
 res://Scenes/Upgrades/upgrade_shop.tscn
+res://Scenes/Upgrades/upgrade_shop_no_guns.tscn
 res://Scenes/Upgrades/upgrade_shop_intro.tscn
+res://Scenes/Upgrades/upgrade_option.tscn
+res://Scenes/Levels/world.tscn
+res://Scenes/UI/ui.tscn
+res://Scenes/UI/gunstats.tscn
+res://Scenes/Levels/Level Objects/barrel.tscn
+res://Scenes/Levels/Level Objects/money_crate.tscn
+res://Scenes/Levels/test_world.tscn
+res://Scripts/gun.gd
+res://Scripts/globals.gd
+res://Scenes/Upgrades/GunUpgrades/burst fire.tscn
+res://Scenes/Upgrades/GunUpgrades/burst_fire_upgrade.tscn
+res://Scenes/Upgrades/GunUpgrades/damage_upgrade.tscn
+res://Scenes/Upgrades/GunUpgrades/double_barreled_upgrade.tscn
+res://Scenes/Guns/Parent/gun_parent.tscn
+res://Scenes/Upgrades/GunUpgrades/extreme_innacuracy.tscn
 res://Scripts/upgrade_shop.gd
 res://Scripts/Upgrades/upgrade_option.gd
-res://Scenes/Levels/Level Objects/health_pickup.tscn
-res://Scripts/health_pickup.gd
+res://Scenes/Upgrades/GunUpgrades/fullauto_upgrade.tscn
+res://Scenes/Upgrades/GunUpgrades/grenade_upgrade.tscn
+res://Scenes/Upgrades/GunUpgrades/homing_upgrade.tscn
+res://Scenes/Upgrades/GunUpgrades/penetrate_upgrade.tscn
+res://Scenes/Upgrades/GunUpgrades/reload_speed_upgrade.tscn
+res://Scenes/Upgrades/GunUpgrades/ricochet_upgrade.tscn
+res://Scenes/Upgrades/GunUpgrades/rubber_bullets.tscn
+res://Scenes/Upgrades/GunUpgrades/xt_large_bullet_upgrade.tscn
+res://Scenes/Upgrades/Dogtags/dogtag_exploding_bullets.tscn
+res://Scenes/Upgrades/Dogtags/dogtag_grab_radius.tscn
+res://Scenes/Upgrades/Dogtags/dogtag_hp.tscn
+res://Scenes/Upgrades/Dogtags/dogtag_money_droprate.tscn
+res://Scenes/Upgrades/Dogtags/dogtag_player_speed.tscn
+res://Scenes/Upgrades/Dogtags/dogtag_upgrades.tscn
+res://Scenes/Upgrades/GunUpgrades/explosive_upgrade.tscn
+res://Scenes/Bullets/bullet_grenade.tscn
+res://Scripts/grenade.gd
+res://Scripts/bullet.gd
+res://Scenes/Upgrades/GunUpgrades/warp_bullets.tscn
+res://Scenes/Upgrades/GunUpgrades/aim_assist.tscn
+res://Scenes/Upgrades/GunUpgrades/aim_assist_upgrade.tscn
+res://Scenes/Guns/Parent/aim_assist.tscn
+res://Scripts/aim_assist.gd
+res://Scenes/Upgrades/Dogtags/dogtag_discount.tscn
+res://Scenes/Upgrades/Dogtags/dogtag_gun_cap.tscn
+res://Scripts/player.gd
+res://Scenes/Upgrades/upgrade_menu.tscn
+res://Scripts/ui.gd
+res://Scripts/gun_upgrade.gd

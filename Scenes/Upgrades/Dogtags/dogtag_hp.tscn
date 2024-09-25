@@ -24,7 +24,8 @@ rarity = 1
 [node name="Dogtag" instance=ExtResource("1_5rmn0")]
 upgrade_values = Array[ExtResource("2_xc40n")]([SubResource("Resource_su5yf"), SubResource("Resource_lxrof")])
 player_upgrade = true
-metadata/Title = "+20 Max HP"
+metadata/Title = "Big Heart"
+metadata/Type = "+20 Max HP"
 metadata/Rarity = SubResource("Resource_l34ag")
 
 [node name="Icon" parent="." index="1"]

@@ -80,6 +80,6 @@ func add_upgrade_to_gun(gun_to_change: Node2D):
 			gun_to_change.set(variable_change.values[0], gun_to_change.get(variable_change.values[0]) * variable_change.values[1])
 		else:
 			gun_to_change.set(variable_change.values[0], variable_change.values[1])
-	var text = gun_to_change.loadout_text.get_node("RichTextLabel")
-	text.text += "\n" + " " + get_meta("Title")
-	text.custom_minimum_size.y += 9
+	#var text = gun_to_change.loadout_text.get_node("RichTextLabel")
+	#text.text += "\n" + " " + get_meta("Title")
+	#text.custom_minimum_size.y += 9

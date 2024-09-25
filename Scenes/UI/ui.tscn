@@ -110,13 +110,12 @@ target_node2D = NodePath("..")
 rot_frequency = 2.0
 rot_amplitude = 15.0
 
-[node name="Dogtags" type="GridContainer" parent="."]
+[node name="Dogtags" type="HBoxContainer" parent="."]
 z_index = 1
-offset_left = 15.0
-offset_top = 182.0
-offset_right = 75.0
-offset_bottom = 218.0
-columns = 4
+offset_left = 92.0
+offset_top = 331.0
+offset_right = 550.0
+offset_bottom = 354.0
 script = ExtResource("11_7ulue")
 
 [node name="BossHp" type="Node2D" parent="."]

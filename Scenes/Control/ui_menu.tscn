@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cnvsn7j5ixyu8"]
 
 [ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="1_8707w"]
-[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Fonts/Blue Sky 8x8.ttf" id="1_qerqh"]
+[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="1_qerqh"]
 [ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="2_qh8d1"]
 [ext_resource type="Script" path="res://Scripts/ui_menu.gd" id="3_r2keu"]
 [ext_resource type="Script" path="res://Scripts/ui_menu_button.gd" id="5_rolye"]
