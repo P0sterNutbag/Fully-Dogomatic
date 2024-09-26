@@ -1,9 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://qnw7051yjuf4"]
+[gd_scene load_steps=11 format=3 uid="uid://qnw7051yjuf4"]
 
+[ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="1_31caj"]
 [ext_resource type="PackedScene" uid="uid://c37vi5itujbsu" path="res://Scenes/UI/Character Cusomization/character_option.tscn" id="1_a3lih"]
 [ext_resource type="Script" path="res://Scripts/customization_menu.gd" id="1_i6dq8"]
-[ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="1_jaydi"]
-[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="2_5djtr"]
 [ext_resource type="Theme" uid="uid://d20y8va2yhr08" path="res://Art/Themes/ui text large.tres" id="3_h7e4y"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="4_hskep"]
 [ext_resource type="Texture2D" uid="uid://bgdv7cixbs4je" path="res://Art/Sprites/dachsund idle.png" id="6_yipcj"]
@@ -12,17 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://cno2rrk3xogxh" path="res://Art/Sprites/cat idle.png" id="8_m0mus"]
 [ext_resource type="Texture2D" uid="uid://c6tf58pwjbbr5" path="res://Art/Sprites/bulldog idle.png" id="9_35qwl"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_67unc"]
-shader = ExtResource("1_jaydi")
-shader_parameter/skip_first_row = true
-shader_parameter/use_palette_alpha = false
-shader_parameter/is_texture = false
-shader_parameter/fps = 6.0
-shader_parameter/color_threshold = 0.1
-shader_parameter/palette = ExtResource("2_5djtr")
-
 [node name="ChooseCharacter" type="Control" node_paths=PackedStringArray("first_button")]
-material = SubResource("ShaderMaterial_67unc")
+material = ExtResource("1_31caj")
+use_parent_material = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,6 +34,7 @@ script = ExtResource("7_3qexv")
 offscreen_position_offset = Vector2(0, 170)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Options"]
+use_parent_material = true
 layout_mode = 0
 offset_left = -212.0
 offset_top = -50.0
@@ -74,6 +66,7 @@ character_name = "Toaster"
 sprite = ExtResource("8_m0mus")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Options"]
+use_parent_material = true
 layout_mode = 0
 offset_left = -164.0
 offset_top = 55.0

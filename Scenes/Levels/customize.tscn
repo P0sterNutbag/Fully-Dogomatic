@@ -1,18 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bn5ncbysca8gb"]
+[gd_scene load_steps=6 format=3 uid="uid://bn5ncbysca8gb"]
 
 [ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="1_qery7"]
 [ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="2_y75s1"]
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="3_ad0rx"]
 [ext_resource type="PackedScene" uid="uid://qnw7051yjuf4" path="res://Scenes/UI/Character Cusomization/choose_character.tscn" id="5_y0cb2"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xpbcl"]
-shader = ExtResource("1_qery7")
-shader_parameter/skip_first_row = true
-shader_parameter/use_palette_alpha = false
-shader_parameter/is_texture = true
-shader_parameter/fps = 6.0
-shader_parameter/color_threshold = 0.1
-shader_parameter/palette = ExtResource("2_y75s1")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4oh7u"]
 shader = ExtResource("1_qery7")
@@ -24,7 +15,7 @@ shader_parameter/color_threshold = 0.1
 shader_parameter/palette = ExtResource("2_y75s1")
 
 [node name="CustomizeGame" type="Node2D"]
-material = SubResource("ShaderMaterial_xpbcl")
+material = ExtResource("3_ad0rx")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = ExtResource("3_ad0rx")

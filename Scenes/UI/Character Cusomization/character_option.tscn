@@ -1,23 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://c37vi5itujbsu"]
+[gd_scene load_steps=9 format=3 uid="uid://c37vi5itujbsu"]
 
-[ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="1_j3f4n"]
-[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="2_r8tsc"]
 [ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="3_48k3r"]
 [ext_resource type="Script" path="res://Scenes/UI/Character Cusomization/character_option.gd" id="4_a02u5"]
 [ext_resource type="Script" path="res://Scripts/circle.gd" id="4_rv68d"]
 [ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="7_nauhl"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="8_1ck4b"]
-[ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="9_qu2d1"]
 [ext_resource type="Texture2D" uid="uid://chhc6bjga1571" path="res://Art/Sprites/player idle.png" id="9_yyfrr"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_q6b8f"]
-shader = ExtResource("1_j3f4n")
-shader_parameter/skip_first_row = true
-shader_parameter/use_palette_alpha = false
-shader_parameter/is_texture = false
-shader_parameter/fps = 6.0
-shader_parameter/color_threshold = 0.1
-shader_parameter/palette = ExtResource("2_r8tsc")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ap13o"]
 
@@ -29,17 +17,8 @@ Button/font_sizes/font_size = 14
 Button/fonts/font = ExtResource("3_48k3r")
 Button/styles/focus = SubResource("StyleBoxEmpty_ap13o")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_drcx1"]
-shader = ExtResource("1_j3f4n")
-shader_parameter/skip_first_row = true
-shader_parameter/use_palette_alpha = false
-shader_parameter/is_texture = false
-shader_parameter/fps = 6.0
-shader_parameter/color_threshold = 0.1
-shader_parameter/palette = ExtResource("2_r8tsc")
-
 [node name="CharacterOption" type="Button"]
-material = SubResource("ShaderMaterial_q6b8f")
+use_parent_material = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -58,7 +37,7 @@ anchors_preset = 0
 pivot_offset = Vector2(48, 48)
 
 [node name="Circle" type="Control" parent="ScaleOffset"]
-material = SubResource("ShaderMaterial_drcx1")
+use_parent_material = true
 layout_mode = 3
 anchors_preset = 0
 offset_left = 24.0
@@ -90,7 +69,7 @@ rot_frequency = 2.5
 rot_amplitude = 10.0
 
 [node name="Sprite2D" type="Sprite2D" parent="ScaleOffset"]
-material = ExtResource("9_qu2d1")
+use_parent_material = true
 position = Vector2(48, 51)
 scale = Vector2(2, 2)
 texture = ExtResource("9_yyfrr")
