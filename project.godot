@@ -14,7 +14,7 @@ config/name="Fully Dogomatic"
 run/main_scene="res://Scenes/Levels/intro.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=60
-boot_splash/bg_color=Color(0.0980392, 0.105882, 0.223529, 1)
+boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
 config/windows_native_icon="res://Art/Sprites/windows_icon.ico"
 

@@ -3,7 +3,7 @@ extends Control
 var level_width: float
 var level_height: float
 var x_ratio: float
-var y_ratop: float
+var y_ratio: float
 var icon = preload("res://Scenes/UI/map_icon.tscn")
 @onready var map = $Mask/Anchor/Map
 
@@ -19,8 +19,8 @@ func add_to_map(texture: Texture2D, pos: Vector2, follow_obj: Node2D = null) -> 
 	var sprite = icon.instantiate()
 	map.add_child(sprite)
 	sprite.texture = texture
-	var x_ratio = pos.x / level_width
-	var y_ratio = pos.y / level_height
+	x_ratio = pos.x / level_width
+	y_ratio = pos.y / level_height
 	sprite.position.x = map.size.x * x_ratio
 	sprite.position.y = map.size.y * y_ratio
 	sprite.use_parent_material = true

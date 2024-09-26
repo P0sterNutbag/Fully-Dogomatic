@@ -5,4 +5,4 @@ extends Node2D
 
 
 func _draw():
-	draw_circle(position, radius, Color.BLACK)
+	draw_circle(position, radius, Color8(57, 57, 57, 255))

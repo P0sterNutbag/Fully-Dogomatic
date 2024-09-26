@@ -23,17 +23,17 @@ var super_rare_upgrades: Array
 func _ready():
 	Globals.upgrade_manager = self
 	for gun in gun_scenes:
-		add_to_list(guns, gun)
+		add_to_list(guns, gun, rarity_chances)
 	for upgrade in upgrades_scenes:
-		add_to_list(upgrades, upgrade)
+		add_to_list(upgrades, upgrade, rarity_chances_upgrade)
 	for upgrade in upgrades:
-		if upgrade.spawn_chance == rarity_chances[0]:
+		if upgrade.spawn_chance == rarity_chances_upgrade[0]:
 			common_upgrades.append(upgrade)
-		elif upgrade.spawn_chance == rarity_chances[1]:
+		elif upgrade.spawn_chance == rarity_chances_upgrade[1]:
 			common_upgrades.append(upgrade)
-		elif upgrade.spawn_chance == rarity_chances[2]:
+		elif upgrade.spawn_chance == rarity_chances_upgrade[2]:
 			rare_upgrades.append(upgrade)
-		elif upgrade.spawn_chance == rarity_chances[3]:
+		elif upgrade.spawn_chance == rarity_chances_upgrade[3]:
 			super_rare_upgrades.append(upgrade)
 	for gun in guns:
 		if gun.spawn_chance == rarity_chances[0]:
@@ -46,11 +46,11 @@ func _ready():
 			super_rare_guns.append(gun)
 
 
-func add_to_list(list: Array, value: PackedScene):
+func add_to_list(list: Array, value: PackedScene, array: Array):
 	var sc = SpawnChance.new()
 	sc.object_to_spawn = value
 	var inst = value.instantiate()
-	sc.spawn_chance = get_spawn_chance(inst.get_meta("Rarity").rarity, inst.name)
+	sc.spawn_chance = get_spawn_chance(inst.get_meta("Rarity").rarity, array)
 	list.append(sc)
 	inst.queue_free()
 
@@ -64,33 +64,17 @@ func add_to_list_no_rarity(list: Array, value: PackedScene):
 	inst.queue_free()
 
 
-func get_spawn_chance(rarity: Globals.rarity_levels, title: String) -> int:
+func get_spawn_chance(rarity: Globals.rarity_levels, array: Array) -> int:
 	if rarity == Globals.rarity_levels.common:
-		return rarity_chances[0]
+		return array[0]
 	elif rarity == Globals.rarity_levels.uncommon:
-		return rarity_chances[1]
+		return array[1]
 	elif rarity == Globals.rarity_levels.rare:
-		return rarity_chances[2]
+		return array[2]
 	elif rarity == Globals.rarity_levels.super_rare:
-		return rarity_chances[3]
+		return array[3]
 	elif rarity == Globals.rarity_levels.ultra_rare:
-		return rarity_chances[4]
+		return array[4]
 	elif rarity == Globals.rarity_levels.giga_rare:
-		return rarity_chances[5]
-	return 0
-
-
-func get_spawn_chance_upgrade(rarity: Globals.rarity_levels, title: String) -> int:
-	if rarity == Globals.rarity_levels.common:
-		return rarity_chances_upgrade[0]
-	elif rarity == Globals.rarity_levels.uncommon:
-		return rarity_chances_upgrade[1]
-	elif rarity == Globals.rarity_levels.rare:
-		return rarity_chances_upgrade[2]
-	elif rarity == Globals.rarity_levels.super_rare:
-		return rarity_chances_upgrade[3]
-	elif rarity == Globals.rarity_levels.ultra_rare:
-		return rarity_chances_upgrade[4]
-	elif rarity == Globals.rarity_levels.giga_rare:
-		return rarity_chances_upgrade[5]
+		return array[5]
 	return 0

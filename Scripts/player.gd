@@ -4,9 +4,7 @@ enum states {walk, dead}
 var state = states.walk
 var speed = 75.0
 signal player_died
-signal level_up(lvl: int)
 signal money_pickup
-signal gun_pickup(gun: Node2D)
 
 var hp = 100
 var max_hp = hp
@@ -123,7 +121,6 @@ func get_money(amount: int):
 	money_pickup.emit()
 	money += amount
 	Globals.ui.set_money(money)
-	Globals.world_controller.set_money(money / money_cap)
 	if !Globals.audio_manager.chaching.is_playing():
 			Globals.audio_manager.chaching.play()
 	elif Globals.audio_manager.chaching.get_playback_position() > 0.25:
@@ -171,6 +168,6 @@ func _on_flash_timer_timeout():
 	$PlayerSprite.use_parent_material = !$PlayerSprite.use_parent_material
 
 
-func _on_hurtbox_area_exited(area):
+func _on_hurtbox_area_exited(_area):
 	$FlashTimer.stop()
 	$PlayerSprite.use_parent_material = true

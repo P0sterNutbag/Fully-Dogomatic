@@ -16,7 +16,7 @@ func draw_option_circle():
 
 
 func draw_option_outline():
-	draw_circle(position, circle_radius+outline_thickness, Color.BLACK)
+	draw_circle(position, circle_radius+outline_thickness, Color8(57, 57, 57, 255))
 
 
 func _on_upgrade_option_focus_entered():

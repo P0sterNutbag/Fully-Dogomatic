@@ -12,6 +12,7 @@ var explode_chance: float = 1
 var ricochet: bool = false
 var homing: bool = false
 var target_enemy: Node2D
+var can_warp: bool
 
 
 func _ready() -> void:
@@ -28,6 +29,35 @@ func _physics_process(delta):
 			var target_vector = move_vector.rotated(global_position.angle_to(target_enemy.position - position))
 			move_vector = lerp(move_vector, target_vector, 7.5 * delta)
 		rotation = move_vector.angle()
+
+
+func _process(delta: float) -> void:
+	var top_left_bound = Vector2(Globals.camera.get_screen_center_position().x - 240, Globals.camera.get_screen_center_position().y - 180)
+	var bottom_right_bound = Vector2(Globals.camera.get_screen_center_position().x + 240, Globals.camera.get_screen_center_position().y + 180)
+	if global_position.x < top_left_bound.x:
+		if can_warp:
+			global_position.x = bottom_right_bound.x
+			can_warp = false
+		else:
+			queue_free()
+	elif global_position.x > bottom_right_bound.x:
+		if can_warp:
+			global_position.x = top_left_bound.x
+			can_warp = false
+		else:
+			queue_free()
+	elif global_position.y < top_left_bound.y:
+		if can_warp:
+			global_position.y = bottom_right_bound.y
+			can_warp = false
+		else:
+			queue_free()
+	elif global_position.y > bottom_right_bound.y:
+		if can_warp:
+			global_position.y = top_left_bound.y
+			can_warp = false
+		else:
+			queue_free()
 
 
 func _on_timer_timeout():

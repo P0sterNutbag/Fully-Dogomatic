@@ -8,8 +8,6 @@ var not_enough_money = preload("res://Scenes/UI/not_enough_money.tscn")
 var reroll_price: int
 var tooltip_string: String
 @onready var tooltip = $Tooltip
-signal gun_selected
-signal upgrade_assigned
 
 
 func _ready():
@@ -48,9 +46,13 @@ func _exit_tree():
 	get_tree().paused = false
 
 
-func finish():
+func finish(delay: float = 0):
+	if delay > 0:
+		await get_tree().create_timer(delay).timeout
 	if options.size() > 0 and !only_one_pick:
 		move_options_in()
+		set_focus_neighbors()
+		options[0].grab_focus()
 	else:
 		queue_free()
 
@@ -59,8 +61,6 @@ func move_options_in():
 	var tween = create_tween().set_trans(Tween.TRANS_EXPO)
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "global_position", Vector2.ZERO, 0.5)
-	set_focus_neighbors()
-	options[0].grab_focus()
 
 
 func move_options_out():
@@ -76,8 +76,9 @@ func set_focus_neighbors():
 	var children = get_children()
 	for i in children.size()-1:
 		var child = children[i]
-		child.focus_neighbor_left = children[Globals.scroll_array_index(children, i , -1)].get_path()
-		child.focus_neighbor_right = children[Globals.scroll_array_index(children, i , +1)].get_path()
+		if child is Button:
+			child.focus_neighbor_left = children[Globals.scroll_array_index(children, i , -1)].get_path()
+			child.focus_neighbor_right = children[Globals.scroll_array_index(children, i , +1)].get_path()
 
 
 func show_tooltip(pos: Vector2, text: String):
@@ -88,6 +89,7 @@ func show_tooltip(pos: Vector2, text: String):
 
 func hide_tooltip():
 	tooltip.visible = false
+
 
 func _on_exit_button_pressed() -> void:
 	queue_free()

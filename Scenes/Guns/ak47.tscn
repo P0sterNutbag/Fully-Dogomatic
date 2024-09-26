@@ -17,7 +17,6 @@ cooldown = 0.1
 knockback = 1
 sound_shoot = "gunshot_assault"
 metadata/Title = "AK47"
-metadata/Type = ""
 metadata/Rarity = SubResource("Resource_ahfgn")
 metadata/Icon = ExtResource("3_136pe")
 

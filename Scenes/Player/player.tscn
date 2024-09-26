@@ -112,7 +112,7 @@ shape = SubResource("CircleShape2D_7s6u8")
 [node name="Shadow" parent="." instance=ExtResource("2_3aj65")]
 position = Vector2(0, 8)
 
-[node name="Hurtbox" type="Area2D" parent="."]
+[node name="Hurtbox" type="Area2D" parent="." groups=["player"]]
 scale = Vector2(1, 0.75)
 collision_mask = 16
 
@@ -166,6 +166,7 @@ autostart = true
 [node name="MinimapIcon" parent="." instance=ExtResource("11_2hug4")]
 sprite = ExtResource("12_taoki")
 follow = true
+depth = 1
 
 [node name="MinimapIcon2" parent="." instance=ExtResource("11_2hug4")]
 sprite = ExtResource("13_i67fy")

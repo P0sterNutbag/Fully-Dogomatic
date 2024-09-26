@@ -79,9 +79,9 @@ func _physics_process(delta):
 		if abs(Input.get_joy_axis(0, JOY_AXIS_LEFT_X)) > InputController.axis_threshold or abs(Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)) > InputController.axis_threshold:
 			aim_dir = Vector2(Input.get_joy_axis(0, JOY_AXIS_LEFT_X), Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)).normalized()
 		elif abs(Input.get_axis("left", "right")) > 0:
-			aim_dir = aim_dir.rotated(Input.get_axis("left", "right") * 3 * delta)
+			aim_dir = aim_dir.rotated(Input.get_axis("left", "right") * 2 * delta)
 		elif abs(Input.get_axis("up", "down")) > 0:
-			aim_dir = aim_dir.rotated(Input.get_axis("up", "down") * 3 * delta)
+			aim_dir = aim_dir.rotated(Input.get_axis("up", "down") * 2 * delta)
 		global_position = lerp(global_position, Globals.player.global_position + aim_dir * distance_to_player * 1.5, delta * 10)
 		global_rotation = aim_dir.angle()
 		if global_position.x < holder.global_position.x:
@@ -97,7 +97,7 @@ func _physics_process(delta):
 		sprite.scale = sprite.scale.lerp(Vector2(1, 1), 6 * delta)
 
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("select") and can_press:
 		if can_delete and is_mouse_entered:
 			gun_deleted.emit()
@@ -122,7 +122,7 @@ func rotate_away_from_position(vector: Vector2):
 
 func reload():
 	$ReloadTimer.start()
-	var status_effect = Globals.create_instance(status_effect, global_position + Vector2(0, -8))
+	Globals.create_instance(status_effect, global_position + Vector2(0, -8))
 	await get_tree().create_timer($ReloadTimer.wait_time-0.75).timeout
 	spin_gun()
 
@@ -197,10 +197,8 @@ func _on_reload_timer_timeout():
 func attach_to_target(target: Node2D):
 	follow_mouse = true
 	can_press = false
-	target.gun_pickup.emit()
 	target.add_new_gun(self)
 	holder = target
-	Globals.world_controller.add_to_gun_list(get_meta("Title"))
 
 
 func spin_gun():

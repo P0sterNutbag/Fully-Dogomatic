@@ -8,7 +8,7 @@ func _ready() -> void:
 	original_aim_dir = get_parent().original_aim_dir
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if target != null:
 		var new_dir = (target.global_position - get_parent().global_position).normalized()
 		if abs(rad_to_deg(new_dir.angle()) - rad_to_deg(original_aim_dir.angle())) < 30:

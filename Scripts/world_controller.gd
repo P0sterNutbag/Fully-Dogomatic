@@ -13,10 +13,6 @@ var total_kills: int:
 		kills += 1
 var kills: int
 var kills_per_sec: int
-var upgrade_menu = preload("res://Scenes/Upgrades/upgrade_menu.tscn")
-#@onready var circle_transition = $CanvasLayer/CircleTransition
-
-signal stop_spawning_enemies
 
 
 func _ready():
@@ -52,30 +48,10 @@ func _on_player_player_died():
 	pass
 
 
-func increase_score():
-	score += 1
-	$CanvasLayer/ScoreHolder/Score.scale = Vector2(1.3, 1.3)
-
-
-func add_to_gun_list(string):
-	pass
-
-
-func set_money(val):
-	pass
-	#$CanvasLayer/XpBarHolder/XpBar.value = val
-
-
 func reset_score():
 	if score > high_score:
 		high_score = score
 	score = 0
-
-
-func spawn_upgrade_menu(type: String):
-	var instance = upgrade_menu.instantiate()
-	instance.get_node("UpgradeMenu").upgrade_array = Globals.upgrade_manager.get(type)
-	add_child(instance)
 
 
 func on_player_died():

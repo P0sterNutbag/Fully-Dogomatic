@@ -17,7 +17,6 @@ spread = 10.0
 knockback = 1
 sound_shoot = "gunshot_assault"
 metadata/Title = "M4 Carbine"
-metadata/Type = ""
 metadata/Rarity = SubResource("Resource_q8twv")
 metadata/Icon = ExtResource("3_f5hch")
 

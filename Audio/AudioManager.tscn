@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dio4jhhmyfnfk"]
+[gd_scene load_steps=16 format=3 uid="uid://dio4jhhmyfnfk"]
 
 [ext_resource type="Script" path="res://Audio/audio_manager.gd" id="1_bc1sq"]
 [ext_resource type="AudioStream" uid="uid://dcyv4n1xwal27" path="res://Audio/SFX/chaching.mp3" id="2_njsjt"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://m8vxicxyfjbi" path="res://Audio/SFX/explosion.mp3" id="10_xn4yj"]
 [ext_resource type="AudioStream" uid="uid://bcqv2c0rxis70" path="res://Audio/SFX/bark.mp3" id="11_ha5qg"]
 [ext_resource type="AudioStream" uid="uid://5luxvbitg2br" path="res://Audio/Music/Be Faste.wav" id="12_l7o4s"]
+[ext_resource type="AudioStream" uid="uid://bs88wxq5gmxne" path="res://Audio/SFX/impact.wav" id="13_bcjed"]
 [ext_resource type="AudioStream" uid="uid://c0o8wdkyc3g2f" path="res://Audio/Music/synthwave_loop_track_1.wav" id="14_okhr8"]
 
 [node name="AudioManager" type="Node"]
@@ -67,6 +68,11 @@ script = ExtResource("3_44aal")
 
 [node name="Bark" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_ha5qg")
+script = ExtResource("3_44aal")
+
+[node name="BulletImpact" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_bcjed")
+volume_db = -10.0
 script = ExtResource("3_44aal")
 
 [node name="StageMusic" type="AudioStreamPlayer" parent="."]

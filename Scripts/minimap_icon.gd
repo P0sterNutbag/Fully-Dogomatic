@@ -2,6 +2,7 @@ extends Node2D
 
 @export var sprite: Texture2D
 @export var follow: bool
+@export var depth: int = 0
 var icon: Node2D
 
 
@@ -17,6 +18,7 @@ func add_to_minimap():
 	else:
 		follow_obj = null
 	icon = minimap.add_to_map(sprite, global_position, follow_obj)
+	icon.z_index = depth
 
 
 func _exit_tree():

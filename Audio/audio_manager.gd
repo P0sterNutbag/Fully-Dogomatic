@@ -13,6 +13,7 @@ var is_muted: bool = false
 @onready var stage_music = $StageMusic
 @onready var bark = $Bark
 @onready var menu_music = $MenuMusic
+@onready var bullet_impact = $BulletImpact
 
 
 func _ready():
@@ -27,6 +28,10 @@ func mute():
 	is_muted = !is_muted
 	Globals.muted = is_muted
 
+
+func play_with_pitch(sound: AudioStreamPlayer2D, variation: float = 0.1):
+	sound.pitch_scale = randf_range(1 - variation ,1 - variation)
+	sound.play()
 
 func pause_sounds():
 	for child in get_children():

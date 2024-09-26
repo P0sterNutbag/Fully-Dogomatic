@@ -40,7 +40,7 @@ offset_top = 129.0
 offset_right = 560.0
 offset_bottom = 136.0
 mouse_filter = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.223529, 0.223529, 0.223529, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="."]
 z_index = -1
@@ -51,7 +51,7 @@ offset_top = 273.0
 offset_right = 560.0
 offset_bottom = 280.0
 mouse_filter = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.223529, 0.223529, 0.223529, 1)
 
 [node name="UpgradeOption" parent="." instance=ExtResource("2_m1qjf")]
 layout_mode = 0

@@ -46,11 +46,14 @@ func _on_pressed():
 	elif Globals.player.money >= price:
 		if price > 0:
 			Globals.player.spend_money(price)
-		if upgrade.name.contains("Dogtag"):
+		if upgrade is Dogtag:
 			upgrade.apply_upgrade()
 			#Globals.upgrade_menu.move_options_out()
 			Globals.ui.get_node("Dogtags").add_dogtag(upgrade)
-			get_parent().finish()
+			Globals.upgrade_menu.finish(0.3)
+			var tween = create_tween()
+			tween.tween_property(self, "scale", Vector2.ZERO, 0.25) 
+			tween.tween_callback(queue_free)
 		else: 
 			remove_child(upgrade)
 			get_tree().current_scene.add_child(upgrade)
@@ -58,9 +61,9 @@ func _on_pressed():
 			upgrade.scale = Vector2.ONE
 			upgrade = null
 			Globals.upgrade_menu.move_options_out()
-		var tween = create_tween()
-		tween.tween_property(self, "scale", Vector2.ZERO, 0.25)
-		tween.tween_callback(queue_free)
+			var tween = create_tween()
+			tween.tween_property(self, "scale", Vector2.ZERO, 0.25)
+			tween.tween_callback(queue_free)
 	else:
 		var inst = Globals.create_instance(not_enough_money, global_position + Vector2(77.5, 0), get_parent())
 		var tween = create_tween()

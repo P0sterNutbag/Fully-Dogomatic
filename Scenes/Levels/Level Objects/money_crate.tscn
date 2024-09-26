@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://qavuwtph0wq3"]
+[gd_scene load_steps=6 format=3 uid="uid://qavuwtph0wq3"]
 
 [ext_resource type="Script" path="res://Scripts/money_crate.gd" id="1_wkclp"]
 [ext_resource type="Texture2D" uid="uid://d3ildmso0lp8b" path="res://Art/Sprites/crate big.png" id="2_wl6q0"]
 [ext_resource type="Script" path="res://Scripts/enemy_health.gd" id="6_2snq4"]
-[ext_resource type="PackedScene" uid="uid://u6ly8mxmxgo4" path="res://Scenes/Bullets/bullet_explosion.tscn" id="7_tcu15"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bbmw7"]
 size = Vector2(42, 42)
@@ -33,7 +32,6 @@ script = ExtResource("6_2snq4")
 health = 20
 rotate_on_hit = false
 shake_on_hit = true
-death_explosion = ExtResource("7_tcu15")
 sprite = NodePath("../CrateSprite")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]

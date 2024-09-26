@@ -18,7 +18,7 @@ func _ready():
 	max_y += randf_range(-1,2)
 	if sprite != null:
 		sprite.texture = sprites[randi_range(0,sprites.size()-1)]
-	scale = Vector2.ONE * starting_scale
+	#scale = Vector2.ONE * starting_scale
 
 
 func _physics_process(delta):
@@ -30,8 +30,8 @@ func _physics_process(delta):
 		bounces -= 1
 		move_vector.y = randf_range(-0.1,-0.5) * speed
 		position.y -= 1
-	if scale != Vector2.ONE:
-		scale = lerp(scale, Vector2.ONE, scale_lerp * delta)
+	#if scale != Vector2.ONE:
+		#scale = lerp(scale, Vector2.ONE, scale_lerp * delta)
 
 
 func _on_timer_timeout():

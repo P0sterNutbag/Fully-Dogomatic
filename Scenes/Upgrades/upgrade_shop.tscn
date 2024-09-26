@@ -53,7 +53,7 @@ offset_top = 110.0
 offset_right = 560.0
 offset_bottom = 117.0
 mouse_filter = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.223529, 0.223529, 0.223529, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="."]
 z_index = -1
@@ -64,7 +64,7 @@ offset_top = 317.0
 offset_right = 560.0
 offset_bottom = 324.0
 mouse_filter = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.223529, 0.223529, 0.223529, 1)
 
 [node name="ExitButton" type="Button" parent="."]
 use_parent_material = true
@@ -242,7 +242,7 @@ layout_mode = 0
 offset_left = -61.0
 offset_right = 61.0
 offset_bottom = 45.0
-color = Color(0, 0, 0, 1)
+color = Color(0.223529, 0.223529, 0.223529, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="Tooltip"]
 use_parent_material = true

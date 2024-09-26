@@ -1,4 +1,5 @@
 extends Control
+class_name Dogtag
 
 @export var upgrade_values: Array[VariableChange]
 @export var player_upgrade: bool

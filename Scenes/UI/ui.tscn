@@ -71,6 +71,8 @@ ProgressBar/styles/fill = SubResource("StyleBoxFlat_agtf6")
 script = ExtResource("1_lk1ej")
 
 [node name="ScoreHolder" type="Node2D" parent="."]
+process_mode = 4
+visible = false
 material = SubResource("ShaderMaterial_2xchs")
 position = Vector2(460, 32)
 metadata/_edit_group_ = true
@@ -112,10 +114,11 @@ rot_amplitude = 15.0
 
 [node name="Dogtags" type="HBoxContainer" parent="."]
 z_index = 1
-offset_left = 92.0
-offset_top = 331.0
-offset_right = 550.0
-offset_bottom = 354.0
+offset_left = 186.0
+offset_top = 18.0
+offset_right = 548.0
+offset_bottom = 87.0
+alignment = 2
 script = ExtResource("11_7ulue")
 
 [node name="BossHp" type="Node2D" parent="."]
@@ -148,7 +151,6 @@ text = "[center]MAX, CONSUMER OF LUMPS"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_o0qgv")
-use_parent_material = true
 clip_contents = true
 offset_right = 80.0
 offset_bottom = 360.0
@@ -162,7 +164,6 @@ texture = ExtResource("16_amnsy")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_o0qgv")
-use_parent_material = true
 clip_contents = true
 offset_left = 560.0
 offset_right = 640.0
@@ -223,9 +224,9 @@ grow_vertical = 1
 material = ExtResource("15_inkxv")
 layout_mode = 3
 anchors_preset = 0
-offset_left = 91.0
+offset_left = 90.0
 offset_top = 84.0
-offset_right = 113.0
+offset_right = 112.0
 offset_bottom = 105.0
 
 [node name="MoneyText" type="RichTextLabel" parent="LeftCorner"]
@@ -274,9 +275,9 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -192.0
-offset_top = 123.0
+offset_top = 125.0
 offset_right = -149.0
-offset_bottom = 155.0
+offset_bottom = 157.0
 grow_horizontal = 0
 
 [node name="Time" type="RichTextLabel" parent="Info"]

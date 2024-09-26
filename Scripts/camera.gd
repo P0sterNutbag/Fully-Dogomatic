@@ -15,6 +15,6 @@ func _ready():
 
 func screenshake(intensity: float):
 	intensity = clamp(intensity, 1, 3)
-	offset += Vector2.ONE * randi_range(-intensity, intensity)
+	offset += Vector2.ONE * randf_range(-intensity, intensity)
 	await get_tree().create_timer(0.05).timeout
 	offset = Vector2.ZERO

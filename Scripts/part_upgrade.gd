@@ -25,13 +25,14 @@ func set_sprite():
 func _process(delta):
 	# follow mouse
 	if follow_mouse:
+		var closest_gun
 		if abs(Input.get_last_mouse_velocity()) > Vector2.ZERO:
 			target_position = get_global_mouse_position()
 		if abs(Input.get_joy_axis(0, JOY_AXIS_LEFT_X)) > InputController.axis_threshold or abs(Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)) > InputController.axis_threshold:
 			target_position = Globals.player.global_position + Vector2(Input.get_joy_axis(0, JOY_AXIS_LEFT_X), Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)).normalized() * 32
 		elif Input.is_action_just_pressed("right") or Input.is_action_just_pressed("left"):
 			if Globals.player.guns.size() > 1:
-				var closest_gun = find_nearest_gun(target_position)
+				closest_gun = find_nearest_gun(target_position)
 				var i = 0
 				target_position = closest_gun.global_position - Globals.player.global_position
 				while find_nearest_gun(target_position) == closest_gun:
@@ -39,7 +40,7 @@ func _process(delta):
 					i += 1
 					if i > 360:
 						return
-		var closest_gun = find_nearest_gun(target_position)
+		closest_gun = find_nearest_gun(target_position)
 		if closest_gun != last_gun:
 			add_part_to_gun(closest_gun, part)
 			if last_gun != null:

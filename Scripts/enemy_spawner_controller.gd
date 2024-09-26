@@ -18,25 +18,25 @@ func _ready() -> void:
 			spawners.append(get_child(i))
 
 
-func _process(delta: float) -> void:
-	if Input.is_key_pressed(KEY_1):
-		spawn_round = 1
-	elif Input.is_key_pressed(KEY_2):
-		spawn_round = 2
-	elif Input.is_key_pressed(KEY_3):
-		spawn_round = 3
-	elif Input.is_key_pressed(KEY_4):
-		spawn_round = 4
-	elif Input.is_key_pressed(KEY_5):
-		spawn_round = 5
-	elif Input.is_key_pressed(KEY_6):
-		spawn_round = 6
-	elif Input.is_key_pressed(KEY_7):
-		spawn_round = 7
-	elif Input.is_key_pressed(KEY_8):
-		spawn_round = 8
-	elif Input.is_key_pressed(KEY_9):
-		spawn_round = 9
+#func _process(_delta: float) -> void:
+	#if Input.is_key_pressed(KEY_1):
+		#spawn_round = 1
+	#elif Input.is_key_pressed(KEY_2):
+		#spawn_round = 2
+	#elif Input.is_key_pressed(KEY_3):
+		#spawn_round = 3
+	#elif Input.is_key_pressed(KEY_4):
+		#spawn_round = 4
+	#elif Input.is_key_pressed(KEY_5):
+		#spawn_round = 5
+	#elif Input.is_key_pressed(KEY_6):
+		#spawn_round = 6
+	#elif Input.is_key_pressed(KEY_7):
+		#spawn_round = 7
+	#elif Input.is_key_pressed(KEY_8):
+		#spawn_round = 8
+	#elif Input.is_key_pressed(KEY_9):
+		#spawn_round = 9
 
 
 func _on_spawn_enemies_timeout() -> void:
@@ -49,16 +49,16 @@ func spawn_enemy(enemy_to_spawn: PackedScene = null, spawn_position: Vector2 = V
 		var enemy = enemy_to_spawn
 		if enemy == null:
 			enemy = get_enemy_to_spawn()
-		var position = spawn_position
-		if position == Vector2.ONE:
+		var pos = spawn_position
+		if pos == Vector2.ONE:
 			var barrier_left = Globals.world_controller.get_node("BarrierLeft").global_position - Vector2(25, 25)
 			var barrier_right = Globals.world_controller.get_node("BarrierRight").global_position + Vector2(25, 25)
 			match randi_range(0,3):
-				0: position = Vector2(randf_range(barrier_left.x,barrier_right.x), barrier_left.y)
-				1: position = Vector2(randf_range(barrier_left.x,barrier_right.x), barrier_right.y)
-				2: position = Vector2(barrier_left.x, randf_range(barrier_left.y,barrier_right.y))
-				3: position = Vector2(barrier_right.x, randf_range(barrier_left.y,barrier_right.y))	
-		Globals.create_instance(enemy, position)
+				0: pos = Vector2(randf_range(barrier_left.x,barrier_right.x), barrier_left.y)
+				1: pos = Vector2(randf_range(barrier_left.x,barrier_right.x), barrier_right.y)
+				2: pos = Vector2(barrier_left.x, randf_range(barrier_left.y,barrier_right.y))
+				3: pos = Vector2(barrier_right.x, randf_range(barrier_left.y,barrier_right.y))	
+		Globals.create_instance(enemy, pos)
 
 
 func get_enemy_to_spawn() -> PackedScene:

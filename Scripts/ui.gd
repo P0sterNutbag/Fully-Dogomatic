@@ -41,10 +41,10 @@ func _process(delta):
 	# Score
 	var kps = Globals.world_controller.kills_per_sec
 	score.text = str(kps)
-	if kps > 2:
-		score_holder.visible = true
-	if kps < 1:
-		score_holder.visible = false
+	#if kps > 2:
+		#score_holder.visible = true
+	#if kps < 1:
+		#score_holder.visible = false
 	$Info/KPSAmnt2.text = "[right]" + str(kps)
 
 

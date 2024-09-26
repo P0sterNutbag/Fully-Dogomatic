@@ -5,7 +5,7 @@ var damage_number = preload("res://Scenes/Particles/damage_number.tscn")
 
 func _on_area_entered(area):
 	if area.is_in_group("enemy"):
-		area.take_damage(damage, rotation)
+		area.take_damage(damage, 0)
 		var instance = damage_number.instantiate()
 		get_tree().current_scene.add_child(instance)
 		instance.global_position = area.global_position + Vector2.UP * 8

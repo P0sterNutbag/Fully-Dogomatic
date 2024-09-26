@@ -13,7 +13,7 @@ add_value = false
 
 [sub_resource type="Resource" id="Resource_23pya"]
 script = ExtResource("3_du8by")
-rarity = 0
+rarity = 1
 
 [node name="BurstFire" instance=ExtResource("1_skyni")]
 upgrade_values = Array[ExtResource("2_g0oxg")]([SubResource("Resource_cogub")])

@@ -131,6 +131,7 @@ layer = 2
 [node name="CircleTransition" parent="CanvasLayer" instance=ExtResource("2_glpi1")]
 z_index = 0
 mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [node name="LoadingSprite" type="AnimatedSprite2D" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_sr7xk")
