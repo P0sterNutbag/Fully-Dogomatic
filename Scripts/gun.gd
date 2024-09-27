@@ -151,7 +151,7 @@ func _on_timer_timeout(): # shoot bullets
 			instance.damage  = bullet_damage
 			instance.penetrations = penetrations
 			instance.ricochet = ricochet
-			instance.explosion = bullet_explosion
+			#instance.explosion = bullet_explosion
 			instance.explode_chance = max(explode_chance, Globals.explode_chance)
 			instance.homing = homing
 			instance.can_warp = bullet_can_warp

@@ -3,6 +3,7 @@ extends Area2D
 @export var damage := 10
 var damage_number = preload("res://Scenes/Particles/damage_number.tscn")
 
+
 func _on_area_entered(area):
 	if area.is_in_group("enemy"):
 		area.take_damage(damage, 0)

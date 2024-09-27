@@ -9,7 +9,7 @@
 [ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="7_6kynl"]
 [ext_resource type="Theme" uid="uid://lra3teo37km0" path="res://Art/Themes/ui text mini.tres" id="8_0w6oe"]
 
-[node name="UpgradeShop" type="Control" node_paths=PackedStringArray("options")]
+[node name="UpgradeShop2" type="Control" node_paths=PackedStringArray("options")]
 process_mode = 3
 z_index = 1000
 material = ExtResource("1_6yuqj")
@@ -97,6 +97,27 @@ text = "[center]CHOOSE AN UPGRADE!"
 script = ExtResource("5_o5fay")
 
 [node name="JuicyMovement" parent="Title" node_paths=PackedStringArray("target_control") instance=ExtResource("6_huop2")]
+target_control = NodePath("..")
+bob_frequency = 5.0
+bob_amplitude = 10.0
+rot_frequency = 2.5
+rot_amplitude = 10.0
+
+[node name="Title2" type="RichTextLabel" parent="."]
+use_parent_material = true
+layout_mode = 0
+offset_left = 99.0
+offset_top = -330.0
+offset_right = 544.0
+offset_bottom = -258.0
+pivot_offset = Vector2(222, 36)
+theme = ExtResource("4_rl4uj")
+bbcode_enabled = true
+text = "[center]PLACE 
+YOUR GUN!"
+script = ExtResource("5_o5fay")
+
+[node name="JuicyMovement" parent="Title2" node_paths=PackedStringArray("target_control") instance=ExtResource("6_huop2")]
 target_control = NodePath("..")
 bob_frequency = 5.0
 bob_amplitude = 10.0

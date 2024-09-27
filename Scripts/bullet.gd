@@ -85,7 +85,7 @@ func _on_area_entered(area):
 			spark_inst.global_position = area.global_position
 			spark_inst.set_speed(-rotation_degrees)
 		if ricochet:
-			if move_vector.x > move_vector.y:
+			if abs(move_vector.x) > abs(move_vector.y):
 				move_vector.x *= -1
 			else:
 				move_vector.y *= -1

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Fully Dogomatic"
-run/main_scene="res://Scenes/Levels/intro.tscn"
+run/main_scene="res://Scenes/Levels/test_world.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=60
 boot_splash/bg_color=Color(0, 0, 0, 1)
@@ -42,6 +42,7 @@ mouse_cursor/custom_image="res://Art/Sprites/cursor.png"
 [global_group]
 
 enemy=""
+particles=""
 
 [input]
 

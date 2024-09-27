@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var explosion: PackedScene = preload("res://Scenes/Particles/explosion.tscn")
+var explosion: PackedScene = preload("res://Scenes/Particles/explosion.tscn")
 @export var spread_modifier: float = 0
 @export var shot_count: float = 1
 var move_vector: Vector2
@@ -63,7 +63,7 @@ func _process(delta: float) -> void:
 func _on_timer_timeout():
 	Globals.audio_manager.explosion.play()
 	var instance = explosion.instantiate()
-	get_tree().get_root().add_child(instance)
+	get_tree().current_scene.add_child(instance)
 	instance.global_position = global_position
 	queue_free()
 

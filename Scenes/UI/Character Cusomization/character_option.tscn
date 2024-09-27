@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c37vi5itujbsu"]
+[gd_scene load_steps=10 format=3 uid="uid://c37vi5itujbsu"]
 
 [ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="3_48k3r"]
 [ext_resource type="Script" path="res://Scenes/UI/Character Cusomization/character_option.gd" id="4_a02u5"]
 [ext_resource type="Script" path="res://Scripts/circle.gd" id="4_rv68d"]
+[ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="6_wcssq"]
 [ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="7_nauhl"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="8_1ck4b"]
 [ext_resource type="Texture2D" uid="uid://chhc6bjga1571" path="res://Art/Sprites/player idle.png" id="9_yyfrr"]
@@ -69,7 +70,7 @@ rot_frequency = 2.5
 rot_amplitude = 10.0
 
 [node name="Sprite2D" type="Sprite2D" parent="ScaleOffset"]
-use_parent_material = true
+material = ExtResource("6_wcssq")
 position = Vector2(48, 51)
 scale = Vector2(2, 2)
 texture = ExtResource("9_yyfrr")

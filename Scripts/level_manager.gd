@@ -25,8 +25,8 @@ func _ready():
 	$Spawn.start()
 	var level: int = 0
 	var world = get_tree().current_scene
-	barrier_left = world.get_node("BarrierLeft").position + Vector2(barrier_margin, barrier_margin)
-	barrier_right = world.get_node("BarrierRight").position - Vector2(barrier_margin, barrier_margin)
+	barrier_left = Globals.barrier_left + Vector2(barrier_margin, barrier_margin)
+	barrier_right = Globals.barrier_right - Vector2(barrier_margin, barrier_margin)
 	health_rounds.append(randi_range(3,4))
 	health_rounds.append(randi_range(6,8))
 	spawner_rounds.append(randi_range(2,4))

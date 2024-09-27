@@ -1,3 +1,6 @@
+SubViewport
+SubViewportContainer
+Control
 NinePatchRect
 Polygon2D
 AudioStreamPlayer2D
@@ -10,6 +13,3 @@ CollisionShape2D
 Area2D
 ShapeCast2D
 RichTextLabel
-Control
-HBoxContainer
-TextureRect

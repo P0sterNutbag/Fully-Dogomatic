@@ -26,7 +26,7 @@ add_value = true
 
 [sub_resource type="Resource" id="Resource_25sqj"]
 script = ExtResource("4_r5d8w")
-rarity = 2
+rarity = 1
 
 [node name="Dogtag" type="Control" groups=["dogtag"]]
 process_mode = 3

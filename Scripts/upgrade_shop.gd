@@ -8,7 +8,7 @@ var not_enough_money = preload("res://Scenes/UI/not_enough_money.tscn")
 var reroll_price: int
 var tooltip_string: String
 @onready var tooltip = $Tooltip
-
+@onready var place_text = $Title2
 
 func _ready():
 	Globals.upgrade_menu = self
@@ -20,8 +20,11 @@ func _ready():
 	set_focus_neighbors()
 	$Money.text = "Money: $" + str(Globals.player.money)
 	if !only_one_pick:
-		reroll_price = (3 / (Globals.enemy_spawn_controller.spawn_time[Globals.enemy_spawn_controller.spawn_round] * 2) * (1 - Globals.shop_discount))
+		reroll_price = clamp((3 / (Globals.enemy_spawn_controller.spawn_time[Globals.enemy_spawn_controller.spawn_round] * 2.5) * (1 - Globals.shop_discount)), 1, 1000)
 		$Reroll/RichTextLabel.text = "[center]REROLL \n $" + str(reroll_price)
+	await get_tree().create_timer(0.5).timeout
+	for inst in get_tree().get_nodes_in_group("particles"):
+		inst.queue_free()
 
 
 func assign_upgrades_options():
@@ -47,6 +50,7 @@ func _exit_tree():
 
 
 func finish(delay: float = 0):
+	$Money.text = "Money: $" + str(Globals.player.money)
 	if delay > 0:
 		await get_tree().create_timer(delay).timeout
 	if options.size() > 0 and !only_one_pick:
@@ -67,7 +71,7 @@ func move_options_out():
 	$Money.text = "Money: $" + str(Globals.player.money)
 	var tween = create_tween().set_trans(Tween.TRANS_EXPO)
 	tween.set_ease(Tween.EASE_IN)
-	tween.tween_property(self, "global_position", Vector2.DOWN*400, 0.5)
+	tween.tween_property(self, "global_position", Vector2.DOWN*360, 0.5)
 	for option in options:
 		option.release_focus()
 

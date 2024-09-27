@@ -31,6 +31,7 @@ func _ready():
 		target = player;
 	fall_x = randi_range(-100, 100)
 	spawn_velocity = Vector2(randf_range(-50, 50), randf_range(-200, -300))
+	$CollisionShape2D.disabled = true
 
 
 func spawn(scene):
@@ -49,6 +50,7 @@ func _physics_process(delta):
 			spawn_velocity.y += gravity * delta
 			if !pipe_spawn or (spawn_velocity.y > 0 and global_position.y > spawn_floor_y):
 				$Hitbox.process_mode = Node.PROCESS_MODE_INHERIT
+				$CollisionShape2D.disabled = false
 				state = states.attack
 				y_sort_enabled = true
 				z_index = 0

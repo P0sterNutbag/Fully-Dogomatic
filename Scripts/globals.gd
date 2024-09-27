@@ -89,16 +89,16 @@ func get_all_scenes_from_folder(path: String) -> Array[PackedScene]:
 
 func get_gun_price(gun) -> float:
 	var price: float
-	var multiplier = enemy_spawn_controller.spawn_time[enemy_spawn_controller.spawn_round] * 2
+	var multiplier = enemy_spawn_controller.spawn_time[enemy_spawn_controller.spawn_round] * 2.7
 	match gun.get_meta("Rarity").rarity:
 		rarity_levels.common:
-			price = 10 / multiplier
+			price = 15 / multiplier
 		rarity_levels.uncommon:
-			price = 25 / multiplier
+			price = 30 / multiplier
 		rarity_levels.rare:
-			price = 45 / multiplier
-		rarity_levels.super_rare:
 			price = 55 / multiplier
+		rarity_levels.super_rare:
+			price = 60 / multiplier
 		rarity_levels.ultra_rare:
 			price = 200 / multiplier
 		rarity_levels.giga_rare:

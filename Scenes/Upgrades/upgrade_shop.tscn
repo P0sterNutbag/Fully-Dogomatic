@@ -209,6 +209,27 @@ bob_amplitude = 10.0
 rot_frequency = 2.5
 rot_amplitude = 10.0
 
+[node name="Title2" type="RichTextLabel" parent="."]
+use_parent_material = true
+layout_mode = 0
+offset_left = 99.0
+offset_top = -330.0
+offset_right = 544.0
+offset_bottom = -258.0
+pivot_offset = Vector2(222, 36)
+theme = ExtResource("9_lm21w")
+bbcode_enabled = true
+text = "[center]PLACE 
+YOUR GUN!"
+script = ExtResource("10_ktf1i")
+
+[node name="JuicyMovement" parent="Title2" node_paths=PackedStringArray("target_control") instance=ExtResource("11_cgxk0")]
+target_control = NodePath("..")
+bob_frequency = 5.0
+bob_amplitude = 10.0
+rot_frequency = 2.5
+rot_amplitude = 10.0
+
 [node name="Money" type="RichTextLabel" parent="."]
 use_parent_material = true
 layout_mode = 0

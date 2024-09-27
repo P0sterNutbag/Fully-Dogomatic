@@ -59,8 +59,12 @@ func _on_pressed():
 			get_tree().current_scene.add_child(upgrade)
 			upgrade.call_deferred("attach_to_target", Globals.player)
 			upgrade.scale = Vector2.ONE
-			upgrade = null
 			Globals.upgrade_menu.move_options_out()
+			if upgrade is Gun:
+				Globals.upgrade_menu.place_text.text = "[center]PLACE\nYOUR GUN!"
+			else:
+				Globals.upgrade_menu.place_text.text = "[center]CHOOSE A GUN TO UPGRADE!"
+			upgrade = null
 			var tween = create_tween()
 			tween.tween_property(self, "scale", Vector2.ZERO, 0.25)
 			tween.tween_callback(queue_free)

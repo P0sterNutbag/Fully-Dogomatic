@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/gun_status.gd" id="2_65ks6"]
 [ext_resource type="Theme" uid="uid://lra3teo37km0" path="res://Art/Themes/ui text mini.tres" id="2_h0pwq"]
 
-[node name="GunStatus" type="Control"]
+[node name="GunStatus" type="Control" groups=["particles"]]
 material = ExtResource("1_u1w4l")
 layout_mode = 3
 anchors_preset = 0
