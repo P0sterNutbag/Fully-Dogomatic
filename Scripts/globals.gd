@@ -94,9 +94,9 @@ func get_gun_price(gun) -> float:
 		rarity_levels.common:
 			price = 15 / multiplier
 		rarity_levels.uncommon:
-			price = 30 / multiplier
+			price = 25 / multiplier
 		rarity_levels.rare:
-			price = 55 / multiplier
+			price = 50 / multiplier
 		rarity_levels.super_rare:
 			price = 60 / multiplier
 		rarity_levels.ultra_rare:

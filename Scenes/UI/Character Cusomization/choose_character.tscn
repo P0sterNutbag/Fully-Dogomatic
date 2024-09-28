@@ -52,6 +52,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 character_name = "Coda"
 sprite = ExtResource("6_yipcj")
+unlocked = true
 
 [node name="CharacterOption3" parent="Options/HBoxContainer" instance=ExtResource("1_a3lih")]
 layout_mode = 2
