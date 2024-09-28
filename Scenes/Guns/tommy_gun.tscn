@@ -18,7 +18,6 @@ rounds = 30
 knockback = 1
 sound_shoot = "gunshot_smg"
 metadata/Title = "Tommy Gun"
-metadata/Type = ""
 metadata/Rarity = SubResource("Resource_y6crw")
 metadata/Icon = ExtResource("3_ymxsx")
 

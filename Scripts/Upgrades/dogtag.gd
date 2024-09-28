@@ -2,17 +2,13 @@ extends Control
 class_name Dogtag
 
 @export var upgrade_values: Array[VariableChange]
-@export var player_upgrade: bool
 var target_position: Vector2
 var scene: Node
 
 
 func _ready():
 	$JuicyMovement.set_process(false)
-	if player_upgrade: 
-		scene = Globals.player
-	else:
-		scene = Globals.globals
+	scene = Globals.player
 
 
 func _process(delta):

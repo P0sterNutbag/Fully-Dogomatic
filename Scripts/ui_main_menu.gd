@@ -1,8 +1,11 @@
 extends Node2D
 
+var pause_controller = preload("res://Scenes/UI/pause_controller.tscn")
+
 
 func _ready():
 	AudioManager.menu_music.play()
+	Globals.create_instance(pause_controller, Vector2.ZERO, get_tree().root)
 
 
 func _on_play_pressed():

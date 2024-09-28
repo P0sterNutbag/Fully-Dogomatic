@@ -1,14 +1,11 @@
 res://Scenes/Levels/test_world.tscn
 res://Art/Shaders/colorswap.gdshader
 res://Art/Shaders/colorswap.tres
-res://Art/Themes/ui text small.tres
-res://Art/Themes/ui text mini.tres
-res://Art/Themes/ui text mid.tres
-res://Art/Themes/ui text large.tres
+res://Art/Shaders/color_change.gdshader
+res://Art/Shaders/color_change.tres
 res://Art/Themes/healthbar.tres
 res://Art/Shaders/dither.gdshader
 res://Art/Shaders/dither postprocess.gdshader
-res://Art/Shaders/color_change.gdshader
 res://Scenes/Upgrades/upgrade_manager.tscn
 res://Scenes/Levels/Level Objects/shop.tscn
 res://Scenes/Bullets/grenade.tscn
@@ -27,11 +24,49 @@ res://Scenes/Enemies/enemy_pug.tscn
 res://Scenes/Upgrades/upgrade_shop.tscn
 res://Scenes/Upgrades/upgrade_shop_intro.tscn
 res://Scenes/Levels/Level Objects/health_pickup.tscn
-res://Scripts/Upgrades/upgrade_option.gd
-res://Scripts/Upgrades/dogtag.gd
 res://Scenes/Levels/intro.tscn
-res://Scripts/globals.gd
-res://Scenes/UI/Character Cusomization/choose_character.tscn
-res://Art/Shaders/color_change.tres
 res://Scenes/Levels/customize.tscn
+res://Scenes/UI/Character Cusomization/choose_character.tscn
 res://Scenes/UI/Character Cusomization/character_option.tscn
+res://Scenes/Levels/main_menu.tscn
+res://Scripts/ui_main_menu.gd
+res://Scenes/Levels/world.tscn
+res://Scripts/pause_controller.gd
+res://Scenes/Player/player.tscn
+res://Scripts/player.gd
+res://Scenes/UI/death_ui.tscn
+res://Scripts/globals.gd
+res://Scripts/enemy.gd
+res://Scripts/Upgrades/upgrade_option.gd
+res://Scripts/upgrade_shop.gd
+res://Scripts/gun.gd
+res://Scenes/Upgrades/Dogtags/dogtag_player_speed.tscn
+res://Scripts/Upgrades/dogtag.gd
+res://Scenes/Upgrades/Dogtags/dogtag_discount.tscn
+res://Scenes/Upgrades/Dogtags/dogtag_exploding_bullets.tscn
+res://Scenes/Upgrades/Dogtags/dogtag_grab_radius.tscn
+res://Scenes/Upgrades/Dogtags/dogtag_gun_cap.tscn
+res://Scenes/Upgrades/Dogtags/dogtag_hp.tscn
+res://Scenes/Upgrades/Dogtags/dogtag_money_droprate.tscn
+res://Scripts/dogtag_discount.gd
+res://Art/Shaders/flash.gdshader
+res://Art/Shaders/flash.tres
+res://Scenes/Upgrades/gun_upgrade.tscn
+res://Scenes/Player/dollar.tscn
+res://Scripts/dollar.gd
+res://Scenes/Upgrades/part_upgrade.tscn
+res://Scenes/Upgrades/GunUpgrades/aim_assist_upgrade.tscn
+res://Scenes/Upgrades/GunUpgrades/burst_fire_upgrade.tscn
+res://Scenes/Upgrades/GunUpgrades/penetrate_upgrade.tscn
+res://Scripts/gun_upgrade.gd
+res://Scenes/Bullets/small_bullet.tscn
+res://Scenes/Guns/tommy_gun.tscn
+res://Scenes/Bullets/bullet_grenade.tscn
+res://Scenes/Bullets/rubber_bullet.tscn
+res://Scenes/Bullets/shotgun_shell.tscn
+res://Scenes/Enemies/enemy_explosion.tscn
+res://Scenes/Upgrades/GunUpgrades/explosive_upgrade.tscn
+res://Scripts/ui_settings_menu.gd
+res://Scenes/Levels/end.tscn
+res://Audio/AudioManager.tscn
+res://Scenes/Enemies/enemy_spawner_controller.tscn

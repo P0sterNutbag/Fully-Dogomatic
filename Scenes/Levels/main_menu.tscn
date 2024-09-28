@@ -66,9 +66,9 @@ offset_right = 640.0
 offset_bottom = 360.0
 color = Color(0.101961, 0.101961, 0.101961, 1)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Menu" type="Control" parent="CanvasLayer"]
+[node name="Menu" type="Control" parent="UI"]
 material = ExtResource("4_ljhln")
 use_parent_material = true
 layout_mode = 3
@@ -85,13 +85,13 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("6_uuaxw")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Menu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Menu"]
 use_parent_material = true
 layout_mode = 0
 offset_right = 120.0
 offset_bottom = 80.0
 
-[node name="Play" type="Button" parent="CanvasLayer/Menu/VBoxContainer"]
+[node name="Play" type="Button" parent="UI/Menu/VBoxContainer"]
 use_parent_material = true
 layout_mode = 2
 theme = SubResource("Theme_rr4cc")
@@ -100,7 +100,7 @@ flat = true
 alignment = 2
 script = ExtResource("8_a27qw")
 
-[node name="Options" type="Button" parent="CanvasLayer/Menu/VBoxContainer"]
+[node name="Options" type="Button" parent="UI/Menu/VBoxContainer"]
 use_parent_material = true
 layout_mode = 2
 theme = SubResource("Theme_rr4cc")
@@ -109,7 +109,7 @@ flat = true
 alignment = 2
 script = ExtResource("8_a27qw")
 
-[node name="Wishlist" type="Button" parent="CanvasLayer/Menu/VBoxContainer"]
+[node name="Wishlist" type="Button" parent="UI/Menu/VBoxContainer"]
 use_parent_material = true
 layout_mode = 2
 theme = SubResource("Theme_rr4cc")
@@ -118,7 +118,7 @@ flat = true
 alignment = 2
 script = ExtResource("8_a27qw")
 
-[node name="Quit" type="Button" parent="CanvasLayer/Menu/VBoxContainer"]
+[node name="Quit" type="Button" parent="UI/Menu/VBoxContainer"]
 use_parent_material = true
 layout_mode = 2
 theme = SubResource("Theme_ql6r0")
@@ -127,7 +127,7 @@ flat = true
 alignment = 2
 script = ExtResource("8_a27qw")
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="UI"]
 visible = false
 material = SubResource("ShaderMaterial_rxx7w")
 layout_mode = 3
@@ -137,57 +137,57 @@ offset_top = 205.0
 offset_right = 538.0
 offset_bottom = 327.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control"]
 use_parent_material = true
 layout_mode = 0
 offset_right = 159.0
 offset_bottom = 125.0
 
-[node name="PlayGame" parent="CanvasLayer/Control/VBoxContainer" instance=ExtResource("8_q2v0g")]
+[node name="PlayGame" parent="UI/Control/VBoxContainer" instance=ExtResource("8_q2v0g")]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("6_68fxw")
 function_name = "play"
 
-[node name="Options" parent="CanvasLayer/Control/VBoxContainer" instance=ExtResource("8_q2v0g")]
+[node name="Options" parent="UI/Control/VBoxContainer" instance=ExtResource("8_q2v0g")]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("6_68fxw")
 text = "OPTIONS"
 function_name = "open_options"
 
-[node name="Wishlist" parent="CanvasLayer/Control/VBoxContainer" instance=ExtResource("8_q2v0g")]
+[node name="Wishlist" parent="UI/Control/VBoxContainer" instance=ExtResource("8_q2v0g")]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("6_68fxw")
 text = "WISHLIST"
 function_name = "open_steam_page"
 
-[node name="Quit" parent="CanvasLayer/Control/VBoxContainer" instance=ExtResource("8_q2v0g")]
+[node name="Quit" parent="UI/Control/VBoxContainer" instance=ExtResource("8_q2v0g")]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("6_68fxw")
 text = "QUIT"
 function_name = "quit"
 
-[node name="TitleSmall185x28" type="Sprite2D" parent="CanvasLayer"]
+[node name="TitleSmall185x28" type="Sprite2D" parent="UI"]
 material = ExtResource("4_ljhln")
 position = Vector2(318, 59)
 scale = Vector2(2, 2)
 texture = ExtResource("3_knie8")
 
-[node name="JuicyMovement" parent="CanvasLayer/TitleSmall185x28" node_paths=PackedStringArray("target_node2D") instance=ExtResource("5_5i42a")]
+[node name="JuicyMovement" parent="UI/TitleSmall185x28" node_paths=PackedStringArray("target_node2D") instance=ExtResource("5_5i42a")]
 target_node2D = NodePath("..")
 rot_frequency = 2.5
 rot_amplitude = 10.0
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="UI"]
 material = SubResource("ShaderMaterial_6usk4")
 offset_right = 80.0
 offset_bottom = 360.0
 color = Color(0, 0, 0, 1)
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/ColorRect"]
+[node name="ColorRect" type="ColorRect" parent="UI/ColorRect"]
 use_parent_material = true
 layout_mode = 0
 offset_left = 560.0
@@ -202,14 +202,15 @@ y_sort_enabled = true
 position = Vector2(169, 258)
 
 [node name="Tennisball" parent="." instance=ExtResource("12_djnm7")]
+process_mode = 4
 y_sort_enabled = true
-position = Vector2(284, 205)
+position = Vector2(-29, 18)
 scale = Vector2(2, 2)
 
-[connection signal="pressed" from="CanvasLayer/Menu/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="CanvasLayer/Menu/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="CanvasLayer/Menu/VBoxContainer/Wishlist" to="." method="_on_wishlist_pressed"]
-[connection signal="pressed" from="CanvasLayer/Menu/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="gui_input" from="CanvasLayer/Control/VBoxContainer/PlayGame" to="." method="_on_play_game_gui_input"]
-[connection signal="gui_input" from="CanvasLayer/Control/VBoxContainer/Wishlist" to="." method="_on_wishlist_gui_input"]
-[connection signal="gui_input" from="CanvasLayer/Control/VBoxContainer/Quit" to="." method="_on_quit_gui_input"]
+[connection signal="pressed" from="UI/Menu/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="UI/Menu/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="UI/Menu/VBoxContainer/Wishlist" to="." method="_on_wishlist_pressed"]
+[connection signal="pressed" from="UI/Menu/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="gui_input" from="UI/Control/VBoxContainer/PlayGame" to="." method="_on_play_game_gui_input"]
+[connection signal="gui_input" from="UI/Control/VBoxContainer/Wishlist" to="." method="_on_wishlist_gui_input"]
+[connection signal="gui_input" from="UI/Control/VBoxContainer/Quit" to="." method="_on_quit_gui_input"]

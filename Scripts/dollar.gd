@@ -13,10 +13,10 @@ func _ready():
 func _physics_process(_delta):
 	if follow_player:
 		target_position = Globals.player.global_position
-		global_position += (target_position - global_position).normalized() * 2
-		if global_position.distance_to(Globals.player.global_position) < 1:
-			Globals.player.get_money(1)
-			queue_free()
+		global_position += (target_position - global_position).normalized() * 3
+		#if global_position.distance_to(Globals.player.global_position) < 1:
+			#Globals.player.get_money(1)
+			#queue_free()
 	#else:
 		#global_position = lerp(global_position, target_position, 0.1)
 
@@ -28,3 +28,8 @@ func _process(delta):
 
 func _on_timer_timeout():
 	fade = true
+
+
+func _on_area_entered(area: Area2D) -> void:
+	Globals.player.get_money(1)
+	queue_free()

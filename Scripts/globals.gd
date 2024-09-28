@@ -16,7 +16,6 @@ var enemy_spawn_controller
 var upgrade_manager: Node
 var upgrade_menu: Node
 var holding_gun_part: bool = false
-var explode_chance: float = 0
 var globals
 var gun_amount
 var barrier_left: Vector2
@@ -24,8 +23,6 @@ var barrier_right: Vector2
 var camera: Camera2D
 var muted: bool = false
 var pause_controller: Node
-var money_drop_rate = 0.35
-var shop_discount = 0
 var gun_shop = preload("res://Scenes/Upgrades/upgrade_shop.tscn")
 var no_guns_shop = preload("res://Scenes/Upgrades/upgrade_shop_no_guns.tscn")
 var shop_scene = gun_shop

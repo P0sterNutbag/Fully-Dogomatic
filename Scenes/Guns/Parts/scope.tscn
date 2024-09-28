@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1e703773coy3"]
+[gd_scene load_steps=9 format=3 uid="uid://c1e703773coy3"]
 
 [ext_resource type="Texture2D" uid="uid://dcayjrr65pgpy" path="res://Art/Sprites/gun spritesheet.png" id="1_rieko"]
 [ext_resource type="Script" path="res://Scenes/Guns/Parts/gun_attachment.gd" id="1_swskk"]
 [ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="2_qppxn"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_u2wu0"]
 [ext_resource type="Texture2D" uid="uid://de312nfiun02b" path="res://Art/Sprites/arrows.png" id="4_ona5s"]
+[ext_resource type="Theme" uid="uid://dpv7tir788p5t" path="res://Art/Themes/ui text small.tres" id="6_u2dri"]
 
 [sub_resource type="Resource" id="Resource_a112j"]
 script = ExtResource("2_qppxn")
@@ -22,8 +23,8 @@ use_parent_material = true
 script = ExtResource("1_swskk")
 node_to_attach_to = "SightHolder"
 upgrade_values = Array[ExtResource("2_qppxn")]([SubResource("Resource_a112j")])
-metadata/Title = "x4 Scope"
-metadata/Type = ""
+metadata/Title = "Scope"
+metadata/Type = "Increased gun accuracy"
 metadata/Rarity = SubResource("Resource_qwgur")
 
 [node name="Part" type="Sprite2D" parent="."]
@@ -42,5 +43,16 @@ region_rect = Rect2(96, 32, 16, 16)
 
 [node name="Arrow" type="Sprite2D" parent="."]
 visible = false
+z_index = 100
 use_parent_material = true
 texture = ExtResource("4_ona5s")
+
+[node name="Label" type="RichTextLabel" parent="."]
+visible = false
+offset_left = -21.0
+offset_top = 7.0
+offset_right = 21.0
+offset_bottom = 18.0
+theme = ExtResource("6_u2dri")
+text = "PISTOL"
+fit_content = true

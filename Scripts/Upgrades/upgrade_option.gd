@@ -23,9 +23,13 @@ func create_upgrade(upgrade_scene: PackedScene):
 	$UpgradeDescription.text = "[center]" + (upgrade.get_meta("Type")).to_upper()
 	# write price
 	if show_price:
-		price = round(Globals.get_gun_price(upgrade) * (1 - Globals.shop_discount))
-	if price > 0:
-		$Price.text = "[center]$" + str(price)
+		calculate_price()
+
+
+func calculate_price():
+	# write price
+	price = round(Globals.get_gun_price(upgrade) * (1 - Globals.player.shop_discount))
+	$Price.text = "[center]$" + str(price)
 
 
 func _process(delta):

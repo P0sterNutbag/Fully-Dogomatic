@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxh25edu12ok8"]
+[gd_scene load_steps=5 format=3 uid="uid://dxh25edu12ok8"]
 
 [ext_resource type="Script" path="res://Scripts/gun_upgrade.gd" id="1_3421v"]
 [ext_resource type="Texture2D" uid="uid://de312nfiun02b" path="res://Art/Sprites/arrows.png" id="2_46wlm"]
+[ext_resource type="Theme" uid="uid://dpv7tir788p5t" path="res://Art/Themes/ui text small.tres" id="3_dhasv"]
+[ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="3_o1430"]
 
 [node name="GunUpgrade" type="Node2D"]
 process_mode = 3
@@ -15,9 +17,23 @@ use_parent_material = true
 
 [node name="Arrow" type="Sprite2D" parent="."]
 visible = false
+z_index = 100
 use_parent_material = true
 texture = ExtResource("2_46wlm")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 15)
 collision_mask = 4
+
+[node name="Label" type="RichTextLabel" parent="."]
+visible = false
+z_index = 100
+material = ExtResource("3_o1430")
+offset_left = -50.0
+offset_top = 7.0
+offset_right = 50.0
+offset_bottom = 18.0
+theme = ExtResource("3_dhasv")
+bbcode_enabled = true
+text = "PISTOL"
+fit_content = true

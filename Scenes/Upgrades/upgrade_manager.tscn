@@ -33,12 +33,12 @@
 [ext_resource type="PackedScene" uid="uid://cn50oxjbu2kvn" path="res://Scenes/Upgrades/Dogtags/dogtag_exploding_bullets.tscn" id="26_sdvwo"]
 [ext_resource type="PackedScene" uid="uid://c1jblxdf7tmkf" path="res://Scenes/Upgrades/Dogtags/dogtag_player_speed.tscn" id="27_c26x3"]
 [ext_resource type="PackedScene" uid="uid://brtb6hrghklh" path="res://Scenes/Upgrades/GunUpgrades/grenade_upgrade.tscn" id="33_x5wmc"]
-[ext_resource type="PackedScene" path="res://Scenes/Upgrades/GunUpgrades/burst_fire_upgrade.tscn" id="34_ec71u"]
-[ext_resource type="PackedScene" path="res://Scenes/Upgrades/GunUpgrades/extreme_innacuracy.tscn" id="35_uxt5l"]
-[ext_resource type="PackedScene" path="res://Scenes/Upgrades/GunUpgrades/warp_bullets.tscn" id="36_p0l7l"]
-[ext_resource type="PackedScene" path="res://Scenes/Upgrades/GunUpgrades/aim_assist_upgrade.tscn" id="37_jbqvu"]
-[ext_resource type="PackedScene" path="res://Scenes/Upgrades/Dogtags/dogtag_discount.tscn" id="38_jg1hs"]
-[ext_resource type="PackedScene" path="res://Scenes/Upgrades/Dogtags/dogtag_gun_cap.tscn" id="39_wfnsa"]
+[ext_resource type="PackedScene" uid="uid://duvg04d8dg01m" path="res://Scenes/Upgrades/GunUpgrades/burst_fire_upgrade.tscn" id="34_ec71u"]
+[ext_resource type="PackedScene" uid="uid://bnac4sidnn2nt" path="res://Scenes/Upgrades/GunUpgrades/extreme_innacuracy.tscn" id="35_uxt5l"]
+[ext_resource type="PackedScene" uid="uid://yqrlfjonghme" path="res://Scenes/Upgrades/GunUpgrades/warp_bullets.tscn" id="36_p0l7l"]
+[ext_resource type="PackedScene" uid="uid://bl8vkw10mec44" path="res://Scenes/Upgrades/GunUpgrades/aim_assist_upgrade.tscn" id="37_jbqvu"]
+[ext_resource type="PackedScene" uid="uid://cp3dh7gpwrfn4" path="res://Scenes/Upgrades/Dogtags/dogtag_discount.tscn" id="38_jg1hs"]
+[ext_resource type="PackedScene" uid="uid://dfxqggq6iconp" path="res://Scenes/Upgrades/Dogtags/dogtag_gun_cap.tscn" id="39_wfnsa"]
 
 [node name="UpgradeManager" type="Node"]
 script = ExtResource("1_aerk1")

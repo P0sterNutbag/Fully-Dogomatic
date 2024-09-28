@@ -22,7 +22,10 @@ var level: int = 1
 var time: float = 0
 var target_zoom = 1
 var gun_rotation: float = 0
-var gun_cap = 12:
+var money_drop_rate = 0.35
+var shop_discount = 0
+var explode_chance: float = 0
+var gun_cap = 10:
 	set(value):
 		gun_cap = value
 		Globals.ui.set_gun_amount(guns.size(), gun_cap)
@@ -36,6 +39,7 @@ var pickup_radius: float = 34:
 func _ready():
 	Globals.player = self
 	player_died.connect(Globals.ui.on_player_died)
+	$MoneyPickup/CollisionShape2D.shape.radius = pickup_radius
 
 
 func _physics_process(_delta):
@@ -62,9 +66,8 @@ func _physics_process(_delta):
 			move_and_slide()
 			
 			# stay in bounds
-			position.x = clamp(position.x, Globals.barrier_left.x + 16, Globals.barrier_right.x- 16)
-			position.y = clamp(position.y, Globals.barrier_left.y + 16, Globals.barrier_right.y - 16)
-		
+			position.x = clamp(position.x, Globals.barrier_left.x + 24, Globals.barrier_right.x- 24)
+			position.y = clamp(position.y, Globals.barrier_left.y + 24, Globals.barrier_right.y - 24)
 
 
 func _process(delta):

@@ -17,7 +17,6 @@ rarity = 1
 
 [node name="Dogtag" instance=ExtResource("1_elgdx")]
 upgrade_values = Array[ExtResource("2_1kirf")]([SubResource("Resource_4dcn8")])
-player_upgrade = true
 metadata/Title = "Gun Nut"
 metadata/Type = "+1 max guns"
 metadata/Rarity = SubResource("Resource_mhcv3")

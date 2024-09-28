@@ -16,7 +16,6 @@ rarity = 1
 
 [node name="Dogtag" instance=ExtResource("1_hwsvm")]
 upgrade_values = Array[ExtResource("2_0m6ky")]([SubResource("Resource_bx64e")])
-player_upgrade = true
 metadata/Title = "Zoomies"
 metadata/Type = "Move faster"
 metadata/Rarity = SubResource("Resource_134ul")

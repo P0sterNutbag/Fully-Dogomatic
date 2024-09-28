@@ -21,8 +21,9 @@ func pause_game():
 			get_tree().paused = true
 			pause_menu_instance = pause_menu.instantiate()
 			pause_menu_instance.global_position = Vector2(0, 0)
-			Globals.ui.add_child(pause_menu_instance)
-			if Globals.ui.scale == Vector2.ONE * 2:
+			var ui = get_tree().current_scene.get_node("UI")
+			ui.add_child(pause_menu_instance)
+			if ui.scale == Vector2.ONE * 2:
 				pause_menu_instance.scale = Vector2.ONE * 0.5
 	else:
 		get_tree().paused = false

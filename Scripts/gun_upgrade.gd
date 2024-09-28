@@ -6,6 +6,7 @@ var follow_mouse: bool = false
 var target_position: Vector2
 var closest_gun: Node2D
 @onready var arrow = $Arrow
+@onready var arrow_text = $Label
 @onready var upgrade_sprite = $UpgradeSprite
 
 
@@ -46,6 +47,8 @@ func _process(delta):
 		var dest = closest_gun.global_position + (closest_gun.global_position - Globals.player.global_position).normalized() * 32
 		arrow.global_position = lerp(arrow.global_position, dest, 10 * delta)
 		arrow.look_at(closest_gun.global_position)
+		arrow_text.text = "[center]" + closest_gun.get_meta("Title")
+		arrow_text.global_position = arrow.global_position + Vector2(-50, 8)
 		
 		# attach to gun
 		if Input.is_action_just_pressed("select"):
@@ -70,6 +73,7 @@ func attach_to_target(_object: Node2D):
 	follow_mouse = true
 	upgrade_sprite.visible = false
 	arrow.visible = true
+	arrow_text.visible = true
 
 
 func add_upgrade_to_gun(gun_to_change: Node2D):

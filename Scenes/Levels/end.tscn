@@ -6,14 +6,14 @@
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="4_e2hj1"]
 [ext_resource type="PackedScene" uid="uid://dx18mgom3chcm" path="res://Scenes/UI/pause_controller.tscn" id="5_vry2c"]
 [ext_resource type="Script" path="res://Scripts/ui_menu.gd" id="6_kb17p"]
-[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="7_0liep"]
+[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Fonts/Blue Sky 8x8.ttf" id="7_0liep"]
 [ext_resource type="Script" path="res://Scripts/ui_menu_button.gd" id="8_3c5tg"]
 [ext_resource type="Texture2D" uid="uid://h7clkc3uwco0" path="res://Art/Sprites/MainMenu/thanksforplaying.png" id="8_ljifh"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="9_u3xyj"]
 [ext_resource type="PackedScene" uid="uid://dio4jhhmyfnfk" path="res://Audio/AudioManager.tscn" id="10_ckdvq"]
 [ext_resource type="PackedScene" uid="uid://b7r52wai1l1yc" path="res://Scenes/Player/menu_dog.tscn" id="11_mkcdl"]
 [ext_resource type="PackedScene" uid="uid://benlyb5ipwgn8" path="res://Scenes/Player/tennisball.tscn" id="12_nbl3r"]
-[ext_resource type="Texture2D" uid="uid://cxaeqie0fbe0t" path="res://Art/Sprites/MainMenu/point_arrow.png" id="13_q0clx"]
+[ext_resource type="Texture2D" uid="uid://coil6k1m4af6k" path="res://Art/Sprites/animated arrow.png" id="14_04s0a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tyfs5"]
 shader = ExtResource("1_8pgp7")
@@ -52,22 +52,22 @@ shader_parameter/fps = 6.0
 shader_parameter/color_threshold = 0.1
 shader_parameter/palette = ExtResource("2_1k8ot")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p2klb"]
-atlas = ExtResource("13_q0clx")
-region = Rect2(0, 0, 32, 23)
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjnxt"]
+atlas = ExtResource("14_04s0a")
+region = Rect2(0, 0, 17, 10)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_30620"]
-atlas = ExtResource("13_q0clx")
-region = Rect2(32, 0, 32, 23)
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1srb"]
+atlas = ExtResource("14_04s0a")
+region = Rect2(17, 0, 17, 10)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c0ih8"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_p2klb")
+"texture": SubResource("AtlasTexture_jjnxt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_30620")
+"texture": SubResource("AtlasTexture_l1srb")
 }],
 "loop": true,
 "name": &"default",
@@ -88,7 +88,6 @@ color = Color(0.101961, 0.101961, 0.101961, 1)
 position = Vector2(320, 180)
 
 [node name="GameController" parent="." instance=ExtResource("5_vry2c")]
-visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -181,20 +180,23 @@ y_sort_enabled = true
 position = Vector2(196, 321)
 scale = Vector2(2, 2)
 
-[node name="Arrow2" type="AnimatedSprite2D" parent="."]
-use_parent_material = true
-position = Vector2(461, 193)
-sprite_frames = SubResource("SpriteFrames_c0ih8")
-autoplay = "default"
-frame_progress = 0.705401
-flip_h = true
-
 [node name="Arrow" type="AnimatedSprite2D" parent="."]
 use_parent_material = true
-position = Vector2(174, 193)
+position = Vector2(177, 193)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_c0ih8")
 autoplay = "default"
-frame_progress = 0.141828
+frame = 1
+frame_progress = 0.122
+
+[node name="Arrow2" type="AnimatedSprite2D" parent="."]
+use_parent_material = true
+position = Vector2(463, 193)
+scale = Vector2(-2, -2)
+sprite_frames = SubResource("SpriteFrames_c0ih8")
+autoplay = "default"
+frame = 1
+frame_progress = 0.122
 
 [connection signal="pressed" from="CanvasLayer/Menu/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="button_down" from="CanvasLayer/Menu/VBoxContainer/Quit" to="." method="_on_quit_button_down"]
