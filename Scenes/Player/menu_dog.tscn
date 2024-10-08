@@ -109,6 +109,7 @@ animation = &"run"
 script = ExtResource("2_fuvt8")
 
 [node name="Shadow2" parent="." instance=ExtResource("4_12wkv")]
+visible = false
 position = Vector2(0, 8)
 
 [node name="MoveTimer" type="Timer" parent="."]

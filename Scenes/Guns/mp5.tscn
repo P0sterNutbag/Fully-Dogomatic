@@ -18,7 +18,6 @@ rounds = 24
 knockback = 1
 sound_shoot = "gunshot_smg"
 metadata/Title = "Submachine Gun"
-metadata/Type = ""
 metadata/Rarity = SubResource("Resource_152ur")
 metadata/Icon = ExtResource("3_bite6")
 

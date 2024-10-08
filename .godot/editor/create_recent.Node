@@ -1,3 +1,8 @@
+AnimationPlayer
+Control
+BoxContainer
+TextureRect
+Sprite2D
 ColorRect
 Label
 Button
@@ -5,10 +10,6 @@ HSlider
 RichTextLabel
 SubViewport
 SubViewportContainer
-Control
 NinePatchRect
 Polygon2D
 AudioStreamPlayer2D
-CanvasLayer
-TileMapLayer
-AnimatedSprite2D

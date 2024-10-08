@@ -21,7 +21,6 @@ shader_parameter/palette = ExtResource("6_01d7p")
 script = ExtResource("2_s3k48")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 2
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 material = ExtResource("1_j8eg1")

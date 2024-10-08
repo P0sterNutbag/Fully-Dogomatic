@@ -113,6 +113,7 @@ func _on_window_mode_scroll_up() -> void:
 func change_window_mode() -> void:
 	if DisplayServer.window_get_mode() == DisplayServer.WindowMode.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
 		DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_WINDOWED)
+		DisplayServer.window_set_size(Vector2(1280, 720))
 		windowed_mode_text.text = "WINDOWED"
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)

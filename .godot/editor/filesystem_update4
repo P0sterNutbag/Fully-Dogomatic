@@ -61,3 +61,16 @@ res://Scenes/Levels/Level Objects/crate_guns.tscn
 res://Scenes/Bullets/shotgun_shell.tscn
 res://Scenes/Bullets/grenade.tscn
 res://Scenes/Guns/assault_shotgun.tscn
+res://Scenes/Levels/scene_transition.tscn
+res://Scripts/scene_manager.gd
+res://Scenes/Levels/intro.tscn
+res://Scenes/Levels/SceneManager.tscn
+res://default_bus_layout.tres
+res://Scripts/ui_settings_menu.gd
+res://Scenes/Guns/mp5.tscn
+res://Scenes/Guns/ak47.tscn
+res://Scenes/Guns/ar15.tscn
+res://Scenes/Guns/grenade_launcher.tscn
+res://Scenes/Guns/mac11.tscn
+res://Art/Shaders/color_change.tres
+res://Scenes/Levels/customize.tscn

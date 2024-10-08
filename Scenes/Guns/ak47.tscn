@@ -31,7 +31,7 @@ region_rect = Rect2(32, 32, 48, 16)
 position = Vector2(-5.00002, -4.99998)
 
 [node name="MagazineHolder" parent="Sprite2D" index="1"]
-position = Vector2(-3, -0.999987)
+position = Vector2(-3, 1.33514e-05)
 
 [node name="Firepoint" parent="." index="2"]
 position = Vector2(20, -3.00009)
