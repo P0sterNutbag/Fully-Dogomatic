@@ -6,6 +6,7 @@ var state = states.spawn
 
 @export var speed = 10.0
 @export var damage = 0.05
+@export var turn_speed = 5
 var player: CharacterBody2D #= preload("res://player.gd")
 var target: CharacterBody2D
 var dollar = preload("res://Scenes/Player/dollar.tscn")
@@ -34,15 +35,6 @@ func _ready():
 	$CollisionShape2D.disabled = true
 
 
-func spawn(scene):
-	var inst = Globals.create_instance(scene, global_position)
-	if scene == dollar:
-		inst.global_position += Vector2(randf_range(-10,10),randf_range(-10,10))
-	if scene == dogpart:
-		inst.max_y = global_position.y
-		inst.speed = 500
-
-
 func _physics_process(delta):
 	match state:
 		states.spawn:
@@ -51,6 +43,7 @@ func _physics_process(delta):
 			if !pipe_spawn or (spawn_velocity.y > 0 and global_position.y > spawn_floor_y):
 				$Hitbox.process_mode = Node.PROCESS_MODE_INHERIT
 				$CollisionShape2D.disabled = false
+				velocity = (player.position - position).normalized() * speed
 				state = states.attack
 				y_sort_enabled = true
 				z_index = 0
@@ -59,9 +52,8 @@ func _physics_process(delta):
 			if target != null:
 				time += 1
 				if !game_over:
-					if fmod(time, 30) == 1:
-						var dir = (player.position - position).normalized()
-						velocity = dir * speed
+					var dir = (player.position - position).normalized()
+					velocity = lerp(velocity, dir * speed, turn_speed * delta)
 				else:
 					velocity = Vector2(fall_x, fall_y)
 					fall_y += 10
@@ -74,17 +66,13 @@ func _physics_process(delta):
 
 func on_damage():
 	pass
-	#for i in randi_range(1,2):
-		#var inst = dogpart.instantiate()
-		#get_tree().current_scene.add_child(inst)
-		#inst.position = global_position
-		#inst.set_speed($Hurtbox.bullet_dir)
 
 
-func on_death():
+func on_death(bullet_direction: float = 0):
 	if randf_range(0, 1) <= Globals.player.money_drop_rate:
 		for i in randi_range(money_min, money_max):
-			call_deferred("spawn", dollar)
+			var d = Globals.create_instance(dollar, global_position)
+			d.direction = bullet_direction + deg_to_rad(randf_range(-25, 25))
 	Globals.create_instance(blood, $Shadow.global_position)
 	Globals.world_controller.total_kills += 1
 

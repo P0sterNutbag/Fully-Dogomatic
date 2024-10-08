@@ -27,7 +27,7 @@ layout_mode = 0
 offset_left = 80.0
 offset_top = 136.0
 offset_right = 560.0
-offset_bottom = 273.0
+offset_bottom = 365.0
 mouse_filter = 2
 color = Color(0.101961, 0.101961, 0.101961, 1)
 
@@ -47,18 +47,18 @@ z_index = -1
 use_parent_material = true
 layout_mode = 0
 offset_left = 80.0
-offset_top = 273.0
+offset_top = 367.0
 offset_right = 560.0
-offset_bottom = 277.0
+offset_bottom = 371.0
 mouse_filter = 2
 color = Color(0.223529, 0.223529, 0.223529, 1)
 
 [node name="UpgradeOption" parent="." instance=ExtResource("2_m1qjf")]
 layout_mode = 0
 offset_left = 152.0
-offset_top = 151.0
+offset_top = 183.0
 offset_right = 280.0
-offset_bottom = 279.0
+offset_bottom = 311.0
 focus_neighbor_left = NodePath("../UpgradeOption3")
 focus_neighbor_right = NodePath("../UpgradeOption2")
 upgrade_array = Array[String](["common_guns"])
@@ -66,9 +66,9 @@ upgrade_array = Array[String](["common_guns"])
 [node name="UpgradeOption2" parent="." instance=ExtResource("2_m1qjf")]
 layout_mode = 0
 offset_left = 268.0
-offset_top = 151.0
+offset_top = 183.0
 offset_right = 372.0
-offset_bottom = 255.0
+offset_bottom = 287.0
 focus_neighbor_left = NodePath("../UpgradeOption")
 focus_neighbor_right = NodePath("../UpgradeOption3")
 upgrade_array = Array[String](["common_guns"])
@@ -76,9 +76,9 @@ upgrade_array = Array[String](["common_guns"])
 [node name="UpgradeOption3" parent="." instance=ExtResource("2_m1qjf")]
 layout_mode = 0
 offset_left = 384.0
-offset_top = 151.0
+offset_top = 183.0
 offset_right = 512.0
-offset_bottom = 279.0
+offset_bottom = 311.0
 focus_neighbor_left = NodePath("../UpgradeOption2")
 focus_neighbor_right = NodePath("../UpgradeOption")
 upgrade_array = Array[String](["common_guns"])

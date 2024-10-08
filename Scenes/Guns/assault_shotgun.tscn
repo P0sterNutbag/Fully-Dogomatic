@@ -22,7 +22,6 @@ rounds = 8
 knockback = 1
 sound_shoot = "gunshot_shotgun"
 metadata/Title = "Assault Shotgun"
-metadata/Type = ""
 metadata/Rarity = SubResource("Resource_c8aui")
 metadata/Icon = ExtResource("4_46s3p")
 

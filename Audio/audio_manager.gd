@@ -35,14 +35,16 @@ func play_with_pitch(sound: AudioStreamPlayer2D, variation: float = 0.1):
 
 func pause_sounds():
 	for child in get_children():
-		child.pause_time = child.get_playback_position()
-		child.stop()
+		if child is PausableAudio:
+			child.pause_time = child.get_playback_position()
+			child.stop()
 
 
 func resume_sounds():
 	for child in get_children():
-		if child.pause_time > 0:
-			child.play(child.pause_time)
+		if child is PausableAudio:
+			if child.pause_time > 0:
+				child.play(child.pause_time)
 
 
 func stop_all_audio():

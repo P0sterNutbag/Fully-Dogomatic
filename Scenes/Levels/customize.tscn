@@ -23,15 +23,15 @@ offset_right = 640.0
 offset_bottom = 360.0
 color = Color(0.101961, 0.101961, 0.101961, 1)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="UI"]
 material = SubResource("ShaderMaterial_4oh7u")
 offset_right = 80.0
 offset_bottom = 360.0
 color = Color(0, 0, 0, 1)
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/ColorRect"]
+[node name="ColorRect" type="ColorRect" parent="UI/ColorRect"]
 use_parent_material = true
 layout_mode = 0
 offset_left = 560.0

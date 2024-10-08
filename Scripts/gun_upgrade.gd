@@ -49,7 +49,7 @@ func _process(delta):
 		arrow.look_at(closest_gun.global_position)
 		arrow_text.text = "[center]" + closest_gun.get_meta("Title")
 		arrow_text.global_position = arrow.global_position + Vector2(-50, 8)
-		
+		arrow_text.rotation_degrees = 0
 		# attach to gun
 		if Input.is_action_just_pressed("select"):
 			if closest_gun != null:

@@ -8,7 +8,7 @@
 [sub_resource type="Resource" id="Resource_5ulwt"]
 script = ExtResource("2_2hnph")
 values = ["cooldown", 0.1]
-multiply_value = false
+multiply_value = true
 add_value = false
 
 [sub_resource type="Resource" id="Resource_l4ecl"]

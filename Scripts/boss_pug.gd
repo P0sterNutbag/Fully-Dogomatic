@@ -43,7 +43,7 @@ func on_damage():
 	Globals.ui.set_boss_hp(boss_name, $Hurtbox.health / $Hurtbox.max_health)
 
 
-func on_death():
+func on_death(bullet_direction: float = 0):
 	Globals.enemy_spawn_controller.process_mode = PROCESS_MODE_DISABLED
 	Globals.create_instance(cutscene)
 	super.on_death()

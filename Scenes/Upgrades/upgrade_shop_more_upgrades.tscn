@@ -177,6 +177,7 @@ rot_amplitude = 10.0
 
 [node name="Money" type="RichTextLabel" parent="."]
 use_parent_material = true
+layout_mode = 0
 offset_left = 154.0
 offset_top = 176.0
 offset_right = 315.0

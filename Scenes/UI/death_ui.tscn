@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://6f6jta7xigdb"]
+[gd_scene load_steps=13 format=3 uid="uid://6f6jta7xigdb"]
 
 [ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="1_ryfvq"]
 [ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="2_g54ct"]
@@ -8,7 +8,7 @@
 [ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="6_2padk"]
 [ext_resource type="Script" path="res://Scripts/menu_option.gd" id="7_guppy"]
 [ext_resource type="Script" path="res://Scripts/ui_menu.gd" id="8_6y64c"]
-[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="9_t58hg"]
+[ext_resource type="Theme" uid="uid://b6o7rf6iavtxi" path="res://Art/Themes/button.tres" id="9_2k7fv"]
 [ext_resource type="Script" path="res://Scripts/ui_menu_button.gd" id="10_xkdwv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2xchs"]
@@ -28,16 +28,6 @@ shader_parameter/is_texture = false
 shader_parameter/fps = 6.0
 shader_parameter/color_threshold = 0.1
 shader_parameter/palette = ExtResource("2_g54ct")
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ap13o"]
-
-[sub_resource type="Theme" id="Theme_rr4cc"]
-Button/colors/font_color = Color(1, 1, 1, 1)
-Button/colors/font_focus_color = Color(1, 0, 0, 1)
-Button/colors/font_hover_color = Color(1, 0, 0, 1)
-Button/font_sizes/font_size = 14
-Button/fonts/font = ExtResource("9_t58hg")
-Button/styles/focus = SubResource("StyleBoxEmpty_ap13o")
 
 [node name="DeathUI" type="Control"]
 material = SubResource("ShaderMaterial_2xchs")
@@ -133,47 +123,45 @@ script = ExtResource("8_6y64c")
 use_parent_material = true
 layout_mode = 0
 offset_right = 120.0
-offset_bottom = 80.0
+offset_bottom = 56.0
 
 [node name="Restart" type="Button" parent="Menu/VBoxContainer"]
 use_parent_material = true
 layout_mode = 2
-theme = SubResource("Theme_rr4cc")
+theme = ExtResource("9_2k7fv")
 text = "RESTART"
 flat = true
 script = ExtResource("10_xkdwv")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Menu/VBoxContainer/Restart"]
-z_index = -1
-use_parent_material = true
-layout_mode = 0
-offset_left = 11.0
-offset_top = 4.0
-offset_right = 128.0
-offset_bottom = 44.0
-mouse_filter = 2
-theme = ExtResource("6_2padk")
-text = "RESTART"
 
 [node name="Quit" type="Button" parent="Menu/VBoxContainer"]
 use_parent_material = true
 layout_mode = 2
-theme = SubResource("Theme_rr4cc")
+theme = ExtResource("9_2k7fv")
 text = "QUIT"
 flat = true
 script = ExtResource("10_xkdwv")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Menu/VBoxContainer/Quit"]
-z_index = -1
+[node name="ColorRect2" type="ColorRect" parent="Menu"]
+z_index = -41
 use_parent_material = true
 layout_mode = 0
-offset_left = 31.0
-offset_top = 4.0
-offset_right = 148.0
-offset_bottom = 44.0
+offset_left = -19.0
+offset_top = -19.0
+offset_right = 137.0
+offset_bottom = 69.0
 mouse_filter = 2
-theme = ExtResource("6_2padk")
-text = "QUIT"
+color = Color(0.223529, 0.223529, 0.223529, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Menu"]
+z_index = -41
+use_parent_material = true
+layout_mode = 0
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 133.0
+offset_bottom = 65.0
+mouse_filter = 2
+color = Color(0.101961, 0.101961, 0.101961, 1)
 
 [connection signal="gui_input" from="Restart" to="Restart" method="_on_gui_input"]
 [connection signal="mouse_entered" from="Restart" to="Restart" method="_on_mouse_entered"]

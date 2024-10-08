@@ -25,11 +25,11 @@ var gun_rotation: float = 0
 var money_drop_rate = 0.35
 var shop_discount = 0
 var explode_chance: float = 0
-var gun_cap = 10:
+var gun_cap = 8:
 	set(value):
 		gun_cap = value
 		Globals.ui.set_gun_amount(guns.size(), gun_cap)
-var pickup_radius: float = 34:
+var pickup_radius: float = 48:
 	set(value):
 		pickup_radius = value
 		$MoneyPickup/CollisionShape2D.shape.radius = pickup_radius
@@ -39,7 +39,7 @@ var pickup_radius: float = 34:
 func _ready():
 	Globals.player = self
 	player_died.connect(Globals.ui.on_player_died)
-	$MoneyPickup/CollisionShape2D.shape.radius = pickup_radius
+	pickup_radius = $MoneyPickup/CollisionShape2D.shape.radius
 
 
 func _physics_process(_delta):
@@ -60,14 +60,15 @@ func _physics_process(_delta):
 			
 			# mouse movement
 			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-				var move_vector = (get_global_mouse_position() - global_position).normalized()
-				velocity = move_vector * speed
+				if global_position.distance_to(get_global_mouse_position()) > 4:
+					var move_vector = (get_global_mouse_position() - global_position).normalized()
+					velocity = move_vector * speed
 			
 			move_and_slide()
 			
 			# stay in bounds
-			position.x = clamp(position.x, Globals.barrier_left.x + 24, Globals.barrier_right.x- 24)
-			position.y = clamp(position.y, Globals.barrier_left.y + 24, Globals.barrier_right.y - 24)
+			position.x = clamp(position.x, Globals.barrier_left.x + 16, Globals.barrier_right.x- 16)
+			position.y = clamp(position.y, Globals.barrier_left.y + 16, Globals.barrier_right.y - 16)
 
 
 func _process(delta):

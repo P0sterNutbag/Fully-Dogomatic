@@ -54,25 +54,3 @@ func _on_initial_spawn_timeout() -> void:
 
 func _on_node_2d_stop_spawning_enemies() -> void:
 	queue_free()
-
-
-
-#func _process(_delta: float) -> void:
-	#if Input.is_key_pressed(KEY_1):
-		#spawn_round = 1
-	#elif Input.is_key_pressed(KEY_2):
-		#spawn_round = 2
-	#elif Input.is_key_pressed(KEY_3):
-		#spawn_round = 3
-	#elif Input.is_key_pressed(KEY_4):
-		#spawn_round = 4
-	#elif Input.is_key_pressed(KEY_5):
-		#spawn_round = 5
-	#elif Input.is_key_pressed(KEY_6):
-		#spawn_round = 6
-	#elif Input.is_key_pressed(KEY_7):
-		#spawn_round = 7
-	#elif Input.is_key_pressed(KEY_8):
-		#spawn_round = 8
-	#elif Input.is_key_pressed(KEY_9):
-		#spawn_round = 9

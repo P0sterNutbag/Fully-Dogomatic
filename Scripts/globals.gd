@@ -18,6 +18,9 @@ var upgrade_menu: Node
 var holding_gun_part: bool = false
 var globals
 var gun_amount
+var price_multiplier: float:
+	get: 
+		return enemy_spawn_controller.spawn_time[enemy_spawn_controller.spawn_round] * 2.8
 var barrier_left: Vector2
 var barrier_right: Vector2
 var camera: Camera2D
@@ -86,7 +89,7 @@ func get_all_scenes_from_folder(path: String) -> Array[PackedScene]:
 
 func get_gun_price(gun) -> float:
 	var price: float
-	var multiplier = enemy_spawn_controller.spawn_time[enemy_spawn_controller.spawn_round] * 2.7
+	var multiplier = price_multiplier
 	match gun.get_meta("Rarity").rarity:
 		rarity_levels.common:
 			price = 15 / multiplier

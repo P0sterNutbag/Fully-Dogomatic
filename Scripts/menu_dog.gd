@@ -34,7 +34,7 @@ func _process(delta):
 	position.x = clamp(position.x, left_barrier.x, right_barrier.x)
 	position.y = clamp(position.y, left_barrier.y, right_barrier.y)
 	# pet
-	if in_mouse and !get_parent().get_node("Tennisball").follow_mouse:
+	if global_position.distance_to(get_global_mouse_position()) < 20:# and !get_parent().get_node("Tennisball").follow_mouse:
 		if Input.get_last_mouse_velocity() > Vector2.ONE:
 			$Heart.visible = true
 			$HeartTimer.start()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ciimscdu65cq8"]
+[gd_scene load_steps=18 format=3 uid="uid://ciimscdu65cq8"]
 
 [ext_resource type="Script" path="res://Scripts/ui_main_menu.gd" id="3_1tmc7"]
 [ext_resource type="Texture2D" uid="uid://b20fme0nos8kp" path="res://Art/Sprites/MainMenu/title small 185x28.png" id="3_knie8"]
@@ -6,10 +6,8 @@
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="4_ljhln"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="5_5i42a"]
 [ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="5_f3ayy"]
-[ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="6_68fxw"]
 [ext_resource type="Script" path="res://Scripts/ui_menu.gd" id="6_uuaxw"]
 [ext_resource type="Script" path="res://Scripts/ui_menu_button.gd" id="8_a27qw"]
-[ext_resource type="PackedScene" uid="uid://b50cm06iefifh" path="res://Scenes/UI/menu_button.tscn" id="8_q2v0g"]
 [ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="9_1cbxf"]
 [ext_resource type="PackedScene" uid="uid://dio4jhhmyfnfk" path="res://Audio/AudioManager.tscn" id="11_3edp1"]
 [ext_resource type="PackedScene" uid="uid://b7r52wai1l1yc" path="res://Scenes/Player/menu_dog.tscn" id="11_rfde3"]
@@ -35,15 +33,6 @@ Button/font_sizes/font_size = 14
 Button/fonts/font = ExtResource("9_1cbxf")
 Button/styles/focus = SubResource("StyleBoxEmpty_20l60")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rxx7w"]
-shader = ExtResource("4_ga02p")
-shader_parameter/skip_first_row = true
-shader_parameter/use_palette_alpha = false
-shader_parameter/is_texture = false
-shader_parameter/fps = 6.0
-shader_parameter/color_threshold = 0.1
-shader_parameter/palette = ExtResource("5_f3ayy")
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6usk4"]
 shader = ExtResource("4_ga02p")
 shader_parameter/skip_first_row = true
@@ -61,6 +50,7 @@ script = ExtResource("3_1tmc7")
 position = Vector2(320, 180)
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = -100
 use_parent_material = true
 offset_right = 640.0
 offset_bottom = 360.0
@@ -75,10 +65,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 389.0
-offset_top = 205.0
-offset_right = 389.0
-offset_bottom = 205.0
+offset_left = 320.0
+offset_top = 180.0
+offset_right = -320.0
+offset_bottom = -180.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -88,8 +78,10 @@ script = ExtResource("6_uuaxw")
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Menu"]
 use_parent_material = true
 layout_mode = 0
-offset_right = 120.0
-offset_bottom = 80.0
+offset_left = -59.0
+offset_top = 22.0
+offset_right = 63.0
+offset_bottom = 130.0
 
 [node name="Play" type="Button" parent="UI/Menu/VBoxContainer"]
 use_parent_material = true
@@ -97,7 +89,6 @@ layout_mode = 2
 theme = SubResource("Theme_rr4cc")
 text = "PLAY"
 flat = true
-alignment = 2
 script = ExtResource("8_a27qw")
 
 [node name="Options" type="Button" parent="UI/Menu/VBoxContainer"]
@@ -106,7 +97,6 @@ layout_mode = 2
 theme = SubResource("Theme_rr4cc")
 text = "OPTIONS"
 flat = true
-alignment = 2
 script = ExtResource("8_a27qw")
 
 [node name="Wishlist" type="Button" parent="UI/Menu/VBoxContainer"]
@@ -115,7 +105,6 @@ layout_mode = 2
 theme = SubResource("Theme_rr4cc")
 text = "WISHLIST"
 flat = true
-alignment = 2
 script = ExtResource("8_a27qw")
 
 [node name="Quit" type="Button" parent="UI/Menu/VBoxContainer"]
@@ -124,55 +113,11 @@ layout_mode = 2
 theme = SubResource("Theme_ql6r0")
 text = "QUIT"
 flat = true
-alignment = 2
 script = ExtResource("8_a27qw")
-
-[node name="Control" type="Control" parent="UI"]
-visible = false
-material = SubResource("ShaderMaterial_rxx7w")
-layout_mode = 3
-anchors_preset = 0
-offset_left = 389.0
-offset_top = 205.0
-offset_right = 538.0
-offset_bottom = 327.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control"]
-use_parent_material = true
-layout_mode = 0
-offset_right = 159.0
-offset_bottom = 125.0
-
-[node name="PlayGame" parent="UI/Control/VBoxContainer" instance=ExtResource("8_q2v0g")]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("6_68fxw")
-function_name = "play"
-
-[node name="Options" parent="UI/Control/VBoxContainer" instance=ExtResource("8_q2v0g")]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("6_68fxw")
-text = "OPTIONS"
-function_name = "open_options"
-
-[node name="Wishlist" parent="UI/Control/VBoxContainer" instance=ExtResource("8_q2v0g")]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("6_68fxw")
-text = "WISHLIST"
-function_name = "open_steam_page"
-
-[node name="Quit" parent="UI/Control/VBoxContainer" instance=ExtResource("8_q2v0g")]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("6_68fxw")
-text = "QUIT"
-function_name = "quit"
 
 [node name="TitleSmall185x28" type="Sprite2D" parent="UI"]
 material = ExtResource("4_ljhln")
-position = Vector2(318, 59)
+position = Vector2(320, 70)
 scale = Vector2(2, 2)
 texture = ExtResource("3_knie8")
 
@@ -195,22 +140,20 @@ offset_right = 640.0
 offset_bottom = 360.0
 color = Color(0, 0, 0, 1)
 
-[node name="AudioManager" parent="." instance=ExtResource("11_3edp1")]
-
 [node name="MenuDog" parent="." instance=ExtResource("11_rfde3")]
 y_sort_enabled = true
 position = Vector2(169, 258)
 
+[node name="AudioManager" parent="." instance=ExtResource("11_3edp1")]
+
 [node name="Tennisball" parent="." instance=ExtResource("12_djnm7")]
 process_mode = 4
+visible = false
 y_sort_enabled = true
-position = Vector2(-29, 18)
+position = Vector2(491, 169)
 scale = Vector2(2, 2)
 
 [connection signal="pressed" from="UI/Menu/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="UI/Menu/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="UI/Menu/VBoxContainer/Wishlist" to="." method="_on_wishlist_pressed"]
 [connection signal="pressed" from="UI/Menu/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="gui_input" from="UI/Control/VBoxContainer/PlayGame" to="." method="_on_play_game_gui_input"]
-[connection signal="gui_input" from="UI/Control/VBoxContainer/Wishlist" to="." method="_on_wishlist_gui_input"]
-[connection signal="gui_input" from="UI/Control/VBoxContainer/Quit" to="." method="_on_quit_gui_input"]

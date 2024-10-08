@@ -29,7 +29,7 @@ func _ready():
 
 
 func _physics_process(delta):
-	position += move_vector * 80 * delta
+	position += move_vector * delta
 	if homing: 
 		if target_enemy != null:
 			var target_vector = (target_enemy.position - position).normalized() * speed
@@ -125,3 +125,7 @@ func get_nearest_enemy():
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if target_enemy == null:
 		target_enemy = area.get_parent()
+
+
+func _on_homing_area_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.

@@ -26,6 +26,7 @@ offset = Vector2(0, -0.5)
 
 [node name="HomingArea" type="Area2D" parent="."]
 process_mode = 4
+collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HomingArea"]

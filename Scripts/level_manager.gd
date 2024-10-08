@@ -7,6 +7,7 @@ var hp_pickup = preload("res://Scenes/Levels/Level Objects/health_pickup.tscn")
 var money_crate = preload("res://Scenes/Levels/Level Objects/money_crate.tscn")
 var shop = preload("res://Scenes/Levels/Level Objects/shop.tscn")
 var enemy_spawner = preload("res://Scenes/Levels/Level Objects/enemy_spawner_pipe.tscn")
+var enemy_reinforcement = preload("res://Scenes/Enemies/enemy_reinforcement.tscn")
 var enemy_spawner_variance: int = 0
 var barrier_margin = 80
 var barrier_left: Vector2
@@ -15,6 +16,7 @@ var boss_round = 10
 var spawn_round = 0
 var health_rounds: Array[int]
 var spawner_rounds: Array[int]
+var enemy_rounds: Array[int]
 var crate_max: int = 4
 var overlapping_spawn: bool
 
@@ -31,6 +33,7 @@ func _ready():
 	health_rounds.append(randi_range(6,8))
 	spawner_rounds.append(randi_range(2,4))
 	spawner_rounds.append(randi_range(6,8))
+	#enemy_rounds.append(1)
 	# spawn crates
 	var crate_amount = randi_range(2, crate_max)
 	for i in crate_amount:
@@ -40,28 +43,37 @@ func _ready():
 
 
 func _on_spawn_timeout():
+	spawn_level_objects()
+
+
+func spawn_level_objects() -> void:
 	spawn_round += 1
 	$Spawn.wait_time = drop_round_length[spawn_round]
 	#$Spawn.start()
-	for round in health_rounds:
-		if spawn_round == round:
-			var inst = Globals.create_instance(hp_pickup, get_border_position())
-			Globals.ui.add_level_obj(inst.name.to_upper(), true)
 	if spawn_round < boss_round:
 		# spawn shop
 		var shop_inst = create_level_object(shop, get_border_position())
 		Globals.ui.add_level_obj(shop_inst.name.to_upper(), true)
+		# spawn hp
+		for round in health_rounds:
+			if spawn_round == round:
+				var inst = Globals.create_instance(hp_pickup, get_border_position())
+				Globals.ui.add_level_obj(inst.name.to_upper(), true)
 		# spawn pipe
 		if spawner_rounds.has(spawn_round):
 			var spawner_inst = create_level_object(enemy_spawner, get_border_position())
 			Globals.ui.add_level_obj(spawner_inst.name.to_upper(), false)
+		# spawn enemies
+		if enemy_rounds.has(spawn_round):
+			var inst = create_level_object(enemy_reinforcement, get_border_position())
+			Globals.ui.add_level_obj(inst.name.to_upper(), false)
 		# spawn crates
 		var crate_amount = randi_range(0, crate_max)
 		for i in crate_amount:
 			var spawn_scene = level_items[Globals.get_weighted_index(level_items)].object_to_spawn
 			var inst = create_level_object(money_crate, get_border_position())
-		if crate_amount > 0:
-			Globals.ui.add_level_obj("CRATE", true, crate_amount)
+		#if crate_amount > 0:
+			#Globals.ui.add_level_obj("CRATE", true, crate_amount)
 	else:
 		var inst = create_level_object(boss, get_border_position())
 		Globals.ui.add_level_obj("Boss!!!", false)

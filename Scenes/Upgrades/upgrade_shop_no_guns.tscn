@@ -5,10 +5,7 @@
 [node name="UpgradeShop" instance=ExtResource("1_t0247")]
 
 [node name="UpgradeOption" parent="." index="4"]
-upgrade_array = Array[String](["common_upgrades", "uncommon_upgrades"])
+upgrade_array = Array[String](["common_upgrades", "uncommon_upgrades", "rare_upgrades", "super_rare_upgrades"])
 
 [node name="UpgradeOption2" parent="." index="5"]
 upgrade_array = Array[String](["common_upgrades", "uncommon_upgrades", "rare_upgrades", "super_rare_upgrades"])
-
-[node name="UpgradeOption3" parent="." index="6"]
-upgrade_array = Array[String](["uncommon_upgrades", "rare_upgrades", "super_rare_upgrades"])

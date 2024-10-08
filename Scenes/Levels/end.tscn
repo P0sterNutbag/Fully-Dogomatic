@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b2rf4epi3qqm5"]
+[gd_scene load_steps=22 format=3 uid="uid://b2rf4epi3qqm5"]
 
 [ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="1_8pgp7"]
 [ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="2_1k8ot"]
@@ -6,13 +6,12 @@
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="4_e2hj1"]
 [ext_resource type="PackedScene" uid="uid://dx18mgom3chcm" path="res://Scenes/UI/pause_controller.tscn" id="5_vry2c"]
 [ext_resource type="Script" path="res://Scripts/ui_menu.gd" id="6_kb17p"]
-[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Fonts/Blue Sky 8x8.ttf" id="7_0liep"]
+[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="7_0liep"]
 [ext_resource type="Script" path="res://Scripts/ui_menu_button.gd" id="8_3c5tg"]
 [ext_resource type="Texture2D" uid="uid://h7clkc3uwco0" path="res://Art/Sprites/MainMenu/thanksforplaying.png" id="8_ljifh"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="9_u3xyj"]
 [ext_resource type="PackedScene" uid="uid://dio4jhhmyfnfk" path="res://Audio/AudioManager.tscn" id="10_ckdvq"]
 [ext_resource type="PackedScene" uid="uid://b7r52wai1l1yc" path="res://Scenes/Player/menu_dog.tscn" id="11_mkcdl"]
-[ext_resource type="PackedScene" uid="uid://benlyb5ipwgn8" path="res://Scenes/Player/tennisball.tscn" id="12_nbl3r"]
 [ext_resource type="Texture2D" uid="uid://coil6k1m4af6k" path="res://Art/Sprites/animated arrow.png" id="14_04s0a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tyfs5"]
@@ -110,8 +109,10 @@ script = ExtResource("6_kb17p")
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Menu"]
 use_parent_material = true
 layout_mode = 0
-offset_right = 120.0
-offset_bottom = 80.0
+offset_left = -165.0
+offset_top = -74.0
+offset_right = -45.0
+offset_bottom = 6.0
 
 [node name="Restart" type="Button" parent="CanvasLayer/Menu/VBoxContainer"]
 use_parent_material = true
@@ -119,7 +120,6 @@ layout_mode = 2
 theme = SubResource("Theme_rr4cc")
 text = "RESTART"
 flat = true
-alignment = 2
 script = ExtResource("8_3c5tg")
 
 [node name="Quit" type="Button" parent="CanvasLayer/Menu/VBoxContainer"]
@@ -128,7 +128,6 @@ layout_mode = 2
 theme = SubResource("Theme_rr4cc")
 text = "QUIT"
 flat = true
-alignment = 2
 script = ExtResource("8_3c5tg")
 
 [node name="Wishlist" type="Button" parent="CanvasLayer/Menu"]
@@ -174,11 +173,6 @@ color = Color(0, 0, 0, 1)
 [node name="MenuDog" parent="." instance=ExtResource("11_mkcdl")]
 y_sort_enabled = true
 position = Vector2(135, 336)
-
-[node name="Tennisball" parent="." instance=ExtResource("12_nbl3r")]
-y_sort_enabled = true
-position = Vector2(196, 321)
-scale = Vector2(2, 2)
 
 [node name="Arrow" type="AnimatedSprite2D" parent="."]
 use_parent_material = true

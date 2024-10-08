@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7sp0qxb75kog"]
+[gd_scene load_steps=5 format=3 uid="uid://b7sp0qxb75kog"]
 
 [ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_7xtp2"]
 [ext_resource type="Texture2D" uid="uid://bicyrqu13qcex" path="res://Art/Sprites/bullet_thin.png" id="2_aa5rq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lshl4"]
 size = Vector2(22, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fqxyk"]
+radius = 123.004
 
 [node name="Area2D" type="Area2D" groups=["bullet"]]
 use_parent_material = true
@@ -25,6 +28,14 @@ offset = Vector2(0, -0.5)
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[node name="HomingArea" type="Area2D" parent="."]
+process_mode = 4
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HomingArea"]
+shape = SubResource("CircleShape2D_fqxyk")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

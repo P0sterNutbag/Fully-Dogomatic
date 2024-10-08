@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Fully Dogomatic"
-run/main_scene="res://Scenes/Levels/intro.tscn"
+run/main_scene="res://Scenes/Levels/world.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=60
 boot_splash/bg_color=Color(0, 0, 0, 1)
@@ -24,6 +24,7 @@ Globals="*res://Scripts/globals.gd"
 SceneManager="*res://Scenes/Levels/SceneManager.tscn"
 InputController="*res://Scenes/Control/input_controller.tscn"
 AudioManager="*res://Audio/AudioManager.tscn"
+DevTools="*res://Scripts/dev_tools.gd"
 
 [debug]
 
@@ -33,7 +34,6 @@ file_logging/enable_file_logging=true
 
 window/size/viewport_width=640
 window/size/viewport_height=360
-window/size/mode=4
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="viewport"

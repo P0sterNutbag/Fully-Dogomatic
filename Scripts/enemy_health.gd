@@ -5,6 +5,7 @@ class_name HealthComponent
 @export var rotate_on_hit: bool = true
 @export var shake_on_hit: bool
 @export var death_explosion: PackedScene = preload("res://Scenes/Particles/death_explosion.tscn")
+@export var explosion_scale: float = 1
 @export var sprite: Node2D
 @export var healthbar: ProgressBar
 var shake_timer: float = 0.0
@@ -48,9 +49,10 @@ func take_damage(dmg: float, bullet_direction: float):
 	if health <= 0 and not dead:
 		dead = true
 		if death_explosion != null:
-			Globals.call_deferred("create_instance", death_explosion, global_position)
+			var d = Globals.create_instance(death_explosion, global_position)
+			d.set_deferred("scale", Vector2.ONE * explosion_scale)
 		if parent is Enemy:
-			parent.on_death()
+			parent.on_death(bullet_direction)
 		Globals.audio_manager.explosion.play()
 		#Globals.world_controller.increase_score()
 		if !get_parent().name.contains("Boss"):

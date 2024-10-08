@@ -32,6 +32,7 @@ script = ExtResource("6_2snq4")
 health = 20
 rotate_on_hit = false
 shake_on_hit = true
+explosion_scale = 1.5
 sprite = NodePath("../CrateSprite")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]

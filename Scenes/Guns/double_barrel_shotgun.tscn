@@ -20,7 +20,6 @@ spread = 25.0
 rounds = 2
 sound_shoot = "gunshot_shotgun"
 metadata/Title = "Double Barrel Shotgun"
-metadata/Type = ""
 metadata/Rarity = SubResource("Resource_e01yd")
 metadata/Icon = ExtResource("4_wdpnt")
 

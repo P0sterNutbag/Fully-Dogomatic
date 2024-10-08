@@ -1,12 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://bypk836otjf2e"]
+[gd_scene load_steps=17 format=3 uid="uid://bypk836otjf2e"]
 
 [ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="1_5xotm"]
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="1_ybmjk"]
 [ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="2_j0jht"]
 [ext_resource type="Script" path="res://Scripts/ui_settings_menu.gd" id="3_m3w1w"]
-[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="4_mr0ip"]
+[ext_resource type="Theme" uid="uid://b6o7rf6iavtxi" path="res://Art/Themes/button.tres" id="5_wti4l"]
 [ext_resource type="Texture2D" uid="uid://daxb7qrq2h0do" path="res://Art/Sprites/corgi background.png" id="6_5qdrd"]
 [ext_resource type="Script" path="res://Scripts/ui_menu_button.gd" id="6_yr8xu"]
+[ext_resource type="Script" path="res://Scripts/ui_scroll_button.gd" id="7_1tvp0"]
+[ext_resource type="Texture2D" uid="uid://cyrsnh5lgtdqe" path="res://Art/Sprites/bullet icon.png" id="8_llwlw"]
+[ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="9_jsoj2"]
+[ext_resource type="Texture2D" uid="uid://dj5bx3srl6jso" path="res://Art/Sprites/ui arrow.png" id="10_qn4li"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uu6di"]
 shader = ExtResource("1_5xotm")
@@ -17,17 +21,20 @@ shader_parameter/fps = 6.0
 shader_parameter/color_threshold = 0.1
 shader_parameter/palette = ExtResource("2_j0jht")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ap13o"]
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_adnbr"]
+color = Color(1, 1, 1, 1)
+thickness = 8
 
-[sub_resource type="Theme" id="Theme_rr4cc"]
-Button/colors/font_color = Color(1, 1, 1, 1)
-Button/colors/font_focus_color = Color(1, 0, 0, 1)
-Button/colors/font_hover_color = Color(0.94902, 0, 0, 1)
-Button/colors/font_hover_pressed_color = Color(1, 0, 0, 1)
-Button/colors/font_pressed_color = Color(1, 0, 0, 1)
-Button/font_sizes/font_size = 14
-Button/fonts/font = ExtResource("4_mr0ip")
-Button/styles/focus = SubResource("StyleBoxEmpty_ap13o")
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_a25b4"]
+color = Color(0.223529, 0.223529, 0.223529, 1)
+thickness = 8
+
+[sub_resource type="Theme" id="Theme_0v5gl"]
+HSlider/icons/grabber = ExtResource("8_llwlw")
+HSlider/icons/grabber_highlight = ExtResource("8_llwlw")
+HSlider/styles/grabber_area = SubResource("StyleBoxLine_adnbr")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxLine_adnbr")
+HSlider/styles/slider = SubResource("StyleBoxLine_a25b4")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mjom4"]
 shader = ExtResource("1_5xotm")
@@ -71,6 +78,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+visible = false
 use_parent_material = true
 layout_mode = 0
 offset_right = 120.0
@@ -80,34 +88,20 @@ offset_bottom = 80.0
 material = ExtResource("1_ybmjk")
 use_parent_material = true
 layout_mode = 2
-focus_next = NodePath("../Mute")
 focus_previous = NodePath("../Quit")
-theme = SubResource("Theme_rr4cc")
+theme = ExtResource("5_wti4l")
 text = "CONTINUE"
 flat = true
 alignment = 0
 script = ExtResource("6_yr8xu")
 
-[node name="Mute" type="Button" parent="Menu/VBoxContainer"]
+[node name="Settings" type="Button" parent="Menu/VBoxContainer"]
+material = ExtResource("1_ybmjk")
 use_parent_material = true
 layout_mode = 2
-focus_next = NodePath("../Fullscreen")
-focus_previous = NodePath("../Continue")
-theme = SubResource("Theme_rr4cc")
-toggle_mode = true
-text = "MUTE"
-flat = true
-alignment = 0
-script = ExtResource("6_yr8xu")
-
-[node name="Fullscreen" type="Button" parent="Menu/VBoxContainer"]
-use_parent_material = true
-layout_mode = 2
-focus_next = NodePath("../ReturnToMenu")
-focus_previous = NodePath("../Mute")
-theme = SubResource("Theme_rr4cc")
-toggle_mode = true
-text = "WINDOWED"
+focus_previous = NodePath("../Quit")
+theme = ExtResource("5_wti4l")
+text = "SETTINGS"
 flat = true
 alignment = 0
 script = ExtResource("6_yr8xu")
@@ -116,8 +110,7 @@ script = ExtResource("6_yr8xu")
 use_parent_material = true
 layout_mode = 2
 focus_next = NodePath("../Quit")
-focus_previous = NodePath("../Fullscreen")
-theme = SubResource("Theme_rr4cc")
+theme = ExtResource("5_wti4l")
 text = "RETURN TO MENU"
 flat = true
 alignment = 0
@@ -128,8 +121,116 @@ use_parent_material = true
 layout_mode = 2
 focus_next = NodePath("../Continue")
 focus_previous = NodePath("../ReturnToMenu")
-theme = SubResource("Theme_rr4cc")
+theme = ExtResource("5_wti4l")
 text = "QUIT"
+flat = true
+alignment = 0
+script = ExtResource("6_yr8xu")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Menu"]
+use_parent_material = true
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 80.0
+
+[node name="SFXVolume" type="Button" parent="Menu/VBoxContainer2"]
+use_parent_material = true
+layout_mode = 2
+focus_next = NodePath("../WindowMode")
+theme = ExtResource("5_wti4l")
+text = "SFX VOLUME"
+flat = true
+alignment = 0
+script = ExtResource("7_1tvp0")
+
+[node name="SFXVolSlider" type="HSlider" parent="Menu/VBoxContainer2/SFXVolume"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 285.0
+offset_top = 1.0
+offset_right = 437.0
+offset_bottom = 23.0
+focus_mode = 1
+theme = SubResource("Theme_0v5gl")
+max_value = 1.0
+step = 0.1
+value = 0.5
+
+[node name="MusicVolume" type="Button" parent="Menu/VBoxContainer2"]
+use_parent_material = true
+layout_mode = 2
+focus_next = NodePath("../WindowMode")
+theme = ExtResource("5_wti4l")
+text = "MUSIC VOLUME"
+flat = true
+alignment = 0
+script = ExtResource("7_1tvp0")
+
+[node name="MusicVolSlider" type="HSlider" parent="Menu/VBoxContainer2/MusicVolume"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 285.0
+offset_right = 437.0
+offset_bottom = 22.0
+focus_mode = 1
+theme = SubResource("Theme_0v5gl")
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="WindowMode" type="Button" parent="Menu/VBoxContainer2"]
+use_parent_material = true
+layout_mode = 2
+focus_previous = NodePath("../SFXVolume")
+theme = ExtResource("5_wti4l")
+text = "WINDOW MODE"
+flat = true
+alignment = 0
+script = ExtResource("7_1tvp0")
+
+[node name="Label" type="Label" parent="Menu/VBoxContainer2/WindowMode"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 274.0
+offset_right = 426.0
+offset_bottom = 23.0
+theme = ExtResource("9_jsoj2")
+text = "WINDOWED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WindowRight" type="Button" parent="Menu/VBoxContainer2/WindowMode"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 418.0
+offset_top = -5.0
+offset_right = 432.0
+offset_bottom = 11.0
+scale = Vector2(2, 2)
+focus_mode = 1
+theme = ExtResource("5_wti4l")
+icon = ExtResource("10_qn4li")
+flat = true
+
+[node name="WindowLeft" type="Button" parent="Menu/VBoxContainer2/WindowMode"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 282.0
+offset_top = -5.0
+offset_right = 296.0
+offset_bottom = 11.0
+scale = Vector2(-2, 2)
+focus_mode = 1
+theme = ExtResource("5_wti4l")
+icon = ExtResource("10_qn4li")
+flat = true
+
+[node name="Back" type="Button" parent="Menu/VBoxContainer2"]
+use_parent_material = true
+layout_mode = 2
+focus_previous = NodePath("../SFXVolume")
+theme = ExtResource("5_wti4l")
+text = "BACK"
 flat = true
 alignment = 0
 script = ExtResource("6_yr8xu")
@@ -169,9 +270,20 @@ texture = ExtResource("6_5qdrd")
 [connection signal="mouse_entered" from="ColorRect" to="." method="_on_color_rect_mouse_entered"]
 [connection signal="mouse_exited" from="ColorRect" to="." method="_on_color_rect_mouse_exited"]
 [connection signal="pressed" from="Menu/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="Menu/VBoxContainer/Mute" to="." method="_on_mute_pressed"]
-[connection signal="toggled" from="Menu/VBoxContainer/Mute" to="." method="_on_mute_toggled"]
-[connection signal="pressed" from="Menu/VBoxContainer/Fullscreen" to="." method="_on_fullscreen_pressed"]
-[connection signal="toggled" from="Menu/VBoxContainer/Fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="pressed" from="Menu/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/ReturnToMenu" to="." method="_on_return_to_menu_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer2/SFXVolume" to="." method="_on_sfx_volume_pressed"]
+[connection signal="scroll_down" from="Menu/VBoxContainer2/SFXVolume" to="." method="_on_sfx_volume_scroll_down"]
+[connection signal="scroll_up" from="Menu/VBoxContainer2/SFXVolume" to="." method="_on_sfx_volume_scroll_up"]
+[connection signal="value_changed" from="Menu/VBoxContainer2/SFXVolume/SFXVolSlider" to="." method="_on_sfx_vol_slider_value_changed"]
+[connection signal="pressed" from="Menu/VBoxContainer2/MusicVolume" to="." method="_on_music_volume_pressed"]
+[connection signal="scroll_down" from="Menu/VBoxContainer2/MusicVolume" to="." method="_on_music_volume_scroll_down"]
+[connection signal="scroll_up" from="Menu/VBoxContainer2/MusicVolume" to="." method="_on_music_volume_scroll_up"]
+[connection signal="value_changed" from="Menu/VBoxContainer2/MusicVolume/MusicVolSlider" to="." method="_on_music_vol_slider_value_changed"]
+[connection signal="pressed" from="Menu/VBoxContainer2/WindowMode" to="." method="_on_fullscreen_pressed"]
+[connection signal="scroll_down" from="Menu/VBoxContainer2/WindowMode" to="." method="_on_window_mode_scroll_down"]
+[connection signal="scroll_up" from="Menu/VBoxContainer2/WindowMode" to="." method="_on_window_mode_scroll_up"]
+[connection signal="pressed" from="Menu/VBoxContainer2/WindowMode/WindowRight" to="." method="_on_window_mode_scroll_up"]
+[connection signal="pressed" from="Menu/VBoxContainer2/WindowMode/WindowLeft" to="." method="_on_window_mode_scroll_down"]
+[connection signal="pressed" from="Menu/VBoxContainer2/Back" to="." method="_on_back_pressed"]

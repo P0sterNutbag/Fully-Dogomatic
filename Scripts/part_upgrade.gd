@@ -10,7 +10,7 @@ var last_part: PackedScene
 var last_gun: Node2D
 @onready var arrow = $Arrow
 @onready var part_sprite = $Sprite2D
-
+@onready var arrow_text = $Label
 
 func set_sprite():
 	var inst = part.instantiate()
@@ -56,6 +56,8 @@ func _process(delta):
 				Globals.upgrade_menu.finish()
 				queue_free()
 		last_gun = closest_gun
+		arrow_text.text = "[center]" + closest_gun.get_meta("Title")
+		arrow_text.global_position = arrow.global_position + Vector2(-50, 8)
 	# find nearest gun
 	#var closest_dist = 1000
 	#for gun in Globals.player.guns:

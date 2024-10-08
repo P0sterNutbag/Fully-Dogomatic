@@ -14,7 +14,7 @@ class_name Gun
 			$ShootTimer.wait_time = value
 @export var spread: float = 20 
 @export var rounds: int = 20  
-@export var bullet_speed: int = 15
+@export var bullet_speed: int = 1200
 @export var reload_time: float = 2: 
 	set(value): 
 		reload_time = value
@@ -70,6 +70,7 @@ func _ready():
 	gunshot_sfx = Globals.audio_manager.get(sound_shoot)
 	distance_to_player += $CollisionShape2D.shape.size.x / 2
 	shots_left = rounds
+	$ReloadTimer.wait_time = reload_time
 
 
 func _physics_process(delta):
@@ -122,8 +123,9 @@ func rotate_away_from_position(vector: Vector2):
 
 func reload():
 	$ReloadTimer.start()
+	$ShootTimer.stop()
 	Globals.create_instance(status_effect, global_position + Vector2(0, -8))
-	await get_tree().create_timer($ReloadTimer.wait_time-0.75).timeout
+	await get_tree().create_timer($ReloadTimer.wait_time-1).timeout
 	spin_gun()
 
 
@@ -144,7 +146,7 @@ func _on_timer_timeout(): # shoot bullets
 			instance.global_position = firepoint.global_position
 			var accuracy = clamp(spread + accuracy_mod, 0, 100)
 			var bullet_angle = aim_dir.angle() + deg_to_rad(randf_range(-accuracy, accuracy))
-			var bullet_vector = Vector2(cos(bullet_angle), sin(bullet_angle)) * bullet_speed
+			var bullet_vector = Vector2.RIGHT.rotated(bullet_angle) * bullet_speed
 			instance.move_vector = bullet_vector
 			instance.speed = bullet_speed
 			instance.global_rotation = bullet_angle
@@ -192,6 +194,8 @@ func _on_timer_timeout(): # shoot bullets
 
 func _on_reload_timer_timeout():
 	shots_left = rounds
+	_on_timer_timeout()
+	$ShootTimer.start()
 
 
 func attach_to_target(target: Node2D):
