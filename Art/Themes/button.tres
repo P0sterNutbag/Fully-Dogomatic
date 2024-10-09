@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=3 format=3 uid="uid://b6o7rf6iavtxi"]
 
-[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="1_0f3j5"]
+[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Fonts/Blue Sky 8x8.ttf" id="1_0f3j5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ap13o"]
 

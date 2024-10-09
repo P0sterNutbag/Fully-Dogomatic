@@ -1,25 +1,25 @@
 [gd_scene load_steps=17 format=3 uid="uid://bypk836otjf2e"]
 
-[ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="1_5xotm"]
-[ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="1_ybmjk"]
-[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="2_j0jht"]
-[ext_resource type="Script" path="res://Scripts/ui_settings_menu.gd" id="3_m3w1w"]
-[ext_resource type="Theme" uid="uid://b6o7rf6iavtxi" path="res://Art/Themes/button.tres" id="5_wti4l"]
-[ext_resource type="Texture2D" uid="uid://daxb7qrq2h0do" path="res://Art/Sprites/corgi background.png" id="6_5qdrd"]
-[ext_resource type="Script" path="res://Scripts/ui_menu_button.gd" id="6_yr8xu"]
-[ext_resource type="Script" path="res://Scripts/ui_scroll_button.gd" id="7_1tvp0"]
-[ext_resource type="Texture2D" uid="uid://cyrsnh5lgtdqe" path="res://Art/Sprites/bullet icon.png" id="8_llwlw"]
-[ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="9_jsoj2"]
-[ext_resource type="Texture2D" uid="uid://dj5bx3srl6jso" path="res://Art/Sprites/ui arrow.png" id="10_qn4li"]
+[ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="1_1u8m4"]
+[ext_resource type="Script" path="res://Scripts/ui_settings_menu.gd" id="2_kapkv"]
+[ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="3_cjqnu"]
+[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="4_nvwok"]
+[ext_resource type="Theme" uid="uid://b6o7rf6iavtxi" path="res://Art/Themes/button.tres" id="5_fdqnr"]
+[ext_resource type="Script" path="res://Scripts/ui_menu_button.gd" id="6_ku67b"]
+[ext_resource type="Script" path="res://Scripts/ui_scroll_button.gd" id="7_h6pqo"]
+[ext_resource type="Texture2D" uid="uid://cyrsnh5lgtdqe" path="res://Art/Sprites/bullet icon.png" id="8_y3trq"]
+[ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="9_wjcy1"]
+[ext_resource type="Texture2D" uid="uid://dj5bx3srl6jso" path="res://Art/Sprites/ui arrow.png" id="10_irurn"]
+[ext_resource type="Texture2D" uid="uid://daxb7qrq2h0do" path="res://Art/Sprites/corgi background.png" id="11_5wihk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uu6di"]
-shader = ExtResource("1_5xotm")
+shader = ExtResource("3_cjqnu")
 shader_parameter/skip_first_row = true
 shader_parameter/use_palette_alpha = false
 shader_parameter/is_texture = false
 shader_parameter/fps = 6.0
 shader_parameter/color_threshold = 0.1
-shader_parameter/palette = ExtResource("2_j0jht")
+shader_parameter/palette = ExtResource("4_nvwok")
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_adnbr"]
 color = Color(1, 1, 1, 1)
@@ -30,30 +30,30 @@ color = Color(0.223529, 0.223529, 0.223529, 1)
 thickness = 8
 
 [sub_resource type="Theme" id="Theme_0v5gl"]
-HSlider/icons/grabber = ExtResource("8_llwlw")
-HSlider/icons/grabber_highlight = ExtResource("8_llwlw")
+HSlider/icons/grabber = ExtResource("8_y3trq")
+HSlider/icons/grabber_highlight = ExtResource("8_y3trq")
 HSlider/styles/grabber_area = SubResource("StyleBoxLine_adnbr")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxLine_adnbr")
 HSlider/styles/slider = SubResource("StyleBoxLine_a25b4")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mjom4"]
-shader = ExtResource("1_5xotm")
+shader = ExtResource("3_cjqnu")
 shader_parameter/skip_first_row = true
 shader_parameter/use_palette_alpha = false
 shader_parameter/is_texture = false
 shader_parameter/fps = 6.0
 shader_parameter/color_threshold = 0.1
-shader_parameter/palette = ExtResource("2_j0jht")
+shader_parameter/palette = ExtResource("4_nvwok")
 
-[node name="SettingsMenu" type="Control"]
+[node name="PauseMenu" type="Control"]
 process_mode = 2
 z_index = 500
 z_as_relative = false
-material = ExtResource("1_ybmjk")
+material = ExtResource("1_1u8m4")
 use_parent_material = true
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("3_m3w1w")
+script = ExtResource("2_kapkv")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -1
@@ -85,47 +85,47 @@ offset_right = 120.0
 offset_bottom = 80.0
 
 [node name="Continue" type="Button" parent="Menu/VBoxContainer"]
-material = ExtResource("1_ybmjk")
+material = ExtResource("1_1u8m4")
 use_parent_material = true
 layout_mode = 2
 focus_previous = NodePath("../Quit")
-theme = ExtResource("5_wti4l")
+theme = ExtResource("5_fdqnr")
 text = "CONTINUE"
 flat = true
 alignment = 0
-script = ExtResource("6_yr8xu")
+script = ExtResource("6_ku67b")
 
 [node name="Settings" type="Button" parent="Menu/VBoxContainer"]
-material = ExtResource("1_ybmjk")
+material = ExtResource("1_1u8m4")
 use_parent_material = true
 layout_mode = 2
 focus_previous = NodePath("../Quit")
-theme = ExtResource("5_wti4l")
+theme = ExtResource("5_fdqnr")
 text = "SETTINGS"
 flat = true
 alignment = 0
-script = ExtResource("6_yr8xu")
+script = ExtResource("6_ku67b")
 
 [node name="ReturnToMenu" type="Button" parent="Menu/VBoxContainer"]
 use_parent_material = true
 layout_mode = 2
 focus_next = NodePath("../Quit")
-theme = ExtResource("5_wti4l")
+theme = ExtResource("5_fdqnr")
 text = "RETURN TO MENU"
 flat = true
 alignment = 0
-script = ExtResource("6_yr8xu")
+script = ExtResource("6_ku67b")
 
 [node name="Quit" type="Button" parent="Menu/VBoxContainer"]
 use_parent_material = true
 layout_mode = 2
 focus_next = NodePath("../Continue")
 focus_previous = NodePath("../ReturnToMenu")
-theme = ExtResource("5_wti4l")
+theme = ExtResource("5_fdqnr")
 text = "QUIT"
 flat = true
 alignment = 0
-script = ExtResource("6_yr8xu")
+script = ExtResource("6_ku67b")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Menu"]
 use_parent_material = true
@@ -137,11 +137,11 @@ offset_bottom = 80.0
 use_parent_material = true
 layout_mode = 2
 focus_next = NodePath("../WindowMode")
-theme = ExtResource("5_wti4l")
+theme = ExtResource("5_fdqnr")
 text = "SFX VOLUME"
 flat = true
 alignment = 0
-script = ExtResource("7_1tvp0")
+script = ExtResource("7_h6pqo")
 
 [node name="SFXVolSlider" type="HSlider" parent="Menu/VBoxContainer2/SFXVolume"]
 use_parent_material = true
@@ -160,11 +160,11 @@ value = 0.5
 use_parent_material = true
 layout_mode = 2
 focus_next = NodePath("../WindowMode")
-theme = ExtResource("5_wti4l")
+theme = ExtResource("5_fdqnr")
 text = "MUSIC VOLUME"
 flat = true
 alignment = 0
-script = ExtResource("7_1tvp0")
+script = ExtResource("7_h6pqo")
 
 [node name="MusicVolSlider" type="HSlider" parent="Menu/VBoxContainer2/MusicVolume"]
 use_parent_material = true
@@ -182,11 +182,11 @@ value = 1.0
 use_parent_material = true
 layout_mode = 2
 focus_previous = NodePath("../SFXVolume")
-theme = ExtResource("5_wti4l")
+theme = ExtResource("5_fdqnr")
 text = "WINDOW MODE"
 flat = true
 alignment = 0
-script = ExtResource("7_1tvp0")
+script = ExtResource("7_h6pqo")
 
 [node name="Label" type="Label" parent="Menu/VBoxContainer2/WindowMode"]
 use_parent_material = true
@@ -194,7 +194,7 @@ layout_mode = 0
 offset_left = 274.0
 offset_right = 426.0
 offset_bottom = 23.0
-theme = ExtResource("9_jsoj2")
+theme = ExtResource("9_wjcy1")
 text = "WINDOWED"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -208,8 +208,8 @@ offset_right = 432.0
 offset_bottom = 11.0
 scale = Vector2(2, 2)
 focus_mode = 1
-theme = ExtResource("5_wti4l")
-icon = ExtResource("10_qn4li")
+theme = ExtResource("5_fdqnr")
+icon = ExtResource("10_irurn")
 flat = true
 
 [node name="WindowLeft" type="Button" parent="Menu/VBoxContainer2/WindowMode"]
@@ -221,19 +221,19 @@ offset_right = 296.0
 offset_bottom = 11.0
 scale = Vector2(-2, 2)
 focus_mode = 1
-theme = ExtResource("5_wti4l")
-icon = ExtResource("10_qn4li")
+theme = ExtResource("5_fdqnr")
+icon = ExtResource("10_irurn")
 flat = true
 
 [node name="Back" type="Button" parent="Menu/VBoxContainer2"]
 use_parent_material = true
 layout_mode = 2
 focus_previous = NodePath("../SFXVolume")
-theme = ExtResource("5_wti4l")
+theme = ExtResource("5_fdqnr")
 text = "BACK"
 flat = true
 alignment = 0
-script = ExtResource("6_yr8xu")
+script = ExtResource("6_ku67b")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_mjom4")
@@ -248,7 +248,7 @@ color = Color(0, 0, 0, 1)
 visible = false
 position = Vector2(137.5, 176)
 scale = Vector2(0.916667, 0.916667)
-texture = ExtResource("6_5qdrd")
+texture = ExtResource("11_5wihk")
 
 [node name="ColorRect3" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_mjom4")
@@ -264,7 +264,7 @@ color = Color(0, 0, 0, 1)
 visible = false
 position = Vector2(137.5, 176)
 scale = Vector2(0.916667, 0.916667)
-texture = ExtResource("6_5qdrd")
+texture = ExtResource("11_5wihk")
 
 [connection signal="gui_input" from="ColorRect" to="." method="_on_color_rect_gui_input"]
 [connection signal="mouse_entered" from="ColorRect" to="." method="_on_color_rect_mouse_entered"]

@@ -4,7 +4,7 @@ var explosion: PackedScene = preload("res://Scenes/Particles/explosion.tscn")
 @export var spread_modifier: float = 0
 @export var shot_count: float = 1
 var move_vector: Vector2
-var deceleration: float = 0.8
+var deceleration: float = 0.7
 var speed: float
 var damage: float = 1
 var penetrations: int
@@ -21,7 +21,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta):
-	position += move_vector 
+	position += move_vector * delta
 	rotation = move_vector.angle()
 	move_vector *= deceleration
 	if homing: 

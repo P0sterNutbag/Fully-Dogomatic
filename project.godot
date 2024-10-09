@@ -24,6 +24,8 @@ Globals="*res://Scripts/globals.gd"
 SceneManager="*res://Scenes/Levels/SceneManager.tscn"
 InputController="*res://Scenes/Control/input_controller.tscn"
 AudioManager="*res://Audio/AudioManager.tscn"
+ConfigHandler="*res://Scripts/config_handler.gd"
+PauseController="*res://Scenes/Control/pause_controller.tscn"
 
 [debug]
 
@@ -33,7 +35,6 @@ file_logging/enable_file_logging=true
 
 window/size/viewport_width=640
 window/size/viewport_height=360
-window/size/mode=4
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="viewport"

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx18mgom3chcm"]
+
+[ext_resource type="Script" path="res://Scripts/pause_controller.gd" id="1_doecy"]
+[ext_resource type="PackedScene" uid="uid://bypk836otjf2e" path="res://Scenes/UI/pause_menu.tscn" id="2_annnr"]
+
+[node name="PauseController" type="CanvasLayer"]
+process_mode = 3
+layer = 2
+script = ExtResource("1_doecy")
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_annnr")]
+visible = false

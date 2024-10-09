@@ -20,7 +20,7 @@ var globals
 var gun_amount
 var price_multiplier: float:
 	get: 
-		return enemy_spawn_controller.spawn_time[enemy_spawn_controller.spawn_round] * 2.8
+		return enemy_spawn_controller.spawn_time[enemy_spawn_controller.spawn_round] * 3.5
 var barrier_left: Vector2
 var barrier_right: Vector2
 var camera: Camera2D

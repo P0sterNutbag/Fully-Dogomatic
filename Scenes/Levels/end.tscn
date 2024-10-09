@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://b2rf4epi3qqm5"]
+[gd_scene load_steps=26 format=3 uid="uid://b2rf4epi3qqm5"]
 
 [ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="1_8pgp7"]
 [ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="2_1k8ot"]
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="3_kjlfc"]
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="4_e2hj1"]
-[ext_resource type="PackedScene" uid="uid://dx18mgom3chcm" path="res://Scenes/UI/pause_controller.tscn" id="5_vry2c"]
+[ext_resource type="Texture2D" uid="uid://dsunvku3ydye1" path="res://Art/Sprites/MainMenu/gun.png" id="5_110ld"]
+[ext_resource type="PackedScene" uid="uid://dx18mgom3chcm" path="res://Scenes/Control/pause_controller.tscn" id="5_vry2c"]
 [ext_resource type="Script" path="res://Scripts/ui_menu.gd" id="6_kb17p"]
 [ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="7_0liep"]
 [ext_resource type="Script" path="res://Scripts/ui_menu_button.gd" id="8_3c5tg"]
@@ -22,6 +23,44 @@ shader_parameter/is_texture = true
 shader_parameter/fps = 6.0
 shader_parameter/color_threshold = 0.1
 shader_parameter/palette = ExtResource("2_1k8ot")
+
+[sub_resource type="Animation" id="Animation_n686h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vlsav"]
+resource_name = "scroll_right"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(64, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gybbo"]
+_data = {
+"RESET": SubResource("Animation_n686h"),
+"scroll_right": SubResource("Animation_vlsav")
+}
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uu6di"]
 shader = ExtResource("1_8pgp7")
@@ -82,6 +121,92 @@ material = ExtResource("4_e2hj1")
 offset_right = 640.0
 offset_bottom = 360.0
 color = Color(0.101961, 0.101961, 0.101961, 1)
+
+[node name="Background" type="Control" parent="."]
+use_parent_material = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+use_parent_material = true
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 22.0
+scale = Vector2(2, 2)
+texture = ExtResource("5_110ld")
+stretch_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Background"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 16.0
+offset_top = 52.0
+offset_right = 336.0
+offset_bottom = 74.0
+scale = Vector2(2, 2)
+texture = ExtResource("5_110ld")
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Background"]
+use_parent_material = true
+layout_mode = 0
+offset_top = 104.0
+offset_right = 320.0
+offset_bottom = 126.0
+scale = Vector2(2, 2)
+texture = ExtResource("5_110ld")
+stretch_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="Background"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 16.0
+offset_top = 156.0
+offset_right = 336.0
+offset_bottom = 178.0
+scale = Vector2(2, 2)
+texture = ExtResource("5_110ld")
+stretch_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="Background"]
+use_parent_material = true
+layout_mode = 0
+offset_top = 208.0
+offset_right = 320.0
+offset_bottom = 230.0
+scale = Vector2(2, 2)
+texture = ExtResource("5_110ld")
+stretch_mode = 1
+
+[node name="TextureRect6" type="TextureRect" parent="Background"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 16.0
+offset_top = 260.0
+offset_right = 336.0
+offset_bottom = 282.0
+scale = Vector2(2, 2)
+texture = ExtResource("5_110ld")
+stretch_mode = 1
+
+[node name="TextureRect7" type="TextureRect" parent="Background"]
+use_parent_material = true
+layout_mode = 0
+offset_top = 312.0
+offset_right = 320.0
+offset_bottom = 334.0
+scale = Vector2(2, 2)
+texture = ExtResource("5_110ld")
+stretch_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_gybbo")
+}
+autoplay = "scroll_right"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(320, 180)

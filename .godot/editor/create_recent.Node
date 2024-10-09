@@ -1,3 +1,4 @@
+CanvasLayer
 AnimationPlayer
 Control
 BoxContainer
@@ -12,4 +13,3 @@ SubViewport
 SubViewportContainer
 NinePatchRect
 Polygon2D
-AudioStreamPlayer2D

@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dx18mgom3chcm"]
-
-[ext_resource type="Script" path="res://Scripts/pause_controller.gd" id="1_a7pen"]
-
-[node name="PauseController" type="Node"]
-script = ExtResource("1_a7pen")
