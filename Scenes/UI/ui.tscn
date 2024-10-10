@@ -108,7 +108,7 @@ z_index = 1
 material = ExtResource("15_inkxv")
 offset_left = 186.0
 offset_top = 18.0
-offset_right = 548.0
+offset_right = 457.0
 offset_bottom = 87.0
 alignment = 2
 script = ExtResource("11_7ulue")
@@ -142,6 +142,7 @@ bbcode_enabled = true
 text = "[center]MAX, CONSUMER OF LUMPS"
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 material = ExtResource("15_inkxv")
 clip_contents = true
 offset_right = 80.0
@@ -155,6 +156,7 @@ scale = Vector2(0.916667, 0.916667)
 texture = ExtResource("16_amnsy")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
 material = ExtResource("15_inkxv")
 clip_contents = true
 offset_left = 560.0
@@ -170,7 +172,7 @@ texture = ExtResource("16_amnsy")
 
 [node name="Drop" type="Node2D" parent="."]
 material = ExtResource("15_inkxv")
-position = Vector2(318, 58)
+position = Vector2(240, 58)
 
 [node name="DropAlert" type="RichTextLabel" parent="Drop"]
 material = SubResource("ShaderMaterial_2xchs")
@@ -206,9 +208,9 @@ layout_direction = 2
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 123.0
+offset_left = 47.0
 offset_top = 44.0
-offset_right = 123.0
+offset_right = 47.0
 offset_bottom = 44.0
 grow_horizontal = 1
 grow_vertical = 1
@@ -217,9 +219,9 @@ grow_vertical = 1
 material = ExtResource("15_inkxv")
 layout_mode = 3
 anchors_preset = 0
-offset_left = 90.0
+offset_left = 14.0
 offset_top = 84.0
-offset_right = 112.0
+offset_right = 36.0
 offset_bottom = 105.0
 
 [node name="MoneyText" type="RichTextLabel" parent="LeftCorner"]
@@ -267,9 +269,9 @@ layout_mode = 3
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -192.0
+offset_left = -116.0
 offset_top = 125.0
-offset_right = -149.0
+offset_right = -73.0
 offset_bottom = 157.0
 grow_horizontal = 0
 

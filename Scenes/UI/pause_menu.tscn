@@ -59,8 +59,7 @@ script = ExtResource("2_kapkv")
 z_index = -1
 use_parent_material = true
 layout_mode = 0
-offset_left = 80.0
-offset_right = 560.0
+offset_right = 480.0
 offset_bottom = 360.0
 color = Color(0.101961, 0.101961, 0.101961, 1)
 
@@ -70,9 +69,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 96.0
+offset_left = 16.0
 offset_top = 16.0
-offset_right = 96.0
+offset_right = 16.0
 offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -236,6 +235,7 @@ alignment = 0
 script = ExtResource("6_ku67b")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_mjom4")
 use_parent_material = true
 clip_contents = true
@@ -251,6 +251,7 @@ scale = Vector2(0.916667, 0.916667)
 texture = ExtResource("11_5wihk")
 
 [node name="ColorRect3" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_mjom4")
 use_parent_material = true
 clip_contents = true

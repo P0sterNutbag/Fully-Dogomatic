@@ -12,8 +12,8 @@ var right_barrier: Vector2
 
 func _ready():
 	var size = get_sprite_frames().get_frame_texture("idle",0).get_size()
-	left_barrier = Vector2(80.0 + (size.x / 2.0), 0 + (size.y / 2.0))
-	right_barrier = Vector2(560 - (size.x / 2), 360 - (size.y / 2.0))
+	left_barrier = Vector2(0 + (size.x), 0 + (size.y))
+	right_barrier = Vector2(480 - (size.x), 360 - (size.y))
 
 
 func _process(delta):

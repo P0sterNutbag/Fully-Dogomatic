@@ -174,9 +174,9 @@ follow = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 process_mode = 3
-limit_left = -480
+limit_left = -400
 limit_top = -300
-limit_right = 480
+limit_right = 400
 limit_bottom = 300
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0

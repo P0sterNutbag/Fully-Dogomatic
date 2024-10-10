@@ -37,3 +37,13 @@ res://Scenes/Control/pause_controller.tscn
 res://Scenes/Levels/Level Objects/money_crate.tscn
 res://Scenes/Levels/Level Objects/barrel.tscn
 res://Scripts/globals.gd
+res://Resources/settings_option.tres
+res://Scenes/UI/ui.tscn
+res://Scenes/Player/player.tscn
+res://Scripts/player.gd
+res://Scenes/Upgrades/upgrade_shop.tscn
+res://Scenes/Upgrades/upgrade_shop_intro.tscn
+res://Scenes/Upgrades/upgrade_shop_no_guns.tscn
+res://Scenes/Levels/Level Objects/shop.tscn
+res://Scenes/Upgrades/upgrade_shop_more_upgrades.tscn
+res://Scripts/menu_dog.gd

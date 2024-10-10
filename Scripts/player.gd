@@ -67,8 +67,8 @@ func _physics_process(_delta):
 			move_and_slide()
 			
 			# stay in bounds
-			position.x = clamp(position.x, Globals.barrier_left.x + 16, Globals.barrier_right.x- 16)
-			position.y = clamp(position.y, Globals.barrier_left.y + 16, Globals.barrier_right.y - 16)
+			position.x = clamp(position.x, Globals.barrier_left.x + 8, Globals.barrier_right.x- 8)
+			position.y = clamp(position.y, Globals.barrier_left.y + 8, Globals.barrier_right.y - 8)
 
 
 func _process(delta):

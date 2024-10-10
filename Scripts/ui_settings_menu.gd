@@ -29,7 +29,7 @@ func _ready() -> void:
 			window_mode_text.text = "FULLSCREEN"
 		"WINDOWED":
 			DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_WINDOWED)
-			DisplayServer.window_set_size(Vector2(1280, 720))
+			DisplayServer.window_set_size(Vector2(960, 720))
 			window_mode_text.text = "WINDOWED"
 
 
@@ -100,29 +100,27 @@ func _on_back_pressed() -> void:
 
 func _on_sfx_volume_scroll_down() -> void:
 	sfx_volume_slider.value -= 0.1
-	ConfigHandler.save_setting("sfx_volume", sfx_volume_slider.value)
 
 
 func _on_sfx_volume_scroll_up() -> void:
 	sfx_volume_slider.value += 0.1
-	ConfigHandler.save_setting("sfx_volume", sfx_volume_slider.value)
 
 
 func _on_music_volume_scroll_down() -> void:
 	music_volume_slider.value -= 0.1
-	ConfigHandler.save_setting("music_volume", music_volume_slider.value)
 
 
 func _on_music_volume_scroll_up() -> void:
 	music_volume_slider.value += 0.1
-	ConfigHandler.save_setting("music_volume", music_volume_slider.value)
 
 
 func _on_sfx_vol_slider_value_changed(value: float) -> void:
+	ConfigHandler.save_setting("sfx_volume", value)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(value))
 
 
 func _on_music_vol_slider_value_changed(value: float) -> void:
+	ConfigHandler.save_setting("music_volume", value)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(value))
 
 
@@ -137,7 +135,7 @@ func _on_window_mode_scroll_up() -> void:
 func change_window_mode() -> void:
 	if DisplayServer.window_get_mode() == DisplayServer.WindowMode.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
 		DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_WINDOWED)
-		DisplayServer.window_set_size(Vector2(1280, 720))
+		DisplayServer.window_set_size(Vector2(960, 720))
 		window_mode = "WINDOWED"
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
