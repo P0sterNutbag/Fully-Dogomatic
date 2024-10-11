@@ -1,49 +1,19 @@
-res://Scenes/UI/pause_menu.tscn
+res://Scenes/Levels/test_world.tscn
 res://Art/Shaders/colorswap.gdshader
 res://Art/Shaders/colorswap.tres
 res://Art/Shaders/flash.gdshader
 res://Art/Themes/button.tres
 res://Art/Themes/healthbar.tres
-res://Art/Shaders/color_change.gdshader
-res://Art/Shaders/color_change.tres
 res://Art/Shaders/dither.gdshader
 res://Art/Shaders/dither postprocess.gdshader
-res://Scripts/pause_controller.gd
-res://Scripts/ui_settings_menu.gd
-res://Scenes/Levels/test_world.tscn
-res://Scenes/Levels/world.tscn
-res://Scenes/Levels/main_menu.tscn
-res://Scenes/Player/menu_dog.tscn
-res://Scenes/Levels/end.tscn
-res://Scenes/Levels/intro.tscn
-res://Scenes/Levels/scene_transition.tscn
-res://Scenes/Levels/SceneManager.tscn
-res://Scenes/Guns/mp5.tscn
-res://Scenes/Guns/ak47.tscn
-res://Scenes/Guns/ar15.tscn
-res://Scenes/Guns/assault_shotgun.tscn
-res://Scenes/Guns/grenade_launcher.tscn
-res://Scenes/Guns/mac11.tscn
-res://Scenes/Guns/Parts/large_magazine.tscn
-res://Scenes/Upgrades/upgrade_manager.tscn
-res://Scenes/Levels/customize.tscn
-res://Scenes/Bullets/bullet_grenade.tscn
-res://Scenes/Bullets/grenade.tscn
-res://Scenes/UI/settings_option.tscn
-res://Scenes/UI/pause_controller.tscn
-res://Scripts/config_handler.gd
-res://Scripts/ui_main_menu.gd
-res://Scenes/Control/pause_controller.tscn
-res://Scenes/Levels/Level Objects/money_crate.tscn
-res://Scenes/Levels/Level Objects/barrel.tscn
+res://Art/Shaders/color_change.gdshader
 res://Scripts/globals.gd
-res://Resources/settings_option.tres
+res://Scenes/Levels/world.tscn
 res://Scenes/UI/ui.tscn
+res://Scenes/Upgrades/Dogtags/dogtag_gun_cap.tscn
+res://Scenes/Levels/Level Objects/level_manager.tscn
 res://Scenes/Player/player.tscn
+res://Scenes/Upgrades/GunUpgrades/xt_large_bullet_upgrade.tscn
+res://Scripts/gun.gd
+res://Scenes/Upgrades/GunUpgrades/extreme_innacuracy.tscn
 res://Scripts/player.gd
-res://Scenes/Upgrades/upgrade_shop.tscn
-res://Scenes/Upgrades/upgrade_shop_intro.tscn
-res://Scenes/Upgrades/upgrade_shop_no_guns.tscn
-res://Scenes/Levels/Level Objects/shop.tscn
-res://Scenes/Upgrades/upgrade_shop_more_upgrades.tscn
-res://Scripts/menu_dog.gd

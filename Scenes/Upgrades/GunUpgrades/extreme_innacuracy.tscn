@@ -13,7 +13,7 @@ add_value = false
 
 [sub_resource type="Resource" id="Resource_f6n1s"]
 script = ExtResource("2_1gsrj")
-values = ["bullet_damage", 3.0]
+values = ["bullet_damage", 2.0]
 multiply_value = true
 add_value = false
 
@@ -24,7 +24,7 @@ rarity = 1
 [node name="ExtremeInnacuracy" instance=ExtResource("1_ufgrc")]
 upgrade_values = Array[ExtResource("2_1gsrj")]([SubResource("Resource_cogub"), SubResource("Resource_f6n1s")])
 metadata/Title = "Extreme Innacuracy"
-metadata/Type = "Significantly lowers accuracy, x3 damage"
+metadata/Type = "Significantly lowers accuracy, x2 damage"
 metadata/Rarity = SubResource("Resource_23pya")
 
 [node name="UpgradeSprite" parent="." index="0"]

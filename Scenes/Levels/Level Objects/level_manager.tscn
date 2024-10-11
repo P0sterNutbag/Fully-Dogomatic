@@ -16,7 +16,7 @@ object_to_spawn = ExtResource("4_vuvp8")
 spawn_chance = 50.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q3y0q"]
-radius = 42.0
+radius = 64.0
 
 [node name="LevelManager" type="Node"]
 script = ExtResource("1_yyqyc")

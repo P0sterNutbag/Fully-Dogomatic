@@ -25,7 +25,7 @@ var gun_rotation: float = 0
 var money_drop_rate = 0.35
 var shop_discount = 0
 var explode_chance: float = 0
-var gun_cap = 8:
+var gun_cap = 10:
 	set(value):
 		gun_cap = value
 		Globals.ui.set_gun_amount(guns.size(), gun_cap)

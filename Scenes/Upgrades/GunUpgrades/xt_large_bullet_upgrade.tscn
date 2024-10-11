@@ -1,14 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://c86ancsbgfvij"]
+[gd_scene load_steps=8 format=3 uid="uid://c86ancsbgfvij"]
 
 [ext_resource type="PackedScene" uid="uid://dxh25edu12ok8" path="res://Scenes/Upgrades/gun_upgrade.tscn" id="1_641od"]
-[ext_resource type="PackedScene" uid="uid://c6pyadyyrxe2" path="res://Scenes/Bullets/xt_large_bullet.tscn" id="2_7hilk"]
 [ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="2_8ae2u"]
 [ext_resource type="Texture2D" uid="uid://b0rfe3ff6ilq5" path="res://Art/Sprites/upgrade spritesheet.png" id="3_fj0ot"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="4_oh8pk"]
 
 [sub_resource type="Resource" id="Resource_xwj61"]
 script = ExtResource("2_8ae2u")
-values = ["bullet", ExtResource("2_7hilk")]
+values = ["bullet_scale", Vector2(4, 4)]
 multiply_value = false
 add_value = false
 

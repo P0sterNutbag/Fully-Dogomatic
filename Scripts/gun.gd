@@ -24,6 +24,7 @@ class_name Gun
 @export var bullet_explosion: PackedScene = preload("res://Scenes/Bullets/bullet_explosion.tscn")
 @export_subgroup("Sounds")
 @export var sound_shoot: String  # Sound path
+var bullet_scale = Vector2.ONE
 var bullet_can_warp: bool
 var burst_fire: bool
 var burst_shots_left: int = 3
@@ -151,6 +152,7 @@ func _on_timer_timeout(): # shoot bullets
 			instance.speed = bullet_speed
 			instance.global_rotation = bullet_angle
 			instance.damage  = bullet_damage
+			instance.scale = bullet_scale
 			instance.penetrations = penetrations
 			instance.ricochet = ricochet
 			#instance.explosion = bullet_explosion

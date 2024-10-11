@@ -147,6 +147,7 @@ autostart = true
 wait_time = 0.075
 
 [node name="Guns" type="Node2D" parent="."]
+z_index = 10
 use_parent_material = true
 
 [node name="Arrow" type="Sprite2D" parent="."]
