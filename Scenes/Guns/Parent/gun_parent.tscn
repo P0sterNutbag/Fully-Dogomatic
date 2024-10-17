@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dxg8m0y80dpyp"]
+[gd_scene load_steps=10 format=3 uid="uid://dxg8m0y80dpyp"]
 
 [ext_resource type="Script" path="res://Scripts/gun.gd" id="1_hbx3y"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="2_gw35d"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dcayjrr65pgpy" path="res://Art/Sprites/gun spritesheet.png" id="3_6aho8"]
 [ext_resource type="Texture2D" uid="uid://l0xncvn3i5id" path="res://Art/Sprites/muzzleflash.png" id="4_4neoc"]
 [ext_resource type="Script" path="res://Scripts/gun_positioner.gd" id="5_lv77j"]
+[ext_resource type="Script" path="res://Scripts/aim_assist.gd" id="7_nbw73"]
 
 [sub_resource type="Resource" id="Resource_8vy61"]
 script = ExtResource("2_gw35d")
@@ -63,6 +64,17 @@ wait_time = 0.05
 process_mode = 3
 script = ExtResource("5_lv77j")
 
+[node name="AimAssist" type="Node2D" parent="."]
+process_mode = 4
+script = ExtResource("7_nbw73")
+
+[node name="ShapeCast2D" type="Area2D" parent="AimAssist"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="AimAssist/ShapeCast2D"]
+polygon = PackedVector2Array(0, 0, 16, -16, 280, -32, 280, 32, 16, 16)
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
@@ -70,3 +82,5 @@ script = ExtResource("5_lv77j")
 [connection signal="timeout" from="ShootTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="ReloadTimer" to="." method="_on_reload_timer_timeout"]
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
+[connection signal="body_entered" from="AimAssist/ShapeCast2D" to="AimAssist" method="_on_shape_cast_2d_body_entered"]
+[connection signal="body_exited" from="AimAssist/ShapeCast2D" to="AimAssist" method="_on_shape_cast_2d_body_exited"]

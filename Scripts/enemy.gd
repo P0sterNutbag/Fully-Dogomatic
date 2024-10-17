@@ -36,6 +36,8 @@ func _ready():
 
 
 func _physics_process(delta):
+	if player == null:
+		return
 	match state:
 		states.spawn:
 			velocity = spawn_velocity

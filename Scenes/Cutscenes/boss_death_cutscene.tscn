@@ -30,7 +30,7 @@ wait_time = 0.0
 
 [sub_resource type="Resource" id="Resource_q3l8g"]
 script = ExtResource("2_i8w3n")
-function = "scene_transition"
+function = "go_to_next_level"
 wait_time = 0.0
 
 [node name="Cutscene" type="Node"]

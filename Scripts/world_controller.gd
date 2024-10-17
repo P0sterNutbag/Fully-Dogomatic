@@ -20,10 +20,16 @@ func _ready():
 	Globals.barrier_left = $BarrierLeft.position
 	Globals.barrier_right = $BarrierRight.position
 	Globals.audio_manager.stage_music.play()
+	var player
 	if Globals.player == null:
-		var player = Globals.create_instance(Globals.player_to_spawn, Vector2.ZERO, self)
-		player.global_position = $PlayerSpawner.global_position
-		player.player_died.connect(on_player_died)
+		player = Globals.create_instance(Globals.player_to_spawn, Vector2.ZERO, self)
+	else:
+		player = Globals.player
+		add_child(player)
+		player.process_mode = Node.PROCESS_MODE_PAUSABLE
+	player.global_position = $PlayerSpawner.global_position
+	player.player_died.connect(on_player_died)
+		
 
 
 func _process(delta):

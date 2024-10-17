@@ -1,12 +1,13 @@
 extends Control
 
 @export var options: Array[Control]
-@export var only_one_pick: bool = false
+@export var total_picks: int = 3
 @export var can_quit: bool = true
 var upgrades: Array
 var not_enough_money = preload("res://Scenes/UI/not_enough_money.tscn")
 var reroll_price: int
 var tooltip_string: String
+var picks: int = 0
 @onready var tooltip = $Tooltip
 @onready var place_text = $Title2
 
@@ -19,7 +20,7 @@ func _ready():
 	options[0].grab_focus()
 	set_focus_neighbors()
 	$Money.text = "Money: $" + str(Globals.player.money)
-	if !only_one_pick:
+	if total_picks > 2:
 		reroll_price = clamp((3 / (Globals.price_multiplier) * (1 - Globals.player.shop_discount)), 1, 1000)
 		$Reroll/RichTextLabel.text = "[center]REROLL \n $" + str(reroll_price)
 	await get_tree().create_timer(0.5).timeout
@@ -51,9 +52,10 @@ func _exit_tree():
 
 func finish(delay: float = 0):
 	$Money.text = "Money: $" + str(Globals.player.money)
+	picks += 1
 	if delay > 0:
 		await get_tree().create_timer(delay).timeout
-	if options.size() > 0 and !only_one_pick:
+	if options.size() > 0 and picks < total_picks:
 		move_options_in()
 		set_focus_neighbors()
 		options[0].grab_focus()

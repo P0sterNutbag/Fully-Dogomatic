@@ -22,6 +22,10 @@ radius = 6.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_wq62j"]
 radius = 38.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfo1y"]
+atlas = ExtResource("5_1sten")
+region = Rect2(0, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_drq76"]
 atlas = ExtResource("3_r6o1k")
 region = Rect2(64, 32, 32, 32)
@@ -38,10 +42,6 @@ region = Rect2(32, 0, 32, 32)
 atlas = ExtResource("5_3i5cs")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pfo1y"]
-atlas = ExtResource("5_1sten")
-region = Rect2(0, 0, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_gfto4"]
 atlas = ExtResource("5_1sten")
 region = Rect2(32, 0, 32, 32)
@@ -56,6 +56,14 @@ region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4r1yi"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfo1y")
+}],
+"loop": true,
+"name": &"bounce",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_drq76")
@@ -131,9 +139,7 @@ y_sort_enabled = true
 material = ExtResource("3_354og")
 use_parent_material = true
 sprite_frames = SubResource("SpriteFrames_4r1yi")
-animation = &"walk"
-frame = 1
-frame_progress = 0.684073
+animation = &"bounce"
 
 [node name="DustSpawner" type="Node2D" parent="PlayerSprite"]
 position = Vector2(-10, 7)
@@ -143,9 +149,6 @@ script = ExtResource("12_akeka")
 wait_time = 0.1
 autostart = true
 
-[node name="FlashTimer" type="Timer" parent="."]
-wait_time = 0.075
-
 [node name="Guns" type="Node2D" parent="."]
 z_index = 10
 use_parent_material = true
@@ -154,15 +157,6 @@ use_parent_material = true
 visible = false
 position = Vector2(75, 0)
 texture = ExtResource("4_r3toi")
-
-[node name="DropCrate" type="Timer" parent="."]
-wait_time = 30.0
-autostart = true
-
-[node name="DefferedVariables" type="Timer" parent="."]
-wait_time = 0.1
-one_shot = true
-autostart = true
 
 [node name="MinimapIcon" parent="." instance=ExtResource("11_2hug4")]
 sprite = ExtResource("12_taoki")
@@ -183,8 +177,10 @@ position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("11_xl0am")
 
+[node name="FlashTimer" type="Timer" parent="."]
+wait_time = 0.075
+
 [connection signal="area_exited" from="Hurtbox" to="." method="_on_hurtbox_area_exited"]
 [connection signal="area_entered" from="MoneyPickup" to="." method="_on_money_pickup_area_entered"]
 [connection signal="timeout" from="PlayerSprite/DustSpawner/Timer" to="PlayerSprite/DustSpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
-[connection signal="timeout" from="DefferedVariables" to="." method="_on_deffered_variables_timeout"]

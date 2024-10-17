@@ -33,7 +33,7 @@ func _ready():
 	health_rounds.append(randi_range(6,8))
 	spawner_rounds.append(randi_range(2,4))
 	spawner_rounds.append(randi_range(6,8))
-	#enemy_rounds.append(1)
+	enemy_rounds.append(1)
 	# spawn crates
 	var crate_amount = randi_range(2, crate_max)
 	for i in crate_amount:

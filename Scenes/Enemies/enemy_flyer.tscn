@@ -1,18 +1,32 @@
-[gd_scene load_steps=9 format=3 uid="uid://rs3tt3umayol"]
+[gd_scene load_steps=11 format=3 uid="uid://rs3tt3umayol"]
 
 [ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/enemy_pug.tscn" id="1_1758n"]
-[ext_resource type="Texture2D" uid="uid://cjisev0wr8e35" path="res://Art/Sprites/enemy rocket.png" id="2_nk13t"]
+[ext_resource type="Texture2D" uid="uid://ddsuslt1srtuh" path="res://Art/Sprites/enemy flyer.png" id="2_lcfk5"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="3_5xgm2"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rcjka"]
-atlas = ExtResource("2_nk13t")
-region = Rect2(0, 0, 22, 18)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipygr"]
+atlas = ExtResource("2_lcfk5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8naad"]
+atlas = ExtResource("2_lcfk5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8k56w"]
+atlas = ExtResource("2_lcfk5")
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_epmrc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rcjka")
+"texture": SubResource("AtlasTexture_ipygr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8naad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8k56w")
 }],
 "loop": true,
 "name": &"default",
@@ -36,7 +50,7 @@ turn_speed = 1
 position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_epmrc")
 frame = 0
-frame_progress = 0.0
+frame_progress = 0.56026
 
 [node name="JuicyMovement" parent="AnimatedSprite2D" index="0" node_paths=PackedStringArray("target_node2D") instance=ExtResource("3_5xgm2")]
 target_node2D = NodePath("..")

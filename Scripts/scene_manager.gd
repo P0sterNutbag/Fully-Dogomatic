@@ -21,6 +21,9 @@ func start_scene_transition(scene: String, stop_music: bool = true) -> void:
 
 
 func change_scene() -> void:
+	if Globals.player != null:
+		Globals.player.process_mode = PROCESS_MODE_DISABLED
+		Globals.world_controller.remove_child(Globals.player)
 	get_tree().change_scene_to_packed(ResourceLoader.load_threaded_get(next_scene))
 	scene_transition.transition_out()
 	if !next_scene.contains("main_menu"):

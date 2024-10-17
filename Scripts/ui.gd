@@ -17,7 +17,7 @@ var death_ui = preload("res://Scenes/UI/death_ui.tscn")
 func _ready():
 	Globals.ui = self
 	$Drop.position.y -= 200
-	$Info/GunsAmnt.text = "[right]" + "0" + "/" + "12"
+	#$Info/GunsAmnt.text = "[right]" + "0" + "/" + "12"
 	#Globals.player.player_died.connect(on_player_died)
 
 

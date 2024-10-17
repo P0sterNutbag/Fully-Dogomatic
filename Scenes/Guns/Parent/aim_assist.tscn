@@ -10,7 +10,7 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="ShapeCast2D"]
-polygon = PackedVector2Array(0, 0, 280, -32, 280, 32)
+polygon = PackedVector2Array(0, 0, 16, -16, 280, -32, 280, 32, 16, 16)
 
 [connection signal="body_entered" from="ShapeCast2D" to="." method="_on_shape_cast_2d_body_entered"]
 [connection signal="body_exited" from="ShapeCast2D" to="." method="_on_shape_cast_2d_body_exited"]

@@ -6,7 +6,7 @@ extends Node2D
 var icon: Node2D
 
 
-func _ready():
+func _enter_tree() -> void:
 	call_deferred("add_to_minimap")
 
 

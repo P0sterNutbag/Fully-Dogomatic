@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-enum states {walk, dead}
+enum states {walk, bounce, dead}
 var state = states.walk
 var speed = 75.0
 signal player_died
@@ -42,7 +42,11 @@ func _ready():
 	pickup_radius = $MoneyPickup/CollisionShape2D.shape.radius
 
 
-func _physics_process(_delta):
+func _enter_tree() -> void:
+	Globals.ui.set_gun_amount(guns.size(), gun_cap)
+
+
+func _physics_process(delta):
 	match state:
 		states.walk:
 			# keyboard movement
@@ -65,10 +69,16 @@ func _physics_process(_delta):
 					velocity = move_vector * speed
 			
 			move_and_slide()
-			
-			# stay in bounds
-			position.x = clamp(position.x, Globals.barrier_left.x + 8, Globals.barrier_right.x- 8)
-			position.y = clamp(position.y, Globals.barrier_left.y + 8, Globals.barrier_right.y - 8)
+		
+		states.bounce:
+			velocity = lerp(velocity, Vector2.ZERO, 10 * delta)
+			if abs(velocity) < Vector2.ONE*10:
+				state = states.walk
+			move_and_slide()
+	
+	# stay in bounds
+	position.x = clamp(position.x, Globals.barrier_left.x + 8, Globals.barrier_right.x- 8)
+	position.y = clamp(position.y, Globals.barrier_left.y + 8, Globals.barrier_right.y - 8)
 
 
 func _process(delta):
@@ -84,7 +94,8 @@ func _process(delta):
 					sprite.scale.x = -1
 			else:
 				sprite.play("idle")
-
+			sprite.rotation_degrees = 0
+			
 			# damage
 			for area in $Hurtbox.get_overlapping_areas():
 				if area.is_in_group("enemy"):
@@ -103,9 +114,16 @@ func _process(delta):
 		states.dead:
 			sprite.play("dead")
 			sprite.flip_h = false
+			sprite.rotation_degrees = 0
+		
+		states.bounce:
+			sprite.play("bounce")
+			sprite.rotate(20 * delta)
 
 
 func take_damage(dmg):
+	if state == states.dead:
+		return
 	hp -= dmg
 	Globals.ui.get_node("LeftCorner/HPBar/HealthBar").value = hp
 	Globals.world_controller.reset_score()

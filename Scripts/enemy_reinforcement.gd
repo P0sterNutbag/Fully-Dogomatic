@@ -1,7 +1,7 @@
 extends Node2D
 
 var amount_to_spawn = 10
-var enemy_to_spawn = preload("res://Scenes/Enemies/enemy_speedy.tscn")
+var enemy_to_spawn = preload("res://Scenes/Enemies/enemy_flyer.tscn")
 
 func _ready() -> void:
 	for i in amount_to_spawn:

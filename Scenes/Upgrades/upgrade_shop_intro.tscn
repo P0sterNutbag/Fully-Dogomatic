@@ -17,7 +17,7 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_de2la")
 options = [NodePath("UpgradeOption"), NodePath("UpgradeOption2"), NodePath("UpgradeOption3")]
-only_one_pick = true
+total_picks = 1
 can_quit = false
 
 [node name="ColorRect" type="ColorRect" parent="."]

@@ -1,4 +1,4 @@
-res://Scenes/Levels/test_world.tscn
+res://Scenes/Player/player.tscn
 res://Art/Shaders/colorswap.gdshader
 res://Art/Shaders/colorswap.tres
 res://Art/Shaders/flash.gdshader
@@ -7,13 +7,21 @@ res://Art/Themes/healthbar.tres
 res://Art/Shaders/dither.gdshader
 res://Art/Shaders/dither postprocess.gdshader
 res://Art/Shaders/color_change.gdshader
-res://Scripts/globals.gd
-res://Scenes/Levels/world.tscn
-res://Scenes/UI/ui.tscn
-res://Scenes/Upgrades/Dogtags/dogtag_gun_cap.tscn
+res://Scenes/Levels/world_1.tscn
+res://Scenes/Levels/test_world.tscn
+res://Scenes/Levels/world_2.tscn
+res://Scenes/Levels/world_3.tscn
+res://Scenes/Enemies/enemy_ball.tscn
+res://Scripts/enemy_ball.gd
+res://Scenes/Enemies/enemy_reinforcement.tscn
+res://Scripts/enemy_reinforcement.gd
+res://Scripts/level_manager.gd
+res://Scenes/Enemies/enemy_pug.tscn
 res://Scenes/Levels/Level Objects/level_manager.tscn
-res://Scenes/Player/player.tscn
-res://Scenes/Upgrades/GunUpgrades/xt_large_bullet_upgrade.tscn
-res://Scripts/gun.gd
-res://Scenes/Upgrades/GunUpgrades/extreme_innacuracy.tscn
 res://Scripts/player.gd
+res://Scenes/Levels/Level Objects/money_crate.tscn
+res://Scenes/Levels/Level Objects/barrel.tscn
+res://Scenes/Levels/Level Objects/shop.tscn
+res://Scenes/Upgrades/upgrade_shop.tscn
+res://Scenes/Enemies/enemy_flyer.tscn
+res://Scripts/gun.gd

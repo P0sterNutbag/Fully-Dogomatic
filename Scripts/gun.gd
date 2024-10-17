@@ -52,24 +52,29 @@ var original_aim_dir: Vector2
 var has_aim_assist: bool:
 	set (value):
 		has_aim_assist = value
-		if value == true:
-			Globals.create_instance(aim_assist, Vector2.ZERO, self)
+		if has_aim_assist:
+			aim_assist.process_mode = PROCESS_MODE_INHERIT
+		else:
+			aim_assist.process_mode =  PROCESS_MODE_DISABLED
 var shell = preload("res://Scenes/Particles/shell.tscn")
 var status_effect = preload("res://Scenes/Particles/gun_status.tscn")
-var aim_assist = preload("res://Scenes/Guns/Parent/aim_assist.tscn")
 var muzzleflash_textures = [preload("res://Art/Sprites/muzzleflash.png"), 
 preload("res://Art/Sprites/muzzleflash2.png"),
 preload("res://Art/Sprites/muzzleflash3.png")]
 @onready var sprite = $Sprite2D
 @onready var firepoint = $Firepoint
 @onready var muzzle_flash = $Firepoint/MuzzleFlash
+@onready var aim_assist = $AimAssist
 signal gun_deleted
 
 
-func _ready():
-	x_force = randf_range(-100,100)
-	gunshot_sfx = Globals.audio_manager.get(sound_shoot)
+func _ready() -> void:
 	distance_to_player += $CollisionShape2D.shape.size.x / 2
+	x_force = randf_range(-100,100)
+
+
+func _enter_tree() -> void:
+	gunshot_sfx = Globals.audio_manager.get(sound_shoot)
 	shots_left = rounds
 	$ReloadTimer.wait_time = reload_time
 
@@ -90,7 +95,6 @@ func _physics_process(delta):
 			scale.y = -1
 		else:
 			scale.y = 1
-		original_aim_dir = aim_dir
 	else:
 		if holder != null:
 			rotation = lerp_angle(rotation, aim_dir.angle(), 10 * delta)
@@ -110,6 +114,8 @@ func _process(_delta):
 			$ShootTimer.start()
 			process_mode = PROCESS_MODE_PAUSABLE
 			Globals.upgrade_menu.finish()
+			original_aim_dir = aim_dir
+			#has_aim_assist = true
 	can_press = true
 
 

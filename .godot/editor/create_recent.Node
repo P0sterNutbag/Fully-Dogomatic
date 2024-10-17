@@ -1,8 +1,10 @@
+Timer
+Node
+TextureRect
 CanvasLayer
 AnimationPlayer
 Control
 BoxContainer
-TextureRect
 Sprite2D
 ColorRect
 Label
@@ -11,5 +13,3 @@ HSlider
 RichTextLabel
 SubViewport
 SubViewportContainer
-NinePatchRect
-Polygon2D

@@ -26,6 +26,7 @@ InputController="*res://Scenes/Control/input_controller.tscn"
 AudioManager="*res://Audio/AudioManager.tscn"
 ConfigHandler="*res://Scripts/config_handler.gd"
 PauseController="*res://Scenes/Control/pause_controller.tscn"
+DevTools="*res://Scripts/dev_tools.gd"
 
 [debug]
 

@@ -58,6 +58,7 @@ shape = SubResource("RectangleShape2D_jonbb")
 [node name="Arrow" parent="." instance=ExtResource("5_t7igd")]
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
 script = ExtResource("1_23wgj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

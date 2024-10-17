@@ -20,7 +20,7 @@ radius = 64.0
 
 [node name="LevelManager" type="Node"]
 script = ExtResource("1_yyqyc")
-drop_round_length = Array[int]([45, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60])
+drop_round_length = Array[int]([45, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60])
 level_items = Array[ExtResource("2_hmqxk")]([SubResource("Resource_rra2h"), SubResource("Resource_xdoqf")])
 
 [node name="Spawn" type="Timer" parent="."]

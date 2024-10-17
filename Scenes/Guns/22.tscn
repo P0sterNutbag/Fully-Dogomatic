@@ -9,7 +9,6 @@ spread = 5.0
 rounds = 16
 sound_shoot = "gunshot_assault"
 metadata/Title = ".22 Cal Rifle"
-metadata/Type = ""
 metadata/Icon = ExtResource("2_f10ks")
 
 [node name="CollisionShape2D" parent="." index="0"]

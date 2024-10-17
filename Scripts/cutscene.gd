@@ -95,5 +95,13 @@ func reset_camera():
 		next_step()
 
 
-func scene_transition():
-	SceneManager.start_scene_transition("res://Scenes/Levels/end.tscn")
+func go_to_next_level():
+	var next_level
+	match Globals.world_controller.name:
+		"World 1":
+			next_level = "res://Scenes/Levels/world_2.tscn"
+		"World 2":
+			next_level = "res://Scenes/Levels/world_3.tscn"
+		"World 3":
+			next_level = "res://Scenes/Levels/end.tscn"
+	SceneManager.start_scene_transition(next_level)
