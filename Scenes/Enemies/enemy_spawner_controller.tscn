@@ -73,7 +73,7 @@ spawn_chance = 100.0
 
 [node name="EnemySpawnerController" type="Node"]
 script = ExtResource("1_grdac")
-spawn_rounds = [[SubResource("Resource_cpcnp")], [SubResource("Resource_cpcnp")], [SubResource("Resource_wx7tf")], [SubResource("Resource_dpyvh")], [SubResource("Resource_tpp3x")], [SubResource("Resource_annjh")], [SubResource("Resource_2l2ae"), SubResource("Resource_pnt62")], [SubResource("Resource_0f5yr"), SubResource("Resource_nq228")], [SubResource("Resource_p3nf6")], [SubResource("Resource_qcst1"), SubResource("Resource_vdo3a")], [SubResource("Resource_2xf4e")]]
+spawn_rounds = [[SubResource("Resource_cpcnp")], [SubResource("Resource_cpcnp")], [SubResource("Resource_wx7tf")], [SubResource("Resource_dpyvh")], [SubResource("Resource_tpp3x")], [SubResource("Resource_annjh")], [SubResource("Resource_2l2ae"), SubResource("Resource_pnt62")], [SubResource("Resource_0f5yr"), SubResource("Resource_nq228")], [SubResource("Resource_p3nf6")], [SubResource("Resource_qcst1"), SubResource("Resource_vdo3a")], [SubResource("Resource_2xf4e")], [SubResource("Resource_2xf4e")]]
 spawn_time = Array[float]([1.5, 1.25, 0.8, 0.5, 0.25, 0.2, 0.15, 0.15, 0.12, 0.12, 0.12])
 
 [node name="InitialSpawn" type="Timer" parent="."]
@@ -86,7 +86,6 @@ autostart = true
 
 [node name="SpawnRound" type="Timer" parent="."]
 wait_time = 60.0
-autostart = true
 
 [connection signal="timeout" from="InitialSpawn" to="." method="_on_initial_spawn_timeout"]
 [connection signal="timeout" from="SpawnEnemies" to="." method="_on_spawn_enemies_timeout"]

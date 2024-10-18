@@ -1,4 +1,4 @@
-res://Scenes/Player/player.tscn
+res://Scenes/Levels/test_world.tscn
 res://Art/Shaders/colorswap.gdshader
 res://Art/Shaders/colorswap.tres
 res://Art/Shaders/flash.gdshader
@@ -8,20 +8,28 @@ res://Art/Shaders/dither.gdshader
 res://Art/Shaders/dither postprocess.gdshader
 res://Art/Shaders/color_change.gdshader
 res://Scenes/Levels/world_1.tscn
-res://Scenes/Levels/test_world.tscn
 res://Scenes/Levels/world_2.tscn
 res://Scenes/Levels/world_3.tscn
-res://Scenes/Enemies/enemy_ball.tscn
-res://Scripts/enemy_ball.gd
-res://Scenes/Enemies/enemy_reinforcement.tscn
-res://Scripts/enemy_reinforcement.gd
-res://Scripts/level_manager.gd
+res://Scenes/Player/player.tscn
 res://Scenes/Enemies/enemy_pug.tscn
+res://Scenes/Enemies/enemy_ball.tscn
 res://Scenes/Levels/Level Objects/level_manager.tscn
-res://Scripts/player.gd
+res://Scenes/Enemies/enemy_reinforcement.tscn
 res://Scenes/Levels/Level Objects/money_crate.tscn
 res://Scenes/Levels/Level Objects/barrel.tscn
-res://Scenes/Levels/Level Objects/shop.tscn
 res://Scenes/Upgrades/upgrade_shop.tscn
+res://Scenes/Levels/Level Objects/shop.tscn
 res://Scenes/Enemies/enemy_flyer.tscn
-res://Scripts/gun.gd
+res://Scenes/Upgrades/Dogtags/dogtag_player_speed.tscn
+res://Scenes/Upgrades/GunUpgrades/reload_speed_upgrade.tscn
+res://Scripts/enemy_reinforcement.gd
+res://Scripts/level_manager.gd
+res://Scenes/Enemies/enemy_spawner_controller.tscn
+res://Scenes/Guns/mac11.tscn
+res://Scenes/Levels/Level Objects/car.tscn
+res://Scenes/Particles/shadow.tscn
+res://Scripts/shadow.gd
+res://Scripts/shadow_outline.gd
+res://Scenes/Player/dollar.tscn
+res://Scenes/Enemies/enemy_pug_6.tscn
+res://Scripts/enemy_spawner_controller.gd

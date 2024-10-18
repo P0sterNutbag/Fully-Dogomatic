@@ -5,10 +5,10 @@
 [ext_resource type="Script" path="res://Scripts/enemy_health.gd" id="6_2snq4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bbmw7"]
-size = Vector2(42, 42)
+size = Vector2(64, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i6355"]
-size = Vector2(42, 42)
+size = Vector2(66, 29)
 
 [node name="CRATE" type="StaticBody2D"]
 use_parent_material = true

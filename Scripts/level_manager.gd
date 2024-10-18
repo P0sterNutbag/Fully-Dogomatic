@@ -31,9 +31,13 @@ func _ready():
 	barrier_right = Globals.barrier_right - Vector2(barrier_margin, barrier_margin)
 	health_rounds.append(randi_range(3,4))
 	health_rounds.append(randi_range(6,8))
-	spawner_rounds.append(randi_range(2,4))
-	spawner_rounds.append(randi_range(6,8))
-	enemy_rounds.append(1)
+	spawner_rounds.append(3)
+	spawner_rounds.append(7)
+	enemy_rounds.append(2)
+	enemy_rounds.append(4)
+	enemy_rounds.append(6)
+	enemy_rounds.append(8)
+	enemy_rounds.append(10)
 	# spawn crates
 	var crate_amount = randi_range(2, crate_max)
 	for i in crate_amount:
@@ -48,6 +52,7 @@ func _on_spawn_timeout():
 
 func spawn_level_objects() -> void:
 	spawn_round += 1
+	Globals.enemy_spawn_controller.spawn_round += 1
 	$Spawn.wait_time = drop_round_length[spawn_round]
 	#$Spawn.start()
 	if spawn_round < boss_round:

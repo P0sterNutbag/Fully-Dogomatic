@@ -1,3 +1,7 @@
+CollisionShape2D
+Node2D
+TileMapLayer
+TileMap
 Timer
 Node
 TextureRect
@@ -9,7 +13,3 @@ Sprite2D
 ColorRect
 Label
 Button
-HSlider
-RichTextLabel
-SubViewport
-SubViewportContainer
