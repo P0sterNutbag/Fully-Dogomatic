@@ -2,8 +2,9 @@ extends Node
 
 
 var spawners: Array
-@export var spawn_rounds = []
+@export var spawn_rounds : Array[EnemySpawnRound]
 @export var spawn_time: Array[float]
+var enemies: Array[Enemy]
 var spawn_round = 0
 var spawn_amount_min = 1
 var spawn_amount_max = 3
@@ -23,32 +24,34 @@ func _on_spawn_enemies_timeout() -> void:
 
 
 func spawn_enemy(enemy_to_spawn: PackedScene = null, spawn_position: Vector2 = Vector2.ONE):
-	if get_tree().get_nodes_in_group("enemy").size() > 1000:
-		return
+	if enemies.size() > 300:#get_tree().get_nodes_in_group("enemy").size() > 1000:
+		enemies[0].queue_free()
+		enemies.remove_at(0)
 	$SpawnEnemies.wait_time = float(spawn_time[spawn_round])
 	var enemy = enemy_to_spawn
 	if enemy == null:
 		enemy = get_enemy_to_spawn()
 	var pos = spawn_position
 	if pos == Vector2.ONE:
-		var spawn_left = Vector2(Globals.camera.get_screen_center_position().x - 240 - 32, Globals.camera.get_screen_center_position().y - 180 - 32)
-		var spawn_right = Vector2(Globals.camera.get_screen_center_position().x + 240 + 32, Globals.camera.get_screen_center_position().y + 180 + 32)
+		#var spawn_left = Vector2(Globals.camera.get_screen_center_position().x - 240 - 32, Globals.camera.get_screen_center_position().y - 180 - 32)
+		#var spawn_right = Vector2(Globals.camera.get_screen_center_position().x + 240 + 32, Globals.camera.get_screen_center_position().y + 180 + 32)
 		var barrier_left = Globals.world_controller.get_node("BarrierLeft").global_position - Vector2(25, 25)
 		var barrier_right = Globals.world_controller.get_node("BarrierRight").global_position + Vector2(25, 25)
-		spawn_left.x = clamp(spawn_left.x, barrier_left.x, barrier_right.x)
-		spawn_left.y = clamp(spawn_left.y, barrier_left.y, barrier_right.y)
-		spawn_right.x = clamp(spawn_right.x, barrier_left.x, barrier_right.x)
-		spawn_right.y = clamp(spawn_right.y, barrier_left.y, barrier_right.y)
+		#spawn_left.x = clamp(spawn_left.x, barrier_left.x, barrier_right.x)
+		#spawn_left.y = clamp(spawn_left.y, barrier_left.y, barrier_right.y)
+		#spawn_right.x = clamp(spawn_right.x, barrier_left.x, barrier_right.x)
+		#spawn_right.y = clamp(spawn_right.y, barrier_left.y, barrier_right.y)
 		match randi_range(0,3):
-			0: pos = Vector2(randf_range(spawn_left.x,spawn_right.x), spawn_left.y)
-			1: pos = Vector2(randf_range(spawn_left.x,spawn_right.x), spawn_right.y)
-			2: pos = Vector2(spawn_left.x, randf_range(spawn_left.y,spawn_right.y))
-			3: pos = Vector2(spawn_right.x, randf_range(spawn_left.y,spawn_right.y))	
-	Globals.create_instance(enemy, pos)
+			0: pos = Vector2(randf_range(barrier_left.x,barrier_right.x), barrier_left.y)
+			1: pos = Vector2(randf_range(barrier_left.x,barrier_right.x), barrier_right.y)
+			2: pos = Vector2(barrier_left.x, randf_range(barrier_left.y,barrier_right.y))
+			3: pos = Vector2(barrier_right.x, randf_range(barrier_left.y,barrier_right.y))	
+	var inst = Globals.create_instance(enemy, pos)
+	enemies.append(inst)
 
 
 func get_enemy_to_spawn() -> PackedScene:
-	return spawn_rounds[spawn_round][Globals.get_weighted_index(spawn_rounds[spawn_round])].object_to_spawn
+	return spawn_rounds[spawn_round].enemies[Globals.get_weighted_index(spawn_rounds[spawn_round].enemies)].object_to_spawn
 
 
 func _on_spawn_round_timeout() -> void:

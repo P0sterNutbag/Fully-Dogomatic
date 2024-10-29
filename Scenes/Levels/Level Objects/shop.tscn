@@ -29,10 +29,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jonbb"]
-size = Vector2(44, 45)
+size = Vector2(44, 65)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqj6e"]
-size = Vector2(46, 47)
+size = Vector2(46, 67)
 
 [node name="Gun Shop" type="StaticBody2D" groups=["destroy"]]
 process_mode = 3
@@ -52,7 +52,7 @@ sprite = ExtResource("4_3alt0")
 depth = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, -20.5)
+position = Vector2(2, -30.5)
 shape = SubResource("RectangleShape2D_jonbb")
 
 [node name="Arrow" parent="." instance=ExtResource("5_t7igd")]
@@ -62,7 +62,7 @@ collision_layer = 0
 script = ExtResource("1_23wgj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(2, -20.5)
+position = Vector2(2, -30.5)
 shape = SubResource("RectangleShape2D_kqj6e")
 
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://ccs5kw7b4231m"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_spawner_controller.gd" id="1_grdac"]
-[ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/enemy_pug.tscn" id="2_d64i3"]
+[ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/enemy_pug_3.tscn" id="2_d64i3"]
 [ext_resource type="Script" path="res://Scripts/spawn_chance.gd" id="3_wk788"]
 [ext_resource type="PackedScene" uid="uid://bw22ix5lssou3" path="res://Scenes/Enemies/enemy_pug_6.tscn" id="4_2a34w"]
 [ext_resource type="PackedScene" uid="uid://bp1ap45bibdh6" path="res://Scenes/Enemies/enemy_pug_9.tscn" id="5_5s4jl"]

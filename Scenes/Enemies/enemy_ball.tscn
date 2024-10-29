@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bqgwdvwl5vyid"]
 
-[ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/enemy_pug.tscn" id="1_2onbv"]
+[ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/enemy_pug_3.tscn" id="1_2onbv"]
 [ext_resource type="Script" path="res://Scripts/enemy_ball.gd" id="2_mtmf4"]
 [ext_resource type="Texture2D" uid="uid://drta4yh7qy7j6" path="res://Art/Sprites/enemy ball.png" id="2_udp0f"]
 

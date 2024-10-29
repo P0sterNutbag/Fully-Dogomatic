@@ -20,7 +20,8 @@ class_name Gun
 		reload_time = value
 		$ReloadTimer.wait_time = reload_time
 @export var penetrations: int = 1
-@export var knockback: int = 5
+@export var knockback: int = 7.5
+@export var explode_chance: float = 0
 @export var bullet_explosion: PackedScene = preload("res://Scenes/Bullets/bullet_explosion.tscn")
 @export_subgroup("Sounds")
 @export var sound_shoot: String  # Sound path
@@ -31,7 +32,6 @@ var burst_shots_left: int = 3
 var distance_to_player = 18
 var ricochet: bool = false
 var homing: bool = false
-var explode_chance: float = 0
 var holder = null
 var hold_offset: Vector2
 var direction_vector: Vector2
@@ -152,7 +152,11 @@ func _on_timer_timeout(): # shoot bullets
 			get_tree().current_scene.add_child(instance)
 			instance.global_position = firepoint.global_position
 			var accuracy = clamp(spread + accuracy_mod, 0, 100)
-			var bullet_angle = aim_dir.angle() + deg_to_rad(randf_range(-accuracy, accuracy))
+			var bullet_angle
+			if bullet_count == 1:
+				bullet_angle = aim_dir.angle() + deg_to_rad(randf_range(-accuracy, accuracy))
+			else:
+				bullet_angle = aim_dir.angle() + deg_to_rad(((i + 1) * (accuracy / bullet_count)) - (accuracy / 2))
 			var bullet_vector = Vector2.RIGHT.rotated(bullet_angle) * bullet_speed
 			instance.move_vector = bullet_vector
 			instance.speed = bullet_speed

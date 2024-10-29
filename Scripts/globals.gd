@@ -21,8 +21,6 @@ var gun_amount
 var price_multiplier: float:
 	get: 
 		return enemy_spawn_controller.spawn_time[enemy_spawn_controller.spawn_round] * 3
-var barrier_left: Vector2
-var barrier_right: Vector2
 var camera: Camera2D
 var muted: bool = false
 var pause_controller: Node
@@ -48,7 +46,7 @@ func create_instance(scene: PackedScene, position: Vector2 = Vector2.ZERO, paren
 	return null
 
 
-func get_weighted_index(array: Array) -> int:
+func get_weighted_index(array) -> int:
 	var sum = 0
 	for i in array.size():
 		sum += array[i].spawn_chance

@@ -11,8 +11,8 @@ var icon = preload("res://Scenes/UI/map_icon.tscn")
 func _ready():
 	var barrier_left = get_tree().current_scene.get_node("BarrierLeft")
 	var barrier_right = get_tree().current_scene.get_node("BarrierRight")
-	level_width = abs(barrier_right.position.x) + abs(barrier_left.position.x)
-	level_height = abs(barrier_right.position.y) + abs(barrier_left.position.y)
+	level_width = barrier_right.position.x
+	level_height = barrier_right.position.y
 
 
 func add_to_map(texture: Texture2D, pos: Vector2, follow_obj: Node2D = null) -> Sprite2D:

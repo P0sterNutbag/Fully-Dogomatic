@@ -169,10 +169,10 @@ follow = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 process_mode = 3
-limit_left = -400
-limit_top = -300
-limit_right = 400
-limit_bottom = 300
+limit_left = 0
+limit_top = 0
+limit_right = 800
+limit_bottom = 600
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("11_xl0am")
@@ -180,7 +180,11 @@ script = ExtResource("11_xl0am")
 [node name="FlashTimer" type="Timer" parent="."]
 wait_time = 0.075
 
+[node name="MineTimer" type="Timer" parent="."]
+wait_time = 6.0
+
 [connection signal="area_exited" from="Hurtbox" to="." method="_on_hurtbox_area_exited"]
 [connection signal="area_entered" from="MoneyPickup" to="." method="_on_money_pickup_area_entered"]
 [connection signal="timeout" from="PlayerSprite/DustSpawner/Timer" to="PlayerSprite/DustSpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
+[connection signal="timeout" from="MineTimer" to="." method="_on_mine_timer_timeout"]

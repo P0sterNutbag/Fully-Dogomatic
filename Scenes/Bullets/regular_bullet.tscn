@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://feiddhd4x04w" path="res://Art/Sprites/bullet.png" id="3_3b6dt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lshl4"]
-size = Vector2(24, 3)
+size = Vector2(36, 4)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h81x8"]
 radius = 123.004
@@ -16,7 +16,7 @@ collision_mask = 296
 script = ExtResource("1_5itjt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+position = Vector2(-6, 0)
 shape = SubResource("RectangleShape2D_lshl4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

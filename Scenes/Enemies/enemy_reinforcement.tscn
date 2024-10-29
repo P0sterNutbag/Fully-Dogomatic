@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bh6gqd4htc7lx"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_reinforcement.gd" id="1_5vou0"]
-[ext_resource type="PackedScene" uid="uid://ne0aj0e2htle" path="res://Scenes/Enemies/enemy_chihuahua.tscn" id="2_41dsh"]
+[ext_resource type="PackedScene" uid="uid://ne0aj0e2htle" path="res://Scenes/Enemies/enemy_1_bomber_fast.tscn" id="2_41dsh"]
 [ext_resource type="PackedScene" uid="uid://rs3tt3umayol" path="res://Scenes/Enemies/enemy_flyer.tscn" id="2_ll700"]
 [ext_resource type="PackedScene" uid="uid://bqgwdvwl5vyid" path="res://Scenes/Enemies/enemy_ball.tscn" id="3_vy4ol"]
 [ext_resource type="PackedScene" uid="uid://8lu0qbh5kdxw" path="res://Scenes/Enemies/enemy_slug.tscn" id="4_f8a0b"]

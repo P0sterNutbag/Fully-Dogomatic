@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://bomidm65bpf10"]
+
+[ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/enemy_pug_3.tscn" id="1_hnxbf"]
+[ext_resource type="Texture2D" uid="uid://co2p2lbpje87k" path="res://Art/Sprites/Enemies/enemy trapper hat.png" id="2_tsnhh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cioln"]
+atlas = ExtResource("2_tsnhh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_facxq"]
+atlas = ExtResource("2_tsnhh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgo33"]
+atlas = ExtResource("2_tsnhh")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnn76"]
+atlas = ExtResource("2_tsnhh")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kryb2"]
+atlas = ExtResource("2_tsnhh")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4nnxq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cioln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_facxq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgo33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnn76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kryb2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Enemy" instance=ExtResource("1_hnxbf")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(0, -2)
+sprite_frames = SubResource("SpriteFrames_4nnxq")
+frame = 0
+frame_progress = 0.279295
+
+[node name="Hurtbox" parent="." index="3"]
+health = 8
+
+[node name="Shadow" parent="." index="4"]
+position = Vector2(-1.49012e-07, 5)

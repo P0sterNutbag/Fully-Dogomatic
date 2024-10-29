@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnmm8f1tclrdl"]
+
+[ext_resource type="Script" path="res://Scripts/mine.gd" id="1_4ihdy"]
+[ext_resource type="Texture2D" uid="uid://dcayjrr65pgpy" path="res://Art/Sprites/gun spritesheet.png" id="1_svxwo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lha6m"]
+radius = 7.0
+
+[node name="Mine" type="Area2D"]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("1_4ihdy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lha6m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("1_svxwo")
+region_enabled = true
+region_rect = Rect2(64, 96, 16, 16)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

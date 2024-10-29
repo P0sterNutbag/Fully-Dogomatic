@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjpac1322y857"]
+
+[ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/enemy_pug_3.tscn" id="1_c7p3r"]
+
+[node name="Enemy" instance=ExtResource("1_c7p3r")]
+
+[node name="Hurtbox" parent="." index="3"]
+health = 21

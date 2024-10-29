@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://bh6juqooq77vm"]
 
-[ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/enemy_pug.tscn" id="1_5e3fs"]
+[ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/enemy_pug_3.tscn" id="1_5e3fs"]
 [ext_resource type="Script" path="res://Scripts/boss_pug.gd" id="2_dy8ol"]
 [ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Art/Sprites/123spritesheet.png" id="3_bntrl"]
 [ext_resource type="Texture2D" uid="uid://5tfn2k4jut0o" path="res://Art/Sprites/boss icon.png" id="4_o2qjt"]
@@ -103,7 +103,6 @@ offset = Vector2(0, -20)
 position = Vector2(0, -22.5)
 
 [node name="Hitbox" parent="." index="2"]
-visible = false
 position = Vector2(3, -15)
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
@@ -119,9 +118,8 @@ position = Vector2(20, 5)
 shape = SubResource("CircleShape2D_hhmv6")
 
 [node name="Hurtbox" parent="." index="3"]
-visible = false
 position = Vector2(0, -20)
-health = 1000
+health = 250
 rotate_on_hit = false
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]

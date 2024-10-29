@@ -1,5 +1,7 @@
-res://Scenes/Levels/Level Objects
+res://Art/Sprites/Enemies
 res://Art/Sprites
+res://
+res://Scenes/Levels/Level Objects
 res://Scripts
 res://Scenes/Enemies
 C:/Users/tkeys/OneDrive/Documents/Godot/Godot Projects/Exports/Fully Dogomatic Demo
@@ -8,7 +10,6 @@ res://Art/Themes
 res://Scenes/UI
 res://Scenes/Upgrades
 res://Scenes/Upgrades/Dogtags
-res://
 res://Scenes/Guns
 res://Art/Shaders
 res://Scenes/Player

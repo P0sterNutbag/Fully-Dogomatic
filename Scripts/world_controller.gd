@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var level_name: String
+@export var level_number: int
 var can_restart = false
 var time : float = 0
 var frequency = 4
@@ -13,13 +15,15 @@ var total_kills: int:
 		kills += 1
 var kills: int
 var kills_per_sec: int
+@onready var barrier_left = $BarrierLeft
+@onready var barrier_right = $BarrierRight
 
 
 func _ready():
 	Globals.world_controller = self
-	Globals.barrier_left = $BarrierLeft.position
-	Globals.barrier_right = $BarrierRight.position
 	Globals.audio_manager.stage_music.play()
+	Globals.ui.level_name.text = "[center]" + level_name.to_upper()
+	Globals.ui.stage_name.text = "[center]" + "STAGE " + str(level_number)
 	var player
 	if Globals.player == null:
 		player = Globals.create_instance(Globals.player_to_spawn, Vector2.ZERO, self)
@@ -29,7 +33,6 @@ func _ready():
 		player.process_mode = Node.PROCESS_MODE_PAUSABLE
 	player.global_position = $PlayerSpawner.global_position
 	player.player_died.connect(on_player_died)
-		
 
 
 func _process(delta):

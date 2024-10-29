@@ -2,7 +2,8 @@ extends Node
 
 @export var drop_round_length: Array[int]
 @export var level_items: Array[SpawnChance]
-var boss = preload("res://Scenes/Enemies/boss_pug.tscn")
+@export var enemies: Array[SpawnChanceAmount]
+@export var boss = preload("res://Scenes/Enemies/boss_pug.tscn")
 var hp_pickup = preload("res://Scenes/Levels/Level Objects/health_pickup.tscn")
 var money_crate = preload("res://Scenes/Levels/Level Objects/money_crate.tscn")
 var shop = preload("res://Scenes/Levels/Level Objects/shop.tscn")
@@ -10,9 +11,7 @@ var enemy_spawner = preload("res://Scenes/Levels/Level Objects/enemy_spawner_pip
 var enemy_reinforcement = preload("res://Scenes/Enemies/enemy_reinforcement.tscn")
 var enemy_spawner_variance: int = 0
 var barrier_margin = 80
-var barrier_left: Vector2
-var barrier_right: Vector2
-var boss_round = 10
+var boss_round: int
 var spawn_round = 0
 var health_rounds: Array[int]
 var spawner_rounds: Array[int]
@@ -25,19 +24,18 @@ func _ready():
 	Globals.level_manager = self
 	$Spawn.wait_time = drop_round_length[spawn_round]
 	$Spawn.start()
+	boss_round = drop_round_length.size() - 1
 	var level: int = 0
 	var world = get_tree().current_scene
-	barrier_left = Globals.barrier_left + Vector2(barrier_margin, barrier_margin)
-	barrier_right = Globals.barrier_right - Vector2(barrier_margin, barrier_margin)
 	health_rounds.append(randi_range(3,4))
 	health_rounds.append(randi_range(6,8))
 	spawner_rounds.append(3)
 	spawner_rounds.append(7)
-	enemy_rounds.append(2)
-	enemy_rounds.append(4)
-	enemy_rounds.append(6)
-	enemy_rounds.append(8)
-	enemy_rounds.append(10)
+	#enemy_rounds.append(2)
+	#enemy_rounds.append(4)
+	#enemy_rounds.append(6)
+	#enemy_rounds.append(8)
+	#enemy_rounds.append(10)
 	# spawn crates
 	var crate_amount = randi_range(2, crate_max)
 	for i in crate_amount:
@@ -51,6 +49,8 @@ func _on_spawn_timeout():
 
 
 func spawn_level_objects() -> void:
+	if spawn_round > boss_round:
+		return
 	spawn_round += 1
 	Globals.enemy_spawn_controller.spawn_round += 1
 	$Spawn.wait_time = drop_round_length[spawn_round]
@@ -71,6 +71,9 @@ func spawn_level_objects() -> void:
 		# spawn enemies
 		if enemy_rounds.has(spawn_round):
 			var inst = create_level_object(enemy_reinforcement, get_border_position())
+			var index = randi_range(0, enemies.size()-1)
+			inst.enemy_to_spawn = enemies[index].object_to_spawn
+			inst.amount_to_spawn = enemies[index].amount
 			Globals.ui.add_level_obj(inst.name.to_upper(), false)
 		# spawn crates
 		var crate_amount = randi_range(0, crate_max)
@@ -87,6 +90,8 @@ func spawn_level_objects() -> void:
 
 
 func get_border_position() -> Vector2:
+	var barrier_left = get_parent().get_node("BarrierLeft").global_position + Vector2(barrier_margin, barrier_margin)
+	var barrier_right = get_parent().get_node("BarrierRight").global_position - Vector2(barrier_margin, barrier_margin)
 	var pos = Vector2(randf_range(barrier_left.x+64, barrier_right.x-64), randf_range(barrier_left.y+64, barrier_right.y-64))
 	$ShapeCast2D.enabled = true
 	$ShapeCast2D.global_position = pos

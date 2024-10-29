@@ -8,7 +8,8 @@ var game_time: float
 var death_ui = preload("res://Scenes/UI/death_ui.tscn")
 @onready var drop_pos_origin = $Drop.position
 @onready var drop_timer = $Drop/DropTimer
-@onready var tutorial = $Center/Tutorial
+@onready var level_name = $Label
+@onready var stage_name = $Label/RichTextLabel
 @onready var hp_bar = $LeftCorner/HPBar/HealthBar
 @onready var score = $ScoreHolder/Score
 @onready var score_holder = $ScoreHolder
@@ -99,5 +100,5 @@ func on_player_died():
 
 func _on_timer_timeout():
 	var tween = create_tween()
-	tween.tween_property(tutorial, "modulate:a", 0, 1)
-	tween.tween_callback(tutorial.queue_free)
+	tween.tween_property(level_name, "modulate:a", 0, 1)
+	tween.tween_callback(level_name.queue_free)

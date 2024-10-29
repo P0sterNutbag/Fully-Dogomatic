@@ -1,45 +1,45 @@
 [gd_scene load_steps=9 format=3 uid="uid://bw22ix5lssou3"]
 
-[ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/enemy_pug.tscn" id="1_rutjj"]
-[ext_resource type="Texture2D" uid="uid://dmjkhohxo1cg0" path="res://Art/Sprites/pug2 run.png" id="2_ie7vv"]
+[ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/enemy_pug_3.tscn" id="1_rutjj"]
+[ext_resource type="Texture2D" uid="uid://bhltbgoarwnyq" path="res://Art/Sprites/Enemies/enemy sunglasses.png" id="2_rc4og"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0r2kd"]
-atlas = ExtResource("2_ie7vv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7kim"]
+atlas = ExtResource("2_rc4og")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kcls5"]
-atlas = ExtResource("2_ie7vv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_80bef"]
+atlas = ExtResource("2_rc4og")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_44tq7"]
-atlas = ExtResource("2_ie7vv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugknk"]
+atlas = ExtResource("2_rc4og")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f75ih"]
-atlas = ExtResource("2_ie7vv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_5o7lp"]
+atlas = ExtResource("2_rc4og")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kky1h"]
-atlas = ExtResource("2_ie7vv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bptt"]
+atlas = ExtResource("2_rc4og")
 region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4nnxq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0r2kd")
+"texture": SubResource("AtlasTexture_a7kim")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kcls5")
+"texture": SubResource("AtlasTexture_80bef")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_44tq7")
+"texture": SubResource("AtlasTexture_ugknk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f75ih")
+"texture": SubResource("AtlasTexture_5o7lp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kky1h")
+"texture": SubResource("AtlasTexture_5bptt")
 }],
 "loop": true,
 "name": &"default",
@@ -58,4 +58,4 @@ frame_progress = 0.279295
 health = 6
 
 [node name="Shadow" parent="." index="4"]
-position = Vector2(-1.49012e-07, 9)
+position = Vector2(-1.49012e-07, 5)

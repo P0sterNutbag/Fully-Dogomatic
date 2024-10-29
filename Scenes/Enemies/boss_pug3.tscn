@@ -1,0 +1,161 @@
+[gd_scene load_steps=18 format=3 uid="uid://cdegwp77vugfb"]
+
+[ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/enemy_pug_3.tscn" id="1_jkjn4"]
+[ext_resource type="Script" path="res://Scripts/boss_pug.gd" id="2_2kv0b"]
+[ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Art/Sprites/123spritesheet.png" id="3_5fwt1"]
+[ext_resource type="Texture2D" uid="uid://5tfn2k4jut0o" path="res://Art/Sprites/boss icon.png" id="4_3sp4r"]
+[ext_resource type="PackedScene" uid="uid://pkl1jd6tt0bd" path="res://Scenes/UI/arrow.tscn" id="5_nj58o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgi2k"]
+atlas = ExtResource("3_5fwt1")
+region = Rect2(0, 96, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86y2u"]
+atlas = ExtResource("3_5fwt1")
+region = Rect2(80, 96, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rty4a"]
+atlas = ExtResource("3_5fwt1")
+region = Rect2(160, 96, 80, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1n5n1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgi2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86y2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgi2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rty4a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85mo7"]
+size = Vector2(43, 13)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qkyuv"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hhmv6"]
+radius = 8.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m001l"]
+size = Vector2(43, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_507ny"]
+size = Vector2(15, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1002j"]
+size = Vector2(22, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2hn4"]
+size = Vector2(22, 13)
+
+[sub_resource type="GDScript" id="GDScript_yvhgh"]
+script/source = "extends Node2D
+
+@export var sprite: Texture2D
+@export var follow: bool
+var icon: Node2D
+
+
+func _ready():
+	call_deferred(\"add_to_minimap\")
+
+
+func add_to_minimap():
+	var minimap = Globals.ui.get_node(\"Minimap\")
+	var follow_obj
+	if follow:
+		follow_obj = get_parent()
+	else:
+		follow_obj = null
+	icon = minimap.add_to_map(sprite, global_position, follow_obj)
+
+
+func _exit_tree():
+	icon.queue_free()
+"
+
+[node name="Boss" instance=ExtResource("1_jkjn4")]
+collision_layer = 0
+collision_mask = 257
+script = ExtResource("2_2kv0b")
+speed = 20.0
+damage = 25.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_1n5n1")
+frame = 2
+frame_progress = 0.00870445
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -22.5)
+
+[node name="Hitbox" parent="." index="2"]
+position = Vector2(3, -15)
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(-2.5, -3.5)
+shape = SubResource("RectangleShape2D_85mo7")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox" index="1"]
+position = Vector2(-24, 6)
+shape = SubResource("CircleShape2D_qkyuv")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Hitbox" index="2"]
+position = Vector2(20, 5)
+shape = SubResource("CircleShape2D_hhmv6")
+
+[node name="Hurtbox" parent="." index="3"]
+position = Vector2(0, -20)
+health = 3000
+rotate_on_hit = false
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(-1.5, 1.5)
+shape = SubResource("RectangleShape2D_m001l")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox" index="1"]
+position = Vector2(7.5, -14.5)
+shape = SubResource("RectangleShape2D_507ny")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Hurtbox" index="2"]
+position = Vector2(-20, 14)
+shape = SubResource("RectangleShape2D_1002j")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Hurtbox" index="3"]
+position = Vector2(23, 13.5)
+shape = SubResource("RectangleShape2D_r2hn4")
+
+[node name="Shadow" parent="." index="4"]
+position = Vector2(0, 0)
+scale = Vector2(1, 0.2)
+radius = 40
+
+[node name="MinimapIcon" parent="." index="5"]
+script = SubResource("GDScript_yvhgh")
+sprite = ExtResource("4_3sp4r")
+
+[node name="Arrow" parent="." index="6" instance=ExtResource("5_nj58o")]
+visible = false
+
+[node name="RunTimer" type="Timer" parent="." index="7"]
+wait_time = 4.0
+one_shot = true
+
+[node name="RunCooldown" type="Timer" parent="." index="8"]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="RunTimer" to="." method="_on_run_timer_timeout"]

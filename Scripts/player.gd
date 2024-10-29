@@ -33,6 +33,12 @@ var pickup_radius: float = 48:
 	set(value):
 		pickup_radius = value
 		$MoneyPickup/CollisionShape2D.shape.radius = pickup_radius
+var mine_time: float = 5:
+	set(value):
+		mine_time = value
+		$MineTimer.wait_time = mine_time
+		$MineTimer.start()
+var mine = preload("res://Scenes/Bullets/mine.tscn")
 @onready var sprite = $PlayerSprite
 
 
@@ -77,8 +83,8 @@ func _physics_process(delta):
 			move_and_slide()
 	
 	# stay in bounds
-	position.x = clamp(position.x, Globals.barrier_left.x + 8, Globals.barrier_right.x- 8)
-	position.y = clamp(position.y, Globals.barrier_left.y + 8, Globals.barrier_right.y - 8)
+	global_position.x = clamp(global_position.x, Globals.world_controller.barrier_left.global_position.x + 8, Globals.world_controller.barrier_right.global_position.x- 8)
+	global_position.y = clamp(global_position.y, Globals.world_controller.barrier_left.global_position.y + 8, Globals.world_controller.barrier_right.global_position.y - 8)
 
 
 func _process(delta):
@@ -130,6 +136,7 @@ func take_damage(dmg):
 	if hp <= 0:
 		state = states.dead
 		player_died.emit()
+		Globals.enemy_spawn_controller.get_node("SpawnEnemies").stop()
 	elif $FlashTimer.time_left <= 0:
 		$FlashTimer.start()
 
@@ -193,3 +200,9 @@ func _on_flash_timer_timeout():
 func _on_hurtbox_area_exited(_area):
 	$FlashTimer.stop()
 	$PlayerSprite.use_parent_material = true
+
+
+func _on_mine_timer_timeout() -> void:
+	if state == states.dead:
+		return
+	Globals.create_instance(mine, global_position)

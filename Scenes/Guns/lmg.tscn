@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbsj4ysxa0ib7"]
+
+[ext_resource type="PackedScene" uid="uid://dxg8m0y80dpyp" path="res://Scenes/Guns/Parent/gun_parent.tscn" id="1_hdc08"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="2_lyxbb"]
+[ext_resource type="Texture2D" uid="uid://bwvobme5vv6us" path="res://Art/Sprites/icon AR15.png" id="3_ed22j"]
+
+[sub_resource type="Resource" id="Resource_ahfgn"]
+script = ExtResource("2_lyxbb")
+rarity = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j2nmn"]
+size = Vector2(39.0001, 11.9999)
+
+[node name="Gun" instance=ExtResource("1_hdc08")]
+bullet_damage = 1.0
+cooldown = 0.1
+rounds = 100
+reload_time = 4.0
+knockback = 1
+sound_shoot = "gunshot_assault"
+metadata/Title = "Light Machine Gun"
+metadata/Rarity = SubResource("Resource_ahfgn")
+metadata/Icon = ExtResource("3_ed22j")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0.5, 0.999947)
+shape = SubResource("RectangleShape2D_j2nmn")
+
+[node name="Sprite2D" parent="." index="1"]
+region_rect = Rect2(0, 112, 48, 16)
+
+[node name="SightHolder" parent="Sprite2D" index="0"]
+position = Vector2(-8.00002, -3.99996)
+
+[node name="MagazineHolder" parent="Sprite2D" index="1"]
+position = Vector2(-0.999978, 5)
+
+[node name="Firepoint" parent="." index="2"]
+position = Vector2(15, -2.00007)
+
+[node name="ShootTimer" parent="." index="3"]
+autostart = true

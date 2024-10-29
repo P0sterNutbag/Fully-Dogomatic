@@ -33,6 +33,10 @@ func _exit_tree():
 		for enemy in get_tree().get_nodes_in_group("enemy"):
 			if enemy.name == "Hurtbox":
 				enemy.take_damage(10000, 0)
+	#for gun in Globals.player.guns:
+		#gun.get_node("ShootTimer").stop()
+		#gun.get_node("ReloadTimer").stop()
+	#AudioManager.stage_music.stream_paused = true
 
 
 func delete_effects():

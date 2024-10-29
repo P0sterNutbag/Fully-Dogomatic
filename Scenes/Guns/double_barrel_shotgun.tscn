@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1fbp2bo5h33s"]
+[gd_scene load_steps=6 format=3 uid="uid://d1fbp2bo5h33s"]
 
 [ext_resource type="PackedScene" uid="uid://dxg8m0y80dpyp" path="res://Scenes/Guns/Parent/gun_parent.tscn" id="1_r6wlw"]
-[ext_resource type="PackedScene" uid="uid://b7sp0qxb75kog" path="res://Scenes/Bullets/shotgun_shell.tscn" id="2_prrie"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_u3oh1"]
 [ext_resource type="Texture2D" uid="uid://diquaf2uu7u58" path="res://Art/Sprites/icon_shotgun.png" id="4_wdpnt"]
 
@@ -13,7 +12,6 @@ rarity = 1
 size = Vector2(37, 8.00001)
 
 [node name="Gun" instance=ExtResource("1_r6wlw")]
-bullet = ExtResource("2_prrie")
 bullet_damage = 2.0
 bullet_count = 6.0
 spread = 25.0
