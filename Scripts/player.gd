@@ -50,6 +50,7 @@ func _ready():
 
 func _enter_tree() -> void:
 	Globals.ui.set_gun_amount(guns.size(), gun_cap)
+	Globals.ui.set_money(money)
 
 
 func _physics_process(delta):

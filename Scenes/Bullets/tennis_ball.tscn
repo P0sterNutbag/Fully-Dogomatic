@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://bwtlispr37wtq"]
+
+[ext_resource type="PackedScene" uid="uid://bmfhcxqevrjcn" path="res://Scenes/Bullets/regular_bullet.tscn" id="1_34u60"]
+[ext_resource type="Script" path="res://Scripts/tennis_ball.gd" id="2_0eo60"]
+[ext_resource type="Texture2D" uid="uid://dcayjrr65pgpy" path="res://Art/Sprites/gun spritesheet.png" id="2_ru8ah"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g5ec4"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fe6qi"]
+radius = 123.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e5a8m"]
+radius = 47.0425
+
+[node name="Area2D" instance=ExtResource("1_34u60")]
+script = ExtResource("2_0eo60")
+friction = 10.0
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0, -0.5)
+shape = SubResource("CircleShape2D_g5ec4")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_ru8ah")
+region_enabled = true
+region_rect = Rect2(96, 112, 16, 16)
+
+[node name="CollisionShape2D" parent="HomingArea" index="0"]
+shape = SubResource("CircleShape2D_fe6qi")
+
+[node name="AttractArea" type="Area2D" parent="." index="3"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttractArea" index="0"]
+shape = SubResource("CircleShape2D_e5a8m")
+
+[connection signal="area_entered" from="AttractArea" to="." method="_on_attract_area_area_entered"]

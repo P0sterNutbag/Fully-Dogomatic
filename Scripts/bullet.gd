@@ -1,6 +1,8 @@
 extends Area2D
 class_name Bullet
 
+@export var destroy_on_hit: bool = true
+@export var friction: float = 0
 var damage: float = 1
 var spread_modifier: float = 0
 var shot_count: float = 1
@@ -37,6 +39,8 @@ func _physics_process(delta):
 		#else:
 			#target_enemy = get_nearest_enemy()
 		rotation = move_vector.angle()
+	if friction > 0:
+		move_vector = lerp(move_vector, Vector2.ZERO, friction * delta)
 	var top_left_bound = Vector2(Globals.camera.get_screen_center_position().x - 240, Globals.camera.get_screen_center_position().y - 180)
 	var bottom_right_bound = Vector2(Globals.camera.get_screen_center_position().x + 240, Globals.camera.get_screen_center_position().y + 180)
 	if global_position.x < top_left_bound.x:
@@ -98,7 +102,7 @@ func _on_area_entered(area):
 		if randf_range(0, 1) < explode_chance:
 			call_deferred("create_explosion", area.global_position)
 		penetrations -= 1
-		if penetrations <= 0:
+		if penetrations <= 0 and destroy_on_hit:
 			can_damage = false
 			queue_free()
 		elif homing:

@@ -11,6 +11,7 @@ extends Node2D
 @export var rot_frequency: float = 0
 @export var rot_amplitude: float = 0
 @export var blink_frequency: float = 0
+@export var grow_in: bool
 var target
 var blink_timer: Timer
 var time : float = 0
@@ -27,6 +28,12 @@ func _ready():
 		blink_timer.wait_time = blink_frequency
 		blink_timer.timeout.connect(blink)
 		blink_timer.start()
+	if grow_in:
+		scale = Vector2.ZERO
+		var tween = create_tween().set_trans(Tween.TRANS_BOUNCE)
+		tween.set_ease(Tween.EASE_OUT)
+		tween.tween_property(self, "scale", Vector2.ONE, 1)
+
 
 
 func _process(delta):

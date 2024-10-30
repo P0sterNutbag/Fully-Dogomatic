@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhggsjkqikk2l"]
+
+[ext_resource type="Script" path="res://Scripts/laser.gd" id="1_8slvl"]
+
+[node name="Laser" type="Node2D"]
+script = ExtResource("1_8slvl")
+
+[node name="Line2D3" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 240, 0)
+width = 5.0
+default_color = Color(1, 0, 0, 0.329412)
+
+[node name="Line2D2" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 240, 0)
+width = 3.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 240, 0)
+width = 1.0

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhup0n4e7n7j6"]
+
+[ext_resource type="PackedScene" uid="uid://dxg8m0y80dpyp" path="res://Scenes/Guns/Parent/gun_parent.tscn" id="1_jnw2n"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="2_bf38i"]
+[ext_resource type="PackedScene" uid="uid://bwtlispr37wtq" path="res://Scenes/Bullets/tennis_ball.tscn" id="2_gy0cv"]
+
+[sub_resource type="Resource" id="Resource_q7je0"]
+script = ExtResource("2_bf38i")
+rarity = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2y2jc"]
+size = Vector2(16, 11)
+
+[node name="Gun" instance=ExtResource("1_jnw2n")]
+bullet = ExtResource("2_gy0cv")
+bullet_damage = 0.0
+cooldown = 0.5
+rounds = 1
+reload_time = 3.0
+sound_shoot = "gunshot_pistol"
+metadata/Title = "Tennis Ball Launcher"
+metadata/Rarity = SubResource("Resource_q7je0")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-1.35898e-05, 0.499984)
+shape = SubResource("RectangleShape2D_2y2jc")
+
+[node name="Sprite2D" parent="." index="1"]
+region_rect = Rect2(80, 112, 16, 16)
+
+[node name="SightHolder" parent="Sprite2D" index="0"]
+position = Vector2(-3.00002, -4.99999)
+
+[node name="Firepoint" parent="." index="2"]
+position = Vector2(6.99999, -2.00003)

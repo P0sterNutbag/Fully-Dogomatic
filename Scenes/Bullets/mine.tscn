@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnmm8f1tclrdl"]
+[gd_scene load_steps=6 format=3 uid="uid://cnmm8f1tclrdl"]
 
 [ext_resource type="Script" path="res://Scripts/mine.gd" id="1_4ihdy"]
 [ext_resource type="Texture2D" uid="uid://dcayjrr65pgpy" path="res://Art/Sprites/gun spritesheet.png" id="1_svxwo"]
+[ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="3_65e83"]
+[ext_resource type="PackedScene" uid="uid://bb6l6e5xtb17k" path="res://Scenes/Particles/shadow.tscn" id="4_e5cwm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lha6m"]
 radius = 7.0
 
 [node name="Mine" type="Area2D"]
+z_index = -1
+use_parent_material = true
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("1_4ihdy")
@@ -15,9 +19,19 @@ script = ExtResource("1_4ihdy")
 shape = SubResource("CircleShape2D_lha6m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+use_parent_material = true
 position = Vector2(0, -1)
 texture = ExtResource("1_svxwo")
 region_enabled = true
 region_rect = Rect2(64, 96, 16, 16)
+
+[node name="JuicyMovement" parent="." node_paths=PackedStringArray("target_node2D") instance=ExtResource("3_65e83")]
+target_node2D = NodePath("..")
+grow_in = true
+
+[node name="Shadow" parent="." instance=ExtResource("4_e5cwm")]
+position = Vector2(0.5, 1)
+scale = Vector2(1, 0.6)
+radius = 8
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

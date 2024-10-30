@@ -1,63 +1,92 @@
-[gd_scene load_steps=18 format=3 uid="uid://c3rxttn3aoj36"]
+[gd_scene load_steps=22 format=3 uid="uid://c3rxttn3aoj36"]
 
 [ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/enemy_pug_3.tscn" id="1_3veh3"]
 [ext_resource type="Script" path="res://Scripts/boss_pug.gd" id="2_0gyhi"]
-[ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Art/Sprites/123spritesheet.png" id="3_y672v"]
+[ext_resource type="Texture2D" uid="uid://bsxyy8aut6o6w" path="res://Art/Sprites/Enemies/boss tentacle blob.png" id="3_fmv0x"]
 [ext_resource type="Texture2D" uid="uid://5tfn2k4jut0o" path="res://Art/Sprites/boss icon.png" id="4_3imy2"]
+[ext_resource type="Texture2D" uid="uid://cclp2n7kwa770" path="res://Art/Sprites/Enemies/boss tentacle1.png" id="4_ypcdb"]
 [ext_resource type="PackedScene" uid="uid://pkl1jd6tt0bd" path="res://Scenes/UI/arrow.tscn" id="5_yc4or"]
+[ext_resource type="PackedScene" uid="uid://bb6l6e5xtb17k" path="res://Scenes/Particles/shadow.tscn" id="6_hg182"]
+[ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="8_2y8ok"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kgi2k"]
-atlas = ExtResource("3_y672v")
-region = Rect2(0, 96, 80, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_86y2u"]
-atlas = ExtResource("3_y672v")
-region = Rect2(80, 96, 80, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rty4a"]
-atlas = ExtResource("3_y672v")
-region = Rect2(160, 96, 80, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvgq4"]
+atlas = ExtResource("3_fmv0x")
+region = Rect2(0, 0, 240, 180)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1n5n1"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kgi2k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_86y2u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kgi2k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rty4a")
+"texture": SubResource("AtlasTexture_kvgq4")
 }],
 "loop": true,
 "name": &"default",
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_85mo7"]
-size = Vector2(43, 13)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ku5uk"]
+atlas = ExtResource("4_ypcdb")
+region = Rect2(0, 0, 58, 48)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_qkyuv"]
-radius = 9.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_k23id"]
+atlas = ExtResource("4_ypcdb")
+region = Rect2(58, 0, 58, 48)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hhmv6"]
-radius = 8.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_yn21m"]
+atlas = ExtResource("4_ypcdb")
+region = Rect2(116, 0, 58, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7a3wq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ku5uk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k23id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yn21m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlfth"]
+atlas = ExtResource("4_ypcdb")
+region = Rect2(0, 0, 58, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2slfk"]
+atlas = ExtResource("4_ypcdb")
+region = Rect2(58, 0, 58, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30j3q"]
+atlas = ExtResource("4_ypcdb")
+region = Rect2(116, 0, 58, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x58p8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlfth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2slfk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30j3q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v3vtx"]
+size = Vector2(214, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m001l"]
-size = Vector2(43, 11)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_507ny"]
-size = Vector2(15, 21)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1002j"]
-size = Vector2(22, 14)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2hn4"]
-size = Vector2(22, 13)
+size = Vector2(169.5, 54.5)
 
 [sub_resource type="GDScript" id="GDScript_yvhgh"]
 script/source = "extends Node2D
@@ -89,73 +118,166 @@ func _exit_tree():
 collision_layer = 0
 collision_mask = 257
 script = ExtResource("2_0gyhi")
+boss_name = "Max, prince of lumps"
 speed = 20.0
 damage = 25.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
-position = Vector2(0, -1)
+position = Vector2(0, -50)
 sprite_frames = SubResource("SpriteFrames_1n5n1")
-frame = 2
+frame = 0
 frame_progress = 0.00870445
 offset = Vector2(0, -20)
 
-[node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(0, -22.5)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D" index="0"]
+use_parent_material = true
+position = Vector2(103, 33)
+sprite_frames = SubResource("SpriteFrames_7a3wq")
+autoplay = "default"
+frame = 2
+frame_progress = 0.698171
 
-[node name="Hitbox" parent="." index="2"]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="AnimatedSprite2D" index="1"]
+use_parent_material = true
+position = Vector2(-2, 37)
+sprite_frames = SubResource("SpriteFrames_7a3wq")
+autoplay = "default"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="AnimatedSprite2D" index="2"]
+use_parent_material = true
+position = Vector2(59, 36)
+sprite_frames = SubResource("SpriteFrames_7a3wq")
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="AnimatedSprite2D" index="3"]
+use_parent_material = true
+position = Vector2(-89, 32)
+sprite_frames = SubResource("SpriteFrames_7a3wq")
+autoplay = "default"
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="AnimatedSprite2D" index="4"]
+use_parent_material = true
+position = Vector2(27, 35)
+sprite_frames = SubResource("SpriteFrames_7a3wq")
+autoplay = "default"
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="AnimatedSprite2D" index="5"]
+use_parent_material = true
+position = Vector2(-63, 36)
+sprite_frames = SubResource("SpriteFrames_7a3wq")
+autoplay = "default"
+
+[node name="Tentacle2_1" type="AnimatedSprite2D" parent="AnimatedSprite2D" index="6"]
+use_parent_material = true
+position = Vector2(-60, 38)
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_x58p8")
+autoplay = "default"
+frame = 1
+frame_progress = 0.161413
+
+[node name="Tentacle2_2" type="AnimatedSprite2D" parent="AnimatedSprite2D" index="7"]
+use_parent_material = true
+position = Vector2(-20, 35)
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_x58p8")
+autoplay = "default"
+
+[node name="Tentacle2_3" type="AnimatedSprite2D" parent="AnimatedSprite2D" index="8"]
+use_parent_material = true
+position = Vector2(36, 39)
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_x58p8")
+autoplay = "default"
+
+[node name="Tentacle2_4" type="AnimatedSprite2D" parent="AnimatedSprite2D" index="9"]
+use_parent_material = true
+position = Vector2(77, 36)
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_x58p8")
+autoplay = "default"
+
+[node name="Tentacle2_5" type="AnimatedSprite2D" parent="AnimatedSprite2D" index="10"]
+use_parent_material = true
+position = Vector2(-92, 32)
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_x58p8")
+autoplay = "default"
+
+[node name="Tentacle2_6" type="AnimatedSprite2D" parent="AnimatedSprite2D" index="11"]
+use_parent_material = true
+position = Vector2(105, 29)
+scale = Vector2(-1, 1)
+sprite_frames = SubResource("SpriteFrames_x58p8")
+autoplay = "default"
+
+[node name="Shadow" parent="AnimatedSprite2D" index="12" instance=ExtResource("6_hg182")]
+position = Vector2(5, 42)
+scale = Vector2(1, 0.2)
+radius = 120
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+visible = false
+position = Vector2(2, -16)
+scale = Vector2(0.98, 0.98)
+polygon = PackedVector2Array(-22, 20, -94, 18, -110, -5, -116, -42, -107, -61, -82, -85, -70, -107, -36, -123, -33, -123, -31, -118, -2, -106, 18, -111, 31, -117, 62, -124, 74, -118, 84, -103, 91, -95, 91, -87, 87, -83, 80, -85, 80, -72, 102, -29, 113, -23, 122, -14, 123, 3, 120, 14, 109, 19, 34, 23)
+
+[node name="CollisionShape2D" parent="." index="2"]
+visible = false
+position = Vector2(0, -36)
+shape = SubResource("RectangleShape2D_v3vtx")
+
+[node name="Hitbox" parent="." index="3"]
 position = Vector2(3, -15)
 
-[node name="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2(-2.5, -3.5)
-shape = SubResource("RectangleShape2D_85mo7")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox" index="0"]
+visible = false
+position = Vector2(-1, 0)
+polygon = PackedVector2Array(-22, 20, -94, 18, -110, -5, -116, -42, -107, -61, -82, -85, -70, -107, -36, -123, -33, -123, -31, -118, -2, -106, 18, -111, 31, -117, 62, -124, 74, -118, 84, -103, 91, -95, 91, -87, 87, -83, 80, -85, 80, -72, 102, -29, 113, -23, 122, -14, 123, 3, 120, 14, 109, 19, 34, 23)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox" index="1"]
-position = Vector2(-24, 6)
-shape = SubResource("CircleShape2D_qkyuv")
+[node name="CollisionShape2D" parent="Hitbox" index="1"]
+visible = false
+position = Vector2(-3.5, -21)
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Hitbox" index="2"]
-position = Vector2(20, 5)
-shape = SubResource("CircleShape2D_hhmv6")
-
-[node name="Hurtbox" parent="." index="3"]
+[node name="Hurtbox" parent="." index="4"]
 position = Vector2(0, -20)
 health = 1000
 rotate_on_hit = false
 
-[node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2(-1.5, 1.5)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox" index="0"]
+visible = false
+position = Vector2(2, 6)
+scale = Vector2(1.02, 1.02)
+polygon = PackedVector2Array(-22, 20, -94, 18, -110, -5, -116, -42, -107, -61, -82, -85, -70, -107, -36, -123, -33, -123, -31, -118, -2, -106, 18, -111, 31, -117, 62, -124, 74, -118, 84, -103, 91, -95, 91, -87, 87, -83, 80, -85, 80, -72, 102, -29, 113, -23, 122, -14, 123, 3, 120, 14, 109, 19, 34, 23)
+
+[node name="CollisionShape2D" parent="Hurtbox" index="1"]
+visible = false
+position = Vector2(5.25, -84.75)
 shape = SubResource("RectangleShape2D_m001l")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox" index="1"]
-position = Vector2(7.5, -14.5)
-shape = SubResource("RectangleShape2D_507ny")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Hurtbox" index="2"]
-position = Vector2(-20, 14)
-shape = SubResource("RectangleShape2D_1002j")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Hurtbox" index="3"]
-position = Vector2(23, 13.5)
-shape = SubResource("RectangleShape2D_r2hn4")
-
-[node name="Shadow" parent="." index="4"]
-position = Vector2(0, 0)
+[node name="Shadow" parent="." index="5"]
+visible = false
+position = Vector2(2, -1)
 scale = Vector2(1, 0.2)
-radius = 40
+radius = 120
 
-[node name="MinimapIcon" parent="." index="5"]
+[node name="MinimapIcon" parent="." index="6"]
 script = SubResource("GDScript_yvhgh")
 sprite = ExtResource("4_3imy2")
 
-[node name="Arrow" parent="." index="6" instance=ExtResource("5_yc4or")]
+[node name="Arrow" parent="." index="7" instance=ExtResource("5_yc4or")]
 visible = false
 
-[node name="RunTimer" type="Timer" parent="." index="7"]
+[node name="RunTimer" type="Timer" parent="." index="8"]
 wait_time = 4.0
 one_shot = true
 
-[node name="RunCooldown" type="Timer" parent="." index="8"]
+[node name="RunCooldown" type="Timer" parent="." index="9"]
 wait_time = 10.0
 one_shot = true
+
+[node name="JuicyMovement" parent="." index="10" node_paths=PackedStringArray("target_node2D") instance=ExtResource("8_2y8ok")]
+target_node2D = NodePath("../AnimatedSprite2D")
+bob_frequency = 10.0
+bob_amplitude = 10.0
 
 [connection signal="timeout" from="RunTimer" to="." method="_on_run_timer_timeout"]

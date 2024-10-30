@@ -8,7 +8,7 @@ var state = states.spawn
 @export var damage = 0.05
 @export var turn_speed = 5
 var player: CharacterBody2D #= preload("res://player.gd")
-var target: CharacterBody2D
+var target: Node2D
 var dollar = preload("res://Scenes/Player/dollar.tscn")
 var blood = preload("res://Scenes/Particles/blood.tscn")
 var dogpart = preload("res://Scenes/Particles/dogpart.tscn")
@@ -54,7 +54,7 @@ func _physics_process(delta):
 			if target != null:
 				time += 1
 				if !game_over:
-					var dir = (player.position - position).normalized()
+					var dir = (target.global_position - global_position).normalized()
 					velocity = lerp(velocity, dir * speed, turn_speed * delta)
 				else:
 					velocity = Vector2(fall_x, fall_y)
@@ -62,6 +62,9 @@ func _physics_process(delta):
 					if position.x > 900:
 						queue_free()
 				move_and_slide()
+			else:
+				if Globals.player != null:
+					target = Globals.player
 	if sprite.rotation_degrees != 0:
 		sprite.rotation_degrees = lerp(sprite.rotation_degrees, float(0), 5 * delta)
 

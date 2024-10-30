@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7o2ydvk1ftr7"]
+
+[ext_resource type="Script" path="res://Scripts/laser.gd" id="1_8slvl"]
+[ext_resource type="PackedScene" uid="uid://bmfhcxqevrjcn" path="res://Scenes/Bullets/regular_bullet.tscn" id="1_eprwd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6bd5"]
+size = Vector2(264, 4)
+
+[node name="Area2D" instance=ExtResource("1_eprwd")]
+script = ExtResource("1_8slvl")
+destroy_on_hit = false
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(108, 0)
+shape = SubResource("RectangleShape2D_e6bd5")
+
+[node name="Sprite2D" parent="." index="1"]
+visible = false
+
+[node name="HomingArea" parent="." index="2"]
+visible = false
+
+[node name="Line2D3" type="Line2D" parent="." index="3"]
+use_parent_material = true
+points = PackedVector2Array(0, 0, 240, 0)
+width = 5.0
+default_color = Color(1, 0, 0, 0.329412)
+
+[node name="Line2D2" type="Line2D" parent="." index="4"]
+use_parent_material = true
+points = PackedVector2Array(0, 0, 240, 0)
+width = 3.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="Line2D" type="Line2D" parent="." index="5"]
+use_parent_material = true
+points = PackedVector2Array(0, 0, 240, 0)
+width = 1.0
+
+[node name="Timer" type="Timer" parent="." index="6"]
+wait_time = 0.05
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

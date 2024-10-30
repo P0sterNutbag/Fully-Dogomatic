@@ -3,7 +3,7 @@ extends Enemy
 var distance_to_rush = 250
 var rush_speed = 80
 var rush_dir = Vector2.ZERO
-var boss_name = "Max, prince of lumps"
+@export var boss_name = "Max, prince of lumps"
 var cutscene = preload("res://Scenes/Cutscenes/boss_death_cutscene.tscn")
 
 
