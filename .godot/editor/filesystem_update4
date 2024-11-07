@@ -1,4 +1,4 @@
-res://Scenes/Enemies/boss_pug2.tscn
+res://Scenes/Levels/world_1.tscn
 res://Art/Shaders/colorswap.gdshader
 res://Art/Shaders/colorswap.tres
 res://Art/Shaders/flash.gdshader
@@ -7,26 +7,10 @@ res://Art/Themes/healthbar.tres
 res://Art/Shaders/dither.gdshader
 res://Art/Shaders/dither postprocess.gdshader
 res://Art/Shaders/color_change.gdshader
-res://Scenes/Levels/world_2.tscn
-res://Scenes/Levels/world_1.tscn
+res://Scenes/Enemies/boss_1.tscn
+res://Scenes/Enemies/boss_3.tscn
+res://Scenes/Enemies/boss_4.tscn
+res://Scenes/Enemies/boss_2.tscn
 res://Scenes/Levels/world_3.tscn
-res://Scenes/UI/ui.tscn
-res://Scripts/player.gd
-res://Scripts/boss_pug.gd
-res://Scenes/Guns/raygun.tscn
-res://Scenes/Bullets/laser.tscn
-res://Scripts/laser.gd
-res://Scenes/Player/player.tscn
-res://Scenes/Bullets/laser0.tscn
-res://Scenes/Bullets/regular_bullet.tscn
-res://Scenes/Upgrades/upgrade_manager.tscn
-res://Scripts/bullet.gd
-res://Scenes/Bullets/mine.tscn
-res://Scripts/JuicyMovement.gd
-res://Scenes/Levels/Level Objects/level_manager.tscn
-res://Scenes/Guns/tennis_ball_launcher.tscn
-res://Scenes/Bullets/tennis_ball.tscn
-res://Scripts/tennis_ball.gd
-res://Scripts/enemy.gd
-res://Scripts/Upgrades/upgrade_option.gd
-res://Scenes/Bullets/grenade.tscn
+res://Scenes/Levels/world_4.tscn
+res://Scenes/Levels/world_5.tscn

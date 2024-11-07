@@ -3,7 +3,7 @@ extends Node
 @export var drop_round_length: Array[int]
 @export var level_items: Array[SpawnChance]
 @export var enemies: Array[SpawnChanceAmount]
-@export var boss = preload("res://Scenes/Enemies/boss_pug.tscn")
+@export var boss: PackedScene
 var hp_pickup = preload("res://Scenes/Levels/Level Objects/health_pickup.tscn")
 var money_crate = preload("res://Scenes/Levels/Level Objects/money_crate.tscn")
 var shop = preload("res://Scenes/Levels/Level Objects/shop.tscn")
@@ -79,7 +79,7 @@ func spawn_level_objects() -> void:
 		var crate_amount = randi_range(0, crate_max)
 		for i in crate_amount:
 			var spawn_scene = level_items[Globals.get_weighted_index(level_items)].object_to_spawn
-			var inst = create_level_object(money_crate, get_border_position())
+			var inst = create_level_object(spawn_scene, get_border_position())
 		#if crate_amount > 0:
 			#Globals.ui.add_level_obj("CRATE", true, crate_amount)
 	else:

@@ -6,7 +6,7 @@ var state = states.spawn
 
 @export var speed = 10.0
 @export var damage = 0.05
-@export var turn_speed = 5
+@export var turn_speed = 5.0
 var player: CharacterBody2D #= preload("res://player.gd")
 var target: Node2D
 var dollar = preload("res://Scenes/Player/dollar.tscn")
@@ -21,9 +21,10 @@ var game_over = false
 var spawn_velocity: Vector2
 var spawn_floor_y: float
 var gravity: float = 900
-@onready var sprite = $AnimatedSprite2D
 var bullet_dir: float
 var pipe_spawn: bool = false
+@onready var sprite = $AnimatedSprite2D
+@onready var health_component = $Hurtbox
 
 
 func _ready():

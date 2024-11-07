@@ -1,0 +1,143 @@
+[gd_scene load_steps=16 format=3 uid="uid://bnwpp4m7sdaeg"]
+
+[ext_resource type="Script" path="res://Scripts/boss.gd" id="1_sryha"]
+[ext_resource type="Texture2D" uid="uid://dwkgvlkilvgn0" path="res://Art/Sprites/Enemies/boss dragon.png" id="2_ueagi"]
+[ext_resource type="Script" path="res://Scripts/enemy_health.gd" id="3_c3ua0"]
+[ext_resource type="PackedScene" uid="uid://bb6l6e5xtb17k" path="res://Scenes/Particles/shadow.tscn" id="4_85jj4"]
+[ext_resource type="PackedScene" uid="uid://84xxip1wf4vx" path="res://Scenes/UI/minimap_icon.tscn" id="5_3jg33"]
+[ext_resource type="Texture2D" uid="uid://5tfn2k4jut0o" path="res://Art/Sprites/boss icon.png" id="6_j1lw4"]
+[ext_resource type="PackedScene" uid="uid://pkl1jd6tt0bd" path="res://Scenes/UI/arrow.tscn" id="7_jish8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0mwd"]
+atlas = ExtResource("2_ueagi")
+region = Rect2(0, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfic7"]
+atlas = ExtResource("2_ueagi")
+region = Rect2(80, 0, 80, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1c3eg"]
+atlas = ExtResource("2_ueagi")
+region = Rect2(160, 0, 80, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1n5n1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0mwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfic7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1c3eg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hr8qo"]
+radius = 23.0217
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gvnaa"]
+radius = 25.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wqof6"]
+radius = 24.0
+
+[sub_resource type="GDScript" id="GDScript_yvhgh"]
+script/source = "extends Node2D
+
+@export var sprite: Texture2D
+@export var follow: bool
+var icon: Node2D
+
+
+func _ready():
+	call_deferred(\"add_to_minimap\")
+
+
+func add_to_minimap():
+	var minimap = Globals.ui.get_node(\"Minimap\")
+	var follow_obj
+	if follow:
+		follow_obj = get_parent()
+	else:
+		follow_obj = null
+	icon = minimap.add_to_map(sprite, global_position, follow_obj)
+
+
+func _exit_tree():
+	icon.queue_free()
+"
+
+[node name="Boss" type="CharacterBody2D" groups=["enemy"]]
+use_parent_material = true
+collision_layer = 0
+collision_mask = 257
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_sryha")
+boss_name = "Leo, keeper of fire"
+speed = 20.0
+damage = 25.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+use_parent_material = true
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_1n5n1")
+autoplay = "default"
+frame = 2
+frame_progress = 0.00870445
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, -21)
+shape = SubResource("CircleShape2D_hr8qo")
+
+[node name="Hitbox" type="Area2D" parent="." groups=["enemy"]]
+y_sort_enabled = true
+position = Vector2(3, -15)
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(5, -6)
+shape = SubResource("CircleShape2D_gvnaa")
+
+[node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("sprite") groups=["enemy"]]
+y_sort_enabled = true
+position = Vector2(8, -21)
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("3_c3ua0")
+health = 3000
+rotate_on_hit = false
+sprite = NodePath("../AnimatedSprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_wqof6")
+
+[node name="Shadow" parent="." instance=ExtResource("4_85jj4")]
+scale = Vector2(1, 0.2)
+radius = 40
+color = Color(0.223529, 0.223529, 0.223529, 1)
+
+[node name="MinimapIcon" parent="." instance=ExtResource("5_3jg33")]
+script = SubResource("GDScript_yvhgh")
+sprite = ExtResource("6_j1lw4")
+follow = true
+
+[node name="Arrow" parent="." instance=ExtResource("7_jish8")]
+visible = false
+
+[node name="RunTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="RunCooldown" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="RunTimer" to="." method="_on_run_timer_timeout"]

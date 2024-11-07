@@ -107,5 +107,7 @@ func go_to_next_level():
 		"World 2":
 			next_level = "res://Scenes/Levels/world_3.tscn"
 		"World 3":
+			next_level = "res://Scenes/Levels/World4.tscn"
+		"World 4":
 			next_level = "res://Scenes/Levels/end.tscn"
 	SceneManager.start_scene_transition(next_level)

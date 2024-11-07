@@ -1,21 +1,23 @@
-[gd_scene load_steps=18 format=3 uid="uid://bh6juqooq77vm"]
+[gd_scene load_steps=21 format=3 uid="uid://cdegwp77vugfb"]
 
-[ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/enemy_pug_3.tscn" id="1_5e3fs"]
-[ext_resource type="Script" path="res://Scripts/boss_pug.gd" id="2_dy8ol"]
-[ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Art/Sprites/123spritesheet.png" id="3_bntrl"]
-[ext_resource type="Texture2D" uid="uid://5tfn2k4jut0o" path="res://Art/Sprites/boss icon.png" id="4_o2qjt"]
-[ext_resource type="PackedScene" uid="uid://pkl1jd6tt0bd" path="res://Scenes/UI/arrow.tscn" id="5_4murm"]
+[ext_resource type="Script" path="res://Scripts/boss.gd" id="2_xljxv"]
+[ext_resource type="Script" path="res://Scripts/enemy_health.gd" id="3_u4xs6"]
+[ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Art/Sprites/123spritesheet.png" id="3_v7jeo"]
+[ext_resource type="Texture2D" uid="uid://5tfn2k4jut0o" path="res://Art/Sprites/boss icon.png" id="4_1wodp"]
+[ext_resource type="PackedScene" uid="uid://bb6l6e5xtb17k" path="res://Scenes/Particles/shadow.tscn" id="4_bl1kq"]
+[ext_resource type="PackedScene" uid="uid://84xxip1wf4vx" path="res://Scenes/UI/minimap_icon.tscn" id="5_0bsj1"]
+[ext_resource type="PackedScene" uid="uid://pkl1jd6tt0bd" path="res://Scenes/UI/arrow.tscn" id="5_o7x11"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kgi2k"]
-atlas = ExtResource("3_bntrl")
+atlas = ExtResource("3_v7jeo")
 region = Rect2(0, 96, 80, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_86y2u"]
-atlas = ExtResource("3_bntrl")
+atlas = ExtResource("3_v7jeo")
 region = Rect2(80, 96, 80, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rty4a"]
-atlas = ExtResource("3_bntrl")
+atlas = ExtResource("3_v7jeo")
 region = Rect2(160, 96, 80, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1n5n1"]
@@ -37,6 +39,9 @@ animations = [{
 "name": &"default",
 "speed": 10.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hr8qo"]
+radius = 9.01388
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_85mo7"]
 size = Vector2(43, 13)
@@ -85,76 +90,92 @@ func _exit_tree():
 	icon.queue_free()
 "
 
-[node name="Boss" instance=ExtResource("1_5e3fs")]
+[node name="Boss" type="CharacterBody2D" groups=["enemy"]]
+use_parent_material = true
 collision_layer = 0
 collision_mask = 257
-script = ExtResource("2_dy8ol")
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("2_xljxv")
 speed = 20.0
 damage = 25.0
 
-[node name="AnimatedSprite2D" parent="." index="0"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+use_parent_material = true
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_1n5n1")
+autoplay = "default"
 frame = 2
 frame_progress = 0.00870445
 offset = Vector2(0, -20)
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -22.5)
+shape = SubResource("CircleShape2D_hr8qo")
 
-[node name="Hitbox" parent="." index="2"]
+[node name="Hitbox" type="Area2D" parent="." groups=["enemy"]]
+process_mode = 4
+y_sort_enabled = true
 position = Vector2(3, -15)
+collision_layer = 16
 
-[node name="CollisionShape2D" parent="Hitbox" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-2.5, -3.5)
 shape = SubResource("RectangleShape2D_85mo7")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox" index="1"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-24, 6)
 shape = SubResource("CircleShape2D_qkyuv")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Hitbox" index="2"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(20, 5)
 shape = SubResource("CircleShape2D_hhmv6")
 
-[node name="Hurtbox" parent="." index="3"]
+[node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("sprite") groups=["enemy"]]
+y_sort_enabled = true
 position = Vector2(0, -20)
-health = 250
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("3_u4xs6")
+health = 3000
 rotate_on_hit = false
+sprite = NodePath("../AnimatedSprite2D")
 
-[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(-1.5, 1.5)
 shape = SubResource("RectangleShape2D_m001l")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox" index="1"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(7.5, -14.5)
 shape = SubResource("RectangleShape2D_507ny")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Hurtbox" index="2"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(-20, 14)
 shape = SubResource("RectangleShape2D_1002j")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Hurtbox" index="3"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(23, 13.5)
 shape = SubResource("RectangleShape2D_r2hn4")
 
-[node name="Shadow" parent="." index="4"]
-position = Vector2(0, 0)
+[node name="Shadow" parent="." instance=ExtResource("4_bl1kq")]
 scale = Vector2(1, 0.2)
 radius = 40
+color = Color(0.223529, 0.223529, 0.223529, 1)
 
-[node name="MinimapIcon" parent="." index="5"]
+[node name="MinimapIcon" parent="." instance=ExtResource("5_0bsj1")]
 script = SubResource("GDScript_yvhgh")
-sprite = ExtResource("4_o2qjt")
+sprite = ExtResource("4_1wodp")
+follow = true
 
-[node name="Arrow" parent="." index="6" instance=ExtResource("5_4murm")]
+[node name="Arrow" parent="." instance=ExtResource("5_o7x11")]
 visible = false
 
-[node name="RunTimer" type="Timer" parent="." index="7"]
+[node name="RunTimer" type="Timer" parent="."]
 wait_time = 4.0
 one_shot = true
 
-[node name="RunCooldown" type="Timer" parent="." index="8"]
+[node name="RunCooldown" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
 

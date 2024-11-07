@@ -1,0 +1,156 @@
+[gd_scene load_steps=19 format=3 uid="uid://b86sgq5tkneng"]
+
+[ext_resource type="Script" path="res://Scripts/boss_car.gd" id="1_066m0"]
+[ext_resource type="Texture2D" uid="uid://b2hlyxu6bbbfh" path="res://Art/Sprites/Enemies/boss car.png" id="2_osqmp"]
+[ext_resource type="Script" path="res://Scripts/enemy_health.gd" id="3_q8kap"]
+[ext_resource type="PackedScene" uid="uid://bb6l6e5xtb17k" path="res://Scenes/Particles/shadow.tscn" id="4_we6vn"]
+[ext_resource type="PackedScene" uid="uid://84xxip1wf4vx" path="res://Scenes/UI/minimap_icon.tscn" id="5_qeuep"]
+[ext_resource type="Texture2D" uid="uid://5tfn2k4jut0o" path="res://Art/Sprites/boss icon.png" id="6_t3qpw"]
+[ext_resource type="PackedScene" uid="uid://pkl1jd6tt0bd" path="res://Scenes/UI/arrow.tscn" id="7_fk62m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvngv"]
+atlas = ExtResource("2_osqmp")
+region = Rect2(0, 0, 79, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8s3ws"]
+atlas = ExtResource("2_osqmp")
+region = Rect2(79, 0, 79, 47)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1n5n1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvngv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8s3ws")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2w2f"]
+size = Vector2(73, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85mo7"]
+size = Vector2(78, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m001l"]
+size = Vector2(75, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_507ny"]
+size = Vector2(21, 19)
+
+[sub_resource type="GDScript" id="GDScript_yvhgh"]
+script/source = "extends Node2D
+
+@export var sprite: Texture2D
+@export var follow: bool
+var icon: Node2D
+
+
+func _ready():
+	call_deferred(\"add_to_minimap\")
+
+
+func add_to_minimap():
+	var minimap = Globals.ui.get_node(\"Minimap\")
+	var follow_obj
+	if follow:
+		follow_obj = get_parent()
+	else:
+		follow_obj = null
+	icon = minimap.add_to_map(sprite, global_position, follow_obj)
+
+
+func _exit_tree():
+	icon.queue_free()
+"
+
+[sub_resource type="Animation" id="Animation_p5rbh"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_bk3vg"]
+resource_name = "walk"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_28m1k"]
+_data = {
+"RESET": SubResource("Animation_p5rbh"),
+"walk": SubResource("Animation_bk3vg")
+}
+
+[node name="Boss" type="CharacterBody2D" groups=["enemy"]]
+use_parent_material = true
+collision_layer = 0
+collision_mask = 257
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_066m0")
+boss_name = "Oreo, lord of speed"
+speed = 350.0
+damage = 25.0
+turn_speed = 100.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+use_parent_material = true
+sprite_frames = SubResource("SpriteFrames_1n5n1")
+autoplay = "default"
+frame = 1
+frame_progress = 0.0430111
+offset = Vector2(0, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -12.5)
+shape = SubResource("RectangleShape2D_r2w2f")
+
+[node name="Hitbox" type="Area2D" parent="." groups=["enemy"]]
+y_sort_enabled = true
+position = Vector2(3, -15)
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-3, 2.5)
+shape = SubResource("RectangleShape2D_85mo7")
+
+[node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("sprite") groups=["enemy"]]
+y_sort_enabled = true
+position = Vector2(0, -20)
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("3_q8kap")
+health = 500
+rotate_on_hit = false
+sprite = NodePath("../AnimatedSprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(-0.5, 7.5)
+shape = SubResource("RectangleShape2D_m001l")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(-8.5, -13.5)
+shape = SubResource("RectangleShape2D_507ny")
+
+[node name="Shadow" parent="." instance=ExtResource("4_we6vn")]
+scale = Vector2(1, 0.2)
+radius = 43
+
+[node name="MinimapIcon" parent="." instance=ExtResource("5_qeuep")]
+script = SubResource("GDScript_yvhgh")
+sprite = ExtResource("6_t3qpw")
+follow = true
+
+[node name="Arrow" parent="." instance=ExtResource("7_fk62m")]
+visible = false
+
+[node name="Cooldown" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_28m1k")
+}
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

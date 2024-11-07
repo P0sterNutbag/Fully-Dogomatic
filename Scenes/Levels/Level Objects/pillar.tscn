@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://fkq043d8fvtp"]
+
+[ext_resource type="PackedScene" uid="uid://qavuwtph0wq3" path="res://Scenes/Levels/Level Objects/money_crate.tscn" id="1_gidt8"]
+[ext_resource type="Texture2D" uid="uid://dol3l60yx2ow6" path="res://Art/Sprites/pillar.png" id="2_1m4yr"]
+[ext_resource type="PackedScene" uid="uid://bb6l6e5xtb17k" path="res://Scenes/Particles/shadow.tscn" id="3_1vdk6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kitte"]
+size = Vector2(32, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j2gd3"]
+size = Vector2(34, 64)
+
+[node name="CRATE" instance=ExtResource("1_gidt8")]
+money_amount = 6
+
+[node name="CollisionShape2D2" parent="." index="0"]
+position = Vector2(2, -13)
+shape = SubResource("RectangleShape2D_kitte")
+
+[node name="CrateSprite" parent="." index="1"]
+position = Vector2(2, -13)
+texture = ExtResource("2_1m4yr")
+
+[node name="Area2D" parent="." index="2"]
+health = 80
+
+[node name="CollisionShape2D2" parent="Area2D" index="0"]
+position = Vector2(2, -13)
+shape = SubResource("RectangleShape2D_j2gd3")
+
+[node name="Shadow" parent="." index="3" instance=ExtResource("3_1vdk6")]
+visible = false
+position = Vector2(1, 12)
+scale = Vector2(1, 0.75)
+radius = 24

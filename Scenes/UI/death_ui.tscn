@@ -1,7 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://6f6jta7xigdb"]
+[gd_scene load_steps=10 format=3 uid="uid://6f6jta7xigdb"]
 
-[ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="1_ryfvq"]
-[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="2_g54ct"]
+[ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="1_hlw6f"]
 [ext_resource type="Script" path="res://Scripts/death_ui.gd" id="3_5oja3"]
 [ext_resource type="Theme" uid="uid://d20y8va2yhr08" path="res://Art/Themes/ui text large.tres" id="3_oh63f"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="5_rmhln"]
@@ -11,26 +10,9 @@
 [ext_resource type="Theme" uid="uid://b6o7rf6iavtxi" path="res://Art/Themes/button.tres" id="9_2k7fv"]
 [ext_resource type="Script" path="res://Scripts/ui_menu_button.gd" id="10_xkdwv"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2xchs"]
-shader = ExtResource("1_ryfvq")
-shader_parameter/skip_first_row = true
-shader_parameter/use_palette_alpha = false
-shader_parameter/is_texture = false
-shader_parameter/fps = 6.0
-shader_parameter/color_threshold = 0.1
-shader_parameter/palette = ExtResource("2_g54ct")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uu6di"]
-shader = ExtResource("1_ryfvq")
-shader_parameter/skip_first_row = true
-shader_parameter/use_palette_alpha = false
-shader_parameter/is_texture = false
-shader_parameter/fps = 6.0
-shader_parameter/color_threshold = 0.1
-shader_parameter/palette = ExtResource("2_g54ct")
-
 [node name="DeathUI" type="Control"]
-material = SubResource("ShaderMaterial_2xchs")
+material = ExtResource("1_hlw6f")
+use_parent_material = true
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -104,7 +86,7 @@ text = "[center]QUIT"
 script = ExtResource("7_guppy")
 
 [node name="Menu" type="Control" parent="."]
-material = SubResource("ShaderMaterial_uu6di")
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

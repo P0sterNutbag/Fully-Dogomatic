@@ -1,14 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://rp6v0ox21fov"]
+[gd_scene load_steps=6 format=3 uid="uid://rp6v0ox21fov"]
 
 [ext_resource type="PackedScene" uid="uid://qavuwtph0wq3" path="res://Scenes/Levels/Level Objects/money_crate.tscn" id="1_b05e1"]
 [ext_resource type="Texture2D" uid="uid://ptpvlyktj0tb" path="res://Art/Sprites/car.png" id="2_1r406"]
 [ext_resource type="PackedScene" uid="uid://bb6l6e5xtb17k" path="res://Scenes/Particles/shadow.tscn" id="3_h8oc5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_upcpx"]
+size = Vector2(64, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q77o5"]
+size = Vector2(66, 44)
 
 [node name="CRATE" instance=ExtResource("1_b05e1")]
 money_amount = 6
 
 [node name="CollisionShape2D2" parent="." index="0"]
 position = Vector2(2, 3.5)
+shape = SubResource("RectangleShape2D_upcpx")
 
 [node name="CrateSprite" parent="." index="1"]
 texture = ExtResource("2_1r406")
@@ -18,6 +25,7 @@ health = 40
 
 [node name="CollisionShape2D2" parent="Area2D" index="0"]
 position = Vector2(2, 3.5)
+shape = SubResource("RectangleShape2D_q77o5")
 
 [node name="Shadow" parent="." index="3" instance=ExtResource("3_h8oc5")]
 position = Vector2(0, 8)

@@ -57,4 +57,5 @@ frame_progress = 0.832687
 health = 9
 
 [node name="Shadow" parent="." index="4"]
-position = Vector2(0, 5)
+position = Vector2(0, 6)
+color = Color(0.223529, 0.223529, 0.223529, 1)
