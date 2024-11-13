@@ -27,10 +27,8 @@ func _ready():
 	boss_round = drop_round_length.size() - 1
 	var level: int = 0
 	var world = get_tree().current_scene
-	health_rounds.append(randi_range(3,4))
-	health_rounds.append(randi_range(6,8))
-	spawner_rounds.append(3)
-	spawner_rounds.append(7)
+	health_rounds.append(randi_range(2,4))
+	spawner_rounds.append(randi_range(2,4))
 	#enemy_rounds.append(2)
 	#enemy_rounds.append(4)
 	#enemy_rounds.append(6)

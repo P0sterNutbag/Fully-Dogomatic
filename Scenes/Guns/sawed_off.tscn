@@ -10,6 +10,7 @@ size = Vector2(25, 8.00011)
 bullet_damage = 2.0
 bullet_count = 4.0
 spread = 40.0
+equal_spread = true
 rounds = 6
 sound_shoot = "gunshot_shotgun"
 metadata/Title = "Sawed-Off Shotgun"

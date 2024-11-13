@@ -36,68 +36,51 @@ offscreen_position_offset = Vector2(0, 170)
 [node name="HBoxContainer" type="HBoxContainer" parent="Options"]
 use_parent_material = true
 layout_mode = 0
-offset_left = -212.0
+offset_left = -276.0
 offset_top = -50.0
-offset_right = 213.0
+offset_right = 149.0
 offset_bottom = 50.0
 
 [node name="CharacterOption" parent="Options/HBoxContainer" instance=ExtResource("1_a3lih")]
 layout_mode = 2
 size_flags_horizontal = 3
-character_name = "CORGI"
 unlocked = true
 
 [node name="CharacterOption2" parent="Options/HBoxContainer" instance=ExtResource("1_a3lih")]
 layout_mode = 2
 size_flags_horizontal = 3
-character_name = "Coda"
 sprite = ExtResource("6_yipcj")
 
 [node name="CharacterOption3" parent="Options/HBoxContainer" instance=ExtResource("1_a3lih")]
 layout_mode = 2
 size_flags_horizontal = 3
-character_name = "Missy"
-sprite = ExtResource("7_3rigw")
-
-[node name="CharacterOption4" parent="Options/HBoxContainer" instance=ExtResource("1_a3lih")]
-layout_mode = 2
-size_flags_horizontal = 3
-character_name = "Toaster"
 sprite = ExtResource("8_m0mus")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Options"]
 use_parent_material = true
 layout_mode = 0
-offset_left = -164.0
+offset_left = -197.0
 offset_top = 55.0
-offset_right = 156.0
+offset_right = 66.0
 offset_bottom = 155.0
 
-[node name="CharacterOption" parent="Options/HBoxContainer2" instance=ExtResource("1_a3lih")]
+[node name="CharacterOption4" parent="Options/HBoxContainer2" instance=ExtResource("1_a3lih")]
 layout_mode = 2
 size_flags_horizontal = 3
-character_name = "Boogie"
-sprite = ExtResource("9_35qwl")
-
-[node name="CharacterOption2" parent="Options/HBoxContainer2" instance=ExtResource("1_a3lih")]
-layout_mode = 2
-size_flags_horizontal = 3
-character_name = "Coda"
-sprite = ExtResource("6_yipcj")
-
-[node name="CharacterOption3" parent="Options/HBoxContainer2" instance=ExtResource("1_a3lih")]
-layout_mode = 2
-size_flags_horizontal = 3
-character_name = "Missy"
 sprite = ExtResource("7_3rigw")
+
+[node name="CharacterOption5" parent="Options/HBoxContainer2" instance=ExtResource("1_a3lih")]
+layout_mode = 2
+size_flags_horizontal = 3
+sprite = ExtResource("9_35qwl")
 
 [node name="Title" type="RichTextLabel" parent="."]
 use_parent_material = true
 layout_mode = 0
 offset_top = 30.0
-offset_right = 640.0
+offset_right = 480.0
 offset_bottom = 79.0
-pivot_offset = Vector2(320, 24)
+pivot_offset = Vector2(240, 24)
 theme = ExtResource("3_h7e4y")
 bbcode_enabled = true
 text = "[center]CHOOSE A DOG!"
@@ -113,4 +96,5 @@ rot_amplitude = 10.0
 [connection signal="pressed" from="Options/HBoxContainer/CharacterOption" to="." method="_on_character_option_pressed"]
 [connection signal="pressed" from="Options/HBoxContainer/CharacterOption2" to="." method="_on_character_option_2_pressed"]
 [connection signal="pressed" from="Options/HBoxContainer/CharacterOption3" to="." method="_on_character_option_3_pressed"]
-[connection signal="pressed" from="Options/HBoxContainer/CharacterOption4" to="." method="_on_character_option_4_pressed"]
+[connection signal="pressed" from="Options/HBoxContainer2/CharacterOption4" to="." method="_on_character_option_4_pressed"]
+[connection signal="pressed" from="Options/HBoxContainer2/CharacterOption5" to="." method="_on_character_option_5_pressed"]

@@ -11,6 +11,7 @@ var picks: int = 0
 @onready var tooltip = $Tooltip
 @onready var place_text = $Title2
 
+
 func _ready():
 	Globals.upgrade_menu = self
 	get_tree().paused = true

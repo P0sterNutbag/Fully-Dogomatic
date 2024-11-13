@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://bf3jcl8cecqmd"]
+
+[ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/enemy_pug_3.tscn" id="1_nbh1e"]
+[ext_resource type="Script" path="res://Scripts/enemy_incramental.gd" id="2_emq33"]
+[ext_resource type="Texture2D" uid="uid://be8787b2oggh6" path="res://Art/Sprites/Enemies/enemy small.png" id="3_ausj2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqsjh"]
+atlas = ExtResource("3_ausj2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skmka"]
+atlas = ExtResource("3_ausj2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkd2k"]
+atlas = ExtResource("3_ausj2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plcdf"]
+atlas = ExtResource("3_ausj2")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bj8v"]
+atlas = ExtResource("3_ausj2")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ld5m3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqsjh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skmka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkd2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plcdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bj8v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Enemy" instance=ExtResource("1_nbh1e")]
+script = ExtResource("2_emq33")
+health_multiplier = 0.5
+speed = 30.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_ld5m3")
+frame = 0
+frame_progress = 0.0

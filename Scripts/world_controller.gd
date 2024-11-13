@@ -17,6 +17,7 @@ var kills: int
 var kills_per_sec: int
 @onready var barrier_left = $BarrierLeft
 @onready var barrier_right = $BarrierRight
+@onready var level_controller = $LevelController
 
 
 func _ready():

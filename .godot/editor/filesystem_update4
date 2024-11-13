@@ -1,4 +1,4 @@
-res://Scenes/Levels/world_1.tscn
+res://Scenes/Guns/spartan_laser.tscn
 res://Art/Shaders/colorswap.gdshader
 res://Art/Shaders/colorswap.tres
 res://Art/Shaders/flash.gdshader
@@ -7,10 +7,23 @@ res://Art/Themes/healthbar.tres
 res://Art/Shaders/dither.gdshader
 res://Art/Shaders/dither postprocess.gdshader
 res://Art/Shaders/color_change.gdshader
-res://Scenes/Enemies/boss_1.tscn
-res://Scenes/Enemies/boss_3.tscn
-res://Scenes/Enemies/boss_4.tscn
-res://Scenes/Enemies/boss_2.tscn
-res://Scenes/Levels/world_3.tscn
-res://Scenes/Levels/world_4.tscn
-res://Scenes/Levels/world_5.tscn
+res://Scenes/Bullets/laser_thick.tscn
+res://Scenes/Guns/rocket_launcher.tscn
+res://Scenes/Bullets/rocket.tscn
+res://Scenes/Upgrades/upgrade_manager.tscn
+res://Scenes/Levels/world_infinite.tscn
+res://Scenes/Enemies/enemy_spawner_controller.tscn
+res://Scenes/Levels/world_1.tscn
+res://Scenes/Enemies/enemy_pug_3.tscn
+res://Scenes/Enemies/enemy_incramental.tscn
+res://Scenes/Levels/Level Objects/money_crate.tscn
+res://Scenes/Enemies/enemy_incramental_large.tscn
+res://Scenes/Enemies/enemy_incramental_small.tscn
+res://Scenes/Guns/ak47.tscn
+res://Scenes/Guns/assault_shotgun.tscn
+res://Scenes/Guns/double_barrel_shotgun.tscn
+res://Scenes/Guns/sawed_off.tscn
+res://Scenes/Bullets/laser.tscn
+res://Scenes/Levels/test_world.tscn
+res://Scripts/player.gd
+res://Scenes/Bullets/bullet_explosion_big.tscn

@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://cus0pjxfxlj3i"]
+
+[ext_resource type="PackedScene" uid="uid://dxg8m0y80dpyp" path="res://Scenes/Guns/Parent/gun_parent.tscn" id="1_ara00"]
+[ext_resource type="PackedScene" uid="uid://bml3f24c0bio7" path="res://Scenes/Bullets/rocket.tscn" id="2_unslc"]
+[ext_resource type="PackedScene" uid="uid://b72oe3vffkglg" path="res://Scenes/Particles/explosion.tscn" id="3_eu55q"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_f4k3h"]
+
+[sub_resource type="Resource" id="Resource_q7je0"]
+script = ExtResource("3_f4k3h")
+rarity = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2y2jc"]
+size = Vector2(16, 11)
+
+[node name="Gun" instance=ExtResource("1_ara00")]
+bullet = ExtResource("2_unslc")
+bullet_damage = 0.0
+cooldown = 0.0
+spread = 0.0
+rounds = 1
+bullet_speed = 600
+reload_time = 5.0
+explode_chance = 1.0
+bullet_explosion = ExtResource("3_eu55q")
+sound_shoot = "gunshot_pistol"
+metadata/Title = "Rocket Launcher"
+metadata/Rarity = SubResource("Resource_q7je0")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-1.35898e-05, 0.499984)
+shape = SubResource("RectangleShape2D_2y2jc")
+
+[node name="Sprite2D" parent="." index="1"]
+region_rect = Rect2(0, 128, 48, 16)
+
+[node name="SightHolder" parent="Sprite2D" index="0"]
+position = Vector2(2.99998, -4.00001)
+
+[node name="MagazineHolder" parent="Sprite2D" index="1"]
+position = Vector2(-4, 1.00002)
+
+[node name="Firepoint" parent="." index="2"]
+position = Vector2(18, -2.00008)

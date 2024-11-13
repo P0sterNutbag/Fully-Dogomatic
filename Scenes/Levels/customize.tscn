@@ -41,5 +41,3 @@ offset_bottom = 360.0
 color = Color(0, 0, 0, 1)
 
 [node name="ChooseCharacter" parent="." instance=ExtResource("5_y0cb2")]
-offset_left = -79.0
-offset_right = -79.0

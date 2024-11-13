@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://rp6v0ox21fov" path="res://Scenes/Levels/Level Objects/car.tscn" id="17_dab2o"]
 [ext_resource type="PackedScene" uid="uid://ne0aj0e2htle" path="res://Scenes/Enemies/enemy_1_bomber_fast.tscn" id="18_2gx2o"]
 [ext_resource type="PackedScene" uid="uid://bdretudtft5hd" path="res://Scenes/Levels/Level Objects/garbage_can.tscn" id="18_hegto"]
-[ext_resource type="PackedScene" uid="uid://c3rxttn3aoj36" path="res://Scenes/Enemies/boss_final.tscn" id="20_jtcg8"]
+[ext_resource type="PackedScene" uid="uid://b86sgq5tkneng" path="res://Scenes/Enemies/boss_2.tscn" id="24_uhvbb"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_uulbl"]
 tile_data = PackedInt32Array(0, 65536, 0, 65536, 0, 0, 1, 0, 0, 65537, 65536, 0)
@@ -230,4 +230,4 @@ spawn_time = Array[float]([0.25, 0.2, 0.15, 0.12, 0.12, 0.12, 0.12])
 drop_round_length = Array[int]([60, 60, 60, 60, 60, 60])
 level_items = Array[ExtResource("13_a4ivl")]([SubResource("Resource_rl4ym"), SubResource("Resource_vhb4x")])
 enemies = Array[ExtResource("16_hp1yf")]([SubResource("Resource_cv2ud"), SubResource("Resource_rm63q")])
-boss = ExtResource("20_jtcg8")
+boss = ExtResource("24_uhvbb")

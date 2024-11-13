@@ -14,7 +14,7 @@ func rush(delta) -> void:
 	velocity = dir * speed
 	global_position.y = move_toward(global_position.y, Globals.player.global_position.y + 16, 30 * delta)
 	move_and_slide()
-	if global_position.x > Globals.world_controller.barrier_right.global_position.x or global_position.x < 0:
+	if global_position.x > Globals.world_controller.barrier_right.global_position.x + 60 or global_position.x < -60:
 		state = states.attack
 		$Cooldown.start()
 

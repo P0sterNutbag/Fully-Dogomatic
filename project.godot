@@ -27,6 +27,7 @@ AudioManager="*res://Audio/AudioManager.tscn"
 ConfigHandler="*res://Scripts/config_handler.gd"
 PauseController="*res://Scenes/Control/pause_controller.tscn"
 DevTools="*res://Scripts/dev_tools.gd"
+SaveData="*res://Scripts/save_data.gd"
 
 [debug]
 

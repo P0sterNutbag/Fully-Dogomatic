@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://co66y6nufq525"]
+
+[ext_resource type="PackedScene" uid="uid://dxg8m0y80dpyp" path="res://Scenes/Guns/Parent/gun_parent.tscn" id="1_e2163"]
+[ext_resource type="PackedScene" uid="uid://c8rlf3omdbi33" path="res://Scenes/Bullets/laser_thick.tscn" id="2_t7jfx"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_7yk55"]
+
+[sub_resource type="Resource" id="Resource_q7je0"]
+script = ExtResource("3_7yk55")
+rarity = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2y2jc"]
+size = Vector2(16, 11)
+
+[node name="Gun" instance=ExtResource("1_e2163")]
+bullet = ExtResource("2_t7jfx")
+bullet_damage = 5.0
+cooldown = 5.0
+spread = 0.0
+rounds = 10
+bullet_speed = 0
+sound_shoot = "gunshot_pistol"
+metadata/Title = "Laser Canon"
+metadata/Rarity = SubResource("Resource_q7je0")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-1.35898e-05, 0.499984)
+shape = SubResource("RectangleShape2D_2y2jc")
+
+[node name="Sprite2D" parent="." index="1"]
+region_rect = Rect2(48, 128, 32, 16)
+
+[node name="SightHolder" parent="Sprite2D" index="0"]
+position = Vector2(2.99997, -7.00001)
+
+[node name="MagazineHolder" parent="Sprite2D" index="1"]
+position = Vector2(7, 0.999969)
+
+[node name="Firepoint" parent="." index="2"]
+position = Vector2(14, -2.00006)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b86sgq5tkneng"]
+[gd_scene load_steps=20 format=3 uid="uid://b86sgq5tkneng"]
 
 [ext_resource type="Script" path="res://Scripts/boss_car.gd" id="1_066m0"]
 [ext_resource type="Texture2D" uid="uid://b2hlyxu6bbbfh" path="res://Art/Sprites/Enemies/boss car.png" id="2_osqmp"]
@@ -35,6 +35,9 @@ size = Vector2(73, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_85mo7"]
 size = Vector2(78, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6735"]
+size = Vector2(22.5, 20.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m001l"]
 size = Vector2(75, 23)
@@ -113,6 +116,10 @@ collision_layer = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-3, 2.5)
 shape = SubResource("RectangleShape2D_85mo7")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-11.75, -18.75)
+shape = SubResource("RectangleShape2D_b6735")
 
 [node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("sprite") groups=["enemy"]]
 y_sort_enabled = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://bunt4jrlcrbrs"]
+[gd_scene load_steps=52 format=4 uid="uid://bunt4jrlcrbrs"]
 
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="1_jyi6w"]
 [ext_resource type="Script" path="res://Scripts/world_controller.gd" id="2_7s4ub"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://wc0u3m21uxxd" path="res://Scenes/Enemies/enemy_pug_10.tscn" id="13_pxc1n"]
 [ext_resource type="PackedScene" uid="uid://7ymypua5kp50" path="res://Scenes/Enemies/enemy_pug_11.tscn" id="14_jg1t2"]
 [ext_resource type="PackedScene" uid="uid://dit386wflqe06" path="res://Scenes/Enemies/enemy_teleporter.tscn" id="15_3db80"]
+[ext_resource type="PackedScene" uid="uid://bpcb70tyyvrtp" path="res://Scenes/Enemies/enemy_pug_6_fast.tscn" id="16_ddiln"]
 [ext_resource type="PackedScene" uid="uid://ne0aj0e2htle" path="res://Scenes/Enemies/enemy_1_bomber_fast.tscn" id="16_i81gq"]
 [ext_resource type="PackedScene" uid="uid://kskmj4salsda" path="res://Scenes/Enemies/enemy_pug_12.tscn" id="17_hys4l"]
 [ext_resource type="PackedScene" uid="uid://blhpepyyyvjos" path="res://Scenes/Enemies/enemy_pug_60_big.tscn" id="18_hl4vr"]
@@ -83,9 +84,14 @@ script = ExtResource("13_1pq18")
 object_to_spawn = ExtResource("14_jg1t2")
 spawn_chance = 75.0
 
+[sub_resource type="Resource" id="Resource_ytf2y"]
+script = ExtResource("13_1pq18")
+object_to_spawn = ExtResource("16_ddiln")
+spawn_chance = 50.0
+
 [sub_resource type="Resource" id="Resource_5av6y"]
 script = ExtResource("12_n6ton")
-enemies = Array[ExtResource("13_1pq18")]([SubResource("Resource_rqlhu")])
+enemies = Array[ExtResource("13_1pq18")]([SubResource("Resource_rqlhu"), SubResource("Resource_ytf2y")])
 
 [sub_resource type="Resource" id="Resource_nb01t"]
 script = ExtResource("13_1pq18")

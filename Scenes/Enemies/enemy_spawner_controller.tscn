@@ -1,79 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://ccs5kw7b4231m"]
+[gd_scene load_steps=2 format=3 uid="uid://ccs5kw7b4231m"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_spawner_controller.gd" id="1_grdac"]
-[ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/enemy_pug_3.tscn" id="2_d64i3"]
-[ext_resource type="Script" path="res://Scripts/spawn_chance.gd" id="3_wk788"]
-[ext_resource type="PackedScene" uid="uid://bw22ix5lssou3" path="res://Scenes/Enemies/enemy_pug_6.tscn" id="4_2a34w"]
-[ext_resource type="PackedScene" uid="uid://bp1ap45bibdh6" path="res://Scenes/Enemies/enemy_pug_9.tscn" id="5_5s4jl"]
-
-[sub_resource type="Resource" id="Resource_cpcnp"]
-script = ExtResource("3_wk788")
-object_to_spawn = ExtResource("2_d64i3")
-spawn_chance = 100.0
-
-[sub_resource type="Resource" id="Resource_wx7tf"]
-script = ExtResource("3_wk788")
-object_to_spawn = ExtResource("2_d64i3")
-spawn_chance = 100.0
-
-[sub_resource type="Resource" id="Resource_dpyvh"]
-script = ExtResource("3_wk788")
-object_to_spawn = ExtResource("2_d64i3")
-spawn_chance = 100.0
-
-[sub_resource type="Resource" id="Resource_tpp3x"]
-script = ExtResource("3_wk788")
-object_to_spawn = ExtResource("2_d64i3")
-spawn_chance = 100.0
-
-[sub_resource type="Resource" id="Resource_annjh"]
-script = ExtResource("3_wk788")
-object_to_spawn = ExtResource("2_d64i3")
-spawn_chance = 100.0
-
-[sub_resource type="Resource" id="Resource_2l2ae"]
-script = ExtResource("3_wk788")
-object_to_spawn = ExtResource("4_2a34w")
-spawn_chance = 50.0
-
-[sub_resource type="Resource" id="Resource_pnt62"]
-script = ExtResource("3_wk788")
-object_to_spawn = ExtResource("2_d64i3")
-spawn_chance = 50.0
-
-[sub_resource type="Resource" id="Resource_0f5yr"]
-script = ExtResource("3_wk788")
-object_to_spawn = ExtResource("4_2a34w")
-spawn_chance = 75.0
-
-[sub_resource type="Resource" id="Resource_nq228"]
-script = ExtResource("3_wk788")
-object_to_spawn = ExtResource("2_d64i3")
-spawn_chance = 25.0
-
-[sub_resource type="Resource" id="Resource_p3nf6"]
-script = ExtResource("3_wk788")
-object_to_spawn = ExtResource("4_2a34w")
-spawn_chance = 100.0
-
-[sub_resource type="Resource" id="Resource_qcst1"]
-script = ExtResource("3_wk788")
-object_to_spawn = ExtResource("5_5s4jl")
-spawn_chance = 50.0
-
-[sub_resource type="Resource" id="Resource_vdo3a"]
-script = ExtResource("3_wk788")
-object_to_spawn = ExtResource("4_2a34w")
-spawn_chance = 50.0
-
-[sub_resource type="Resource" id="Resource_2xf4e"]
-script = ExtResource("3_wk788")
-object_to_spawn = ExtResource("5_5s4jl")
-spawn_chance = 100.0
 
 [node name="EnemySpawnerController" type="Node"]
 script = ExtResource("1_grdac")
-spawn_rounds = [[SubResource("Resource_cpcnp")], [SubResource("Resource_cpcnp")], [SubResource("Resource_wx7tf")], [SubResource("Resource_dpyvh")], [SubResource("Resource_tpp3x")], [SubResource("Resource_annjh")], [SubResource("Resource_2l2ae"), SubResource("Resource_pnt62")], [SubResource("Resource_0f5yr"), SubResource("Resource_nq228")], [SubResource("Resource_p3nf6")], [SubResource("Resource_qcst1"), SubResource("Resource_vdo3a")], [SubResource("Resource_2xf4e")], [SubResource("Resource_2xf4e")]]
 spawn_time = Array[float]([1.5, 1.25, 0.8, 0.5, 0.25, 0.2, 0.15, 0.15, 0.12, 0.12, 0.12])
 
 [node name="InitialSpawn" type="Timer" parent="."]

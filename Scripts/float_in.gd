@@ -3,6 +3,7 @@ extends Control
 var target_position: Vector2
 @export var offscreen_position_offset = Vector2.UP * 170
 
+
 func _ready() -> void:
 	target_position = position
 	position += offscreen_position_offset

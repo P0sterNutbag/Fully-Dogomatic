@@ -15,6 +15,7 @@ size = Vector2(37, 8.00001)
 bullet_damage = 2.0
 bullet_count = 6.0
 spread = 25.0
+equal_spread = true
 rounds = 2
 sound_shoot = "gunshot_shotgun"
 metadata/Title = "Double Barrel Shotgun"

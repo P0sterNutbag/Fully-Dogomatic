@@ -24,16 +24,16 @@ func _ready():
 
 func _process(delta):
 	# drop timer
-	var time_left
-	if Globals.level_manager.get_node_or_null("Spawn") != null:
-		time_left = round(Globals.level_manager.get_node("Spawn").time_left*pow(10,2))/pow(10,2)
-	else: 
-		time_left = 30
-	if time_left < 6:
-		$Drop.position = lerp($Drop.position, drop_pos_origin, delta * 5)
-		$Drop/DropTimer.text = "[left]" + str(time_left)
-	else:
-		$Drop.position.y = lerp($Drop.position.y, drop_pos_origin.y - 200, 5 * delta)
+	#var time_left
+	#if Globals.level_manager.get_node_or_null("Spawn") != null:
+		#time_left = round(Globals.level_manager.get_node("Spawn").time_left*pow(10,2))/pow(10,2)
+	#else: 
+		#time_left = 30
+	#if time_left < 6:
+		#$Drop.position = lerp($Drop.position, drop_pos_origin, delta * 5)
+		#$Drop/DropTimer.text = "[left]" + str(time_left)
+	#else:
+		#$Drop.position.y = lerp($Drop.position.y, drop_pos_origin.y - 200, 5 * delta)
 	# game time
 	game_time += delta
 	$Info/TimeAmnt.text = "[right]" + Globals.time_to_minutes_secs_mili(game_time)
@@ -94,8 +94,7 @@ func set_boss_hp(boss_name: String, progress: float):
 
 
 func on_player_died():
-	var dui = death_ui.instantiate()
-	add_child(dui)
+	Globals.create_instance(death_ui, Vector2.ZERO, self)
 
 
 func _on_timer_timeout():

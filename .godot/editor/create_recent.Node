@@ -1,3 +1,4 @@
+Node
 CollisionShape2D
 AnimationPlayer
 AnimationTree
@@ -11,4 +12,3 @@ CollisionPolygon2D
 AnimatedSprite2D
 VBoxContainer
 Control
-RichTextLabel

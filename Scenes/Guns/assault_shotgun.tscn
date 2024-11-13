@@ -16,6 +16,7 @@ bullet_damage = 1.0
 bullet_count = 6.0
 cooldown = 0.3
 spread = 25.0
+equal_spread = true
 rounds = 8
 knockback = 1
 sound_shoot = "gunshot_shotgun"

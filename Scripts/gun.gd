@@ -13,6 +13,7 @@ class_name Gun
 		if cooldown > 0:
 			$ShootTimer.wait_time = value
 @export var spread: float = 20 
+@export var equal_spread: bool = false
 @export var rounds: int = 20  
 @export var bullet_speed: int = 1200
 @export var reload_time: float = 2: 
@@ -153,7 +154,7 @@ func _on_timer_timeout(): # shoot bullets
 			instance.global_position = firepoint.global_position
 			var accuracy = clamp(spread + accuracy_mod, 0, 100)
 			var bullet_angle
-			if bullet_count == 1:
+			if !equal_spread:
 				bullet_angle = aim_dir.angle() + deg_to_rad(randf_range(-accuracy, accuracy))
 			else:
 				bullet_angle = aim_dir.angle() + deg_to_rad(((i + 1) * (accuracy / bullet_count)) - (accuracy / 2))

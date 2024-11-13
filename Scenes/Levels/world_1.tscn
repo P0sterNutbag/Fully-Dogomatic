@@ -21,8 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://s0kv2biyqw1n" path="res://Scenes/Enemies/enemy_pug_15_big.tscn" id="15_qoinu"]
 [ext_resource type="PackedScene" uid="uid://d166o2auw6urq" path="res://Scenes/Enemies/enemy_pug_2.tscn" id="16_6wvhs"]
 [ext_resource type="PackedScene" uid="uid://rs3tt3umayol" path="res://Scenes/Enemies/enemy_flyer.tscn" id="16_dm4tk"]
-[ext_resource type="PackedScene" uid="uid://cih1s06w33lsm" path="res://Scenes/Enemies/enemy_pug_4.tscn" id="18_dvxxh"]
 [ext_resource type="PackedScene" uid="uid://odc3a65gded0" path="res://Scenes/Enemies/enemy_pug_2_fast.tscn" id="18_xo45x"]
+[ext_resource type="PackedScene" uid="uid://bh6juqooq77vm" path="res://Scenes/Enemies/boss_1.tscn" id="24_0krm6"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_uulbl"]
 tile_data = PackedInt32Array(0, 65536, 0, 65536, 0, 0, 1, 0, 0, 65537, 65536, 0)
@@ -123,19 +123,19 @@ script = ExtResource("12_fj8b6")
 object_to_spawn = ExtResource("11_5cndn")
 spawn_chance = 50.0
 
-[sub_resource type="Resource" id="Resource_83ydu"]
-script = ExtResource("12_fj8b6")
-object_to_spawn = ExtResource("18_dvxxh")
-spawn_chance = 50.0
-
 [sub_resource type="Resource" id="Resource_xg3dc"]
 script = ExtResource("12_fj8b6")
 object_to_spawn = ExtResource("15_nbxxk")
 spawn_chance = 10.0
 
+[sub_resource type="Resource" id="Resource_667st"]
+script = ExtResource("12_fj8b6")
+object_to_spawn = ExtResource("15_qoinu")
+spawn_chance = 10.0
+
 [sub_resource type="Resource" id="Resource_63qy7"]
 script = ExtResource("15_7x678")
-enemies = Array[ExtResource("12_fj8b6")]([SubResource("Resource_843pq"), SubResource("Resource_83ydu"), SubResource("Resource_xg3dc")])
+enemies = Array[ExtResource("12_fj8b6")]([SubResource("Resource_843pq"), SubResource("Resource_xg3dc"), SubResource("Resource_667st")])
 
 [sub_resource type="Resource" id="Resource_qawty"]
 script = ExtResource("12_fj8b6")
@@ -226,5 +226,6 @@ spawn_time = Array[float]([1.5, 1.25, 0.8, 0.6, 0.4, 0.3, 0.2])
 [node name="LevelManager" parent="." instance=ExtResource("11_0wnjg")]
 drop_round_length = Array[int]([45, 45, 60, 60, 60, 60, 30])
 enemies = Array[ExtResource("14_xl231")]([SubResource("Resource_jjku8"), SubResource("Resource_67sw4")])
+boss = ExtResource("24_0krm6")
 
 [editable path="Gun Shop"]

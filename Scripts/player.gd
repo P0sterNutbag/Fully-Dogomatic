@@ -12,7 +12,7 @@ var in_enemy = false
 var enemies = []
 var point_at_crate = false
 var crate_position: Vector2
-@export var money: float = 0
+@export var money: float = 1000
 var money_cap: float = 4
 var money_increase_rate = 1.4
 var guns: Array[Node2D]

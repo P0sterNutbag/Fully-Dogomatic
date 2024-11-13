@@ -55,8 +55,8 @@ func take_damage(dmg: float, bullet_direction: float):
 			parent.on_death(bullet_direction)
 		Globals.audio_manager.explosion.play()
 		#Globals.world_controller.increase_score()
-		if !get_parent().name.contains("Boss"):
-			parent.call_deferred("queue_free")
+		#if !get_parent().name.contains("Boss"):
+		parent.call_deferred("queue_free")
 	else:
 		Globals.audio_manager.play_with_pitch(Globals.audio_manager.bullet_impact, 0.1)
 
