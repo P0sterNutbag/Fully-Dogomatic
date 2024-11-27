@@ -16,7 +16,6 @@ cooldown = 0.6
 rounds = 6
 sound_shoot = "gunshot_revolver"
 metadata/Title = ".44 Magnum"
-metadata/Type = ""
 metadata/Rarity = SubResource("Resource_q0xlw")
 
 [node name="CollisionShape2D" parent="." index="0"]

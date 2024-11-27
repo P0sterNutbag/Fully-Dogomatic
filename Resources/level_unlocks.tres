@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="LevelUnlocks" load_steps=2 format=3 uid="uid://cp5ua5mhqm7pj"]
+
+[ext_resource type="Script" path="res://Scripts/level_unlocks.gd" id="1_7uy6y"]
+
+[resource]
+script = ExtResource("1_7uy6y")
+unlocks_array = Array[String](["", "character1", "character2", "character3", "character4", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""])

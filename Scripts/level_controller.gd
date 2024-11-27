@@ -1,16 +1,17 @@
 extends Node
 
 @export var spawn_formations: Array[SpawnFormation]
+@export var level_objects: Array[SpawnChance]
+@export var enemy_health = 2.0
+@export var enemy_health_incrament = 1.15
+@export var spawn_time_incrament = 0.75
 var formation_index = 0
 var enemies: Array[Enemy]
-var enemy_health = 2.0
-var enemy_health_incrament = 1.15
-var spawn_time_incrament = 0.75
 var round = 0
 var hp_round = 3
-var boss_round = 10
+var boss_round = 1
 var pipe_round = 4
-var enemy_to_spawn = preload("res://Scenes/Enemies/enemy_incramental.tscn")
+var enemy_to_spawn = preload("res://Scenes/Enemies/enemy_incramental1.tscn")
 var boss = preload("res://Scenes/Enemies/boss_1.tscn")
 var shop = preload("res://Scenes/Levels/Level Objects/shop.tscn")
 var hp_pickup = preload("res://Scenes/Levels/Level Objects/health_pickup.tscn")
@@ -19,9 +20,14 @@ var crate_big = preload("res://Scenes/Levels/Level Objects/money_crate.tscn")
 var crate_small = preload("res://Scenes/Levels/Level Objects/barrel.tscn")
 var crates = [crate_big, crate_small]
 @onready var enemy_spawn_timer = $EnemySpawnTimer
+@onready var round_timer = $RoundTimer
+@onready var enemy_formation_timer = $EnemyFormationTimer
 
 
 func _ready() -> void:
+	for i in 3:
+		var spawn_scene = level_objects[Globals.get_weighted_index(level_objects)].object_to_spawn
+		var inst = create_level_object(spawn_scene, get_random_position())
 	await get_tree().create_timer(0.1).timeout
 	for i in 5:
 		spawn_enemy()
@@ -29,9 +35,8 @@ func _ready() -> void:
 
 func _on_round_timer_timeout() -> void:
 	round += 1
-	var last_index = formation_index
-	while formation_index == last_index:
-		formation_index = randi_range(0, spawn_formations.size()-1)
+	round_timer.wait_time = 60
+	round_timer.start()
 	enemy_spawn_timer.wait_time = enemy_spawn_timer.wait_time * spawn_time_incrament
 	if enemy_spawn_timer.wait_time < 0.1:
 		spawn_time_incrament = 0.9
@@ -39,6 +44,12 @@ func _on_round_timer_timeout() -> void:
 	print("spawn time " + str(enemy_spawn_timer.wait_time))
 	print("enemy_health " + str(enemy_health))
 	spawn_level_objects()
+
+
+func _on_enemy_formation_timer_timeout() -> void:
+	var last_index = formation_index
+	while formation_index == last_index:
+		formation_index = randi_range(0, spawn_formations.size()-1)
 
 
 func _on_enemy_spawn_timer_timeout() -> void:
@@ -61,7 +72,8 @@ func spawn_enemy() -> void:
 		3: spawn_pos = Vector2(barrier_right.x, randf_range(barrier_left.y,barrier_right.y))	
 	var inst = Globals.create_instance(enemy_to_spawn, spawn_pos)
 	enemies.append(inst)
-	inst.health = floor(enemy_health)
+	if inst is EnemyIncramental:
+		inst.health = floor(enemy_health)
 
 
 func spawn_level_objects() -> void:
@@ -81,12 +93,8 @@ func spawn_level_objects() -> void:
 	# spawn crates
 	var crate_amount = randi_range(1, 4)
 	for i in crate_amount:
-		var spawn_scene = crates[randf_range(0, crates.size())]
+		var spawn_scene = level_objects[Globals.get_weighted_index(level_objects)].object_to_spawn
 		var inst = create_level_object(spawn_scene, get_random_position())
-	if round >= boss_round:
-		var inst = create_level_object(boss, get_random_position())
-		Globals.ui.add_level_obj("Boss!!!", false)
-		boss_round += 10
 	Globals.ui.create_level_obj_signs()
 
 
@@ -112,3 +120,11 @@ func get_random_position() -> Vector2:
 		#$ShapeCast2D.force_shapecast_update()
 	#$ShapeCast2D.enabled = false
 	return pos
+
+
+func _on_boss_timer_timeout() -> void:
+	boss_round += 2
+	var inst = create_level_object(boss, get_random_position())
+	Globals.ui.add_level_obj("Boss!!!", false)
+	await inst.ready
+	inst.health_component.health *= boss_round

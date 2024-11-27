@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8cqmxcui0aqi"]
+
+[ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/enemy_pug_3.tscn" id="1_oixsm"]
+[ext_resource type="Script" path="res://Scripts/enemy_incramental.gd" id="2_ae1nt"]
+
+[node name="Enemy" instance=ExtResource("1_oixsm")]
+script = ExtResource("2_ae1nt")
+health_multiplier = 1.0
+speed = 10.0

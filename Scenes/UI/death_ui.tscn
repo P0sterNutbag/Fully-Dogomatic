@@ -105,7 +105,7 @@ script = ExtResource("8_6y64c")
 use_parent_material = true
 layout_mode = 0
 offset_right = 120.0
-offset_bottom = 56.0
+offset_bottom = 52.0
 
 [node name="Restart" type="Button" parent="Menu/VBoxContainer"]
 use_parent_material = true

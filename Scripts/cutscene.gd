@@ -4,6 +4,7 @@ extends Node
 @export var kill_enemies: bool
 var explosion = preload("res://Scenes/Particles/death_explosion.tscn")
 var big_explosion = preload("res://Scenes/Bullets/bullet_explosion.tscn")
+var level_summary = preload("res://Scenes/Levels/level_summary.tscn")
 var step: int = 0
 
 
@@ -103,11 +104,13 @@ func go_to_next_level():
 	var next_level
 	match Globals.world_controller.name:
 		"World 1":
-			next_level = "res://Scenes/Levels/world_2.tscn"
+			SaveData.stage1 = true
 		"World 2":
-			next_level = "res://Scenes/Levels/world_3.tscn"
-		"World 3":
-			next_level = "res://Scenes/Levels/World4.tscn"
-		"World 4":
-			next_level = "res://Scenes/Levels/end.tscn"
-	SceneManager.start_scene_transition(next_level)
+			SaveData.stage2 = true
+		#"World 3":
+			##SaveData.stage2 = true
+		#"World 4":
+			#next_level = "res://Scenes/Levels/end.tscn"
+	SaveData.save_game()
+	Globals.create_instance(level_summary, Vector2.ZERO, Globals.ui)
+	#SceneManager.start_scene_transition("res://Scenes/Levels/main_menu.tscn")

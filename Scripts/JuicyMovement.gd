@@ -12,6 +12,7 @@ extends Node2D
 @export var rot_amplitude: float = 0
 @export var blink_frequency: float = 0
 @export var grow_in: bool
+@export var slide_in: bool
 var target
 var blink_timer: Timer
 var time : float = 0
@@ -33,6 +34,11 @@ func _ready():
 		var tween = create_tween().set_trans(Tween.TRANS_BOUNCE)
 		tween.set_ease(Tween.EASE_OUT)
 		tween.tween_property(self, "scale", Vector2.ONE, 1)
+	if slide_in:
+		target.position.y += 360
+		var tween = create_tween().set_trans(Tween.TRANS_BOUNCE)
+		tween.set_ease(Tween.EASE_OUT)
+		tween.tween_property(target, "position", Vector2.ZERO, 1)
 
 
 

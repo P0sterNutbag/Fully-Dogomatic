@@ -11,7 +11,7 @@ size = Vector2(64, 42)
 size = Vector2(66, 44)
 
 [node name="CRATE" instance=ExtResource("1_b05e1")]
-money_amount = 6
+money_amount = 30
 
 [node name="CollisionShape2D2" parent="." index="0"]
 position = Vector2(2, 3.5)

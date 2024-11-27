@@ -23,7 +23,7 @@ class_name Gun
 @export var penetrations: int = 1
 @export var knockback: int = 7.5
 @export var explode_chance: float = 0
-@export var bullet_explosion: PackedScene = preload("res://Scenes/Bullets/bullet_explosion.tscn")
+@export var bullet_explosion: PackedScene
 @export_subgroup("Sounds")
 @export var sound_shoot: String  # Sound path
 var bullet_scale = Vector2.ONE
@@ -166,10 +166,11 @@ func _on_timer_timeout(): # shoot bullets
 			instance.scale = bullet_scale
 			instance.penetrations = penetrations
 			instance.ricochet = ricochet
-			#instance.explosion = bullet_explosion
 			instance.explode_chance = max(explode_chance, Globals.player.explode_chance)
 			instance.homing = homing
 			instance.can_warp = bullet_can_warp
+			if bullet_explosion:
+				instance.explosion = bullet_explosion
 			rotation = bullet_angle
 		# expend ammo
 		shots_left -= 1

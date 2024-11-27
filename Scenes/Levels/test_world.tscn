@@ -15,9 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://dx18mgom3chcm" path="res://Scenes/Control/pause_controller.tscn" id="15_l14rn"]
 [ext_resource type="Texture2D" uid="uid://cgnp0mhae3ygt" path="res://Art/Sprites/tiles.png" id="16_odyqg"]
 [ext_resource type="Script" path="res://Scripts/spawn_chance.gd" id="17_qk5wv"]
-[ext_resource type="PackedScene" uid="uid://c8cqmxcui0aqi" path="res://Scenes/Enemies/enemy_incramental.tscn" id="17_wxw2f"]
-[ext_resource type="PackedScene" uid="uid://bf3jcl8cecqmd" path="res://Scenes/Enemies/enemy_incramental_small.tscn" id="18_0ga17"]
-[ext_resource type="PackedScene" uid="uid://40eypp8w06iw" path="res://Scenes/Enemies/enemy_incramental_large.tscn" id="19_xt5i1"]
+[ext_resource type="PackedScene" uid="uid://c8cqmxcui0aqi" path="res://Scenes/Enemies/enemy_incramental1.tscn" id="17_wxw2f"]
+[ext_resource type="PackedScene" uid="uid://bf3jcl8cecqmd" path="res://Scenes/Enemies/enemy_incramental_small1.tscn" id="18_0ga17"]
+[ext_resource type="PackedScene" uid="uid://40eypp8w06iw" path="res://Scenes/Enemies/enemy_incramental_large1.tscn" id="19_xt5i1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ljvca"]
 shader = ExtResource("1_8rebg")

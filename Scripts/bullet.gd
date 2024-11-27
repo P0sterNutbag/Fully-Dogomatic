@@ -16,7 +16,7 @@ var target_enemy
 var can_warp: bool
 var hit_enemies: Array
 var can_damage: bool = true
-var explosion = preload("res://Scenes/Bullets/bullet_explosion.tscn")
+@export var explosion = preload("res://Scenes/Bullets/bullet_explosion.tscn")
 var damage_number = preload("res://Scenes/Particles/damage_number.tscn")
 var impact = preload("res://Scenes/Particles/impact.tscn")
 var spark = preload("res://Scenes/Particles/bullet_spark.tscn")

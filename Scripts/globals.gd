@@ -18,10 +18,11 @@ var upgrade_menu: Node
 var holding_gun_part: bool = false
 var globals
 var gun_amount
+var current_level: String
 var price_multiplier: float:
 	get: 
 		#return enemy_spawn_controller.spawn_time[enemy_spawn_controller.spawn_round] * 3
-		return world_controller.level_controller.enemy_spawn_timer.wait_time * 3
+		return world_controller.level_controller.enemy_spawn_timer.wait_time
 var camera: Camera2D
 var muted: bool = false
 var pause_controller: Node
@@ -91,11 +92,11 @@ func get_gun_price(gun) -> float:
 	var multiplier = price_multiplier
 	match gun.get_meta("Rarity").rarity:
 		rarity_levels.common:
-			price = 15 / multiplier
+			price = 3 / multiplier
 		rarity_levels.uncommon:
-			price = 25 / multiplier
+			price = 12 / multiplier
 		rarity_levels.rare:
-			price = 50 / multiplier
+			price = 23 / multiplier
 		rarity_levels.super_rare:
 			price = 60 / multiplier
 		rarity_levels.ultra_rare:

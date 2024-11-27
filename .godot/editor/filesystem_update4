@@ -1,29 +1,27 @@
-res://Scenes/Guns/spartan_laser.tscn
+res://Scenes/Levels/world_endless1.tscn
 res://Art/Shaders/colorswap.gdshader
 res://Art/Shaders/colorswap.tres
 res://Art/Shaders/flash.gdshader
 res://Art/Themes/button.tres
 res://Art/Themes/healthbar.tres
+res://Art/Shaders/color_change.gdshader
+res://Art/Shaders/color_change.tres
 res://Art/Shaders/dither.gdshader
 res://Art/Shaders/dither postprocess.gdshader
-res://Art/Shaders/color_change.gdshader
-res://Scenes/Bullets/laser_thick.tscn
-res://Scenes/Guns/rocket_launcher.tscn
-res://Scenes/Bullets/rocket.tscn
-res://Scenes/Upgrades/upgrade_manager.tscn
-res://Scenes/Levels/world_infinite.tscn
-res://Scenes/Enemies/enemy_spawner_controller.tscn
-res://Scenes/Levels/world_1.tscn
-res://Scenes/Enemies/enemy_pug_3.tscn
-res://Scenes/Enemies/enemy_incramental.tscn
-res://Scenes/Levels/Level Objects/money_crate.tscn
-res://Scenes/Enemies/enemy_incramental_large.tscn
-res://Scenes/Enemies/enemy_incramental_small.tscn
-res://Scenes/Guns/ak47.tscn
-res://Scenes/Guns/assault_shotgun.tscn
-res://Scenes/Guns/double_barrel_shotgun.tscn
-res://Scenes/Guns/sawed_off.tscn
-res://Scenes/Bullets/laser.tscn
-res://Scenes/Levels/test_world.tscn
-res://Scripts/player.gd
-res://Scenes/Bullets/bullet_explosion_big.tscn
+res://Scenes/Levels/world_endless2.tscn
+res://Scenes/Levels/world_endless3.tscn
+res://Scenes/Levels/customize.tscn
+res://Scenes/Levels/level_select.tscn
+res://Scenes/Levels/level_summary.tscn
+res://Scenes/UI/death_ui.tscn
+res://Scenes/UI/Character Cusomization/choose_character.tscn
+res://Scenes/UI/Character Cusomization/character_option.tscn
+res://Scenes/Enemies/boss_1.tscn
+res://Scenes/Cutscenes/boss_death_cutscene.tscn
+res://Scenes/UI/JuicyMovement.tscn
+res://Scenes/UI/ui.tscn
+res://Scenes/UI/minimap.tscn
+res://Scripts/level_summary.gd
+res://Scripts/save_data.gd
+res://Scripts/level_unlocks.gd
+res://Resources/level_unlocks.tres

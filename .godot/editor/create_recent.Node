@@ -1,3 +1,7 @@
+RichTextLabel
+Control
+ProgressBar
+Timer
 Node
 CollisionShape2D
 AnimationPlayer
@@ -5,10 +9,6 @@ AnimationTree
 Sprite2D
 Node2D
 Area2D
-Timer
 RayCast2D
 Line2D
 CollisionPolygon2D
-AnimatedSprite2D
-VBoxContainer
-Control

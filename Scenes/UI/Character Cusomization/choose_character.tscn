@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://qnw7051yjuf4"]
+[gd_scene load_steps=12 format=3 uid="uid://qnw7051yjuf4"]
 
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="1_31caj"]
 [ext_resource type="PackedScene" uid="uid://c37vi5itujbsu" path="res://Scenes/UI/Character Cusomization/character_option.tscn" id="1_a3lih"]
 [ext_resource type="Script" path="res://Scripts/customization_menu.gd" id="1_i6dq8"]
 [ext_resource type="Theme" uid="uid://d20y8va2yhr08" path="res://Art/Themes/ui text large.tres" id="3_h7e4y"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="4_hskep"]
+[ext_resource type="Texture2D" uid="uid://chhc6bjga1571" path="res://Art/Sprites/player idle.png" id="5_fgbin"]
 [ext_resource type="Texture2D" uid="uid://bgdv7cixbs4je" path="res://Art/Sprites/dachsund idle.png" id="6_yipcj"]
 [ext_resource type="Script" path="res://Scripts/float_in.gd" id="7_3qexv"]
 [ext_resource type="Texture2D" uid="uid://buc2yt28bj5ry" path="res://Art/Sprites/terrier idle.png" id="7_3rigw"]
@@ -44,16 +45,20 @@ offset_bottom = 50.0
 [node name="CharacterOption" parent="Options/HBoxContainer" instance=ExtResource("1_a3lih")]
 layout_mode = 2
 size_flags_horizontal = 3
+character_name = "Corgi"
+sprite = ExtResource("5_fgbin")
 unlocked = true
 
 [node name="CharacterOption2" parent="Options/HBoxContainer" instance=ExtResource("1_a3lih")]
 layout_mode = 2
 size_flags_horizontal = 3
+character_name = "Coda"
 sprite = ExtResource("6_yipcj")
 
 [node name="CharacterOption3" parent="Options/HBoxContainer" instance=ExtResource("1_a3lih")]
 layout_mode = 2
 size_flags_horizontal = 3
+character_name = "Toaster"
 sprite = ExtResource("8_m0mus")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Options"]
@@ -67,11 +72,13 @@ offset_bottom = 155.0
 [node name="CharacterOption4" parent="Options/HBoxContainer2" instance=ExtResource("1_a3lih")]
 layout_mode = 2
 size_flags_horizontal = 3
+character_name = "Esquire"
 sprite = ExtResource("7_3rigw")
 
 [node name="CharacterOption5" parent="Options/HBoxContainer2" instance=ExtResource("1_a3lih")]
 layout_mode = 2
 size_flags_horizontal = 3
+character_name = "Boogy"
 sprite = ExtResource("9_35qwl")
 
 [node name="Title" type="RichTextLabel" parent="."]

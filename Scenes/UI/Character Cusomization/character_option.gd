@@ -3,17 +3,14 @@ extends UiButton
 @onready var circle = $ScaleOffset/Circle
 @onready var scale_offset = $ScaleOffset
 @onready var juice = $ScaleOffset/JuicyMovement
-@export var character_name: String: 
-	set(value):
-		$ScaleOffset/UpgradeName.text = "[center]" + value
-@export var sprite: Texture :
-	set(value):
-		$ScaleOffset/Sprite2D.texture = value
+@export var character_name: String
+@export var sprite: Texture
 @export var unlocked: bool:
 	set(value):
 		unlocked = value
 		if !value:
 			character_name = "???"
+			$ScaleOffset/UpgradeName.text = "[center]" + character_name.to_upper()
 			$ScaleOffset/Sprite2D.material = off_shader
 var off_shader = preload("res://Art/Shaders/color_change.tres")
 var target_scale: float = 1
@@ -22,6 +19,12 @@ var target_scale: float = 1
 func _ready() -> void:
 	super._ready()
 	juice.process_mode = Node.PROCESS_MODE_DISABLED
+	$ScaleOffset/UpgradeName.text = "[center]" + character_name.to_upper()
+	$ScaleOffset/Sprite2D.texture = sprite
+	#if !unlocked:
+		#character_name = "???"
+		#$ScaleOffset/UpgradeName.text = "[center]" + character_name.to_upper()
+		#$ScaleOffset/Sprite2D.material = off_shader
 	#position_origin = position
 
 

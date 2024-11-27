@@ -12,7 +12,7 @@ var in_enemy = false
 var enemies = []
 var point_at_crate = false
 var crate_position: Vector2
-@export var money: float = 1000
+@export var money: float = 0
 var money_cap: float = 4
 var money_increase_rate = 1.4
 var guns: Array[Node2D]
@@ -137,7 +137,7 @@ func take_damage(dmg):
 	if hp <= 0:
 		state = states.dead
 		player_died.emit()
-		Globals.enemy_spawn_controller.get_node("SpawnEnemies").stop()
+		Globals.world_controller.level_controller.get_node("EnemySpawnTimer").stop()
 	elif $FlashTimer.time_left <= 0:
 		$FlashTimer.start()
 
@@ -207,3 +207,7 @@ func _on_mine_timer_timeout() -> void:
 	if state == states.dead:
 		return
 	Globals.create_instance(mine, global_position)
+
+
+func _exit_tree() -> void:
+	Globals.player = null

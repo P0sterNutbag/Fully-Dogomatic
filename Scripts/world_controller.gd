@@ -66,3 +66,7 @@ func reset_score():
 
 func on_player_died():
 	game_over = true
+
+
+func _on_enemy_formation_timer_timeout() -> void:
+	pass # Replace with function body.

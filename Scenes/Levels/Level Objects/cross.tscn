@@ -21,9 +21,6 @@ shape = SubResource("RectangleShape2D_kitte")
 position = Vector2(2, -13)
 texture = ExtResource("2_0cg8a")
 
-[node name="Area2D" parent="." index="2"]
-health = 80
-
 [node name="CollisionShape2D2" parent="Area2D" index="0"]
 position = Vector2(2, -13)
 shape = SubResource("RectangleShape2D_j2gd3")

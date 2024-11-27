@@ -1,0 +1,306 @@
+[gd_scene load_steps=17 format=3 uid="uid://dvyaf1bftt5mn"]
+
+[ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="1_eaerk"]
+[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="2_1h6v5"]
+[ext_resource type="Script" path="res://Scripts/level_select.gd" id="2_306o6"]
+[ext_resource type="Script" path="res://Scripts/circle.gd" id="4_c75nl"]
+[ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="5_2a2n4"]
+[ext_resource type="Script" path="res://Scripts/level_button.gd" id="5_xfq4p"]
+[ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="6_8mjpj"]
+[ext_resource type="Texture2D" uid="uid://cgevu5rjiaynw" path="res://Art/Sprites/Enemies/pug run.png" id="6_8uspd"]
+[ext_resource type="Texture2D" uid="uid://chhc6bjga1571" path="res://Art/Sprites/player idle.png" id="7_bwb38"]
+[ext_resource type="Theme" uid="uid://d20y8va2yhr08" path="res://Art/Themes/ui text large.tres" id="8_bd041"]
+[ext_resource type="Script" path="res://Scripts/float_in.gd" id="9_f1ipw"]
+[ext_resource type="Theme" uid="uid://caletdmnc4r81" path="res://Art/Themes/ui text small mono.tres" id="11_g0bs1"]
+[ext_resource type="Texture2D" uid="uid://x4c1xr5o4kr" path="res://Art/Sprites/Enemies/dog small car.png" id="11_pakvn"]
+[ext_resource type="Texture2D" uid="uid://dhm1nsbc65hs7" path="res://Art/Sprites/Enemies/enemy vampire.png" id="12_uwxyx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ap13o"]
+
+[sub_resource type="Theme" id="Theme_ldusy"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(1, 0, 0, 1)
+Button/colors/font_hover_color = Color(1, 0, 0, 1)
+Button/font_sizes/font_size = 14
+Button/fonts/font = ExtResource("2_1h6v5")
+Button/styles/focus = SubResource("StyleBoxEmpty_ap13o")
+
+[node name="LevelSelect" type="Control" node_paths=PackedStringArray("first_button")]
+material = ExtResource("1_eaerk")
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("2_306o6")
+first_button = NodePath("Control/LevelButton")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource("1_eaerk")
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 360.0
+color = Color(0.101961, 0.101961, 0.101961, 1)
+
+[node name="Control" type="Control" parent="."]
+use_parent_material = true
+anchors_preset = 0
+offset_right = 480.0
+offset_bottom = 360.0
+script = ExtResource("9_f1ipw")
+
+[node name="LevelButton" type="Button" parent="Control"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 53.0
+offset_top = 157.0
+offset_right = -331.0
+offset_bottom = -107.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(48, 48)
+theme = SubResource("Theme_ldusy")
+flat = true
+script = ExtResource("5_xfq4p")
+character_name = "Stage1"
+sprite = ExtResource("6_8uspd")
+metadata/_edit_group_ = true
+
+[node name="ScaleOffset" type="Control" parent="Control/LevelButton"]
+use_parent_material = true
+anchors_preset = 0
+pivot_offset = Vector2(48, 48)
+
+[node name="Circle" type="Control" parent="Control/LevelButton/ScaleOffset"]
+use_parent_material = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 24.0
+offset_bottom = 24.0
+script = ExtResource("4_c75nl")
+circle_radius = 48
+outline_thickness = 4
+
+[node name="UpgradeName" type="RichTextLabel" parent="Control/LevelButton/ScaleOffset"]
+use_parent_material = true
+clip_contents = false
+layout_mode = 0
+offset_left = -31.0
+offset_top = 7.0
+offset_right = 130.0
+offset_bottom = 29.0
+mouse_filter = 2
+theme = ExtResource("5_2a2n4")
+bbcode_enabled = true
+text = "[center]CORGI"
+
+[node name="JuicyMovement" parent="Control/LevelButton/ScaleOffset" node_paths=PackedStringArray("target_control") instance=ExtResource("6_8mjpj")]
+target_control = NodePath("..")
+bob_frequency = 5.0
+bob_amplitude = 10.0
+rot_frequency = 2.5
+rot_amplitude = 10.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/LevelButton/ScaleOffset"]
+material = ExtResource("1_eaerk")
+position = Vector2(48, 51)
+scale = Vector2(2, 2)
+texture = ExtResource("7_bwb38")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="BestTime" type="RichTextLabel" parent="Control/LevelButton/ScaleOffset"]
+use_parent_material = true
+clip_contents = false
+layout_mode = 0
+offset_left = -6.0
+offset_top = 113.0
+offset_right = 105.0
+offset_bottom = 135.0
+mouse_filter = 2
+theme = ExtResource("11_g0bs1")
+bbcode_enabled = true
+text = "[center]BEST TIME:"
+
+[node name="LevelButton2" type="Button" parent="Control"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -23.0
+offset_right = 48.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(48, 48)
+theme = SubResource("Theme_ldusy")
+flat = true
+script = ExtResource("5_xfq4p")
+character_name = "Stage 2"
+sprite = ExtResource("11_pakvn")
+metadata/_edit_group_ = true
+
+[node name="ScaleOffset" type="Control" parent="Control/LevelButton2"]
+use_parent_material = true
+anchors_preset = 0
+pivot_offset = Vector2(48, 48)
+
+[node name="Circle" type="Control" parent="Control/LevelButton2/ScaleOffset"]
+use_parent_material = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 24.0
+offset_bottom = 24.0
+script = ExtResource("4_c75nl")
+circle_radius = 48
+outline_thickness = 4
+
+[node name="UpgradeName" type="RichTextLabel" parent="Control/LevelButton2/ScaleOffset"]
+use_parent_material = true
+clip_contents = false
+layout_mode = 0
+offset_left = -31.0
+offset_top = 7.0
+offset_right = 130.0
+offset_bottom = 29.0
+mouse_filter = 2
+theme = ExtResource("5_2a2n4")
+bbcode_enabled = true
+text = "[center]CORGI"
+
+[node name="JuicyMovement" parent="Control/LevelButton2/ScaleOffset" node_paths=PackedStringArray("target_control") instance=ExtResource("6_8mjpj")]
+target_control = NodePath("..")
+bob_frequency = 5.0
+bob_amplitude = 10.0
+rot_frequency = 2.5
+rot_amplitude = 10.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/LevelButton2/ScaleOffset"]
+material = ExtResource("1_eaerk")
+position = Vector2(48, 51)
+scale = Vector2(2, 2)
+texture = ExtResource("7_bwb38")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="BestTime" type="RichTextLabel" parent="Control/LevelButton2/ScaleOffset"]
+use_parent_material = true
+clip_contents = false
+layout_mode = 0
+offset_left = -6.0
+offset_top = 113.0
+offset_right = 105.0
+offset_bottom = 135.0
+mouse_filter = 2
+theme = ExtResource("11_g0bs1")
+bbcode_enabled = true
+text = "[center]BEST TIME:"
+
+[node name="LevelButton3" type="Button" parent="Control"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 331.0
+offset_top = 157.0
+offset_right = -53.0
+offset_bottom = -107.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(48, 48)
+theme = SubResource("Theme_ldusy")
+flat = true
+script = ExtResource("5_xfq4p")
+character_name = "Stage 3"
+sprite = ExtResource("12_uwxyx")
+metadata/_edit_group_ = true
+
+[node name="ScaleOffset" type="Control" parent="Control/LevelButton3"]
+use_parent_material = true
+anchors_preset = 0
+pivot_offset = Vector2(48, 48)
+
+[node name="Circle" type="Control" parent="Control/LevelButton3/ScaleOffset"]
+use_parent_material = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 24.0
+offset_bottom = 24.0
+script = ExtResource("4_c75nl")
+circle_radius = 48
+outline_thickness = 4
+
+[node name="UpgradeName" type="RichTextLabel" parent="Control/LevelButton3/ScaleOffset"]
+use_parent_material = true
+clip_contents = false
+layout_mode = 0
+offset_left = -31.0
+offset_top = 7.0
+offset_right = 130.0
+offset_bottom = 29.0
+mouse_filter = 2
+theme = ExtResource("5_2a2n4")
+bbcode_enabled = true
+text = "[center]CORGI"
+
+[node name="JuicyMovement" parent="Control/LevelButton3/ScaleOffset" node_paths=PackedStringArray("target_control") instance=ExtResource("6_8mjpj")]
+target_control = NodePath("..")
+bob_frequency = 5.0
+bob_amplitude = 10.0
+rot_frequency = 2.5
+rot_amplitude = 10.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/LevelButton3/ScaleOffset"]
+material = ExtResource("1_eaerk")
+position = Vector2(48, 51)
+scale = Vector2(2, 2)
+texture = ExtResource("7_bwb38")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="BestTime" type="RichTextLabel" parent="Control/LevelButton3/ScaleOffset"]
+use_parent_material = true
+clip_contents = false
+layout_mode = 0
+offset_left = -6.0
+offset_top = 113.0
+offset_right = 105.0
+offset_bottom = 135.0
+mouse_filter = 2
+theme = ExtResource("11_g0bs1")
+bbcode_enabled = true
+text = "[center]BEST TIME:"
+
+[node name="Title" type="RichTextLabel" parent="."]
+use_parent_material = true
+layout_mode = 0
+offset_top = 30.0
+offset_right = 480.0
+offset_bottom = 79.0
+pivot_offset = Vector2(240, 24)
+theme = ExtResource("8_bd041")
+bbcode_enabled = true
+text = "[center]CHOOSE A STAGE!"
+script = ExtResource("9_f1ipw")
+
+[node name="JuicyMovement" parent="Title" node_paths=PackedStringArray("target_control") instance=ExtResource("6_8mjpj")]
+target_control = NodePath("..")
+bob_frequency = 5.0
+bob_amplitude = 10.0
+rot_frequency = 2.5
+rot_amplitude = 10.0
+
+[connection signal="pressed" from="Control/LevelButton" to="." method="_on_level_button_pressed"]
+[connection signal="pressed" from="Control/LevelButton2" to="." method="_on_level_button_2_pressed"]
+[connection signal="pressed" from="Control/LevelButton3" to="." method="_on_level_button_3_pressed"]

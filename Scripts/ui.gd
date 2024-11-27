@@ -5,7 +5,7 @@ var level_signs: Array[String]
 var level_signs_affinity: Array[bool]
 var level_signs_amount: Array[int]
 var game_time: float
-var death_ui = preload("res://Scenes/UI/death_ui.tscn")
+var death_ui = preload("res://Scenes/Levels/level_summary.tscn")
 @onready var drop_pos_origin = $Drop.position
 @onready var drop_timer = $Drop/DropTimer
 @onready var level_name = $Label
