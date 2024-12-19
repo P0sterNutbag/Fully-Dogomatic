@@ -85,9 +85,10 @@ animations = [{
 }]
 
 [node name="Player" instance=ExtResource("1_k5oux")]
+ability = 3
 
 [node name="PlayerSprite" parent="." index="4"]
 material = SubResource("ShaderMaterial_awa0y")
 sprite_frames = SubResource("SpriteFrames_le0eh")
-frame = 0
+animation = &"dead"
 frame_progress = 0.838543

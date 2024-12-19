@@ -9,6 +9,11 @@ func _ready():
 		options[i].best_time = SaveData.get("stage"+str(i)+"time")
 
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("back"):
+		SceneManager.start_scene_transition("res://Scenes/Levels/customize.tscn")
+
+
 func _on_level_button_pressed() -> void:
 	Globals.current_level = "res://Scenes/Levels/world_endless1.tscn"
 	SceneManager.start_scene_transition("res://Scenes/Levels/world_endless1.tscn")

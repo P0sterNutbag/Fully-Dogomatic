@@ -108,6 +108,7 @@ script = ExtResource("1_jli4x")
 boss_name = "Ace, Rider of darkness"
 speed = 20.0
 damage = 25.0
+money_amount = 25
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true

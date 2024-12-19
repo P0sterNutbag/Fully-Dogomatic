@@ -30,10 +30,10 @@ func _ready():
 		blink_timer.timeout.connect(blink)
 		blink_timer.start()
 	if grow_in:
-		scale = Vector2.ZERO
-		var tween = create_tween().set_trans(Tween.TRANS_BOUNCE)
+		target.scale = Vector2.ZERO
+		var tween = create_tween().set_ease(Tween.EASE_OUT)
 		tween.set_ease(Tween.EASE_OUT)
-		tween.tween_property(self, "scale", Vector2.ONE, 1)
+		tween.tween_property(target, "scale", Vector2.ONE, 0.25)
 	if slide_in:
 		target.position.y += 360
 		var tween = create_tween().set_trans(Tween.TRANS_BOUNCE)

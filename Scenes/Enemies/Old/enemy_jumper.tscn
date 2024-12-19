@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbvqb6be7do1c"]
+
+[ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/Old/enemy_pug_3.tscn" id="1_hea01"]
+[ext_resource type="Texture2D" uid="uid://cd5ag2wkpv606" path="res://Art/Sprites/jumping dog.png" id="2_5sx70"]
+[ext_resource type="Script" path="res://Scripts/enemy_jumper.gd" id="2_l07ws"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfxbo"]
+atlas = ExtResource("2_5sx70")
+region = Rect2(0, 0, 19, 27)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_80u13"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfxbo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Enemy" instance=ExtResource("1_hea01")]
+script = ExtResource("2_l07ws")
+speed = 30.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_80u13")
+frame = 0
+frame_progress = 0.0
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 12)
+
+[node name="Hitbox" parent="." index="2"]
+position = Vector2(0, 1)
+
+[node name="Hurtbox" parent="." index="3"]
+position = Vector2(0, 1)
+
+[node name="Shadow" parent="." index="4"]
+position = Vector2(0, 10)

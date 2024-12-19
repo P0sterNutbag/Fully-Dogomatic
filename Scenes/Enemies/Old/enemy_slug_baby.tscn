@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://c5ldaogvdl5k"]
+
+[ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/Old/enemy_pug_3.tscn" id="1_lvey7"]
+[ext_resource type="Texture2D" uid="uid://bbgmw75a5ax3a" path="res://Art/Sprites/slug baby.png" id="2_1fulf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pv7h"]
+atlas = ExtResource("2_1fulf")
+region = Rect2(0, 0, 15, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1w7r0"]
+atlas = ExtResource("2_1fulf")
+region = Rect2(15, 0, 15, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m8gmf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pv7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1w7r0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4l12"]
+size = Vector2(10, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukiqn"]
+size = Vector2(14, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cko5o"]
+size = Vector2(12, 5)
+
+[node name="Enemy" instance=ExtResource("1_lvey7")]
+speed = 30.0
+damage = 0.05
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_m8gmf")
+frame = 0
+frame_progress = 0.0
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_y4l12")
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource("RectangleShape2D_ukiqn")
+
+[node name="Hurtbox" parent="." index="3"]
+health = 1
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_cko5o")
+
+[node name="Shadow" parent="." index="4"]
+position = Vector2(0, 3)
+scale = Vector2(0.75, 0.225)

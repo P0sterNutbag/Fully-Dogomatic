@@ -53,12 +53,14 @@ unlocked = true
 layout_mode = 2
 size_flags_horizontal = 3
 character_name = "Coda"
+description = "Hold direction to sprint!"
 sprite = ExtResource("6_yipcj")
 
 [node name="CharacterOption3" parent="Options/HBoxContainer" instance=ExtResource("1_a3lih")]
 layout_mode = 2
 size_flags_horizontal = 3
 character_name = "Toaster"
+description = "Stop moving to nap!"
 sprite = ExtResource("8_m0mus")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Options"]
@@ -73,6 +75,7 @@ offset_bottom = 155.0
 layout_mode = 2
 size_flags_horizontal = 3
 character_name = "Esquire"
+description = "First Reroll is free!"
 sprite = ExtResource("7_3rigw")
 
 [node name="CharacterOption5" parent="Options/HBoxContainer2" instance=ExtResource("1_a3lih")]

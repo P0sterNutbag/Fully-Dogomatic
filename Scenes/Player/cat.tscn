@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://c6pdog1xqxdyt"]
+[gd_scene load_steps=19 format=3 uid="uid://c6pdog1xqxdyt"]
 
 [ext_resource type="PackedScene" uid="uid://cfkssnl27y2qn" path="res://Scenes/Player/player.tscn" id="1_ehxdq"]
 [ext_resource type="Shader" path="res://Art/Shaders/flash.gdshader" id="2_rv8mg"]
 [ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Art/Sprites/123spritesheet.png" id="3_17icd"]
 [ext_resource type="Texture2D" uid="uid://cno2rrk3xogxh" path="res://Art/Sprites/cat idle.png" id="4_184iw"]
+[ext_resource type="Texture2D" uid="uid://dqmak66oebspw" path="res://Art/Sprites/cat nap.png" id="5_krkqv"]
 [ext_resource type="Texture2D" uid="uid://dntge6qhu1soq" path="res://Art/Sprites/cat run.png" id="5_mmy28"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xd16f"]
@@ -25,6 +26,14 @@ region = Rect2(32, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_scvi8"]
 atlas = ExtResource("4_184iw")
 region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ampu6"]
+atlas = ExtResource("5_krkqv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdkjw"]
+atlas = ExtResource("5_krkqv")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xdi06"]
 atlas = ExtResource("5_mmy28")
@@ -68,6 +77,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ampu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdkjw")
+}],
+"loop": true,
+"name": &"nap",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_xdi06")
 }, {
 "duration": 1.0,
@@ -85,9 +105,16 @@ animations = [{
 }]
 
 [node name="Player" instance=ExtResource("1_ehxdq")]
+ability = 2
 
-[node name="PlayerSprite" parent="." index="4"]
+[node name="PlayerSprite" parent="." index="2"]
 material = SubResource("ShaderMaterial_xd16f")
 sprite_frames = SubResource("SpriteFrames_hp81a")
-frame = 3
-frame_progress = 0.847188
+animation = &"nap"
+frame_progress = 0.925857
+
+[node name="NapTimer" type="Timer" parent="." index="12"]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="NapTimer" to="." method="_on_nap_timer_timeout"]

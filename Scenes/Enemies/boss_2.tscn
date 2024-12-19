@@ -94,6 +94,7 @@ boss_name = "Oreo, lord of speed"
 speed = 350.0
 damage = 25.0
 turn_speed = 100.0
+money_amount = 25
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true

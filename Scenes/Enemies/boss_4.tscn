@@ -82,6 +82,7 @@ script = ExtResource("1_sryha")
 boss_name = "Leo, keeper of fire"
 speed = 20.0
 damage = 25.0
+money_amount = 25
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true

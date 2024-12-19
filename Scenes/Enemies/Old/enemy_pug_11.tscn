@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://7ymypua5kp50"]
+
+[ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/Old/enemy_pug_3.tscn" id="1_g6x15"]
+[ext_resource type="Texture2D" uid="uid://2ms63dn18p25" path="res://Art/Sprites/Enemies/enemy jester.png" id="2_i1ww0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gj7m4"]
+atlas = ExtResource("2_i1ww0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60btc"]
+atlas = ExtResource("2_i1ww0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wi87"]
+atlas = ExtResource("2_i1ww0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4lfc"]
+atlas = ExtResource("2_i1ww0")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ook4u"]
+atlas = ExtResource("2_i1ww0")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d2mm6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gj7m4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60btc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wi87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4lfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ook4u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Enemy" instance=ExtResource("1_g6x15")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_d2mm6")
+frame = 0
+frame_progress = 0.0
+
+[node name="Hurtbox" parent="." index="3"]
+health = 11
+
+[node name="Shadow" parent="." index="4"]
+position = Vector2(0, 6)
+color = Color(0.223529, 0.223529, 0.223529, 1)

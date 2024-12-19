@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://cny6w1v78x6mx"]
+
+[ext_resource type="Script" path="res://Scripts/circle.gd" id="1_1pqmg"]
+[ext_resource type="Theme" uid="uid://d20y8va2yhr08" path="res://Art/Themes/ui text large.tres" id="2_ixi0y"]
+[ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="2_ow5fi"]
+
+[node name="UnlockAlert" type="Control"]
+use_parent_material = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Circle" type="Control" parent="."]
+use_parent_material = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_1pqmg")
+circle_radius = 94
+outline_thickness = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+use_parent_material = true
+layout_mode = 0
+offset_left = -137.0
+offset_top = -72.0
+offset_right = 137.0
+offset_bottom = 53.0
+theme = ExtResource("2_ixi0y")
+bbcode_enabled = true
+text = "[center]CHARACTER UNLOCKED"
+
+[node name="JuicyMovement2" parent="." node_paths=PackedStringArray("target_control") instance=ExtResource("2_ow5fi")]
+target_control = NodePath("..")
+rot_frequency = 2.5
+rot_amplitude = 10.0
+grow_in = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(0, 33)
+scale = Vector2(3, 3)

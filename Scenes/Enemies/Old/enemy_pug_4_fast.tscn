@@ -1,0 +1,85 @@
+[gd_scene load_steps=12 format=3 uid="uid://c6kv2a674i11p"]
+
+[ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/Old/enemy_pug_3.tscn" id="1_eamlo"]
+[ext_resource type="Texture2D" uid="uid://dw6k68nycim3i" path="res://Art/Sprites/Enemies/enemy small ghost.png" id="2_ayyb6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xoac2"]
+atlas = ExtResource("2_ayyb6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_buc0t"]
+atlas = ExtResource("2_ayyb6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mijuc"]
+atlas = ExtResource("2_ayyb6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hcai"]
+atlas = ExtResource("2_ayyb6")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kd5ps"]
+atlas = ExtResource("2_ayyb6")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nyw46"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xoac2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_buc0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mijuc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hcai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kd5ps")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0fr77"]
+size = Vector2(14, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yewdn"]
+size = Vector2(16, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_elujq"]
+size = Vector2(18, 14)
+
+[node name="Enemy" instance=ExtResource("1_eamlo")]
+collision_mask = 257
+speed = 40.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(0, -2)
+sprite_frames = SubResource("SpriteFrames_nyw46")
+frame = 0
+frame_progress = 0.0
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_0fr77")
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_yewdn")
+
+[node name="Hurtbox" parent="." index="3"]
+health = 4
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_elujq")
+
+[node name="Shadow" parent="." index="4"]
+position = Vector2(0, 5)
+color = Color(0.223529, 0.223529, 0.223529, 1)

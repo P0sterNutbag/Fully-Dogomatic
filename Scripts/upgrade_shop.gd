@@ -5,7 +5,7 @@ extends Control
 @export var can_quit: bool = true
 var upgrades: Array
 var not_enough_money = preload("res://Scenes/UI/not_enough_money.tscn")
-var reroll_price: int
+var reroll_price: float
 var tooltip_string: String
 var picks: int = 0
 @onready var tooltip = $Tooltip
@@ -22,8 +22,11 @@ func _ready():
 	set_focus_neighbors()
 	$Money.text = "Money: $" + str(Globals.player.money)
 	if total_picks > 2:
-		reroll_price = clamp((3 / (Globals.price_multiplier) * (1 - Globals.player.shop_discount)), 1, 1000)
-		$Reroll/RichTextLabel.text = "[center]REROLL \n $" + str(reroll_price)
+		if Globals.player.ability == Globals.player.abilities.free_reroll:
+			reroll_price = 0
+		else:
+			reroll_price = clamp(((Globals.price_multiplier) * (1 - Globals.player.shop_discount)), 1, 1000)
+		$Reroll/RichTextLabel.text = "[center]REROLL \n $" + str(round(reroll_price))
 	await get_tree().create_timer(0.5).timeout
 	for inst in get_tree().get_nodes_in_group("particles"):
 		inst.queue_free()
@@ -103,11 +106,15 @@ func _on_exit_button_pressed() -> void:
 
 
 func _on_reroll_pressed() -> void:
-	if Globals.player.money >= reroll_price:
+	if Globals.player.money >= round(reroll_price):
 		upgrades.clear()
 		assign_upgrades_options() 
 		Globals.player.spend_money(reroll_price)
 		$Money.text = "Money: $" + str(Globals.player.money)
+		reroll_price *= 1.2
+		if reroll_price == 0:
+			reroll_price = clamp(((Globals.price_multiplier) * (1 - Globals.player.shop_discount)), 1, 1000)
+		$Reroll/RichTextLabel.text = "[center]REROLL \n $" + str(round(reroll_price))
 	else:
 		var inst = Globals.create_instance(not_enough_money, $Reroll.global_position + Vector2(26.25, 0), self)
 		var tween = create_tween()

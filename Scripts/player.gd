@@ -1,30 +1,31 @@
 extends CharacterBody2D
 
-enum states {walk, bounce, dead}
+enum states {walk, bounce, dead, nap}
+enum abilities {none, sprint, nap, free_reroll, sprint_on_hurt}
 var state = states.walk
-var speed = 75.0
-signal player_died
-signal money_pickup
 
-var hp = 100
-var max_hp = hp
-var in_enemy = false
-var enemies = []
-var point_at_crate = false
-var crate_position: Vector2
+@export var ability: abilities
 @export var money: float = 0
+var base_speed = 75.0
+var sprint_speed = 100.0
+var speed = base_speed
+var max_hp = 100
 var money_cap: float = 4
-var money_increase_rate = 1.4
 var guns: Array[Node2D]
 var dogtags: Array[Control]
 var gun_slots: int = 10
 var level: int = 1
 var time: float = 0
-var target_zoom = 1
 var gun_rotation: float = 0
 var money_drop_rate = 0.35
 var shop_discount = 0
 var explode_chance: float = 0
+var time_to_sprint: float = 2
+var sprint_timer: float = 0
+var hp = 100:
+	set(value):
+		hp = value
+		Globals.ui.get_node("LeftCorner/HPBar/HealthBar").value = hp
 var gun_cap = 10:
 	set(value):
 		gun_cap = value
@@ -40,6 +41,8 @@ var mine_time: float = 5:
 		$MineTimer.start()
 var mine = preload("res://Scenes/Bullets/mine.tscn")
 @onready var sprite = $PlayerSprite
+signal player_died
+signal money_pickup
 
 
 func _ready():
@@ -54,11 +57,11 @@ func _enter_tree() -> void:
 
 
 func _physics_process(delta):
+	var direction_x = Input.get_axis("left", "right")
+	var direction_y = Input.get_axis("up", "down")
 	match state:
 		states.walk:
 			# keyboard movement
-			var direction_x = Input.get_axis("left", "right")
-			var direction_y = Input.get_axis("up", "down")
 			if direction_x:
 				velocity.x = direction_x
 			else:
@@ -75,13 +78,33 @@ func _physics_process(delta):
 					var move_vector = (get_global_mouse_position() - global_position).normalized()
 					velocity = move_vector * speed
 			
+			# abilities
+			if ability == abilities.sprint:
+				if get_last_motion().normalized() == velocity.normalized():
+					sprint_timer += delta
+				else:
+					sprint_timer = 0
+				if sprint_timer >= time_to_sprint:
+					speed = sprint_speed
+					sprite.speed_scale = 1.25
+				else:
+					speed = base_speed
+					sprite.speed_scale = 1
+				print(sprint_timer)
+			
 			move_and_slide()
-		
+			
 		states.bounce:
 			velocity = lerp(velocity, Vector2.ZERO, 10 * delta)
 			if abs(velocity) < Vector2.ONE*10:
 				state = states.walk
 			move_and_slide()
+		
+		states.nap:
+			if direction_x or direction_y:
+				for gun in guns:
+					gun.process_mode = Node.PROCESS_MODE_ALWAYS
+				state = states.walk
 	
 	# stay in bounds
 	global_position.x = clamp(global_position.x, Globals.world_controller.barrier_left.global_position.x + 8, Globals.world_controller.barrier_right.global_position.x- 8)
@@ -117,6 +140,14 @@ func _process(delta):
 			if Input.is_action_just_pressed("bark"):
 				Globals.audio_manager.bark.pitch_scale = randf_range(0.95,1.05)
 				Globals.audio_manager.bark.play()
+			
+			# abilities
+			if ability == abilities.nap:
+				if velocity == Vector2.ZERO:
+					if $NapTimer.is_stopped():
+						$NapTimer.start()
+				elif !$NapTimer.is_stopped():
+					$NapTimer.stop()
 		
 		states.dead:
 			sprite.play("dead")
@@ -126,13 +157,16 @@ func _process(delta):
 		states.bounce:
 			sprite.play("bounce")
 			sprite.rotate(20 * delta)
+		
+		states.nap:
+			sprite.play("nap")
+			hp += delta
 
 
 func take_damage(dmg):
 	if state == states.dead:
 		return
 	hp -= dmg
-	Globals.ui.get_node("LeftCorner/HPBar/HealthBar").value = hp
 	Globals.world_controller.reset_score()
 	if hp <= 0:
 		state = states.dead
@@ -140,11 +174,14 @@ func take_damage(dmg):
 		Globals.world_controller.level_controller.get_node("EnemySpawnTimer").stop()
 	elif $FlashTimer.time_left <= 0:
 		$FlashTimer.start()
+	if ability == abilities.sprint_on_hurt:
+		speed = sprint_speed
+		await get_tree().create_timer(2)
+		speed = base_speed
 
 
 func increase_health(hp2):
 	hp = clamp(hp + hp2, 0, max_hp)
-	Globals.ui.get_node("LeftCorner/HPBar/HealthBar").value = hp
 
 
 func get_money(amount: int):
@@ -187,13 +224,6 @@ func _on_drop_crate_timeout():
 	$CrateSpawner.spawn_crate()
 
 
-func zoom_out_camera():
-	target_zoom = 0.75
-	await get_tree().create_timer(3).timeout
-	target_zoom = 1
-
-
-
 func _on_flash_timer_timeout():
 	$PlayerSprite.use_parent_material = !$PlayerSprite.use_parent_material
 
@@ -211,3 +241,9 @@ func _on_mine_timer_timeout() -> void:
 
 func _exit_tree() -> void:
 	Globals.player = null
+
+
+func _on_nap_timer_timeout() -> void:
+	state = states.nap
+	for gun in guns:
+		gun.process_mode = Node.PROCESS_MODE_DISABLED

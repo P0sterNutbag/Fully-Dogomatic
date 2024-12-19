@@ -7,13 +7,12 @@ var state = states.spawn
 @export var speed = 10.0
 @export var damage = 0.05
 @export var turn_speed = 5.0
+@export var money_amount = 1
 var player: CharacterBody2D #= preload("res://player.gd")
 var target: Node2D
 var dollar = preload("res://Scenes/Player/dollar.tscn")
 var blood = preload("res://Scenes/Particles/blood.tscn")
 var dogpart = preload("res://Scenes/Particles/dogpart.tscn")
-var money_min = 1
-var money_max = 1
 var fall_y = -200
 var fall_x = 0
 var time = 0
@@ -75,8 +74,11 @@ func on_damage():
 
 
 func on_death(bullet_direction: float = 0):
-	if randf_range(0, 1) <= Globals.player.money_drop_rate:
-		for i in randi_range(money_min, money_max):
+	#if randf_range(0, 1) <= Globals.player.money_drop_rate:
+	Globals.level_manager.current_kills += 1
+	if Globals.level_manager.current_kills >= Globals.level_manager.kills_to_money:
+		Globals.level_manager.reset_kills()
+		for i in money_amount:
 			var d = Globals.create_instance(dollar, global_position)
 			d.direction = bullet_direction + deg_to_rad(randf_range(-25, 25))
 	Globals.create_instance(blood, $Shadow.global_position)

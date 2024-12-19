@@ -11,6 +11,7 @@ var round = 0
 var hp_round = 3
 var boss_round = 1
 var pipe_round = 4
+var current_kills: int = 0
 var enemy_to_spawn = preload("res://Scenes/Enemies/enemy_incramental1.tscn")
 var boss = preload("res://Scenes/Enemies/boss_1.tscn")
 var shop = preload("res://Scenes/Levels/Level Objects/shop.tscn")
@@ -22,9 +23,13 @@ var crates = [crate_big, crate_small]
 @onready var enemy_spawn_timer = $EnemySpawnTimer
 @onready var round_timer = $RoundTimer
 @onready var enemy_formation_timer = $EnemyFormationTimer
+var kills_to_money: int: 
+	get:
+		return round(60.0 / enemy_spawn_timer.wait_time / 35.0)
 
 
 func _ready() -> void:
+	Globals.level_manager = self
 	for i in 3:
 		var spawn_scene = level_objects[Globals.get_weighted_index(level_objects)].object_to_spawn
 		var inst = create_level_object(spawn_scene, get_random_position())
@@ -120,6 +125,11 @@ func get_random_position() -> Vector2:
 		#$ShapeCast2D.force_shapecast_update()
 	#$ShapeCast2D.enabled = false
 	return pos
+
+
+func reset_kills() -> void:
+	current_kills = 0
+	kills_to_money += randi_range(-1, 1)
 
 
 func _on_boss_timer_timeout() -> void:

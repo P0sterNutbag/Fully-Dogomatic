@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://cfxqc54ty8dok"]
+[gd_scene load_steps=48 format=4 uid="uid://cfxqc54ty8dok"]
 
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="1_8u5jw"]
 [ext_resource type="Script" path="res://Scripts/world_controller.gd" id="2_ixd5p"]
@@ -15,12 +15,13 @@
 [ext_resource type="Script" path="res://Scripts/level_controller.gd" id="12_snnnd"]
 [ext_resource type="Script" path="res://Scripts/spawn_formation.gd" id="13_twil5"]
 [ext_resource type="Script" path="res://Scripts/spawn_chance.gd" id="14_onvsd"]
-[ext_resource type="PackedScene" uid="uid://bjgx5dmk4tqf6" path="res://Scenes/Enemies/enemy_incramental3.tscn" id="16_rtonf"]
-[ext_resource type="PackedScene" uid="uid://d3mlxujbq58rp" path="res://Scenes/Enemies/enemy_incramental_small3.tscn" id="17_ujvtm"]
-[ext_resource type="PackedScene" uid="uid://ne0aj0e2htle" path="res://Scenes/Enemies/enemy_1_bomber_fast.tscn" id="18_2e158"]
-[ext_resource type="PackedScene" uid="uid://dx221y1e6lqo1" path="res://Scenes/Enemies/enemy_incramental_large3.tscn" id="18_joaxe"]
+[ext_resource type="PackedScene" uid="uid://bjgx5dmk4tqf6" path="res://Scenes/Enemies/Old/enemy_incramental3.tscn" id="16_rtonf"]
+[ext_resource type="PackedScene" uid="uid://d3mlxujbq58rp" path="res://Scenes/Enemies/Old/enemy_incramental_small3.tscn" id="17_ujvtm"]
+[ext_resource type="PackedScene" uid="uid://ne0aj0e2htle" path="res://Scenes/Enemies/Old/enemy_1_bomber_fast.tscn" id="18_2e158"]
+[ext_resource type="PackedScene" uid="uid://dx221y1e6lqo1" path="res://Scenes/Enemies/Old/enemy_incramental_large3.tscn" id="18_joaxe"]
 [ext_resource type="PackedScene" uid="uid://dlegh13dsd7in" path="res://Scenes/Levels/Level Objects/tombstone.tscn" id="20_w76a0"]
 [ext_resource type="PackedScene" uid="uid://cucvwafvhh0wr" path="res://Scenes/Levels/Level Objects/cross.tscn" id="21_50cbt"]
+[ext_resource type="PackedScene" uid="uid://dx18mgom3chcm" path="res://Scenes/Control/pause_controller.tscn" id="22_0ll1r"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_uulbl"]
 tile_data = PackedInt32Array(0, 65536, 0, 65536, 0, 0, 1, 0, 0, 65537, 65536, 0)
@@ -321,6 +322,8 @@ autostart = true
 [node name="BossTimer" type="Timer" parent="LevelController"]
 wait_time = 600.0
 autostart = true
+
+[node name="PauseController" parent="." instance=ExtResource("22_0ll1r")]
 
 [connection signal="timeout" from="LevelController/EnemySpawnTimer" to="LevelController" method="_on_enemy_spawn_timer_timeout"]
 [connection signal="timeout" from="LevelController/RoundTimer" to="LevelController" method="_on_round_timer_timeout"]

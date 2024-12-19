@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c37vi5itujbsu"]
+[gd_scene load_steps=11 format=3 uid="uid://c37vi5itujbsu"]
 
 [ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="3_48k3r"]
 [ext_resource type="Script" path="res://Scenes/UI/Character Cusomization/character_option.gd" id="4_a02u5"]
@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="6_wcssq"]
 [ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="7_nauhl"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="8_1ck4b"]
+[ext_resource type="Theme" uid="uid://lra3teo37km0" path="res://Art/Themes/ui text mini.tres" id="8_jq8h3"]
 [ext_resource type="Texture2D" uid="uid://chhc6bjga1571" path="res://Art/Sprites/player idle.png" id="9_yyfrr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ap13o"]
@@ -76,3 +77,13 @@ scale = Vector2(2, 2)
 texture = ExtResource("9_yyfrr")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScaleOffset"]
+use_parent_material = true
+layout_mode = 0
+offset_left = -3.0
+offset_top = 74.0
+offset_right = 99.0
+offset_bottom = 114.0
+theme = ExtResource("8_jq8h3")
+bbcode_enabled = true

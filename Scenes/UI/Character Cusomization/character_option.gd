@@ -3,7 +3,9 @@ extends UiButton
 @onready var circle = $ScaleOffset/Circle
 @onready var scale_offset = $ScaleOffset
 @onready var juice = $ScaleOffset/JuicyMovement
+@onready var description_text = $ScaleOffset/RichTextLabel
 @export var character_name: String
+@export var description: String
 @export var sprite: Texture
 @export var unlocked: bool:
 	set(value):
@@ -39,6 +41,8 @@ func on_focus_entered():
 	scale_up()
 	circle.queue_redraw()
 	juice.process_mode = Node.PROCESS_MODE_PAUSABLE
+	if unlocked:
+		description_text.text = "[center]" + description
 	z_index += 1
 
 
@@ -49,6 +53,7 @@ func on_focus_exited():
 	juice.process_mode = Node.PROCESS_MODE_DISABLED
 	scale_offset.position = Vector2.ZERO
 	scale_offset.rotation_degrees = 0
+	description_text.text = ""
 	z_index -= 1
 
 

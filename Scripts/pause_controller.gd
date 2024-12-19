@@ -11,7 +11,7 @@ func _ready():
 
 func _process(_delta):
 	if Input.is_action_just_pressed("pause"):
-		if get_tree().paused or get_tree().current_scene.name == "Intro":
+		if get_tree().paused or get_tree().current_scene.name == "Intro" or !get_tree().current_scene.name.contains("world"):
 			return
 		pause_game()
 

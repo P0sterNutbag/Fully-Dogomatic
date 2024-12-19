@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://d17fv3bwv4jae"]
+
+[ext_resource type="Script" path="res://Scripts/missile.gd" id="1_8vl1x"]
+[ext_resource type="Texture2D" uid="uid://b2dbw5oc0di24" path="res://Art/Sprites/missile.png" id="2_vdpyd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1144y"]
+size = Vector2(0, 0)
+
+[node name="Missile" type="CharacterBody2D" groups=["enemy"]]
+use_parent_material = true
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_8vl1x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1144y")
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
+use_parent_material = true
+texture = ExtResource("2_vdpyd")

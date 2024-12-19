@@ -85,9 +85,9 @@ animations = [{
 }]
 
 [node name="Player" instance=ExtResource("1_itfkv")]
+ability = 1
 
-[node name="PlayerSprite" parent="." index="4"]
+[node name="PlayerSprite" parent="." index="2"]
 material = SubResource("ShaderMaterial_w8lw2")
 sprite_frames = SubResource("SpriteFrames_mna2n")
-frame = 0
-frame_progress = 0.741673
+animation = &"idle"
