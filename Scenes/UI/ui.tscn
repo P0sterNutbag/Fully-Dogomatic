@@ -372,6 +372,7 @@ theme = ExtResource("5_7e6pl")
 text = "LOADOUT"
 
 [node name="Label" type="RichTextLabel" parent="."]
+visible = false
 material = ExtResource("15_inkxv")
 use_parent_material = true
 clip_contents = false

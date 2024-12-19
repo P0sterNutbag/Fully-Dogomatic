@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://b86sgq5tkneng"]
 
 [ext_resource type="Script" path="res://Scripts/boss_car.gd" id="1_066m0"]
-[ext_resource type="Texture2D" uid="uid://b2hlyxu6bbbfh" path="res://Art/Sprites/Enemies/boss car.png" id="2_osqmp"]
+[ext_resource type="Texture2D" uid="uid://b2hlyxu6bbbfh" path="res://Art/Sprites/boss car.png" id="2_osqmp"]
 [ext_resource type="Script" path="res://Scripts/enemy_health.gd" id="3_q8kap"]
 [ext_resource type="PackedScene" uid="uid://bb6l6e5xtb17k" path="res://Scenes/Particles/shadow.tscn" id="4_we6vn"]
 [ext_resource type="PackedScene" uid="uid://84xxip1wf4vx" path="res://Scenes/UI/minimap_icon.tscn" id="5_qeuep"]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=30 format=3 uid="uid://c3rxttn3aoj36"]
 
 [ext_resource type="Script" path="res://Scripts/boss.gd" id="2_0gyhi"]
-[ext_resource type="Texture2D" uid="uid://bsxyy8aut6o6w" path="res://Art/Sprites/Enemies/boss tentacle blob.png" id="3_fmv0x"]
+[ext_resource type="Texture2D" uid="uid://bsxyy8aut6o6w" path="res://Art/Sprites/boss tentacle blob.png" id="3_fmv0x"]
 [ext_resource type="Texture2D" uid="uid://5tfn2k4jut0o" path="res://Art/Sprites/boss icon.png" id="4_3imy2"]
-[ext_resource type="Texture2D" uid="uid://cclp2n7kwa770" path="res://Art/Sprites/Enemies/boss tentacle1.png" id="4_ypcdb"]
+[ext_resource type="Texture2D" uid="uid://cclp2n7kwa770" path="res://Art/Sprites/boss tentacle1.png" id="4_ypcdb"]
 [ext_resource type="Script" path="res://Scripts/enemy_health.gd" id="5_r1v5i"]
 [ext_resource type="PackedScene" uid="uid://pkl1jd6tt0bd" path="res://Scenes/UI/arrow.tscn" id="5_yc4or"]
 [ext_resource type="PackedScene" uid="uid://bb6l6e5xtb17k" path="res://Scenes/Particles/shadow.tscn" id="6_hg182"]

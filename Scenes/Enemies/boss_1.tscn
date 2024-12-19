@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://bh6juqooq77vm"]
 
 [ext_resource type="Script" path="res://Scripts/boss_rusher.gd" id="1_jli4x"]
-[ext_resource type="Texture2D" uid="uid://cswkrb5hu48r8" path="res://Art/Sprites/Enemies/boss sergeant.png" id="2_fc1es"]
+[ext_resource type="Texture2D" uid="uid://cswkrb5hu48r8" path="res://Art/Sprites/boss sergeant.png" id="2_fc1es"]
 [ext_resource type="Script" path="res://Scripts/enemy_health.gd" id="3_frah2"]
 [ext_resource type="PackedScene" uid="uid://bb6l6e5xtb17k" path="res://Scenes/Particles/shadow.tscn" id="4_4st6s"]
 [ext_resource type="PackedScene" uid="uid://84xxip1wf4vx" path="res://Scenes/UI/minimap_icon.tscn" id="5_3icve"]

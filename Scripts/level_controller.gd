@@ -12,7 +12,7 @@ var hp_round = 3
 var boss_round = 1
 var pipe_round = 4
 var current_kills: int = 0
-var enemy_to_spawn = preload("res://Scenes/Enemies/enemy_incramental1.tscn")
+var enemy_to_spawn = preload("res://Scenes/Enemies/enemy.tscn")
 var boss = preload("res://Scenes/Enemies/boss_1.tscn")
 var shop = preload("res://Scenes/Levels/Level Objects/shop.tscn")
 var hp_pickup = preload("res://Scenes/Levels/Level Objects/health_pickup.tscn")
@@ -25,7 +25,7 @@ var crates = [crate_big, crate_small]
 @onready var enemy_formation_timer = $EnemyFormationTimer
 var kills_to_money: int: 
 	get:
-		return round(60.0 / enemy_spawn_timer.wait_time / 35.0)
+		return round(60.0 / enemy_spawn_timer.wait_time / 25.0)
 
 
 func _ready() -> void:

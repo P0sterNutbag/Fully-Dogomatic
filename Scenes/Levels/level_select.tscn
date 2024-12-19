@@ -7,7 +7,7 @@
 [ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="5_2a2n4"]
 [ext_resource type="Script" path="res://Scripts/level_button.gd" id="5_xfq4p"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="6_8mjpj"]
-[ext_resource type="Texture2D" uid="uid://cgevu5rjiaynw" path="res://Art/Sprites/Enemies/pug run.png" id="6_8uspd"]
+[ext_resource type="Texture2D" uid="uid://cgevu5rjiaynw" path="res://Art/Sprites/pug run.png" id="6_8uspd"]
 [ext_resource type="Texture2D" uid="uid://chhc6bjga1571" path="res://Art/Sprites/player idle.png" id="7_bwb38"]
 [ext_resource type="Theme" uid="uid://d20y8va2yhr08" path="res://Art/Themes/ui text large.tres" id="8_bd041"]
 [ext_resource type="Script" path="res://Scripts/float_in.gd" id="9_f1ipw"]

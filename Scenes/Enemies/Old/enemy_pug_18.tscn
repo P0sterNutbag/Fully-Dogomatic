@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckikuqp8b1u35"]
-
-[ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/Old/enemy_pug_3.tscn" id="1_6xoo7"]
-
-[node name="Enemy" instance=ExtResource("1_6xoo7")]
-
-[node name="Hurtbox" parent="." index="3"]
-health = 18

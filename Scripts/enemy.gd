@@ -12,7 +12,6 @@ var player: CharacterBody2D #= preload("res://player.gd")
 var target: Node2D
 var dollar = preload("res://Scenes/Player/dollar.tscn")
 var blood = preload("res://Scenes/Particles/blood.tscn")
-var dogpart = preload("res://Scenes/Particles/dogpart.tscn")
 var fall_y = -200
 var fall_x = 0
 var time = 0

@@ -24,3 +24,12 @@ res://Scenes/Enemies/Old/enemy_incramental_small_car.tscn
 res://Scenes/Control/pause_controller.tscn
 res://Scripts/pause_controller.gd
 res://Scenes/Enemies/enemy_incramental_large1.tscn
+res://Scenes/Enemies/enemy_bomber.tscn
+res://Scenes/Enemies/enemy.tscn
+res://Scenes/Enemies/enemy_large.tscn
+res://Scenes/Enemies/enemy_small.tscn
+res://Scenes/Particles/explosion.tscn
+res://Scenes/Bullets/laser.tscn
+res://Scenes/Enemies/enemy_parent.tscn
+res://Scenes/Levels/world.tscn
+res://Scenes/UI/ui.tscn
