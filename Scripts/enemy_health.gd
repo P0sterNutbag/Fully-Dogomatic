@@ -18,9 +18,13 @@ var parent
 
 
 func _ready():
-	max_health = health
 	sprite_origin = sprite.position
 	parent = get_parent()
+
+
+func _enter_tree() -> void:
+	max_health = health
+	dead = false
 
 
 func _process(delta: float) -> void:
@@ -58,7 +62,9 @@ func take_damage(dmg: float, bullet_direction: float):
 		#if death_explosion != null:
 			#var d = Globals.create_instance(death_explosion, global_position)
 			#d.set_deferred("scale", Vector2.ONE * explosion_scale)
-		Globals.create_instance(death_explosion, global_position)
+		var inst = Globals.explosion_pool.spawn_explosion(death_explosion)
+		inst.global_position = global_position
+		get_tree().current_scene.add_child(inst)
 		Globals.audio_manager.explosion.play()
 		if parent is Enemy:
 			parent.on_death(bullet_direction)

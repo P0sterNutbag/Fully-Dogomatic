@@ -4,6 +4,10 @@ extends Area2D
 var damage_number = preload("res://Scenes/Particles/damage_number.tscn")
 
 
+func _enter_tree() -> void:
+	$AnimatedSprite2D.play("default")
+
+
 func _on_area_entered(area):
 	if area.is_in_group("enemy"):
 		area.take_damage(damage, 0)
@@ -14,4 +18,4 @@ func _on_area_entered(area):
 
 
 func _on_animated_sprite_2d_animation_finished():
-	queue_free()
+	get_parent().call_deferred("remove_child", self)

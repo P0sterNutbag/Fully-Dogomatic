@@ -43,3 +43,13 @@ res://Scripts/tennis_ball.gd
 res://Scenes/Bullets/rocket.tscn
 res://Scenes/Bullets/rubber_bullet.tscn
 res://Scenes/Bullets/sawblade.tscn
+res://Scripts/minimap_icon.gd
+res://Scripts/explosion_pool.gd
+res://Scenes/Bullets/bullet_explosion.tscn
+res://Scripts/explosion.gd
+res://Scenes/Bullets/bullet_explosion_big.tscn
+res://Scripts/enemy_explosion.gd
+res://Scenes/Bullets/bullet_grenade.tscn
+res://Scripts/grenade.gd
+res://Scenes/Particles/explosion.tscn
+res://Scenes/Levels/Level Objects/shop.tscn

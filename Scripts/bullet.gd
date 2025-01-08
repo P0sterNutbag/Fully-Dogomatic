@@ -80,19 +80,19 @@ func _on_area_entered(area):
 			area.get_parent().take_damage(damage)
 		else:
 			area.take_damage(damage, rotation)
-		var inst = impact.instantiate()
-		get_tree().current_scene.add_child(inst)
-		inst.global_position = area.global_position
-		inst.rotation = rotation
-		var instance = damage_number.instantiate()
-		get_tree().current_scene.add_child(instance)
-		instance.global_position = area.global_position + Vector2.UP * 8
-		instance.get_node("Text").text += str(damage)
-		for i in randi_range(3, 4):
-			var spark_inst = spark.instantiate()
-			get_tree().current_scene.add_child(spark_inst)
-			spark_inst.global_position = area.global_position
-			spark_inst.set_speed(-rotation_degrees)
+		#var inst = impact.instantiate()
+		#get_tree().current_scene.add_child(inst)
+		#inst.global_position = area.global_position
+		#inst.rotation = rotation
+		#var instance = damage_number.instantiate()
+		#get_tree().current_scene.add_child(instance)
+		#instance.global_position = area.global_position + Vector2.UP * 8
+		#instance.get_node("Text").text += str(damage)
+		#for i in randi_range(3, 4):
+			#var spark_inst = spark.instantiate()
+			#get_tree().current_scene.add_child(spark_inst)
+			#spark_inst.global_position = area.global_position
+			#spark_inst.set_speed(-rotation_degrees)
 		if ricochet:
 			if abs(move_vector.x) > abs(move_vector.y):
 				move_vector.x *= -1
@@ -116,7 +116,10 @@ func _on_area_entered(area):
 
 
 func create_explosion(spawn_position: Vector2):
-	Globals.create_instance(explosion, spawn_position)
+	var inst = Globals.explosion_pool.spawn_explosion(explosion)
+	inst.global_position = spawn_position
+	get_tree().current_scene.add_child(inst)
+	#Globals.create_instance(explosion, spawn_position)
 
 
 func get_nearest_enemy():

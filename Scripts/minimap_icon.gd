@@ -19,7 +19,4 @@ func add_to_minimap():
 		follow_obj = null
 	icon = minimap.add_to_map(sprite, global_position, follow_obj)
 	icon.z_index = depth
-
-
-func _exit_tree():
-	icon.queue_free()
+	tree_exited.connect(icon.queue_free)

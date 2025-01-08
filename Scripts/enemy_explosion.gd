@@ -5,7 +5,7 @@ var has_damaged_player = false
 
 
 func _on_animation_finished():
-	queue_free()
+	get_parent().call_deferred("remove_child", self)
 
 
 func _on_area_2d_area_entered(area):

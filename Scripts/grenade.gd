@@ -62,7 +62,7 @@ func _process(delta: float) -> void:
 
 func _on_timer_timeout():
 	Globals.audio_manager.explosion.play()
-	var instance = explosion.instantiate()
+	var instance = Globals.explosion_pool.spawn_explosion(explosion)
 	get_tree().current_scene.add_child(instance)
 	instance.global_position = global_position
 	queue_free()

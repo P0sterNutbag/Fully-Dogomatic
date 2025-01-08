@@ -6,7 +6,7 @@ extends Node
 @export var enemy_health = 2.0
 @export var enemy_health_incrament = 1.15
 @export var spawn_time_incrament = 0.75
-var formation_index = 5
+var formation_index = 0
 var enemies: Array[Enemy]
 var round = 0
 var hp_round = 3

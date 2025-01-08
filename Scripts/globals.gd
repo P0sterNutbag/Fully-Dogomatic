@@ -20,6 +20,7 @@ var globals
 var gun_amount
 var bullet_pool
 var enemy_pool
+var explosion_pool
 var current_level: String
 var price_multiplier: float:
 	get: 

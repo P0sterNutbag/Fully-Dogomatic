@@ -1,5 +1,9 @@
 extends AnimatedSprite2D
 
 
+func _enter_tree() -> void:
+	play("default")
+
+
 func _on_animation_finished():
-	queue_free()
+	get_parent().call_deferred("remove_child", self)
