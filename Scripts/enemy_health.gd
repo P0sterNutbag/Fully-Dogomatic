@@ -68,6 +68,7 @@ func take_damage(dmg: float, bullet_direction: float):
 		Globals.audio_manager.explosion.play()
 		if parent is Enemy:
 			parent.on_death(bullet_direction)
+			parent.queue_free()
 		else:
 			get_parent().queue_free()
 		#Globals.world_controller.increase_score()

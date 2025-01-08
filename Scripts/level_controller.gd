@@ -55,12 +55,14 @@ func _on_enemy_spawn_timer_timeout() -> void:
 
 
 func spawn_enemy(new_enemy: PackedScene = null) -> Node2D:
+	#if enemies.size() >= 400:
+		#return
 	var enemy_to_spawn
-	if !new_enemy:
-		var index = Globals.get_weighted_index(spawn_formations[formation_index].enemies)
-		enemy_to_spawn = Globals.enemy_pool.spawn_enemy(spawn_formations[formation_index].enemies[index].object_to_spawn)
-	else: 
-		enemy_to_spawn = new_enemy.instantiate()
+	#if !new_enemy:
+	var index = Globals.get_weighted_index(spawn_formations[formation_index].enemies)
+	enemy_to_spawn = spawn_formations[formation_index].enemies[index].object_to_spawn.instantiate()
+	#else: 
+		#enemy_to_spawn = new_enemy.instantiate()
 	var spawn_pos: Vector2
 	var barrier_left = Globals.world_controller.get_node("BarrierLeft").global_position - Vector2(25, 25)
 	var barrier_right = Globals.world_controller.get_node("BarrierRight").global_position + Vector2(25, 25)
