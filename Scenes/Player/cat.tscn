@@ -114,7 +114,6 @@ animation = &"nap"
 frame_progress = 0.925857
 
 [node name="NapTimer" type="Timer" parent="." index="12"]
-wait_time = 2.0
 one_shot = true
 
 [connection signal="timeout" from="NapTimer" to="." method="_on_nap_timer_timeout"]

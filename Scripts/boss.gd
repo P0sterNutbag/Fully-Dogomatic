@@ -20,8 +20,11 @@ func _physics_process(delta):
 		states.rush:
 			rush(delta)
 
+
 func attack(delta) -> void:
-	pass
+	var dir = (Globals.player.global_position - global_position).normalized()
+	velocity = lerp(velocity, dir * speed, turn_speed * delta)
+	move_and_slide()
 
 
 func rush(delta) -> void:

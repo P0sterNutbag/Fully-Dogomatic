@@ -4,7 +4,6 @@ class_name HealthComponent
 @export var health = 3
 @export var rotate_on_hit: bool = true
 @export var shake_on_hit: bool
-@export var death_explosion: PackedScene = preload("res://Scenes/Particles/death_explosion.tscn")
 @export var explosion_scale: float = 1
 @export var sprite: Node2D
 @export var healthbar: ProgressBar
@@ -14,11 +13,15 @@ var flash_material = preload("res://Art/Shaders/flash.tres")
 var dead: bool = false
 var max_health
 var bullet_dir
+var death_explosion
+var parent
 
 
 func _ready():
 	max_health = health
 	sprite_origin = sprite.position
+	parent = get_parent()
+	death_explosion = parent.get_node("DeathExplosion")
 
 
 func _process(delta: float) -> void:
@@ -31,7 +34,6 @@ func _process(delta: float) -> void:
 func take_damage(dmg: float, bullet_direction: float):
 	health -= dmg
 	bullet_dir = bullet_direction
-	var parent = get_parent()
 	if parent.has_method("on_damage"):
 		parent.on_damage()
 	sprite_flash()
@@ -48,20 +50,28 @@ func take_damage(dmg: float, bullet_direction: float):
 		healthbar.value = health / max_health
 	if health <= 0 and not dead:
 		dead = true
-		if death_explosion != null:
-			var d = Globals.create_instance(death_explosion, global_position)
-			d.set_deferred("scale", Vector2.ONE * explosion_scale)
+		var pos = death_explosion.global_position
+		death_explosion.show()
+		death_explosion.play("default")
+		parent.remove_child(death_explosion)
+		get_tree().current_scene.add_child(death_explosion)
+		death_explosion.global_position = pos
+		#if death_explosion != null:
+			#var d = Globals.create_instance(death_explosion, global_position)
+			#d.set_deferred("scale", Vector2.ONE * explosion_scale)
 		if parent is Enemy:
 			parent.on_death(bullet_direction)
 		Globals.audio_manager.explosion.play()
 		#Globals.world_controller.increase_score()
 		#if !get_parent().name.contains("Boss"):
-		parent.call_deferred("queue_free")
+		#parent.call_deferred("queue_free")
 	else:
 		Globals.audio_manager.play_with_pitch(Globals.audio_manager.bullet_impact, 0.1)
 
 
 func sprite_flash() -> void:
+	if get_tree() == null:
+		return
 	sprite.use_parent_material = false
 	sprite.material = flash_material
 	await get_tree().create_timer(0.05).timeout

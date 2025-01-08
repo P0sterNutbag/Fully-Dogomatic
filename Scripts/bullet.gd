@@ -3,6 +3,7 @@ class_name Bullet
 
 @export var destroy_on_hit: bool = true
 @export var friction: float = 0
+@export var can_damage_player: bool
 var damage: float = 1
 var spread_modifier: float = 0
 var shot_count: float = 1
@@ -72,9 +73,12 @@ func _physics_process(delta):
 
 
 func _on_area_entered(area):
-	if area.is_in_group("enemy") and can_damage:
+	if (area.is_in_group("enemy") or can_damage_player) and can_damage:
 		#OS.delay_msec(10 / shot_count)
-		area.take_damage(damage, rotation)
+		if can_damage_player and area.get_parent() is Player:
+			area.get_parent().take_damage(damage)
+		else:
+			area.take_damage(damage, rotation)
 		var inst = impact.instantiate()
 		get_tree().current_scene.add_child(inst)
 		inst.global_position = area.global_position

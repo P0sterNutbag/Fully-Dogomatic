@@ -51,6 +51,7 @@ animations = [{
 script = ExtResource("2_qmi3d")
 health_multiplier = 5.0
 speed = 10.0
+queue_index = 2
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_2fs0s")

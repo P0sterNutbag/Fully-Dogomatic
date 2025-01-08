@@ -8,6 +8,7 @@ var state = states.spawn
 @export var damage = 0.05
 @export var turn_speed = 5.0
 @export var money_amount = 1
+@export var queue_index: int
 var player: CharacterBody2D #= preload("res://player.gd")
 var target: Node2D
 var dollar = preload("res://Scenes/Player/dollar.tscn")
@@ -35,7 +36,7 @@ func _ready():
 
 
 func _physics_process(delta):
-	if player == null:
+	if target == null:
 		return
 	match state:
 		states.spawn:
@@ -50,20 +51,11 @@ func _physics_process(delta):
 				z_index = 0
 			move_and_slide()
 		states.attack:
-			if target != null:
-				time += 1
-				if !game_over:
-					var dir = (target.global_position - global_position).normalized()
-					velocity = lerp(velocity, dir * speed, turn_speed * delta)
-				else:
-					velocity = Vector2(fall_x, fall_y)
-					fall_y += 10
-					if position.x > 900:
-						queue_free()
-				move_and_slide()
-			else:
-				if Globals.player != null:
-					target = Globals.player
+			time += delta
+			if fmod(time, 0.25) < delta:
+				var dir = (target.global_position - global_position).normalized()
+				velocity = dir * speed#lerp(velocity, dir * speed, turn_speed * delta)
+			move_and_slide()
 	if sprite.rotation_degrees != 0:
 		sprite.rotation_degrees = lerp(sprite.rotation_degrees, float(0), 5 * delta)
 
@@ -82,8 +74,10 @@ func on_death(bullet_direction: float = 0):
 			d.direction = bullet_direction + deg_to_rad(randf_range(-25, 25))
 	Globals.create_instance(blood, $Shadow.global_position)
 	Globals.world_controller.total_kills += 1
-	#Globals.enemy_spawn_controller.enemies.erase(self)
 	Globals.world_controller.level_controller.enemies.erase(self)
+	# remove from tree and enter queue
+	Globals.level_manager.enemy_queue[queue_index].append(self)
+	get_parent().remove_child.bind(self).call_deferred()
 
 
 func _process(_delta):

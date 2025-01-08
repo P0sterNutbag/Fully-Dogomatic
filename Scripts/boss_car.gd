@@ -4,7 +4,6 @@ var dir = Vector2.RIGHT
 
 
 func attack(delta) -> void:
-	super.attack(delta)
 	dir = (Globals.player.global_position - global_position).normalized()
 	global_position.y = Globals.player.global_position.y + 16
 

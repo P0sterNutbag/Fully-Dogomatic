@@ -25,11 +25,11 @@ func _ready():
 		if Globals.player.ability == Globals.player.abilities.free_reroll:
 			reroll_price = 0
 		else:
-			reroll_price = clamp(((Globals.price_multiplier) * (1 - Globals.player.shop_discount)), 1, 1000)
+			reroll_price = 1 #clamp(((Globals.price_multiplier) * (1 - Globals.player.shop_discount)), 1, 1000)
 		$Reroll/RichTextLabel.text = "[center]REROLL \n $" + str(round(reroll_price))
 	await get_tree().create_timer(0.5).timeout
 	for inst in get_tree().get_nodes_in_group("particles"):
-		inst.queue_free()
+		inst.visible = false
 
 
 func assign_upgrades_options():
@@ -51,6 +51,8 @@ func assign_upgrades_options():
 
 
 func _exit_tree():
+	for inst in get_tree().get_nodes_in_group("particles"):
+		inst.visible = false
 	get_tree().paused = false
 
 
@@ -111,7 +113,7 @@ func _on_reroll_pressed() -> void:
 		assign_upgrades_options() 
 		Globals.player.spend_money(reroll_price)
 		$Money.text = "Money: $" + str(Globals.player.money)
-		reroll_price *= 1.2
+		reroll_price += 1
 		if reroll_price == 0:
 			reroll_price = clamp(((Globals.price_multiplier) * (1 - Globals.player.shop_discount)), 1, 1000)
 		$Reroll/RichTextLabel.text = "[center]REROLL \n $" + str(round(reroll_price))

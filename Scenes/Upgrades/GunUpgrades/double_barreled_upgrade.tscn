@@ -7,9 +7,9 @@
 
 [sub_resource type="Resource" id="Resource_ytshe"]
 script = ExtResource("2_gl8qi")
-values = ["bullet_count", 2.0]
-multiply_value = true
-add_value = false
+values = ["bullet_count", 1.0]
+multiply_value = false
+add_value = true
 
 [sub_resource type="Resource" id="Resource_m8kjj"]
 script = ExtResource("3_653an")
@@ -18,7 +18,7 @@ rarity = 2
 [node name="DoubleBarreled" instance=ExtResource("1_n8401")]
 upgrade_values = Array[ExtResource("2_gl8qi")]([SubResource("Resource_ytshe")])
 metadata/Title = "Double Barreled"
-metadata/Type = "Shoot 2x more bullets at once"
+metadata/Type = "Shoot +1 more bullets at once"
 metadata/Rarity = SubResource("Resource_m8kjj")
 
 [node name="UpgradeSprite" parent="." index="0"]

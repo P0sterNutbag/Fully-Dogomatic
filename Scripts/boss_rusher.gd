@@ -8,9 +8,6 @@ var rush_dir = Vector2.ZERO
 func attack(delta) -> void:
 	super.attack(delta)
 	var dis = global_position.distance_to(Globals.player.global_position)
-	var dir = (Globals.player.global_position - global_position).normalized()
-	velocity = lerp(velocity, dir * speed, turn_speed * delta)
-	move_and_slide()
 	if $RunCooldown.time_left <= 0 and dis <= distance_to_rush:
 		state = states.rush
 		rush_dir = (Globals.player.position - position).normalized()

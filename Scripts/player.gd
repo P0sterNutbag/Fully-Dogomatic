@@ -1,13 +1,14 @@
 extends CharacterBody2D
+class_name Player
 
 enum states {walk, bounce, dead, nap}
-enum abilities {none, sprint, nap, free_reroll, sprint_on_hurt}
+enum abilities {none, sprint, nap, free_reroll, sprint_on_hurt, hp}
 var state = states.walk
 
 @export var ability: abilities
 @export var money: float = 0
 var base_speed = 75.0
-var sprint_speed = 100.0
+var sprint_speed = 125.0
 var speed = base_speed
 var max_hp = 100
 var money_cap: float = 4
@@ -20,7 +21,7 @@ var gun_rotation: float = 0
 var money_drop_rate = 0.35
 var shop_discount = 0
 var explode_chance: float = 0
-var time_to_sprint: float = 2
+var time_to_sprint: float = 1.5
 var sprint_timer: float = 0
 var hp = 100:
 	set(value):
@@ -49,6 +50,13 @@ func _ready():
 	Globals.player = self
 	player_died.connect(Globals.ui.on_player_died)
 	pickup_radius = $MoneyPickup/CollisionShape2D.shape.radius
+	if ability == abilities.hp:
+		max_hp = 125
+		hp = 125
+		var hpbar = Globals.ui.get_node("LeftCorner/HPBar/HealthBar")
+		hpbar.max_value = hp
+		hpbar.value = hp
+		hpbar.size.x += 25
 
 
 func _enter_tree() -> void:
@@ -80,7 +88,7 @@ func _physics_process(delta):
 			
 			# abilities
 			if ability == abilities.sprint:
-				if get_last_motion().normalized() == velocity.normalized():
+				if abs(rad_to_deg(get_last_motion().normalized().angle()) - rad_to_deg(velocity.normalized().angle())) < 1:
 					sprint_timer += delta
 				else:
 					sprint_timer = 0
@@ -90,7 +98,6 @@ func _physics_process(delta):
 				else:
 					speed = base_speed
 					sprite.speed_scale = 1
-				print(sprint_timer)
 			
 			move_and_slide()
 			
@@ -176,7 +183,7 @@ func take_damage(dmg):
 		$FlashTimer.start()
 	if ability == abilities.sprint_on_hurt:
 		speed = sprint_speed
-		await get_tree().create_timer(2)
+		await get_tree().create_timer(2).timeout
 		speed = base_speed
 
 

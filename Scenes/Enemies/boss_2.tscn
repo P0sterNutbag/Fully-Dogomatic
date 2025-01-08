@@ -1,29 +1,50 @@
-[gd_scene load_steps=20 format=3 uid="uid://b86sgq5tkneng"]
+[gd_scene load_steps=21 format=3 uid="uid://b86sgq5tkneng"]
 
-[ext_resource type="Script" path="res://Scripts/boss_car.gd" id="1_066m0"]
-[ext_resource type="Texture2D" uid="uid://b2hlyxu6bbbfh" path="res://Art/Sprites/boss car.png" id="2_osqmp"]
+[ext_resource type="Script" path="res://Scripts/boss_rusher.gd" id="1_mmh1v"]
+[ext_resource type="Texture2D" uid="uid://pemwnnw6pm1d" path="res://Art/Sprites/boss rider.png" id="2_of2ge"]
 [ext_resource type="Script" path="res://Scripts/enemy_health.gd" id="3_q8kap"]
 [ext_resource type="PackedScene" uid="uid://bb6l6e5xtb17k" path="res://Scenes/Particles/shadow.tscn" id="4_we6vn"]
 [ext_resource type="PackedScene" uid="uid://84xxip1wf4vx" path="res://Scenes/UI/minimap_icon.tscn" id="5_qeuep"]
 [ext_resource type="Texture2D" uid="uid://5tfn2k4jut0o" path="res://Art/Sprites/boss icon.png" id="6_t3qpw"]
 [ext_resource type="PackedScene" uid="uid://pkl1jd6tt0bd" path="res://Scenes/UI/arrow.tscn" id="7_fk62m"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gvngv"]
-atlas = ExtResource("2_osqmp")
-region = Rect2(0, 0, 79, 47)
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqeuy"]
+atlas = ExtResource("2_of2ge")
+region = Rect2(0, 0, 74, 60)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8s3ws"]
-atlas = ExtResource("2_osqmp")
-region = Rect2(79, 0, 79, 47)
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0pgt"]
+atlas = ExtResource("2_of2ge")
+region = Rect2(74, 0, 74, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dn7ec"]
+atlas = ExtResource("2_of2ge")
+region = Rect2(148, 0, 74, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghld8"]
+atlas = ExtResource("2_of2ge")
+region = Rect2(222, 0, 74, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgh6m"]
+atlas = ExtResource("2_of2ge")
+region = Rect2(296, 0, 74, 60)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1n5n1"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gvngv")
+"texture": SubResource("AtlasTexture_eqeuy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8s3ws")
+"texture": SubResource("AtlasTexture_x0pgt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dn7ec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghld8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgh6m")
 }],
 "loop": true,
 "name": &"default",
@@ -31,19 +52,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r2w2f"]
-size = Vector2(73, 21)
+size = Vector2(62, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_85mo7"]
-size = Vector2(78, 25)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6735"]
-size = Vector2(22.5, 20.5)
+size = Vector2(64, 38)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m001l"]
-size = Vector2(75, 23)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_507ny"]
-size = Vector2(21, 19)
+size = Vector2(66, 40)
 
 [sub_resource type="GDScript" id="GDScript_yvhgh"]
 script/source = "extends Node2D
@@ -89,24 +104,25 @@ collision_layer = 0
 collision_mask = 257
 motion_mode = 1
 wall_min_slide_angle = 0.0
-script = ExtResource("1_066m0")
+script = ExtResource("1_mmh1v")
 boss_name = "Oreo, lord of speed"
 speed = 350.0
-damage = 25.0
+damage = 100.0
 turn_speed = 100.0
 money_amount = 25
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
 use_parent_material = true
+position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_1n5n1")
 autoplay = "default"
-frame = 1
-frame_progress = 0.0430111
+frame = 3
+frame_progress = 0.473661
 offset = Vector2(0, -20)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -12.5)
+position = Vector2(3, -22)
 shape = SubResource("RectangleShape2D_r2w2f")
 
 [node name="Hitbox" type="Area2D" parent="." groups=["enemy"]]
@@ -115,12 +131,8 @@ position = Vector2(3, -15)
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-3, 2.5)
+position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_85mo7")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-11.75, -18.75)
-shape = SubResource("RectangleShape2D_b6735")
 
 [node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("sprite") groups=["enemy"]]
 y_sort_enabled = true
@@ -128,21 +140,17 @@ position = Vector2(0, -20)
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("3_q8kap")
-health = 500
+health = 250
 rotate_on_hit = false
 sprite = NodePath("../AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(-0.5, 7.5)
+position = Vector2(3, -2)
 shape = SubResource("RectangleShape2D_m001l")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(-8.5, -13.5)
-shape = SubResource("RectangleShape2D_507ny")
 
 [node name="Shadow" parent="." instance=ExtResource("4_we6vn")]
 scale = Vector2(1, 0.2)
-radius = 43
+radius = 35
 
 [node name="MinimapIcon" parent="." instance=ExtResource("5_qeuep")]
 script = SubResource("GDScript_yvhgh")

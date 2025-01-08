@@ -51,6 +51,7 @@ animations = [{
 script = ExtResource("2_wbdcg")
 health_multiplier = 0.5
 speed = 30.0
+queue_index = 1
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_ld5m3")

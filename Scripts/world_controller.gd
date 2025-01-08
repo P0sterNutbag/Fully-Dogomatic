@@ -34,6 +34,11 @@ func _ready():
 		player.process_mode = Node.PROCESS_MODE_PAUSABLE
 	player.global_position = $PlayerSpawner.global_position
 	player.player_died.connect(on_player_died)
+	match randi_range(0, 3):
+		0: $TileMapLayer3.rotation_degrees = 0
+		1: $TileMapLayer3.rotation_degrees = 90
+		2: $TileMapLayer3.rotation_degrees = 180
+		3: $TileMapLayer3.rotation_degrees = 270
 
 
 func _process(delta):

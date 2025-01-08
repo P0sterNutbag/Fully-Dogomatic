@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b7r52wai1l1yc"]
+[gd_scene load_steps=14 format=3 uid="uid://b7r52wai1l1yc"]
 
 [ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Art/Sprites/123spritesheet.png" id="1_b52ny"]
 [ext_resource type="Texture2D" uid="uid://chhc6bjga1571" path="res://Art/Sprites/player idle.png" id="1_l1tv2"]
@@ -34,22 +34,6 @@ region = Rect2(64, 0, 32, 32)
 atlas = ExtResource("2_ljq40")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4bqxo"]
-atlas = ExtResource("2_ljq40")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bp3ia"]
-atlas = ExtResource("2_ljq40")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8doa3"]
-atlas = ExtResource("2_ljq40")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pul0o"]
-atlas = ExtResource("2_ljq40")
-region = Rect2(96, 0, 32, 32)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_ho51n"]
 animations = [{
 "frames": [{
@@ -64,7 +48,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 3.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -82,30 +66,13 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4bqxo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bp3ia")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8doa3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pul0o")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 7.0
 }]
 
 [node name="MenuDog" type="AnimatedSprite2D"]
 use_parent_material = true
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_ho51n")
-animation = &"run"
+animation = &"idle"
 script = ExtResource("2_fuvt8")
 
 [node name="Shadow2" parent="." instance=ExtResource("4_12wkv")]

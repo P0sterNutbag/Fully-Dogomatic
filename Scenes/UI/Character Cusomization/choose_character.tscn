@@ -45,7 +45,8 @@ offset_bottom = 50.0
 [node name="CharacterOption" parent="Options/HBoxContainer" instance=ExtResource("1_a3lih")]
 layout_mode = 2
 size_flags_horizontal = 3
-character_name = "Corgi"
+character_name = "Eugene"
+description = "More Base Health"
 sprite = ExtResource("5_fgbin")
 unlocked = true
 
@@ -53,8 +54,9 @@ unlocked = true
 layout_mode = 2
 size_flags_horizontal = 3
 character_name = "Coda"
-description = "Hold direction to sprint!"
+description = "Sprint when you take damage!"
 sprite = ExtResource("6_yipcj")
+unlocked = true
 
 [node name="CharacterOption3" parent="Options/HBoxContainer" instance=ExtResource("1_a3lih")]
 layout_mode = 2
@@ -62,6 +64,7 @@ size_flags_horizontal = 3
 character_name = "Toaster"
 description = "Stop moving to nap!"
 sprite = ExtResource("8_m0mus")
+unlocked = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Options"]
 use_parent_material = true
@@ -77,12 +80,15 @@ size_flags_horizontal = 3
 character_name = "Esquire"
 description = "First Reroll is free!"
 sprite = ExtResource("7_3rigw")
+unlocked = true
 
 [node name="CharacterOption5" parent="Options/HBoxContainer2" instance=ExtResource("1_a3lih")]
 layout_mode = 2
 size_flags_horizontal = 3
 character_name = "Boogy"
+description = "Hold direction to sprint!"
 sprite = ExtResource("9_35qwl")
+unlocked = true
 
 [node name="Title" type="RichTextLabel" parent="."]
 use_parent_material = true

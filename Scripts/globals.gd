@@ -106,7 +106,7 @@ func get_gun_price(gun) -> float:
 	return price
 
 
-func time_to_minutes_secs_mili(time : float):
+func time_to_minutes_secs_mili(time : float) -> String:
 	var mins = int(time) / 60
 	time -= mins * 60
 	var secs = int(time)

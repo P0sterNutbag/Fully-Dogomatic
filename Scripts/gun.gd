@@ -23,6 +23,7 @@ class_name Gun
 @export var penetrations: int = 1
 @export var knockback: int = 7.5
 @export var explode_chance: float = 0
+@export var ricochet: bool
 @export var bullet_explosion: PackedScene
 @export_subgroup("Sounds")
 @export var sound_shoot: String  # Sound path
@@ -31,7 +32,6 @@ var bullet_can_warp: bool
 var burst_fire: bool
 var burst_shots_left: int = 3
 var distance_to_player = 18
-var ricochet: bool = false
 var homing: bool = false
 var holder = null
 var hold_offset: Vector2

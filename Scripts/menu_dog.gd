@@ -4,16 +4,19 @@ var velocity: Vector2
 var target_position: Vector2
 var walk_speed = 45
 var run_speed = 100
-var move_anim = "walk"
+var move_anim = "run"
 var fetch_ball: Node2D
 var in_mouse: bool
 var left_barrier: Vector2
 var right_barrier: Vector2
 
+
 func _ready():
 	var size = get_sprite_frames().get_frame_texture("idle",0).get_size()
 	left_barrier = Vector2(0 + (size.x), 0 + (size.y))
 	right_barrier = Vector2(480 - (size.x), 360 - (size.y))
+	$MoveTimer.wait_time = randf_range(0.1, 2)
+	$MoveTimer.start()
 
 
 func _process(delta):
@@ -51,10 +54,10 @@ func _process(delta):
 
 
 func _on_move_timer_timeout():
-	$MoveTimer.wait_time = randf_range(1, 3);
+	$MoveTimer.wait_time = randf_range(1, 3)
 	if velocity == Vector2.ZERO:
 		velocity = Vector2(randf_range(-walk_speed, walk_speed), randf_range(-walk_speed, walk_speed))
-		move_anim = "walk"
+		move_anim = "run"
 	else:
 		velocity = Vector2.ZERO
 

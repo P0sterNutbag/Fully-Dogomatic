@@ -6,7 +6,7 @@
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="6_wcssq"]
 [ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="7_nauhl"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="8_1ck4b"]
-[ext_resource type="Theme" uid="uid://lra3teo37km0" path="res://Art/Themes/ui text mini.tres" id="8_jq8h3"]
+[ext_resource type="Theme" uid="uid://dpv7tir788p5t" path="res://Art/Themes/ui text small.tres" id="8_s1hmr"]
 [ext_resource type="Texture2D" uid="uid://chhc6bjga1571" path="res://Art/Sprites/player idle.png" id="9_yyfrr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ap13o"]
@@ -78,12 +78,44 @@ texture = ExtResource("9_yyfrr")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ScaleOffset"]
+[node name="Tooltip" type="Control" parent="."]
+visible = false
+z_index = 10
+use_parent_material = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 49.0
+offset_top = 85.0
+offset_right = 49.0
+offset_bottom = 85.0
+mouse_filter = 2
+
+[node name="ColorRect5" type="ColorRect" parent="Tooltip"]
 use_parent_material = true
 layout_mode = 0
-offset_left = -3.0
-offset_top = 74.0
-offset_right = 99.0
-offset_bottom = 114.0
-theme = ExtResource("8_jq8h3")
+offset_left = -61.0
+offset_right = 61.0
+offset_bottom = 45.0
+color = Color(0.223529, 0.223529, 0.223529, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Tooltip"]
+use_parent_material = true
+layout_mode = 0
+offset_left = -57.0
+offset_top = 4.0
+offset_right = 57.0
+offset_bottom = 41.0
+color = Color(0.101961, 0.101961, 0.101961, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Tooltip"]
+use_parent_material = true
+layout_mode = 0
+offset_left = -53.0
+offset_top = 9.0
+offset_right = 51.0
+offset_bottom = 36.0
+theme = ExtResource("8_s1hmr")
 bbcode_enabled = true
+text = "Item Description"
+fit_content = true
+scroll_active = false

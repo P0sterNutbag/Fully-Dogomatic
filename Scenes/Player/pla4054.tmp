@@ -1,0 +1,190 @@
+[gd_scene load_steps=25 format=3 uid="uid://cfkssnl27y2qn"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_2qpty"]
+[ext_resource type="PackedScene" uid="uid://bb6l6e5xtb17k" path="res://Scenes/Particles/shadow.tscn" id="2_3aj65"]
+[ext_resource type="Material" uid="uid://bxgmy5m25b5ju" path="res://Art/Shaders/flash.tres" id="3_354og"]
+[ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Art/Sprites/123spritesheet.png" id="3_r6o1k"]
+[ext_resource type="Texture2D" uid="uid://cog1pfevxty7h" path="res://Art/Sprites/arrow.png" id="4_r3toi"]
+[ext_resource type="Texture2D" uid="uid://dpentnylex1c" path="res://Art/Sprites/player run.png" id="5_1sten"]
+[ext_resource type="Texture2D" uid="uid://chhc6bjga1571" path="res://Art/Sprites/player idle.png" id="5_3i5cs"]
+[ext_resource type="PackedScene" uid="uid://84xxip1wf4vx" path="res://Scenes/UI/minimap_icon.tscn" id="11_2hug4"]
+[ext_resource type="Script" path="res://Scripts/camera.gd" id="11_xl0am"]
+[ext_resource type="Script" path="res://Scripts/dust_spawner.gd" id="12_akeka"]
+[ext_resource type="Texture2D" uid="uid://cj1qgbm34pbo6" path="res://Art/Sprites/camsize icon.png" id="12_taoki"]
+[ext_resource type="Texture2D" uid="uid://cwxntloygdy76" path="res://Art/Sprites/player icon 2.png" id="13_i67fy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7s6u8"]
+radius = 4.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfo1y"]
+atlas = ExtResource("5_1sten")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drq76"]
+atlas = ExtResource("3_r6o1k")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q00oj"]
+atlas = ExtResource("5_3i5cs")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgmbb"]
+atlas = ExtResource("5_3i5cs")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ch2xh"]
+atlas = ExtResource("5_3i5cs")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfto4"]
+atlas = ExtResource("5_1sten")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_if24w"]
+atlas = ExtResource("5_1sten")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57fbc"]
+atlas = ExtResource("5_1sten")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4r1yi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfo1y")
+}],
+"loop": true,
+"name": &"bounce",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drq76")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q00oj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgmbb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ch2xh")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfo1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfto4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_if24w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57fbc")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iegk4"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wq62j"]
+radius = 38.0
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+y_sort_enabled = true
+use_parent_material = true
+collision_mask = 257
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_2qpty")
+metadata/_edit_horizontal_guides_ = []
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
+z_index = 10
+shape = SubResource("CircleShape2D_7s6u8")
+
+[node name="Shadow" parent="." instance=ExtResource("2_3aj65")]
+position = Vector2(0, 8)
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+material = ExtResource("3_354og")
+use_parent_material = true
+sprite_frames = SubResource("SpriteFrames_4r1yi")
+animation = &"bounce"
+
+[node name="DustSpawner" type="Node2D" parent="PlayerSprite"]
+position = Vector2(-10, 7)
+script = ExtResource("12_akeka")
+
+[node name="Timer" type="Timer" parent="PlayerSprite/DustSpawner"]
+wait_time = 0.1
+autostart = true
+
+[node name="Hurtbox" type="Area2D" parent="." groups=["player"]]
+scale = Vector2(1, 0.75)
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_iegk4")
+
+[node name="MoneyPickup" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MoneyPickup"]
+shape = SubResource("CircleShape2D_wq62j")
+
+[node name="Guns" type="Node2D" parent="."]
+z_index = 10
+use_parent_material = true
+
+[node name="Arrow" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(75, 0)
+texture = ExtResource("4_r3toi")
+
+[node name="MinimapIcon" parent="." instance=ExtResource("11_2hug4")]
+sprite = ExtResource("12_taoki")
+follow = true
+depth = 1
+
+[node name="MinimapIcon2" parent="." instance=ExtResource("11_2hug4")]
+sprite = ExtResource("13_i67fy")
+follow = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_mode = 3
+limit_left = 0
+limit_top = 0
+limit_right = 800
+limit_bottom = 600
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+script = ExtResource("11_xl0am")
+
+[node name="FlashTimer" type="Timer" parent="."]
+wait_time = 0.075
+
+[node name="MineTimer" type="Timer" parent="."]
+wait_time = 6.0
+
+[connection signal="timeout" from="PlayerSprite/DustSpawner/Timer" to="PlayerSprite/DustSpawner" method="_on_timer_timeout"]
+[connection signal="area_exited" from="Hurtbox" to="." method="_on_hurtbox_area_exited"]
+[connection signal="area_entered" from="MoneyPickup" to="." method="_on_money_pickup_area_entered"]
+[connection signal="timeout" from="FlashTimer" to="." method="_on_flash_timer_timeout"]
+[connection signal="timeout" from="MineTimer" to="." method="_on_mine_timer_timeout"]

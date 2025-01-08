@@ -2,24 +2,28 @@ extends Node
 
 @export var spawn_formations: Array[SpawnFormation]
 @export var level_objects: Array[SpawnChance]
+@export var bosses: Array[SpawnChance]
 @export var enemy_health = 2.0
 @export var enemy_health_incrament = 1.15
 @export var spawn_time_incrament = 0.75
-var formation_index = 0
+var formation_index = 5
 var enemies: Array[Enemy]
+var enemy_queue: Array[Array]
 var round = 0
 var hp_round = 3
 var boss_round = 1
 var pipe_round = 4
 var current_kills: int = 0
 var enemy_to_spawn = preload("res://Scenes/Enemies/enemy.tscn")
-var boss = preload("res://Scenes/Enemies/boss_1.tscn")
 var shop = preload("res://Scenes/Levels/Level Objects/shop.tscn")
 var hp_pickup = preload("res://Scenes/Levels/Level Objects/health_pickup.tscn")
 var enemy_spawner = preload("res://Scenes/Levels/Level Objects/enemy_spawner_pipe.tscn")
-var crate_big = preload("res://Scenes/Levels/Level Objects/money_crate.tscn")
-var crate_small = preload("res://Scenes/Levels/Level Objects/barrel.tscn")
-var crates = [crate_big, crate_small]
+var enemy_indexes = {
+	preload("res://Scenes/Enemies/enemy.tscn") : 0,
+	preload("res://Scenes/Enemies/enemy_small.tscn") : 1,
+	preload("res://Scenes/Enemies/enemy_large.tscn") : 2,
+	preload("res://Scenes/Enemies/enemy_bomber.tscn") : 3,
+}
 @onready var enemy_spawn_timer = $EnemySpawnTimer
 @onready var round_timer = $RoundTimer
 @onready var enemy_formation_timer = $EnemyFormationTimer
@@ -28,14 +32,19 @@ var kills_to_money: int:
 		return round(60.0 / enemy_spawn_timer.wait_time / 25.0)
 
 
+func _init() -> void:
+	enemy_queue.resize(4)
+	for queue_index in enemy_queue.size():
+		for i in 300:
+			var inst = enemy_indexes.find_key(queue_index).instantiate()
+			enemy_queue[queue_index].append(inst)
+
+
 func _ready() -> void:
 	Globals.level_manager = self
 	for i in 3:
 		var spawn_scene = level_objects[Globals.get_weighted_index(level_objects)].object_to_spawn
 		var inst = create_level_object(spawn_scene, get_random_position())
-	await get_tree().create_timer(0.1).timeout
-	for i in 5:
-		spawn_enemy()
 
 
 func _on_round_timer_timeout() -> void:
@@ -61,12 +70,13 @@ func _on_enemy_spawn_timer_timeout() -> void:
 	spawn_enemy()
 
 
-func spawn_enemy() -> void:
-	if enemies.size() > 300:#get_tree().get_nodes_in_group("enemy").size() > 1000:
+func spawn_enemy(new_enemy = null) -> Node2D:
+	if !new_enemy:
+		new_enemy = spawn_formations[formation_index].enemies[Globals.get_weighted_index(spawn_formations[formation_index].enemies)].object_to_spawn
+	var enemy_index = enemy_indexes[new_enemy]
+	if enemy_queue[enemy_index].size() <= 0:
+		print("No more enemies in queue")
 		return
-		#enemies[150].queue_free()
-		#enemies.remove_at(150)
-	enemy_to_spawn = spawn_formations[formation_index].enemies[Globals.get_weighted_index(spawn_formations[formation_index].enemies)].object_to_spawn
 	var spawn_pos: Vector2
 	var barrier_left = Globals.world_controller.get_node("BarrierLeft").global_position - Vector2(25, 25)
 	var barrier_right = Globals.world_controller.get_node("BarrierRight").global_position + Vector2(25, 25)
@@ -75,10 +85,14 @@ func spawn_enemy() -> void:
 		1: spawn_pos = Vector2(randf_range(barrier_left.x,barrier_right.x), barrier_right.y)
 		2: spawn_pos = Vector2(barrier_left.x, randf_range(barrier_left.y,barrier_right.y))
 		3: spawn_pos = Vector2(barrier_right.x, randf_range(barrier_left.y,barrier_right.y))	
-	var inst = Globals.create_instance(enemy_to_spawn, spawn_pos)
-	enemies.append(inst)
-	if inst is EnemyIncramental:
-		inst.health = floor(enemy_health)
+	#var inst = Globals.create_instance(enemy_to_spawn, spawn_pos)
+	enemy_to_spawn = enemy_queue[enemy_index].pop_back()
+	get_tree().current_scene.add_child(enemy_to_spawn)
+	enemy_to_spawn.position = spawn_pos
+	enemies.append(enemy_to_spawn)
+	if enemy_to_spawn is EnemyIncramental:
+		enemy_to_spawn.health = floor(enemy_health)
+	return enemy_to_spawn
 
 
 func spawn_level_objects() -> void:
@@ -134,7 +148,10 @@ func reset_kills() -> void:
 
 func _on_boss_timer_timeout() -> void:
 	boss_round += 2
-	var inst = create_level_object(boss, get_random_position())
+	var index = Globals.get_weighted_index(bosses)
+	var boss = bosses[index].object_to_spawn
+	var inst = spawn_enemy(boss)
+	bosses.remove_at(index)
 	Globals.ui.add_level_obj("Boss!!!", false)
 	await inst.ready
 	inst.health_component.health *= boss_round
