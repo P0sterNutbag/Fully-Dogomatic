@@ -7,13 +7,13 @@ class_name HealthComponent
 @export var explosion_scale: float = 1
 @export var sprite: Node2D
 @export var healthbar: ProgressBar
+@export var death_explosion = preload("res://Scenes/Particles/death_explosion.tscn")
 var shake_timer: float = 0.0
 var sprite_origin: Vector2
 var flash_material = preload("res://Art/Shaders/flash.tres")
 var dead: bool = false
 var max_health
 var bullet_dir
-var death_explosion
 var parent
 
 
@@ -21,7 +21,6 @@ func _ready():
 	max_health = health
 	sprite_origin = sprite.position
 	parent = get_parent()
-	death_explosion = parent.get_node("DeathExplosion")
 
 
 func _process(delta: float) -> void:
@@ -50,18 +49,21 @@ func take_damage(dmg: float, bullet_direction: float):
 		healthbar.value = health / max_health
 	if health <= 0 and not dead:
 		dead = true
-		var pos = death_explosion.global_position
-		death_explosion.show()
-		death_explosion.play("default")
-		parent.remove_child(death_explosion)
-		get_tree().current_scene.add_child(death_explosion)
-		death_explosion.global_position = pos
+		#var pos = death_explosion.global_position
+		#death_explosion.show()
+		#death_explosion.play("default")
+		#parent.remove_child(death_explosion)
+		#get_tree().current_scene.add_child(death_explosion)
+		#death_explosion.global_position = pos
 		#if death_explosion != null:
 			#var d = Globals.create_instance(death_explosion, global_position)
 			#d.set_deferred("scale", Vector2.ONE * explosion_scale)
+		Globals.create_instance(death_explosion, global_position)
+		Globals.audio_manager.explosion.play()
 		if parent is Enemy:
 			parent.on_death(bullet_direction)
-		Globals.audio_manager.explosion.play()
+		else:
+			get_parent().queue_free()
 		#Globals.world_controller.increase_score()
 		#if !get_parent().name.contains("Boss"):
 		#parent.call_deferred("queue_free")

@@ -22,8 +22,9 @@ var damage_number = preload("res://Scenes/Particles/damage_number.tscn")
 var impact = preload("res://Scenes/Particles/impact.tscn")
 var spark = preload("res://Scenes/Particles/bullet_spark.tscn")
 
-func _ready():
-	await get_tree().create_timer(0.01).timeout
+
+func _enter_tree() -> void:
+	can_damage = true
 	if homing:
 		$HomingArea.process_mode = Node.PROCESS_MODE_INHERIT
 		#target_enemy = get_nearest_enemy()
@@ -49,25 +50,25 @@ func _physics_process(delta):
 			global_position.x = bottom_right_bound.x
 			can_warp = false
 		else:
-			queue_free()
+			get_parent().call_deferred("remove_child", self)
 	elif global_position.x > bottom_right_bound.x:
 		if can_warp:
 			global_position.x = top_left_bound.x
 			can_warp = false
 		else:
-			queue_free()
+			get_parent().call_deferred("remove_child", self)
 	elif global_position.y < top_left_bound.y:
 		if can_warp:
 			global_position.y = bottom_right_bound.y
 			can_warp = false
 		else:
-			queue_free()
+			get_parent().call_deferred("remove_child", self)
 	elif global_position.y > bottom_right_bound.y:
 		if can_warp:
 			global_position.y = top_left_bound.y
 			can_warp = false
 		else:
-			queue_free()
+			get_parent().call_deferred("remove_child", self)
 	#if global_position.distance_to(Globals.player.global_position) > 260:
 		#queue_free()
 
@@ -108,7 +109,7 @@ func _on_area_entered(area):
 		penetrations -= 1
 		if penetrations <= 0 and destroy_on_hit:
 			can_damage = false
-			queue_free()
+			get_parent().call_deferred("remove_child", self)
 		elif homing:
 			hit_enemies.append(target_enemy)
 			#target_enemy = get_nearest_enemy()

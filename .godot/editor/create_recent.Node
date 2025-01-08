@@ -1,9 +1,9 @@
+Node
 CollisionShape2D
 RichTextLabel
 Area2D
 Control
 Node2D
-Node
 CharacterBody2D
 Sprite2D
 AnimationPlayer

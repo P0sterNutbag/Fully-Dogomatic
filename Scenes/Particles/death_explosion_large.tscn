@@ -1,66 +1,66 @@
-[gd_scene load_steps=19 format=3 uid="uid://4s88ewwe3fxv"]
+[gd_scene load_steps=19 format=3 uid="uid://btm7v56c8u8vc"]
 
-[ext_resource type="Texture2D" uid="uid://54kbcdl8r4r4" path="res://Art/Sprites/exp1.png" id="1_obrsa"]
-[ext_resource type="Script" path="res://Scripts/play_animation_then_die.gd" id="2_q5ogj"]
+[ext_resource type="Texture2D" uid="uid://54kbcdl8r4r4" path="res://Art/Sprites/exp1.png" id="1_submo"]
+[ext_resource type="Script" path="res://Scripts/play_animation_then_die.gd" id="2_q4qlp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tcxu0"]
-atlas = ExtResource("1_obrsa")
+atlas = ExtResource("1_submo")
 region = Rect2(105, 0, 35, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oab2i"]
-atlas = ExtResource("1_obrsa")
+atlas = ExtResource("1_submo")
 region = Rect2(140, 0, 35, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ub1b0"]
-atlas = ExtResource("1_obrsa")
+atlas = ExtResource("1_submo")
 region = Rect2(175, 0, 35, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tmjuh"]
-atlas = ExtResource("1_obrsa")
+atlas = ExtResource("1_submo")
 region = Rect2(0, 50, 35, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v7fdo"]
-atlas = ExtResource("1_obrsa")
+atlas = ExtResource("1_submo")
 region = Rect2(35, 50, 35, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nu487"]
-atlas = ExtResource("1_obrsa")
+atlas = ExtResource("1_submo")
 region = Rect2(70, 50, 35, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7c0wu"]
-atlas = ExtResource("1_obrsa")
+atlas = ExtResource("1_submo")
 region = Rect2(105, 50, 35, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ikmn"]
-atlas = ExtResource("1_obrsa")
+atlas = ExtResource("1_submo")
 region = Rect2(140, 50, 35, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7pb2v"]
-atlas = ExtResource("1_obrsa")
+atlas = ExtResource("1_submo")
 region = Rect2(175, 50, 35, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mtmrr"]
-atlas = ExtResource("1_obrsa")
+atlas = ExtResource("1_submo")
 region = Rect2(0, 100, 35, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7wfut"]
-atlas = ExtResource("1_obrsa")
+atlas = ExtResource("1_submo")
 region = Rect2(35, 100, 35, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c7m5c"]
-atlas = ExtResource("1_obrsa")
+atlas = ExtResource("1_submo")
 region = Rect2(70, 100, 35, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n2tvx"]
-atlas = ExtResource("1_obrsa")
+atlas = ExtResource("1_submo")
 region = Rect2(105, 100, 35, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_62sji"]
-atlas = ExtResource("1_obrsa")
+atlas = ExtResource("1_submo")
 region = Rect2(140, 100, 35, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xl5ru"]
-atlas = ExtResource("1_obrsa")
+atlas = ExtResource("1_submo")
 region = Rect2(175, 100, 35, 50)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cy0vq"]
@@ -117,8 +117,9 @@ animations = [{
 }]
 
 [node name="DeathExplosion" type="AnimatedSprite2D" groups=["particles"]]
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_cy0vq")
 autoplay = "default"
-script = ExtResource("2_q5ogj")
+script = ExtResource("2_q4qlp")
 
 [connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

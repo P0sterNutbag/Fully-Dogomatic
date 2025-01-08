@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://40eypp8w06iw"]
+[gd_scene load_steps=14 format=3 uid="uid://40eypp8w06iw"]
 
 [ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/enemy_parent.tscn" id="1_o1t0n"]
 [ext_resource type="Script" path="res://Scripts/enemy_incramental.gd" id="2_qmi3d"]
 [ext_resource type="Texture2D" uid="uid://b6ixi75jv3vun" path="res://Art/Sprites/enemy big.png" id="3_3qpf5"]
+[ext_resource type="PackedScene" uid="uid://btm7v56c8u8vc" path="res://Scenes/Particles/death_explosion_large.tscn" id="4_f3yqf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_latqs"]
 atlas = ExtResource("3_3qpf5")
@@ -47,6 +48,15 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_duemh"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xyfkb"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3stfx"]
+radius = 11.0
+
 [node name="Enemy" instance=ExtResource("1_o1t0n")]
 script = ExtResource("2_qmi3d")
 health_multiplier = 5.0
@@ -57,3 +67,18 @@ queue_index = 2
 sprite_frames = SubResource("SpriteFrames_2fs0s")
 frame = 0
 frame_progress = 0.0
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(3, 0)
+shape = SubResource("CircleShape2D_duemh")
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(3, 0)
+shape = SubResource("CircleShape2D_xyfkb")
+
+[node name="Hurtbox" parent="." index="3"]
+death_explosion = ExtResource("4_f3yqf")
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(3, 0)
+shape = SubResource("CircleShape2D_3stfx")

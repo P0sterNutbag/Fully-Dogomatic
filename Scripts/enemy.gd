@@ -75,8 +75,7 @@ func on_death(bullet_direction: float = 0):
 	Globals.create_instance(blood, $Shadow.global_position)
 	Globals.world_controller.total_kills += 1
 	Globals.world_controller.level_controller.enemies.erase(self)
-	# remove from tree and enter queue
-	Globals.level_manager.enemy_queue[queue_index].append(self)
+	# remove from tree
 	get_parent().remove_child.bind(self).call_deferred()
 
 

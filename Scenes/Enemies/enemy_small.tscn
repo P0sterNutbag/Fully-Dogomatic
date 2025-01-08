@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bf3jcl8cecqmd"]
+[gd_scene load_steps=11 format=3 uid="uid://bf3jcl8cecqmd"]
 
 [ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/enemy_parent.tscn" id="1_1iul2"]
 [ext_resource type="Script" path="res://Scripts/enemy_incramental.gd" id="2_wbdcg"]
@@ -47,6 +47,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_y2wfn"]
+radius = 2.0
+
 [node name="Enemy" instance=ExtResource("1_1iul2")]
 script = ExtResource("2_wbdcg")
 health_multiplier = 0.5
@@ -57,3 +60,7 @@ queue_index = 1
 sprite_frames = SubResource("SpriteFrames_ld5m3")
 frame = 0
 frame_progress = 0.0
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 0)
+shape = SubResource("CircleShape2D_y2wfn")

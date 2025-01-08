@@ -8,36 +8,20 @@ extends Node
 @export var spawn_time_incrament = 0.75
 var formation_index = 5
 var enemies: Array[Enemy]
-var enemy_queue: Array[Array]
 var round = 0
 var hp_round = 3
 var boss_round = 1
 var pipe_round = 4
 var current_kills: int = 0
-var enemy_to_spawn = preload("res://Scenes/Enemies/enemy.tscn")
 var shop = preload("res://Scenes/Levels/Level Objects/shop.tscn")
 var hp_pickup = preload("res://Scenes/Levels/Level Objects/health_pickup.tscn")
 var enemy_spawner = preload("res://Scenes/Levels/Level Objects/enemy_spawner_pipe.tscn")
-var enemy_indexes = {
-	preload("res://Scenes/Enemies/enemy.tscn") : 0,
-	preload("res://Scenes/Enemies/enemy_small.tscn") : 1,
-	preload("res://Scenes/Enemies/enemy_large.tscn") : 2,
-	preload("res://Scenes/Enemies/enemy_bomber.tscn") : 3,
-}
 @onready var enemy_spawn_timer = $EnemySpawnTimer
 @onready var round_timer = $RoundTimer
 @onready var enemy_formation_timer = $EnemyFormationTimer
 var kills_to_money: int: 
 	get:
 		return round(60.0 / enemy_spawn_timer.wait_time / 25.0)
-
-
-func _init() -> void:
-	enemy_queue.resize(4)
-	for queue_index in enemy_queue.size():
-		for i in 300:
-			var inst = enemy_indexes.find_key(queue_index).instantiate()
-			enemy_queue[queue_index].append(inst)
 
 
 func _ready() -> void:
@@ -70,13 +54,13 @@ func _on_enemy_spawn_timer_timeout() -> void:
 	spawn_enemy()
 
 
-func spawn_enemy(new_enemy = null) -> Node2D:
+func spawn_enemy(new_enemy: PackedScene = null) -> Node2D:
+	var enemy_to_spawn
 	if !new_enemy:
-		new_enemy = spawn_formations[formation_index].enemies[Globals.get_weighted_index(spawn_formations[formation_index].enemies)].object_to_spawn
-	var enemy_index = enemy_indexes[new_enemy]
-	if enemy_queue[enemy_index].size() <= 0:
-		print("No more enemies in queue")
-		return
+		var index = Globals.get_weighted_index(spawn_formations[formation_index].enemies)
+		enemy_to_spawn = Globals.enemy_pool.spawn_enemy(spawn_formations[formation_index].enemies[index].object_to_spawn)
+	else: 
+		enemy_to_spawn = new_enemy.instantiate()
 	var spawn_pos: Vector2
 	var barrier_left = Globals.world_controller.get_node("BarrierLeft").global_position - Vector2(25, 25)
 	var barrier_right = Globals.world_controller.get_node("BarrierRight").global_position + Vector2(25, 25)
@@ -86,10 +70,10 @@ func spawn_enemy(new_enemy = null) -> Node2D:
 		2: spawn_pos = Vector2(barrier_left.x, randf_range(barrier_left.y,barrier_right.y))
 		3: spawn_pos = Vector2(barrier_right.x, randf_range(barrier_left.y,barrier_right.y))	
 	#var inst = Globals.create_instance(enemy_to_spawn, spawn_pos)
-	enemy_to_spawn = enemy_queue[enemy_index].pop_back()
 	get_tree().current_scene.add_child(enemy_to_spawn)
 	enemy_to_spawn.position = spawn_pos
 	enemies.append(enemy_to_spawn)
+	print(enemies.size())
 	if enemy_to_spawn is EnemyIncramental:
 		enemy_to_spawn.health = floor(enemy_health)
 	return enemy_to_spawn
