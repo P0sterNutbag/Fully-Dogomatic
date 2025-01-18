@@ -62,13 +62,15 @@ func take_damage(dmg: float, bullet_direction: float):
 		#if death_explosion != null:
 			#var d = Globals.create_instance(death_explosion, global_position)
 			#d.set_deferred("scale", Vector2.ONE * explosion_scale)
-		var inst = Globals.explosion_pool.spawn_explosion(death_explosion)
+		var inst = death_explosion.instantiate()
 		inst.global_position = global_position
-		get_tree().current_scene.add_child(inst)
+		get_tree().current_scene.add_child.call_deferred(inst)
 		Globals.audio_manager.explosion.play()
 		if parent is Enemy:
 			parent.on_death(bullet_direction)
-			parent.queue_free()
+			#parent.queue_free.call_deferred()
+			# remove from tree
+			#get_parent().get_parent().call_deferred("remove_child", get_parent())
 		else:
 			get_parent().queue_free()
 		#Globals.world_controller.increase_score()

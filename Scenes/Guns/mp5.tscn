@@ -9,7 +9,7 @@ script = ExtResource("2_hjall")
 rarity = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwtrg"]
-size = Vector2(25, 12.9999)
+size = Vector2(25, 0.999951)
 
 [node name="Gun" instance=ExtResource("1_t8yd1")]
 bullet_damage = 1.0
@@ -22,7 +22,7 @@ metadata/Rarity = SubResource("Resource_152ur")
 metadata/Icon = ExtResource("3_bite6")
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(-0.5, 0.499998)
+position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_fwtrg")
 
 [node name="Sprite2D" parent="." index="1"]

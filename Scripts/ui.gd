@@ -15,6 +15,7 @@ var death_ui = preload("res://Scenes/Levels/level_summary.tscn")
 @onready var score_holder = $ScoreHolder
 @onready var loadout = $Loadout
 
+
 func _ready():
 	Globals.ui = self
 	$Drop.position.y -= 200
@@ -61,6 +62,7 @@ func set_gun_amount(gun_amount: int, gun_cap: int):
 		Globals.shop_scene = Globals.no_guns_shop
 	else:
 		Globals.shop_scene = Globals.gun_shop
+
 
 func add_level_obj(obj_text: String, good: bool, amount: int = 1):
 	level_signs.append(obj_text)

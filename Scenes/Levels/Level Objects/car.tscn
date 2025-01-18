@@ -21,7 +21,7 @@ shape = SubResource("RectangleShape2D_a66n0")
 texture = ExtResource("2_1r406")
 
 [node name="Area2D" parent="." index="2"]
-health = 25
+health = 12
 
 [node name="CollisionShape2D2" parent="Area2D" index="0"]
 position = Vector2(2, -0.25)

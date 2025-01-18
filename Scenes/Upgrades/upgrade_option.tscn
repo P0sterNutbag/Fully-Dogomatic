@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="6_n5hc7"]
 [ext_resource type="Theme" uid="uid://dpv7tir788p5t" path="res://Art/Themes/ui text small.tres" id="6_qonvf"]
 [ext_resource type="Theme" uid="uid://lra3teo37km0" path="res://Art/Themes/ui text mini.tres" id="7_02uip"]
-[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="7_8utm7"]
+[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Fonts/Blue Sky 8x8.ttf" id="7_8utm7"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="8_ly7xf"]
 [ext_resource type="Script" path="res://Scripts/circle.gd" id="18_pedul"]
 

@@ -15,6 +15,7 @@ var total_kills: int:
 		kills += 1
 var kills: int
 var kills_per_sec: int
+var max_kps: int = 0
 @onready var barrier_left = $BarrierLeft
 @onready var barrier_right = $BarrierRight
 @onready var level_controller = $LevelController
@@ -47,6 +48,8 @@ func _process(delta):
 		kills_per_sec = kills
 		kills = 0
 		time = 0
+		if kills_per_sec > max_kps:
+			max_kps = kills_per_sec
 	#if Input.is_key_pressed(KEY_B):
 		#spawn_upgrade_menu("guns")
 	#if Input.is_key_pressed(KEY_N):

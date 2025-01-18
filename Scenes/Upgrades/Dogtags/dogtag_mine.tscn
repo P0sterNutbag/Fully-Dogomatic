@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwbee3ps6m0x"]
+[gd_scene load_steps=8 format=3 uid="uid://dwbee3ps6m0x"]
 
 [ext_resource type="PackedScene" uid="uid://cn50oxjbu2kvn" path="res://Scenes/Upgrades/Dogtags/dogtag_exploding_bullets.tscn" id="1_siv5p"]
+[ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="2_jx0ow"]
 [ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="2_ktda0"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_puxrl"]
 [ext_resource type="Texture2D" uid="uid://b0rfe3ff6ilq5" path="res://Art/Sprites/upgrade spritesheet.png" id="4_53s5m"]
@@ -16,6 +17,7 @@ script = ExtResource("3_puxrl")
 rarity = 2
 
 [node name="Dogtag" instance=ExtResource("1_siv5p")]
+material = ExtResource("2_jx0ow")
 upgrade_values = Array[ExtResource("2_ktda0")]([SubResource("Resource_su5yf")])
 metadata/Title = "Mines"
 metadata/Type = "Drop mines every 5 seconds"

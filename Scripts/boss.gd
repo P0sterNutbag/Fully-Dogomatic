@@ -1,4 +1,4 @@
-extends Enemy
+extends EnemyIncramental
 class_name Boss
 
 @export var boss_name = "Max, prince of lumps"

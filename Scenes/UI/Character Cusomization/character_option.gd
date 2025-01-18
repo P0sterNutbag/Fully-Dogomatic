@@ -24,11 +24,10 @@ func _ready() -> void:
 	juice.process_mode = Node.PROCESS_MODE_DISABLED
 	$ScaleOffset/UpgradeName.text = "[center]" + character_name.to_upper()
 	$ScaleOffset/Sprite2D.texture = sprite
-	#if !unlocked:
-		#character_name = "???"
-		#$ScaleOffset/UpgradeName.text = "[center]" + character_name.to_upper()
-		#$ScaleOffset/Sprite2D.material = off_shader
-	#position_origin = position
+	if !unlocked:
+		character_name = "???"
+		$ScaleOffset/UpgradeName.text = "[center]" + character_name.to_upper()
+		$ScaleOffset/Sprite2D.material = off_shader
 
 
 func _process(delta: float) -> void:
@@ -42,10 +41,9 @@ func on_focus_entered():
 	scale_up()
 	circle.queue_redraw()
 	juice.process_mode = Node.PROCESS_MODE_PAUSABLE
-	if description != "":
-		tooltip.visible = true
 	if unlocked:
-		description_text.text = "[center]" + description.capitalize()
+		tooltip.visible = true
+		description_text.text = "[center]" + description.to_upper()
 	z_index += 1
 
 

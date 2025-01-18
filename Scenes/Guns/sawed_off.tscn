@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://diquaf2uu7u58" path="res://Art/Sprites/icon_shotgun.png" id="3_prxj8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7sqk0"]
-size = Vector2(25, 8.00011)
+size = Vector2(25, 1.00005)
 
 [node name="Gun" instance=ExtResource("1_j5qh5")]
 bullet_damage = 2.0
@@ -17,7 +17,7 @@ metadata/Title = "Sawed-Off Shotgun"
 metadata/Icon = ExtResource("3_prxj8")
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(-0.499996, 1)
+position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_7sqk0")
 
 [node name="Sprite2D" parent="." index="1"]

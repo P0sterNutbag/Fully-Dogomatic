@@ -1,25 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://bypk836otjf2e"]
+[gd_scene load_steps=12 format=3 uid="uid://bypk836otjf2e"]
 
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="1_1u8m4"]
 [ext_resource type="Script" path="res://Scripts/ui_settings_menu.gd" id="2_kapkv"]
-[ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="3_cjqnu"]
-[ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="4_nvwok"]
 [ext_resource type="Theme" uid="uid://b6o7rf6iavtxi" path="res://Art/Themes/button.tres" id="5_fdqnr"]
 [ext_resource type="Script" path="res://Scripts/ui_menu_button.gd" id="6_ku67b"]
 [ext_resource type="Script" path="res://Scripts/ui_scroll_button.gd" id="7_h6pqo"]
 [ext_resource type="Texture2D" uid="uid://cyrsnh5lgtdqe" path="res://Art/Sprites/bullet icon.png" id="8_y3trq"]
 [ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="9_wjcy1"]
 [ext_resource type="Texture2D" uid="uid://dj5bx3srl6jso" path="res://Art/Sprites/ui arrow.png" id="10_irurn"]
-[ext_resource type="Texture2D" uid="uid://daxb7qrq2h0do" path="res://Art/Sprites/corgi background.png" id="11_5wihk"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_uu6di"]
-shader = ExtResource("3_cjqnu")
-shader_parameter/skip_first_row = true
-shader_parameter/use_palette_alpha = false
-shader_parameter/is_texture = false
-shader_parameter/fps = 6.0
-shader_parameter/color_threshold = 0.1
-shader_parameter/palette = ExtResource("4_nvwok")
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_adnbr"]
 color = Color(1, 1, 1, 1)
@@ -35,15 +23,6 @@ HSlider/icons/grabber_highlight = ExtResource("8_y3trq")
 HSlider/styles/grabber_area = SubResource("StyleBoxLine_adnbr")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxLine_adnbr")
 HSlider/styles/slider = SubResource("StyleBoxLine_a25b4")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mjom4"]
-shader = ExtResource("3_cjqnu")
-shader_parameter/skip_first_row = true
-shader_parameter/use_palette_alpha = false
-shader_parameter/is_texture = false
-shader_parameter/fps = 6.0
-shader_parameter/color_threshold = 0.1
-shader_parameter/palette = ExtResource("4_nvwok")
 
 [node name="PauseMenu" type="Control"]
 process_mode = 2
@@ -64,7 +43,7 @@ offset_bottom = 360.0
 color = Color(0.101961, 0.101961, 0.101961, 1)
 
 [node name="Menu" type="Control" parent="."]
-material = SubResource("ShaderMaterial_uu6di")
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -233,39 +212,6 @@ text = "BACK"
 flat = true
 alignment = 0
 script = ExtResource("6_ku67b")
-
-[node name="ColorRect2" type="ColorRect" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_mjom4")
-use_parent_material = true
-clip_contents = true
-layout_mode = 0
-offset_right = 80.0
-offset_bottom = 360.0
-color = Color(0, 0, 0, 1)
-
-[node name="Sprite2D2" type="Sprite2D" parent="ColorRect2"]
-visible = false
-position = Vector2(137.5, 176)
-scale = Vector2(0.916667, 0.916667)
-texture = ExtResource("11_5wihk")
-
-[node name="ColorRect3" type="ColorRect" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_mjom4")
-use_parent_material = true
-clip_contents = true
-layout_mode = 0
-offset_left = 560.0
-offset_right = 640.0
-offset_bottom = 360.0
-color = Color(0, 0, 0, 1)
-
-[node name="Sprite2D2" type="Sprite2D" parent="ColorRect3"]
-visible = false
-position = Vector2(137.5, 176)
-scale = Vector2(0.916667, 0.916667)
-texture = ExtResource("11_5wihk")
 
 [connection signal="gui_input" from="ColorRect" to="." method="_on_color_rect_gui_input"]
 [connection signal="mouse_entered" from="ColorRect" to="." method="_on_color_rect_mouse_entered"]

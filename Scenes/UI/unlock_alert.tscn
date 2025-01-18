@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://cny6w1v78x6mx"]
+[gd_scene load_steps=10 format=3 uid="uid://cny6w1v78x6mx"]
 
 [ext_resource type="Script" path="res://Scripts/circle.gd" id="1_1pqmg"]
+[ext_resource type="Script" path="res://Scripts/unlock_alert.gd" id="1_qmg6l"]
 [ext_resource type="Theme" uid="uid://d20y8va2yhr08" path="res://Art/Themes/ui text large.tres" id="2_ixi0y"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="2_ow5fi"]
+[ext_resource type="Texture2D" uid="uid://130ucgqaw13b" path="res://Art/Sprites/corgi portrait.png" id="4_mpngw"]
+[ext_resource type="Texture2D" uid="uid://d20vw00uw4fui" path="res://Art/Sprites/dachsund portrait.png" id="5_q3ihk"]
+[ext_resource type="Texture2D" uid="uid://ca47bume0qmm5" path="res://Art/Sprites/cat portrait.png" id="6_pyt4n"]
+[ext_resource type="Texture2D" uid="uid://c6bn4pfvmlgwq" path="res://Art/Sprites/terrier portrait.png" id="7_1sj3x"]
+[ext_resource type="Texture2D" uid="uid://dc3lb8updecmj" path="res://Art/Sprites/bulldog portrait.png" id="8_3wiqa"]
 
 [node name="UnlockAlert" type="Control"]
 use_parent_material = true
@@ -10,6 +16,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_qmg6l")
 
 [node name="Circle" type="Control" parent="."]
 use_parent_material = true
@@ -37,7 +44,45 @@ rot_frequency = 2.5
 rot_amplitude = 10.0
 grow_in = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Characters" type="Node2D" parent="."]
+use_parent_material = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Characters"]
+visible = false
 use_parent_material = true
 position = Vector2(0, 33)
 scale = Vector2(3, 3)
+texture = ExtResource("4_mpngw")
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Characters"]
+visible = false
+use_parent_material = true
+position = Vector2(0, 33)
+scale = Vector2(3, 3)
+texture = ExtResource("5_q3ihk")
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Characters"]
+visible = false
+use_parent_material = true
+position = Vector2(0, 33)
+scale = Vector2(3, 3)
+texture = ExtResource("6_pyt4n")
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Characters"]
+visible = false
+use_parent_material = true
+position = Vector2(0, 33)
+scale = Vector2(3, 3)
+texture = ExtResource("7_1sj3x")
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Sprite2D5" type="Sprite2D" parent="Characters"]
+visible = false
+use_parent_material = true
+position = Vector2(0, 33)
+scale = Vector2(3, 3)
+texture = ExtResource("8_3wiqa")
+region_rect = Rect2(0, 0, 32, 32)

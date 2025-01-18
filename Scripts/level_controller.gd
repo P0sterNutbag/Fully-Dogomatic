@@ -8,6 +8,7 @@ extends Node
 @export var spawn_time_incrament = 0.75
 var formation_index = 0
 var enemies: Array[Enemy]
+var bosses_spawned: Array[int]
 var round = 0
 var hp_round = 3
 var boss_round = 1
@@ -16,6 +17,7 @@ var current_kills: int = 0
 var shop = preload("res://Scenes/Levels/Level Objects/shop.tscn")
 var hp_pickup = preload("res://Scenes/Levels/Level Objects/health_pickup.tscn")
 var enemy_spawner = preload("res://Scenes/Levels/Level Objects/enemy_spawner_pipe.tscn")
+var final_boss = preload("res://Scenes/Enemies/boss_final.tscn")
 @onready var enemy_spawn_timer = $EnemySpawnTimer
 @onready var round_timer = $RoundTimer
 @onready var enemy_formation_timer = $EnemyFormationTimer
@@ -54,13 +56,16 @@ func _on_enemy_spawn_timer_timeout() -> void:
 	spawn_enemy()
 
 
-func spawn_enemy(new_enemy: PackedScene = null) -> Node2D:
-	#if enemies.size() >= 400:
-		#return
-	var enemy_to_spawn
+func spawn_enemy(enemy_to_spawn: PackedScene = null) -> Node2D:
+	if enemies.size() >= 400:
+		return
+	if enemy_to_spawn == null:
+		var index = Globals.get_weighted_index(spawn_formations[formation_index].enemies)
+		enemy_to_spawn = spawn_formations[formation_index].enemies[index].object_to_spawn
+	#var enemy_to_spawn
 	#if !new_enemy:
-	var index = Globals.get_weighted_index(spawn_formations[formation_index].enemies)
-	enemy_to_spawn = spawn_formations[formation_index].enemies[index].object_to_spawn.instantiate()
+		#var index = Globals.get_weighted_index(spawn_formations[formation_index].enemies)
+		#enemy_to_spawn = Globals.enemy_pool.spawn_enemy(spawn_formations[formation_index].enemies[index].object_to_spawn)
 	#else: 
 		#enemy_to_spawn = new_enemy.instantiate()
 	var spawn_pos: Vector2
@@ -71,14 +76,13 @@ func spawn_enemy(new_enemy: PackedScene = null) -> Node2D:
 		1: spawn_pos = Vector2(randf_range(barrier_left.x,barrier_right.x), barrier_right.y)
 		2: spawn_pos = Vector2(barrier_left.x, randf_range(barrier_left.y,barrier_right.y))
 		3: spawn_pos = Vector2(barrier_right.x, randf_range(barrier_left.y,barrier_right.y))	
-	#var inst = Globals.create_instance(enemy_to_spawn, spawn_pos)
-	get_tree().current_scene.add_child(enemy_to_spawn)
-	enemy_to_spawn.position = spawn_pos
-	enemies.append(enemy_to_spawn)
+	var inst = Globals.create_instance(enemy_to_spawn, spawn_pos)
+	inst.position = spawn_pos
+	enemies.append(inst)
 	print(enemies.size())
-	if enemy_to_spawn is EnemyIncramental:
-		enemy_to_spawn.health = floor(enemy_health)
-	return enemy_to_spawn
+	if inst is EnemyIncramental:
+		inst.health = floor(enemy_health)
+	return inst
 
 
 func spawn_level_objects() -> void:
@@ -90,16 +94,14 @@ func spawn_level_objects() -> void:
 		var inst = Globals.create_instance(hp_pickup, get_random_position())
 		Globals.ui.add_level_obj(inst.name.to_upper(), true)
 		hp_round += randi_range(3, 4)
-	## spawn pipe
-	#if round == pipe_round:
-		#var spawner_inst = create_level_object(enemy_spawner, get_random_position())
-		#Globals.ui.add_level_obj(spawner_inst.name.to_upper(), false)
-		#pipe_round += randi_range(3, 4)
 	# spawn crates
 	var crate_amount = randi_range(1, 4)
 	for i in crate_amount:
 		var spawn_scene = level_objects[Globals.get_weighted_index(level_objects)].object_to_spawn
 		var inst = create_level_object(spawn_scene, get_random_position())
+		var hp = inst.get_node("Area2D")
+		hp.health *= enemy_health
+		hp.max_health = hp.health
 	Globals.ui.create_level_obj_signs()
 
 
@@ -133,11 +135,14 @@ func reset_kills() -> void:
 
 
 func _on_boss_timer_timeout() -> void:
-	boss_round += 2
+	if bosses_spawned.size() == 4:
+		spawn_enemy(final_boss)
+		Globals.ui.add_level_obj("Boss!!!", false)
+		bosses_spawned.clear()
+		return
 	var index = Globals.get_weighted_index(bosses)
+	while bosses_spawned.has(index):
+		index = Globals.get_weighted_index(bosses)
 	var boss = bosses[index].object_to_spawn
 	var inst = spawn_enemy(boss)
-	bosses.remove_at(index)
 	Globals.ui.add_level_obj("Boss!!!", false)
-	await inst.ready
-	inst.health_component.health *= boss_round

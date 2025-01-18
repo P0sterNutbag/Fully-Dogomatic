@@ -9,7 +9,7 @@ script = ExtResource("2_0enwf")
 rarity = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2y2jc"]
-size = Vector2(8, 7.00004)
+size = Vector2(8, 1.00002)
 
 [node name="Gun" instance=ExtResource("1_8thfs")]
 spread = 5.0
@@ -22,7 +22,7 @@ metadata/Title = "Short King"
 metadata/Rarity = SubResource("Resource_q7je0")
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(0.999998, -0.500004)
+position = Vector2(1, -4.52995e-06)
 shape = SubResource("RectangleShape2D_2y2jc")
 
 [node name="Sprite2D" parent="." index="1"]

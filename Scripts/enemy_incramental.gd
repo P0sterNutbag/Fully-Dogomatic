@@ -1,6 +1,7 @@
 extends Enemy
 class_name EnemyIncramental
 
+
 @export var health_multiplier: float = 1.0
 var health: int:
 	set(value):

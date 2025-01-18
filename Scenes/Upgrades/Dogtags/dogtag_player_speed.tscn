@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1jblxdf7tmkf"]
+[gd_scene load_steps=7 format=3 uid="uid://c1jblxdf7tmkf"]
 
 [ext_resource type="PackedScene" uid="uid://cn50oxjbu2kvn" path="res://Scenes/Upgrades/Dogtags/dogtag_exploding_bullets.tscn" id="1_hwsvm"]
 [ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="2_0m6ky"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="2_epw1i"]
+[ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="2_mywdl"]
 
 [sub_resource type="Resource" id="Resource_bx64e"]
 script = ExtResource("2_0m6ky")
@@ -15,6 +16,7 @@ script = ExtResource("2_epw1i")
 rarity = 1
 
 [node name="Dogtag" instance=ExtResource("1_hwsvm")]
+material = ExtResource("2_mywdl")
 upgrade_values = Array[ExtResource("2_0m6ky")]([SubResource("Resource_bx64e")])
 metadata/Title = "Zoomies"
 metadata/Type = "Move faster"

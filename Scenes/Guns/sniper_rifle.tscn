@@ -9,7 +9,7 @@ script = ExtResource("2_k3pjy")
 rarity = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j2nmn"]
-size = Vector2(52, 13.9999)
+size = Vector2(52, 0.999995)
 
 [node name="Gun" instance=ExtResource("1_mnacc")]
 bullet_damage = 6.0
@@ -19,12 +19,11 @@ penetrations = 2
 knockback = 1
 sound_shoot = "gunshot_assault"
 metadata/Title = "Sniper Rifle"
-metadata/Type = ""
 metadata/Rarity = SubResource("Resource_370uk")
 metadata/Icon = ExtResource("3_5shd0")
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(-0.999998, -4.94758e-05)
+position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_j2nmn")
 
 [node name="Sprite2D" parent="." index="1"]

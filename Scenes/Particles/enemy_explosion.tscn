@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://qlr0da6xsoiw"]
+[gd_scene load_steps=18 format=3 uid="uid://qlr0da6xsoiw"]
 
 [ext_resource type="Texture2D" uid="uid://dijsdf7bej5uj" path="res://Art/Sprites/exp2.png" id="1_lv5dq"]
 [ext_resource type="Script" path="res://Scripts/enemy_explosion.gd" id="2_nl6jq"]
@@ -47,25 +47,13 @@ region = Rect2(64, 128, 64, 64)
 atlas = ExtResource("1_lv5dq")
 region = Rect2(128, 128, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_00xwi"]
-atlas = ExtResource("1_lv5dq")
-region = Rect2(0, 192, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ku64m"]
-atlas = ExtResource("1_lv5dq")
-region = Rect2(64, 192, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_otlvd"]
-atlas = ExtResource("1_lv5dq")
-region = Rect2(128, 192, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_svc7t"]
-atlas = ExtResource("1_lv5dq")
-region = Rect2(192, 192, 64, 64)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_dv4f1"]
 atlas = ExtResource("1_lv5dq")
 region = Rect2(192, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00xwi"]
+atlas = ExtResource("1_lv5dq")
+region = Rect2(0, 192, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cy0vq"]
 animations = [{
@@ -104,19 +92,10 @@ animations = [{
 "texture": SubResource("AtlasTexture_6fbc5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_00xwi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ku64m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_otlvd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_svc7t")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_dv4f1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00xwi")
 }],
 "loop": false,
 "name": &"default",
@@ -129,7 +108,7 @@ radius = 22.0
 [node name="DeathExplosion" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_cy0vq")
 autoplay = "default"
-frame = 15
+frame = 12
 frame_progress = 1.0
 script = ExtResource("2_nl6jq")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://btm7v56c8u8vc"]
+[gd_scene load_steps=19 format=3 uid="uid://b03ssfrn5jr0h"]
 
 [ext_resource type="Texture2D" uid="uid://54kbcdl8r4r4" path="res://Art/Sprites/exp1.png" id="1_submo"]
 [ext_resource type="Script" path="res://Scripts/play_animation_then_die.gd" id="2_q4qlp"]

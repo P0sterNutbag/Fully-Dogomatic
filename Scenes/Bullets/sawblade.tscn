@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cosjqltcu7nk2"]
+[gd_scene load_steps=6 format=3 uid="uid://clo1rbbdey5yl"]
 
 [ext_resource type="Script" path="res://Scripts/sawblade.gd" id="1_8cnlx"]
 [ext_resource type="Texture2D" uid="uid://dcayjrr65pgpy" path="res://Art/Sprites/gun spritesheet.png" id="2_x4jit"]
@@ -7,7 +7,7 @@
 radius = 5.09902
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h81x8"]
-radius = 123.004
+radius = 64.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_syma8"]
 radius = 5.09902

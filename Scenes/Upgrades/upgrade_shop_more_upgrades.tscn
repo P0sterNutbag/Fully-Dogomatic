@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="1_78w3h"]
 [ext_resource type="Script" path="res://Scripts/upgrade_shop.gd" id="2_n2w1n"]
-[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="3_3ukvd"]
+[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Fonts/Blue Sky 8x8.ttf" id="3_3ukvd"]
 [ext_resource type="Script" path="res://Scripts/ui_menu_button_grow_on_focus.gd" id="4_lauqq"]
 [ext_resource type="Script" path="res://Scripts/circle.gd" id="5_o8umg"]
 [ext_resource type="Texture2D" uid="uid://b2d2io1t7plqf" path="res://Art/Sprites/x sign.png" id="6_862a7"]

@@ -17,6 +17,7 @@ var target_enemy
 var can_warp: bool
 var hit_enemies: Array
 var can_damage: bool = true
+var can_delete: bool = true
 @export var explosion = preload("res://Scenes/Bullets/bullet_explosion.tscn")
 var damage_number = preload("res://Scenes/Particles/damage_number.tscn")
 var impact = preload("res://Scenes/Particles/impact.tscn")
@@ -25,9 +26,9 @@ var spark = preload("res://Scenes/Particles/bullet_spark.tscn")
 
 func _enter_tree() -> void:
 	can_damage = true
+	can_delete = true
 	if homing:
 		$HomingArea.process_mode = Node.PROCESS_MODE_INHERIT
-		#target_enemy = get_nearest_enemy()
 	if randi_range(0,1) == 1:
 		scale.y *= -1
 
@@ -38,8 +39,6 @@ func _physics_process(delta):
 		if target_enemy != null:
 			var target_vector = (target_enemy.position - position).normalized() * speed
 			move_vector = lerp(move_vector, target_vector, 7.5 * delta)
-		#else:
-			#target_enemy = get_nearest_enemy()
 		rotation = move_vector.angle()
 	if friction > 0:
 		move_vector = lerp(move_vector, Vector2.ZERO, friction * delta)
@@ -75,7 +74,6 @@ func _physics_process(delta):
 
 func _on_area_entered(area):
 	if (area.is_in_group("enemy") or can_damage_player) and can_damage:
-		#OS.delay_msec(10 / shot_count)
 		if can_damage_player and area.get_parent() is Player:
 			area.get_parent().take_damage(damage)
 		else:
@@ -84,10 +82,10 @@ func _on_area_entered(area):
 		#get_tree().current_scene.add_child(inst)
 		#inst.global_position = area.global_position
 		#inst.rotation = rotation
-		#var instance = damage_number.instantiate()
-		#get_tree().current_scene.add_child(instance)
-		#instance.global_position = area.global_position + Vector2.UP * 8
-		#instance.get_node("Text").text += str(damage)
+		var instance = damage_number.instantiate()
+		get_tree().current_scene.add_child(instance)
+		instance.global_position = area.global_position + Vector2.UP * 8
+		instance.get_node("Text").text += str(damage)
 		#for i in randi_range(3, 4):
 			#var spark_inst = spark.instantiate()
 			#get_tree().current_scene.add_child(spark_inst)
@@ -98,40 +96,28 @@ func _on_area_entered(area):
 				move_vector.x *= -1
 			else:
 				move_vector.y *= -1
-			#var vector_to_enemy = area.global_position - global_position
-			#if vector_to_enemy.x > vector_to_enemy.y:
-				#move_vector.y *= -1
-			#else:
-				#move_vector.x *= -1
 			rotation = move_vector.angle()
 		if randf_range(0, 1) < explode_chance:
 			call_deferred("create_explosion", area.global_position)
 		penetrations -= 1
 		if penetrations <= 0 and destroy_on_hit:
 			can_damage = false
-			get_parent().call_deferred("remove_child", self)
+			delete.call_deferred()
 		elif homing:
 			hit_enemies.append(target_enemy)
-			#target_enemy = get_nearest_enemy()
+
+
+func delete():
+	if can_delete:
+		get_parent().remove_child(self)
+		can_delete = false
 
 
 func create_explosion(spawn_position: Vector2):
-	var inst = Globals.explosion_pool.spawn_explosion(explosion)
+	var inst = explosion.instantiate()
 	inst.global_position = spawn_position
 	get_tree().current_scene.add_child(inst)
 	#Globals.create_instance(explosion, spawn_position)
-
-
-func get_nearest_enemy():
-	var enemies = get_tree().get_nodes_in_group("enemy")
-	var closest_dist = 100000
-	var closest_enemy
-	for enemy in enemies:
-		var distance = global_position.distance_to(enemy.global_position)
-		if distance < closest_dist and not hit_enemies.has(enemy):
-			closest_enemy = enemy
-			closest_dist = distance
-	return closest_enemy
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:

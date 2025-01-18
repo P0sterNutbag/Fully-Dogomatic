@@ -106,6 +106,7 @@ animations = [{
 
 [node name="Player" instance=ExtResource("1_ehxdq")]
 ability = 2
+character_index = 2
 
 [node name="PlayerSprite" parent="." index="2"]
 material = SubResource("ShaderMaterial_xd16f")

@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://ctss4ealcnr5n" path="res://Scenes/Upgrades/GunUpgrades/double_barreled_upgrade.tscn" id="17_fg47m"]
 [ext_resource type="PackedScene" uid="uid://cwyhebjlc67pi" path="res://Scenes/Upgrades/Dogtags/dogtag_hp.tscn" id="17_fiucb"]
 [ext_resource type="PackedScene" uid="uid://c38tjmk8m2014" path="res://Scenes/Upgrades/GunUpgrades/damage_upgrade.tscn" id="18_06mau"]
-[ext_resource type="PackedScene" uid="uid://dsnky0q505vsq" path="res://Scenes/Guns/sawgun.tscn" id="18_ajhlc"]
+[ext_resource type="PackedScene" uid="uid://bso6ooy7nk1ri" path="res://Scenes/Guns/sawgun.tscn" id="18_ajhlc"]
 [ext_resource type="PackedScene" uid="uid://bfgkpnsswjar8" path="res://Scenes/Upgrades/GunUpgrades/explosive_upgrade.tscn" id="18_ekt5q"]
 [ext_resource type="PackedScene" uid="uid://dlhgr84xobvpw" path="res://Scenes/Upgrades/Dogtags/dogtag_money_droprate.tscn" id="18_yd6iy"]
 [ext_resource type="PackedScene" uid="uid://cxgdkckdf444o" path="res://Scenes/Upgrades/GunUpgrades/fullauto_upgrade.tscn" id="19_y1bth"]

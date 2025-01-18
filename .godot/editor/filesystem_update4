@@ -1,55 +1,38 @@
-res://Scenes/Enemies/enemy_parent.tscn
+res://Scenes/Levels/world.tscn
 res://Art/Shaders/colorswap.gdshader
 res://Art/Shaders/colorswap.tres
 res://Art/Shaders/flash.gdshader
 res://Art/Themes/button.tres
 res://Resources/level_unlocks.tres
 res://Art/Themes/healthbar.tres
+res://Art/Shaders/color_change.gdshader
+res://Art/Shaders/color_change.tres
 res://Art/Shaders/dither.gdshader
 res://Art/Shaders/dither postprocess.gdshader
-res://Art/Shaders/color_change.gdshader
-res://Scripts/globals.gd
-res://Scenes/Levels/world.tscn
-res://Scripts/bullet_pool.gd
-res://Scenes/Bullets/regular_bullet.tscn
-res://Scripts/gun.gd
-res://Scenes/Levels/main_menu.tscn
-res://Scenes/Enemies/boss_1.tscn
-res://Scenes/Enemies/boss_2.tscn
-res://Scenes/Enemies/boss_3.tscn
-res://Scenes/Enemies/boss_4.tscn
-res://Scenes/Enemies/enemy.tscn
-res://Scenes/Enemies/enemy_small.tscn
-res://Scenes/Enemies/enemy_large.tscn
-res://Scenes/Enemies/enemy_bomber.tscn
-res://Scenes/Particles/death_explosion.tscn
-res://Scenes/Upgrades/upgrade_shop.tscn
 res://Scenes/Levels/test.tscn
 res://Scenes/Player/player.tscn
-res://Scenes/Levels/Level Objects/money_crate.tscn
-res://Scripts/bullet.gd
-res://Scripts/enemy_health.gd
-res://Scripts/play_animation_then_die.gd
-res://Scenes/Particles/death_explosion_large.tscn
-res://Scenes/Levels/Level Objects/car.tscn
-res://Scenes/Particles/enemy_explosion.tscn
-res://Scripts/enemy_pool.gd
-res://Scripts/level_controller.gd
-res://Scripts/enemy.gd
-res://Scenes/Bullets/mine.tscn
-res://Scripts/mine.gd
-res://Scenes/Bullets/tennis_ball.tscn
-res://Scripts/tennis_ball.gd
-res://Scenes/Bullets/rocket.tscn
-res://Scenes/Bullets/rubber_bullet.tscn
-res://Scenes/Bullets/sawblade.tscn
-res://Scripts/minimap_icon.gd
-res://Scripts/explosion_pool.gd
-res://Scenes/Bullets/bullet_explosion.tscn
-res://Scripts/explosion.gd
-res://Scenes/Bullets/bullet_explosion_big.tscn
-res://Scripts/enemy_explosion.gd
-res://Scenes/Bullets/bullet_grenade.tscn
-res://Scripts/grenade.gd
-res://Scenes/Particles/explosion.tscn
-res://Scenes/Levels/Level Objects/shop.tscn
+res://Scenes/UI/death_ui.tscn
+res://Scenes/Levels/win_screen.tscn
+res://Scenes/Levels/level_summary.tscn
+res://Scenes/UI/Character Cusomization/choose_character.tscn
+res://Scenes/Player/bulldog.tscn
+res://Scenes/Player/dachshund.tscn
+res://Scenes/Player/cat.tscn
+res://Scenes/Player/terrier.tscn
+res://Scenes/UI/unlock_alert.tscn
+res://Scenes/Enemies/boss_3.tscn
+res://Scenes/Enemies/boss_4.tscn
+res://Scenes/Levels/main_menu.tscn
+res://Scenes/Player/dollar.tscn
+res://Scenes/Player/menu_dog.tscn
+res://Scenes/Player/tennisball.tscn
+res://Scenes/Enemies/boss_1.tscn
+res://Scenes/Enemies/boss_2.tscn
+res://Scenes/Upgrades/upgrade_menu.tscn
+res://Scenes/Upgrades/part_upgrade.tscn
+res://Scenes/UI/pause_menu.tscn
+res://Scenes/UI/ui.tscn
+res://Art/Themes/ui text large.tres
+res://Art/Themes/ui text mid.tres
+res://Art/Themes/ui text small.tres
+res://Scripts/player.gd

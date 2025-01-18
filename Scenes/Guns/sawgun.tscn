@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsnky0q505vsq"]
+[gd_scene load_steps=7 format=3 uid="uid://bso6ooy7nk1ri"]
 
 [ext_resource type="PackedScene" uid="uid://dxg8m0y80dpyp" path="res://Scenes/Guns/Parent/gun_parent.tscn" id="1_um3ue"]
-[ext_resource type="PackedScene" uid="uid://cosjqltcu7nk2" path="res://Scenes/Bullets/sawblade.tscn" id="2_7icp2"]
+[ext_resource type="PackedScene" uid="uid://clo1rbbdey5yl" path="res://Scenes/Bullets/sawblade.tscn" id="2_7icp2"]
 [ext_resource type="Texture2D" uid="uid://bwvobme5vv6us" path="res://Art/Sprites/icon AR15.png" id="2_rydqj"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_uri7l"]
 
@@ -10,7 +10,7 @@ script = ExtResource("3_uri7l")
 rarity = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5rf8g"]
-size = Vector2(25, 10.0001)
+size = Vector2(25, 1.00005)
 
 [node name="Gun" instance=ExtResource("1_um3ue")]
 bullet = ExtResource("2_7icp2")
@@ -26,7 +26,7 @@ metadata/Rarity = SubResource("Resource_o3v3t")
 metadata/Icon = ExtResource("2_rydqj")
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(-0.499996, 1)
+position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_5rf8g")
 
 [node name="Sprite2D" parent="." index="1"]

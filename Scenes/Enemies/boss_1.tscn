@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://bh6juqooq77vm"]
 
-[ext_resource type="Script" path="res://Scripts/boss_rusher.gd" id="1_jli4x"]
+[ext_resource type="Script" path="res://Scripts/boss.gd" id="1_h8khs"]
 [ext_resource type="Texture2D" uid="uid://csoxx4i2c0dil" path="res://Art/Sprites/boss headless.png" id="2_b6a73"]
 [ext_resource type="Script" path="res://Scripts/enemy_health.gd" id="3_frah2"]
 [ext_resource type="PackedScene" uid="uid://bb6l6e5xtb17k" path="res://Scenes/Particles/shadow.tscn" id="4_4st6s"]
@@ -104,10 +104,11 @@ collision_layer = 0
 collision_mask = 257
 motion_mode = 1
 wall_min_slide_angle = 0.0
-script = ExtResource("1_jli4x")
+script = ExtResource("1_h8khs")
 boss_name = "Ace, Rider of darkness"
+health_multiplier = 325.0
 speed = 20.0
-damage = 25.0
+damage = 30.0
 money_amount = 25
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -159,17 +160,7 @@ follow = true
 [node name="Arrow" parent="." instance=ExtResource("7_o0yth")]
 visible = false
 
-[node name="RunTimer" type="Timer" parent="."]
-wait_time = 4.0
-one_shot = true
-
-[node name="RunCooldown" type="Timer" parent="."]
-wait_time = 10.0
-one_shot = true
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_28m1k")
 }
-
-[connection signal="timeout" from="RunTimer" to="." method="_on_run_timer_timeout"]

@@ -7,6 +7,7 @@ var state = states.walk
 
 @export var ability: abilities
 @export var money: float = 0
+@export var character_index: int
 var base_speed = 75.0
 var sprint_speed = 125.0
 var speed = base_speed
@@ -85,6 +86,8 @@ func _physics_process(delta):
 				if global_position.distance_to(get_global_mouse_position()) > 4:
 					var move_vector = (get_global_mouse_position() - global_position).normalized()
 					velocity = move_vector * speed
+					direction_x = sign(velocity.x)
+					direction_y = sign(velocity.y)
 			
 			# abilities
 			if ability == abilities.sprint:
@@ -150,7 +153,7 @@ func _process(delta):
 			
 			# abilities
 			if ability == abilities.nap:
-				if velocity == Vector2.ZERO:
+				if velocity == Vector2.ZERO and hp < max_hp:
 					if $NapTimer.is_stopped():
 						$NapTimer.start()
 				elif !$NapTimer.is_stopped():

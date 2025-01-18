@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dxg8m0y80dpyp" path="res://Scenes/Guns/Parent/gun_parent.tscn" id="1_lgec2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_18vyg"]
-size = Vector2(15, 7.99984)
+size = Vector2(15, 0.999933)
 
 [node name="Gun" instance=ExtResource("1_lgec2")]
 cooldown = 0.3
@@ -14,7 +14,7 @@ sound_shoot = "gunshot_pistol"
 metadata/Title = "Revolver"
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(-0.499993, 0.999987)
+position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_18vyg")
 
 [node name="Sprite2D" parent="." index="1"]

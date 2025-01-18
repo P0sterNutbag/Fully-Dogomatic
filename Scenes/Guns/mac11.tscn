@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dxg8m0y80dpyp" path="res://Scenes/Guns/Parent/gun_parent.tscn" id="1_nr6q2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwtrg"]
-size = Vector2(17.0001, 12.9999)
+size = Vector2(17.0001, 2)
 
 [node name="Gun" instance=ExtResource("1_nr6q2")]
 bullet_damage = 0.7
@@ -14,7 +14,7 @@ sound_shoot = "gunshot_smg"
 metadata/Title = "Machine Pistol"
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(0.500002, 0.499998)
+position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_fwtrg")
 
 [node name="Sprite2D" parent="." index="1"]

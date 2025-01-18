@@ -1,16 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://wpqyom02oa8t"]
+[gd_scene load_steps=18 format=3 uid="uid://d3qh0jfr5xkyw"]
 
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="1_llati"]
 [ext_resource type="PackedScene" uid="uid://diu6fl025qdv0" path="res://Scenes/Upgrades/upgrade_option.tscn" id="3_hyjv8"]
-[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Sprites/Blue Sky 8x8.ttf" id="3_rpoib"]
+[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Fonts/Blue Sky 8x8.ttf" id="3_rpoib"]
 [ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="4_6og2k"]
 [ext_resource type="Script" path="res://Scripts/ui_menu_button_grow_on_focus.gd" id="4_exaf0"]
 [ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="5_ao6a1"]
 [ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="6_0q51j"]
 [ext_resource type="Script" path="res://Scripts/FinishUpgrades.gd" id="7_3j5g3"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="9_hgh8f"]
-[ext_resource type="Texture2D" uid="uid://bgx8q6i8fgsha" path="res://Art/Sprites/stopsign.png" id="9_lmgfa"]
-[ext_resource type="Texture2D" uid="uid://dbbdi66uf2bh0" path="res://Art/Sprites/checkmark.png" id="10_fytbm"]
 
 [sub_resource type="GDScript" id="GDScript_fs5ji"]
 script/source = "extends Control
@@ -157,6 +155,10 @@ shader_parameter/is_texture = false
 shader_parameter/fps = 6.0
 shader_parameter/color_threshold = 0.1
 shader_parameter/palette = ExtResource("5_ao6a1")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a1x7r"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y3stf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sv6qb"]
 
@@ -328,7 +330,7 @@ bob_amplitude = 5.0
 [node name="Sprite2D" type="Sprite2D" parent="UpgradeMenu/CancelButton"]
 use_parent_material = true
 position = Vector2(30, 32)
-texture = ExtResource("9_lmgfa")
+texture = SubResource("CompressedTexture2D_a1x7r")
 
 [node name="ReadyButton" type="TextureRect" parent="UpgradeMenu"]
 visible = false
@@ -370,7 +372,7 @@ bob_amplitude = 5.0
 [node name="Sprite2D" type="Sprite2D" parent="UpgradeMenu/ReadyButton"]
 use_parent_material = true
 position = Vector2(32, 30)
-texture = ExtResource("10_fytbm")
+texture = SubResource("CompressedTexture2D_y3stf")
 
 [node name="Cancel" type="Button" parent="UpgradeMenu"]
 process_mode = 4
@@ -391,7 +393,7 @@ script = ExtResource("4_exaf0")
 [node name="Sprite2D" type="Sprite2D" parent="UpgradeMenu/Cancel"]
 use_parent_material = true
 position = Vector2(30, 32)
-texture = ExtResource("9_lmgfa")
+texture = SubResource("CompressedTexture2D_a1x7r")
 
 [node name="JuicyMovement" parent="UpgradeMenu/Cancel/Sprite2D" node_paths=PackedStringArray("target_node2D") instance=ExtResource("9_hgh8f")]
 target_node2D = NodePath("..")
@@ -417,7 +419,7 @@ script = ExtResource("4_exaf0")
 [node name="Sprite2D" type="Sprite2D" parent="UpgradeMenu/Accept"]
 use_parent_material = true
 position = Vector2(30, 32)
-texture = ExtResource("10_fytbm")
+texture = SubResource("CompressedTexture2D_y3stf")
 
 [node name="JuicyMovement" parent="UpgradeMenu/Accept/Sprite2D" node_paths=PackedStringArray("target_node2D") instance=ExtResource("9_hgh8f")]
 target_node2D = NodePath("../../../Cancel/Sprite2D")

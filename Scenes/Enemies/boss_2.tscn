@@ -106,8 +106,9 @@ motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_mmh1v")
 boss_name = "Oreo, lord of speed"
-speed = 350.0
-damage = 100.0
+health_multiplier = 50.0
+speed = 20.0
+damage = 20.0
 turn_speed = 100.0
 money_amount = 25
 
@@ -160,13 +161,18 @@ follow = true
 [node name="Arrow" parent="." instance=ExtResource("7_fk62m")]
 visible = false
 
-[node name="Cooldown" type="Timer" parent="."]
+[node name="RunTimer" type="Timer" parent="."]
+wait_time = 4.0
 one_shot = true
 autostart = true
+
+[node name="RunCooldown" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_28m1k")
 }
 
-[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="timeout" from="RunTimer" to="." method="_on_run_timer_timeout"]

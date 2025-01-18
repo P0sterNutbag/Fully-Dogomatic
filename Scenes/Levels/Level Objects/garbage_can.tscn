@@ -15,7 +15,7 @@ use_parent_material = true
 collision_layer = 256
 collision_mask = 0
 script = ExtResource("1_r4wwn")
-money_amount = 3
+money_amount = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(-0.125, 0)
@@ -29,7 +29,7 @@ texture = ExtResource("2_not5m")
 collision_layer = 256
 collision_mask = 2
 script = ExtResource("3_s7l8r")
-health = 7
+health = 6
 rotate_on_hit = false
 shake_on_hit = true
 sprite = NodePath("../CrateSprite")

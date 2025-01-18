@@ -9,7 +9,7 @@ script = ExtResource("3_f4k3h")
 rarity = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2y2jc"]
-size = Vector2(37, 11)
+size = Vector2(37, 0.50001)
 
 [node name="Gun" instance=ExtResource("1_ara00")]
 bullet = ExtResource("2_unslc")
@@ -25,7 +25,7 @@ metadata/Title = "Rocket Launcher"
 metadata/Rarity = SubResource("Resource_q7je0")
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(-0.5, 0.499984)
+position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_2y2jc")
 
 [node name="Sprite2D" parent="." index="1"]

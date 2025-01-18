@@ -20,6 +20,10 @@ var indexes = {
 func _ready() -> void:
 	Globals.explosion_pool = self
 	queue.resize(indexes.size())
+	for i in queue.size():
+		for ii in 100:
+			var inst = indexes.find_key(i).instantiate()
+			queue[i].append(inst)
 
 
 func spawn_explosion(scene_to_spawn: PackedScene):

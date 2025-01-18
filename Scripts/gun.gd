@@ -149,7 +149,7 @@ func _on_timer_timeout(): # shoot bullets
 			accuracy_mod = 0
 		# shoot bullets
 		for i in bullet_count:
-			var instance = Globals.bullet_pool.spawn_bullet(bullet)#bullet.instantiate()
+			var instance = bullet.instantiate()
 			get_tree().current_scene.add_child(instance)
 			instance.global_position = firepoint.global_position
 			var accuracy = clamp(spread + accuracy_mod, 0, 100)

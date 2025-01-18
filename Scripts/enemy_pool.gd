@@ -13,9 +13,13 @@ var enemy_indexes = {
 }
 
 
-func _ready() -> void:
-	Globals.enemy_pool = self
-	queue.resize(enemy_indexes.size())
+#func _ready() -> void:
+	#Globals.enemy_pool = self
+	#queue.resize(enemy_indexes.size())
+	#for i in queue.size():
+		#for ii in 400:
+			#var inst = enemy_indexes.find_key(i).instantiate()
+			#queue[i].append(inst)
 
 
 func spawn_enemy(enemy_to_spawn: PackedScene):

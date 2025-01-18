@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwyhebjlc67pi"]
+[gd_scene load_steps=9 format=3 uid="uid://cwyhebjlc67pi"]
 
 [ext_resource type="PackedScene" uid="uid://cn50oxjbu2kvn" path="res://Scenes/Upgrades/Dogtags/dogtag_exploding_bullets.tscn" id="1_5rmn0"]
+[ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="2_1faav"]
 [ext_resource type="Texture2D" uid="uid://b0rfe3ff6ilq5" path="res://Art/Sprites/upgrade spritesheet.png" id="2_fg81a"]
 [ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="2_xc40n"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_yr708"]
@@ -22,6 +23,7 @@ script = ExtResource("3_yr708")
 rarity = 1
 
 [node name="Dogtag" instance=ExtResource("1_5rmn0")]
+material = ExtResource("2_1faav")
 upgrade_values = Array[ExtResource("2_xc40n")]([SubResource("Resource_su5yf"), SubResource("Resource_lxrof")])
 metadata/Title = "Big Heart"
 metadata/Type = "+20 Max HP"

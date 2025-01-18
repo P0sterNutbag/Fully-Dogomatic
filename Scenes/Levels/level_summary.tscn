@@ -173,7 +173,7 @@ offset_bottom = 146.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("5_s5jnv")
-text = "QUIT"
+text = "RETURN TO MENU"
 flat = true
 script = ExtResource("6_yhemx")
 

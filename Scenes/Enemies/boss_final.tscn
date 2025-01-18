@@ -254,6 +254,7 @@ collision_mask = 257
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("2_0gyhi")
+health_multiplier = 500.0
 speed = 20.0
 damage = 25.0
 money_amount = 100

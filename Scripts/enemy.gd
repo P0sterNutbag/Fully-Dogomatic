@@ -67,6 +67,8 @@ func on_damage():
 func on_death(bullet_direction: float = 0):
 	#if randf_range(0, 1) <= Globals.player.money_drop_rate:
 	Globals.level_manager.current_kills += 1
+	var k = Globals.level_manager.current_kills
+	var m = Globals.level_manager.kills_to_money
 	if Globals.level_manager.current_kills >= Globals.level_manager.kills_to_money:
 		Globals.level_manager.reset_kills()
 		for i in money_amount:
@@ -75,8 +77,7 @@ func on_death(bullet_direction: float = 0):
 	Globals.create_instance(blood, $Shadow.global_position)
 	Globals.world_controller.total_kills += 1
 	Globals.world_controller.level_controller.enemies.erase(self)
-	# remove from tree
-	get_parent().remove_child.bind(self).call_deferred()
+	queue_free()
 
 
 func _process(_delta):

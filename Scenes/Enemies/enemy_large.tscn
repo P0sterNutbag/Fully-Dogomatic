@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/enemy_parent.tscn" id="1_o1t0n"]
 [ext_resource type="Script" path="res://Scripts/enemy_incramental.gd" id="2_qmi3d"]
 [ext_resource type="Texture2D" uid="uid://b6ixi75jv3vun" path="res://Art/Sprites/enemy big.png" id="3_3qpf5"]
-[ext_resource type="PackedScene" uid="uid://btm7v56c8u8vc" path="res://Scenes/Particles/death_explosion_large.tscn" id="4_f3yqf"]
+[ext_resource type="PackedScene" uid="uid://b03ssfrn5jr0h" path="res://Scenes/Particles/death_explosion_large.tscn" id="4_f3yqf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_latqs"]
 atlas = ExtResource("3_3qpf5")

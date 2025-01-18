@@ -20,7 +20,10 @@ var bullet_indexes = {
 func _ready() -> void:
 	Globals.bullet_pool = self
 	queue.resize(bullet_indexes.size())
-
+	for i in queue.size():
+		for ii in 100:
+			var inst = bullet_indexes.find_key(i).instantiate()
+			queue[i].append(inst)
 
 func spawn_bullet(bullet_to_spawn: PackedScene):
 	var queue_index = bullet_indexes[bullet_to_spawn]
