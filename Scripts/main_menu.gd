@@ -27,3 +27,7 @@ func _on_credits_pressed() -> void:
 
 func _on_quit_pressed():
 	get_tree().quit()
+
+
+func _on_test_pressed() -> void:
+	SceneManager.start_scene_transition("res://Scenes/Levels/test.tscn", false)

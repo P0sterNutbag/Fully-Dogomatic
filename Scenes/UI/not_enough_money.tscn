@@ -1,12 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5n0swc7smsf1"]
+[gd_scene load_steps=4 format=3 uid="uid://b5n0swc7smsf1"]
 
 [ext_resource type="Theme" uid="uid://dpv7tir788p5t" path="res://Art/Themes/ui text small.tres" id="1_21ryh"]
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="1_76q2e"]
+[ext_resource type="Script" path="res://Scripts/alert.gd" id="2_g0l0c"]
 
 [node name="NotEnoughMoney" type="Control"]
+process_mode = 3
 material = ExtResource("1_76q2e")
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("2_g0l0c")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 use_parent_material = true

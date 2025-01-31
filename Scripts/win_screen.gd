@@ -16,34 +16,50 @@ func _ready():
 	tween.tween_property(kps_stat, "text", str(Globals.world_controller.max_kps), 0.5)
 	tween.tween_property(guns_stat, "text", str(Globals.player.guns.size()), 0.5)
 	await tween.finished
-	var alert = unlock_characters()
-	if alert:
+	var alerts = unlock_characters()
+	for alert in alerts:
+		add_child(alert)
 		await alert.tree_exited
 	buttons.process_mode = Node.PROCESS_MODE_INHERIT
 	super._ready()
+	if Globals.player.name == "Character0":
+		SaveData.c0_win = true
+	if Globals.player.name == "Character1":
+		SaveData.c1_win = true
+	if Globals.player.name == "Character2":
+		SaveData.c2_win = true
+	if Globals.player.name == "Character3":
+		SaveData.c3_win = true
+	if Globals.player.name == "Character4":
+		SaveData.c4_win = true
+	SaveData.save_game()
+	if SaveData.c0_win and SaveData.c1_win and SaveData.c2_win and SaveData.c3_win and SaveData.c4_win:
+		Globals.set_achievement("completion")
 
 
-func unlock_characters() -> Control:
-	var characters: Array
-	for i in 5:
-		characters.append(SaveData.get("character"+str(i)))
-	for i in characters.size()-1:
-		if i == Globals.player.character_index and characters[i] and !characters[i + 1]:
-			var inst = alert_scene.instantiate()
-			add_child(inst)
-			inst.position = size / 2
-			inst.set_character(Globals.player.character_index + 1)
-			if i == 0 and !SaveData.character1:
-				SaveData.character1 = true
-			elif i == 1 and !SaveData.character2:
-				SaveData.character2 = true
-			elif i == 2 and !SaveData.character3:
-				SaveData.character3 = true
-			elif i == 3 and !SaveData.character4:
-				SaveData.character4 = true
-			SaveData.save_game()
-			return inst
-	return null
+func unlock_characters() -> Array:
+	var unlocked_characters: Array
+	if !SaveData.character1:
+		unlocked_characters.append(1)
+		SaveData.character1 = true
+		Globals.set_achievement("unlock_a_character")
+	if !SaveData.character2:
+		unlocked_characters.append(2)
+		SaveData.character2 = true
+	if !SaveData.character3:
+		unlocked_characters.append(3)
+		SaveData.character3 = true
+	if !SaveData.character4:
+		unlocked_characters.append(4)
+		SaveData.character4 = true
+	var alerts: Array
+	for i in unlocked_characters:
+		var inst = alert_scene.instantiate()
+		alerts.append(inst)
+		inst.position = size / 2
+		inst.set_character(i)
+		SaveData.save_game()
+	return alerts
 
 
 func _on_continue_pressed() -> void:

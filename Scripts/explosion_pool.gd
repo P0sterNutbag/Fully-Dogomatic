@@ -6,7 +6,7 @@ var death_explosion_large = preload("res://Scenes/Particles/death_explosion_larg
 var enemy_explosion = preload("res://Scenes/Particles/enemy_explosion.tscn")
 var bullet_explosion = preload("res://Scenes/Bullets/bullet_explosion.tscn")
 var bullet_explosion_big = preload("res://Scenes/Bullets/bullet_explosion_big.tscn")
-var explosion = preload("res://Scenes/Particles/explosion.tscn")
+var explosion = preload("res://Scenes/Bullets/grenade_explosion.tscn")
 var indexes = {
 	death_explosion : 0,
 	death_explosion_large : 1,

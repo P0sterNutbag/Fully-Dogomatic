@@ -7,18 +7,18 @@
 
 [sub_resource type="Resource" id="Resource_5ulwt"]
 script = ExtResource("2_2hnph")
-values = ["cooldown", 0.1]
+values = ["cooldown", 0.5]
 multiply_value = true
 add_value = false
 
 [sub_resource type="Resource" id="Resource_l4ecl"]
 script = ExtResource("3_jlt6p")
-rarity = 2
+rarity = 1
 
 [node name="FullAuto" instance=ExtResource("1_gvglc")]
 upgrade_values = Array[ExtResource("2_2hnph")]([SubResource("Resource_5ulwt")])
 metadata/Title = "Full Auto"
-metadata/Type = "Shoots bullets 10x faster"
+metadata/Type = "Shoots bullets x1.5 faster"
 metadata/Rarity = SubResource("Resource_l4ecl")
 
 [node name="UpgradeSprite" parent="." index="0"]

@@ -45,7 +45,7 @@ offset_bottom = 50.0
 [node name="CharacterOption" parent="Options/HBoxContainer" instance=ExtResource("1_a3lih")]
 layout_mode = 2
 size_flags_horizontal = 3
-character_name = "Eugene"
+character_name = "Benny"
 description = "More Base Health"
 sprite = ExtResource("5_fgbin")
 unlocked = true
@@ -62,7 +62,7 @@ unlocked = true
 layout_mode = 2
 size_flags_horizontal = 3
 character_name = "Toaster"
-description = "Stop moving to nap!"
+description = "Stop moving to nap and regain HP!"
 sprite = ExtResource("8_m0mus")
 unlocked = true
 
@@ -77,7 +77,7 @@ offset_bottom = 155.0
 [node name="CharacterOption4" parent="Options/HBoxContainer2" instance=ExtResource("1_a3lih")]
 layout_mode = 2
 size_flags_horizontal = 3
-character_name = "Esquire"
+character_name = "Jackie"
 description = "First Reroll is free!"
 sprite = ExtResource("7_3rigw")
 unlocked = true

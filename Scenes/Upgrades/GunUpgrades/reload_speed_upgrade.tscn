@@ -18,7 +18,7 @@ rarity = 0
 [node name="GunUpgradeRicochet" instance=ExtResource("1_0dghr")]
 upgrade_values = Array[ExtResource("2_bddnc")]([SubResource("Resource_3kkt4")])
 metadata/Title = "Speed Reload"
-metadata/Type = "2x faster reload"
+metadata/Type = "x2 faster reload"
 metadata/Rarity = SubResource("Resource_d6uiu")
 
 [node name="UpgradeSprite" parent="." index="0"]

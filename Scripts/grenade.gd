@@ -1,8 +1,9 @@
 extends Area2D
 
-var explosion: PackedScene = preload("res://Scenes/Particles/explosion.tscn")
+var explosion: PackedScene = preload("res://Scenes/Bullets/grenade_explosion.tscn")
 @export var spread_modifier: float = 0
 @export var shot_count: float = 1
+var damage_boost: float = 0
 var move_vector: Vector2
 var deceleration: float = 0.7
 var speed: float
@@ -65,6 +66,7 @@ func _on_timer_timeout():
 	var instance = explosion.instantiate()
 	get_tree().current_scene.add_child(instance)
 	instance.global_position = global_position
+	instance.damage += damage_boost
 	queue_free()
 
 

@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Enemy
 
 enum states {spawn, attack, rush}
-var state = states.spawn
+var state = states.attack
 
 @export var speed = 10.0
 @export var damage = 0.05
@@ -32,24 +32,15 @@ func _ready():
 		target = player;
 	fall_x = randi_range(-100, 100)
 	spawn_velocity = Vector2(randf_range(-50, 50), randf_range(-200, -300))
-	$CollisionShape2D.disabled = true
+	state = states.attack
+	y_sort_enabled = true
+	z_index = 0
 
 
 func _physics_process(delta):
 	if target == null:
 		return
 	match state:
-		states.spawn:
-			velocity = spawn_velocity
-			spawn_velocity.y += gravity * delta
-			if !pipe_spawn or (spawn_velocity.y > 0 and global_position.y > spawn_floor_y):
-				$Hitbox.process_mode = Node.PROCESS_MODE_INHERIT
-				$CollisionShape2D.disabled = false
-				velocity = (player.position - position).normalized() * speed
-				state = states.attack
-				y_sort_enabled = true
-				z_index = 0
-			move_and_slide()
 		states.attack:
 			time += delta
 			if fmod(time, 0.25) < delta:

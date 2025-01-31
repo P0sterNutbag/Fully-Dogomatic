@@ -157,7 +157,7 @@ animations = [{
 [node name="Health Pickup" type="Area2D"]
 y_sort_enabled = true
 use_parent_material = true
-collision_layer = 256
+collision_layer = 0
 script = ExtResource("1_tg2rv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

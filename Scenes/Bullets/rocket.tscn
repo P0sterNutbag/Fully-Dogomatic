@@ -1,11 +1,11 @@
 [gd_scene load_steps=6 format=3 uid="uid://bml3f24c0bio7"]
 
 [ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_2ql8y"]
-[ext_resource type="PackedScene" uid="uid://b72oe3vffkglg" path="res://Scenes/Particles/explosion.tscn" id="2_28cos"]
+[ext_resource type="PackedScene" uid="uid://b72oe3vffkglg" path="res://Scenes/Bullets/grenade_explosion.tscn" id="2_28cos"]
 [ext_resource type="Texture2D" uid="uid://dcayjrr65pgpy" path="res://Art/Sprites/gun spritesheet.png" id="2_tbwmu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lshl4"]
-size = Vector2(26, 8)
+size = Vector2(14, 8)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h81x8"]
 radius = 64.0
@@ -18,7 +18,7 @@ script = ExtResource("1_2ql8y")
 explosion = ExtResource("2_28cos")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-7, -1)
+position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_lshl4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -29,7 +29,6 @@ region_enabled = true
 region_rect = Rect2(80, 128, 16, 16)
 
 [node name="HomingArea" type="Area2D" parent="."]
-process_mode = 4
 collision_layer = 0
 collision_mask = 8
 

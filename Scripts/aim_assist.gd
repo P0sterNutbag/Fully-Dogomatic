@@ -8,8 +8,9 @@ func _process(_delta: float) -> void:
 	global_rotation = original_aim_dir.angle()
 	var targets = $ShapeCast2D.get_overlapping_areas()
 	if targets.size() > 0:
-		targets.sort_custom(sort_distance)
-		target = targets[targets.size()-1]
+		#targets.sort_custom(sort_distance)
+		#target = targets[targets.size()-1]
+		target = targets[0]
 		if target != null:
 			var new_dir = (target.global_position - get_parent().global_position).normalized()
 			if abs(abs(rad_to_deg(new_dir.angle())) - abs(rad_to_deg(original_aim_dir.angle()))) < 30:

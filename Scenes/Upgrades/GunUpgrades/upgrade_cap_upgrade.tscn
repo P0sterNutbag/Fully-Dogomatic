@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://dntq6fincxsxl"]
+
+[ext_resource type="PackedScene" uid="uid://dxh25edu12ok8" path="res://Scenes/Upgrades/gun_upgrade.tscn" id="1_3kfky"]
+[ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="2_o2mj0"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_d6m2x"]
+[ext_resource type="Texture2D" uid="uid://b0rfe3ff6ilq5" path="res://Art/Sprites/upgrade spritesheet.png" id="4_dwcvx"]
+
+[sub_resource type="Resource" id="Resource_5ulwt"]
+script = ExtResource("2_o2mj0")
+values = ["max_upgrades", 1.0]
+multiply_value = false
+add_value = true
+
+[sub_resource type="Resource" id="Resource_l4ecl"]
+script = ExtResource("3_d6m2x")
+rarity = 0
+
+[node name="Upgrade" instance=ExtResource("1_3kfky")]
+upgrade_values = Array[ExtResource("2_o2mj0")]([SubResource("Resource_5ulwt")])
+increase_upgrades = false
+metadata/Title = "Extra Upgrade"
+metadata/Type = "+1 Max Upgrade"
+metadata/Rarity = SubResource("Resource_l4ecl")
+
+[node name="UpgradeSprite" parent="." index="0"]
+texture = ExtResource("4_dwcvx")
+region_enabled = true
+region_rect = Rect2(64, 64, 16, 16)

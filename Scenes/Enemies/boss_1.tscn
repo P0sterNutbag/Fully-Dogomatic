@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bh6juqooq77vm"]
+[gd_scene load_steps=24 format=3 uid="uid://bh6juqooq77vm"]
 
 [ext_resource type="Script" path="res://Scripts/boss.gd" id="1_h8khs"]
 [ext_resource type="Texture2D" uid="uid://csoxx4i2c0dil" path="res://Art/Sprites/boss headless.png" id="2_b6a73"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://84xxip1wf4vx" path="res://Scenes/UI/minimap_icon.tscn" id="5_3icve"]
 [ext_resource type="Texture2D" uid="uid://5tfn2k4jut0o" path="res://Art/Sprites/boss icon.png" id="6_m32f4"]
 [ext_resource type="PackedScene" uid="uid://pkl1jd6tt0bd" path="res://Scenes/UI/arrow.tscn" id="7_o0yth"]
+[ext_resource type="Texture2D" uid="uid://d0yxjytot3mqb" path="res://Art/Sprites/boss1 radius.png" id="8_cglry"]
+[ext_resource type="Script" path="res://Scripts/boss_slow_area.gd" id="8_lnhe5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gie5r"]
 atlas = ExtResource("2_b6a73")
@@ -98,6 +100,9 @@ _data = {
 "walk": SubResource("Animation_bk3vg")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rovd5"]
+radius = 80.0
+
 [node name="Boss" type="CharacterBody2D" groups=["enemy"]]
 use_parent_material = true
 collision_layer = 0
@@ -106,9 +111,9 @@ motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_h8khs")
 boss_name = "Ace, Rider of darkness"
-health_multiplier = 325.0
+health_multiplier = 75.0
 speed = 20.0
-damage = 30.0
+damage = 15.0
 money_amount = 25
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -141,6 +146,7 @@ collision_mask = 2
 script = ExtResource("3_frah2")
 health = 250
 rotate_on_hit = false
+explosion_scale = 2.5
 sprite = NodePath("../AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
@@ -164,3 +170,19 @@ visible = false
 libraries = {
 "": SubResource("AnimationLibrary_28m1k")
 }
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+use_parent_material = true
+texture = ExtResource("8_cglry")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+script = ExtResource("8_lnhe5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(1, 0.5)
+shape = SubResource("CircleShape2D_rovd5")
+
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
+[connection signal="area_exited" from="Area2D" to="Area2D" method="_on_area_exited"]

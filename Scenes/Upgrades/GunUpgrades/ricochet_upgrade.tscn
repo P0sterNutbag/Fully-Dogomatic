@@ -24,7 +24,7 @@ rarity = 2
 [node name="GunUpgradeRicochet" instance=ExtResource("1_44nxl")]
 upgrade_values = Array[ExtResource("2_gvjrx")]([SubResource("Resource_qgg62"), SubResource("Resource_li48y")])
 metadata/Title = "Ricochet"
-metadata/Type = "Bullets bounce off enemies"
+metadata/Type = "Bullets bounce off +1 enemy"
 metadata/Rarity = SubResource("Resource_x1r2o")
 
 [node name="UpgradeSprite" parent="." index="0"]

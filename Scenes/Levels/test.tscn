@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://bxxwbkdymxo7v"]
+[gd_scene load_steps=60 format=4 uid="uid://bxxwbkdymxo7v"]
 
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="1_wpkc1"]
 [ext_resource type="Script" path="res://Scripts/world_controller.gd" id="2_nbcpb"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://b86sgq5tkneng" path="res://Scenes/Enemies/boss_2.tscn" id="24_novog"]
 [ext_resource type="PackedScene" uid="uid://cdegwp77vugfb" path="res://Scenes/Enemies/boss_3.tscn" id="25_68t0f"]
 [ext_resource type="PackedScene" uid="uid://bnwpp4m7sdaeg" path="res://Scenes/Enemies/boss_4.tscn" id="26_gsls1"]
+[ext_resource type="PackedScene" uid="uid://c3rxttn3aoj36" path="res://Scenes/Enemies/boss_final.tscn" id="27_eski3"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_uulbl"]
 tile_data = PackedInt32Array(0, 65536, 0, 65536, 0, 0, 1, 0, 0, 65537, 65536, 0)
@@ -56,6 +57,14 @@ texture_region_size = Vector2i(20, 20)
 tile_size = Vector2i(20, 20)
 sources/0 = SubResource("TileSetAtlasSource_vygp1")
 pattern_0 = SubResource("TileMapPattern_uulbl")
+
+[sub_resource type="GDScript" id="GDScript_wlp0y"]
+script/source = "extends Timer
+
+
+func _on_timeout() -> void:
+	Globals.player.money = 10000
+"
 
 [sub_resource type="GDScript" id="GDScript_sy611"]
 script/source = "extends Area2D
@@ -195,8 +204,6 @@ spawn_chance = 10.0
 y_sort_enabled = true
 material = ExtResource("1_wpkc1")
 script = ExtResource("2_nbcpb")
-level_name = "Dog City"
-level_number = 1
 metadata/_edit_lock_ = true
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
@@ -217,6 +224,11 @@ metadata/_edit_lock_ = true
 
 [node name="PlayerSpawner" type="Node2D" parent="."]
 position = Vector2(400, 260)
+
+[node name="PlayerMoney" type="Timer" parent="."]
+one_shot = true
+autostart = true
+script = SubResource("GDScript_wlp0y")
 
 [node name="BarrierLeft" type="Node2D" parent="."]
 
@@ -268,7 +280,7 @@ level_objects = Array[ExtResource("14_nbojq")]([SubResource("Resource_ln2pd"), S
 bosses = Array[ExtResource("14_nbojq")]([SubResource("Resource_rfiw1"), SubResource("Resource_drovp"), SubResource("Resource_32est"), SubResource("Resource_domcg")])
 
 [node name="EnemySpawnTimer" type="Timer" parent="LevelController"]
-wait_time = 0.03
+wait_time = 0.05
 autostart = true
 
 [node name="RoundTimer" type="Timer" parent="LevelController"]
@@ -319,6 +331,10 @@ position = Vector2(248, 430)
 [node name="Gun Shop13" parent="." instance=ExtResource("8_v5svp")]
 position = Vector2(304, 428)
 
+[node name="Boss" parent="." instance=ExtResource("27_eski3")]
+position = Vector2(582, 310)
+
+[connection signal="timeout" from="PlayerMoney" to="PlayerMoney" method="_on_timeout"]
 [connection signal="timeout" from="LevelController/EnemySpawnTimer" to="LevelController" method="_on_enemy_spawn_timer_timeout"]
 [connection signal="timeout" from="LevelController/RoundTimer" to="LevelController" method="_on_round_timer_timeout"]
 [connection signal="timeout" from="LevelController/EnemyFormationTimer" to="LevelController" method="_on_enemy_formation_timer_timeout"]

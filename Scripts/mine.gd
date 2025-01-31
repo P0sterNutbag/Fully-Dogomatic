@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var explosion = preload("res://Scenes/Particles/explosion.tscn")
+@export var explosion = preload("res://Scenes/Bullets/grenade_explosion.tscn")
 
 
 func _on_area_entered(area: Area2D) -> void:

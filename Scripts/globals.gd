@@ -32,12 +32,18 @@ var pause_controller: Node
 var gun_shop = preload("res://Scenes/Upgrades/upgrade_shop.tscn")
 var no_guns_shop = preload("res://Scenes/Upgrades/upgrade_shop_no_guns.tscn")
 var shop_scene = gun_shop
+var is_steam: bool
 enum rarity_levels {common, uncommon, rare, super_rare, ultra_rare, giga_rare }
 
 
 func _ready():
 	globals = self
 	gun_amount = 0
+	var initialize_response: Dictionary = Steam.steamInitEx()
+	#print("Did Steam initialize?: %s " % initialize_response)
+	if initialize_response['status'] == 0:
+		is_steam = true
+
 
 
 func create_instance(scene: PackedScene, position: Vector2 = Vector2.ZERO, parent: Node = get_tree().current_scene):
@@ -125,3 +131,14 @@ func scroll_array_index(array: Array, current_index: int, index_change: int) -> 
 	elif current_index > size:
 		current_index = 0
 	return current_index
+
+
+func set_achievement(achievement_name: String):
+	#var status = Steam.getAchievement(achievement_name)
+	#if status["achieved"]:
+		#return
+	if !is_steam:
+		return
+	Steam.setAchievement(achievement_name)
+	Steam.storeStats()
+	

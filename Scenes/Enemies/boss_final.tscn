@@ -1,6 +1,6 @@
-[gd_scene load_steps=30 format=3 uid="uid://c3rxttn3aoj36"]
+[gd_scene load_steps=29 format=3 uid="uid://c3rxttn3aoj36"]
 
-[ext_resource type="Script" path="res://Scripts/boss.gd" id="2_0gyhi"]
+[ext_resource type="Script" path="res://Scripts/boss_final.gd" id="1_sei50"]
 [ext_resource type="Texture2D" uid="uid://bsxyy8aut6o6w" path="res://Art/Sprites/boss tentacle blob.png" id="3_fmv0x"]
 [ext_resource type="Texture2D" uid="uid://5tfn2k4jut0o" path="res://Art/Sprites/boss icon.png" id="4_3imy2"]
 [ext_resource type="Texture2D" uid="uid://cclp2n7kwa770" path="res://Art/Sprites/boss tentacle1.png" id="4_ypcdb"]
@@ -245,19 +245,29 @@ func _exit_tree():
 	icon.queue_free()
 "
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_oyqaj"]
-
 [node name="Boss" type="CharacterBody2D" groups=["enemy"]]
 use_parent_material = true
 collision_layer = 0
-collision_mask = 257
+collision_mask = 0
 motion_mode = 1
 wall_min_slide_angle = 0.0
-script = ExtResource("2_0gyhi")
-health_multiplier = 500.0
-speed = 20.0
-damage = 25.0
-money_amount = 100
+script = ExtResource("1_sei50")
+health_multiplier = 300.0
+damage = 20.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(2, -16)
+scale = Vector2(0.98, 0.98)
+polygon = PackedVector2Array(-22, 20, -94, 18, -110, -5, -116, -42, -107, -61, -82, -85, -70, -107, -36, -123, -33, -123, -31, -118, -2, -106, 18, -111, 31, -117, 62, -124, 74, -118, 84, -103, 91, -95, 91, -87, 87, -83, 80, -85, 80, -72, 102, -29, 113, -23, 122, -14, 123, 3, 120, 14, 109, 19, 34, 23)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(2, -16)
+scale = Vector2(0.98, 0.98)
+polygon = PackedVector2Array(-22, 20, -94, 18, -110, -5, -116, -42, -107, -61, -82, -85, -70, -107, -36, -123, -33, -123, -31, -118, -2, -106, 18, -111, 31, -117, 62, -124, 74, -118, 84, -103, 91, -95, 91, -87, 87, -83, 80, -85, 80, -72, 102, -29, 113, -23, 122, -14, 123, 3, 120, 14, 109, 19, 34, 23)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
@@ -354,20 +364,12 @@ position = Vector2(5, 42)
 scale = Vector2(1, 0.2)
 radius = 120
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
-position = Vector2(2, -16)
-scale = Vector2(0.98, 0.98)
-polygon = PackedVector2Array(-22, 20, -94, 18, -110, -5, -116, -42, -107, -61, -82, -85, -70, -107, -36, -123, -33, -123, -31, -118, -2, -106, 18, -111, 31, -117, 62, -124, 74, -118, 84, -103, 91, -95, 91, -87, 87, -83, 80, -85, 80, -72, 102, -29, 113, -23, 122, -14, 123, 3, 120, 14, 109, 19, 34, 23)
-
 [node name="Hitbox" type="Area2D" parent="." groups=["enemy"]]
-process_mode = 4
 y_sort_enabled = true
 position = Vector2(3, -15)
 collision_layer = 16
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox"]
-visible = false
 position = Vector2(-1, 0)
 polygon = PackedVector2Array(-22, 20, -94, 18, -110, -5, -116, -42, -107, -61, -82, -85, -70, -107, -36, -123, -33, -123, -31, -118, -2, -106, 18, -111, 31, -117, 62, -124, 74, -118, 84, -103, 91, -95, 91, -87, 87, -83, 80, -85, 80, -72, 102, -29, 113, -23, 122, -14, 123, 3, 120, 14, 109, 19, 34, 23)
 
@@ -379,6 +381,7 @@ collision_mask = 2
 script = ExtResource("5_r1v5i")
 health = 1000
 rotate_on_hit = false
+explosion_scale = 5.0
 sprite = NodePath("../AnimatedSprite2D")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox"]
@@ -413,8 +416,5 @@ one_shot = true
 target_node2D = NodePath("../AnimatedSprite2D")
 bob_frequency = 10.0
 bob_amplitude = 10.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_oyqaj")
 
 [connection signal="timeout" from="RunTimer" to="." method="_on_run_timer_timeout"]

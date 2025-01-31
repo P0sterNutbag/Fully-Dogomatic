@@ -10,9 +10,9 @@
 
 [sub_resource type="Resource" id="Resource_somxo"]
 script = ExtResource("2_hudlf")
-values = ["rounds", 40]
+values = ["rounds", 10]
 multiply_value = false
-add_value = false
+add_value = true
 
 [sub_resource type="Resource" id="Resource_ys47q"]
 script = ExtResource("2_ydwxp")
@@ -24,8 +24,8 @@ use_parent_material = true
 script = ExtResource("1_4a28f")
 node_to_attach_to = "MagazineHolder"
 upgrade_values = Array[ExtResource("2_hudlf")]([SubResource("Resource_somxo")])
-metadata/Title = "XL Magazine"
-metadata/Type = "40 round capacity"
+metadata/Title = "Large Magazine"
+metadata/Type = "+10 round capacity"
 metadata/Rarity = SubResource("Resource_ys47q")
 
 [node name="Part" type="Sprite2D" parent="."]
@@ -34,14 +34,14 @@ use_parent_material = true
 texture = ExtResource("1_uqv5n")
 offset = Vector2(7, 7)
 region_enabled = true
-region_rect = Rect2(96, 16, 16, 16)
+region_rect = Rect2(96, 0, 16, 16)
 
 [node name="UpgradeSprite" type="Sprite2D" parent="."]
 use_parent_material = true
-position = Vector2(0, 3)
+position = Vector2(5, 3)
 texture = ExtResource("1_uqv5n")
 region_enabled = true
-region_rect = Rect2(96, 16, 16, 16)
+region_rect = Rect2(96, 0, 16, 16)
 
 [node name="Arrow" type="Sprite2D" parent="."]
 visible = false

@@ -84,9 +84,8 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Player" instance=ExtResource("1_itfkv")]
+[node name="Character4" instance=ExtResource("1_itfkv")]
 ability = 1
-character_index = 4
 
 [node name="PlayerSprite" parent="." index="2"]
 material = SubResource("ShaderMaterial_w8lw2")

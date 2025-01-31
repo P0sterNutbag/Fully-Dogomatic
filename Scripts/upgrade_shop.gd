@@ -8,6 +8,7 @@ var not_enough_money = preload("res://Scenes/UI/not_enough_money.tscn")
 var reroll_price: float
 var tooltip_string: String
 var picks: int = 0
+var upgrade_to_delete: Control
 @onready var tooltip = $Tooltip
 @onready var place_text = $Title2
 
@@ -57,6 +58,7 @@ func _exit_tree():
 
 
 func finish(delay: float = 0):
+	upgrade_to_delete.queue_free()
 	$Money.text = "Money: $" + str(Globals.player.money)
 	picks += 1
 	if delay > 0:
@@ -67,6 +69,17 @@ func finish(delay: float = 0):
 		options[0].grab_focus()
 	else:
 		queue_free()
+
+
+func refund():
+	Globals.player.money += upgrade_to_delete.price
+	$Money.text = "Money: $" + str(Globals.player.money)
+	#Globals.ui.set_money(Globals.player.money)
+	upgrade_to_delete.scale = Vector2.ONE
+	upgrade_to_delete.create_upgrade(upgrade_to_delete.upgrade_scene)
+	move_options_in()
+	set_focus_neighbors()
+	options[0].grab_focus()
 
 
 func move_options_in():

@@ -6,12 +6,14 @@ enum abilities {none, sprint, nap, free_reroll, sprint_on_hurt, hp}
 var state = states.walk
 
 @export var ability: abilities
-@export var money: float = 0
-@export var character_index: int
+@export var money: float = 0:
+	set(value):
+		money = value
+		Globals.ui.set_money(value)
 var base_speed = 75.0
 var sprint_speed = 125.0
 var speed = base_speed
-var max_hp = 100
+var max_hp = 40
 var money_cap: float = 4
 var guns: Array[Node2D]
 var dogtags: Array[Control]
@@ -19,12 +21,14 @@ var gun_slots: int = 10
 var level: int = 1
 var time: float = 0
 var gun_rotation: float = 0
-var money_drop_rate = 0.35
+var money_drop_bonus = 0
 var shop_discount = 0
 var explode_chance: float = 0
 var time_to_sprint: float = 1.5
 var sprint_timer: float = 0
-var hp = 100:
+var direction_x
+var direction_y
+var hp = 40:
 	set(value):
 		hp = value
 		Globals.ui.get_node("LeftCorner/HPBar/HealthBar").value = hp
@@ -51,23 +55,25 @@ func _ready():
 	Globals.player = self
 	player_died.connect(Globals.ui.on_player_died)
 	pickup_radius = $MoneyPickup/CollisionShape2D.shape.radius
+	var hpbar = Globals.ui.get_node("LeftCorner/HPBar/HealthBar")
+	hpbar.max_value = hp
+	hpbar.value = hp
 	if ability == abilities.hp:
-		max_hp = 125
-		hp = 125
-		var hpbar = Globals.ui.get_node("LeftCorner/HPBar/HealthBar")
+		max_hp += 25
+		hp += 25
+		hpbar.size.x += 10
 		hpbar.max_value = hp
 		hpbar.value = hp
-		hpbar.size.x += 25
 
 
 func _enter_tree() -> void:
 	Globals.ui.set_gun_amount(guns.size(), gun_cap)
-	Globals.ui.set_money(money)
+	#Globals.ui.set_money(money)
 
 
 func _physics_process(delta):
-	var direction_x = Input.get_axis("left", "right")
-	var direction_y = Input.get_axis("up", "down")
+	direction_x = Input.get_axis("left", "right")
+	direction_y = Input.get_axis("up", "down")
 	match state:
 		states.walk:
 			# keyboard movement
@@ -111,9 +117,10 @@ func _physics_process(delta):
 			move_and_slide()
 		
 		states.nap:
-			if direction_x or direction_y:
+			if direction_x or direction_y or Input.is_action_just_pressed("mouse_click"):
 				for gun in guns:
 					gun.process_mode = Node.PROCESS_MODE_ALWAYS
+					gun.muzzle_flash.hide()
 				state = states.walk
 	
 	# stay in bounds
@@ -153,7 +160,7 @@ func _process(delta):
 			
 			# abilities
 			if ability == abilities.nap:
-				if velocity == Vector2.ZERO and hp < max_hp:
+				if (!direction_x or !direction_y or !Input.is_action_pressed("mouse_click")) and hp < max_hp:
 					if $NapTimer.is_stopped():
 						$NapTimer.start()
 				elif !$NapTimer.is_stopped():
@@ -170,7 +177,7 @@ func _process(delta):
 		
 		states.nap:
 			sprite.play("nap")
-			hp += delta
+			hp += delta * 1.25
 
 
 func take_damage(dmg):
@@ -197,17 +204,19 @@ func increase_health(hp2):
 func get_money(amount: int):
 	money_pickup.emit()
 	money += amount
-	Globals.ui.set_money(money)
+	#Globals.ui.set_money(money)
 	if !Globals.audio_manager.chaching.is_playing():
 			Globals.audio_manager.chaching.play()
 	elif Globals.audio_manager.chaching.get_playback_position() > 0.25:
 		Globals.audio_manager.chaching.play()
+	if money >= 100:
+		Globals.set_achievement("100_dollars")
 
 
 func spend_money(amount: int):
 	money -= amount
 	money_pickup.emit()
-	Globals.ui.set_money(money)
+	#Globals.ui.set_money(money)
 
 
 func add_new_gun(gun: Gun):
@@ -216,6 +225,8 @@ func add_new_gun(gun: Gun):
 	gun.get_parent().remove_child(gun)
 	$Guns.add_child(gun)
 	Globals.ui.set_gun_amount(gun_amount, gun_cap)
+	if guns.size() >= 20:
+		Globals.set_achievement("gun_nut")
 	#var inst = load("res://Scenes/UI/loadout_text.tscn").instantiate()
 	#var text = inst.get_node("RichTextLabel")
 	#text.text = gun.get_meta("Title")

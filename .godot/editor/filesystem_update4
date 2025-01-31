@@ -1,4 +1,4 @@
-res://Scenes/Levels/world.tscn
+res://Scenes/Enemies/boss_1.tscn
 res://Art/Shaders/colorswap.gdshader
 res://Art/Shaders/colorswap.tres
 res://Art/Shaders/flash.gdshader
@@ -9,30 +9,30 @@ res://Art/Shaders/color_change.gdshader
 res://Art/Shaders/color_change.tres
 res://Art/Shaders/dither.gdshader
 res://Art/Shaders/dither postprocess.gdshader
+res://Scripts/gun_upgrade.gd
+res://Scenes/Levels/world.tscn
 res://Scenes/Levels/test.tscn
-res://Scenes/Player/player.tscn
-res://Scenes/UI/death_ui.tscn
-res://Scenes/Levels/win_screen.tscn
-res://Scenes/Levels/level_summary.tscn
-res://Scenes/UI/Character Cusomization/choose_character.tscn
-res://Scenes/Player/bulldog.tscn
-res://Scenes/Player/dachshund.tscn
-res://Scenes/Player/cat.tscn
-res://Scenes/Player/terrier.tscn
-res://Scenes/UI/unlock_alert.tscn
+res://Audio/AudioManager.tscn
+res://Scenes/Levels/main_menu.tscn
+res://Scenes/Enemies/enemy.tscn
+res://Scenes/Enemies/boss_2.tscn
 res://Scenes/Enemies/boss_3.tscn
 res://Scenes/Enemies/boss_4.tscn
-res://Scenes/Levels/main_menu.tscn
-res://Scenes/Player/dollar.tscn
-res://Scenes/Player/menu_dog.tscn
-res://Scenes/Player/tennisball.tscn
-res://Scenes/Enemies/boss_1.tscn
-res://Scenes/Enemies/boss_2.tscn
-res://Scenes/Upgrades/upgrade_menu.tscn
-res://Scenes/Upgrades/part_upgrade.tscn
-res://Scenes/UI/pause_menu.tscn
-res://Scenes/UI/ui.tscn
-res://Art/Themes/ui text large.tres
-res://Art/Themes/ui text mid.tres
-res://Art/Themes/ui text small.tres
+res://Scenes/Enemies/enemy_large.tscn
+res://Scenes/Enemies/boss_final.tscn
+res://Scenes/Bullets/tennis_ball.tscn
+res://Scenes/Upgrades/Dogtags/dogtag_money_droprate.tscn
+res://Scenes/Upgrades/Dogtags/dogtag_discount.tscn
+res://Scenes/Bullets/regular_bullet.tscn
+res://Scenes/Enemies/enemy_bomber.tscn
+res://Scenes/Enemies/enemy_parent.tscn
+res://Scenes/Enemies/enemy_small.tscn
+res://Scripts/gun.gd
+res://Scenes/Upgrades/GunUpgrades/upgrade_cap_upgrade.tscn
+res://Scenes/Upgrades/upgrade_manager.tscn
+res://Scenes/Upgrades/GunUpgrades/extreme_innacuracy.tscn
+res://Scenes/UI/not_enough_money.tscn
+res://Scripts/alert.gd
+res://Scripts/Upgrades/upgrade_option.gd
+res://Scripts/upgrade_shop.gd
 res://Scripts/player.gd

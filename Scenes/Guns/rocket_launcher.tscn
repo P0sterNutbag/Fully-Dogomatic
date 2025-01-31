@@ -14,13 +14,14 @@ size = Vector2(37, 0.50001)
 [node name="Gun" instance=ExtResource("1_ara00")]
 bullet = ExtResource("2_unslc")
 bullet_damage = 0.0
-cooldown = 0.0
+bullet_count = 3.0
+cooldown = 1.5
 spread = 0.0
 rounds = 1
 bullet_speed = 600
 reload_time = 2.5
 explode_chance = 1.0
-sound_shoot = "gunshot_pistol"
+sound_shoot = "gunshot_shotgun"
 metadata/Title = "Rocket Launcher"
 metadata/Rarity = SubResource("Resource_q7je0")
 

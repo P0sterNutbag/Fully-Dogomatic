@@ -1,6 +1,7 @@
 extends Node
 
 var is_muted: bool = false
+@export var stage_songs: Array
 @onready var chaching = $Chaching
 @onready var reload = $Reload
 @onready var gunshot_pistol = $GunshotPistol
@@ -30,8 +31,18 @@ func mute():
 
 
 func play_with_pitch(sound: AudioStreamPlayer2D, variation: float = 0.1):
-	sound.pitch_scale = randf_range(1 - variation ,1 - variation)
-	sound.play()
+	if !sound.is_playing():
+		sound.pitch_scale = randf_range(1 + variation ,1 - variation)
+		sound.play()
+	elif sound.get_playback_position() > 0.05:
+		sound.pitch_scale = randf_range(1 + variation ,1 - variation)
+		sound.play()
+
+
+func play_if_ready(sound: AudioStreamPlayer2D):
+	if !sound.is_playing() or sound.get_playback_position() > 0.05:
+		sound.play()
+
 
 func pause_sounds():
 	for child in get_children():
@@ -50,3 +61,7 @@ func resume_sounds():
 func stop_all_audio():
 	for child in get_children():
 		child.stop()
+
+
+func select_stage_music():
+	stage_music.stream = stage_songs[randi_range(0, stage_songs.size()-1)]

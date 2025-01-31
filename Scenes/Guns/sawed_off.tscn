@@ -7,7 +7,7 @@
 size = Vector2(25, 1.00005)
 
 [node name="Gun" instance=ExtResource("1_j5qh5")]
-bullet_damage = 2.0
+bullet_damage = 1.0
 bullet_count = 4.0
 spread = 40.0
 equal_spread = true

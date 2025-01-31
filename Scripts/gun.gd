@@ -32,6 +32,7 @@ var bullet_can_warp: bool
 var burst_fire: bool
 var burst_shots_left: int = 3
 var distance_to_player = 18
+var damage_boost: float = 0
 var homing: bool = false
 var holder = null
 var hold_offset: Vector2
@@ -41,6 +42,7 @@ var flash_timer := 0
 var grav_force = -200
 var x_force = 0
 var upgrades = 0
+var max_upgrades = 3
 var follow_mouse = false
 var locked: bool = false
 var is_mouse_entered: bool = false
@@ -96,6 +98,12 @@ func _physics_process(delta):
 			scale.y = -1
 		else:
 			scale.y = 1
+		if Input.is_action_just_pressed("back"):
+			Globals.upgrade_menu.refund()
+			gun_deleted.emit()
+			Globals.player.guns.erase(self)
+			Globals.ui.set_gun_amount(Globals.player.guns.size(), Globals.player.gun_cap)
+			queue_free()
 	else:
 		if holder != null:
 			rotation = lerp_angle(rotation, aim_dir.angle(), 10 * delta)
@@ -162,7 +170,8 @@ func _on_timer_timeout(): # shoot bullets
 			instance.move_vector = bullet_vector
 			instance.speed = bullet_speed
 			instance.global_rotation = bullet_angle
-			instance.damage  = bullet_damage
+			instance.damage  = bullet_damage + damage_boost
+			instance.damage_boost = damage_boost
 			instance.scale = bullet_scale
 			instance.penetrations = penetrations
 			instance.ricochet = ricochet

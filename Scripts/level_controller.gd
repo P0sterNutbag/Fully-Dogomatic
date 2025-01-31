@@ -10,7 +10,7 @@ var formation_index = 0
 var enemies: Array[Enemy]
 var bosses_spawned: Array[int]
 var round = 0
-var hp_round = 3
+var hp_round = 4
 var boss_round = 1
 var pipe_round = 4
 var current_kills: int = 0
@@ -23,7 +23,7 @@ var final_boss = preload("res://Scenes/Enemies/boss_final.tscn")
 @onready var enemy_formation_timer = $EnemyFormationTimer
 var kills_to_money: int: 
 	get:
-		return round(60.0 / enemy_spawn_timer.wait_time / 25.0)
+		return abs(round((60.0 / enemy_spawn_timer.wait_time / 25.0) - Globals.player.money_drop_bonus))
 
 
 func _ready() -> void:
@@ -37,7 +37,7 @@ func _on_round_timer_timeout() -> void:
 	round += 1
 	round_timer.wait_time = 60
 	round_timer.start()
-	enemy_spawn_timer.wait_time = enemy_spawn_timer.wait_time * spawn_time_incrament
+	enemy_spawn_timer.wait_time = clamp(enemy_spawn_timer.wait_time * spawn_time_incrament, 0.05, 100)
 	if enemy_spawn_timer.wait_time < 0.1:
 		spawn_time_incrament = 0.9
 	enemy_health = max(enemy_health * enemy_health_incrament, 2)
@@ -79,7 +79,6 @@ func spawn_enemy(enemy_to_spawn: PackedScene = null) -> Node2D:
 	var inst = Globals.create_instance(enemy_to_spawn, spawn_pos)
 	inst.position = spawn_pos
 	enemies.append(inst)
-	print(enemies.size())
 	if inst is EnemyIncramental:
 		inst.health = floor(enemy_health)
 	return inst
@@ -93,7 +92,7 @@ func spawn_level_objects() -> void:
 	if round == hp_round:
 		var inst = Globals.create_instance(hp_pickup, get_random_position())
 		Globals.ui.add_level_obj(inst.name.to_upper(), true)
-		hp_round += randi_range(3, 4)
+		hp_round += 5
 	# spawn crates
 	var crate_amount = randi_range(1, 4)
 	for i in crate_amount:
@@ -137,7 +136,7 @@ func reset_kills() -> void:
 func _on_boss_timer_timeout() -> void:
 	if bosses_spawned.size() == 4:
 		spawn_enemy(final_boss)
-		Globals.ui.add_level_obj("Boss!!!", false)
+		Globals.ui.add_level_obj("Final Boss!!!", false)
 		bosses_spawned.clear()
 		return
 	var index = Globals.get_weighted_index(bosses)
@@ -145,4 +144,7 @@ func _on_boss_timer_timeout() -> void:
 		index = Globals.get_weighted_index(bosses)
 	var boss = bosses[index].object_to_spawn
 	var inst = spawn_enemy(boss)
+	print(boss.hp)
+	bosses_spawned.append(index)
 	Globals.ui.add_level_obj("Boss!!!", false)
+	Globals.ui.create_level_obj_signs()

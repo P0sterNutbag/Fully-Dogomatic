@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://bvoiechvcw2f8"]
+
+[ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/enemy_parent.tscn" id="1_7i5c3"]
+[ext_resource type="Script" path="res://Scripts/enemy_incramental.gd" id="2_21lnb"]
+[ext_resource type="Texture2D" uid="uid://d1u2x3lou7cth" path="res://Art/Sprites/enemy small flyer.png" id="3_i53ha"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y25md"]
+atlas = ExtResource("3_i53ha")
+region = Rect2(0, 0, 25, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4i7yn"]
+atlas = ExtResource("3_i53ha")
+region = Rect2(25, 0, 25, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gei7"]
+atlas = ExtResource("3_i53ha")
+region = Rect2(50, 0, 25, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ld5m3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y25md")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4i7yn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gei7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y2wfn"]
+radius = 2.0
+
+[node name="Enemy" instance=ExtResource("1_7i5c3")]
+script = ExtResource("2_21lnb")
+health_multiplier = 0.5
+speed = 50.0
+queue_index = 1
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_ld5m3")
+frame = 0
+frame_progress = 0.0
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 0)
+shape = SubResource("CircleShape2D_y2wfn")
+
+[node name="Shadow" parent="." index="4"]
+position = Vector2(0, 16.635)

@@ -84,9 +84,8 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Player" instance=ExtResource("1_k5oux")]
+[node name="Character3" instance=ExtResource("1_k5oux")]
 ability = 3
-character_index = 3
 
 [node name="PlayerSprite" parent="." index="2"]
 material = SubResource("ShaderMaterial_awa0y")

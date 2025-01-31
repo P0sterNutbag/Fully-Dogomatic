@@ -7,15 +7,17 @@ var destination = Vector2.ZERO
 var bobbing = false
 var mouse_over = false
 var price: float = 0
+var upgrade_scene
 var part_scene = preload("res://Scenes/Upgrades/part_upgrade.tscn")
 var gun_upgrade_scene = preload("res://Scenes/Upgrades/gun_upgrade.tscn")
 var not_enough_money = preload("res://Scenes/UI/not_enough_money.tscn")
 
 
-func create_upgrade(upgrade_scene: PackedScene):
+func create_upgrade(scene: PackedScene):
 	if upgrade != null:
 		upgrade.queue_free()
-	upgrade = upgrade_scene.instantiate()
+	upgrade = scene.instantiate()
+	upgrade_scene = scene
 	call_deferred("add_child", upgrade)
 	upgrade.scale *= 2
 	upgrade.position = $GunHolder.position
@@ -28,7 +30,7 @@ func create_upgrade(upgrade_scene: PackedScene):
 
 func calculate_price():
 	# write price
-	price = round(Globals.get_gun_price(upgrade) * (1 - Globals.player.shop_discount))
+	price = floor(Globals.get_gun_price(upgrade) * (1 - Globals.player.shop_discount))
 	$Price.text = "[center]$" + str(price)
 
 
@@ -44,9 +46,6 @@ func _on_pressed():
 	if Globals.player.guns.size() >= Globals.player.gun_cap and upgrade is Gun:
 		var inst = Globals.create_instance(not_enough_money, global_position + Vector2(77.5, 0), get_parent())
 		inst.get_child(0).text = "GUN CAP REACHED!"
-		var tween = create_tween()
-		tween.tween_property(inst, "global_position", inst.global_position + Vector2.UP * 12, 1)
-		tween.tween_callback(inst.queue_free)
 	elif Globals.player.money >= price:
 		if price > 0:
 			Globals.player.spend_money(price)
@@ -71,12 +70,10 @@ func _on_pressed():
 			upgrade = null
 			var tween = create_tween()
 			tween.tween_property(self, "scale", Vector2.ZERO, 0.25)
-			tween.tween_callback(queue_free)
+			Globals.upgrade_menu.upgrade_to_delete = self
+			#tween.tween_callback(queue_free)
 	else:
 		var inst = Globals.create_instance(not_enough_money, global_position + Vector2(77.5, 0), get_parent())
-		var tween = create_tween()
-		tween.tween_property(inst, "global_position", inst.global_position + Vector2.UP * 12, 1)
-		tween.tween_callback(inst.queue_free)
 
 
 func _exit_tree() -> void:

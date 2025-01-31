@@ -1,39 +1,40 @@
-[gd_scene load_steps=21 format=3 uid="uid://cdegwp77vugfb"]
+[gd_scene load_steps=22 format=3 uid="uid://cdegwp77vugfb"]
 
-[ext_resource type="Script" path="res://Scripts/boss.gd" id="2_xljxv"]
+[ext_resource type="Script" path="res://Scripts/boss_jumper.gd" id="1_ohpso"]
+[ext_resource type="Texture2D" uid="uid://d3ji2cc4dss50" path="res://Art/Sprites/max run.png" id="2_jjgfs"]
+[ext_resource type="Script" path="res://Scenes/Enemies/boss_jumper_sprite.gd" id="3_kfmyu"]
 [ext_resource type="Script" path="res://Scripts/enemy_health.gd" id="3_u4xs6"]
-[ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Art/Sprites/123spritesheet.png" id="3_v7jeo"]
 [ext_resource type="Texture2D" uid="uid://5tfn2k4jut0o" path="res://Art/Sprites/boss icon.png" id="4_1wodp"]
 [ext_resource type="PackedScene" uid="uid://bb6l6e5xtb17k" path="res://Scenes/Particles/shadow.tscn" id="4_bl1kq"]
 [ext_resource type="PackedScene" uid="uid://84xxip1wf4vx" path="res://Scenes/UI/minimap_icon.tscn" id="5_0bsj1"]
 [ext_resource type="PackedScene" uid="uid://pkl1jd6tt0bd" path="res://Scenes/UI/arrow.tscn" id="5_o7x11"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kgi2k"]
-atlas = ExtResource("3_v7jeo")
-region = Rect2(0, 96, 80, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6m04t"]
+atlas = ExtResource("2_jjgfs")
+region = Rect2(0, 0, 80, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_86y2u"]
-atlas = ExtResource("3_v7jeo")
-region = Rect2(80, 96, 80, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_qa222"]
+atlas = ExtResource("2_jjgfs")
+region = Rect2(80, 0, 80, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rty4a"]
-atlas = ExtResource("3_v7jeo")
-region = Rect2(160, 96, 80, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfytq"]
+atlas = ExtResource("2_jjgfs")
+region = Rect2(160, 0, 80, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1n5n1"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kgi2k")
+"texture": SubResource("AtlasTexture_6m04t")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_86y2u")
+"texture": SubResource("AtlasTexture_qa222")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kgi2k")
+"texture": SubResource("AtlasTexture_6m04t")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rty4a")
+"texture": SubResource("AtlasTexture_tfytq")
 }],
 "loop": true,
 "name": &"default",
@@ -96,20 +97,20 @@ collision_layer = 0
 collision_mask = 257
 motion_mode = 1
 wall_min_slide_angle = 0.0
-script = ExtResource("2_xljxv")
-health_multiplier = 60.0
-damage = 25.0
+script = ExtResource("1_ohpso")
+health_multiplier = 75.0
+damage = 15.0
 money_amount = 25
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
 use_parent_material = true
-position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_1n5n1")
 autoplay = "default"
 frame = 2
 frame_progress = 0.00870445
 offset = Vector2(0, -20)
+script = ExtResource("3_kfmyu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -22.5)
@@ -141,6 +142,7 @@ collision_mask = 2
 script = ExtResource("3_u4xs6")
 health = 3000
 rotate_on_hit = false
+explosion_scale = 2.5
 sprite = NodePath("../AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
@@ -172,12 +174,10 @@ follow = true
 [node name="Arrow" parent="." instance=ExtResource("5_o7x11")]
 visible = false
 
-[node name="RunTimer" type="Timer" parent="."]
-wait_time = 4.0
+[node name="JumpCooldown" type="Timer" parent="."]
+wait_time = 5.0
 one_shot = true
+autostart = true
 
-[node name="RunCooldown" type="Timer" parent="."]
-wait_time = 10.0
-one_shot = true
-
-[connection signal="timeout" from="RunTimer" to="." method="_on_run_timer_timeout"]
+[connection signal="reached_ground" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_reached_ground"]
+[connection signal="timeout" from="JumpCooldown" to="." method="_on_jump_cooldown_timeout"]

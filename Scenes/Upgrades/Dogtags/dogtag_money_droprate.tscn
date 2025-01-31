@@ -10,7 +10,7 @@
 
 [sub_resource type="Resource" id="Resource_cleew"]
 script = ExtResource("4_qcvdg")
-values = ["money_drop_rate", 0.05]
+values = ["money_drop_bonus", 3.0]
 multiply_value = false
 add_value = true
 

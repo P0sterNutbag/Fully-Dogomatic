@@ -104,9 +104,8 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Player" instance=ExtResource("1_ehxdq")]
+[node name="Character2" instance=ExtResource("1_ehxdq")]
 ability = 2
-character_index = 2
 
 [node name="PlayerSprite" parent="." index="2"]
 material = SubResource("ShaderMaterial_xd16f")
@@ -115,6 +114,7 @@ animation = &"nap"
 frame_progress = 0.925857
 
 [node name="NapTimer" type="Timer" parent="." index="12"]
+wait_time = 2.0
 one_shot = true
 
 [connection signal="timeout" from="NapTimer" to="." method="_on_nap_timer_timeout"]

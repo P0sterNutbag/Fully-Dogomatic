@@ -82,7 +82,6 @@ position = Vector2(0, -0.5)
 shape = SubResource("CircleShape2D_hr8qo")
 
 [node name="Hitbox" type="Area2D" parent="." groups=["enemy"]]
-process_mode = 4
 y_sort_enabled = true
 collision_layer = 16
 

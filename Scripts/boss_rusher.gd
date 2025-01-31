@@ -2,7 +2,7 @@ extends Boss
 
 var distance_to_rush = 250
 var rush_speed = 80
-var rush_dir = Vector2.ZERO
+var rush_dir: Vector2
 
 
 func attack(delta) -> void:

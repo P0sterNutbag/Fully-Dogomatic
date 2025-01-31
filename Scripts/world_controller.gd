@@ -16,6 +16,7 @@ var total_kills: int:
 var kills: int
 var kills_per_sec: int
 var max_kps: int = 0
+var bosses_killed: int = 0
 @onready var barrier_left = $BarrierLeft
 @onready var barrier_right = $BarrierRight
 @onready var level_controller = $LevelController
@@ -23,6 +24,7 @@ var max_kps: int = 0
 
 func _ready():
 	Globals.world_controller = self
+	Globals.audio_manager.select_stage_music()
 	Globals.audio_manager.stage_music.play()
 	Globals.ui.level_name.text = "[center]" + level_name.to_upper()
 	Globals.ui.stage_name.text = "[center]" + "STAGE " + str(level_number)

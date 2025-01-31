@@ -104,7 +104,7 @@ radius = 6.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_wq62j"]
 radius = 38.0
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="Character0" type="CharacterBody2D" groups=["player"]]
 y_sort_enabled = true
 use_parent_material = true
 collision_mask = 257

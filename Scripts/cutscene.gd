@@ -4,7 +4,7 @@ extends Node
 @export var kill_enemies: bool
 var explosion = preload("res://Scenes/Particles/death_explosion.tscn")
 var big_explosion = preload("res://Scenes/Bullets/bullet_explosion.tscn")
-var level_summary = preload("res://Scenes/Levels/level_summary.tscn")
+var win_screen = preload("res://Scenes/Levels/win_screen.tscn")
 var step: int = 0
 
 
@@ -29,11 +29,13 @@ func next_step():
 
 
 func _exit_tree():
-	get_tree().paused = false
-	if kill_enemies:
-		for enemy in get_tree().get_nodes_in_group("enemy"):
-			if enemy.name == "Hurtbox":
-				enemy.take_damage(10000, 0)
+	var inst = win_screen.instantiate()
+	get_tree().root.add_child(inst)
+	#get_tree().paused = false
+	#if kill_enemies:
+		#for enemy in get_tree().get_nodes_in_group("enemy"):
+			#if enemy.name == "Hurtbox":
+				#enemy.take_damage(10000, 0)
 	#for gun in Globals.player.guns:
 		#gun.get_node("ShootTimer").stop()
 		#gun.get_node("ReloadTimer").stop()
@@ -112,5 +114,5 @@ func go_to_next_level():
 		#"World 4":
 			#next_level = "res://Scenes/Levels/end.tscn"
 	SaveData.save_game()
-	Globals.create_instance(level_summary, Vector2.ZERO, Globals.ui)
+	#Globals.create_instance(level_summary, Vector2.ZERO, Globals.ui)
 	#SceneManager.start_scene_transition("res://Scenes/Levels/main_menu.tscn")

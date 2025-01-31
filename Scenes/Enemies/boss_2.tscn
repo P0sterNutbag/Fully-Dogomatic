@@ -105,10 +105,10 @@ collision_mask = 257
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_mmh1v")
-boss_name = "Oreo, lord of speed"
-health_multiplier = 50.0
+boss_name = "Oreo and Bella, lords of speed"
+health_multiplier = 75.0
 speed = 20.0
-damage = 20.0
+damage = 15.0
 turn_speed = 100.0
 money_amount = 25
 
@@ -143,6 +143,7 @@ collision_mask = 2
 script = ExtResource("3_q8kap")
 health = 250
 rotate_on_hit = false
+explosion_scale = 2.5
 sprite = NodePath("../AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]

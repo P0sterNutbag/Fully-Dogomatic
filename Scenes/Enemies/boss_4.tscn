@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://bnwpp4m7sdaeg"]
 
-[ext_resource type="Script" path="res://Scripts/boss.gd" id="1_sryha"]
+[ext_resource type="Script" path="res://Scripts/boss_spawn_goons.gd" id="1_cbej8"]
 [ext_resource type="Texture2D" uid="uid://cfcqjmn4b262b" path="res://Art/Sprites/boss flyer.png" id="2_okabu"]
 [ext_resource type="Script" path="res://Scripts/enemy_health.gd" id="3_c3ua0"]
 [ext_resource type="PackedScene" uid="uid://bb6l6e5xtb17k" path="res://Scenes/Particles/shadow.tscn" id="4_85jj4"]
@@ -79,12 +79,11 @@ collision_layer = 0
 collision_mask = 257
 motion_mode = 1
 wall_min_slide_angle = 0.0
-script = ExtResource("1_sryha")
-boss_name = "Fluffy, wings of death"
-health_multiplier = 260.0
-speed = 50.0
-damage = 15.0
-money_amount = 25
+script = ExtResource("1_cbej8")
+boss_name = "Fido, Wings of Doom"
+health_multiplier = 75.0
+speed = 15.0
+damage = 10.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
@@ -121,6 +120,7 @@ collision_mask = 2
 script = ExtResource("3_c3ua0")
 health = 250
 rotate_on_hit = false
+explosion_scale = 2.5
 sprite = NodePath("../AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
@@ -142,12 +142,8 @@ script = SubResource("GDScript_yvhgh")
 sprite = ExtResource("6_j1lw4")
 follow = true
 
-[node name="RunTimer" type="Timer" parent="."]
-wait_time = 4.0
-one_shot = true
-
-[node name="RunCooldown" type="Timer" parent="."]
+[node name="SpawnEnemies" type="Timer" parent="."]
 wait_time = 10.0
-one_shot = true
+autostart = true
 
-[connection signal="timeout" from="RunTimer" to="." method="_on_run_timer_timeout"]
+[connection signal="timeout" from="SpawnEnemies" to="." method="_on_spawn_enemies_timeout"]

@@ -561,6 +561,14 @@ text = "QUIT"
 flat = true
 script = ExtResource("8_a27qw")
 
+[node name="TEST" type="Button" parent="UI/Menu/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme = SubResource("Theme_ql6r0")
+text = "TEST"
+flat = true
+script = ExtResource("8_a27qw")
+
 [node name="TextureRect" type="TextureRect" parent="UI"]
 material = ExtResource("4_ljhln")
 offset_left = 121.0
@@ -606,6 +614,7 @@ sprite_frames = SubResource("SpriteFrames_3caag")
 [node name="MenuDog2" parent="." instance=ExtResource("11_rfde3")]
 y_sort_enabled = true
 position = Vector2(386, 283)
+scale = Vector2(-2, 2)
 sprite_frames = SubResource("SpriteFrames_dh5xy")
 
 [node name="MenuDog3" parent="." instance=ExtResource("11_rfde3")]
@@ -616,6 +625,7 @@ sprite_frames = SubResource("SpriteFrames_dmmum")
 [node name="MenuDog4" parent="." instance=ExtResource("11_rfde3")]
 y_sort_enabled = true
 position = Vector2(414, 140)
+scale = Vector2(-2, 2)
 sprite_frames = SubResource("SpriteFrames_ssrx5")
 animation = &"run"
 
@@ -636,3 +646,4 @@ scale = Vector2(2, 2)
 [connection signal="pressed" from="UI/Menu/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="UI/Menu/VBoxContainer/Credits" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="UI/Menu/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="UI/Menu/VBoxContainer/TEST" to="." method="_on_test_pressed"]

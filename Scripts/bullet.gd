@@ -5,6 +5,7 @@ class_name Bullet
 @export var friction: float = 0
 @export var can_damage_player: bool
 var damage: float = 1
+var damage_boost: float = 0
 var spread_modifier: float = 0
 var shot_count: float = 1
 var penetrations: int = 1
@@ -15,7 +16,6 @@ var explode_chance: float = 0
 var homing: bool = false
 var target_enemy
 var can_warp: bool
-var hit_enemies: Array
 var can_damage: bool = true
 var can_delete: bool = true
 @export var explosion = preload("res://Scenes/Bullets/bullet_explosion.tscn")
@@ -39,6 +39,8 @@ func _physics_process(delta):
 		if target_enemy != null:
 			var target_vector = (target_enemy.position - position).normalized() * speed
 			move_vector = lerp(move_vector, target_vector, 7.5 * delta)
+			if global_position.distance_to(target_enemy.global_position) < 1:
+				target_enemy = null
 		rotation = move_vector.angle()
 	if friction > 0:
 		move_vector = lerp(move_vector, Vector2.ZERO, friction * delta)
@@ -82,10 +84,11 @@ func _on_area_entered(area):
 		#get_tree().current_scene.add_child(inst)
 		#inst.global_position = area.global_position
 		#inst.rotation = rotation
-		var instance = damage_number.instantiate()
-		get_tree().current_scene.add_child(instance)
-		instance.global_position = area.global_position + Vector2.UP * 8
-		instance.get_node("Text").text += str(damage)
+		if get_tree().get_nodes_in_group("particles").size() < 100:
+			var instance = damage_number.instantiate()
+			get_tree().current_scene.add_child(instance)
+			instance.global_position = area.global_position + Vector2.UP * 8
+			instance.get_node("Text").text += str(damage)
 		#for i in randi_range(3, 4):
 			#var spark_inst = spark.instantiate()
 			#get_tree().current_scene.add_child(spark_inst)
@@ -101,21 +104,15 @@ func _on_area_entered(area):
 			call_deferred("create_explosion", area.global_position)
 		penetrations -= 1
 		if penetrations <= 0 and destroy_on_hit:
-			can_damage = false
-			delete.call_deferred()
+			queue_free()
 		elif homing:
-			hit_enemies.append(target_enemy)
-
-
-func delete():
-	if can_delete:
-		get_parent().remove_child(self)
-		can_delete = false
+			target_enemy = null
 
 
 func create_explosion(spawn_position: Vector2):
 	var inst = explosion.instantiate()
 	inst.global_position = spawn_position
+	inst.damage += damage_boost
 	get_tree().current_scene.add_child(inst)
 	#Globals.create_instance(explosion, spawn_position)
 
@@ -123,7 +120,3 @@ func create_explosion(spawn_position: Vector2):
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if target_enemy == null:
 		target_enemy = area.get_parent()
-
-
-func _on_homing_area_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.
