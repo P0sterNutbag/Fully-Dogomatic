@@ -1,4 +1,4 @@
-res://Scenes/Enemies/boss_1.tscn
+res://Scenes/Levels/world.tscn
 res://Art/Shaders/colorswap.gdshader
 res://Art/Shaders/colorswap.tres
 res://Art/Shaders/flash.gdshader
@@ -9,11 +9,10 @@ res://Art/Shaders/color_change.gdshader
 res://Art/Shaders/color_change.tres
 res://Art/Shaders/dither.gdshader
 res://Art/Shaders/dither postprocess.gdshader
-res://Scripts/gun_upgrade.gd
-res://Scenes/Levels/world.tscn
 res://Scenes/Levels/test.tscn
 res://Audio/AudioManager.tscn
 res://Scenes/Levels/main_menu.tscn
+res://Scenes/Enemies/boss_1.tscn
 res://Scenes/Enemies/enemy.tscn
 res://Scenes/Enemies/boss_2.tscn
 res://Scenes/Enemies/boss_3.tscn
@@ -27,12 +26,11 @@ res://Scenes/Bullets/regular_bullet.tscn
 res://Scenes/Enemies/enemy_bomber.tscn
 res://Scenes/Enemies/enemy_parent.tscn
 res://Scenes/Enemies/enemy_small.tscn
-res://Scripts/gun.gd
 res://Scenes/Upgrades/GunUpgrades/upgrade_cap_upgrade.tscn
 res://Scenes/Upgrades/upgrade_manager.tscn
 res://Scenes/Upgrades/GunUpgrades/extreme_innacuracy.tscn
 res://Scenes/UI/not_enough_money.tscn
-res://Scripts/alert.gd
+res://Scenes/Guns/sawed_off.tscn
+res://Scripts/level_controller.gd
 res://Scripts/Upgrades/upgrade_option.gd
 res://Scripts/upgrade_shop.gd
-res://Scripts/player.gd

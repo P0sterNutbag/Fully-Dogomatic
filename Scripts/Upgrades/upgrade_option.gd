@@ -83,7 +83,7 @@ func _exit_tree() -> void:
 
 func _on_focus_entered() -> void:
 	$JuicyMovement.process_mode = Node.PROCESS_MODE_INHERIT
-	if upgrade.get_meta("Type") != "":
+	if upgrade and upgrade.get_meta("Type") != "":
 		Globals.upgrade_menu.show_tooltip(global_position + pivot_offset + Vector2.DOWN * 72, upgrade.get_meta("Type"))
 
 

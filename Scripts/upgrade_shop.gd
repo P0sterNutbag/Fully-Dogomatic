@@ -58,14 +58,15 @@ func _exit_tree():
 
 
 func finish(delay: float = 0):
-	upgrade_to_delete.queue_free()
+	if upgrade_to_delete:
+		upgrade_to_delete.queue_free()
 	$Money.text = "Money: $" + str(Globals.player.money)
 	picks += 1
-	if delay > 0:
-		await get_tree().create_timer(delay).timeout
+	#if delay > 0:
+	await get_tree().create_timer(0.1).timeout
 	if options.size() > 0 and picks < total_picks:
 		move_options_in()
-		set_focus_neighbors()
+		set_focus_neighbors.call_deferred()
 		options[0].grab_focus()
 	else:
 		queue_free()
@@ -78,7 +79,7 @@ func refund():
 	upgrade_to_delete.scale = Vector2.ONE
 	upgrade_to_delete.create_upgrade(upgrade_to_delete.upgrade_scene)
 	move_options_in()
-	set_focus_neighbors()
+	#set_focus_neighbors.call_deferred()
 	options[0].grab_focus()
 
 

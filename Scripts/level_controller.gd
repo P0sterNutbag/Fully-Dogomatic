@@ -144,7 +144,7 @@ func _on_boss_timer_timeout() -> void:
 		index = Globals.get_weighted_index(bosses)
 	var boss = bosses[index].object_to_spawn
 	var inst = spawn_enemy(boss)
-	print(boss.hp)
+	print(inst.hp)
 	bosses_spawned.append(index)
 	Globals.ui.add_level_obj("Boss!!!", false)
 	Globals.ui.create_level_obj_signs()
