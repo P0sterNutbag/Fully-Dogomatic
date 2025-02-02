@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://bsayhb0kw4l4a"]
+
+[ext_resource type="PackedScene" uid="uid://dxh25edu12ok8" path="res://Scenes/Upgrades/gun_upgrade.tscn" id="1_gmc8n"]
+[ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="2_xmneb"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_1obqp"]
+[ext_resource type="Texture2D" uid="uid://b0rfe3ff6ilq5" path="res://Art/Sprites/upgrade spritesheet.png" id="4_quuyh"]
+
+[sub_resource type="Resource" id="Resource_ytshe"]
+script = ExtResource("2_xmneb")
+values = ["knockback_force", 100.0]
+multiply_value = false
+add_value = true
+
+[sub_resource type="Resource" id="Resource_m8kjj"]
+script = ExtResource("3_1obqp")
+rarity = 1
+
+[node name="Knockback" instance=ExtResource("1_gmc8n")]
+upgrade_values = Array[ExtResource("2_xmneb")]([SubResource("Resource_ytshe")])
+metadata/Title = "Knockback Bullets"
+metadata/Type = "Bullets move enemies back"
+metadata/Rarity = SubResource("Resource_m8kjj")
+
+[node name="UpgradeSprite" parent="." index="0"]
+texture = ExtResource("4_quuyh")
+region_enabled = true
+region_rect = Rect2(0, 80, 32, 16)

@@ -1,13 +1,13 @@
 extends CharacterBody2D
 class_name Enemy
 
-enum states {spawn, attack, rush}
+enum states {spawn, attack, rush, knockback}
 var state = states.attack
 
 @export var speed = 10.0
 @export var damage = 0.05
 @export var turn_speed = 5.0
-@export var money_amount = 1
+@export var money_amount = 3
 @export var queue_index: int
 var player: CharacterBody2D #= preload("res://player.gd")
 var target: Node2D
@@ -47,6 +47,15 @@ func _physics_process(delta):
 				var dir = (target.global_position - global_position).normalized()
 				velocity = dir * speed#lerp(velocity, dir * speed, turn_speed * delta)
 			move_and_slide()
+			if velocity.x < 0:
+				sprite.flip_h = true
+			else:
+				sprite.flip_h = false
+		states.knockback:
+			velocity = velocity.move_toward(Vector2.ZERO, delta * 500)
+			if velocity <= Vector2.ZERO:
+				state = states.attack
+			move_and_slide()
 	if sprite.rotation_degrees != 0:
 		sprite.rotation_degrees = lerp(sprite.rotation_degrees, float(0), 5 * delta)
 
@@ -71,8 +80,7 @@ func on_death(bullet_direction: float = 0):
 	queue_free()
 
 
-func _process(_delta):
-	if velocity.x < 0:
-		sprite.flip_h = true
-	else:
-		sprite.flip_h = false
+func knockback(vector: Vector2) -> void:
+	state = states.knockback
+	velocity = vector
+	

@@ -20,8 +20,9 @@ func _ready():
 	for alert in alerts:
 		add_child(alert)
 		await alert.tree_exited
-	buttons.process_mode = Node.PROCESS_MODE_INHERIT
+	#buttons.process_mode = Node.PROCESS_MODE_INHERIT
 	super._ready()
+	buttons.get_child(0).grab_focus()
 	if Globals.player.name == "Character0":
 		SaveData.c0_win = true
 	if Globals.player.name == "Character1":
@@ -68,5 +69,5 @@ func _on_continue_pressed() -> void:
 
 
 func _on_return_pressed() -> void:
-	get_tree().paused = false
+	#get_tree().paused = false
 	SceneManager.start_scene_transition("res://Scenes/Levels/main_menu.tscn")

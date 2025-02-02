@@ -30,7 +30,7 @@ func next_step():
 
 func _exit_tree():
 	var inst = win_screen.instantiate()
-	get_tree().root.add_child(inst)
+	Globals.ui.add_child(inst)
 	#get_tree().paused = false
 	#if kill_enemies:
 		#for enemy in get_tree().get_nodes_in_group("enemy"):
@@ -49,11 +49,11 @@ func delete_effects():
 
 
 func move_camera_on_boss():
-	var cam_pos = Globals.camera.global_position
-	Globals.player.remove_child(Globals.camera)
-	get_parent().add_child(Globals.camera)
-	Globals.camera.global_position = cam_pos
-	var pos = get_parent().get_node("Boss").global_position
+	#var cam_pos = Globals.camera.global_position
+	#Globals.player.remove_child(Globals.camera)
+	#get_parent().add_child(Globals.camera)
+	#Globals.camera.global_position = cam_pos
+	var pos = get_parent().get_node("Boss").global_position + Vector2.UP * 75
 	var tween = create_tween().set_trans(Tween.TRANS_SINE)
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.tween_property(Globals.camera, "global_position", pos, 1)
@@ -63,7 +63,7 @@ func move_camera_on_boss():
 func boss_explosions():
 	for i in 20:
 		var pos = get_parent().get_node("Boss").global_position
-		var inst = Globals.create_instance(explosion, pos + Vector2(randf_range(-40,40), randf_range(-40,0)))
+		var inst = Globals.create_instance(explosion, pos + Vector2(randf_range(-100,100), randf_range(-100,0)))
 		inst.process_mode = PROCESS_MODE_ALWAYS
 		inst.z_index = 900
 		Globals.audio_manager.explosion.play()
@@ -72,10 +72,10 @@ func boss_explosions():
 
 
 func big_boss_explosion():
-	var pos = get_parent().get_node("Boss").global_position
+	var pos = get_parent().get_node("Boss").global_position + Vector2.UP * 75
 	var inst = Globals.create_instance(big_explosion, pos)
 	inst.process_mode = PROCESS_MODE_ALWAYS
-	inst.scale = Vector2.ONE * 3
+	inst.scale = Vector2.ONE * 10
 	inst.z_index = 900
 	Globals.audio_manager.explosion.play()
 	next_step()
@@ -88,18 +88,10 @@ func destroy_boss():
 
 
 func reset_camera():
-	if !Globals.player.has_node("Camera2D"):
-		var cam_pos = Globals.camera.global_position
-		Globals.camera.get_parent().remove_child(Globals.camera)
-		Globals.player.add_child(Globals.camera)
-		Globals.camera.global_position = cam_pos
-		var pos = Globals.player.global_position
-		var tween = create_tween().set_trans(Tween.TRANS_SINE)
-		tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
-		tween.tween_property(Globals.camera, "position", Vector2.ZERO, 1)
-		tween.tween_callback(next_step)
-	else: 
-		next_step()
+	var tween = create_tween().set_trans(Tween.TRANS_SINE)
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween.tween_property(Globals.camera, "position", Vector2.ZERO, 1)
+	tween.tween_callback(next_step)
 
 
 func go_to_next_level():

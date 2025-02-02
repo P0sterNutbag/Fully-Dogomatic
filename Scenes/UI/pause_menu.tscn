@@ -100,7 +100,7 @@ layout_mode = 2
 focus_next = NodePath("../Continue")
 focus_previous = NodePath("../ReturnToMenu")
 theme = ExtResource("5_fdqnr")
-text = "QUIT"
+text = "QUIT GAME"
 flat = true
 alignment = 0
 script = ExtResource("6_ku67b")
@@ -219,6 +219,7 @@ script = ExtResource("6_ku67b")
 [connection signal="pressed" from="Menu/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/ReturnToMenu" to="." method="_on_return_to_menu_pressed"]
+[connection signal="focus_exited" from="Menu/VBoxContainer/Quit" to="." method="_on_quit_focus_exited"]
 [connection signal="pressed" from="Menu/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer2/SFXVolume" to="." method="_on_sfx_volume_pressed"]
 [connection signal="scroll_down" from="Menu/VBoxContainer2/SFXVolume" to="." method="_on_sfx_volume_scroll_down"]

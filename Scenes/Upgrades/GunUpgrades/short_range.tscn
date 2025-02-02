@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3 uid="uid://qc8nubx6p2wn"]
+
+[ext_resource type="PackedScene" uid="uid://dxh25edu12ok8" path="res://Scenes/Upgrades/gun_upgrade.tscn" id="1_wk0wm"]
+[ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="2_mq5af"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_uqy1v"]
+[ext_resource type="Texture2D" uid="uid://b0rfe3ff6ilq5" path="res://Art/Sprites/upgrade spritesheet.png" id="4_rwap2"]
+
+[sub_resource type="Resource" id="Resource_cogub"]
+script = ExtResource("2_mq5af")
+values = ["bullet_range", 64.0]
+multiply_value = false
+add_value = false
+
+[sub_resource type="Resource" id="Resource_bwuhe"]
+script = ExtResource("2_mq5af")
+values = ["bullet_damage", 2.0]
+multiply_value = true
+add_value = false
+
+[sub_resource type="Resource" id="Resource_23pya"]
+script = ExtResource("3_uqy1v")
+rarity = 1
+
+[node name="ShortRange" instance=ExtResource("1_wk0wm")]
+upgrade_values = Array[ExtResource("2_mq5af")]([SubResource("Resource_cogub"), SubResource("Resource_bwuhe")])
+metadata/Title = "One-inch-punch"
+metadata/Type = "Shortens bullet range, x2 damage"
+metadata/Rarity = SubResource("Resource_23pya")
+
+[node name="UpgradeSprite" parent="." index="0"]
+texture = ExtResource("4_rwap2")
+region_enabled = true
+region_rect = Rect2(80, 64, 16, 16)

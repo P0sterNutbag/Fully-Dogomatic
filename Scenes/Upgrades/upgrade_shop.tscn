@@ -116,7 +116,7 @@ offset_right = 176.0
 offset_bottom = 302.0
 focus_neighbor_left = NodePath("../ExitButton")
 focus_neighbor_right = NodePath("../UpgradeOption2")
-upgrade_array = Array[String](["common_guns"])
+upgrade_array = Array[String](["common_guns", "uncommon_guns"])
 show_price = true
 
 [node name="UpgradeOption2" parent="." instance=ExtResource("2_yk5qi")]

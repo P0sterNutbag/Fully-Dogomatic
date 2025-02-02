@@ -7,6 +7,7 @@ var sfx_volume: float
 var music_volume: float
 var window_mode: String
 var can_close: bool
+var can_quit: bool
 @onready var pause_menu = $Menu/VBoxContainer
 @onready var settings_menu = $Menu/VBoxContainer2
 @onready var sfx_volume_slider = $Menu/VBoxContainer2/SFXVolume/SFXVolSlider
@@ -81,13 +82,18 @@ func _on_continue_pressed():
 
 
 func _on_quit_pressed():
-	get_tree().quit()
+	if can_quit:
+		get_tree().quit()
+	else:
+		$Menu/VBoxContainer/Quit.text = "REALLY QUIT?"
+		can_quit = true
 
 
 func _on_return_to_menu_pressed():
 	Globals.player = null
 	SceneManager.start_scene_transition("res://Scenes/Levels/main_menu.tscn")
-	deactivate()
+	visible = false
+	#deactivate()
 
 
 func _on_settings_pressed() -> void:
@@ -142,3 +148,8 @@ func change_window_mode() -> void:
 		window_mode = "FULLSCREEN"
 	window_mode_text.text = window_mode
 	ConfigHandler.save_setting("window_mode", window_mode)
+
+
+func _on_quit_focus_exited() -> void:
+	$Menu/VBoxContainer/Quit.text = "QUIT GAME"
+	can_quit = false

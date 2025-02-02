@@ -14,6 +14,8 @@ var upgrade_to_delete: Control
 
 
 func _ready():
+	if Globals.player.money < 15:
+		$UpgradeOption.upgrade_array.erase("uncommon_guns")
 	Globals.upgrade_menu = self
 	get_tree().paused = true
 	assign_upgrades_options()

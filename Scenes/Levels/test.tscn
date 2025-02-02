@@ -341,3 +341,4 @@ position = Vector2(582, 310)
 [connection signal="timeout" from="LevelController/BossTimer" to="LevelController" method="_on_boss_timer_timeout"]
 
 [editable path="Gun Shop"]
+[editable path="Boss"]

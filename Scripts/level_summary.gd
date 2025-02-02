@@ -71,7 +71,7 @@ func unlock_characters() -> Array:
 
 func activate_buttons() -> void:
 	buttons.visible = true
-	buttons.process_mode = Node.PROCESS_MODE_INHERIT
+	#buttons.process_mode = Node.PROCESS_MODE_INHERIT
 	first_button.grab_focus()
 
 

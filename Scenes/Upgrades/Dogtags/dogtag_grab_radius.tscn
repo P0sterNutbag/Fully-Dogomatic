@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://6a50raomjrbx"]
+[gd_scene load_steps=7 format=3 uid="uid://6a50raomjrbx"]
 
 [ext_resource type="PackedScene" uid="uid://cn50oxjbu2kvn" path="res://Scenes/Upgrades/Dogtags/dogtag_exploding_bullets.tscn" id="1_fxptv"]
 [ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="2_ti41u"]
-[ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="2_uunbf"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_6y8on"]
 [ext_resource type="Texture2D" uid="uid://b0rfe3ff6ilq5" path="res://Art/Sprites/upgrade spritesheet.png" id="3_yq0j3"]
 
@@ -17,7 +16,6 @@ script = ExtResource("3_6y8on")
 rarity = 1
 
 [node name="Dogtag" instance=ExtResource("1_fxptv")]
-material = ExtResource("2_uunbf")
 upgrade_values = Array[ExtResource("2_ti41u")]([SubResource("Resource_4dcn8")])
 metadata/Title = "Money Magnet"
 metadata/Type = "+Item Pickup Range"

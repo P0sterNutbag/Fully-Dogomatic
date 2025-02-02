@@ -561,7 +561,7 @@ text = "QUIT"
 flat = true
 script = ExtResource("8_a27qw")
 
-[node name="TEST" type="Button" parent="UI/Menu/VBoxContainer"]
+[node name="Test" type="Button" parent="UI/Menu/VBoxContainer"]
 use_parent_material = true
 layout_mode = 2
 theme = SubResource("Theme_ql6r0")
@@ -643,7 +643,7 @@ scale = Vector2(2, 2)
 
 [connection signal="pressed" from="UI/Menu/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="UI/Menu/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="UI/Menu/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="UI/Menu/VBoxContainer/Credits" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="UI/Menu/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="UI/Menu/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="UI/Menu/VBoxContainer/TEST" to="." method="_on_test_pressed"]
+[connection signal="pressed" from="UI/Menu/VBoxContainer/Test" to="." method="_on_test_pressed"]

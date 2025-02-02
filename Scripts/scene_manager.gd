@@ -26,6 +26,7 @@ func change_scene() -> void:
 		#Globals.world_controller.remove_child(Globals.player)
 	get_tree().change_scene_to_packed(ResourceLoader.load_threaded_get(next_scene))
 	scene_transition.transition_out()
+	get_tree().paused = false
 	if !next_scene.contains("main_menu"):
 		animation_player.play("popout")
 

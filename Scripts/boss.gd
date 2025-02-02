@@ -18,8 +18,22 @@ func _physics_process(delta):
 	match state:
 		states.attack:
 			attack(delta)
+			if velocity.x < 0:
+				sprite.flip_h = true
+			else:
+				sprite.flip_h = false
 		states.rush:
 			rush(delta)
+			if velocity.x < 0:
+				sprite.flip_h = true
+			else:
+				sprite.flip_h = false
+		states.knockback:
+			velocity = velocity.move_toward(Vector2.ZERO, delta * 500)
+			print(velocity)
+			if velocity <= Vector2.ZERO:
+				state = states.attack
+			move_and_slide()
 
 
 func attack(delta) -> void:

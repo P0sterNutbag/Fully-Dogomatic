@@ -30,9 +30,10 @@ class_name Gun
 var bullet_scale = Vector2.ONE
 var bullet_can_warp: bool
 var burst_fire: bool
+var bullet_range: float = 0
 var burst_shots_left: int = 3
 var distance_to_player = 18
-var damage_boost: float = 0
+var damage_boost: float = 1
 var homing: bool = false
 var holder = null
 var hold_offset: Vector2
@@ -45,9 +46,16 @@ var upgrades = 0
 var max_upgrades = 3
 var follow_mouse = false
 var locked: bool = false
+var knockback_force: float = 0
 var is_mouse_entered: bool = false
 var aim_dir := Vector2.RIGHT
 var can_delete: bool = false
+var roulette: bool:
+	set (value):
+		roulette = value
+		roulette_index = get_roulette_index()
+var roulette_index: int
+var roulette_bonus: int = 0
 var can_press: bool
 var gunshot_sfx: AudioStreamPlayer2D
 var loadout_text: Control
@@ -143,6 +151,8 @@ func reload():
 	Globals.create_instance(status_effect, global_position + Vector2(0, -8))
 	await get_tree().create_timer($ReloadTimer.wait_time-1).timeout
 	spin_gun()
+	if roulette:
+		roulette_index = get_roulette_index()
 
 
 func _on_timer_timeout(): # shoot bullets
@@ -158,7 +168,6 @@ func _on_timer_timeout(): # shoot bullets
 		# shoot bullets
 		for i in bullet_count:
 			var instance = bullet.instantiate()
-			get_tree().current_scene.add_child(instance)
 			instance.global_position = firepoint.global_position
 			var accuracy = clamp(spread + accuracy_mod, 0, 100)
 			var bullet_angle
@@ -170,7 +179,7 @@ func _on_timer_timeout(): # shoot bullets
 			instance.move_vector = bullet_vector
 			instance.speed = bullet_speed
 			instance.global_rotation = bullet_angle
-			instance.damage  = bullet_damage + damage_boost
+			instance.damage  = bullet_damage * damage_boost
 			instance.damage_boost = damage_boost
 			instance.scale = bullet_scale
 			instance.penetrations = penetrations
@@ -178,9 +187,17 @@ func _on_timer_timeout(): # shoot bullets
 			instance.explode_chance = max(explode_chance, Globals.player.explode_chance)
 			instance.homing = homing
 			instance.can_warp = bullet_can_warp
+			instance.range = bullet_range
 			if bullet_explosion:
 				instance.explosion = bullet_explosion
 			rotation = bullet_angle
+			instance.knockback_force = knockback_force
+			get_tree().current_scene.add_child(instance)
+			if roulette: 
+				if roulette_index == shots_left:
+					instance.damage = bullet_damage * rounds * roulette_bonus
+				else:
+					instance.queue_free()
 		# expend ammo
 		shots_left -= 1
 		if shots_left <= 0:
@@ -213,6 +230,10 @@ func _on_timer_timeout(): # shoot bullets
 					$ShootTimer.start()
 			else:
 				burst_shots_left = 3
+
+
+func get_roulette_index() -> int:
+	return randi_range(rounds - shots_left, 0)
 
 
 func _on_reload_timer_timeout():

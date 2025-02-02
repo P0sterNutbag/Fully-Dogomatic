@@ -5,11 +5,14 @@ class_name Bullet
 @export var friction: float = 0
 @export var can_damage_player: bool
 var damage: float = 1
-var damage_boost: float = 0
+var damage_boost: float = 1
 var spread_modifier: float = 0
 var shot_count: float = 1
+var knockback_force: float = 0
 var penetrations: int = 1
 var move_vector: Vector2
+var original_pos: Vector2
+var range: float = 0
 var speed: float
 var ricochet: bool = false
 var explode_chance: float = 0
@@ -24,9 +27,10 @@ var impact = preload("res://Scenes/Particles/impact.tscn")
 var spark = preload("res://Scenes/Particles/bullet_spark.tscn")
 
 
-func _enter_tree() -> void:
+func _ready() -> void:
 	can_damage = true
 	can_delete = true
+	original_pos = global_position
 	if homing:
 		$HomingArea.process_mode = Node.PROCESS_MODE_INHERIT
 	if randi_range(0,1) == 1:
@@ -51,25 +55,27 @@ func _physics_process(delta):
 			global_position.x = bottom_right_bound.x
 			can_warp = false
 		else:
-			get_parent().call_deferred("remove_child", self)
+			queue_free()
 	elif global_position.x > bottom_right_bound.x:
 		if can_warp:
 			global_position.x = top_left_bound.x
 			can_warp = false
 		else:
-			get_parent().call_deferred("remove_child", self)
+			queue_free()
 	elif global_position.y < top_left_bound.y:
 		if can_warp:
 			global_position.y = bottom_right_bound.y
 			can_warp = false
 		else:
-			get_parent().call_deferred("remove_child", self)
+			queue_free()
 	elif global_position.y > bottom_right_bound.y:
 		if can_warp:
 			global_position.y = top_left_bound.y
 			can_warp = false
 		else:
-			get_parent().call_deferred("remove_child", self)
+			queue_free()
+	if range > 0 and global_position.distance_to(original_pos) > range:
+		queue_free()
 	#if global_position.distance_to(Globals.player.global_position) > 260:
 		#queue_free()
 
@@ -80,6 +86,8 @@ func _on_area_entered(area):
 			area.get_parent().take_damage(damage)
 		else:
 			area.take_damage(damage, rotation)
+			if knockback_force > 0 and area.get_parent() is Enemy:
+				area.get_parent().knockback(move_vector.normalized() * knockback_force)
 		#var inst = impact.instantiate()
 		#get_tree().current_scene.add_child(inst)
 		#inst.global_position = area.global_position
@@ -112,7 +120,7 @@ func _on_area_entered(area):
 func create_explosion(spawn_position: Vector2):
 	var inst = explosion.instantiate()
 	inst.global_position = spawn_position
-	inst.damage += damage_boost
+	inst.damage *= damage_boost
 	get_tree().current_scene.add_child(inst)
 	#Globals.create_instance(explosion, spawn_position)
 

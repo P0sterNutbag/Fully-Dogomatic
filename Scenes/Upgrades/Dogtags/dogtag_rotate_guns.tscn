@@ -1,18 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://cereajxeh03s0"]
+[gd_scene load_steps=4 format=3 uid="uid://cereajxeh03s0"]
 
 [ext_resource type="PackedScene" uid="uid://cn50oxjbu2kvn" path="res://Scenes/Upgrades/Dogtags/dogtag_exploding_bullets.tscn" id="1_4spux"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="2_2xm2f"]
-[ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="2_q5fky"]
 
 [sub_resource type="Resource" id="Resource_134ul"]
 script = ExtResource("2_2xm2f")
 rarity = 2
 
 [node name="Dogtag" instance=ExtResource("1_4spux")]
-material = ExtResource("2_q5fky")
 metadata/Type = "Rotating Guns"
 metadata/Rarity = SubResource("Resource_134ul")
 
 [node name="Icon" parent="." index="1"]
-position = Vector2(1, 8)
+position = Vector2(1, 3)
 region_rect = Rect2(80, 64, 16, 16)

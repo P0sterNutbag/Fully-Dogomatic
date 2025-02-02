@@ -170,6 +170,10 @@ mouse_click={
 ]
 }
 
+[internationalization]
+
+rendering/bg_color=Color(0, 0, 0, 1)
+
 [layer_names]
 
 2d_physics/layer_1="Player"

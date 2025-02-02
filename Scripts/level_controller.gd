@@ -23,7 +23,7 @@ var final_boss = preload("res://Scenes/Enemies/boss_final.tscn")
 @onready var enemy_formation_timer = $EnemyFormationTimer
 var kills_to_money: int: 
 	get:
-		return abs(round((60.0 / enemy_spawn_timer.wait_time / 25.0) - Globals.player.money_drop_bonus))
+		return abs(round((60.0 / enemy_spawn_timer.wait_time / 8) - Globals.player.money_drop_bonus))
 
 
 func _ready() -> void:
@@ -137,6 +137,7 @@ func _on_boss_timer_timeout() -> void:
 	if bosses_spawned.size() == 4:
 		spawn_enemy(final_boss)
 		Globals.ui.add_level_obj("Final Boss!!!", false)
+		Globals.ui.create_level_obj_signs()
 		bosses_spawned.clear()
 		return
 	var index = Globals.get_weighted_index(bosses)

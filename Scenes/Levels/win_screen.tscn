@@ -135,7 +135,6 @@ bbcode_enabled = true
 text = "0"
 
 [node name="Buttons" type="Control" parent="Node2D"]
-process_mode = 4
 use_parent_material = true
 layout_mode = 2
 anchors_preset = 0
