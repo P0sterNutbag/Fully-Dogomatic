@@ -18,8 +18,8 @@ func pause_game():
 	pause_menu.already_paused = get_tree().paused
 	get_tree().paused = true
 	pause_menu.activate()
-	if Globals.ui.scale == Vector2.ONE * 2:
-		pause_menu_instance.scale = Vector2.ONE * 0.5
+	#if Globals.ui.scale == Vector2.ONE * 2:
+		#pause_menu_instance.scale = Vector2.ONE * 0.5
 	#else:
 		#get_tree().paused = false
 		#if pause_menu_instance != null:

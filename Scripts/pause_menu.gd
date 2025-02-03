@@ -18,6 +18,8 @@ var already_paused: bool
 
 func _ready() -> void:
 	var settings = ConfigHandler.load_settings()
+	menus.append(pause_menu)
+	menus.append(settings_menu)
 	sfx_volume = settings.sfx_volume
 	music_volume = settings.music_volume
 	window_mode = settings.window_mode
@@ -39,12 +41,12 @@ func activate():
 	visible = true
 	can_close = false
 	last_focus_owner = get_viewport().gui_get_focus_owner()
-	menus.append(pause_menu)
-	menus.append(settings_menu)
 	set_menu(pause_menu)
 	get_tree().root.get_node("AudioManager").pause_sounds()
 	await get_tree().create_timer(0.1).timeout
 	can_close = true
+	if Globals.upgrade_menu != null:
+		Globals.upgrade_menu.process_mode = Node.PROCESS_MODE_DISABLED
 
 
 func _process(delta: float) -> void:
@@ -57,6 +59,7 @@ func _process(delta: float) -> void:
 
 func deactivate() -> void:
 	visible = false
+	can_close = false
 	if last_focus_owner:
 		last_focus_owner.grab_focus()
 	if Globals.upgrade_menu != null:
@@ -65,6 +68,8 @@ func deactivate() -> void:
 	get_tree().root.get_node("AudioManager").resume_sounds()
 	if !already_paused:
 		get_tree().paused = false
+	if Globals.upgrade_menu != null:
+		Globals.upgrade_menu.set_deferred("process_mode", Node.PROCESS_MODE_ALWAYS)
 
 
 func set_menu(new_menu: Control):

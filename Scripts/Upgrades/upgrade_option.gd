@@ -53,6 +53,7 @@ func _on_pressed():
 			upgrade.apply_upgrade()
 			#Globals.upgrade_menu.move_options_out()
 			Globals.ui.get_node("Dogtags").add_dogtag(upgrade)
+			Globals.upgrade_menu.upgrade_to_delete = null
 			Globals.upgrade_menu.finish(0.3)
 			var tween = create_tween()
 			tween.tween_property(self, "scale", Vector2.ZERO, 0.25) 

@@ -232,7 +232,7 @@ func add_new_gun(gun: Gun):
 	gun.get_parent().remove_child(gun)
 	$Guns.add_child(gun)
 	Globals.ui.set_gun_amount(gun_amount, gun_cap)
-	if guns.size() >= 20:
+	if guns.size() == 15:
 		Globals.set_achievement("gun_nut")
 
 

@@ -10,11 +10,13 @@ var tooltip_string: String
 var picks: int = 0
 var upgrade_to_delete: Control
 var can_pause: bool = true
+var exit_button: Button
 @onready var tooltip = $Tooltip
 @onready var place_text = $Title2
 
 
 func _ready():
+	exit_button = get_node_or_null("ExitButton")
 	if Globals.player.money < 15:
 		$UpgradeOption.upgrade_array.erase("uncommon_guns")
 	Globals.upgrade_menu = self
@@ -34,6 +36,11 @@ func _ready():
 	await get_tree().create_timer(0.5).timeout
 	for inst in get_tree().get_nodes_in_group("particles"):
 		inst.visible = false
+
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("back") and can_pause and exit_button:
+		exit_button.grab_focus()
 
 
 func assign_upgrades_options():
@@ -60,13 +67,12 @@ func _exit_tree():
 	get_tree().paused = false
 
 
-func finish(delay: float = 0):
+func finish(delay: float = 0.1):
 	if upgrade_to_delete:
 		upgrade_to_delete.queue_free()
 	$Money.text = "Money: $" + str(Globals.player.money)
 	picks += 1
-	#if delay > 0:
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(delay).timeout
 	if options.size() > 0 and picks < total_picks:
 		move_options_in()
 		set_focus_neighbors.call_deferred()
