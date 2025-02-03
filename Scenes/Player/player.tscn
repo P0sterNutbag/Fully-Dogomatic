@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_2qpty"]
 [ext_resource type="PackedScene" uid="uid://bb6l6e5xtb17k" path="res://Scenes/Particles/shadow.tscn" id="2_3aj65"]
 [ext_resource type="Material" uid="uid://bxgmy5m25b5ju" path="res://Art/Shaders/flash.tres" id="3_354og"]
-[ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Art/Sprites/123spritesheet.png" id="3_r6o1k"]
 [ext_resource type="Texture2D" uid="uid://cog1pfevxty7h" path="res://Art/Sprites/arrow.png" id="4_r3toi"]
 [ext_resource type="Texture2D" uid="uid://dpentnylex1c" path="res://Art/Sprites/player run.png" id="5_1sten"]
 [ext_resource type="Texture2D" uid="uid://chhc6bjga1571" path="res://Art/Sprites/player idle.png" id="5_3i5cs"]
+[ext_resource type="Texture2D" uid="uid://dab4xrj5hksfb" path="res://Art/Sprites/tombstone.png" id="5_k21ql"]
 [ext_resource type="PackedScene" uid="uid://84xxip1wf4vx" path="res://Scenes/UI/minimap_icon.tscn" id="11_2hug4"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="11_xl0am"]
 [ext_resource type="Script" path="res://Scripts/dust_spawner.gd" id="12_akeka"]
@@ -16,13 +16,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_7s6u8"]
 radius = 4.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pfo1y"]
-atlas = ExtResource("5_1sten")
+[sub_resource type="AtlasTexture" id="AtlasTexture_q86bv"]
+atlas = ExtResource("5_k21ql")
 region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_drq76"]
-atlas = ExtResource("3_r6o1k")
-region = Rect2(64, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q00oj"]
 atlas = ExtResource("5_3i5cs")
@@ -35,6 +31,10 @@ region = Rect2(32, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ch2xh"]
 atlas = ExtResource("5_3i5cs")
 region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfo1y"]
+atlas = ExtResource("5_1sten")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gfto4"]
 atlas = ExtResource("5_1sten")
@@ -52,15 +52,7 @@ region = Rect2(96, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pfo1y")
-}],
-"loop": true,
-"name": &"bounce",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_drq76")
+"texture": SubResource("AtlasTexture_q86bv")
 }],
 "loop": true,
 "name": &"dead",
@@ -127,7 +119,7 @@ y_sort_enabled = true
 material = ExtResource("3_354og")
 use_parent_material = true
 sprite_frames = SubResource("SpriteFrames_4r1yi")
-animation = &"bounce"
+animation = &"dead"
 
 [node name="DustSpawner" type="Node2D" parent="PlayerSprite"]
 position = Vector2(-10, 7)

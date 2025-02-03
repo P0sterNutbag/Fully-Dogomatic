@@ -26,6 +26,7 @@ var shop_discount = 0
 var explode_chance: float = 0
 var time_to_sprint: float = 1.5
 var sprint_timer: float = 0
+var in_enemy: bool
 var direction_x
 var direction_y
 var hp = 40:
@@ -190,11 +191,17 @@ func take_damage(dmg):
 		player_died.emit()
 		Globals.world_controller.level_controller.get_node("EnemySpawnTimer").stop()
 	elif $FlashTimer.time_left <= 0:
-		$FlashTimer.start()
+		flash()
+		in_enemy = true
 	if ability == abilities.sprint_on_hurt:
 		speed = sprint_speed
 		await get_tree().create_timer(2).timeout
 		speed = base_speed
+
+
+func flash():
+	$PlayerSprite.use_parent_material = false
+	$FlashTimer.start()
 
 
 func increase_health(hp2):
@@ -227,13 +234,10 @@ func add_new_gun(gun: Gun):
 	Globals.ui.set_gun_amount(gun_amount, gun_cap)
 	if guns.size() >= 20:
 		Globals.set_achievement("gun_nut")
-	#var inst = load("res://Scenes/UI/loadout_text.tscn").instantiate()
-	#var text = inst.get_node("RichTextLabel")
-	#text.text = gun.get_meta("Title")
-	##text.custom_minimum_size.y *= text.get_line_count()+1
-	#inst.get_node("TextureRect").texture = gun.get_meta("Icon")
-	#Globals.ui.loadout.add_child(inst)
-	#gun.loadout_text = inst
+
+
+func sort_gun_array() -> void:
+	guns.sort_custom(func(a, b): return global_position.angle_to_point(a.global_position) > global_position.angle_to_point(b.global_position))
 
 
 func _on_money_pickup_area_entered(area):
@@ -246,12 +250,17 @@ func _on_drop_crate_timeout():
 
 
 func _on_flash_timer_timeout():
+	if !in_enemy:
+		$FlashTimer.stop()
+		$PlayerSprite.use_parent_material = true
+		return
 	$PlayerSprite.use_parent_material = !$PlayerSprite.use_parent_material
 
 
 func _on_hurtbox_area_exited(_area):
-	$FlashTimer.stop()
-	$PlayerSprite.use_parent_material = true
+	in_enemy = false
+	#$FlashTimer.stop()
+	#$PlayerSprite.use_parent_material = true
 
 
 func _on_mine_timer_timeout() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://clo1rbbdey5yl"]
+[gd_scene load_steps=5 format=3 uid="uid://clo1rbbdey5yl"]
 
 [ext_resource type="Script" path="res://Scripts/sawblade.gd" id="1_8cnlx"]
 [ext_resource type="Texture2D" uid="uid://dcayjrr65pgpy" path="res://Art/Sprites/gun spritesheet.png" id="2_x4jit"]
@@ -8,9 +8,6 @@ radius = 5.09902
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h81x8"]
 radius = 64.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_syma8"]
-radius = 5.09902
 
 [node name="Area2D" type="Area2D" groups=["bullet"]]
 use_parent_material = true
@@ -36,12 +33,6 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HomingArea"]
 shape = SubResource("CircleShape2D_h81x8")
-
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_syma8")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_entered" from="HomingArea" to="." method="_on_area_2d_area_entered"]

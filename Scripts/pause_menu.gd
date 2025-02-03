@@ -8,6 +8,7 @@ var music_volume: float
 var window_mode: String
 var can_close: bool
 var can_quit: bool
+var already_paused: bool
 @onready var pause_menu = $Menu/VBoxContainer
 @onready var settings_menu = $Menu/VBoxContainer2
 @onready var sfx_volume_slider = $Menu/VBoxContainer2/SFXVolume/SFXVolSlider
@@ -47,7 +48,7 @@ func activate():
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("back") and can_close:
+	if Input.is_action_just_pressed("back") and visible and can_close:
 		if current_menu == pause_menu:
 			deactivate()
 		else:
@@ -62,7 +63,8 @@ func deactivate() -> void:
 		Globals.upgrade_menu.process_mode = Node.PROCESS_MODE_ALWAYS
 		Globals.upgrade_menu.visible = true
 	get_tree().root.get_node("AudioManager").resume_sounds()
-	get_tree().paused = false
+	if !already_paused:
+		get_tree().paused = false
 
 
 func set_menu(new_menu: Control):

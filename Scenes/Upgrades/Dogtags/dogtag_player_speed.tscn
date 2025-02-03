@@ -21,4 +21,5 @@ metadata/Type = "Move faster"
 metadata/Rarity = SubResource("Resource_134ul")
 
 [node name="Icon" parent="." index="1"]
-region_rect = Rect2(64, 64, 16, 16)
+position = Vector2(0, 1)
+region_rect = Rect2(96, 16, 16, 16)

@@ -49,3 +49,22 @@ res://Scripts/level_controller.gd
 res://Scenes/UI/pause_menu.tscn
 res://Scripts/ui_settings_menu.gd
 res://Scenes/UI/settings_option.tscn
+res://Scripts/pause_controller.gd
+res://Scripts/ui.gd
+res://Scenes/Upgrades/upgrade_shop_intro.tscn
+res://Scenes/Levels/Level Objects/shop.tscn
+res://Scenes/Control/pause_controller.tscn
+res://Scenes/Guns/sawgun.tscn
+res://Scripts/player.gd
+res://Scenes/Player/player.tscn
+res://Scenes/Bullets/sawblade.tscn
+res://Scenes/Guns/sawed_off.tscn
+res://Scripts/gun_upgrade.gd
+res://Scenes/Bullets/grenade.tscn
+res://Scenes/Upgrades/GunUpgrades/burst_fire_upgrade.tscn
+res://Scenes/Player/bulldog.tscn
+res://Scenes/Player/cat.tscn
+res://Scenes/Player/dachshund.tscn
+res://Scenes/Player/terrier.tscn
+res://Scenes/Player/menu_dog.tscn
+res://Scenes/Levels/Level Objects/enemy_spawner_pipe.tscn

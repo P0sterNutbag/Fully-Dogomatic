@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://byrlfy20m4t48"]
+[gd_scene load_steps=13 format=3 uid="uid://byrlfy20m4t48"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_spawner_pipe.gd" id="1_nw32u"]
 [ext_resource type="Script" path="res://Scripts/enemy_health.gd" id="2_gyc7b"]
 [ext_resource type="PackedScene" uid="uid://b72oe3vffkglg" path="res://Scenes/Bullets/grenade_explosion.tscn" id="3_v3m0e"]
 [ext_resource type="Shader" path="res://Art/Shaders/flash.gdshader" id="4_06esj"]
-[ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Art/Sprites/123spritesheet.png" id="5_55cfk"]
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="6_5o07r"]
 [ext_resource type="Theme" uid="uid://dawp23mso2e5a" path="res://Art/Themes/healthbar.tres" id="7_5pxfp"]
 [ext_resource type="PackedScene" uid="uid://84xxip1wf4vx" path="res://Scenes/UI/minimap_icon.tscn" id="8_gc8w3"]
@@ -41,7 +40,6 @@ shape = SubResource("RectangleShape2D_a8feu")
 material = SubResource("ShaderMaterial_fb2ib")
 use_parent_material = true
 position = Vector2(0, -9)
-texture = ExtResource("5_55cfk")
 region_enabled = true
 region_rect = Rect2(224, 48, 48, 48)
 

@@ -195,7 +195,7 @@ func _on_timer_timeout(): # shoot bullets
 			get_tree().current_scene.add_child(instance)
 			if roulette: 
 				if roulette_index == shots_left:
-					instance.damage = bullet_damage * rounds * roulette_bonus
+					instance.damage = round(bullet_damage * rounds * roulette_bonus)
 				else:
 					instance.queue_free()
 		# expend ammo
@@ -233,7 +233,7 @@ func _on_timer_timeout(): # shoot bullets
 
 
 func get_roulette_index() -> int:
-	return randi_range(rounds - shots_left, 0)
+	return randi_range(rounds, 1)
 
 
 func _on_reload_timer_timeout():

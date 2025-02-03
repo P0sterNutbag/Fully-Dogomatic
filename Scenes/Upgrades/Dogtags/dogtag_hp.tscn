@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwyhebjlc67pi"]
+[gd_scene load_steps=7 format=3 uid="uid://cwyhebjlc67pi"]
 
 [ext_resource type="PackedScene" uid="uid://cn50oxjbu2kvn" path="res://Scenes/Upgrades/Dogtags/dogtag_exploding_bullets.tscn" id="1_5rmn0"]
-[ext_resource type="Texture2D" uid="uid://b0rfe3ff6ilq5" path="res://Art/Sprites/upgrade spritesheet.png" id="2_fg81a"]
 [ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="2_xc40n"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_yr708"]
 
@@ -28,5 +27,4 @@ metadata/Type = "+25 Max HP"
 metadata/Rarity = SubResource("Resource_l34ag")
 
 [node name="Icon" parent="." index="1"]
-texture = ExtResource("2_fg81a")
 region_rect = Rect2(0, 48, 16, 16)

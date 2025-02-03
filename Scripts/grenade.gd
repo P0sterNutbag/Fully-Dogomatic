@@ -14,11 +14,14 @@ var ricochet: bool = false
 var homing: bool = false
 var target_enemy: Node2D
 var can_warp: bool
+var range: float
 
 
 func _ready() -> void:
 	deceleration *= randf_range(0.9, 1.1)
 	deceleration = clamp(deceleration, 0, 0.9)
+	if range > 0:
+		deceleration *= 2
 
 
 func _physics_process(delta):

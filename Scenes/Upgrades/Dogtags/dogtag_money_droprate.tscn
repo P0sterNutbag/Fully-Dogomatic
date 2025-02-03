@@ -1,16 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://dlhgr84xobvpw"]
+[gd_scene load_steps=9 format=3 uid="uid://dlhgr84xobvpw"]
 
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="1_fasvo"]
 [ext_resource type="Script" path="res://Scripts/Upgrades/dogtag.gd" id="3_um52l"]
 [ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="4_qcvdg"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="4_r5d8w"]
-[ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Art/Sprites/123spritesheet.png" id="5_a7vui"]
 [ext_resource type="Texture2D" uid="uid://b0rfe3ff6ilq5" path="res://Art/Sprites/upgrade spritesheet.png" id="6_2c2wx"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="6_uqif6"]
 
 [sub_resource type="Resource" id="Resource_cleew"]
 script = ExtResource("4_qcvdg")
-values = ["money_drop_bonus", 3.0]
+values = ["money_drop_bonus", 0.2]
 multiply_value = false
 add_value = true
 
@@ -34,10 +33,10 @@ metadata/Rarity = SubResource("Resource_25sqj")
 
 [node name="Tag" type="Sprite2D" parent="."]
 use_parent_material = true
-position = Vector2(0, 8)
-texture = ExtResource("5_a7vui")
+position = Vector2(0, 3)
+texture = ExtResource("6_2c2wx")
 region_enabled = true
-region_rect = Rect2(32, 64, 16, 32)
+region_rect = Rect2(96, 64, 16, 24)
 
 [node name="Icon" type="Sprite2D" parent="."]
 use_parent_material = true

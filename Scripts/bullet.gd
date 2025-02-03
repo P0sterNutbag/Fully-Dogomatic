@@ -83,7 +83,8 @@ func _physics_process(delta):
 func _on_area_entered(area):
 	if (area.is_in_group("enemy") or can_damage_player) and can_damage:
 		if can_damage_player and area.get_parent() is Player:
-			area.get_parent().take_damage(damage)
+			area.get_parent().take_damage(damage / 2)
+			area.get_parent().in_enemy = false
 		else:
 			area.take_damage(damage, rotation)
 			if knockback_force > 0 and area.get_parent() is Enemy:

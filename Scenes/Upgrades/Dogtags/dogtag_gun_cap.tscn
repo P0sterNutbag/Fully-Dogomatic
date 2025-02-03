@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dfxqggq6iconp"]
+[gd_scene load_steps=6 format=3 uid="uid://dfxqggq6iconp"]
 
 [ext_resource type="PackedScene" uid="uid://cn50oxjbu2kvn" path="res://Scenes/Upgrades/Dogtags/dogtag_exploding_bullets.tscn" id="1_elgdx"]
 [ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="2_1kirf"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_uoayr"]
-[ext_resource type="Texture2D" uid="uid://b0rfe3ff6ilq5" path="res://Art/Sprites/upgrade spritesheet.png" id="4_5q6p2"]
 
 [sub_resource type="Resource" id="Resource_4dcn8"]
 script = ExtResource("2_1kirf")
@@ -22,6 +21,4 @@ metadata/Type = "+2 max guns"
 metadata/Rarity = SubResource("Resource_mhcv3")
 
 [node name="Icon" parent="." index="1"]
-position = Vector2(1, 4)
-texture = ExtResource("4_5q6p2")
 region_rect = Rect2(32, 64, 16, 16)

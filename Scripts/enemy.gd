@@ -7,7 +7,7 @@ var state = states.attack
 @export var speed = 10.0
 @export var damage = 0.05
 @export var turn_speed = 5.0
-@export var money_amount = 3
+@export var money_amount: int
 @export var queue_index: int
 var player: CharacterBody2D #= preload("res://player.gd")
 var target: Node2D
@@ -70,10 +70,11 @@ func on_death(bullet_direction: float = 0):
 	var k = Globals.level_manager.current_kills
 	var m = Globals.level_manager.kills_to_money
 	if Globals.level_manager.current_kills >= Globals.level_manager.kills_to_money:
-		Globals.level_manager.reset_kills()
+		var money_amount = randi_range(1, 3)
+		Globals.level_manager.reset_kills(money_amount)
 		for i in money_amount:
 			var d = Globals.create_instance(dollar, global_position)
-			d.direction = bullet_direction + deg_to_rad(randf_range(-25, 25))
+			d.direction = bullet_direction + deg_to_rad(randf_range(-45, 45))
 	Globals.create_instance(blood, $Shadow.global_position)
 	Globals.world_controller.total_kills += 1
 	Globals.world_controller.level_controller.enemies.erase(self)

@@ -72,6 +72,8 @@ func add_level_obj(obj_text: String, good: bool, amount: int = 1):
 
 func create_level_obj_signs():
 	for i in level_signs.size():
+		if level_signs.size() <= 0:
+			return
 		var inst = level_obj_sign.instantiate()
 		add_child(inst)
 		inst.position = drop_pos_origin + Vector2(-113, (40 + (12 * (i + 1))))

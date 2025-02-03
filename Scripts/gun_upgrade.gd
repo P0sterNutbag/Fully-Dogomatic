@@ -4,6 +4,7 @@ class_name GunUpgrade
 @export var upgrade_values: Array[VariableChange]
 @export var increase_upgrades: bool = true
 var follow_mouse: bool = false
+var gun_index: int
 var target_position: Vector2
 var closest_gun: Node2D
 var alert = preload("res://Scenes/UI/not_enough_money.tscn")
@@ -21,28 +22,13 @@ func _process(delta):
 		# get closest gun
 		if abs(Input.get_last_mouse_velocity()) > Vector2.ZERO:
 			target_position = get_global_mouse_position()
-		if abs(Input.get_joy_axis(0, JOY_AXIS_LEFT_X)) > InputController.axis_threshold or abs(Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)) > InputController.axis_threshold:
-			target_position = Globals.player.global_position + Vector2(Input.get_joy_axis(0, JOY_AXIS_LEFT_X), Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)).normalized() * 32
-		elif Input.is_action_just_pressed("right") or Input.is_action_just_pressed("left"):
+		if Input.is_action_just_pressed("left"):
 			if Globals.player.guns.size() > 1:
-				#var closest_gun = find_nearest_gun(target_position)
-				#$RayCast2D.global_position = Globals.player.global_position
-				#$RayCast2D.rotation = (closest_gun.global_position - Globals.player.global_position).angle()
-				#for i in 360:
-					#$RayCast2D.rotate(deg_to_rad(sign(Input.get_axis("left", "right"))))
-					#var new_gun = $RayCast2D.get_collider()
-					#if new_gun != closest_gun:
-						#target_position = new_gun.global_position
-						#break
-				closest_gun = find_nearest_gun(target_position)
-				var i = 1
-				target_position = Globals.player.global_position + (closest_gun.global_position - Globals.player.global_position)
-				while find_nearest_gun(target_position) == closest_gun:
-					target_position = (Globals.player.global_position + (closest_gun.global_position - Globals.player.global_position).rotated(Input.get_axis("left", "right") * deg_to_rad(i))) 
-					#target_position = Globals.player.global_position + (Vector2.RIGHT * 30).rotated(Input.get_axis("left", "right") * deg_to_rad(i)) 
-					i += 1
-					if i > 360:
-						break
+				gun_index = wrapi(gun_index + 1, 0, Globals.player.guns.size())
+				target_position = Globals.player.guns[gun_index].global_position
+		elif Input.is_action_just_pressed("right"):
+				gun_index = wrapi(gun_index - 1, 0, Globals.player.guns.size())
+				target_position = Globals.player.guns[gun_index].global_position
 		elif Input.is_action_just_pressed("back"):
 			Globals.upgrade_menu.refund()
 			queue_free()
@@ -83,6 +69,10 @@ func attach_to_target(_object: Node2D):
 	upgrade_sprite.visible = false
 	arrow.visible = true
 	arrow_text.visible = true
+	Globals.player.sort_gun_array()
+	closest_gun = find_nearest_gun(Globals.player.global_position + Vector2.RIGHT * 32)
+	target_position = closest_gun.global_position
+	gun_index = Globals.player.guns.find(closest_gun)
 
 
 func add_upgrade_to_gun(gun_to_change: Node2D):

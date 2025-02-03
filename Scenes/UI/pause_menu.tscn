@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bypk836otjf2e"]
 
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="1_1u8m4"]
-[ext_resource type="Script" path="res://Scripts/ui_settings_menu.gd" id="2_kapkv"]
+[ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="2_kapkv"]
 [ext_resource type="Theme" uid="uid://b6o7rf6iavtxi" path="res://Art/Themes/button.tres" id="5_fdqnr"]
 [ext_resource type="Script" path="res://Scripts/ui_menu_button.gd" id="6_ku67b"]
 [ext_resource type="Script" path="res://Scripts/ui_scroll_button.gd" id="7_h6pqo"]

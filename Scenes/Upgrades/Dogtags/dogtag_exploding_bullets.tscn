@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Upgrades/dogtag.gd" id="3_gh0yw"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="4_5iasq"]
 [ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="4_p3eox"]
-[ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Art/Sprites/123spritesheet.png" id="5_7eibt"]
+[ext_resource type="Texture2D" uid="uid://b0rfe3ff6ilq5" path="res://Art/Sprites/upgrade spritesheet.png" id="5_8xxfg"]
 [ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="6_plxia"]
 
 [sub_resource type="Resource" id="Resource_j26hk"]
@@ -33,17 +33,17 @@ metadata/Rarity = SubResource("Resource_25sqj")
 
 [node name="Tag" type="Sprite2D" parent="."]
 use_parent_material = true
-position = Vector2(0, 6)
-texture = ExtResource("5_7eibt")
+position = Vector2(0, 1)
+texture = ExtResource("5_8xxfg")
 region_enabled = true
-region_rect = Rect2(32, 64, 16, 32)
+region_rect = Rect2(96, 64, 16, 24)
 
 [node name="Icon" type="Sprite2D" parent="."]
 use_parent_material = true
-position = Vector2(0, 3)
-texture = ExtResource("5_7eibt")
+position = Vector2(0, 2)
+texture = ExtResource("5_8xxfg")
 region_enabled = true
-region_rect = Rect2(48, 64, 16, 16)
+region_rect = Rect2(96, 0, 16, 16)
 
 [node name="JuicyMovement" parent="." node_paths=PackedStringArray("target_control") instance=ExtResource("6_plxia")]
 target_control = NodePath("..")

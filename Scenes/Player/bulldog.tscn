@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cfkssnl27y2qn" path="res://Scenes/Player/player.tscn" id="1_itfkv"]
 [ext_resource type="Shader" path="res://Art/Shaders/flash.gdshader" id="2_1x31i"]
-[ext_resource type="Texture2D" uid="uid://1cymfryp4g21" path="res://Art/Sprites/123spritesheet.png" id="3_ykmvg"]
+[ext_resource type="Texture2D" uid="uid://dab4xrj5hksfb" path="res://Art/Sprites/tombstone.png" id="3_hr7cx"]
 [ext_resource type="Texture2D" uid="uid://c6tf58pwjbbr5" path="res://Art/Sprites/bulldog idle.png" id="4_ru3fh"]
 [ext_resource type="Texture2D" uid="uid://bjcbkwf0vdjj8" path="res://Art/Sprites/bulldog run.png" id="5_t6b3g"]
 
@@ -10,9 +10,9 @@
 shader = ExtResource("2_1x31i")
 shader_parameter/active = true
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_drq76"]
-atlas = ExtResource("3_ykmvg")
-region = Rect2(64, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0gl8"]
+atlas = ExtResource("3_hr7cx")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qafao"]
 atlas = ExtResource("4_ru3fh")
@@ -46,7 +46,7 @@ region = Rect2(96, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_drq76")
+"texture": SubResource("AtlasTexture_o0gl8")
 }],
 "loop": true,
 "name": &"dead",
@@ -90,4 +90,3 @@ ability = 1
 [node name="PlayerSprite" parent="." index="2"]
 material = SubResource("ShaderMaterial_w8lw2")
 sprite_frames = SubResource("SpriteFrames_mna2n")
-animation = &"idle"

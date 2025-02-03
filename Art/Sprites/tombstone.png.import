@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1cymfryp4g21"
-path="res://.godot/imported/123spritesheet.png-0bc57f1edf0bd5ef1adf6e0eb75f333b.ctex"
+uid="uid://dab4xrj5hksfb"
+path="res://.godot/imported/tombstone.png-51d159ec15e310845cd238310b255946.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Sprites/123spritesheet.png"
-dest_files=["res://.godot/imported/123spritesheet.png-0bc57f1edf0bd5ef1adf6e0eb75f333b.ctex"]
+source_file="res://Art/Sprites/tombstone.png"
+dest_files=["res://.godot/imported/tombstone.png-51d159ec15e310845cd238310b255946.ctex"]
 
 [params]
 
