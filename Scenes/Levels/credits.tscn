@@ -343,7 +343,7 @@ color = Color(0.101961, 0.101961, 0.101961, 1)
 material = ExtResource("2_c1n5b")
 offset_left = 32.0
 offset_top = 32.0
-offset_right = 233.0
+offset_right = 228.0
 offset_bottom = 239.0
 theme = ExtResource("4_kwsve")
 text = "Developed by
@@ -397,7 +397,6 @@ sprite_frames = SubResource("SpriteFrames_heorn")
 y_sort_enabled = true
 position = Vector2(411, 313)
 sprite_frames = SubResource("SpriteFrames_mm500")
-animation = &"run"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2

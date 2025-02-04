@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bnwpp4m7sdaeg"]
+[gd_scene load_steps=18 format=3 uid="uid://bnwpp4m7sdaeg"]
 
 [ext_resource type="Script" path="res://Scripts/boss_spawn_goons.gd" id="1_cbej8"]
 [ext_resource type="Texture2D" uid="uid://cfcqjmn4b262b" path="res://Art/Sprites/boss flyer.png" id="2_okabu"]
@@ -44,8 +44,14 @@ radius = 11.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nyc0h"]
 size = Vector2(29, 17)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v045h"]
+size = Vector2(27.5, 16)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_wqof6"]
 radius = 12.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ib1r"]
+size = Vector2(28, 15)
 
 [sub_resource type="GDScript" id="GDScript_yvhgh"]
 script/source = "extends Node2D
@@ -112,6 +118,10 @@ shape = SubResource("CircleShape2D_gvnaa")
 position = Vector2(-24.5, 1.5)
 shape = SubResource("RectangleShape2D_nyc0h")
 
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(20.25, 1)
+shape = SubResource("RectangleShape2D_v045h")
+
 [node name="Hurtbox" type="Area2D" parent="." node_paths=PackedStringArray("sprite") groups=["enemy"]]
 y_sort_enabled = true
 position = Vector2(-0.5, 0)
@@ -129,6 +139,10 @@ shape = SubResource("CircleShape2D_wqof6")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(21, 1)
 shape = SubResource("RectangleShape2D_nyc0h")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(-23.5, 1.5)
+shape = SubResource("RectangleShape2D_6ib1r")
 
 [node name="Shadow" parent="." instance=ExtResource("4_85jj4")]
 position = Vector2(-1.5, 25)

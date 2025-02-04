@@ -7,6 +7,9 @@ var time_since_last_input := 0.0
 var time_since_mouse_movement := 0.0
 
 
+func _ready():
+	Input.joy_connection_changed.connect(_on_joy_connection_changed)
+
 
 func _process(delta):
 	time_since_last_input += delta
@@ -26,3 +29,8 @@ func get_axis_just_pressed(axis: float):
 		return 0
 	time_since_last_input = 0.0
 	return axis
+
+
+func _on_joy_connection_changed(device: int, connected: bool):
+	if !connected and get_tree().current_scene.name.contains("World"):
+		PauseController.pause_game()

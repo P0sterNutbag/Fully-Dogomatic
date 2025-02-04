@@ -130,6 +130,7 @@ animations = [{
 collision_layer = 2
 collision_mask = 296
 script = ExtResource("1_emfmv")
+damage = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7xgty")

@@ -6,6 +6,7 @@ var pause_menu_instance
 
 func _ready():
 	Globals.pause_controller = self
+	Steam.overlay_toggled.connect(_on_overlay_toggled)
 
 
 func _process(_delta):
@@ -29,3 +30,7 @@ func pause_game():
 func _on_options_gui_input(event):
 	if event is InputEventMouseButton:
 		pause_game()
+
+
+func _on_overlay_toggled(toggled: bool, user_initiated: bool, app_id: int) -> void:
+	pause_game()

@@ -76,12 +76,12 @@ func activate_buttons() -> void:
 
 
 func _on_restart_pressed() -> void:
-	get_tree().paused = false
+	#get_tree().paused = false
 	SceneManager.start_scene_transition("res://Scenes/Levels/main_menu.tscn")
 
 
 func _on_continue_pressed() -> void:
-	get_tree().paused = false
+	#get_tree().paused = false
 	SceneManager.start_scene_transition("res://Scenes/Levels/world.tscn")
 
 

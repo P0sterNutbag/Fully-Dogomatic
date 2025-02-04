@@ -7,13 +7,13 @@
 
 [sub_resource type="Resource" id="Resource_cogub"]
 script = ExtResource("2_mq5af")
-values = ["bullet_range", 64.0]
+values = ["bullet_range", 80.0]
 multiply_value = false
 add_value = false
 
 [sub_resource type="Resource" id="Resource_bwuhe"]
 script = ExtResource("2_mq5af")
-values = ["bullet_damage", 2.0]
+values = ["bullet_damage", 3.0]
 multiply_value = true
 add_value = false
 
@@ -24,7 +24,7 @@ rarity = 1
 [node name="ShortRange" instance=ExtResource("1_wk0wm")]
 upgrade_values = Array[ExtResource("2_mq5af")]([SubResource("Resource_cogub"), SubResource("Resource_bwuhe")])
 metadata/Title = "One-inch-punch"
-metadata/Type = "Shortens bullet range, x2 damage"
+metadata/Type = "Shortens bullet range, x3 damage"
 metadata/Rarity = SubResource("Resource_23pya")
 
 [node name="UpgradeSprite" parent="." index="0"]

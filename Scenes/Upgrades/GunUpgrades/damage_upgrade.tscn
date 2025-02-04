@@ -7,7 +7,7 @@
 
 [sub_resource type="Resource" id="Resource_cogub"]
 script = ExtResource("2_344q1")
-values = ["damage_boost", 1.5]
+values = ["damage_boost", 2.0]
 multiply_value = true
 add_value = false
 
@@ -18,7 +18,7 @@ rarity = 1
 [node name="GunUpgradeDamage" instance=ExtResource("1_c5dph")]
 upgrade_values = Array[ExtResource("2_344q1")]([SubResource("Resource_cogub")])
 metadata/Title = "Reinforced Bullets"
-metadata/Type = "Bullets deal x1.5 damage"
+metadata/Type = "Bullets deal x2 damage"
 metadata/Rarity = SubResource("Resource_23pya")
 
 [node name="UpgradeSprite" parent="." index="0"]

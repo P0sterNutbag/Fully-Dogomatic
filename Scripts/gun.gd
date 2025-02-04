@@ -94,11 +94,11 @@ func _physics_process(delta):
 	if follow_mouse:
 		if abs(Input.get_last_mouse_velocity()) > Vector2.ZERO:
 			aim_dir = (get_global_mouse_position() - get_parent().global_position).normalized()
-		if abs(Input.get_joy_axis(0, JOY_AXIS_LEFT_X)) > InputController.axis_threshold or abs(Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)) > InputController.axis_threshold:
-			aim_dir = Vector2(Input.get_joy_axis(0, JOY_AXIS_LEFT_X), Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)).normalized()
-		elif abs(Input.get_axis("left", "right")) > 0:
+		#if abs(Input.get_joy_axis(0, JOY_AXIS_LEFT_X)) > InputController.axis_threshold or abs(Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)) > InputController.axis_threshold:
+			#aim_dir = Vector2(Input.get_joy_axis(0, JOY_AXIS_LEFT_X), Input.get_joy_axis(0, JOY_AXIS_LEFT_Y)).normalized()
+		elif abs(Input.get_axis("left", "right")) > InputController.axis_threshold:
 			aim_dir = aim_dir.rotated(Input.get_axis("left", "right") * 2 * delta)
-		elif abs(Input.get_axis("up", "down")) > 0:
+		elif abs(Input.get_axis("up", "down")) > InputController.axis_threshold:
 			aim_dir = aim_dir.rotated(Input.get_axis("up", "down") * 2 * delta)
 		global_position = lerp(global_position, Globals.player.global_position + aim_dir * distance_to_player * 1.5, delta * 10)
 		global_rotation = aim_dir.angle()

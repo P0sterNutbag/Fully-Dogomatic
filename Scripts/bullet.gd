@@ -113,6 +113,7 @@ func _on_area_entered(area):
 			call_deferred("create_explosion", area.global_position)
 		penetrations -= 1
 		if penetrations <= 0 and destroy_on_hit:
+			can_damage = false
 			queue_free()
 		elif homing:
 			target_enemy = null
