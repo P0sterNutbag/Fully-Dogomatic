@@ -17,6 +17,7 @@ rarity = 0
 
 [node name="AimAssist" instance=ExtResource("1_skyni")]
 upgrade_values = Array[ExtResource("2_g0oxg")]([SubResource("Resource_cogub")])
+slot_value = 0
 metadata/Title = "Aim Assist"
 metadata/Type = "Shoot towards nearby targets"
 metadata/Rarity = SubResource("Resource_23pya")

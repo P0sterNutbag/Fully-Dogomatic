@@ -24,6 +24,7 @@ use_parent_material = true
 script = ExtResource("1_swskk")
 node_to_attach_to = "SightHolder"
 upgrade_values = Array[ExtResource("2_qppxn")]([SubResource("Resource_a112j")])
+slot_value = 0
 metadata/Title = "Scope"
 metadata/Type = "x2 better accuracy"
 metadata/Rarity = SubResource("Resource_qwgur")

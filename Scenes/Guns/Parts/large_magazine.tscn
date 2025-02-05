@@ -24,6 +24,7 @@ use_parent_material = true
 script = ExtResource("1_4a28f")
 node_to_attach_to = "MagazineHolder"
 upgrade_values = Array[ExtResource("2_hudlf")]([SubResource("Resource_somxo")])
+slot_value = 0
 metadata/Title = "Large Magazine"
 metadata/Type = "+10 round capacity"
 metadata/Rarity = SubResource("Resource_ys47q")

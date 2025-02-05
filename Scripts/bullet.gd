@@ -122,7 +122,7 @@ func _on_area_entered(area):
 func create_explosion(spawn_position: Vector2):
 	var inst = explosion.instantiate()
 	inst.global_position = spawn_position
-	inst.damage *= damage_boost
+	inst.damage = damage / 2
 	get_tree().current_scene.add_child(inst)
 	#Globals.create_instance(explosion, spawn_position)
 

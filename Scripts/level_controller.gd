@@ -36,7 +36,7 @@ func _on_round_timer_timeout() -> void:
 	round_timer.wait_time = 60
 	round_timer.start()
 	enemy_spawn_timer.wait_time = clamp(enemy_spawn_timer.wait_time * spawn_time_incrament, 0.05, 100)
-	if enemy_spawn_timer.wait_time < 0.1:
+	if round == 7:#enemy_spawn_timer.wait_time < 0.1:
 		spawn_time_incrament = 0.9
 	enemy_health = max(enemy_health * enemy_health_incrament, 2)
 	print("spawn time " + str(enemy_spawn_timer.wait_time))

@@ -1,4 +1,4 @@
-res://Scenes/Levels/world.tscn
+res://Scenes/Upgrades/upgrade_manager.tscn
 res://Art/Shaders/colorswap.gdshader
 res://Art/Shaders/colorswap.tres
 res://Art/Shaders/flash.gdshader
@@ -8,20 +8,4 @@ res://Art/Themes/healthbar.tres
 res://Art/Shaders/dither.gdshader
 res://Art/Shaders/dither postprocess.gdshader
 res://Art/Shaders/color_change.gdshader
-res://Scenes/Control/input_controller.tscn
-res://Scenes/Levels/credits.tscn
-res://Scenes/Bullets/bullet_explosion.tscn
-res://Scenes/Enemies/boss_4.tscn
-res://Scripts/gun.gd
-res://Scenes/Particles/death_explosion.tscn
-res://Scenes/Bullets/bullet_explosion_big.tscn
-res://Scenes/Particles/enemy_explosion.tscn
-res://Scenes/Bullets/grenade_explosion.tscn
-res://Scenes/Enemies/boss_3.tscn
-res://Scenes/Enemies/boss_2.tscn
-res://Scenes/Enemies/boss_1.tscn
-res://default_bus_layout.tres
-res://Scripts/level_summary.gd
-res://Scenes/Upgrades/GunUpgrades/double_barreled_upgrade.tscn
-res://Scenes/Upgrades/GunUpgrades/damage_upgrade.tscn
-res://Scenes/Upgrades/GunUpgrades/short_range.tscn
+res://Scripts/level_controller.gd

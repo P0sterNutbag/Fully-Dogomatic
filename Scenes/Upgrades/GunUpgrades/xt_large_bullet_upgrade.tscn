@@ -13,7 +13,7 @@ add_value = true
 
 [sub_resource type="Resource" id="Resource_ryy7h"]
 script = ExtResource("2_8ae2u")
-values = ["bullet_damage", 2.0]
+values = ["bullet_damage", 3.0]
 multiply_value = true
 add_value = false
 
@@ -24,7 +24,7 @@ rarity = 2
 [node name="GunUpgradeXtLargeBullet" instance=ExtResource("1_641od")]
 upgrade_values = Array[ExtResource("2_8ae2u")]([SubResource("Resource_xwj61"), SubResource("Resource_ryy7h")])
 metadata/Title = "XXXL Bullets"
-metadata/Type = "Bullets are x2 larger and deal x2 damage"
+metadata/Type = "Bullets are x2 larger and deal x3 damage"
 metadata/Rarity = SubResource("Resource_plmo1")
 
 [node name="UpgradeSprite" parent="." index="0"]

@@ -17,7 +17,7 @@ rarity = 0
 
 [node name="Upgrade" instance=ExtResource("1_3kfky")]
 upgrade_values = Array[ExtResource("2_o2mj0")]([SubResource("Resource_5ulwt")])
-increase_upgrades = false
+slot_value = 0
 metadata/Title = "Extra Upgrade"
 metadata/Type = "+1 Max Upgrade"
 metadata/Rarity = SubResource("Resource_l4ecl")

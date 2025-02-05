@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var damage := 10
+@export var damage: float = 3
 var damage_number = preload("res://Scenes/Particles/damage_number.tscn")
 
 
