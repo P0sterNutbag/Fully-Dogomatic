@@ -1,0 +1,52 @@
+[gd_scene load_steps=12 format=3 uid="uid://dwfw06j2okp0n"]
+
+[ext_resource type="PackedScene" uid="uid://dxh25edu12ok8" path="res://Scenes/Upgrades/gun_upgrade.tscn" id="1_bferm"]
+[ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="2_61a2v"]
+[ext_resource type="PackedScene" uid="uid://clo1rbbdey5yl" path="res://Scenes/Bullets/sawblade.tscn" id="3_lo683"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_vnk3j"]
+[ext_resource type="Texture2D" uid="uid://dcayjrr65pgpy" path="res://Art/Sprites/gun spritesheet.png" id="5_3fop7"]
+
+[sub_resource type="Resource" id="Resource_qgg62"]
+script = ExtResource("2_61a2v")
+values = ["ricochet", true]
+multiply_value = false
+add_value = false
+
+[sub_resource type="Resource" id="Resource_li48y"]
+script = ExtResource("2_61a2v")
+values = ["penetrations", 1]
+multiply_value = false
+add_value = true
+
+[sub_resource type="Resource" id="Resource_ib267"]
+script = ExtResource("2_61a2v")
+values = ["bullet", ExtResource("3_lo683")]
+multiply_value = false
+add_value = false
+
+[sub_resource type="Resource" id="Resource_g5afy"]
+script = ExtResource("2_61a2v")
+values = ["bullet_speed", 0.2]
+multiply_value = true
+add_value = false
+
+[sub_resource type="Resource" id="Resource_4kl8h"]
+script = ExtResource("2_61a2v")
+values = ["damage_boost", 2.0]
+multiply_value = true
+add_value = false
+
+[sub_resource type="Resource" id="Resource_x1r2o"]
+script = ExtResource("3_vnk3j")
+rarity = 1
+
+[node name="GunUpgradeSaw" instance=ExtResource("1_bferm")]
+upgrade_values = Array[ExtResource("2_61a2v")]([SubResource("Resource_qgg62"), SubResource("Resource_li48y"), SubResource("Resource_ib267"), SubResource("Resource_g5afy"), SubResource("Resource_4kl8h")])
+metadata/Title = "Saw Bullets"
+metadata/Type = "Saw bounces off +1 enemy, deal x2 dmg, but can damage you too"
+metadata/Rarity = SubResource("Resource_x1r2o")
+
+[node name="UpgradeSprite" parent="." index="0"]
+texture = ExtResource("5_3fop7")
+region_enabled = true
+region_rect = Rect2(80, 96, 16, 16)

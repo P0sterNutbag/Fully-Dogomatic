@@ -30,7 +30,7 @@ func _ready():
 		if upgrade.spawn_chance == rarity_chances_upgrade[0]:
 			common_upgrades.append(upgrade)
 		elif upgrade.spawn_chance == rarity_chances_upgrade[1]:
-			common_upgrades.append(upgrade)
+			uncommon_upgrades.append(upgrade)
 		elif upgrade.spawn_chance == rarity_chances_upgrade[2]:
 			rare_upgrades.append(upgrade)
 		elif upgrade.spawn_chance == rarity_chances_upgrade[3]:

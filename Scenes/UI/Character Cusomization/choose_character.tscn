@@ -46,7 +46,7 @@ offset_bottom = 50.0
 layout_mode = 2
 size_flags_horizontal = 3
 character_name = "Benny"
-description = "More Base Health"
+description = "More Base Health!"
 sprite = ExtResource("5_fgbin")
 unlocked = true
 
@@ -54,7 +54,7 @@ unlocked = true
 layout_mode = 2
 size_flags_horizontal = 3
 character_name = "Coda"
-description = "Sprint when you take damage!"
+description = "Guns Have +1 Upgrade Slots!"
 sprite = ExtResource("6_yipcj")
 unlocked = true
 
@@ -62,7 +62,7 @@ unlocked = true
 layout_mode = 2
 size_flags_horizontal = 3
 character_name = "Toaster"
-description = "Stop moving to nap and regain HP!"
+description = "Sprint when you take damage!"
 sprite = ExtResource("8_m0mus")
 unlocked = true
 

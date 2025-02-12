@@ -1,0 +1,218 @@
+[gd_scene load_steps=9 format=3 uid="uid://cdo21po1xxbnr"]
+
+[ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="1_2dg40"]
+[ext_resource type="Theme" uid="uid://d20y8va2yhr08" path="res://Art/Themes/ui text large.tres" id="3_6c7qh"]
+[ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="4_uuaa2"]
+[ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="5_hgqt2"]
+[ext_resource type="Theme" uid="uid://b6o7rf6iavtxi" path="res://Art/Themes/button.tres" id="6_xfykt"]
+[ext_resource type="Script" path="res://Scripts/ui_menu_button.gd" id="7_klvld"]
+[ext_resource type="Theme" uid="uid://dpv7tir788p5t" path="res://Art/Themes/ui text small.tres" id="8_8q044"]
+
+[sub_resource type="GDScript" id="GDScript_7n30u"]
+script/source = "extends WinScreen
+
+
+func _on_return_pressed() -> void:
+	SceneManager.start_scene_transition(\"res://Scenes/Levels/main_menu.tscn\")
+
+
+func _on_wishlist_pressed() -> void:
+	OS.shell_open(\"https://store.steampowered.com/app/2864370/\")
+"
+
+[node name="WinScreen" type="ColorRect"]
+process_mode = 3
+z_index = 100
+material = ExtResource("1_2dg40")
+offset_right = 480.0
+offset_bottom = 360.0
+color = Color(0.101961, 0.101961, 0.101961, 1)
+script = SubResource("GDScript_7n30u")
+metadata/_edit_lock_ = true
+
+[node name="Node2D" type="Control" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Node2D"]
+use_parent_material = true
+layout_mode = 1
+offset_left = -240.0
+offset_top = -147.0
+offset_right = 240.0
+offset_bottom = -79.0
+pivot_offset = Vector2(240, 34)
+theme = ExtResource("3_6c7qh")
+bbcode_enabled = true
+text = "[center]YOU BEAT 
+THE DEMO! WOW!"
+fit_content = true
+metadata/_edit_group_ = true
+
+[node name="JuicyMovement" parent="Node2D/RichTextLabel" node_paths=PackedStringArray("target_control") instance=ExtResource("4_uuaa2")]
+use_parent_material = true
+target_control = NodePath("..")
+bob_frequency = 5.0
+bob_amplitude = 10.0
+rot_frequency = 2.5
+rot_amplitude = 10.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Node2D"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -45.0
+offset_right = -8.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Kills" type="RichTextLabel" parent="Node2D/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("5_hgqt2")
+bbcode_enabled = true
+text = "[right]KILLS:"
+fit_content = true
+
+[node name="KPS" type="RichTextLabel" parent="Node2D/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("5_hgqt2")
+bbcode_enabled = true
+text = "[right]KILLS/SEC:"
+fit_content = true
+
+[node name="Guns" type="RichTextLabel" parent="Node2D/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("5_hgqt2")
+bbcode_enabled = true
+text = "[right]GUNS:"
+fit_content = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Node2D"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -45.0
+offset_right = 240.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Kills2" type="RichTextLabel" parent="Node2D/VBoxContainer2"]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("5_hgqt2")
+bbcode_enabled = true
+text = "0"
+
+[node name="KPS2" type="RichTextLabel" parent="Node2D/VBoxContainer2"]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("5_hgqt2")
+bbcode_enabled = true
+text = "0"
+
+[node name="Guns2" type="RichTextLabel" parent="Node2D/VBoxContainer2"]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("5_hgqt2")
+bbcode_enabled = true
+text = "0"
+
+[node name="Buttons" type="Control" parent="Node2D"]
+use_parent_material = true
+layout_mode = 2
+anchors_preset = 0
+
+[node name="Wishlist" type="Button" parent="Node2D/Buttons"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = 94.0
+offset_right = 44.0
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_xfykt")
+text = "WISHLIST"
+flat = true
+script = ExtResource("7_klvld")
+
+[node name="Return" type="Button" parent="Node2D/Buttons"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.0
+offset_top = 122.0
+offset_right = 39.0
+offset_bottom = 146.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_xfykt")
+text = "RETURN TO MENU"
+flat = true
+script = ExtResource("7_klvld")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Node2D"]
+visible = false
+use_parent_material = true
+layout_mode = 0
+offset_left = 84.0
+offset_top = 22.0
+offset_right = 153.0
+offset_bottom = 44.0
+pivot_offset = Vector2(34, 9)
+theme = ExtResource("8_8q044")
+bbcode_enabled = true
+text = "[center]New Record!!!"
+
+[node name="JuicyMovement" parent="Node2D/RichTextLabel2" node_paths=PackedStringArray("target_control") instance=ExtResource("4_uuaa2")]
+use_parent_material = true
+target_control = NodePath("..")
+bob_frequency = 5.0
+bob_amplitude = 10.0
+rot_frequency = 2.5
+rot_amplitude = 10.0
+
+[node name="JuicyMovement" parent="." node_paths=PackedStringArray("target_control") instance=ExtResource("4_uuaa2")]
+use_parent_material = true
+target_control = NodePath("..")
+slide_in = true
+
+[connection signal="pressed" from="Node2D/Buttons/Wishlist" to="." method="_on_wishlist_pressed"]
+[connection signal="pressed" from="Node2D/Buttons/Return" to="." method="_on_return_pressed"]

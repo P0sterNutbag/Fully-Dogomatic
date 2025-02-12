@@ -39,8 +39,6 @@ func _on_round_timer_timeout() -> void:
 	if round == 7:#enemy_spawn_timer.wait_time < 0.1:
 		spawn_time_incrament = 0.9
 	enemy_health = max(enemy_health * enemy_health_incrament, 2)
-	print("spawn time " + str(enemy_spawn_timer.wait_time))
-	print("enemy_health " + str(enemy_health))
 	spawn_level_objects()
 
 
@@ -54,8 +52,8 @@ func _on_enemy_spawn_timer_timeout() -> void:
 	spawn_enemy()
 
 
-func spawn_enemy(enemy_to_spawn: PackedScene = null) -> Node2D:
-	if enemies.size() >= 400:
+func spawn_enemy(enemy_to_spawn: PackedScene = null, is_boss: bool = false) -> Node2D:
+	if enemies.size() >= 400 and !is_boss:
 		return
 	if enemy_to_spawn == null:
 		var index = Globals.get_weighted_index(spawn_formations[formation_index].enemies)
@@ -97,7 +95,7 @@ func spawn_level_objects() -> void:
 		var spawn_scene = level_objects[Globals.get_weighted_index(level_objects)].object_to_spawn
 		var inst = create_level_object(spawn_scene, get_random_position())
 		var hp = inst.get_node("Area2D")
-		hp.health *= enemy_health
+		hp.health *= (enemy_health * 0.5)
 		hp.max_health = hp.health
 	Globals.ui.create_level_obj_signs()
 
@@ -132,8 +130,25 @@ func reset_kills(last_amnt: int = 1) -> void:
 
 
 func _on_boss_timer_timeout() -> void:
+	if Globals.is_demo:
+		if bosses_spawned.size() == 0:
+			var boss = bosses[1].object_to_spawn
+			var inst = spawn_enemy(boss, true)
+			inst.health = 1
+			bosses_spawned.append(1)
+			Globals.ui.add_level_obj("Boss!!!", false)
+			Globals.ui.create_level_obj_signs()
+		elif bosses_spawned.size() == 1:
+			var boss = bosses[2].object_to_spawn
+			var inst = spawn_enemy(boss, true)
+			inst.health = 1
+			inst.is_demo = true
+			bosses_spawned.append(2)
+			Globals.ui.add_level_obj("Boss!!!", false)
+			Globals.ui.create_level_obj_signs()
+		return
 	if bosses_spawned.size() == 4:
-		spawn_enemy(final_boss)
+		spawn_enemy(final_boss, true)
 		Globals.ui.add_level_obj("Final Boss!!!", false)
 		Globals.ui.create_level_obj_signs()
 		bosses_spawned.clear()
@@ -142,8 +157,7 @@ func _on_boss_timer_timeout() -> void:
 	while bosses_spawned.has(index):
 		index = Globals.get_weighted_index(bosses)
 	var boss = bosses[index].object_to_spawn
-	var inst = spawn_enemy(boss)
-	print(inst.health)
+	var inst = spawn_enemy(boss, true)
 	bosses_spawned.append(index)
 	Globals.ui.add_level_obj("Boss!!!", false)
 	Globals.ui.create_level_obj_signs()

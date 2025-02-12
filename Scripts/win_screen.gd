@@ -1,4 +1,5 @@
 extends UiMenu
+class_name WinScreen
 
 var alert_scene = preload("res://Scenes/UI/unlock_alert.tscn")
 @onready var kills_stat = $Node2D/VBoxContainer2/Kills2
@@ -16,13 +17,22 @@ func _ready():
 	tween.tween_property(kps_stat, "text", str(Globals.world_controller.max_kps), 0.5)
 	tween.tween_property(guns_stat, "text", str(Globals.player.guns.size()), 0.5)
 	await tween.finished
-	var alerts = unlock_characters()
-	for alert in alerts:
-		add_child(alert)
-		await alert.tree_exited
+	if !Globals.is_demo:
+		var alerts = unlock_characters()
+		for alert in alerts:
+			add_child(alert)
+			await alert.tree_exited
+	else:
+		var inst = alert_scene.instantiate()
+		inst.position = size / 2
+		inst.set_character(1)
+		SaveData.save_game()
+		add_child(inst)
+		await inst.tree_exited
 	#buttons.process_mode = Node.PROCESS_MODE_INHERIT
 	super._ready()
 	buttons.get_child(0).grab_focus()
+	if Globals.is_demo: return
 	if Globals.player.name == "Character0":
 		SaveData.c0_win = true
 	if Globals.player.name == "Character1":

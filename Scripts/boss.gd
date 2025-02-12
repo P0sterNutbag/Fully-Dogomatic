@@ -4,7 +4,8 @@ class_name Boss
 @export var boss_name = "Max, prince of lumps"
 @export var aim_y_offset = 12
 var cutscene = preload("res://Scenes/Cutscenes/boss_death_cutscene.tscn")
-
+var win_screen_demo = preload("res://Scenes/Levels/win_screen_demo.tscn")
+var is_demo: bool
 
 func _ready():
 	super._ready()
@@ -30,7 +31,6 @@ func _physics_process(delta):
 				sprite.flip_h = false
 		states.knockback:
 			velocity = velocity.move_toward(Vector2.ZERO, delta * 500)
-			print(velocity)
 			if velocity <= Vector2.ZERO:
 				state = states.attack
 			move_and_slide()
@@ -52,6 +52,10 @@ func on_damage():
 
 
 func on_death(bullet_direction: float = 0):
+	if is_demo:
+		var inst = win_screen_demo.instantiate()
+		Globals.ui.add_child(inst)
+		return
 	Globals.world_controller.bosses_killed += 1
 	for i in 15:
 		var d = Globals.create_instance(dollar, global_position)

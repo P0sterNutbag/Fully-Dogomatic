@@ -19,7 +19,7 @@ add_value = true
 
 [sub_resource type="Resource" id="Resource_x1r2o"]
 script = ExtResource("3_st63y")
-rarity = 2
+rarity = 1
 
 [node name="GunUpgradeRicochet" instance=ExtResource("1_44nxl")]
 upgrade_values = Array[ExtResource("2_gvjrx")]([SubResource("Resource_qgg62"), SubResource("Resource_li48y")])

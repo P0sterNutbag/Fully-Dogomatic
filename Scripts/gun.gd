@@ -40,7 +40,6 @@ var hold_offset: Vector2
 var direction_vector: Vector2
 var shots_left: int
 var flash_timer := 0
-var grav_force = -200
 var x_force = 0
 var upgrades = 0
 var max_upgrades = 3

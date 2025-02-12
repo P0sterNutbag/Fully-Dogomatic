@@ -41,6 +41,7 @@ func _process(delta):
 
 
 func _on_pressed():
+	super._on_pressed()
 	if !upgrade:
 		return 
 	if Globals.player.guns.size() >= Globals.player.gun_cap and upgrade is Gun:
@@ -83,12 +84,14 @@ func _exit_tree() -> void:
 
 
 func _on_focus_entered() -> void:
+	super._on_focus_entered()
 	$JuicyMovement.process_mode = Node.PROCESS_MODE_INHERIT
 	if upgrade and upgrade.get_meta("Type") != "":
 		Globals.upgrade_menu.show_tooltip(global_position + pivot_offset + Vector2.DOWN * 72, upgrade.get_meta("Type"))
 
 
 func _on_focus_exited() -> void:
+	super._on_focus_exited()
 	$JuicyMovement.process_mode = Node.PROCESS_MODE_DISABLED
 	rotation_degrees = 0
 	Globals.upgrade_menu.hide_tooltip()

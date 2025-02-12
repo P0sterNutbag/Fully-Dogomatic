@@ -90,6 +90,7 @@ boss_name = "Fido, Wings of Doom"
 health_multiplier = 75.0
 speed = 15.0
 damage = 10.0
+money_amount = 25
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true

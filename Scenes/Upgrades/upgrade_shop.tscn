@@ -78,19 +78,6 @@ flat = true
 script = ExtResource("3_yonfi")
 metadata/_edit_group_ = true
 
-[node name="Circle" type="Control" parent="ExitButton"]
-visible = false
-use_parent_material = true
-layout_mode = 3
-anchors_preset = 0
-offset_left = 12.0
-offset_top = 12.0
-offset_right = 12.0
-offset_bottom = 12.0
-script = ExtResource("7_fyufh")
-circle_radius = 24
-outline_thickness = 4
-
 [node name="Sprite2D" type="Sprite2D" parent="ExitButton"]
 material = ExtResource("3_qmdkj")
 position = Vector2(25, 24)
@@ -207,6 +194,7 @@ rot_frequency = 2.5
 rot_amplitude = 10.0
 
 [node name="Title2" type="RichTextLabel" parent="."]
+visible = false
 use_parent_material = true
 layout_mode = 0
 offset_left = 19.0
@@ -283,9 +271,9 @@ text = "Item Description"
 fit_content = true
 scroll_active = false
 
-[connection signal="focus_entered" from="ExitButton" to="ExitButton/Circle" method="_on_upgrade_option_focus_entered"]
-[connection signal="focus_exited" from="ExitButton" to="ExitButton/Circle" method="_on_upgrade_option_focus_exited"]
+[connection signal="focus_entered" from="ExitButton" to="ExitButton" method="_on_focus_entered"]
+[connection signal="focus_exited" from="ExitButton" to="ExitButton" method="_on_focus_exited"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="focus_entered" from="Reroll" to="Reroll/Circle" method="_on_upgrade_option_focus_entered"]
-[connection signal="focus_exited" from="Reroll" to="Reroll/Circle" method="_on_upgrade_option_focus_exited"]
+[connection signal="focus_entered" from="Reroll" to="Reroll" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Reroll" to="Reroll" method="_on_focus_exited"]
 [connection signal="pressed" from="Reroll" to="." method="_on_reroll_pressed"]

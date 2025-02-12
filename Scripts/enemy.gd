@@ -39,6 +39,8 @@ func _ready():
 
 func _physics_process(delta):
 	if target == null:
+		if Globals.player != null:
+			target = Globals.player
 		return
 	match state:
 		states.attack:
@@ -67,8 +69,6 @@ func on_damage():
 func on_death(bullet_direction: float = 0):
 	#if randf_range(0, 1) <= Globals.player.money_drop_rate:
 	Globals.level_manager.current_kills += 1
-	var k = Globals.level_manager.current_kills
-	var m = Globals.level_manager.kills_to_money
 	if Globals.level_manager.current_kills >= Globals.level_manager.kills_to_money:
 		var money_amount = randi_range(1, 3)
 		Globals.level_manager.reset_kills(money_amount)

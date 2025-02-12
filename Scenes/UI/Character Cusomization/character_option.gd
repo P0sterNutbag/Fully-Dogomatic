@@ -36,8 +36,8 @@ func _process(delta: float) -> void:
 		grab_focus()
 
 
-func on_focus_entered():
-	super.on_focus_entered()
+func _on_focus_entered():
+	super._on_focus_entered()
 	scale_up()
 	circle.queue_redraw()
 	juice.process_mode = Node.PROCESS_MODE_PAUSABLE
@@ -47,8 +47,8 @@ func on_focus_entered():
 	z_index += 1
 
 
-func on_focus_exited():
-	super.on_focus_exited()
+func _on_focus_exited():
+	super._on_focus_exited()
 	scale_down()
 	circle.queue_redraw()
 	juice.process_mode = Node.PROCESS_MODE_DISABLED

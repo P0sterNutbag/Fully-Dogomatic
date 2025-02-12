@@ -15,7 +15,7 @@ size = Vector2(25, 1.00005)
 [node name="Gun" instance=ExtResource("1_um3ue")]
 bullet = ExtResource("2_7icp2")
 bullet_damage = 6.0
-spread = 0.0
+spread = 10.0
 rounds = 3
 bullet_speed = 200
 penetrations = 2

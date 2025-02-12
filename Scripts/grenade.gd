@@ -15,6 +15,7 @@ var homing: bool = false
 var target_enemy: Node2D
 var can_warp: bool
 var range: float
+var knockback_force: float
 
 
 func _ready() -> void:
@@ -70,6 +71,7 @@ func _on_timer_timeout():
 	get_tree().current_scene.add_child(instance)
 	instance.global_position = global_position
 	instance.damage *= damage_boost
+	instance.knockback_force = knockback_force
 	queue_free()
 
 

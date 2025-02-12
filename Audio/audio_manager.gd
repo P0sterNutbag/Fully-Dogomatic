@@ -15,6 +15,9 @@ var is_muted: bool = false
 @onready var bark = $Bark
 @onready var menu_music = $MenuMusic
 @onready var bullet_impact = $BulletImpact
+@onready var select = $Select
+@onready var click = $Click
+@onready var heal = $Heal
 
 
 func _ready():

@@ -1,6 +1,6 @@
 extends Boss
 
-var jump_speed = 150
+var jump_speed = 125
 @onready var jump_cooldown = $JumpCooldown
 
 

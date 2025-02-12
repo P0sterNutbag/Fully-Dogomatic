@@ -3,15 +3,20 @@ class_name UiButton
 
 
 func _ready():
-	focus_entered.connect(on_focus_entered)
-	focus_exited.connect(on_focus_exited)
+	focus_entered.connect(_on_focus_entered)
+	focus_exited.connect(_on_focus_exited)
 	mouse_entered.connect(grab_focus)
 	mouse_exited.connect(release_focus)
+	pressed.connect(_on_pressed)
 
 
-func on_focus_entered():
-	pass
+func _on_pressed():
+	AudioManager.select.play()
 
 
-func on_focus_exited():
+func _on_focus_entered():
+	AudioManager.click.play()
+
+
+func _on_focus_exited():
 	pass

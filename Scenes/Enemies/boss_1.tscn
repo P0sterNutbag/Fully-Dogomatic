@@ -101,7 +101,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rovd5"]
-radius = 80.0
+radius = 76.0
 
 [node name="Boss" type="CharacterBody2D" groups=["enemy"]]
 use_parent_material = true

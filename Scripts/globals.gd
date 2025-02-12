@@ -1,5 +1,6 @@
 extends Node
 
+var is_demo: bool
 var player_to_spawn = preload("res://Scenes/Player/player.tscn")
 var player
 var crate_spawner

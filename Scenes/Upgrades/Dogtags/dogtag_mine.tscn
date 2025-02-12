@@ -6,7 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_su5yf"]
 script = ExtResource("2_ktda0")
-values = ["mine_time", 0.0]
+values = ["mine_time", -1.0]
 multiply_value = false
 add_value = true
 
@@ -16,8 +16,8 @@ rarity = 2
 
 [node name="Dogtag" instance=ExtResource("1_siv5p")]
 upgrade_values = Array[ExtResource("2_ktda0")]([SubResource("Resource_su5yf")])
-metadata/Title = "Mines"
-metadata/Type = "Drop mines every 5 seconds"
+metadata/Title = "Poop Mines"
+metadata/Type = "Drop mines every 5 seconds (-1 sec per dogtag))"
 metadata/Rarity = SubResource("Resource_l34ag")
 
 [node name="Icon" parent="." index="1"]

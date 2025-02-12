@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://can3gy0yioknv"]
+
+[ext_resource type="PackedScene" uid="uid://cn50oxjbu2kvn" path="res://Scenes/Upgrades/Dogtags/dogtag_exploding_bullets.tscn" id="1_kn2pr"]
+[ext_resource type="Script" path="res://Scripts/dogtag_discount.gd" id="2_yr45g"]
+[ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="3_imx57"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="4_fcski"]
+
+[sub_resource type="Resource" id="Resource_ydglv"]
+script = ExtResource("3_imx57")
+values = ["sawblade_protection", true]
+multiply_value = false
+add_value = false
+
+[sub_resource type="Resource" id="Resource_mhcv3"]
+script = ExtResource("4_fcski")
+rarity = 0
+
+[node name="Dogtag" instance=ExtResource("1_kn2pr")]
+script = ExtResource("2_yr45g")
+upgrade_values = Array[ExtResource("3_imx57")]([SubResource("Resource_ydglv")])
+metadata/Title = "Saw Protection"
+metadata/Type = "Take no damage from saw bullets"
+metadata/Rarity = SubResource("Resource_mhcv3")
+
+[node name="Icon" parent="." index="1"]
+position = Vector2(1, 2)
+region_rect = Rect2(48, 80, 16, 16)

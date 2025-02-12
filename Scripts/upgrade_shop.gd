@@ -129,10 +129,12 @@ func hide_tooltip():
 
 
 func _on_exit_button_pressed() -> void:
+	AudioManager.select.play()
 	queue_free()
 
 
 func _on_reroll_pressed() -> void:
+	AudioManager.select.play()
 	if Globals.player.money >= round(reroll_price):
 		upgrades.clear()
 		assign_upgrades_options() 

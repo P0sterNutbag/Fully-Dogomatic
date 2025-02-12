@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 enum states {walk, bounce, dead, nap}
-enum abilities {none, sprint, nap, free_reroll, sprint_on_hurt, hp}
+enum abilities {none, sprint, nap, free_reroll, sprint_on_hurt, hp, upgrade_cap}
 var state = states.walk
 
 @export var ability: abilities
@@ -19,6 +19,7 @@ var guns: Array[Node2D]
 var dogtags: Array[Control]
 var gun_slots: int = 10
 var level: int = 1
+var upgrade_cap_boost: int = 0
 var time: float = 0
 var gun_rotation: float = 0
 var money_drop_bonus = 0
@@ -27,6 +28,8 @@ var explode_chance: float = 0
 var time_to_sprint: float = 1.5
 var sprint_timer: float = 0
 var in_enemy: bool
+var sawblade_protection: bool
+var is_speed_debuffed: bool
 var direction_x
 var direction_y
 var hp = 40:
@@ -41,7 +44,7 @@ var pickup_radius: float = 48:
 	set(value):
 		pickup_radius = value
 		$MoneyPickup/CollisionShape2D.shape.radius = pickup_radius
-var mine_time: float = 5:
+var mine_time: float = 6:
 	set(value):
 		mine_time = value
 		$MineTimer.wait_time = mine_time
@@ -65,6 +68,8 @@ func _ready():
 		hpbar.size.x += 10
 		hpbar.max_value = hp
 		hpbar.value = hp
+	if ability == abilities.upgrade_cap:
+		upgrade_cap_boost = 1
 
 
 func _enter_tree() -> void:
@@ -102,11 +107,14 @@ func _physics_process(delta):
 					sprint_timer += delta
 				else:
 					sprint_timer = 0
+				var speed_mod = 1
+				if is_speed_debuffed:
+					speed_mod = 0.65
 				if sprint_timer >= time_to_sprint:
-					speed = sprint_speed
+					speed = sprint_speed * speed_mod
 					sprite.speed_scale = 1.25
 				else:
-					speed = base_speed
+					speed = base_speed * speed_mod
 					sprite.speed_scale = 1
 			
 			move_and_slide()

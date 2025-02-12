@@ -38,13 +38,13 @@ func _process(delta):
 		var dest = closest_gun.global_position + (closest_gun.global_position - Globals.player.global_position).normalized() * 32
 		arrow.global_position = lerp(arrow.global_position, dest, 10 * delta)
 		arrow.look_at(closest_gun.global_position)
-		arrow_text.text = "[center]" + closest_gun.get_meta("Title") + "\n" + str(closest_gun.upgrades) + "/" + str(closest_gun.max_upgrades) + " (+" + str(slot_value) + ")"
+		arrow_text.text = "[center]" + closest_gun.get_meta("Title") + "\n" + str(closest_gun.upgrades) + "/" + str(closest_gun.max_upgrades + Globals.player.upgrade_cap_boost) + " (+" + str(slot_value) + ")"
 		arrow_text.global_position = arrow.global_position + Vector2(-50, 8)
 		arrow_text.rotation_degrees = 0
 		# attach to gun
 		if Input.is_action_just_pressed("select"):
 			if closest_gun != null:
-				if closest_gun.upgrades + slot_value <= closest_gun.max_upgrades:
+				if closest_gun.upgrades + slot_value <= closest_gun.max_upgrades + Globals.player.upgrade_cap_boost:
 					add_upgrade_to_gun(closest_gun)
 					Globals.upgrade_menu.finish()
 					queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://bxxwbkdymxo7v"]
+[gd_scene load_steps=61 format=4 uid="uid://bxxwbkdymxo7v"]
 
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="1_wpkc1"]
 [ext_resource type="Script" path="res://Scripts/world_controller.gd" id="2_nbcpb"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://cdegwp77vugfb" path="res://Scenes/Enemies/boss_3.tscn" id="25_68t0f"]
 [ext_resource type="PackedScene" uid="uid://bnwpp4m7sdaeg" path="res://Scenes/Enemies/boss_4.tscn" id="26_gsls1"]
 [ext_resource type="PackedScene" uid="uid://c3rxttn3aoj36" path="res://Scenes/Enemies/boss_final.tscn" id="27_eski3"]
+[ext_resource type="PackedScene" uid="uid://uyytn6e1bjq2" path="res://Scenes/Levels/Level Objects/health_pickup.tscn" id="28_8221m"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_uulbl"]
 tile_data = PackedInt32Array(0, 65536, 0, 65536, 0, 0, 1, 0, 0, 65537, 65536, 0)
@@ -333,6 +334,12 @@ position = Vector2(304, 428)
 
 [node name="Boss" parent="." instance=ExtResource("27_eski3")]
 position = Vector2(582, 310)
+
+[node name="Hurtbox" parent="Boss" index="4"]
+health = 1
+
+[node name="Health Pickup" parent="." instance=ExtResource("28_8221m")]
+position = Vector2(401, 230)
 
 [connection signal="timeout" from="PlayerMoney" to="PlayerMoney" method="_on_timeout"]
 [connection signal="timeout" from="LevelController/EnemySpawnTimer" to="LevelController" method="_on_enemy_spawn_timer_timeout"]

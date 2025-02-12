@@ -252,8 +252,10 @@ collision_mask = 0
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_sei50")
+boss_name = "Bandit, Eater of Worlds"
 health_multiplier = 300.0
 damage = 20.0
+money_amount = 50
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 256

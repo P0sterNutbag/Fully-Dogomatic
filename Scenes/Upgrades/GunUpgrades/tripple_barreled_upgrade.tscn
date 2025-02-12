@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://c6hup3bj2issr"]
+
+[ext_resource type="PackedScene" uid="uid://dxh25edu12ok8" path="res://Scenes/Upgrades/gun_upgrade.tscn" id="1_mgenx"]
+[ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="2_p0odc"]
+[ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_u11gp"]
+[ext_resource type="Texture2D" uid="uid://b0rfe3ff6ilq5" path="res://Art/Sprites/upgrade spritesheet.png" id="4_gey3j"]
+
+[sub_resource type="Resource" id="Resource_ytshe"]
+script = ExtResource("2_p0odc")
+values = ["bullet_count", 2.0]
+multiply_value = false
+add_value = true
+
+[sub_resource type="Resource" id="Resource_m8kjj"]
+script = ExtResource("3_u11gp")
+rarity = 2
+
+[node name="TrippleBarreled" instance=ExtResource("1_mgenx")]
+upgrade_values = Array[ExtResource("2_p0odc")]([SubResource("Resource_ytshe")])
+metadata/Title = "Tripple Barreled"
+metadata/Type = "Shoot +2 more bullets at once"
+metadata/Rarity = SubResource("Resource_m8kjj")
+
+[node name="UpgradeSprite" parent="." index="0"]
+texture = ExtResource("4_gey3j")
+region_enabled = true
+region_rect = Rect2(0, 96, 32, 16)

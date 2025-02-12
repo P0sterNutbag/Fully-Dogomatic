@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://ciimscdu65cq8"]
+[gd_scene load_steps=73 format=3 uid="uid://ciimscdu65cq8"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="3_1tmc7"]
 [ext_resource type="Texture2D" uid="uid://dsunvku3ydye1" path="res://Art/Sprites/MainMenu/gun.png" id="3_ij571"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="5_f3ayy"]
 [ext_resource type="Script" path="res://Scripts/ui_menu.gd" id="6_uuaxw"]
 [ext_resource type="Texture2D" uid="uid://b2oqjmyv73tkx" path="res://Art/Sprites/MainMenu/title2.png" id="7_3x0ik"]
+[ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="8_4rd4g"]
 [ext_resource type="Script" path="res://Scripts/ui_menu_button.gd" id="8_a27qw"]
 [ext_resource type="PackedScene" uid="uid://b7r52wai1l1yc" path="res://Scenes/Player/menu_dog.tscn" id="11_rfde3"]
 [ext_resource type="PackedScene" uid="uid://benlyb5ipwgn8" path="res://Scenes/Player/tennisball.tscn" id="12_djnm7"]
@@ -62,7 +63,7 @@ _data = {
 "scroll_right": SubResource("Animation_vlsav")
 }
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4hp0y"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jxqd0"]
 
 [sub_resource type="Theme" id="Theme_rr4cc"]
 Button/colors/font_color = Color(1, 1, 1, 1)
@@ -70,7 +71,7 @@ Button/colors/font_focus_color = Color(1, 0, 0, 1)
 Button/colors/font_hover_color = Color(1, 0, 0, 1)
 Button/font_sizes/font_size = 14
 Button/fonts/font = ExtResource("5_77akw")
-Button/styles/focus = SubResource("StyleBoxEmpty_4hp0y")
+Button/styles/focus = SubResource("StyleBoxEmpty_jxqd0")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_20l60"]
 
@@ -561,14 +562,6 @@ text = "QUIT"
 flat = true
 script = ExtResource("8_a27qw")
 
-[node name="Test" type="Button" parent="UI/Menu/VBoxContainer"]
-use_parent_material = true
-layout_mode = 2
-theme = SubResource("Theme_ql6r0")
-text = "TEST"
-flat = true
-script = ExtResource("8_a27qw")
-
 [node name="TextureRect" type="TextureRect" parent="UI"]
 material = ExtResource("4_ljhln")
 offset_left = 121.0
@@ -578,6 +571,25 @@ offset_bottom = 109.0
 scale = Vector2(2, 2)
 texture = ExtResource("7_3x0ik")
 stretch_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI"]
+process_mode = 4
+visible = false
+z_index = 20
+material = ExtResource("4_ljhln")
+use_parent_material = true
+offset_left = 309.0
+offset_top = 214.0
+offset_right = 383.0
+offset_bottom = 254.0
+pivot_offset = Vector2(36, 7.195)
+theme = ExtResource("8_4rd4g")
+text = "DEMO!"
+
+[node name="JuicyMovement" parent="UI/RichTextLabel" node_paths=PackedStringArray("target_control") instance=ExtResource("5_5i42a")]
+target_control = NodePath("..")
+rot_frequency = 2.5
+rot_amplitude = 10.0
 
 [node name="TitleSmall185x28" type="Sprite2D" parent="UI"]
 visible = false
@@ -627,7 +639,6 @@ y_sort_enabled = true
 position = Vector2(414, 140)
 scale = Vector2(-2, 2)
 sprite_frames = SubResource("SpriteFrames_ssrx5")
-animation = &"run"
 
 [node name="MenuDog5" parent="." instance=ExtResource("11_rfde3")]
 y_sort_enabled = true
@@ -643,7 +654,6 @@ scale = Vector2(2, 2)
 
 [connection signal="pressed" from="UI/Menu/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="UI/Menu/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="UI/Menu/VBoxContainer/Credits" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="UI/Menu/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="UI/Menu/VBoxContainer/Credits" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="UI/Menu/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="UI/Menu/VBoxContainer/Test" to="." method="_on_test_pressed"]

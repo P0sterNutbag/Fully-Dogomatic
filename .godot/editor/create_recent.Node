@@ -1,3 +1,6 @@
+AudioStreamPlayer
+Control
+RichTextLabel
 Label
 Timer
 StaticBody2D
@@ -6,10 +9,6 @@ CollisionShape2D
 Area2D
 Node2D
 Node
-Control
-RichTextLabel
 CharacterBody2D
 AnimationPlayer
 AnimationTree
-AnimatedSprite2D
-ProgressBar

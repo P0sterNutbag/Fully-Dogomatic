@@ -1,4 +1,4 @@
-extends Button
+extends UiButton
 class_name UiMenuButton
 
 
@@ -18,3 +18,11 @@ func shrink():
 	var tween = create_tween().set_trans(Tween.TRANS_SINE)
 	tween.tween_property(self, "scale", Vector2.ONE, 0.2)
 	z_index = 0
+
+
+func _on_focus_entered():
+	super._on_focus_entered()
+
+
+func _on_focus_exited():
+	super._on_focus_exited()

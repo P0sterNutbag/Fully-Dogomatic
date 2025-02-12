@@ -15,13 +15,13 @@ func _process(delta):
 	time_since_last_input += delta
 	
 	#show/hide mouse
-	if abs(Input.get_last_mouse_velocity()) <= Vector2.ZERO:
+	if abs(Input.get_last_mouse_velocity()) > Vector2.ZERO or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		time_since_mouse_movement = 0
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	else:
 		time_since_mouse_movement += delta
 		if time_since_mouse_movement >= mouse_hide_time:
 			Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
-	else:
-		time_since_mouse_movement = 0
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
 func get_axis_just_pressed(axis: float):
