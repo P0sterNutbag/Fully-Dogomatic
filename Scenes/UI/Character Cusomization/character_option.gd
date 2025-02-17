@@ -1,8 +1,8 @@
-extends UiButton
+extends UiMenuButton
 
 @onready var circle = $ScaleOffset/Circle
 @onready var scale_offset = $ScaleOffset
-@onready var juice = $ScaleOffset/JuicyMovement
+#@onready var juice = $ScaleOffset/JuicyMovement
 @onready var tooltip = $Tooltip
 @onready var description_text = $Tooltip/RichTextLabel
 @export var character_name: String
@@ -21,7 +21,8 @@ var target_scale: float = 1
 
 func _ready() -> void:
 	super._ready()
-	juice.process_mode = Node.PROCESS_MODE_DISABLED
+	tooltip.get_node("RichTextLabel").text = description.to_upper()
+	#juice.process_mode = Node.PROCESS_MODE_DISABLED
 	$ScaleOffset/UpgradeName.text = "[center]" + character_name.to_upper()
 	$ScaleOffset/Sprite2D.texture = sprite
 	if !unlocked:
@@ -31,37 +32,18 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	scale_offset.scale = lerp(scale_offset.scale, Vector2.ONE * target_scale, 10 * delta)
 	if is_hovered() and !has_focus() and abs(Input.get_last_mouse_velocity()) > Vector2.ZERO:
 		grab_focus()
 
 
 func _on_focus_entered():
-	super._on_focus_entered()
-	scale_up()
-	circle.queue_redraw()
-	juice.process_mode = Node.PROCESS_MODE_PAUSABLE
 	if unlocked:
-		tooltip.visible = true
-		description_text.text = "[center]" + description.to_upper()
-	z_index += 1
+		tooltip.show()
+	scale_offset.rotation_degrees = 0
+	scale_offset.position = Vector2.ZERO
 
 
 func _on_focus_exited():
-	super._on_focus_exited()
-	scale_down()
-	circle.queue_redraw()
-	juice.process_mode = Node.PROCESS_MODE_DISABLED
-	scale_offset.position = Vector2.ZERO
+	tooltip.hide()
 	scale_offset.rotation_degrees = 0
-	description_text.text = ""
-	tooltip.visible = false
-	z_index -= 1
-
-
-func scale_up():
-	target_scale = 1.5
-
-
-func scale_down():
-	target_scale = 1
+	scale_offset.position = Vector2.ZERO

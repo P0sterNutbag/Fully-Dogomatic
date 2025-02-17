@@ -9,8 +9,8 @@ var is_demo: bool
 
 func _ready():
 	super._ready()
-	Globals.ui.set_boss_hp(boss_name, 1)
 	state = states.attack
+	Globals.ui.set_boss_hp(boss_name, 1)
 
 
 func _physics_process(delta):
@@ -66,3 +66,8 @@ func on_death(bullet_direction: float = 0):
 	##Globals.enemy_spawn_controller.process_mode = PROCESS_MODE_DISABLED
 	#Globals.create_instance(cutscene)
 	##super.on_death()
+
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if area.get_parent() != self and area is HealthComponent and area.get_parent() is not Boss:
+		area.take_damage(10000, 0)

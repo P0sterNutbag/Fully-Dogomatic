@@ -1,5 +1,6 @@
-AudioStreamPlayer
+UiMenuButton
 Control
+AudioStreamPlayer
 RichTextLabel
 Label
 Timer

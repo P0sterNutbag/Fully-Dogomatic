@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/gun_upgrade.gd" id="1_3421v"]
 [ext_resource type="Texture2D" uid="uid://de312nfiun02b" path="res://Art/Sprites/arrows.png" id="2_46wlm"]
-[ext_resource type="Theme" uid="uid://dpv7tir788p5t" path="res://Art/Themes/ui text small.tres" id="3_dhasv"]
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="3_o1430"]
+[ext_resource type="Theme" uid="uid://lra3teo37km0" path="res://Art/Themes/ui text mini.tres" id="5_qsmxf"]
 
 [node name="GunUpgrade" type="Node2D"]
 process_mode = 3
@@ -26,14 +26,27 @@ target_position = Vector2(0, 15)
 collision_mask = 4
 
 [node name="Label" type="RichTextLabel" parent="."]
-visible = false
 z_index = 100
 material = ExtResource("3_o1430")
-offset_left = -50.0
+clip_contents = false
+offset_left = -32.0
 offset_top = 7.0
-offset_right = 50.0
+offset_right = 32.0
 offset_bottom = 18.0
-theme = ExtResource("3_dhasv")
+theme = ExtResource("5_qsmxf")
+theme_override_constants/outline_size = 2
 bbcode_enabled = true
-text = "PISTOL"
+fit_content = true
+
+[node name="Label2" type="RichTextLabel" parent="."]
+z_index = 100
+material = ExtResource("3_o1430")
+clip_contents = false
+offset_left = -32.0
+offset_top = 20.0
+offset_right = 89.0
+offset_bottom = 31.0
+theme = ExtResource("5_qsmxf")
+theme_override_constants/outline_size = 2
+bbcode_enabled = true
 fit_content = true

@@ -121,6 +121,7 @@ process_mode = 4
 y_sort_enabled = true
 position = Vector2(3, -15)
 collision_layer = 16
+collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-2.5, -3.5)
@@ -180,4 +181,5 @@ one_shot = true
 autostart = true
 
 [connection signal="reached_ground" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_reached_ground"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="JumpCooldown" to="." method="_on_jump_cooldown_timeout"]

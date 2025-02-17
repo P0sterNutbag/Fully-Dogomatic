@@ -4,15 +4,15 @@
 [ext_resource type="Script" path="res://Scripts/VariableChange.gd" id="2_xc40n"]
 [ext_resource type="Script" path="res://Scripts/rarity.gd" id="3_yr708"]
 
-[sub_resource type="Resource" id="Resource_su5yf"]
+[sub_resource type="Resource" id="Resource_lxrof"]
 script = ExtResource("2_xc40n")
-values = ["hp", 25.0]
+values = ["max_hp", 20]
 multiply_value = false
 add_value = true
 
-[sub_resource type="Resource" id="Resource_lxrof"]
+[sub_resource type="Resource" id="Resource_su5yf"]
 script = ExtResource("2_xc40n")
-values = ["max_hp", 25]
+values = ["hp", 40.0]
 multiply_value = false
 add_value = true
 
@@ -21,9 +21,9 @@ script = ExtResource("3_yr708")
 rarity = 1
 
 [node name="Dogtag" instance=ExtResource("1_5rmn0")]
-upgrade_values = Array[ExtResource("2_xc40n")]([SubResource("Resource_su5yf"), SubResource("Resource_lxrof")])
+upgrade_values = Array[ExtResource("2_xc40n")]([SubResource("Resource_lxrof"), SubResource("Resource_su5yf")])
 metadata/Title = "Big Heart"
-metadata/Type = "+25 Max HP"
+metadata/Type = "+20 Max HP"
 metadata/Rarity = SubResource("Resource_l34ag")
 
 [node name="Icon" parent="." index="1"]

@@ -1,7 +1,7 @@
 extends Area2D
 class_name HealthComponent
 
-@export var health = 3
+@export var health = 3.0
 @export var rotate_on_hit: bool = true
 @export var shake_on_hit: bool
 @export var explosion_scale: float = 1

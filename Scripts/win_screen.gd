@@ -22,10 +22,11 @@ func _ready():
 		for alert in alerts:
 			add_child(alert)
 			await alert.tree_exited
-	else:
+	elif !SaveData.character1:
 		var inst = alert_scene.instantiate()
 		inst.position = size / 2
 		inst.set_character(1)
+		SaveData.character1 = true
 		SaveData.save_game()
 		add_child(inst)
 		await inst.tree_exited
@@ -46,6 +47,8 @@ func _ready():
 	SaveData.save_game()
 	if SaveData.c0_win and SaveData.c1_win and SaveData.c2_win and SaveData.c3_win and SaveData.c4_win:
 		Globals.set_achievement("completion")
+	if Globals.hard_mode:
+		Globals.set_achievement("hard_mode")
 
 
 func unlock_characters() -> Array:
@@ -63,6 +66,8 @@ func unlock_characters() -> Array:
 	if !SaveData.character4:
 		unlocked_characters.append(4)
 		SaveData.character4 = true
+		unlocked_characters.append(5)
+		SaveData.completed = true
 	var alerts: Array
 	for i in unlocked_characters:
 		var inst = alert_scene.instantiate()

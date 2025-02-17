@@ -1,6 +1,7 @@
 extends Node
 
 @export var spawn_formations: Array[SpawnFormation]
+@export var hard_mode_spawn_formations: Array[SpawnFormation]
 @export var level_objects: Array[SpawnChance]
 @export var bosses: Array[SpawnChance]
 @export var enemy_health = 2.0
@@ -29,6 +30,8 @@ func _ready() -> void:
 	for i in 3:
 		var spawn_scene = level_objects[Globals.get_weighted_index(level_objects)].object_to_spawn
 		var inst = create_level_object(spawn_scene, get_random_position())
+	if Globals.hard_mode:
+		spawn_formations.append_array(hard_mode_spawn_formations)
 
 
 func _on_round_timer_timeout() -> void:
@@ -52,7 +55,7 @@ func _on_enemy_spawn_timer_timeout() -> void:
 	spawn_enemy()
 
 
-func spawn_enemy(enemy_to_spawn: PackedScene = null, is_boss: bool = false) -> Node2D:
+func spawn_enemy(enemy_to_spawn: PackedScene = null, is_boss: bool = false, spawn_pos: Vector2 = Vector2.ZERO) -> Node2D:
 	if enemies.size() >= 400 and !is_boss:
 		return
 	if enemy_to_spawn == null:
@@ -64,19 +67,22 @@ func spawn_enemy(enemy_to_spawn: PackedScene = null, is_boss: bool = false) -> N
 		#enemy_to_spawn = Globals.enemy_pool.spawn_enemy(spawn_formations[formation_index].enemies[index].object_to_spawn)
 	#else: 
 		#enemy_to_spawn = new_enemy.instantiate()
-	var spawn_pos: Vector2
-	var barrier_left = Globals.world_controller.get_node("BarrierLeft").global_position - Vector2(25, 25)
-	var barrier_right = Globals.world_controller.get_node("BarrierRight").global_position + Vector2(25, 25)
-	match randi_range(0,3):
-		0: spawn_pos = Vector2(randf_range(barrier_left.x,barrier_right.x), barrier_left.y)
-		1: spawn_pos = Vector2(randf_range(barrier_left.x,barrier_right.x), barrier_right.y)
-		2: spawn_pos = Vector2(barrier_left.x, randf_range(barrier_left.y,barrier_right.y))
-		3: spawn_pos = Vector2(barrier_right.x, randf_range(barrier_left.y,barrier_right.y))	
+	if spawn_pos == Vector2.ZERO:
+		var barrier_left = Globals.world_controller.get_node("BarrierLeft").global_position - Vector2(25, 25)
+		var barrier_right = Globals.world_controller.get_node("BarrierRight").global_position + Vector2(25, 25)
+		match randi_range(0,3):
+			0: spawn_pos = Vector2(randf_range(barrier_left.x,barrier_right.x), barrier_left.y)
+			1: spawn_pos = Vector2(randf_range(barrier_left.x,barrier_right.x), barrier_right.y)
+			2: spawn_pos = Vector2(barrier_left.x, randf_range(barrier_left.y,barrier_right.y))
+			3: spawn_pos = Vector2(barrier_right.x, randf_range(barrier_left.y,barrier_right.y))	
 	var inst = Globals.create_instance(enemy_to_spawn, spawn_pos)
 	inst.position = spawn_pos
 	enemies.append(inst)
 	if inst is EnemyIncramental:
-		inst.health = floor(enemy_health)
+		var mod = 1
+		if Globals.hard_mode:
+			mod = 2
+		inst.health = floor(enemy_health * mod)
 	return inst
 
 
@@ -113,6 +119,8 @@ func get_random_position() -> Vector2:
 	var barrier_left = get_parent().get_node("BarrierLeft").global_position + Vector2.ONE * 80
 	var barrier_right = get_parent().get_node("BarrierRight").global_position - Vector2.ONE * 80
 	var pos = Vector2(randf_range(barrier_left.x+64, barrier_right.x-64), randf_range(barrier_left.y+64, barrier_right.y-64))
+	if Globals.player != null and pos.distance_to(Globals.player.global_position) < 64:
+		pos = Vector2(randf_range(barrier_left.x+64, barrier_right.x-64), randf_range(barrier_left.y+64, barrier_right.y-64))
 	#$ShapeCast2D.enabled = true
 	#$ShapeCast2D.global_position = pos
 	#$ShapeCast2D.force_shapecast_update()
@@ -134,14 +142,12 @@ func _on_boss_timer_timeout() -> void:
 		if bosses_spawned.size() == 0:
 			var boss = bosses[1].object_to_spawn
 			var inst = spawn_enemy(boss, true)
-			inst.health = 1
 			bosses_spawned.append(1)
 			Globals.ui.add_level_obj("Boss!!!", false)
 			Globals.ui.create_level_obj_signs()
 		elif bosses_spawned.size() == 1:
 			var boss = bosses[2].object_to_spawn
 			var inst = spawn_enemy(boss, true)
-			inst.health = 1
 			inst.is_demo = true
 			bosses_spawned.append(2)
 			Globals.ui.add_level_obj("Boss!!!", false)

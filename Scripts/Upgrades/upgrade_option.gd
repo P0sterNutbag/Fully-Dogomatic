@@ -8,8 +8,7 @@ var bobbing = false
 var mouse_over = false
 var price: float = 0
 var upgrade_scene
-var part_scene = preload("res://Scenes/Upgrades/part_upgrade.tscn")
-var gun_upgrade_scene = preload("res://Scenes/Upgrades/gun_upgrade.tscn")
+var has_purchased: bool
 var not_enough_money = preload("res://Scenes/UI/not_enough_money.tscn")
 
 
@@ -42,12 +41,13 @@ func _process(delta):
 
 func _on_pressed():
 	super._on_pressed()
-	if !upgrade:
+	if !upgrade or !get_parent().can_buy:
 		return 
 	if Globals.player.guns.size() >= Globals.player.gun_cap and upgrade is Gun:
 		var inst = Globals.create_instance(not_enough_money, global_position + Vector2(77.5, 0), get_parent())
 		inst.get_child(0).text = "GUN CAP REACHED!"
-	elif Globals.player.money >= price:
+	elif Globals.player.money >= price and !has_purchased:
+		has_purchased = true
 		if price > 0:
 			Globals.player.spend_money(price)
 		if upgrade is Dogtag:

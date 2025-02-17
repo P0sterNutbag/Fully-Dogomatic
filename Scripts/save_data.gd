@@ -12,10 +12,15 @@ var c2_win = false
 var c3_win = false
 var c4_win = false
 var best_time = 0.0
+var completed: bool
 
 
 func _ready() -> void:
 	load_game()
+	if !completed:
+		if c0_win or c1_win or c2_win or c3_win or c4_win:
+			completed = true
+			SaveData
 
 
 func save_game():
@@ -32,6 +37,7 @@ func save_game():
 		"c2_win" : c2_win,
 		"c3_win" : c3_win,
 		"c4_win" : c4_win,
+		"completed" : completed
 	}
 	var json_string = JSON.stringify(dict)
 	save_file.store_line(json_string)

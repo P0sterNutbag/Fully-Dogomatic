@@ -2,6 +2,10 @@ extends Control
 
 
 func set_character(index: int):
+	if index == 5:
+		$RichTextLabel.hide()
+		$RichTextLabel2.show()
+		return
 	$Characters.get_child(index).show()
 
 

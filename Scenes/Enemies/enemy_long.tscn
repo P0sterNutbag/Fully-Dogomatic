@@ -1,0 +1,78 @@
+[gd_scene load_steps=13 format=3 uid="uid://c6guekr3sd3xh"]
+
+[ext_resource type="PackedScene" uid="uid://kyho67jpnwf3" path="res://Scenes/Enemies/enemy_parent.tscn" id="1_5yc7r"]
+[ext_resource type="Script" path="res://Scripts/enemy_long.gd" id="2_m72ku"]
+[ext_resource type="Texture2D" uid="uid://dtclhufkvyxwr" path="res://Art/Sprites/enemy long.png" id="3_6gbr2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxmso"]
+atlas = ExtResource("3_6gbr2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcfyi"]
+atlas = ExtResource("3_6gbr2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxd72"]
+atlas = ExtResource("3_6gbr2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y74pb"]
+atlas = ExtResource("3_6gbr2")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ud1xu"]
+atlas = ExtResource("3_6gbr2")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k27vg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxmso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcfyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxd72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y74pb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ud1xu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b40eo"]
+radius = 6.0208
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lakbn"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pstlt"]
+radius = 11.0
+
+[node name="Enemy" instance=ExtResource("1_5yc7r")]
+script = ExtResource("2_m72ku")
+health_multiplier = 1.5
+speed = 7.0
+damage = 0.05
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_k27vg")
+frame = 0
+frame_progress = 0.0
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 0)
+shape = SubResource("CircleShape2D_b40eo")
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource("CircleShape2D_lakbn")
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource("CircleShape2D_pstlt")

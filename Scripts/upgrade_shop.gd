@@ -10,6 +10,7 @@ var tooltip_string: String
 var picks: int = 0
 var upgrade_to_delete: Control
 var can_pause: bool = true
+var can_buy: bool = true
 var exit_button: Button
 @onready var tooltip = $Tooltip
 @onready var place_text = $Title2
@@ -97,10 +98,12 @@ func move_options_in():
 	tween.set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "global_position", Vector2.ZERO, 0.5)
 	tween.tween_property(self, "can_pause", true, 0)
+	can_buy = true
 
 
 func move_options_out():
 	can_pause = false
+	can_buy = false
 	$Money.text = "Money: $" + str(Globals.player.money)
 	var tween = create_tween().set_trans(Tween.TRANS_EXPO)
 	tween.set_ease(Tween.EASE_IN)

@@ -19,19 +19,15 @@ Button/font_sizes/font_size = 14
 Button/fonts/font = ExtResource("3_48k3r")
 Button/styles/focus = SubResource("StyleBoxEmpty_ap13o")
 
-[node name="CharacterOption" type="Button"]
+[node name="CharacterOption" type="Button" node_paths=PackedStringArray("scale_target")]
 use_parent_material = true
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -544.0
-offset_bottom = -264.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 96.0
+offset_bottom = 96.0
 pivot_offset = Vector2(48, 48)
 theme = SubResource("Theme_ldusy")
 flat = true
 script = ExtResource("4_a02u5")
+scale_target = NodePath("ScaleOffset")
 
 [node name="ScaleOffset" type="Control" parent="."]
 use_parent_material = true
@@ -63,13 +59,6 @@ theme = ExtResource("7_nauhl")
 bbcode_enabled = true
 text = "[center]CORGI"
 
-[node name="JuicyMovement" parent="ScaleOffset" node_paths=PackedStringArray("target_control") instance=ExtResource("8_1ck4b")]
-target_control = NodePath("..")
-bob_frequency = 5.0
-bob_amplitude = 10.0
-rot_frequency = 2.5
-rot_amplitude = 10.0
-
 [node name="Sprite2D" type="Sprite2D" parent="ScaleOffset"]
 material = ExtResource("6_wcssq")
 position = Vector2(48, 51)
@@ -78,16 +67,24 @@ texture = ExtResource("9_yyfrr")
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
+[node name="JuicyMovement" parent="." node_paths=PackedStringArray("target_control") instance=ExtResource("8_1ck4b")]
+visible = false
+target_control = NodePath("../ScaleOffset")
+bob_frequency = 5.0
+bob_amplitude = 10.0
+rot_frequency = 2.5
+rot_amplitude = 10.0
+
 [node name="Tooltip" type="Control" parent="."]
 visible = false
 z_index = 10
 use_parent_material = true
 layout_mode = 3
 anchors_preset = 0
-offset_left = 49.0
-offset_top = 85.0
-offset_right = 49.0
-offset_bottom = 85.0
+offset_left = 48.0
+offset_top = 84.0
+offset_right = 48.0
+offset_bottom = 84.0
 mouse_filter = 2
 
 [node name="ColorRect5" type="ColorRect" parent="Tooltip"]
@@ -119,3 +116,6 @@ bbcode_enabled = true
 text = "Item Description"
 fit_content = true
 scroll_active = false
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]

@@ -14,6 +14,7 @@ size = Vector2(26.9999, 1)
 
 [node name="Gun" instance=ExtResource("1_y0g2b")]
 bullet = ExtResource("2_l6bvx")
+bullet_damage = 6.0
 cooldown = 1.5
 rounds = 6
 sound_shoot = "gunshot_shotgun"

@@ -1,11 +1,11 @@
-res://Art/Shaders/colorswap.tres::b439ecfaa035ab03f6dabef88f08f3ed::1739336547::res://.godot/exported/133200997/export-2f50e954823234c380ca4523e3eb03d5-colorswap.res
+res://Art/Shaders/colorswap.tres::b439ecfaa035ab03f6dabef88f08f3ed::1739561538::res://.godot/exported/133200997/export-2f50e954823234c380ca4523e3eb03d5-colorswap.res
 res://Art/Shaders/drop_shadow.tres::aae680cbd958018d6e7e17ba093c468a::1721328874::res://.godot/exported/133200997/export-63e0278bcf94726493e43482b9df1320-drop_shadow.res
 res://Art/Shaders/flash.tres::7b22a5b08e8448ecc4eac7260d4e22ea::1727543869::res://.godot/exported/133200997/export-7480165e559aa7b51640034f110665d1-flash.res
 res://Art/Shaders/grayscale.tres::2e2e08a49c92549313897ab1d970c065::1721328874::res://.godot/exported/133200997/export-4d96b4aba9501861d0f2d4d34c18bf9e-grayscale.res
 res://Art/Shaders/outline.tres::8571b586941a1106a5e2059e072d7ded::1721328874::res://.godot/exported/133200997/export-fe2067c4739e01c3f7557525456f98af-outline.res
 res://Art/Themes/body.tres::bc45270a1e1a17fc5536f8b365e8e62a::1737184113::res://.godot/exported/133200997/export-a58aa790422e85112cfbd2fbd6fa02f2-body.res
 res://Art/Themes/header.tres::d514140e5d43928ed500dadf827b49ba::1737184113::res://.godot/exported/133200997/export-20fee12431ad75d283591f910d765c46-header.res
-res://Art/Themes/healthbar.tres::493b11645e36829f74ce371c867eb90d::1739336547::res://.godot/exported/133200997/export-3b9a60fc928619407f3da63e8476b033-healthbar.res
+res://Art/Themes/healthbar.tres::493b11645e36829f74ce371c867eb90d::1739561538::res://.godot/exported/133200997/export-3b9a60fc928619407f3da63e8476b033-healthbar.res
 res://Art/Themes/ui text large.tres::b4a2fd0ccae11b8e3ae8c63a4ceba2bc::1737184239::res://.godot/exported/133200997/export-37b68e26f8e75641782716566ed321df-ui text large.res
 res://Art/Themes/ui text mid mono.tres::ec1ae88da57645c41703235f5b965d44::1727394086::res://.godot/exported/133200997/export-037fdf700192ef324e756d4471477ba3-ui text mid mono.res
 res://Art/Themes/ui text mid.tres::ddb9429530ddc5a464321f0f9ced5f03::1737184195::res://.godot/exported/133200997/export-e6eec6e6732c52e778e5d7f8aa2df935-ui text mid.res
@@ -13,47 +13,46 @@ res://Art/Themes/ui text mini no outline.tres::c9fb7783a92cc1f60fc4ed873092a674:
 res://Art/Themes/ui text mini.tres::1daa050a6c38ba16feae3a07fe7911a6::1728333286::res://.godot/exported/133200997/export-e1bc3a8da218e1d96643c530162266f8-ui text mini.res
 res://Art/Themes/ui text small mono.tres::2026671c6d8bacba14de1612af1b926c::1728333286::res://.godot/exported/133200997/export-b2a9d9cd225ca227b28ab554d4d8dc27-ui text small mono.res
 res://Art/Themes/ui text small.tres::c3fabfee8bfef69c2b6a6fd91d43a605::1737184227::res://.godot/exported/133200997/export-1f6fb7eead40ae7340e79e6247bd11bd-ui text small.res
-res://Audio/AudioManager.tscn::5ea388534d60a89ff284cf38a1cf296b::1739339081::res://.godot/exported/133200997/export-c6f5ab8d54f9635be476262653e20415-AudioManager.scn
+res://Audio/AudioManager.tscn::5ea388534d60a89ff284cf38a1cf296b::1739498510::res://.godot/exported/133200997/export-c6f5ab8d54f9635be476262653e20415-AudioManager.scn
 res://Resources/settings_option.tres::f402bbc5928cedc35efcef2088b5e00e::1732773308::res://.godot/exported/133200997/export-2752d6bde44167b76dbe27cedb5cc532-settings_option.res
-res://Scenes/Bullets/bullet_explosion.tscn::b1f666b23bc4fdd48b59008d38055474::1739339082::res://.godot/exported/133200997/export-de8018b73ffa71d1c61cc4812300a1c5-bullet_explosion.scn
-res://Scenes/Bullets/grenade.tscn::568862097e422f0591377f7eadd3671a::1738966287::res://.godot/exported/133200997/export-fda4e4357b801642b5adb119eaa43465-grenade.scn
+res://Scenes/Bullets/bullet_explosion.tscn::b1f666b23bc4fdd48b59008d38055474::1739340858::res://.godot/exported/133200997/export-de8018b73ffa71d1c61cc4812300a1c5-bullet_explosion.scn
+res://Scenes/Bullets/grenade.tscn::568862097e422f0591377f7eadd3671a::1739561645::res://.godot/exported/133200997/export-fda4e4357b801642b5adb119eaa43465-grenade.scn
 res://Scenes/Control/input_controller.tscn::d6704ac313768b56a0335ae394d9b3a6::1738872736::res://.godot/exported/133200997/export-3f24c601e6c14ed8e9b312ae59aba098-input_controller.scn
 res://Scenes/Levels/Level Objects/enemy_group.tscn::7fa6396f2e6282cee11b6cf1da703b6b::1736915053::res://.godot/exported/133200997/export-7fa5594efd99dd72210533aa4faa8c53-enemy_group.scn
 res://Scenes/Levels/Level Objects/enemy_spawner_pipe.tscn::c7e06fd12f76e5c87507d746ee45fc8f::1738626758::res://.godot/exported/133200997/export-ef910c128c12b917f7054c4f0ac9dc18-enemy_spawner_pipe.scn
-res://Scenes/Levels/Level Objects/health_pickup.tscn::57f88ddedc08bfbcfd7ecaca0fd01c06::1739339082::res://.godot/exported/133200997/export-b211e48b9ec8ed1056b1c7bfd79b1eca-health_pickup.scn
+res://Scenes/Levels/Level Objects/health_pickup.tscn::57f88ddedc08bfbcfd7ecaca0fd01c06::1739340858::res://.godot/exported/133200997/export-b211e48b9ec8ed1056b1c7bfd79b1eca-health_pickup.scn
 res://Scenes/Levels/Level Objects/shop.tscn::fe0e0a011f85e5a2111de1db231374da::1738557780::res://.godot/exported/133200997/export-d9daa5d0f6c5c21075347e91b870ca62-shop.scn
 res://Scenes/Levels/intro.tscn::179d08f1ecdff9ef4b0d4e2c0cc5dc75::1738966284::res://.godot/exported/133200997/export-1bce9bd874a8c1461c8204b4096e1219-intro.scn
-res://Scenes/Levels/main_menu.tscn::7fc388c6d2f485b74ed2d4303a791b6d::1739339081::res://.godot/exported/133200997/export-bec25f243620e23792f0238bca0c0663-main_menu.scn
+res://Scenes/Levels/main_menu.tscn::63e6d3a037ff9b263373a3ae4e2c416b::1739561644::res://.godot/exported/133200997/export-bec25f243620e23792f0238bca0c0663-main_menu.scn
 res://Scenes/Particles/bullet_spark.tscn::333fd9afaf7f470a8dba181a570137de::1726445253::res://.godot/exported/133200997/export-3b17e7765aba503e1f844b21ba8586db-bullet_spark.scn
 res://Scenes/Particles/damage_number.tscn::b33b3112981ac0d8f6d522f020d393fb::1737609031::res://.godot/exported/133200997/export-f48ed1a94efb56c743741e99d56aebeb-damage_number.scn
 res://Scenes/Particles/gun_status.tscn::09a2a5374b31944a33140165864e5fa1::1727474990::res://.godot/exported/133200997/export-2acf574ed0054090ac4c133cfec5f34f-gun_status.scn
 res://Scenes/Particles/impact.tscn::c24dbd50613b8ac8c6835750132b87e3::1726445253::res://.godot/exported/133200997/export-c801fd69d5b652bdb93a9b66b6b038a7-impact.scn
 res://Scenes/Particles/wood_particles.tscn::1d544cb5c7531e3e4d61b05d9578e2e9::1723676182::res://.godot/exported/133200997/export-eed933fb301411f4baa18545232d9e7a-wood_particles.scn
 res://Scenes/Player/menu_dog.tscn::eacdbec208e4a6a4b29c343cb1b35b2f::1738558652::res://.godot/exported/133200997/export-73f1f538dc48b6cc12711c143ae5f75e-menu_dog.scn
-res://Scenes/Player/player.tscn::7e11a5213ab16be0afec5f06de7e5bc1::1739339082::res://.godot/exported/133200997/export-8e63b53a88b650cb9792f8d8b6d332bc-player.scn
+res://Scenes/Player/player.tscn::7e11a5213ab16be0afec5f06de7e5bc1::1739498511::res://.godot/exported/133200997/export-8e63b53a88b650cb9792f8d8b6d332bc-player.scn
 res://Scenes/UI/slot machine/slot_row.tscn::c3281c03c5820865950c03388a729fd7::1721243769::res://.godot/exported/133200997/export-5aac9ca8be63e68b0ea7a693b291f557-slot_row.scn
 res://Scenes/UI/arrow.tscn::485830a2116f4d987611a2b37f249e1f::1723676181::res://.godot/exported/133200997/export-040acb187d4323a49d25709f6e4402b1-arrow.scn
 res://Scenes/UI/death_ui.tscn::bb91d253bfe5c7b05f000db1d5d97c66::1737606698::res://.godot/exported/133200997/export-ff7fd2246198b25ccaef533fd1dc3cfa-death_ui.scn
 res://Scenes/UI/level_object_sign.tscn::dd5560f69d06502188dea3daddd8ee1d::1736915060::res://.godot/exported/133200997/export-2cfbe0941c110e38330af2dd1c3647ff-level_object_sign.scn
-res://Scenes/UI/map_icon.tscn::1c344286b6fa67a97bb0791faddb1efe::1729642228::res://.godot/exported/133200997/export-77af42044de8fb42fe25c65fa7979ce2-map_icon.scn
-res://Scenes/UI/minimap.tscn::643c007627970fb2f28eda8b2c96800f::1732668108::res://.godot/exported/133200997/export-95ba616b562677008a305226fe27b50c-minimap.scn
+res://Scenes/UI/map_icon.tscn::1c344286b6fa67a97bb0791faddb1efe::1739498511::res://.godot/exported/133200997/export-77af42044de8fb42fe25c65fa7979ce2-map_icon.scn
+res://Scenes/UI/minimap.tscn::b9d5948d835a5ba332ba4becc058b2f1::1739498511::res://.godot/exported/133200997/export-95ba616b562677008a305226fe27b50c-minimap.scn
 res://Scenes/UI/minimap_icon.tscn::41c5a059aec1247cfceaa46b08f5fb63::1729642228::res://.godot/exported/133200997/export-66631393608831edb8b2ea373a461e83-minimap_icon.scn
 res://Scenes/UI/settings_option.tscn::bff1df0063e3a0f9316311ccd96fe82d::1738966285::res://.godot/exported/133200997/export-f6e33773d159b2b4937b6fc7b5590458-settings_option.scn
-res://Scenes/UI/ui.tscn::2aa6afdb2c334c81f4daae54831137d4::1737606699::res://.godot/exported/133200997/export-2513678422fd8eb48a4501dc6d5fd190-ui.scn
+res://Scenes/UI/ui.tscn::575cafb66680a19dcad6674757b1ebdf::1739498511::res://.godot/exported/133200997/export-2513678422fd8eb48a4501dc6d5fd190-ui.scn
 res://Scenes/Upgrades/Dogtags/dogtag_exploding_bullets.tscn::8aa049b64415d7ac088b6abb22744f44::1738626758::res://.godot/exported/133200997/export-3e678c00de2c79a3cbe226e77d036e27-dogtag_exploding_bullets.scn
 res://Scenes/Upgrades/Dogtags/dogtag_player_speed.tscn::d2d899bbfc141ab4946197a4b9a59840::1738626758::res://.godot/exported/133200997/export-409c0a9625c79cd984a60bd314cd3846-dogtag_player_speed.scn
 res://Scenes/Upgrades/Dogtags/dogtag_rotate_guns.tscn::dbaa46c7719661cefdeaf2d571a90d18::1738626758::res://.godot/exported/133200997/export-618bd89e23687e4f8ada941103136982-dogtag_rotate_guns.scn
-res://Scenes/Upgrades/part_upgrade.tscn::a7bc788d7bb82b6ae9cf60b371a375ff::1737606699::res://.godot/exported/133200997/export-6fa9912e24c0ada91bee6b22fafef6e3-part_upgrade.scn
-res://Scenes/Upgrades/upgrade_manager.tscn::d3c5fcbdd5083e73582966883a8a5c51::1739339081::res://.godot/exported/133200997/export-462cb461712c9e40df51d32e11911916-upgrade_manager.scn
+res://Scenes/Upgrades/upgrade_manager.tscn::6bef0cbd04390b91e29e853d0569da64::1739498510::res://.godot/exported/133200997/export-462cb461712c9e40df51d32e11911916-upgrade_manager.scn
 res://Scenes/Upgrades/upgrade_menu.tscn::af1a489baf6ea57bd0f81d1aad650b77::1737606699::res://.godot/exported/133200997/export-80b7bde9b21dfe2fb861abe9266b54c2-upgrade_menu.scn
-res://Scenes/Upgrades/upgrade_option.tscn::a742b95aad92b0d451844e2f1af8dedf::1738114791::res://.godot/exported/133200997/export-4a329012d839380a202f4d62b8826c9c-upgrade_option.scn
-res://Scenes/Upgrades/gun_upgrade.tscn::07fdd42fc838484e0479f7a3f3f81b4d::1736915059::res://.godot/exported/133200997/export-363bbb3987a7f727121059bb1dbe1b4d-gun_upgrade.scn
-res://Scenes/Bullets/regular_bullet.tscn::85cd0f5573fada4fc260343a2b3a0e73::1738442282::res://.godot/exported/133200997/export-8192d7490b8798e9a1ed99d0bedb96b0-regular_bullet.scn
+res://Scenes/Upgrades/upgrade_option.tscn::a742b95aad92b0d451844e2f1af8dedf::1739561645::res://.godot/exported/133200997/export-4a329012d839380a202f4d62b8826c9c-upgrade_option.scn
+res://Scenes/Upgrades/gun_upgrade.tscn::2192c1b37e8d0ee10adbe4a570cf99d8::1739498510::res://.godot/exported/133200997/export-363bbb3987a7f727121059bb1dbe1b4d-gun_upgrade.scn
+res://Scenes/Bullets/regular_bullet.tscn::85cd0f5573fada4fc260343a2b3a0e73::1739498510::res://.godot/exported/133200997/export-8192d7490b8798e9a1ed99d0bedb96b0-regular_bullet.scn
 res://Scenes/Bullets/rubber_bullet.tscn::ec2bee95c48d937607d657cbd546c2ef::1738114792::res://.godot/exported/133200997/export-b2e6f84dcb83ca39519426d8980c9f29-rubber_bullet.scn
 res://Scenes/Bullets/small_bullet.tscn::c42a8e0dc4504b785c77203786004c64::1737606700::res://.godot/exported/133200997/export-86b32a2ede64514f5cbfc197b9535c96-small_bullet.scn
 res://Scenes/Bullets/xt_large_bullet.tscn::a6c361ccb597c7b955982a1dc00a18c2::1738872890::res://.godot/exported/133200997/export-9b36ecb124dfec1ac36ca2c804486885-xt_large_bullet.scn
-res://Scenes/Cutscenes/boss_death_cutscene.tscn::412b1ef3a735c96b13b0e0f249eb331d::1739339081::res://.godot/exported/133200997/export-653dea02526b19cc47d73fe3da6a2105-boss_death_cutscene.scn
-res://Scenes/Levels/customize.tscn::a924a50149f43032d3d368e7e68b9c8b::1737094338::res://.godot/exported/133200997/export-57954beb1780a5ccf420aed5f4b1fc51-customize.scn
+res://Scenes/Cutscenes/boss_death_cutscene.tscn::412b1ef3a735c96b13b0e0f249eb331d::1739340857::res://.godot/exported/133200997/export-653dea02526b19cc47d73fe3da6a2105-boss_death_cutscene.scn
+res://Scenes/Levels/customize.tscn::616dd96f844f7459c87c93b12b6ba5eb::1739561644::res://.godot/exported/133200997/export-57954beb1780a5ccf420aed5f4b1fc51-customize.scn
 res://Scenes/Levels/SceneManager.tscn::85e6227b1746a6756157dbd00a94ffb8::1738626758::res://.godot/exported/133200997/export-9e5f6f035b87b2f2ba2fd4cf0bd883ae-SceneManager.scn
 res://Scenes/Levels/scene_transition.tscn::722a78debd92824f4e1ace2bd0d4a26d::1738626758::res://.godot/exported/133200997/export-52ef583719a0cb8a4904dfe2f2446545-scene_transition.scn
 res://Scenes/Particles/blood.tscn::a60f8ca29d695bbbab0b47639b97e6a3::1727705437::res://.godot/exported/133200997/export-7cede4716db63b962ffd46f51dd4d886-blood.scn
@@ -63,12 +62,12 @@ res://Scenes/Particles/shell.tscn::29c8f9f4d34677213bbf65ba46a7977a::1727307042:
 res://Scenes/Player/dollar.tscn::3568189431a90b4c639e5cddbbae0636::1737606699::res://.godot/exported/133200997/export-a2bdd82da742aea2c7f9be698819ca56-dollar.scn
 res://Scenes/Player/tennisball.tscn::287dd7370b77e1a4d710427735b0d901::1737606699::res://.godot/exported/133200997/export-35843217b17d912663c73949ef42715c-tennisball.scn
 res://Scenes/Tiles/tiles.tscn::e693ce3ab0c0e79e6494a6ade2c64ac4::1723676182::res://.godot/exported/133200997/export-39b4751ed3ce4bb6679697d6de3aed5b-tiles.scn
-res://Scenes/UI/Character Cusomization/character_option.tscn::4de918c5c4d9d2765702639fbe35baf4::1738114791::res://.godot/exported/133200997/export-cf98ac872282aa15f84a80056c7a4522-character_option.scn
-res://Scenes/UI/Character Cusomization/choose_character.tscn::1abe9a8b4ac57fce0f423278ad0bcada::1739339081::res://.godot/exported/133200997/export-afa67d0ed642c3d4a9bd9119cef7217c-choose_character.scn
+res://Scenes/UI/Character Cusomization/character_option.tscn::7e974cbf9485ca66ec8460f15f19ea6d::1739561644::res://.godot/exported/133200997/export-cf98ac872282aa15f84a80056c7a4522-character_option.scn
+res://Scenes/UI/Character Cusomization/choose_character.tscn::e7df0bec193c4016547bdb43eb6b2804::1739561682::res://.godot/exported/133200997/export-afa67d0ed642c3d4a9bd9119cef7217c-choose_character.scn
 res://Scenes/UI/JuicyMovement.tscn::591bbf1972074ada451222d69cf8d944::1732668108::res://.godot/exported/133200997/export-011c4c770d3213cb42f102c7b46a8e8c-JuicyMovement.scn
 res://Scenes/UI/menu_button.tscn::dbfd654d72afdeaef3509177f973f9fe::1723676182::res://.godot/exported/133200997/export-a6f8db0d033bdf80412c2323efdd4229-menu_button.scn
-res://Scenes/Upgrades/GunUpgrades/damage_upgrade.tscn::dacd9179a8f877ebb44689ec7e0ed2fd::1738966286::res://.godot/exported/133200997/export-3ef657c00d79121b29d53b025a48b98a-damage_upgrade.scn
-res://Scenes/Upgrades/GunUpgrades/double_barreled_upgrade.tscn::0e97b6ea981d4c93bba6b90c495a2d19::1738966287::res://.godot/exported/133200997/export-943be0cca8ad353ffa0a3a9ca46a884b-double_barreled_upgrade.scn
+res://Scenes/Upgrades/GunUpgrades/damage_upgrade.tscn::dacd9179a8f877ebb44689ec7e0ed2fd::1739498511::res://.godot/exported/133200997/export-3ef657c00d79121b29d53b025a48b98a-damage_upgrade.scn
+res://Scenes/Upgrades/GunUpgrades/double_barreled_upgrade.tscn::0e97b6ea981d4c93bba6b90c495a2d19::1739340919::res://.godot/exported/133200997/export-943be0cca8ad353ffa0a3a9ca46a884b-double_barreled_upgrade.scn
 res://Scenes/Upgrades/GunUpgrades/explosive_upgrade.tscn::6002b90c2f1e7a1f90fca527d3190497::1738966287::res://.godot/exported/133200997/export-80cafeb9daadc44c8311fabf7c87fbd2-explosive_upgrade.scn
 res://Scenes/Upgrades/GunUpgrades/fullauto_upgrade.tscn::dfee3773a3ce9ec427f91b4930d095be::1738966287::res://.godot/exported/133200997/export-59bb005be13b41c5281f6759f52479f6-fullauto_upgrade.scn
 res://Scenes/Upgrades/GunUpgrades/homing_upgrade.tscn::2f6e880c9515cb1aaf8f3c199fd0ccee::1738872738::res://.godot/exported/133200997/export-b6d4cf89ade3266a5061ed7ac2600a91-homing_upgrade.scn
@@ -76,25 +75,25 @@ res://Scenes/Upgrades/GunUpgrades/penetrate_upgrade.tscn::96951fb537c4c5d62e5aa9
 res://Scenes/Upgrades/GunUpgrades/reload_speed_upgrade.tscn::d548fea494937eee6eb562c9eb0cb52c::1738872738::res://.godot/exported/133200997/export-69ef8c60b2b557eef2de2dc14bed6327-reload_speed_upgrade.scn
 res://Scenes/Upgrades/GunUpgrades/ricochet_upgrade.tscn::f945e755e9ac89fe888d1bed8fd4c56f::1738966286::res://.godot/exported/133200997/export-a472f6e18de8cb6e8af3a3ac40393123-ricochet_upgrade.scn
 res://Scenes/Upgrades/GunUpgrades/rubber_bullets.tscn::d2862f74aa8a37c5e8eca583adb2b096::1738966287::res://.godot/exported/133200997/export-0c5b58e281f6f6b94cb21380a47c031a-rubber_bullets.scn
-res://Scenes/Upgrades/GunUpgrades/xt_large_bullet_upgrade.tscn::c3adb4bc10f5af5edd75179cefaa73a2::1738966287::res://.godot/exported/133200997/export-6167f541bc4b7d295919f0c25836a12d-xt_large_bullet_upgrade.scn
-res://Art/Shaders/color_change.tres::2df0394d4b42aaff6732ed99c83aef49::1739336547::res://.godot/exported/133200997/export-5d729b44ccfda12a75b4a22c99b2294a-color_change.res
+res://Scenes/Upgrades/GunUpgrades/xt_large_bullet_upgrade.tscn::c3adb4bc10f5af5edd75179cefaa73a2::1739340858::res://.godot/exported/133200997/export-6167f541bc4b7d295919f0c25836a12d-xt_large_bullet_upgrade.scn
+res://Art/Shaders/color_change.tres::33bc65dbd379152daf7ce562976deefb::1739561643::res://.godot/exported/133200997/export-5d729b44ccfda12a75b4a22c99b2294a-color_change.res
 res://Scenes/Bullets/shotgun_shell.tscn::0016e9e895b9cdca303ae3a5e199e3b0::1737606700::res://.godot/exported/133200997/export-e9d1714678d0170e07b6bfa3dba1343d-shotgun_shell.scn
-res://Scenes/Guns/Parent/gun_parent.tscn::2e95ba5d183cdd0d2a52d32e26bca760::1729642229::res://.godot/exported/133200997/export-6c07df5e80c9a517257b57a9a0f3efa4-gun_parent.scn
-res://Scenes/Guns/Parts/large_magazine.tscn::eaa70f28aecc03705f2f6d7505dcfd9c::1738872738::res://.godot/exported/133200997/export-d80873805ddaefb1be5dbe2268a2ebfe-large_magazine.scn
-res://Scenes/Guns/Parts/scope.tscn::d6e0e5b500662aa4c8501be90fd697e8::1738872739::res://.godot/exported/133200997/export-ab44be0f8d8ef19f9d710fb06c367520-scope.scn
-res://Scenes/Guns/22.tscn::fb7e686ed6522e6f4821f03c3561bf22::1736915053::res://.godot/exported/133200997/export-4fbf0368291bdce6e34497f74f4ce6b8-22.scn
-res://Scenes/Guns/44_magnum.tscn::ae73e6988594be39278b07c575927dd2::1738557779::res://.godot/exported/133200997/export-34cf3a1babc57aa7b8623f9e33f39be4-44_magnum.scn
+res://Scenes/Guns/Parent/gun_parent.tscn::2e95ba5d183cdd0d2a52d32e26bca760::1739498510::res://.godot/exported/133200997/export-6c07df5e80c9a517257b57a9a0f3efa4-gun_parent.scn
+res://Scenes/Guns/Parts/large_magazine.tscn::8f22c43b0f16f389b8f88c0a229c4bec::1739561644::res://.godot/exported/133200997/export-d80873805ddaefb1be5dbe2268a2ebfe-large_magazine.scn
+res://Scenes/Guns/Parts/scope.tscn::c210bcd6ac29429598a64c0a4deba375::1739561645::res://.godot/exported/133200997/export-ab44be0f8d8ef19f9d710fb06c367520-scope.scn
+res://Scenes/Guns/22.tscn::fb7e686ed6522e6f4821f03c3561bf22::1739498510::res://.godot/exported/133200997/export-4fbf0368291bdce6e34497f74f4ce6b8-22.scn
+res://Scenes/Guns/44_magnum.tscn::ae73e6988594be39278b07c575927dd2::1739498510::res://.godot/exported/133200997/export-34cf3a1babc57aa7b8623f9e33f39be4-44_magnum.scn
 res://Scenes/Guns/ak47.tscn::685f77794cc535d6ec680d575c198994::1738557779::res://.godot/exported/133200997/export-ba683a6e2ba018ce11bf492f72fd69e8-ak47.scn
 res://Scenes/Guns/ar15.tscn::ad4195a9095d36881f167f6605eedcbd::1738557779::res://.godot/exported/133200997/export-5cc373f6cb8187793c7daed96f9c3735-ar15.scn
 res://Scenes/Guns/assault_shotgun.tscn::837870b352884774004f3a635623cf3a::1736915054::res://.godot/exported/133200997/export-1d62e0a811b42deb2a69f2ddc2fa8b9e-assault_shotgun.scn
 res://Scenes/Guns/double_barrel_shotgun.tscn::ac797d358b62f8581babe6d7ad8295c7::1736915054::res://.godot/exported/133200997/export-822ada640a5aaf830eef64afcfc26857-double_barrel_shotgun.scn
-res://Scenes/Guns/grenade_launcher.tscn::01667c1b4790f151deae28fb259fd242::1739339082::res://.godot/exported/133200997/export-834b8f4e69f68e37a1ef8c471ad99594-grenade_launcher.scn
+res://Scenes/Guns/grenade_launcher.tscn::234c9038c6cec43ea7f4bc906ef4c758::1739561645::res://.godot/exported/133200997/export-834b8f4e69f68e37a1ef8c471ad99594-grenade_launcher.scn
 res://Scenes/Guns/mac11.tscn::ee56f2cad663c5d58ce63b6a40795833::1737606700::res://.godot/exported/133200997/export-1ed3aca18ad861679ccf0fb38878f187-mac11.scn
-res://Scenes/Guns/mp5.tscn::565b3421004dd9b68582ef6653591312::1739339082::res://.godot/exported/133200997/export-1633634f5b1f84ff33fbf25abf37fe0f-mp5.scn
+res://Scenes/Guns/mp5.tscn::565b3421004dd9b68582ef6653591312::1739340858::res://.godot/exported/133200997/export-1633634f5b1f84ff33fbf25abf37fe0f-mp5.scn
 res://Scenes/Guns/pistol.tscn::c7f5505570cb9a4aaef1caab1c0a96bb::1737606700::res://.godot/exported/133200997/export-24bc72a93821150c56dc42ef3f392298-pistol.scn
 res://Scenes/Guns/revolver.tscn::dc22e2ce544efea62a04052396d042c7::1736915054::res://.godot/exported/133200997/export-0b8661aab5c97382de0c1e0b55f42069-revolver.scn
 res://Scenes/Guns/sawed_off.tscn::916913e3a7d181dd636781acf9d8cbce::1738557780::res://.godot/exported/133200997/export-d91e08a037720e1a4337630f1bc27059-sawed_off.scn
-res://Scenes/Guns/sniper_rifle.tscn::e2c65893368441a1a5ea972ea8007fd7::1736915055::res://.godot/exported/133200997/export-2f2a304eae485a7138e22ca19dcd83eb-sniper_rifle.scn
+res://Scenes/Guns/sniper_rifle.tscn::79cd608af476d303880f57e51844058a::1739561644::res://.godot/exported/133200997/export-2f2a304eae485a7138e22ca19dcd83eb-sniper_rifle.scn
 res://Scenes/Guns/tommy_gun.tscn::e12feee85f4afc643468f4c3e08bb92a::1727705439::res://.godot/exported/133200997/export-fa8127544b42470d7289c85fe3a0e2c7-tommy_gun.scn
 res://Scenes/Levels/Level Objects/money_crate.tscn::2b152b049a57bc5b1d0c0f840e6eeba7::1738872739::res://.godot/exported/133200997/export-5f46fe3a419606f27cab9017aa9877ea-money_crate.scn
 res://Scenes/Particles/dust.tscn::d85d38216df756d96f5440e7f70f202a::1727307041::res://.godot/exported/133200997/export-f0068679d334c67dd158f539acf54e69-dust.scn
@@ -105,14 +104,14 @@ res://Scenes/Player/terrier.tscn::c66f9c8fe941fa9aadbe9ce2071f848c::1738558192::
 res://Scenes/UI/gunstats.tscn::fceb86d361ab57378511d6febdd38174::1727204373::res://.godot/exported/133200997/export-349d425b27b78a93b72341db15685184-gunstats.scn
 res://Scenes/UI/not_enough_money.tscn::26c4e79b3aa647eb88326e6428dac155::1738442283::res://.godot/exported/133200997/export-c50419e8a47d55ce2c2cd6b0fc1f7fe2-not_enough_money.scn
 res://Scenes/Upgrades/Dogtags/dogtag_grab_radius.tscn::94aac80d612d039c81ae5af2d6444eb5::1738626758::res://.godot/exported/133200997/export-e9a77327b47065d55f6f513ff860b352-dogtag_grab_radius.scn
-res://Scenes/Upgrades/Dogtags/dogtag_hp.tscn::dae63db45ec05b700bfe7dbaa606bc8e::1738626758::res://.godot/exported/133200997/export-1433669840754d79ebabcaacb8cf7336-dogtag_hp.scn
+res://Scenes/Upgrades/Dogtags/dogtag_hp.tscn::27aaef537b9f1b7ee4f91c88722a2af2::1739498511::res://.godot/exported/133200997/export-1433669840754d79ebabcaacb8cf7336-dogtag_hp.scn
 res://Scenes/Upgrades/Dogtags/dogtag_money_droprate.tscn::144f6cd2e775a4cc28ae5e8709ea26ac::1738626758::res://.godot/exported/133200997/export-48abe8ee00bcaac9b400de7ee61b778f-dogtag_money_droprate.scn
 res://Scenes/Upgrades/Dogtags/dogtag_upgrades.tscn::e7e67aa33c3e6738bcc703cc80019f79::1738626758::res://.godot/exported/133200997/export-62d9eb0e0359e816a376747cd81d12c6-dogtag_upgrades.scn
 res://Scenes/Upgrades/GunUpgrades/grenade_upgrade.tscn::c6cf1a73f35ac35d8a40b23595fac03a::1738872738::res://.godot/exported/133200997/export-3b5515a27d78699e982807ffe1e4bc18-grenade_upgrade.scn
-res://Scenes/Upgrades/upgrade_shop.tscn::244d7faa7d7affd5d13d15290642085c::1738966286::res://.godot/exported/133200997/export-09fd722607354260e2a04576e7ad7a5d-upgrade_shop.scn
+res://Scenes/Upgrades/upgrade_shop.tscn::244d7faa7d7affd5d13d15290642085c::1739561644::res://.godot/exported/133200997/export-09fd722607354260e2a04576e7ad7a5d-upgrade_shop.scn
 res://Scenes/Upgrades/upgrade_shop_intro.tscn::afce49cdd53a0cf6aa50dcf33015de00::1738557780::res://.godot/exported/133200997/export-0a142e7b0a1131a7f137456ec776dd6a-upgrade_shop_intro.scn
 res://Scenes/Upgrades/upgrade_shop_more_upgrades.tscn::5804415899f2cbb336f6276a8595cf09::1738557779::res://.godot/exported/133200997/export-bb53491e92177fdfe7663a553e20e223-upgrade_shop_more_upgrades.scn
-res://Scenes/Bullets/bullet_grenade.tscn::fd0e72a7d77ce30dfb4c8abd3e57f3e4::1738114792::res://.godot/exported/133200997/export-49b23520aba44a9d2003e2829c5eb5d4-bullet_grenade.scn
+res://Scenes/Bullets/bullet_grenade.tscn::fd0e72a7d77ce30dfb4c8abd3e57f3e4::1739561645::res://.godot/exported/133200997/export-49b23520aba44a9d2003e2829c5eb5d4-bullet_grenade.scn
 res://Scenes/Guns/Parent/aim_assist.tscn::694b93c7f374bb6dfc3ed4c4fb90070f::1729030010::res://.godot/exported/133200997/export-9862bec2c2aaffb9a804b8b6066d8d04-aim_assist.scn
 res://Scenes/Levels/Level Objects/barrel.tscn::07a6f6d40b376683745c0ff853717109::1736915053::res://.godot/exported/133200997/export-2543decac411ffa466df957d8caa1a1d-barrel.scn
 res://Scenes/UI/loadout_text.tscn::f3f04e41352531ae30dadb8db06977c0::1727125923::res://.godot/exported/133200997/export-42ed434cf0035e41bd220b9d69392c9f-loadout_text.scn
@@ -123,55 +122,55 @@ res://Scenes/Upgrades/GunUpgrades/burst_fire_upgrade.tscn::f5bc92181969618839ee0
 res://Scenes/Upgrades/GunUpgrades/extreme_innacuracy.tscn::8419bfe414cdf2f2e0caaa9428d5b48b::1738966287::res://.godot/exported/133200997/export-da4d6c952cd1a9b9d8061bc76aaf1d8a-extreme_innacuracy.scn
 res://Scenes/Upgrades/GunUpgrades/warp_bullets.tscn::4781c27a84e5ae20d32aa96a97afd71f::1738966287::res://.godot/exported/133200997/export-0ecea04f2cba13c4d2233b960c0fc223-warp_bullets.scn
 res://Scenes/Upgrades/upgrade_shop_no_guns.tscn::d59a9aa10b729925ef90b1c4f6598d91::1738557779::res://.godot/exported/133200997/export-de932d182e080f7f672fcff187d764da-upgrade_shop_no_guns.scn
-res://Art/Themes/button.tres::b4414587709478da206e404ce8c174ae::1739336547::res://.godot/exported/133200997/export-124fd137aec5f4e423627ebe367d550b-button.res
+res://Art/Themes/button.tres::b4414587709478da206e404ce8c174ae::1739561538::res://.godot/exported/133200997/export-124fd137aec5f4e423627ebe367d550b-button.res
 res://Scenes/Enemies/enemy_reinforcement.tscn::84fe6f9a5dfb6c0dbaeccb9e81c6b846::1734576657::res://.godot/exported/133200997/export-2cea0d18cf52683915cb31e61beeee53-enemy_reinforcement.scn
-res://default_bus_layout.tres::a79d81a8d32f4cf5c56944583580110e::1738891368::res://.godot/exported/133200997/export-19246414aa9fb561ced4b8dce477acec-default_bus_layout.res
+res://default_bus_layout.tres::a79d81a8d32f4cf5c56944583580110e::1739395695::res://.godot/exported/133200997/export-19246414aa9fb561ced4b8dce477acec-default_bus_layout.res
 res://Scenes/Control/pause_controller.tscn::8214ae1b245e516d5c723309df27984b::1738557780::res://.godot/exported/133200997/export-21c6f06a588124681792ce3b49f95d07-pause_controller.scn
 res://Scenes/UI/pause_menu.tscn::c00d09513fe4db305f981e15927b321e::1738966285::res://.godot/exported/133200997/export-b60cfd504f7b6955768770b3e854be37-pause_menu.scn
-res://Scenes/Bullets/bullet_explosion_big.tscn::8e84b0cb9dcf9d5b39b3d89cc7fd722d::1739339082::res://.godot/exported/133200997/export-c1e6d49789bce4bed778d2d4a9f6d542-bullet_explosion_big.scn
+res://Scenes/Bullets/bullet_explosion_big.tscn::8e84b0cb9dcf9d5b39b3d89cc7fd722d::1739561645::res://.godot/exported/133200997/export-c1e6d49789bce4bed778d2d4a9f6d542-bullet_explosion_big.scn
 res://Scenes/Bullets/laser.tscn::5447c593b7319646745219b0b77d7314::1734576908::res://.godot/exported/133200997/export-3b4d194bbd2e13d4eea03edeffda631e-laser.scn
 res://Scenes/Bullets/laser_thick.tscn::d840163ea266b5d96527b8b4035be03c::1732061234::res://.godot/exported/133200997/export-29ab25616c8707374dba98f7188f7cc5-laser_thick.scn
 res://Scenes/Bullets/mine.tscn::1854874fb6fcd9eaec23c67f353c80d4::1738966287::res://.godot/exported/133200997/export-5dd567e4f37797767e59061eedbc6cd9-mine.scn
-res://Scenes/Bullets/rocket.tscn::2b6cc2d349df7ff54c225d9795237890::1739339082::res://.godot/exported/133200997/export-f15c34ef9a18288b33670b9316383050-rocket.scn
-res://Scenes/Bullets/tennis_ball.tscn::79a5ec8f9495c2829c8691ba63e12cc3::1739339081::res://.godot/exported/133200997/export-4ad8fe67a27d02d25602d3ad366723b7-tennis_ball.scn
-res://Scenes/Enemies/boss_1.tscn::0498fc21aebc994cbe7bf279a0cdc95f::1738966288::res://.godot/exported/133200997/export-5cc935ff7976ab415cd6826685c1c6a5-boss_1.scn
-res://Scenes/Enemies/boss_2.tscn::bc0984b38f7e18ae18aae89d0cab2227::1738966288::res://.godot/exported/133200997/export-91f67a4fbfc5dec6a1e825804a0ebfd9-boss_2.scn
-res://Scenes/Enemies/boss_3.tscn::4d2dc8c0373424d2b9464aff5c87bb3f::1739339081::res://.godot/exported/133200997/export-8051d287c8b3e0d7090e6d38b6cec808-boss_3.scn
-res://Scenes/Enemies/boss_4.tscn::162f9a9a167cd12a7509ab611850c5de::1739339245::res://.godot/exported/133200997/export-1e177643bdefdbda1ce3cb450a7f20f5-boss_4.scn
-res://Scenes/Enemies/boss_final.tscn::257185c1ab3d3e398465dd73705d7a1d::1739339081::res://.godot/exported/133200997/export-e462afa0be5acd51c3225053938228b0-boss_final.scn
-res://Scenes/Guns/lmg.tscn::58070e501247f89febcdb6b115a0bc1b::1736915054::res://.godot/exported/133200997/export-eaac9ced4fe00a8116c1e93c4a5ac197-lmg.scn
-res://Scenes/Guns/raygun.tscn::047cf0bb2213576cc211c747e2b654fc::1732061235::res://.godot/exported/133200997/export-b99eac76dfbac481b91fcc9746c9f12a-raygun.scn
-res://Scenes/Guns/rocket_launcher.tscn::2edbaa39924ea39174a046df8bf91e37::1739339081::res://.godot/exported/133200997/export-b9d8b5846b247efb2a35e0f0d957b737-rocket_launcher.scn
-res://Scenes/Guns/short_king.tscn::115b27cb9c14c278a5c2c03560892e5f::1739339082::res://.godot/exported/133200997/export-1058dcd4849a9431579927828dca228f-short_king.scn
+res://Scenes/Bullets/rocket.tscn::2b6cc2d349df7ff54c225d9795237890::1739561645::res://.godot/exported/133200997/export-f15c34ef9a18288b33670b9316383050-rocket.scn
+res://Scenes/Bullets/tennis_ball.tscn::79a5ec8f9495c2829c8691ba63e12cc3::1739340857::res://.godot/exported/133200997/export-4ad8fe67a27d02d25602d3ad366723b7-tennis_ball.scn
+res://Scenes/Enemies/boss_1.tscn::4244c8de085e58108e46413ccd6b6669::1739561644::res://.godot/exported/133200997/export-5cc935ff7976ab415cd6826685c1c6a5-boss_1.scn
+res://Scenes/Enemies/boss_2.tscn::401513a18625b0acea5a9d048fd3f5d0::1739498511::res://.godot/exported/133200997/export-91f67a4fbfc5dec6a1e825804a0ebfd9-boss_2.scn
+res://Scenes/Enemies/boss_3.tscn::1b7339795b8f1d55668f17b96c53607a::1739498511::res://.godot/exported/133200997/export-8051d287c8b3e0d7090e6d38b6cec808-boss_3.scn
+res://Scenes/Enemies/boss_4.tscn::018ee4ad88dec29407b07a61bf26a1e9::1739498511::res://.godot/exported/133200997/export-1e177643bdefdbda1ce3cb450a7f20f5-boss_4.scn
+res://Scenes/Enemies/boss_final.tscn::7ae2c7c503dbb7804229de44459aa16e::1739498510::res://.godot/exported/133200997/export-e462afa0be5acd51c3225053938228b0-boss_final.scn
+res://Scenes/Guns/lmg.tscn::58070e501247f89febcdb6b115a0bc1b::1739498510::res://.godot/exported/133200997/export-eaac9ced4fe00a8116c1e93c4a5ac197-lmg.scn
+res://Scenes/Guns/raygun.tscn::047cf0bb2213576cc211c747e2b654fc::1739498510::res://.godot/exported/133200997/export-b99eac76dfbac481b91fcc9746c9f12a-raygun.scn
+res://Scenes/Guns/rocket_launcher.tscn::743979bcb521cd769ddddfc7112f5c99::1739561645::res://.godot/exported/133200997/export-b9d8b5846b247efb2a35e0f0d957b737-rocket_launcher.scn
+res://Scenes/Guns/short_king.tscn::66bc89340934be168bc2884278cadef8::1739561645::res://.godot/exported/133200997/export-1058dcd4849a9431579927828dca228f-short_king.scn
 res://Scenes/Guns/spartan_laser.tscn::31622ac61de6f7fb61a3d35c5d99c6c6::1736915055::res://.godot/exported/133200997/export-ba381e2c8eb8fabc53f823059368358e-spartan_laser.scn
 res://Scenes/Guns/tennis_ball_launcher.tscn::4904101f9a4b8994d6c409bb2b88f67e::1736915055::res://.godot/exported/133200997/export-481cd27e25c7fc63245e4754ff9120ed-tennis_ball_launcher.scn
 res://Scenes/Levels/Level Objects/car.tscn::c426bb94d7ecaa9ed87a963db85d0455::1736915053::res://.godot/exported/133200997/export-b50fee3aa60244f3929d14169bc431ee-car.scn
 res://Scenes/Levels/Level Objects/garbage_can.tscn::6db67047941c1784284390b91375c8aa::1736915053::res://.godot/exported/133200997/export-550a5efa1459c30bc849f8e23f3453d7-garbage_can.scn
 res://Scenes/Levels/level_summary.tscn::7cf998609ada2be4b08bb668a6203afb::1738966284::res://.godot/exported/133200997/export-c2359839298dfcf2e79de7dcc56700be-level_summary.scn
 res://Scenes/Upgrades/Dogtags/dogtag_mine.tscn::70576152e4e059e21e6dc714145f499e::1738966288::res://.godot/exported/133200997/export-6584d0e729fd591e58652081755992ea-dogtag_mine.scn
-res://Resources/level_unlocks.tres::86c3a5ffba7417dd3bae71c68dfaa984::1739336547::res://.godot/exported/133200997/export-f1c7dca0770ffc321968cff5b7679e1e-level_unlocks.res
+res://Resources/level_unlocks.tres::86c3a5ffba7417dd3bae71c68dfaa984::1739561538::res://.godot/exported/133200997/export-f1c7dca0770ffc321968cff5b7679e1e-level_unlocks.res
 res://Scenes/Bullets/sawblade.tscn::5330e312f7ad60e10a8fd7c39047612a::1738557780::res://.godot/exported/133200997/export-e99f00c507a1041b3e62c52c2b32fe4b-sawblade.scn
-res://Scenes/Enemies/enemy.tscn::f5492db6b918279b2ebd55965528cc11::1738557779::res://.godot/exported/133200997/export-3b2d41013e6e697ae5ca7277bc3492a9-enemy.scn
+res://Scenes/Enemies/enemy.tscn::f5492db6b918279b2ebd55965528cc11::1739498510::res://.godot/exported/133200997/export-3b2d41013e6e697ae5ca7277bc3492a9-enemy.scn
 res://Scenes/Enemies/enemy_bomber.tscn::d72aec6413b6690d6cd733ec9b8c0061::1738557779::res://.godot/exported/133200997/export-af3737df14ada6f31be1efa26a60d4a6-enemy_bomber.scn
 res://Scenes/Enemies/enemy_large.tscn::42b315a798f07b5af48f984db8342c05::1738442282::res://.godot/exported/133200997/export-e9e8ffc0dee6b4ba85ea562c70947e63-enemy_large.scn
 res://Scenes/Enemies/enemy_parent.tscn::00b33140a7f3b0f082f3537dfb600396::1738442282::res://.godot/exported/133200997/export-0036002dcc4a71bc004963bc993fe56e-enemy_parent.scn
 res://Scenes/Enemies/enemy_small.tscn::4ee405e19414ad879b251bee6215fb2d::1738442282::res://.godot/exported/133200997/export-a4c0ed8a77d28245bedb7996f96e93a1-enemy_small.scn
 res://Scenes/Guns/sawgun.tscn::606d1a22a2bf792ad3bb4c4b4781bc07::1738966288::res://.godot/exported/133200997/export-908e198ef4da40c3e6ef98ab591c5b7f-sawgun.scn
-res://Scenes/Levels/world.tscn::11304f0e2ae0855cddbdaf2954687426::1739339080::res://.godot/exported/133200997/export-4312d450fd145b4ccc51186642f7c984-world.scn
+res://Scenes/Levels/world.tscn::11304f0e2ae0855cddbdaf2954687426::1739561644::res://.godot/exported/133200997/export-4312d450fd145b4ccc51186642f7c984-world.scn
 res://Scenes/Particles/enemy_explosion.tscn::377b4db4e1c735edb46b09c0ad17cb5b::1738872737::res://.godot/exported/133200997/export-12543ef1c63b5328a843064557c562b3-enemy_explosion.scn
-res://Scenes/UI/unlock_alert.tscn::3c0a69342ad566cac58565b6d872d23c::1737606698::res://.godot/exported/133200997/export-ad1f79c3068723e44d6c252482c06850-unlock_alert.scn
-res://Scenes/Levels/credits.tscn::7a827a74737ad4844c4e4a470f5006f9::1739339081::res://.godot/exported/133200997/export-67f8b89a7007e79bdc810ce6b8b4a431-credits.scn
-res://Scenes/Levels/test.tscn::03182de62f63d043819cf09425792749::1739339233::res://.godot/exported/133200997/export-d7d273feeb20cef1f7b3b5edcb25154d-test.scn
+res://Scenes/UI/unlock_alert.tscn::ba5221011b2169d08a47d7b73908fb70::1739498511::res://.godot/exported/133200997/export-ad1f79c3068723e44d6c252482c06850-unlock_alert.scn
+res://Scenes/Levels/credits.tscn::7a827a74737ad4844c4e4a470f5006f9::1739340857::res://.godot/exported/133200997/export-67f8b89a7007e79bdc810ce6b8b4a431-credits.scn
+res://Scenes/Levels/test.tscn::c97f1f7de30fa4a6fb6e0b9d33dc20fc::1739561644::res://.godot/exported/133200997/export-d7d273feeb20cef1f7b3b5edcb25154d-test.scn
 res://Scenes/Particles/death_explosion_large.tscn::2ba3ac9639bdb166956e4d3ae7f822e7::1736915052::res://.godot/exported/133200997/export-a13906f204efb7a7dca2730f309b60f9-death_explosion_large.scn
-res://Scenes/Levels/win_screen.tscn::b2ac33bd105ef544815c9a0239652464::1739339081::res://.godot/exported/133200997/export-8d5eddc885c0cbf4c12d664252d9517a-win_screen.scn
-res://Scenes/Bullets/grenade_explosion.tscn::b4e398ba2e13a647ee8c1773ce7611f4::1738966287::res://.godot/exported/133200997/export-a732ace568b980b508b553e6e67d5721-grenade_explosion.scn
+res://Scenes/Levels/win_screen.tscn::b2ac33bd105ef544815c9a0239652464::1739340857::res://.godot/exported/133200997/export-8d5eddc885c0cbf4c12d664252d9517a-win_screen.scn
+res://Scenes/Bullets/grenade_explosion.tscn::914d00a5b107758ec8197583e264f8c6::1739561645::res://.godot/exported/133200997/export-a732ace568b980b508b553e6e67d5721-grenade_explosion.scn
 res://Scenes/Enemies/enemy_small_flyer.tscn::fb173ed43234bf2187f05816011595ff::1738114790::res://.godot/exported/133200997/export-76cc090ef88a544f1e0e7140f92264bd-enemy_small_flyer.scn
 res://Scenes/Upgrades/GunUpgrades/upgrade_cap_upgrade.tscn::cd394aa497c677467f9a8790ecf07446::1738966286::res://.godot/exported/133200997/export-4955fc3f74883a8161cb16979e84da4f-upgrade_cap_upgrade.scn
 res://Scenes/Upgrades/GunUpgrades/knockback_upgrade.tscn::53e0df91f4cc5d15ec7a8162a2b24062::1738872738::res://.godot/exported/133200997/export-cef1d1df97f7c066f23591d0e18f77fc-knockback_upgrade.scn
 res://Scenes/Upgrades/GunUpgrades/russian_roulette.tscn::7c828aa9f2ad5d74e43166131bd0479b::1738872738::res://.godot/exported/133200997/export-66bb9dbc1b258d189a47ade1b73715f3-russian_roulette.scn
-res://Scenes/Upgrades/GunUpgrades/short_range.tscn::0afd02a296d78c991cdcd6b12600de69::1739339081::res://.godot/exported/133200997/export-d1b4319107c3dbf185b9208e12c8306b-short_range.scn
+res://Scenes/Upgrades/GunUpgrades/short_range.tscn::0afd02a296d78c991cdcd6b12600de69::1739340857::res://.godot/exported/133200997/export-d1b4319107c3dbf185b9208e12c8306b-short_range.scn
 res://Scenes/Upgrades/Dogtags/dogtag_saw.tscn::27e6b5545cf01603ca2701cf1f66674c::1738966286::res://.godot/exported/133200997/export-aa404b1b3eeeefd8e1df254cfa1775c2-dogtag_saw.scn
 res://Scenes/Upgrades/GunUpgrades/sawblade_upgrade.tscn::dffef1b89a35e4f82247addaafa10748::1738966286::res://.godot/exported/133200997/export-87699c8f7ba7b05198da9967314f863d-sawblade_upgrade.scn
 res://Scenes/Upgrades/GunUpgrades/tripple_barreled_upgrade.tscn::e372473c830a211ba89bb2a348a06d7c::1738966287::res://.godot/exported/133200997/export-a981ce85c944c517c6902d3e9c303425-tripple_barreled_upgrade.scn
-res://Scenes/Levels/win_screen_demo.tscn::2cf84693afcb92a0bc20bd1dc4168fc9::1739339081::res://.godot/exported/133200997/export-0ddbff2e88175b178b81b064cc956205-win_screen_demo.scn
-res://Scenes/Upgrades/Dogtags/dogtag_mini.tscn::098bb32970ad087ad9b06f3bc2f2ebba::1739339081::res://.godot/exported/133200997/export-3518bfc28f822c1a713feef9db27ed13-dogtag_mini.scn
+res://Scenes/Levels/win_screen_demo.tscn::2cf84693afcb92a0bc20bd1dc4168fc9::1739561644::res://.godot/exported/133200997/export-0ddbff2e88175b178b81b064cc956205-win_screen_demo.scn
+res://Scenes/Upgrades/Dogtags/dogtag_mini.tscn::098bb32970ad087ad9b06f3bc2f2ebba::1739340857::res://.godot/exported/133200997/export-3518bfc28f822c1a713feef9db27ed13-dogtag_mini.scn

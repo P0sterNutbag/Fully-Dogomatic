@@ -7,3 +7,4 @@ var health: int:
 	set(value):
 		health = value * health_multiplier
 		$Hurtbox.health = health
+		$Hurtbox.max_health = health

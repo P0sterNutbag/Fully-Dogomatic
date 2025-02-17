@@ -12,7 +12,7 @@ rarity = 2
 size = Vector2(8, 1.00002)
 
 [node name="Gun" instance=ExtResource("1_8thfs")]
-bullet_damage = 6.0
+bullet_damage = 8.0
 cooldown = 5.0
 spread = 5.0
 rounds = 5

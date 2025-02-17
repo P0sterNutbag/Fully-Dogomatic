@@ -35,6 +35,9 @@ func _ready() -> void:
 	original_pos = global_position
 	if homing:
 		$HomingArea.process_mode = Node.PROCESS_MODE_INHERIT
+		$HomingArea.scale = $HomingArea.scale / scale
+	else:
+		$HomingArea.process_mode = Node.PROCESS_MODE_DISABLED
 	if randi_range(0,1) == 1:
 		scale.y *= -1
 
@@ -125,6 +128,7 @@ func _on_area_entered(area):
 			queue_free()
 		elif homing:
 			target_enemy = null
+			$HomingArea.set_deferred("process_mode", Node.PROCESS_MODE_INHERIT)
 
 
 func create_explosion(spawn_position: Vector2):
@@ -140,3 +144,4 @@ func create_explosion(spawn_position: Vector2):
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if target_enemy == null:
 		target_enemy = area.get_parent()
+		$HomingArea.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)

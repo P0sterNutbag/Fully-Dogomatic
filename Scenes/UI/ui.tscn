@@ -147,15 +147,10 @@ text = "[left]9.00
 [node name="Minimap" parent="." instance=ExtResource("13_ehvuj")]
 material = ExtResource("15_inkxv")
 layout_direction = 2
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
 offset_left = 47.0
 offset_top = 44.0
 offset_right = 47.0
 offset_bottom = 44.0
-grow_horizontal = 1
-grow_vertical = 1
 
 [node name="LeftCorner" type="Control" parent="."]
 material = ExtResource("15_inkxv")

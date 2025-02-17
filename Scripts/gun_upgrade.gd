@@ -4,6 +4,7 @@ class_name GunUpgrade
 @export var upgrade_values: Array[VariableChange]
 @export var slot_value: int = 1
 var follow_mouse: bool = false
+var can_place: bool
 var gun_index: int
 var target_position: Vector2
 var closest_gun: Node2D
@@ -11,6 +12,7 @@ var alert = preload("res://Scenes/UI/not_enough_money.tscn")
 @onready var arrow = $Arrow
 @onready var arrow_text = $Label
 @onready var upgrade_sprite = $UpgradeSprite
+@onready var upgrade_text = $Label2
 
 
 func ready():
@@ -39,10 +41,16 @@ func _process(delta):
 		arrow.global_position = lerp(arrow.global_position, dest, 10 * delta)
 		arrow.look_at(closest_gun.global_position)
 		arrow_text.text = "[center]" + closest_gun.get_meta("Title") + "\n" + str(closest_gun.upgrades) + "/" + str(closest_gun.max_upgrades + Globals.player.upgrade_cap_boost) + " (+" + str(slot_value) + ")"
-		arrow_text.global_position = arrow.global_position + Vector2(-50, 8)
+		upgrade_text.text = ""
+		for i in closest_gun.upgrade_names:
+			upgrade_text.text += "\n" + "-" + i
+		arrow_text.size.y = 0
+		arrow_text.global_position = arrow.global_position + Vector2(-arrow_text.size.x/2, 8)
 		arrow_text.rotation_degrees = 0
+		upgrade_text.global_position = arrow.global_position + Vector2(-arrow_text.size.x/2, arrow_text.size.y)
+		upgrade_text.rotation_degrees = 0
 		# attach to gun
-		if Input.is_action_just_pressed("select"):
+		if Input.is_action_just_pressed("select") and can_place:
 			if closest_gun != null:
 				if closest_gun.upgrades + slot_value <= closest_gun.max_upgrades + Globals.player.upgrade_cap_boost:
 					add_upgrade_to_gun(closest_gun)
@@ -73,6 +81,9 @@ func attach_to_target(_object: Node2D):
 	closest_gun = find_nearest_gun(Globals.player.global_position + Vector2.RIGHT * 32)
 	target_position = closest_gun.global_position
 	gun_index = Globals.player.guns.find(closest_gun)
+	can_place = false
+	await get_tree().create_timer(0.4).timeout
+	can_place = true
 
 
 func add_upgrade_to_gun(gun_to_change: Node2D):
@@ -84,6 +95,7 @@ func add_upgrade_to_gun(gun_to_change: Node2D):
 		else:
 			gun_to_change.set(variable_change.values[0], variable_change.values[1])
 	gun_to_change.upgrades += slot_value
+	gun_to_change.upgrade_names.append(get_meta("Title"))
 	if gun_to_change.upgrades >= 5:
 		Globals.set_achievement("upgrade_gun")
 	#var text = gun_to_change.loadout_text.get_node("RichTextLabel")

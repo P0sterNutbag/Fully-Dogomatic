@@ -9,7 +9,7 @@ script = ExtResource("2_k3pjy")
 rarity = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j2nmn"]
-size = Vector2(52, 0.999995)
+size = Vector2(41, 0.999995)
 
 [node name="Gun" instance=ExtResource("1_mnacc")]
 bullet_damage = 6.0
@@ -23,20 +23,20 @@ metadata/Rarity = SubResource("Resource_370uk")
 metadata/Icon = ExtResource("3_5shd0")
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2(-1, 0)
+position = Vector2(-0.5, 1.13687e-12)
 shape = SubResource("RectangleShape2D_j2nmn")
 
 [node name="Sprite2D" parent="." index="1"]
-region_rect = Rect2(0, 48, 64, 16)
+region_rect = Rect2(0, 48, 48, 16)
 
 [node name="SightHolder" parent="Sprite2D" index="0"]
-position = Vector2(-12, -3.99995)
+position = Vector2(-8.00002, -3.99996)
 
 [node name="MagazineHolder" parent="Sprite2D" index="1"]
-position = Vector2(-5, 2.22921e-05)
+position = Vector2(-0.99999, 2)
 
 [node name="Firepoint" parent="." index="2"]
-position = Vector2(25, -3.00011)
+position = Vector2(20, -3.00009)
 
 [node name="ShootTimer" parent="." index="3"]
 autostart = true

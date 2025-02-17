@@ -13,7 +13,6 @@ var state = states.walk
 var base_speed = 75.0
 var sprint_speed = 125.0
 var speed = base_speed
-var max_hp = 40
 var money_cap: float = 4
 var guns: Array[Node2D]
 var dogtags: Array[Control]
@@ -34,8 +33,13 @@ var direction_x
 var direction_y
 var hp = 40:
 	set(value):
-		hp = value
+		hp = clamp(value, 0, max_hp)
 		Globals.ui.get_node("LeftCorner/HPBar/HealthBar").value = hp
+var max_hp = 40:
+	set(value):
+		max_hp = value
+		Globals.ui.get_node("LeftCorner/HPBar/HealthBar").max_value = value
+		#hp = hp
 var gun_cap = 10:
 	set(value):
 		gun_cap = value

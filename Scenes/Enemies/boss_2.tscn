@@ -130,6 +130,7 @@ shape = SubResource("RectangleShape2D_r2w2f")
 y_sort_enabled = true
 position = Vector2(3, -15)
 collision_layer = 16
+collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0, -7)
@@ -176,4 +177,5 @@ libraries = {
 "": SubResource("AnimationLibrary_28m1k")
 }
 
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="RunTimer" to="." method="_on_run_timer_timeout"]

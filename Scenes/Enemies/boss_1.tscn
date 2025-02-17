@@ -133,6 +133,7 @@ shape = SubResource("CircleShape2D_hr8qo")
 y_sort_enabled = true
 position = Vector2(3, -15)
 collision_layer = 16
+collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-3, -3)
@@ -144,7 +145,6 @@ position = Vector2(0, -20)
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("3_frah2")
-health = 250
 rotate_on_hit = false
 explosion_scale = 2.5
 sprite = NodePath("../AnimatedSprite2D")
@@ -184,5 +184,6 @@ script = ExtResource("8_lnhe5")
 scale = Vector2(1, 0.5)
 shape = SubResource("CircleShape2D_rovd5")
 
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
 [connection signal="area_exited" from="Area2D" to="Area2D" method="_on_area_exited"]

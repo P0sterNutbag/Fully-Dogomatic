@@ -42,6 +42,7 @@ var shots_left: int
 var flash_timer := 0
 var x_force = 0
 var upgrades = 0
+var upgrade_names: Array[String]
 var max_upgrades = 3
 var follow_mouse = false
 var locked: bool = false
@@ -132,7 +133,6 @@ func _process(_delta):
 			Globals.upgrade_menu.finish()
 			original_aim_dir = aim_dir
 			#has_aim_assist = true
-	can_press = true
 
 
 func rotate_away_from_position(vector: Vector2):
@@ -246,6 +246,8 @@ func attach_to_target(target: Node2D):
 	can_press = false
 	target.add_new_gun(self)
 	holder = target
+	await get_tree().create_timer(0.4).timeout
+	can_press = true
 
 
 func spin_gun():

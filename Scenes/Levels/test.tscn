@@ -65,6 +65,7 @@ script/source = "extends Timer
 
 func _on_timeout() -> void:
 	Globals.player.money = 10000
+	Globals.hard_mode = true
 "
 
 [sub_resource type="GDScript" id="GDScript_sy611"]
@@ -227,6 +228,7 @@ metadata/_edit_lock_ = true
 position = Vector2(400, 260)
 
 [node name="PlayerMoney" type="Timer" parent="."]
+wait_time = 0.1
 one_shot = true
 autostart = true
 script = SubResource("GDScript_wlp0y")
@@ -293,7 +295,7 @@ wait_time = 45.0
 autostart = true
 
 [node name="BossTimer" type="Timer" parent="LevelController"]
-wait_time = 600.0
+wait_time = 300.0
 autostart = true
 
 [node name="Gun Shop2" parent="." instance=ExtResource("8_v5svp")]
@@ -336,7 +338,7 @@ position = Vector2(304, 428)
 position = Vector2(582, 310)
 
 [node name="Hurtbox" parent="Boss" index="4"]
-health = 1
+health = 3.0
 
 [node name="Health Pickup" parent="." instance=ExtResource("28_8221m")]
 position = Vector2(401, 230)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://cubv8rya2et5t"]
+[gd_scene load_steps=62 format=4 uid="uid://cubv8rya2et5t"]
 
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="1_x63il"]
 [ext_resource type="Script" path="res://Scripts/world_controller.gd" id="2_gvjh0"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://40eypp8w06iw" path="res://Scenes/Enemies/enemy_large.tscn" id="17_l0uw4"]
 [ext_resource type="PackedScene" uid="uid://ne0aj0e2htle" path="res://Scenes/Enemies/enemy_bomber.tscn" id="18_nakt2"]
 [ext_resource type="PackedScene" uid="uid://rp6v0ox21fov" path="res://Scenes/Levels/Level Objects/car.tscn" id="19_0yswy"]
+[ext_resource type="PackedScene" uid="uid://c6guekr3sd3xh" path="res://Scenes/Enemies/enemy_long.tscn" id="19_jeqac"]
 [ext_resource type="PackedScene" uid="uid://bdretudtft5hd" path="res://Scenes/Levels/Level Objects/garbage_can.tscn" id="20_vr2e1"]
 [ext_resource type="PackedScene" uid="uid://cx7byh4hc2ic3" path="res://Scenes/Levels/Level Objects/barrel.tscn" id="21_4ssgo"]
 [ext_resource type="PackedScene" uid="uid://qavuwtph0wq3" path="res://Scenes/Levels/Level Objects/money_crate.tscn" id="22_i2krb"]
@@ -151,6 +152,20 @@ spawn_chance = 100.0
 script = ExtResource("13_detly")
 enemies = Array[ExtResource("14_njp5j")]([SubResource("Resource_umrkp"), SubResource("Resource_hhbxc")])
 
+[sub_resource type="Resource" id="Resource_1vtn8"]
+script = ExtResource("14_njp5j")
+object_to_spawn = ExtResource("19_jeqac")
+spawn_chance = 50.0
+
+[sub_resource type="Resource" id="Resource_0x2hn"]
+script = ExtResource("14_njp5j")
+object_to_spawn = ExtResource("15_ml2e7")
+spawn_chance = 50.0
+
+[sub_resource type="Resource" id="Resource_dwhh4"]
+script = ExtResource("13_detly")
+enemies = Array[ExtResource("14_njp5j")]([SubResource("Resource_1vtn8"), SubResource("Resource_0x2hn")])
+
 [sub_resource type="Resource" id="Resource_ln2pd"]
 script = ExtResource("14_njp5j")
 object_to_spawn = ExtResource("19_0yswy")
@@ -264,6 +279,7 @@ shop = ExtResource("9_f8hgd")
 [node name="LevelController" type="Node" parent="."]
 script = ExtResource("12_llkwn")
 spawn_formations = Array[ExtResource("13_detly")]([SubResource("Resource_5otf6"), SubResource("Resource_maeks"), SubResource("Resource_20dfr"), SubResource("Resource_sq6ws"), SubResource("Resource_v360i"), SubResource("Resource_blkbk")])
+hard_mode_spawn_formations = Array[ExtResource("13_detly")]([SubResource("Resource_dwhh4")])
 level_objects = Array[ExtResource("14_njp5j")]([SubResource("Resource_ln2pd"), SubResource("Resource_hwctw"), SubResource("Resource_awxap"), SubResource("Resource_mxaxc")])
 bosses = Array[ExtResource("14_njp5j")]([SubResource("Resource_rfiw1"), SubResource("Resource_drovp"), SubResource("Resource_32est"), SubResource("Resource_domcg")])
 

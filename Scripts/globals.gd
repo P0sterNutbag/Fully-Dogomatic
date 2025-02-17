@@ -17,6 +17,7 @@ var enemy_spawn_controller
 var upgrade_manager: Node
 var upgrade_menu: Node
 var holding_gun_part: bool = false
+var hard_mode
 var globals
 var gun_amount
 var bullet_pool

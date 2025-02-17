@@ -1,9 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://bn5ncbysca8gb"]
+[gd_scene load_steps=17 format=3 uid="uid://bn5ncbysca8gb"]
 
 [ext_resource type="Shader" path="res://Art/Shaders/colorswap.gdshader" id="1_qery7"]
+[ext_resource type="Script" path="res://Scripts/customize.gd" id="2_boksb"]
 [ext_resource type="Texture2D" uid="uid://c8b18rvghcej6" path="res://Art/Sprites/palette blue orange.png" id="2_y75s1"]
 [ext_resource type="Material" uid="uid://bpyc72ajp6yfb" path="res://Art/Shaders/colorswap.tres" id="3_ad0rx"]
+[ext_resource type="Theme" uid="uid://d20y8va2yhr08" path="res://Art/Themes/ui text large.tres" id="5_5t5ut"]
+[ext_resource type="Script" path="res://Scripts/difficulty_menu.gd" id="5_l52sd"]
+[ext_resource type="FontFile" uid="uid://kx3kmho3mt5o" path="res://Art/Fonts/Blue Sky 8x8.ttf" id="5_pqw3h"]
 [ext_resource type="PackedScene" uid="uid://qnw7051yjuf4" path="res://Scenes/UI/Character Cusomization/choose_character.tscn" id="5_y0cb2"]
+[ext_resource type="Script" path="res://Scripts/float_in.gd" id="6_x2vs8"]
+[ext_resource type="Script" path="res://Scripts/circle.gd" id="7_fomh2"]
+[ext_resource type="Theme" uid="uid://bmv1iku1at618" path="res://Art/Themes/ui text mid.tres" id="8_neb3c"]
+[ext_resource type="PackedScene" uid="uid://beputxcs1pxrh" path="res://Scenes/UI/JuicyMovement.tscn" id="9_pctn4"]
+[ext_resource type="Script" path="res://Scripts/ui_menu_button_grow_on_focus.gd" id="10_bxee0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4oh7u"]
 shader = ExtResource("1_qery7")
@@ -14,14 +23,26 @@ shader_parameter/fps = 6.0
 shader_parameter/color_threshold = 0.1
 shader_parameter/palette = ExtResource("2_y75s1")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ap13o"]
+
+[sub_resource type="Theme" id="Theme_ldusy"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(1, 0, 0, 1)
+Button/colors/font_hover_color = Color(1, 0, 0, 1)
+Button/font_sizes/font_size = 14
+Button/fonts/font = ExtResource("5_pqw3h")
+Button/styles/focus = SubResource("StyleBoxEmpty_ap13o")
+
 [node name="CustomizeGame" type="Node2D"]
 material = ExtResource("3_ad0rx")
+script = ExtResource("2_boksb")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = ExtResource("3_ad0rx")
 offset_right = 480.0
 offset_bottom = 360.0
 color = Color(0.101961, 0.101961, 0.101961, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 visible = false
@@ -41,3 +62,146 @@ offset_bottom = 360.0
 color = Color(0, 0, 0, 1)
 
 [node name="ChooseCharacter" parent="." instance=ExtResource("5_y0cb2")]
+metadata/_edit_use_anchors_ = true
+
+[node name="Difficulty" type="Control" parent="."]
+use_parent_material = true
+layout_mode = 3
+anchors_preset = 0
+offset_top = 362.0
+offset_right = 480.0
+offset_bottom = 721.0
+script = ExtResource("5_l52sd")
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="RichTextLabel" parent="Difficulty"]
+use_parent_material = true
+layout_mode = 0
+offset_top = 30.0
+offset_right = 480.0
+offset_bottom = 116.0
+pivot_offset = Vector2(240, 24)
+theme = ExtResource("5_5t5ut")
+bbcode_enabled = true
+text = "[center]CHOOSE DIFFICULTY!"
+script = ExtResource("6_x2vs8")
+metadata/_edit_use_anchors_ = true
+
+[node name="JuicyMovement" parent="Difficulty/Title" node_paths=PackedStringArray("target_control") instance=ExtResource("9_pctn4")]
+target_control = NodePath("..")
+bob_frequency = 5.0
+bob_amplitude = 10.0
+rot_frequency = 2.5
+rot_amplitude = 10.0
+
+[node name="NormalMode" type="Button" parent="Difficulty"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -117.5
+offset_top = -6.5
+offset_right = -22.5
+offset_bottom = 91.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(48, 48)
+theme = SubResource("Theme_ldusy")
+flat = true
+script = ExtResource("10_bxee0")
+
+[node name="Circle" type="Control" parent="Difficulty/NormalMode"]
+use_parent_material = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 24.0
+offset_bottom = 24.0
+script = ExtResource("7_fomh2")
+circle_radius = 48
+outline_thickness = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="UpgradeName" type="RichTextLabel" parent="Difficulty/NormalMode"]
+use_parent_material = true
+clip_contents = false
+layout_mode = 0
+offset_left = -31.0
+offset_top = 38.0
+offset_right = 130.0
+offset_bottom = 92.0
+mouse_filter = 2
+theme = ExtResource("8_neb3c")
+bbcode_enabled = true
+text = "[center]NORMAL"
+metadata/_edit_use_anchors_ = true
+
+[node name="JuicyMovement" parent="Difficulty/NormalMode" node_paths=PackedStringArray("target_control") instance=ExtResource("9_pctn4")]
+position = Vector2(48, 47)
+target_control = NodePath("..")
+bob_frequency = 5.0
+bob_amplitude = 10.0
+rot_frequency = 2.5
+rot_amplitude = 10.0
+
+[node name="HardMode" type="Button" parent="Difficulty"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 23.0
+offset_top = -6.5
+offset_right = 119.0
+offset_bottom = 89.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(48, 48)
+theme = SubResource("Theme_ldusy")
+flat = true
+script = ExtResource("10_bxee0")
+metadata/_edit_use_anchors_ = true
+
+[node name="Circle" type="Control" parent="Difficulty/HardMode"]
+use_parent_material = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 24.0
+offset_bottom = 24.0
+script = ExtResource("7_fomh2")
+circle_radius = 48
+outline_thickness = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="UpgradeName" type="RichTextLabel" parent="Difficulty/HardMode"]
+use_parent_material = true
+clip_contents = false
+layout_mode = 0
+offset_left = -31.0
+offset_top = 38.0
+offset_right = 130.0
+offset_bottom = 92.0
+mouse_filter = 2
+theme = ExtResource("8_neb3c")
+bbcode_enabled = true
+text = "[center]HARD"
+metadata/_edit_use_anchors_ = true
+
+[node name="JuicyMovement" parent="Difficulty/HardMode" node_paths=PackedStringArray("target_control") instance=ExtResource("9_pctn4")]
+position = Vector2(48, 47.5)
+target_control = NodePath("..")
+bob_frequency = 5.0
+bob_amplitude = 10.0
+rot_frequency = 2.5
+rot_amplitude = 10.0
+
+[connection signal="pressed" from="Difficulty/NormalMode" to="Difficulty" method="_on_normal_mode_pressed"]
+[connection signal="pressed" from="Difficulty/HardMode" to="Difficulty" method="_on_hard_mode_pressed"]
